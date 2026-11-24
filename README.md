@@ -39,8 +39,23 @@ Multi-tenant ERP backend monorepo powered by **Turborepo**, **pnpm**, **NestJS (
 
 - `GET /` — Public service info & endpoint discovery.
 - `GET /api/v1/health` — Public PostgreSQL 18 & Redis 7 health probe.
-- `/api/auth/*` — Better Auth endpoints (sign-up, sign-in, session, organization creation, invitations, member role management, and `set-active` organization).
+- `/api/auth/*` — Better Auth endpoints (sign-up with Resend email verification, sign-in gated by `emailVerified`, organization creation, invitations, member role management, and `set-active` organization).
 - `GET /api/v1/me` — Authenticated user profile and organization memberships.
-- `GET /api/v1/tenants/current` — Active tenant organization overview and settings (auto-provisioned per organization).
-- `PATCH /api/v1/tenants/settings` — Update tenant settings (`owner` / `admin` roles only), invalidates Redis cache and records an `AuditLog`.
-- `GET /api/v1/tenants/audit-logs` — Paginated tenant-scoped audit trail (`owner` / `admin` roles only).
+- `GET /api/v1/tenants/current` — Active tenant organization overview, resolved permissions, and settings.
+- `GET /api/v1/tenants/permissions` — Effective Better Auth RBAC permissions for the active member (`owner`, `admin`, `manager`, `member`, `viewer`).
+- `PATCH /api/v1/tenants/settings` — Update tenant settings (`tenantSettings:update`), invalidates Redis cache and records an `AuditLog`.
+- `GET /api/v1/tenants/members` — List organization members and resolved roles (`ac:read`).
+- `PATCH /api/v1/tenants/members/:memberId/role` — Update a member's organization role (`member:update`).
+- `DELETE /api/v1/tenants/members/:memberId` — Remove an organization member (`member:delete`).
+- `GET /api/v1/tenants/invitations` — List organization invitations (`invitation:create`).
+- `POST /api/v1/tenants/invitations` — Create or resend an organization invitation via Resend (`invitation:create`).
+- `DELETE /api/v1/tenants/invitations/:invitationId` — Cancel a pending organization invitation (`invitation:cancel`).
+- `POST /api/v1/tenants/invitations/:invitationId/accept` — Accept an organization invitation as a verified user.
+- `GET /api/v1/tenants/audit-logs` — Paginated tenant-scoped audit trail (`auditLog:read`).
+- `POST /api/v1/items` — Create a catalog item or service (`SELLABLE`, `MERCH`, `RAW_MATERIAL`, `SERVICE`, `CONSUMABLE`) with initial revision v1 and audit log (`item:create`).
+- `GET /api/v1/items` — Paginated, filterable catalog listing by type, status, inventory tracking, tag, or search (`item:read`).
+- `GET /api/v1/items/:itemId` — Fetch a tenant-scoped catalog item with Redis cache-aside (`item:read`).
+- `PATCH /api/v1/items/:itemId` — Update an item with optimistic version checking, field-level `ItemRevision` diffing, and `AuditLog` (`item:update`).
+- `POST /api/v1/items/:itemId/archive` — Soft-archive an item with status revision history and audit trail (`item:archive`).
+- `POST /api/v1/items/:itemId/restore` — Restore an archived item to `ACTIVE` or `DRAFT` with revision history (`item:archive`).
+- `GET /api/v1/items/:itemId/history` — Paginated field-level revision history (`ItemRevision`) ordered newest-first (`item:read`).

@@ -6,6 +6,8 @@ import { TenantContext } from "./tenant-context.js";
 export const TENANT_SCOPED_MODELS = new Set<string>([
   "TenantSettings",
   "AuditLog",
+  "Item",
+  "ItemRevision",
 ]);
 
 const DEFAULT_LOCAL_DB_URL =

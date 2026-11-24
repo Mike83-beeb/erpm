@@ -3,7 +3,9 @@ import { AuthModule } from "@thallesp/nestjs-better-auth";
 import { auth } from "./auth/auth.config.js";
 import { MeController } from "./auth/me.controller.js";
 import { DatabaseModule } from "./database/database.module.js";
+import { EmailModule } from "./email/email.module.js";
 import { HealthModule } from "./health/health.module.js";
+import { ItemsModule } from "./items/items.module.js";
 import { RedisModule } from "./redis/redis.module.js";
 import { TenancyModule } from "./tenancy/tenancy.module.js";
 import { TenantsModule } from "./tenants/tenants.module.js";
@@ -12,6 +14,7 @@ import { TenantsModule } from "./tenants/tenants.module.js";
   imports: [
     DatabaseModule,
     RedisModule,
+    EmailModule,
     TenancyModule,
     AuthModule.forRoot({
       auth,
@@ -25,6 +28,7 @@ import { TenantsModule } from "./tenants/tenants.module.js";
     }),
     HealthModule,
     TenantsModule,
+    ItemsModule,
   ],
   controllers: [MeController],
 })

@@ -59,7 +59,9 @@ export const ModelName = {
   Member: 'Member',
   Invitation: 'Invitation',
   TenantSettings: 'TenantSettings',
-  AuditLog: 'AuditLog'
+  AuditLog: 'AuditLog',
+  Item: 'Item',
+  ItemRevision: 'ItemRevision'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -204,6 +206,50 @@ export const AuditLogScalarFieldEnum = {
 export type AuditLogScalarFieldEnum = (typeof AuditLogScalarFieldEnum)[keyof typeof AuditLogScalarFieldEnum]
 
 
+export const ItemScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  sku: 'sku',
+  name: 'name',
+  description: 'description',
+  type: 'type',
+  status: 'status',
+  unitOfMeasure: 'unitOfMeasure',
+  currency: 'currency',
+  salePriceCents: 'salePriceCents',
+  costPriceCents: 'costPriceCents',
+  trackInventory: 'trackInventory',
+  allowNegativeStock: 'allowNegativeStock',
+  reorderPoint: 'reorderPoint',
+  tags: 'tags',
+  metadata: 'metadata',
+  version: 'version',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  archivedAt: 'archivedAt',
+  archivedByUserId: 'archivedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ItemScalarFieldEnum = (typeof ItemScalarFieldEnum)[keyof typeof ItemScalarFieldEnum]
+
+
+export const ItemRevisionScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  itemId: 'itemId',
+  version: 'version',
+  action: 'action',
+  changes: 'changes',
+  reason: 'reason',
+  actorUserId: 'actorUserId',
+  createdAt: 'createdAt'
+} as const
+
+export type ItemRevisionScalarFieldEnum = (typeof ItemRevisionScalarFieldEnum)[keyof typeof ItemRevisionScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -218,6 +264,13 @@ export const NullableJsonNullValueInput = {
 } as const
 
 export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
+
+
+export const JsonNullValueInput = {
+  JsonNull: JsonNull
+} as const
+
+export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
 
 
 export const QueryMode = {

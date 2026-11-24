@@ -21,11 +21,21 @@ const envSchema = z.object({
   CORS_ALLOWED_ORIGINS: z
     .string()
     .default("http://localhost:3000,http://localhost:5173"),
+  RESEND_API_KEY: z.string().optional(),
+  RESEND_FROM_EMAIL: z
+    .string()
+    .trim()
+    .min(1)
+    .default("NexusERP <onboarding@resend.dev>"),
 });
 
-export type AppEnv = Omit<z.infer<typeof envSchema>, "BETTER_AUTH_SECRET" | "CORS_ALLOWED_ORIGINS"> & {
+export type AppEnv = Omit<
+  z.infer<typeof envSchema>,
+  "BETTER_AUTH_SECRET" | "CORS_ALLOWED_ORIGINS" | "RESEND_API_KEY"
+> & {
   BETTER_AUTH_SECRET: string;
   CORS_ALLOWED_ORIGINS: string[];
+  RESEND_API_KEY: string | null;
 };
 
 let cachedEnv: AppEnv | null = null;
@@ -38,9 +48,23 @@ export function getEnv(): AppEnv {
 
   const parsed = envSchema.parse(process.env);
 
-  if (parsed.NODE_ENV === "production" && (!parsed.BETTER_AUTH_SECRET || parsed.BETTER_AUTH_SECRET.length < 32)) {
+  if (
+    parsed.NODE_ENV === "production" &&
+    (!parsed.BETTER_AUTH_SECRET || parsed.BETTER_AUTH_SECRET.length < 32)
+  ) {
     throw new Error(
       "BETTER_AUTH_SECRET must be set to a strong secret (at least 32 characters) in production.",
+    );
+  }
+
+  const resendApiKey =
+    parsed.RESEND_API_KEY && parsed.RESEND_API_KEY.trim().length > 0
+      ? parsed.RESEND_API_KEY.trim()
+      : null;
+
+  if (parsed.NODE_ENV === "production" && !resendApiKey) {
+    throw new Error(
+      "RESEND_API_KEY must be configured in production for email verification and invitations.",
     );
   }
 
@@ -55,6 +79,7 @@ export function getEnv(): AppEnv {
         ? parsed.BETTER_AUTH_SECRET
         : ephemeralDevSecret,
     CORS_ALLOWED_ORIGINS: allowedOrigins,
+    RESEND_API_KEY: resendApiKey,
   };
 
   return cachedEnv;

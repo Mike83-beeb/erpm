@@ -86,6 +86,8 @@ model Organization {
   invitations    Invitation[]
   tenantSettings TenantSettings?
   auditLogs      AuditLog[]
+  items          Item[]
+  itemRevisions  ItemRevision[]
 
   @@map("organization")
 }
@@ -154,4 +156,80 @@ model AuditLog {
 
   @@index([organizationId, createdAt])
   @@map("audit_log")
+}
+
+// ==========================================
+// Items & Services Catalog Models
+// ==========================================
+
+enum ItemType {
+  SELLABLE
+  MERCH
+  RAW_MATERIAL
+  SERVICE
+  CONSUMABLE
+}
+
+enum ItemStatus {
+  DRAFT
+  ACTIVE
+  ARCHIVED
+}
+
+enum ItemRevisionAction {
+  CREATED
+  UPDATED
+  ARCHIVED
+  RESTORED
+}
+
+model Item {
+  id                 String         @id @default(cuid())
+  organizationId     String
+  organization       Organization   @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  sku                String
+  name               String
+  description        String?
+  type               ItemType
+  status             ItemStatus     @default(ACTIVE)
+  unitOfMeasure      String         @default("unit")
+  currency           String         @default("USD")
+  salePriceCents     Int            @default(0)
+  costPriceCents     Int            @default(0)
+  trackInventory     Boolean        @default(true)
+  allowNegativeStock Boolean        @default(false)
+  reorderPoint       Int?
+  tags               String[]       @default([])
+  metadata           Json?
+  version            Int            @default(1)
+  createdByUserId    String?
+  updatedByUserId    String?
+  archivedAt         DateTime?
+  archivedByUserId   String?
+  createdAt          DateTime       @default(now())
+  updatedAt          DateTime       @updatedAt
+  revisions          ItemRevision[]
+
+  @@unique([organizationId, sku])
+  @@index([organizationId, status, type])
+  @@index([organizationId, updatedAt])
+  @@map("item")
+}
+
+model ItemRevision {
+  id             String             @id @default(cuid())
+  organizationId String
+  organization   Organization       @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  itemId         String
+  item           Item               @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  version        Int
+  action         ItemRevisionAction
+  changes        Json
+  reason         String?
+  actorUserId    String?
+  createdAt      DateTime           @default(now())
+
+  @@unique([itemId, version])
+  @@index([organizationId, itemId, version])
+  @@map("item_revision")
 }

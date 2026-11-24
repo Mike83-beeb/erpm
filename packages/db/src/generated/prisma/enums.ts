@@ -9,7 +9,31 @@
 * 🟢 You can import this file directly.
 */
 
+export const ItemType = {
+  SELLABLE: 'SELLABLE',
+  MERCH: 'MERCH',
+  RAW_MATERIAL: 'RAW_MATERIAL',
+  SERVICE: 'SERVICE',
+  CONSUMABLE: 'CONSUMABLE'
+} as const
+
+export type ItemType = (typeof ItemType)[keyof typeof ItemType]
 
 
-// This file is empty because there are no enums in the schema.
-export {}
+export const ItemStatus = {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  ARCHIVED: 'ARCHIVED'
+} as const
+
+export type ItemStatus = (typeof ItemStatus)[keyof typeof ItemStatus]
+
+
+export const ItemRevisionAction = {
+  CREATED: 'CREATED',
+  UPDATED: 'UPDATED',
+  ARCHIVED: 'ARCHIVED',
+  RESTORED: 'RESTORED'
+} as const
+
+export type ItemRevisionAction = (typeof ItemRevisionAction)[keyof typeof ItemRevisionAction]

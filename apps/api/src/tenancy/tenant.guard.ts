@@ -7,9 +7,14 @@ import {
   UnauthorizedException,
 } from "@nestjs/common";
 import { Reflector } from "@nestjs/core";
+import {
+  hasOrganizationPermission,
+  type OrgPermissionRequirement,
+} from "../auth/permissions.js";
 import { PrismaService } from "../database/prisma.service.js";
 import { RedisService } from "../redis/redis.service.js";
 import {
+  TENANT_PERMISSIONS_KEY,
   TENANT_ROLES_KEY,
   type AuthenticatedTenant,
   type TenantScopedRequest,
@@ -34,6 +39,12 @@ export class TenantGuard implements CanActivate {
 
     if (!userSession?.user?.id) {
       throw new UnauthorizedException("Authentication required.");
+    }
+
+    if (userSession.user.emailVerified === false) {
+      throw new ForbiddenException(
+        "Email verification is required before accessing organization resources.",
+      );
     }
 
     const organizationId = userSession.session?.activeOrganizationId;
@@ -101,6 +112,21 @@ export class TenantGuard implements CanActivate {
           `Insufficient organization permissions. Required role: ${requiredRoles.join(" or ")}.`,
         );
       }
+    }
+
+    const requiredPermissions =
+      this.reflector.getAllAndOverride<OrgPermissionRequirement>(
+        TENANT_PERMISSIONS_KEY,
+        [context.getHandler(), context.getClass()],
+      );
+
+    if (
+      requiredPermissions &&
+      !hasOrganizationPermission(membership.role, requiredPermissions)
+    ) {
+      throw new ForbiddenException(
+        "Insufficient organization permissions for the requested action.",
+      );
     }
 
     const tenant: AuthenticatedTenant = {

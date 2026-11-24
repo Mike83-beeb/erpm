@@ -14,8 +14,12 @@ export class RootController {
         auth: "/api/auth/ok",
         me: "/api/v1/me",
         tenantCurrent: "/api/v1/tenants/current",
+        tenantPermissions: "/api/v1/tenants/permissions",
         tenantSettings: "/api/v1/tenants/settings",
+        tenantMembers: "/api/v1/tenants/members",
+        tenantInvitations: "/api/v1/tenants/invitations",
         tenantAuditLogs: "/api/v1/tenants/audit-logs",
+        items: "/api/v1/items",
       },
     };
   }

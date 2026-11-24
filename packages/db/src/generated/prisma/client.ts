@@ -86,3 +86,13 @@ export type TenantSettings = Prisma.TenantSettingsModel
  * 
  */
 export type AuditLog = Prisma.AuditLogModel
+/**
+ * Model Item
+ * 
+ */
+export type Item = Prisma.ItemModel
+/**
+ * Model ItemRevision
+ * 
+ */
+export type ItemRevision = Prisma.ItemRevisionModel
