@@ -12,6 +12,11 @@ export const erpStatements = {
   auditLog: ["read"],
   erpWorkspace: ["read", "create", "update", "delete"],
   item: ["read", "create", "update", "archive"],
+  location: ["read", "create", "update", "archive"],
+  inventory: ["read", "adjust", "transfer"],
+  supplier: ["read", "create", "update", "archive"],
+  purchaseOrder: ["read", "create", "update", "submit", "receive", "cancel"],
+  vendorBill: ["read", "create", "update", "pay", "void"],
 } as const;
 
 export type ErpStatements = typeof erpStatements;
@@ -28,6 +33,11 @@ export const owner = ac.newRole({
   auditLog: ["read"],
   erpWorkspace: ["read", "create", "update", "delete"],
   item: ["read", "create", "update", "archive"],
+  location: ["read", "create", "update", "archive"],
+  inventory: ["read", "adjust", "transfer"],
+  supplier: ["read", "create", "update", "archive"],
+  purchaseOrder: ["read", "create", "update", "submit", "receive", "cancel"],
+  vendorBill: ["read", "create", "update", "pay", "void"],
 });
 
 export const admin = ac.newRole({
@@ -36,6 +46,11 @@ export const admin = ac.newRole({
   auditLog: ["read"],
   erpWorkspace: ["read", "create", "update", "delete"],
   item: ["read", "create", "update", "archive"],
+  location: ["read", "create", "update", "archive"],
+  inventory: ["read", "adjust", "transfer"],
+  supplier: ["read", "create", "update", "archive"],
+  purchaseOrder: ["read", "create", "update", "submit", "receive", "cancel"],
+  vendorBill: ["read", "create", "update", "pay", "void"],
 });
 
 export const manager = ac.newRole({
@@ -48,6 +63,11 @@ export const manager = ac.newRole({
   auditLog: ["read"],
   erpWorkspace: ["read", "create", "update"],
   item: ["read", "create", "update", "archive"],
+  location: ["read", "create", "update", "archive"],
+  inventory: ["read", "adjust", "transfer"],
+  supplier: ["read", "create", "update", "archive"],
+  purchaseOrder: ["read", "create", "update", "submit", "receive", "cancel"],
+  vendorBill: ["read", "create", "update", "pay", "void"],
 });
 
 export const member = ac.newRole({
@@ -55,6 +75,11 @@ export const member = ac.newRole({
   tenantSettings: ["read"],
   erpWorkspace: ["read", "create", "update"],
   item: ["read", "create", "update"],
+  location: ["read"],
+  inventory: ["read", "adjust", "transfer"],
+  supplier: ["read"],
+  purchaseOrder: ["read", "create", "update", "receive"],
+  vendorBill: ["read", "create"],
 });
 
 export const viewer = ac.newRole({
@@ -66,6 +91,11 @@ export const viewer = ac.newRole({
   tenantSettings: ["read"],
   erpWorkspace: ["read"],
   item: ["read"],
+  location: ["read"],
+  inventory: ["read"],
+  supplier: ["read"],
+  purchaseOrder: ["read"],
+  vendorBill: ["read"],
 });
 
 export const organizationRoles = {
@@ -108,6 +138,11 @@ export function getResolvedPermissionsForRole(
     auditLog: new Set(),
     erpWorkspace: new Set(),
     item: new Set(),
+    location: new Set(),
+    inventory: new Set(),
+    supplier: new Set(),
+    purchaseOrder: new Set(),
+    vendorBill: new Set(),
   };
 
   for (const roleName of parseRoleNames(roleNameList(roleValue))) {
@@ -133,6 +168,11 @@ export function getResolvedPermissionsForRole(
     auditLog: Array.from(resolved.auditLog),
     erpWorkspace: Array.from(resolved.erpWorkspace),
     item: Array.from(resolved.item),
+    location: Array.from(resolved.location),
+    inventory: Array.from(resolved.inventory),
+    supplier: Array.from(resolved.supplier),
+    purchaseOrder: Array.from(resolved.purchaseOrder),
+    vendorBill: Array.from(resolved.vendorBill),
   };
 }
 

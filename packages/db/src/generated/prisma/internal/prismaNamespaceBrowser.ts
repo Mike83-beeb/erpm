@@ -61,7 +61,20 @@ export const ModelName = {
   TenantSettings: 'TenantSettings',
   AuditLog: 'AuditLog',
   Item: 'Item',
-  ItemRevision: 'ItemRevision'
+  ItemRevision: 'ItemRevision',
+  Location: 'Location',
+  StockBalance: 'StockBalance',
+  StockMovement: 'StockMovement',
+  StockTransfer: 'StockTransfer',
+  StockTransferLine: 'StockTransferLine',
+  Supplier: 'Supplier',
+  SupplierItem: 'SupplierItem',
+  PurchaseOrder: 'PurchaseOrder',
+  PurchaseOrderLine: 'PurchaseOrderLine',
+  GoodsReceipt: 'GoodsReceipt',
+  GoodsReceiptLine: 'GoodsReceiptLine',
+  VendorBill: 'VendorBill',
+  VendorBillLine: 'VendorBillLine'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -248,6 +261,263 @@ export const ItemRevisionScalarFieldEnum = {
 } as const
 
 export type ItemRevisionScalarFieldEnum = (typeof ItemRevisionScalarFieldEnum)[keyof typeof ItemRevisionScalarFieldEnum]
+
+
+export const LocationScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  code: 'code',
+  name: 'name',
+  type: 'type',
+  status: 'status',
+  isDefault: 'isDefault',
+  addressLine1: 'addressLine1',
+  addressLine2: 'addressLine2',
+  city: 'city',
+  state: 'state',
+  postalCode: 'postalCode',
+  country: 'country',
+  timezone: 'timezone',
+  phone: 'phone',
+  email: 'email',
+  metadata: 'metadata',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  archivedAt: 'archivedAt',
+  archivedByUserId: 'archivedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type LocationScalarFieldEnum = (typeof LocationScalarFieldEnum)[keyof typeof LocationScalarFieldEnum]
+
+
+export const StockBalanceScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  itemId: 'itemId',
+  locationId: 'locationId',
+  onHandQty: 'onHandQty',
+  reservedQty: 'reservedQty',
+  updatedAt: 'updatedAt'
+} as const
+
+export type StockBalanceScalarFieldEnum = (typeof StockBalanceScalarFieldEnum)[keyof typeof StockBalanceScalarFieldEnum]
+
+
+export const StockMovementScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  itemId: 'itemId',
+  locationId: 'locationId',
+  type: 'type',
+  quantityDelta: 'quantityDelta',
+  balanceAfter: 'balanceAfter',
+  referenceType: 'referenceType',
+  referenceId: 'referenceId',
+  reason: 'reason',
+  actorUserId: 'actorUserId',
+  createdAt: 'createdAt'
+} as const
+
+export type StockMovementScalarFieldEnum = (typeof StockMovementScalarFieldEnum)[keyof typeof StockMovementScalarFieldEnum]
+
+
+export const StockTransferScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  transferNumber: 'transferNumber',
+  fromLocationId: 'fromLocationId',
+  toLocationId: 'toLocationId',
+  status: 'status',
+  notes: 'notes',
+  createdByUserId: 'createdByUserId',
+  dispatchedByUserId: 'dispatchedByUserId',
+  dispatchedAt: 'dispatchedAt',
+  receivedByUserId: 'receivedByUserId',
+  receivedAt: 'receivedAt',
+  cancelledAt: 'cancelledAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type StockTransferScalarFieldEnum = (typeof StockTransferScalarFieldEnum)[keyof typeof StockTransferScalarFieldEnum]
+
+
+export const StockTransferLineScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  stockTransferId: 'stockTransferId',
+  itemId: 'itemId',
+  quantity: 'quantity',
+  createdAt: 'createdAt'
+} as const
+
+export type StockTransferLineScalarFieldEnum = (typeof StockTransferLineScalarFieldEnum)[keyof typeof StockTransferLineScalarFieldEnum]
+
+
+export const SupplierScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  code: 'code',
+  name: 'name',
+  status: 'status',
+  email: 'email',
+  phone: 'phone',
+  website: 'website',
+  taxId: 'taxId',
+  paymentTermsDays: 'paymentTermsDays',
+  currency: 'currency',
+  leadTimeDays: 'leadTimeDays',
+  addressLine1: 'addressLine1',
+  city: 'city',
+  state: 'state',
+  postalCode: 'postalCode',
+  country: 'country',
+  notes: 'notes',
+  metadata: 'metadata',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  archivedAt: 'archivedAt',
+  archivedByUserId: 'archivedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierScalarFieldEnum = (typeof SupplierScalarFieldEnum)[keyof typeof SupplierScalarFieldEnum]
+
+
+export const SupplierItemScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  supplierId: 'supplierId',
+  itemId: 'itemId',
+  supplierSku: 'supplierSku',
+  unitCostCents: 'unitCostCents',
+  currency: 'currency',
+  minOrderQty: 'minOrderQty',
+  leadTimeDays: 'leadTimeDays',
+  isPreferred: 'isPreferred',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierItemScalarFieldEnum = (typeof SupplierItemScalarFieldEnum)[keyof typeof SupplierItemScalarFieldEnum]
+
+
+export const PurchaseOrderScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  poNumber: 'poNumber',
+  supplierId: 'supplierId',
+  locationId: 'locationId',
+  status: 'status',
+  currency: 'currency',
+  subtotalCents: 'subtotalCents',
+  taxCents: 'taxCents',
+  totalCents: 'totalCents',
+  notes: 'notes',
+  expectedAt: 'expectedAt',
+  submittedAt: 'submittedAt',
+  submittedByUserId: 'submittedByUserId',
+  cancelledAt: 'cancelledAt',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PurchaseOrderScalarFieldEnum = (typeof PurchaseOrderScalarFieldEnum)[keyof typeof PurchaseOrderScalarFieldEnum]
+
+
+export const PurchaseOrderLineScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  purchaseOrderId: 'purchaseOrderId',
+  itemId: 'itemId',
+  supplierSku: 'supplierSku',
+  description: 'description',
+  orderedQty: 'orderedQty',
+  receivedQty: 'receivedQty',
+  unitCostCents: 'unitCostCents',
+  lineTotalCents: 'lineTotalCents',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PurchaseOrderLineScalarFieldEnum = (typeof PurchaseOrderLineScalarFieldEnum)[keyof typeof PurchaseOrderLineScalarFieldEnum]
+
+
+export const GoodsReceiptScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  receiptNumber: 'receiptNumber',
+  purchaseOrderId: 'purchaseOrderId',
+  locationId: 'locationId',
+  notes: 'notes',
+  receivedByUserId: 'receivedByUserId',
+  receivedAt: 'receivedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type GoodsReceiptScalarFieldEnum = (typeof GoodsReceiptScalarFieldEnum)[keyof typeof GoodsReceiptScalarFieldEnum]
+
+
+export const GoodsReceiptLineScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  goodsReceiptId: 'goodsReceiptId',
+  purchaseOrderLineId: 'purchaseOrderLineId',
+  itemId: 'itemId',
+  receivedQty: 'receivedQty',
+  unitCostCents: 'unitCostCents',
+  createdAt: 'createdAt'
+} as const
+
+export type GoodsReceiptLineScalarFieldEnum = (typeof GoodsReceiptLineScalarFieldEnum)[keyof typeof GoodsReceiptLineScalarFieldEnum]
+
+
+export const VendorBillScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  billNumber: 'billNumber',
+  supplierId: 'supplierId',
+  purchaseOrderId: 'purchaseOrderId',
+  goodsReceiptId: 'goodsReceiptId',
+  status: 'status',
+  currency: 'currency',
+  subtotalCents: 'subtotalCents',
+  taxCents: 'taxCents',
+  totalCents: 'totalCents',
+  paidAmountCents: 'paidAmountCents',
+  issuedAt: 'issuedAt',
+  dueAt: 'dueAt',
+  paidAt: 'paidAt',
+  voidedAt: 'voidedAt',
+  notes: 'notes',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type VendorBillScalarFieldEnum = (typeof VendorBillScalarFieldEnum)[keyof typeof VendorBillScalarFieldEnum]
+
+
+export const VendorBillLineScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  vendorBillId: 'vendorBillId',
+  itemId: 'itemId',
+  description: 'description',
+  quantity: 'quantity',
+  unitCostCents: 'unitCostCents',
+  lineTotalCents: 'lineTotalCents',
+  createdAt: 'createdAt'
+} as const
+
+export type VendorBillLineScalarFieldEnum = (typeof VendorBillLineScalarFieldEnum)[keyof typeof VendorBillLineScalarFieldEnum]
 
 
 export const SortOrder = {

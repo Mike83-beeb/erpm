@@ -6,6 +6,8 @@ import { DatabaseModule } from "./database/database.module.js";
 import { EmailModule } from "./email/email.module.js";
 import { HealthModule } from "./health/health.module.js";
 import { ItemsModule } from "./items/items.module.js";
+import { LocationsModule } from "./locations/locations.module.js";
+import { ProcurementModule } from "./procurement/procurement.module.js";
 import { RedisModule } from "./redis/redis.module.js";
 import { TenancyModule } from "./tenancy/tenancy.module.js";
 import { TenantsModule } from "./tenants/tenants.module.js";
@@ -29,6 +31,8 @@ import { TenantsModule } from "./tenants/tenants.module.js";
     HealthModule,
     TenantsModule,
     ItemsModule,
+    LocationsModule,
+    ProcurementModule,
   ],
   controllers: [MeController],
 })

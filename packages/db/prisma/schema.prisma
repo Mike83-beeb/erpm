@@ -86,8 +86,21 @@ model Organization {
   invitations    Invitation[]
   tenantSettings TenantSettings?
   auditLogs      AuditLog[]
-  items          Item[]
-  itemRevisions  ItemRevision[]
+  items              Item[]
+  itemRevisions      ItemRevision[]
+  locations          Location[]
+  stockBalances      StockBalance[]
+  stockMovements     StockMovement[]
+  stockTransfers     StockTransfer[]
+  stockTransferLines StockTransferLine[]
+  suppliers          Supplier[]
+  supplierItems      SupplierItem[]
+  purchaseOrders     PurchaseOrder[]
+  purchaseOrderLines PurchaseOrderLine[]
+  goodsReceipts      GoodsReceipt[]
+  goodsReceiptLines  GoodsReceiptLine[]
+  vendorBills        VendorBill[]
+  vendorBillLines    VendorBillLine[]
 
   @@map("organization")
 }
@@ -206,9 +219,16 @@ model Item {
   updatedByUserId    String?
   archivedAt         DateTime?
   archivedByUserId   String?
-  createdAt          DateTime       @default(now())
-  updatedAt          DateTime       @updatedAt
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
   revisions          ItemRevision[]
+  stockBalances      StockBalance[]
+  stockMovements     StockMovement[]
+  stockTransferLines StockTransferLine[]
+  supplierItems      SupplierItem[]
+  purchaseOrderLines PurchaseOrderLine[]
+  goodsReceiptLines  GoodsReceiptLine[]
+  vendorBillLines    VendorBillLine[]
 
   @@unique([organizationId, sku])
   @@index([organizationId, status, type])
@@ -232,4 +252,385 @@ model ItemRevision {
   @@unique([itemId, version])
   @@index([organizationId, itemId, version])
   @@map("item_revision")
+}
+
+// ==========================================
+// Multi-Location & Inventory Models
+// ==========================================
+
+enum LocationType {
+  WAREHOUSE
+  RETAIL_STORE
+}
+
+enum LocationStatus {
+  ACTIVE
+  INACTIVE
+  ARCHIVED
+}
+
+enum StockMovementType {
+  RECEIPT
+  ADJUSTMENT
+  TRANSFER_OUT
+  TRANSFER_IN
+}
+
+enum StockTransferStatus {
+  DRAFT
+  IN_TRANSIT
+  RECEIVED
+  CANCELLED
+}
+
+model Location {
+  id                String          @id @default(cuid())
+  organizationId    String
+  organization      Organization    @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  code              String
+  name              String
+  type              LocationType
+  status            LocationStatus  @default(ACTIVE)
+  isDefault         Boolean         @default(false)
+  addressLine1      String?
+  addressLine2      String?
+  city              String?
+  state             String?
+  postalCode        String?
+  country           String?
+  timezone          String?
+  phone             String?
+  email             String?
+  metadata          Json?
+  createdByUserId   String?
+  updatedByUserId   String?
+  archivedAt        DateTime?
+  archivedByUserId  String?
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+  stockBalances     StockBalance[]
+  stockMovements    StockMovement[]
+  outgoingTransfers StockTransfer[] @relation("TransferFromLocation")
+  incomingTransfers StockTransfer[] @relation("TransferToLocation")
+  purchaseOrders    PurchaseOrder[]
+  goodsReceipts     GoodsReceipt[]
+
+  @@unique([organizationId, code])
+  @@index([organizationId, status, type])
+  @@map("location")
+}
+
+model StockBalance {
+  id             String       @id @default(cuid())
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  itemId         String
+  item           Item         @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  locationId     String
+  location       Location     @relation(fields: [locationId], references: [id], onDelete: Cascade)
+  onHandQty      Int          @default(0)
+  reservedQty    Int          @default(0)
+  updatedAt      DateTime     @updatedAt
+
+  @@unique([organizationId, itemId, locationId])
+  @@index([organizationId, locationId])
+  @@index([organizationId, itemId])
+  @@map("stock_balance")
+}
+
+model StockMovement {
+  id             String            @id @default(cuid())
+  organizationId String
+  organization   Organization      @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  itemId         String
+  item           Item              @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  locationId     String
+  location       Location          @relation(fields: [locationId], references: [id], onDelete: Cascade)
+  type           StockMovementType
+  quantityDelta  Int
+  balanceAfter   Int
+  referenceType  String?
+  referenceId    String?
+  reason         String?
+  actorUserId    String?
+  createdAt      DateTime          @default(now())
+
+  @@index([organizationId, itemId, locationId, createdAt])
+  @@index([organizationId, createdAt])
+  @@map("stock_movement")
+}
+
+model StockTransfer {
+  id                 String              @id @default(cuid())
+  organizationId     String
+  organization       Organization        @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  transferNumber     String
+  fromLocationId     String
+  fromLocation       Location            @relation("TransferFromLocation", fields: [fromLocationId], references: [id], onDelete: Restrict)
+  toLocationId       String
+  toLocation         Location            @relation("TransferToLocation", fields: [toLocationId], references: [id], onDelete: Restrict)
+  status             StockTransferStatus @default(DRAFT)
+  notes              String?
+  createdByUserId    String?
+  dispatchedByUserId String?
+  dispatchedAt       DateTime?
+  receivedByUserId   String?
+  receivedAt         DateTime?
+  cancelledAt        DateTime?
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
+  lines              StockTransferLine[]
+
+  @@unique([organizationId, transferNumber])
+  @@index([organizationId, status])
+  @@map("stock_transfer")
+}
+
+model StockTransferLine {
+  id              String        @id @default(cuid())
+  organizationId  String
+  organization    Organization  @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  stockTransferId String
+  stockTransfer   StockTransfer @relation(fields: [stockTransferId], references: [id], onDelete: Cascade)
+  itemId          String
+  item            Item          @relation(fields: [itemId], references: [id], onDelete: Restrict)
+  quantity        Int
+  createdAt       DateTime      @default(now())
+
+  @@unique([stockTransferId, itemId])
+  @@index([organizationId, stockTransferId])
+  @@map("stock_transfer_line")
+}
+
+// ==========================================
+// Supplier & Procurement Models
+// ==========================================
+
+enum SupplierStatus {
+  ACTIVE
+  INACTIVE
+  ARCHIVED
+}
+
+enum PurchaseOrderStatus {
+  DRAFT
+  SUBMITTED
+  PARTIALLY_RECEIVED
+  RECEIVED
+  CANCELLED
+}
+
+enum VendorBillStatus {
+  DRAFT
+  OPEN
+  PARTIALLY_PAID
+  PAID
+  VOID
+}
+
+model Supplier {
+  id               String          @id @default(cuid())
+  organizationId   String
+  organization     Organization    @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  code             String
+  name             String
+  status           SupplierStatus  @default(ACTIVE)
+  email            String?
+  phone            String?
+  website          String?
+  taxId            String?
+  paymentTermsDays Int             @default(30)
+  currency         String          @default("USD")
+  leadTimeDays     Int             @default(7)
+  addressLine1     String?
+  city             String?
+  state            String?
+  postalCode       String?
+  country          String?
+  notes            String?
+  metadata         Json?
+  createdByUserId  String?
+  updatedByUserId  String?
+  archivedAt       DateTime?
+  archivedByUserId String?
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+  supplierItems    SupplierItem[]
+  purchaseOrders   PurchaseOrder[]
+  vendorBills      VendorBill[]
+
+  @@unique([organizationId, code])
+  @@index([organizationId, status])
+  @@map("supplier")
+}
+
+model SupplierItem {
+  id             String       @id @default(cuid())
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  supplierId     String
+  supplier       Supplier     @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  itemId         String
+  item           Item         @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  supplierSku    String?
+  unitCostCents  Int
+  currency       String       @default("USD")
+  minOrderQty    Int          @default(1)
+  leadTimeDays   Int?
+  isPreferred    Boolean      @default(false)
+  notes          String?
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@unique([organizationId, supplierId, itemId])
+  @@index([organizationId, itemId])
+  @@index([organizationId, supplierId])
+  @@map("supplier_item")
+}
+
+model PurchaseOrder {
+  id                String              @id @default(cuid())
+  organizationId    String
+  organization      Organization        @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  poNumber          String
+  supplierId        String
+  supplier          Supplier            @relation(fields: [supplierId], references: [id], onDelete: Restrict)
+  locationId        String
+  location          Location            @relation(fields: [locationId], references: [id], onDelete: Restrict)
+  status            PurchaseOrderStatus @default(DRAFT)
+  currency          String              @default("USD")
+  subtotalCents     Int                 @default(0)
+  taxCents          Int                 @default(0)
+  totalCents        Int                 @default(0)
+  notes             String?
+  expectedAt        DateTime?
+  submittedAt       DateTime?
+  submittedByUserId String?
+  cancelledAt       DateTime?
+  createdByUserId   String?
+  updatedByUserId   String?
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  lines             PurchaseOrderLine[]
+  goodsReceipts     GoodsReceipt[]
+  vendorBills       VendorBill[]
+
+  @@unique([organizationId, poNumber])
+  @@index([organizationId, supplierId, status])
+  @@index([organizationId, locationId])
+  @@map("purchase_order")
+}
+
+model PurchaseOrderLine {
+  id              String             @id @default(cuid())
+  organizationId  String
+  organization    Organization       @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  purchaseOrderId String
+  purchaseOrder   PurchaseOrder      @relation(fields: [purchaseOrderId], references: [id], onDelete: Cascade)
+  itemId          String
+  item            Item               @relation(fields: [itemId], references: [id], onDelete: Restrict)
+  supplierSku     String?
+  description     String?
+  orderedQty      Int
+  receivedQty     Int                @default(0)
+  unitCostCents   Int
+  lineTotalCents  Int
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+  receiptLines    GoodsReceiptLine[]
+
+  @@index([organizationId, purchaseOrderId])
+  @@map("purchase_order_line")
+}
+
+model GoodsReceipt {
+  id               String             @id @default(cuid())
+  organizationId   String
+  organization     Organization       @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  receiptNumber    String
+  purchaseOrderId  String
+  purchaseOrder    PurchaseOrder      @relation(fields: [purchaseOrderId], references: [id], onDelete: Restrict)
+  locationId       String
+  location         Location           @relation(fields: [locationId], references: [id], onDelete: Restrict)
+  notes            String?
+  receivedByUserId String?
+  receivedAt       DateTime           @default(now())
+  createdAt        DateTime           @default(now())
+  lines            GoodsReceiptLine[]
+  vendorBills      VendorBill[]
+
+  @@unique([organizationId, receiptNumber])
+  @@index([organizationId, purchaseOrderId])
+  @@index([organizationId, locationId])
+  @@map("goods_receipt")
+}
+
+model GoodsReceiptLine {
+  id                  String            @id @default(cuid())
+  organizationId      String
+  organization        Organization      @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  goodsReceiptId      String
+  goodsReceipt        GoodsReceipt      @relation(fields: [goodsReceiptId], references: [id], onDelete: Cascade)
+  purchaseOrderLineId String
+  purchaseOrderLine   PurchaseOrderLine @relation(fields: [purchaseOrderLineId], references: [id], onDelete: Restrict)
+  itemId              String
+  item                Item              @relation(fields: [itemId], references: [id], onDelete: Restrict)
+  receivedQty         Int
+  unitCostCents       Int
+  createdAt           DateTime          @default(now())
+
+  @@index([organizationId, goodsReceiptId])
+  @@map("goods_receipt_line")
+}
+
+model VendorBill {
+  id              String           @id @default(cuid())
+  organizationId  String
+  organization    Organization     @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  billNumber      String
+  supplierId      String
+  supplier        Supplier         @relation(fields: [supplierId], references: [id], onDelete: Restrict)
+  purchaseOrderId String?
+  purchaseOrder   PurchaseOrder?   @relation(fields: [purchaseOrderId], references: [id], onDelete: SetNull)
+  goodsReceiptId  String?
+  goodsReceipt    GoodsReceipt?    @relation(fields: [goodsReceiptId], references: [id], onDelete: SetNull)
+  status          VendorBillStatus @default(DRAFT)
+  currency        String           @default("USD")
+  subtotalCents   Int              @default(0)
+  taxCents        Int              @default(0)
+  totalCents      Int              @default(0)
+  paidAmountCents Int              @default(0)
+  issuedAt        DateTime         @default(now())
+  dueAt           DateTime?
+  paidAt          DateTime?
+  voidedAt        DateTime?
+  notes           String?
+  createdByUserId String?
+  updatedByUserId String?
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  lines           VendorBillLine[]
+
+  @@unique([organizationId, supplierId, billNumber])
+  @@index([organizationId, status, dueAt])
+  @@index([organizationId, purchaseOrderId])
+  @@map("vendor_bill")
+}
+
+model VendorBillLine {
+  id             String       @id @default(cuid())
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  vendorBillId   String
+  vendorBill     VendorBill   @relation(fields: [vendorBillId], references: [id], onDelete: Cascade)
+  itemId         String?
+  item           Item?        @relation(fields: [itemId], references: [id], onDelete: SetNull)
+  description    String
+  quantity       Int
+  unitCostCents  Int
+  lineTotalCents Int
+  createdAt      DateTime     @default(now())
+
+  @@index([organizationId, vendorBillId])
+  @@map("vendor_bill_line")
 }

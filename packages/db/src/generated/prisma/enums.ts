@@ -37,3 +37,71 @@ export const ItemRevisionAction = {
 } as const
 
 export type ItemRevisionAction = (typeof ItemRevisionAction)[keyof typeof ItemRevisionAction]
+
+
+export const LocationType = {
+  WAREHOUSE: 'WAREHOUSE',
+  RETAIL_STORE: 'RETAIL_STORE'
+} as const
+
+export type LocationType = (typeof LocationType)[keyof typeof LocationType]
+
+
+export const LocationStatus = {
+  ACTIVE: 'ACTIVE',
+  INACTIVE: 'INACTIVE',
+  ARCHIVED: 'ARCHIVED'
+} as const
+
+export type LocationStatus = (typeof LocationStatus)[keyof typeof LocationStatus]
+
+
+export const StockMovementType = {
+  RECEIPT: 'RECEIPT',
+  ADJUSTMENT: 'ADJUSTMENT',
+  TRANSFER_OUT: 'TRANSFER_OUT',
+  TRANSFER_IN: 'TRANSFER_IN'
+} as const
+
+export type StockMovementType = (typeof StockMovementType)[keyof typeof StockMovementType]
+
+
+export const StockTransferStatus = {
+  DRAFT: 'DRAFT',
+  IN_TRANSIT: 'IN_TRANSIT',
+  RECEIVED: 'RECEIVED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type StockTransferStatus = (typeof StockTransferStatus)[keyof typeof StockTransferStatus]
+
+
+export const SupplierStatus = {
+  ACTIVE: 'ACTIVE',
+  INACTIVE: 'INACTIVE',
+  ARCHIVED: 'ARCHIVED'
+} as const
+
+export type SupplierStatus = (typeof SupplierStatus)[keyof typeof SupplierStatus]
+
+
+export const PurchaseOrderStatus = {
+  DRAFT: 'DRAFT',
+  SUBMITTED: 'SUBMITTED',
+  PARTIALLY_RECEIVED: 'PARTIALLY_RECEIVED',
+  RECEIVED: 'RECEIVED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type PurchaseOrderStatus = (typeof PurchaseOrderStatus)[keyof typeof PurchaseOrderStatus]
+
+
+export const VendorBillStatus = {
+  DRAFT: 'DRAFT',
+  OPEN: 'OPEN',
+  PARTIALLY_PAID: 'PARTIALLY_PAID',
+  PAID: 'PAID',
+  VOID: 'VOID'
+} as const
+
+export type VendorBillStatus = (typeof VendorBillStatus)[keyof typeof VendorBillStatus]

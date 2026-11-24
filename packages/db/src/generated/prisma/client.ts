@@ -96,3 +96,68 @@ export type Item = Prisma.ItemModel
  * 
  */
 export type ItemRevision = Prisma.ItemRevisionModel
+/**
+ * Model Location
+ * 
+ */
+export type Location = Prisma.LocationModel
+/**
+ * Model StockBalance
+ * 
+ */
+export type StockBalance = Prisma.StockBalanceModel
+/**
+ * Model StockMovement
+ * 
+ */
+export type StockMovement = Prisma.StockMovementModel
+/**
+ * Model StockTransfer
+ * 
+ */
+export type StockTransfer = Prisma.StockTransferModel
+/**
+ * Model StockTransferLine
+ * 
+ */
+export type StockTransferLine = Prisma.StockTransferLineModel
+/**
+ * Model Supplier
+ * 
+ */
+export type Supplier = Prisma.SupplierModel
+/**
+ * Model SupplierItem
+ * 
+ */
+export type SupplierItem = Prisma.SupplierItemModel
+/**
+ * Model PurchaseOrder
+ * 
+ */
+export type PurchaseOrder = Prisma.PurchaseOrderModel
+/**
+ * Model PurchaseOrderLine
+ * 
+ */
+export type PurchaseOrderLine = Prisma.PurchaseOrderLineModel
+/**
+ * Model GoodsReceipt
+ * 
+ */
+export type GoodsReceipt = Prisma.GoodsReceiptModel
+/**
+ * Model GoodsReceiptLine
+ * 
+ */
+export type GoodsReceiptLine = Prisma.GoodsReceiptLineModel
+/**
+ * Model VendorBill
+ * 
+ */
+export type VendorBill = Prisma.VendorBillModel
+/**
+ * Model VendorBillLine
+ * 
+ */
+export type VendorBillLine = Prisma.VendorBillLineModel

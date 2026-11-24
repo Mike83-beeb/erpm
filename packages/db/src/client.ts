@@ -8,6 +8,19 @@ export const TENANT_SCOPED_MODELS = new Set<string>([
   "AuditLog",
   "Item",
   "ItemRevision",
+  "Location",
+  "StockBalance",
+  "StockMovement",
+  "StockTransfer",
+  "StockTransferLine",
+  "Supplier",
+  "SupplierItem",
+  "PurchaseOrder",
+  "PurchaseOrderLine",
+  "GoodsReceipt",
+  "GoodsReceiptLine",
+  "VendorBill",
+  "VendorBillLine",
 ]);
 
 const DEFAULT_LOCAL_DB_URL =

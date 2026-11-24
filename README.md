@@ -59,3 +59,10 @@ Multi-tenant ERP backend monorepo powered by **Turborepo**, **pnpm**, **NestJS (
 - `POST /api/v1/items/:itemId/archive` — Soft-archive an item with status revision history and audit trail (`item:archive`).
 - `POST /api/v1/items/:itemId/restore` — Restore an archived item to `ACTIVE` or `DRAFT` with revision history (`item:archive`).
 - `GET /api/v1/items/:itemId/history` — Paginated field-level revision history (`ItemRevision`) ordered newest-first (`item:read`).
+- `POST|GET|PATCH /api/v1/locations` — Manage `WAREHOUSE` and `RETAIL_STORE` locations, default location flag, and soft archive/restore (`location:*`).
+- `GET /api/v1/inventory/balances` & `GET /api/v1/inventory/movements` — Query per-location stock balances, low-stock items, and immutable movement ledger (`inventory:read`).
+- `POST /api/v1/inventory/adjustments` — Record per-location stock adjustments enforcing `trackInventory` & `allowNegativeStock` (`inventory:adjust`).
+- `POST|GET /api/v1/inventory/transfers` (`dispatch`, `receive`, `cancel`) — Two-step inter-location stock transfers (`DRAFT` → `IN_TRANSIT` → `RECEIVED`) (`inventory:transfer`).
+- `POST|GET|PATCH /api/v1/suppliers` & `PUT|DELETE /api/v1/suppliers/:supplierId/items` — Supplier directory, archival, and supplier-item cost/SKU mapping (`supplier:*`).
+- `POST|GET|PATCH /api/v1/purchase-orders` (`submit`, `cancel`, `receive`) — Purchase order lifecycle and partial/full goods receiving into destination locations (`purchaseOrder:*`).
+- `POST|GET /api/v1/vendor-bills` (`post`, `payments`, `void`) — Supplier bills matched to POs/receipts with payment recording and voiding (`vendorBill:*`).

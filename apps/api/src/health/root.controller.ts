@@ -20,6 +20,11 @@ export class RootController {
         tenantInvitations: "/api/v1/tenants/invitations",
         tenantAuditLogs: "/api/v1/tenants/audit-logs",
         items: "/api/v1/items",
+        locations: "/api/v1/locations",
+        inventory: "/api/v1/inventory",
+        suppliers: "/api/v1/suppliers",
+        purchaseOrders: "/api/v1/purchase-orders",
+        vendorBills: "/api/v1/vendor-bills",
       },
     };
   }
