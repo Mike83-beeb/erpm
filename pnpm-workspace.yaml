@@ -1,0 +1,10 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+allowBuilds:
+  '@prisma/engines': true
+  esbuild: true
+  pnpm: true
+  prisma: true
+minimumReleaseAgeExclude:
+  - ioredis@6.1.0

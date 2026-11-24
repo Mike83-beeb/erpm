@@ -1,0 +1,6 @@
+{
+  "name": "NexusERP Monorepo",
+  "description": "Multi-tenant ERP backend monorepo powered by Turborepo, pnpm, NestJS, Fastify, Prisma, PostgreSQL 18, Redis 7, and Better Auth Organizations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

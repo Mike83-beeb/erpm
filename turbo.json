@@ -1,0 +1,58 @@
+{
+  "$schema": "https://turborepo.dev/schema.json",
+  "globalDependencies": [".env*"],
+  "globalPassThroughEnv": [
+    "NODE_ENV",
+    "PORT",
+    "HOST",
+    "DATABASE_URL",
+    "REDIS_URL",
+    "REDIS_KEY_PREFIX",
+    "BETTER_AUTH_SECRET",
+    "BETTER_AUTH_URL",
+    "CORS_ALLOWED_ORIGINS",
+    "GEMINI_API_KEY",
+    "APP_URL"
+  ],
+  "tasks": {
+    "db:generate": {
+      "cache": false
+    },
+    "db:push": {
+      "cache": false
+    },
+    "db:migrate": {
+      "cache": false
+    },
+    "@erp/db#build": {
+      "dependsOn": ["db:generate"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": ["dist/**", "src/generated/**"]
+    },
+    "@erp/db#lint": {
+      "dependsOn": ["db:generate"]
+    },
+    "@erp/db#typecheck": {
+      "dependsOn": ["db:generate"]
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": ["dist/**", "generated/**"]
+    },
+    "typecheck": {
+      "dependsOn": ["^build"]
+    },
+    "lint": {
+      "dependsOn": ["^build"]
+    },
+    "dev": {
+      "dependsOn": ["^build"],
+      "cache": false,
+      "persistent": true
+    },
+    "clean": {
+      "cache": false
+    }
+  }
+}
