@@ -24,6 +24,7 @@ export const erpStatements = {
   timeOff: ["read", "request", "approve"],
   calendar: ["read", "manage"],
   crm: ["read", "create", "update", "delete", "configure"],
+  pricing: ["read", "create", "update", "archive", "quote"],
 } as const;
 
 export type ErpStatements = typeof erpStatements;
@@ -52,6 +53,7 @@ export const owner = ac.newRole({
   timeOff: ["read", "request", "approve"],
   calendar: ["read", "manage"],
   crm: ["read", "create", "update", "delete", "configure"],
+  pricing: ["read", "create", "update", "archive", "quote"],
 });
 
 export const admin = ac.newRole({
@@ -72,6 +74,7 @@ export const admin = ac.newRole({
   timeOff: ["read", "request", "approve"],
   calendar: ["read", "manage"],
   crm: ["read", "create", "update", "delete", "configure"],
+  pricing: ["read", "create", "update", "archive", "quote"],
 });
 
 export const manager = ac.newRole({
@@ -95,6 +98,7 @@ export const manager = ac.newRole({
   timeOff: ["read", "request", "approve"],
   calendar: ["read", "manage"],
   crm: ["read", "create", "update", "delete"],
+  pricing: ["read", "create", "update", "quote"],
 });
 
 export const member = ac.newRole({
@@ -114,6 +118,7 @@ export const member = ac.newRole({
   timeOff: ["read", "request"],
   calendar: ["read"],
   crm: ["read", "create", "update", "delete"],
+  pricing: ["read", "quote"],
 });
 
 export const viewer = ac.newRole({
@@ -136,6 +141,7 @@ export const viewer = ac.newRole({
   timeOff: ["read"],
   calendar: ["read"],
   crm: ["read"],
+  pricing: ["read"],
 });
 
 export const organizationRoles = {
@@ -189,6 +195,7 @@ export function getResolvedPermissionsForRole(
     timeOff: new Set(),
     calendar: new Set(),
     crm: new Set(),
+    pricing: new Set(),
   };
 
   for (const roleName of parseRoleNames(roleNameList(roleValue))) {
@@ -225,6 +232,7 @@ export function getResolvedPermissionsForRole(
     timeOff: Array.from(resolved.timeOff),
     calendar: Array.from(resolved.calendar),
     crm: Array.from(resolved.crm),
+    pricing: Array.from(resolved.pricing),
   };
 }
 

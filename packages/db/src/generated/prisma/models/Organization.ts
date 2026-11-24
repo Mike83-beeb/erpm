@@ -222,6 +222,13 @@ export type OrganizationWhereInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingListRelationFilter
   crmDealItemLinks?: Prisma.CrmDealItemLinkListRelationFilter
   crmWebhookEvents?: Prisma.CrmWebhookEventListRelationFilter
+  itemPacks?: Prisma.ItemPackListRelationFilter
+  itemBundleComponents?: Prisma.ItemBundleComponentListRelationFilter
+  servicePlans?: Prisma.ServicePlanListRelationFilter
+  priceBooks?: Prisma.PriceBookListRelationFilter
+  priceRules?: Prisma.PriceRuleListRelationFilter
+  priceTiers?: Prisma.PriceTierListRelationFilter
+  discountRules?: Prisma.DiscountRuleListRelationFilter
 }
 
 export type OrganizationOrderByWithRelationInput = {
@@ -263,6 +270,13 @@ export type OrganizationOrderByWithRelationInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingOrderByRelationAggregateInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkOrderByRelationAggregateInput
   crmWebhookEvents?: Prisma.CrmWebhookEventOrderByRelationAggregateInput
+  itemPacks?: Prisma.ItemPackOrderByRelationAggregateInput
+  itemBundleComponents?: Prisma.ItemBundleComponentOrderByRelationAggregateInput
+  servicePlans?: Prisma.ServicePlanOrderByRelationAggregateInput
+  priceBooks?: Prisma.PriceBookOrderByRelationAggregateInput
+  priceRules?: Prisma.PriceRuleOrderByRelationAggregateInput
+  priceTiers?: Prisma.PriceTierOrderByRelationAggregateInput
+  discountRules?: Prisma.DiscountRuleOrderByRelationAggregateInput
 }
 
 export type OrganizationWhereUniqueInput = Prisma.AtLeast<{
@@ -307,6 +321,13 @@ export type OrganizationWhereUniqueInput = Prisma.AtLeast<{
   crmStaffMappings?: Prisma.CrmStaffMappingListRelationFilter
   crmDealItemLinks?: Prisma.CrmDealItemLinkListRelationFilter
   crmWebhookEvents?: Prisma.CrmWebhookEventListRelationFilter
+  itemPacks?: Prisma.ItemPackListRelationFilter
+  itemBundleComponents?: Prisma.ItemBundleComponentListRelationFilter
+  servicePlans?: Prisma.ServicePlanListRelationFilter
+  priceBooks?: Prisma.PriceBookListRelationFilter
+  priceRules?: Prisma.PriceRuleListRelationFilter
+  priceTiers?: Prisma.PriceTierListRelationFilter
+  discountRules?: Prisma.DiscountRuleListRelationFilter
 }, "id" | "slug">
 
 export type OrganizationOrderByWithAggregationInput = {
@@ -372,6 +393,13 @@ export type OrganizationCreateInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateInput = {
@@ -413,6 +441,13 @@ export type OrganizationUncheckedCreateInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUpdateInput = {
@@ -454,6 +489,13 @@ export type OrganizationUpdateInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateInput = {
@@ -495,6 +537,13 @@ export type OrganizationUncheckedUpdateInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateManyInput = {
@@ -1004,6 +1053,104 @@ export type OrganizationUpdateOneRequiredWithoutCrmWebhookEventsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutCrmWebhookEventsInput, Prisma.OrganizationUpdateWithoutCrmWebhookEventsInput>, Prisma.OrganizationUncheckedUpdateWithoutCrmWebhookEventsInput>
 }
 
+export type OrganizationCreateNestedOneWithoutItemPacksInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutItemPacksInput, Prisma.OrganizationUncheckedCreateWithoutItemPacksInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutItemPacksInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutItemPacksNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutItemPacksInput, Prisma.OrganizationUncheckedCreateWithoutItemPacksInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutItemPacksInput
+  upsert?: Prisma.OrganizationUpsertWithoutItemPacksInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutItemPacksInput, Prisma.OrganizationUpdateWithoutItemPacksInput>, Prisma.OrganizationUncheckedUpdateWithoutItemPacksInput>
+}
+
+export type OrganizationCreateNestedOneWithoutItemBundleComponentsInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutItemBundleComponentsInput, Prisma.OrganizationUncheckedCreateWithoutItemBundleComponentsInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutItemBundleComponentsInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutItemBundleComponentsNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutItemBundleComponentsInput, Prisma.OrganizationUncheckedCreateWithoutItemBundleComponentsInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutItemBundleComponentsInput
+  upsert?: Prisma.OrganizationUpsertWithoutItemBundleComponentsInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutItemBundleComponentsInput, Prisma.OrganizationUpdateWithoutItemBundleComponentsInput>, Prisma.OrganizationUncheckedUpdateWithoutItemBundleComponentsInput>
+}
+
+export type OrganizationCreateNestedOneWithoutServicePlansInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutServicePlansInput, Prisma.OrganizationUncheckedCreateWithoutServicePlansInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutServicePlansInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutServicePlansNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutServicePlansInput, Prisma.OrganizationUncheckedCreateWithoutServicePlansInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutServicePlansInput
+  upsert?: Prisma.OrganizationUpsertWithoutServicePlansInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutServicePlansInput, Prisma.OrganizationUpdateWithoutServicePlansInput>, Prisma.OrganizationUncheckedUpdateWithoutServicePlansInput>
+}
+
+export type OrganizationCreateNestedOneWithoutPriceBooksInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutPriceBooksInput, Prisma.OrganizationUncheckedCreateWithoutPriceBooksInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutPriceBooksInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutPriceBooksNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutPriceBooksInput, Prisma.OrganizationUncheckedCreateWithoutPriceBooksInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutPriceBooksInput
+  upsert?: Prisma.OrganizationUpsertWithoutPriceBooksInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutPriceBooksInput, Prisma.OrganizationUpdateWithoutPriceBooksInput>, Prisma.OrganizationUncheckedUpdateWithoutPriceBooksInput>
+}
+
+export type OrganizationCreateNestedOneWithoutPriceRulesInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutPriceRulesInput, Prisma.OrganizationUncheckedCreateWithoutPriceRulesInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutPriceRulesInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutPriceRulesNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutPriceRulesInput, Prisma.OrganizationUncheckedCreateWithoutPriceRulesInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutPriceRulesInput
+  upsert?: Prisma.OrganizationUpsertWithoutPriceRulesInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutPriceRulesInput, Prisma.OrganizationUpdateWithoutPriceRulesInput>, Prisma.OrganizationUncheckedUpdateWithoutPriceRulesInput>
+}
+
+export type OrganizationCreateNestedOneWithoutPriceTiersInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutPriceTiersInput, Prisma.OrganizationUncheckedCreateWithoutPriceTiersInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutPriceTiersInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutPriceTiersNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutPriceTiersInput, Prisma.OrganizationUncheckedCreateWithoutPriceTiersInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutPriceTiersInput
+  upsert?: Prisma.OrganizationUpsertWithoutPriceTiersInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutPriceTiersInput, Prisma.OrganizationUpdateWithoutPriceTiersInput>, Prisma.OrganizationUncheckedUpdateWithoutPriceTiersInput>
+}
+
+export type OrganizationCreateNestedOneWithoutDiscountRulesInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutDiscountRulesInput, Prisma.OrganizationUncheckedCreateWithoutDiscountRulesInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutDiscountRulesInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutDiscountRulesNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutDiscountRulesInput, Prisma.OrganizationUncheckedCreateWithoutDiscountRulesInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutDiscountRulesInput
+  upsert?: Prisma.OrganizationUpsertWithoutDiscountRulesInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutDiscountRulesInput, Prisma.OrganizationUpdateWithoutDiscountRulesInput>, Prisma.OrganizationUncheckedUpdateWithoutDiscountRulesInput>
+}
+
 export type OrganizationCreateWithoutMembersInput = {
   id: string
   name: string
@@ -1042,6 +1189,13 @@ export type OrganizationCreateWithoutMembersInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutMembersInput = {
@@ -1082,6 +1236,13 @@ export type OrganizationUncheckedCreateWithoutMembersInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutMembersInput = {
@@ -1138,6 +1299,13 @@ export type OrganizationUpdateWithoutMembersInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutMembersInput = {
@@ -1178,6 +1346,13 @@ export type OrganizationUncheckedUpdateWithoutMembersInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutInvitationsInput = {
@@ -1218,6 +1393,13 @@ export type OrganizationCreateWithoutInvitationsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutInvitationsInput = {
@@ -1258,6 +1440,13 @@ export type OrganizationUncheckedCreateWithoutInvitationsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutInvitationsInput = {
@@ -1314,6 +1503,13 @@ export type OrganizationUpdateWithoutInvitationsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutInvitationsInput = {
@@ -1354,6 +1550,13 @@ export type OrganizationUncheckedUpdateWithoutInvitationsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutTenantSettingsInput = {
@@ -1394,6 +1597,13 @@ export type OrganizationCreateWithoutTenantSettingsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutTenantSettingsInput = {
@@ -1434,6 +1644,13 @@ export type OrganizationUncheckedCreateWithoutTenantSettingsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutTenantSettingsInput = {
@@ -1490,6 +1707,13 @@ export type OrganizationUpdateWithoutTenantSettingsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutTenantSettingsInput = {
@@ -1530,6 +1754,13 @@ export type OrganizationUncheckedUpdateWithoutTenantSettingsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutAuditLogsInput = {
@@ -1570,6 +1801,13 @@ export type OrganizationCreateWithoutAuditLogsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutAuditLogsInput = {
@@ -1610,6 +1848,13 @@ export type OrganizationUncheckedCreateWithoutAuditLogsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutAuditLogsInput = {
@@ -1666,6 +1911,13 @@ export type OrganizationUpdateWithoutAuditLogsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutAuditLogsInput = {
@@ -1706,6 +1958,13 @@ export type OrganizationUncheckedUpdateWithoutAuditLogsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutItemsInput = {
@@ -1746,6 +2005,13 @@ export type OrganizationCreateWithoutItemsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutItemsInput = {
@@ -1786,6 +2052,13 @@ export type OrganizationUncheckedCreateWithoutItemsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutItemsInput = {
@@ -1842,6 +2115,13 @@ export type OrganizationUpdateWithoutItemsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutItemsInput = {
@@ -1882,6 +2162,13 @@ export type OrganizationUncheckedUpdateWithoutItemsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutItemRevisionsInput = {
@@ -1922,6 +2209,13 @@ export type OrganizationCreateWithoutItemRevisionsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutItemRevisionsInput = {
@@ -1962,6 +2256,13 @@ export type OrganizationUncheckedCreateWithoutItemRevisionsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutItemRevisionsInput = {
@@ -2018,6 +2319,13 @@ export type OrganizationUpdateWithoutItemRevisionsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutItemRevisionsInput = {
@@ -2058,6 +2366,13 @@ export type OrganizationUncheckedUpdateWithoutItemRevisionsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutLocationsInput = {
@@ -2098,6 +2413,13 @@ export type OrganizationCreateWithoutLocationsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutLocationsInput = {
@@ -2138,6 +2460,13 @@ export type OrganizationUncheckedCreateWithoutLocationsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutLocationsInput = {
@@ -2194,6 +2523,13 @@ export type OrganizationUpdateWithoutLocationsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutLocationsInput = {
@@ -2234,6 +2570,13 @@ export type OrganizationUncheckedUpdateWithoutLocationsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutStockBalancesInput = {
@@ -2274,6 +2617,13 @@ export type OrganizationCreateWithoutStockBalancesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutStockBalancesInput = {
@@ -2314,6 +2664,13 @@ export type OrganizationUncheckedCreateWithoutStockBalancesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutStockBalancesInput = {
@@ -2370,6 +2727,13 @@ export type OrganizationUpdateWithoutStockBalancesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutStockBalancesInput = {
@@ -2410,6 +2774,13 @@ export type OrganizationUncheckedUpdateWithoutStockBalancesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutStockMovementsInput = {
@@ -2450,6 +2821,13 @@ export type OrganizationCreateWithoutStockMovementsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutStockMovementsInput = {
@@ -2490,6 +2868,13 @@ export type OrganizationUncheckedCreateWithoutStockMovementsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutStockMovementsInput = {
@@ -2546,6 +2931,13 @@ export type OrganizationUpdateWithoutStockMovementsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutStockMovementsInput = {
@@ -2586,6 +2978,13 @@ export type OrganizationUncheckedUpdateWithoutStockMovementsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutStockTransfersInput = {
@@ -2626,6 +3025,13 @@ export type OrganizationCreateWithoutStockTransfersInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutStockTransfersInput = {
@@ -2666,6 +3072,13 @@ export type OrganizationUncheckedCreateWithoutStockTransfersInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutStockTransfersInput = {
@@ -2722,6 +3135,13 @@ export type OrganizationUpdateWithoutStockTransfersInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutStockTransfersInput = {
@@ -2762,6 +3182,13 @@ export type OrganizationUncheckedUpdateWithoutStockTransfersInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutStockTransferLinesInput = {
@@ -2802,6 +3229,13 @@ export type OrganizationCreateWithoutStockTransferLinesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutStockTransferLinesInput = {
@@ -2842,6 +3276,13 @@ export type OrganizationUncheckedCreateWithoutStockTransferLinesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutStockTransferLinesInput = {
@@ -2898,6 +3339,13 @@ export type OrganizationUpdateWithoutStockTransferLinesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutStockTransferLinesInput = {
@@ -2938,6 +3386,13 @@ export type OrganizationUncheckedUpdateWithoutStockTransferLinesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutSuppliersInput = {
@@ -2978,6 +3433,13 @@ export type OrganizationCreateWithoutSuppliersInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutSuppliersInput = {
@@ -3018,6 +3480,13 @@ export type OrganizationUncheckedCreateWithoutSuppliersInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutSuppliersInput = {
@@ -3074,6 +3543,13 @@ export type OrganizationUpdateWithoutSuppliersInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutSuppliersInput = {
@@ -3114,6 +3590,13 @@ export type OrganizationUncheckedUpdateWithoutSuppliersInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutSupplierItemsInput = {
@@ -3154,6 +3637,13 @@ export type OrganizationCreateWithoutSupplierItemsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutSupplierItemsInput = {
@@ -3194,6 +3684,13 @@ export type OrganizationUncheckedCreateWithoutSupplierItemsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutSupplierItemsInput = {
@@ -3250,6 +3747,13 @@ export type OrganizationUpdateWithoutSupplierItemsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutSupplierItemsInput = {
@@ -3290,6 +3794,13 @@ export type OrganizationUncheckedUpdateWithoutSupplierItemsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutPurchaseOrdersInput = {
@@ -3330,6 +3841,13 @@ export type OrganizationCreateWithoutPurchaseOrdersInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutPurchaseOrdersInput = {
@@ -3370,6 +3888,13 @@ export type OrganizationUncheckedCreateWithoutPurchaseOrdersInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutPurchaseOrdersInput = {
@@ -3426,6 +3951,13 @@ export type OrganizationUpdateWithoutPurchaseOrdersInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutPurchaseOrdersInput = {
@@ -3466,6 +3998,13 @@ export type OrganizationUncheckedUpdateWithoutPurchaseOrdersInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutPurchaseOrderLinesInput = {
@@ -3506,6 +4045,13 @@ export type OrganizationCreateWithoutPurchaseOrderLinesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutPurchaseOrderLinesInput = {
@@ -3546,6 +4092,13 @@ export type OrganizationUncheckedCreateWithoutPurchaseOrderLinesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutPurchaseOrderLinesInput = {
@@ -3602,6 +4155,13 @@ export type OrganizationUpdateWithoutPurchaseOrderLinesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutPurchaseOrderLinesInput = {
@@ -3642,6 +4202,13 @@ export type OrganizationUncheckedUpdateWithoutPurchaseOrderLinesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutGoodsReceiptsInput = {
@@ -3682,6 +4249,13 @@ export type OrganizationCreateWithoutGoodsReceiptsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutGoodsReceiptsInput = {
@@ -3722,6 +4296,13 @@ export type OrganizationUncheckedCreateWithoutGoodsReceiptsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutGoodsReceiptsInput = {
@@ -3778,6 +4359,13 @@ export type OrganizationUpdateWithoutGoodsReceiptsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutGoodsReceiptsInput = {
@@ -3818,6 +4406,13 @@ export type OrganizationUncheckedUpdateWithoutGoodsReceiptsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutGoodsReceiptLinesInput = {
@@ -3858,6 +4453,13 @@ export type OrganizationCreateWithoutGoodsReceiptLinesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutGoodsReceiptLinesInput = {
@@ -3898,6 +4500,13 @@ export type OrganizationUncheckedCreateWithoutGoodsReceiptLinesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutGoodsReceiptLinesInput = {
@@ -3954,6 +4563,13 @@ export type OrganizationUpdateWithoutGoodsReceiptLinesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutGoodsReceiptLinesInput = {
@@ -3994,6 +4610,13 @@ export type OrganizationUncheckedUpdateWithoutGoodsReceiptLinesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutVendorBillsInput = {
@@ -4034,6 +4657,13 @@ export type OrganizationCreateWithoutVendorBillsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutVendorBillsInput = {
@@ -4074,6 +4704,13 @@ export type OrganizationUncheckedCreateWithoutVendorBillsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutVendorBillsInput = {
@@ -4130,6 +4767,13 @@ export type OrganizationUpdateWithoutVendorBillsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutVendorBillsInput = {
@@ -4170,6 +4814,13 @@ export type OrganizationUncheckedUpdateWithoutVendorBillsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutVendorBillLinesInput = {
@@ -4210,6 +4861,13 @@ export type OrganizationCreateWithoutVendorBillLinesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutVendorBillLinesInput = {
@@ -4250,6 +4908,13 @@ export type OrganizationUncheckedCreateWithoutVendorBillLinesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutVendorBillLinesInput = {
@@ -4306,6 +4971,13 @@ export type OrganizationUpdateWithoutVendorBillLinesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutVendorBillLinesInput = {
@@ -4346,6 +5018,13 @@ export type OrganizationUncheckedUpdateWithoutVendorBillLinesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutStoredObjectsInput = {
@@ -4386,6 +5065,13 @@ export type OrganizationCreateWithoutStoredObjectsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutStoredObjectsInput = {
@@ -4426,6 +5112,13 @@ export type OrganizationUncheckedCreateWithoutStoredObjectsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutStoredObjectsInput = {
@@ -4482,6 +5175,13 @@ export type OrganizationUpdateWithoutStoredObjectsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutStoredObjectsInput = {
@@ -4522,6 +5222,13 @@ export type OrganizationUncheckedUpdateWithoutStoredObjectsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutDepartmentsInput = {
@@ -4562,6 +5269,13 @@ export type OrganizationCreateWithoutDepartmentsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutDepartmentsInput = {
@@ -4602,6 +5316,13 @@ export type OrganizationUncheckedCreateWithoutDepartmentsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutDepartmentsInput = {
@@ -4658,6 +5379,13 @@ export type OrganizationUpdateWithoutDepartmentsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutDepartmentsInput = {
@@ -4698,6 +5426,13 @@ export type OrganizationUncheckedUpdateWithoutDepartmentsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutWorkSchedulesInput = {
@@ -4738,6 +5473,13 @@ export type OrganizationCreateWithoutWorkSchedulesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutWorkSchedulesInput = {
@@ -4778,6 +5520,13 @@ export type OrganizationUncheckedCreateWithoutWorkSchedulesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutWorkSchedulesInput = {
@@ -4834,6 +5583,13 @@ export type OrganizationUpdateWithoutWorkSchedulesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutWorkSchedulesInput = {
@@ -4874,6 +5630,13 @@ export type OrganizationUncheckedUpdateWithoutWorkSchedulesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutStaffProfilesInput = {
@@ -4914,6 +5677,13 @@ export type OrganizationCreateWithoutStaffProfilesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutStaffProfilesInput = {
@@ -4954,6 +5724,13 @@ export type OrganizationUncheckedCreateWithoutStaffProfilesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutStaffProfilesInput = {
@@ -5010,6 +5787,13 @@ export type OrganizationUpdateWithoutStaffProfilesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutStaffProfilesInput = {
@@ -5050,6 +5834,13 @@ export type OrganizationUncheckedUpdateWithoutStaffProfilesInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutHolidaysInput = {
@@ -5090,6 +5881,13 @@ export type OrganizationCreateWithoutHolidaysInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutHolidaysInput = {
@@ -5130,6 +5928,13 @@ export type OrganizationUncheckedCreateWithoutHolidaysInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutHolidaysInput = {
@@ -5186,6 +5991,13 @@ export type OrganizationUpdateWithoutHolidaysInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutHolidaysInput = {
@@ -5226,6 +6038,13 @@ export type OrganizationUncheckedUpdateWithoutHolidaysInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutTimeOffRequestsInput = {
@@ -5266,6 +6085,13 @@ export type OrganizationCreateWithoutTimeOffRequestsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutTimeOffRequestsInput = {
@@ -5306,6 +6132,13 @@ export type OrganizationUncheckedCreateWithoutTimeOffRequestsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutTimeOffRequestsInput = {
@@ -5362,6 +6195,13 @@ export type OrganizationUpdateWithoutTimeOffRequestsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutTimeOffRequestsInput = {
@@ -5402,6 +6242,13 @@ export type OrganizationUncheckedUpdateWithoutTimeOffRequestsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutTeamsInput = {
@@ -5442,6 +6289,13 @@ export type OrganizationCreateWithoutTeamsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutTeamsInput = {
@@ -5482,6 +6336,13 @@ export type OrganizationUncheckedCreateWithoutTeamsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutTeamsInput = {
@@ -5538,6 +6399,13 @@ export type OrganizationUpdateWithoutTeamsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutTeamsInput = {
@@ -5578,6 +6446,13 @@ export type OrganizationUncheckedUpdateWithoutTeamsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutTeamMembersInput = {
@@ -5618,6 +6493,13 @@ export type OrganizationCreateWithoutTeamMembersInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutTeamMembersInput = {
@@ -5658,6 +6540,13 @@ export type OrganizationUncheckedCreateWithoutTeamMembersInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutTeamMembersInput = {
@@ -5714,6 +6603,13 @@ export type OrganizationUpdateWithoutTeamMembersInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutTeamMembersInput = {
@@ -5754,6 +6650,13 @@ export type OrganizationUncheckedUpdateWithoutTeamMembersInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutCalendarFeedsInput = {
@@ -5794,6 +6697,13 @@ export type OrganizationCreateWithoutCalendarFeedsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutCalendarFeedsInput = {
@@ -5834,6 +6744,13 @@ export type OrganizationUncheckedCreateWithoutCalendarFeedsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutCalendarFeedsInput = {
@@ -5890,6 +6807,13 @@ export type OrganizationUpdateWithoutCalendarFeedsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutCalendarFeedsInput = {
@@ -5930,6 +6854,13 @@ export type OrganizationUncheckedUpdateWithoutCalendarFeedsInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutCrmConnectionInput = {
@@ -5970,6 +6901,13 @@ export type OrganizationCreateWithoutCrmConnectionInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutCrmConnectionInput = {
@@ -6010,6 +6948,13 @@ export type OrganizationUncheckedCreateWithoutCrmConnectionInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutCrmConnectionInput = {
@@ -6066,6 +7011,13 @@ export type OrganizationUpdateWithoutCrmConnectionInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutCrmConnectionInput = {
@@ -6106,6 +7058,13 @@ export type OrganizationUncheckedUpdateWithoutCrmConnectionInput = {
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutCrmStaffMappingsInput = {
@@ -6146,6 +7105,13 @@ export type OrganizationCreateWithoutCrmStaffMappingsInput = {
   crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutCrmStaffMappingsInput = {
@@ -6186,6 +7152,13 @@ export type OrganizationUncheckedCreateWithoutCrmStaffMappingsInput = {
   crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutCrmStaffMappingsInput = {
@@ -6242,6 +7215,13 @@ export type OrganizationUpdateWithoutCrmStaffMappingsInput = {
   crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutCrmStaffMappingsInput = {
@@ -6282,6 +7262,13 @@ export type OrganizationUncheckedUpdateWithoutCrmStaffMappingsInput = {
   crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutCrmDealItemLinksInput = {
@@ -6322,6 +7309,13 @@ export type OrganizationCreateWithoutCrmDealItemLinksInput = {
   crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutCrmDealItemLinksInput = {
@@ -6362,6 +7356,13 @@ export type OrganizationUncheckedCreateWithoutCrmDealItemLinksInput = {
   crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutCrmDealItemLinksInput = {
@@ -6418,6 +7419,13 @@ export type OrganizationUpdateWithoutCrmDealItemLinksInput = {
   crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutCrmDealItemLinksInput = {
@@ -6458,6 +7466,13 @@ export type OrganizationUncheckedUpdateWithoutCrmDealItemLinksInput = {
   crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutCrmWebhookEventsInput = {
@@ -6498,6 +7513,13 @@ export type OrganizationCreateWithoutCrmWebhookEventsInput = {
   crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
   crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutCrmWebhookEventsInput = {
@@ -6538,6 +7560,13 @@ export type OrganizationUncheckedCreateWithoutCrmWebhookEventsInput = {
   crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutCrmWebhookEventsInput = {
@@ -6594,6 +7623,13 @@ export type OrganizationUpdateWithoutCrmWebhookEventsInput = {
   crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
   crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutCrmWebhookEventsInput = {
@@ -6634,6 +7670,1441 @@ export type OrganizationUncheckedUpdateWithoutCrmWebhookEventsInput = {
   crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
   crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
   crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutItemPacksInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutItemPacksInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutItemPacksInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutItemPacksInput, Prisma.OrganizationUncheckedCreateWithoutItemPacksInput>
+}
+
+export type OrganizationUpsertWithoutItemPacksInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutItemPacksInput, Prisma.OrganizationUncheckedUpdateWithoutItemPacksInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutItemPacksInput, Prisma.OrganizationUncheckedCreateWithoutItemPacksInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutItemPacksInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutItemPacksInput, Prisma.OrganizationUncheckedUpdateWithoutItemPacksInput>
+}
+
+export type OrganizationUpdateWithoutItemPacksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutItemPacksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutItemBundleComponentsInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutItemBundleComponentsInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutItemBundleComponentsInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutItemBundleComponentsInput, Prisma.OrganizationUncheckedCreateWithoutItemBundleComponentsInput>
+}
+
+export type OrganizationUpsertWithoutItemBundleComponentsInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutItemBundleComponentsInput, Prisma.OrganizationUncheckedUpdateWithoutItemBundleComponentsInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutItemBundleComponentsInput, Prisma.OrganizationUncheckedCreateWithoutItemBundleComponentsInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutItemBundleComponentsInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutItemBundleComponentsInput, Prisma.OrganizationUncheckedUpdateWithoutItemBundleComponentsInput>
+}
+
+export type OrganizationUpdateWithoutItemBundleComponentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutItemBundleComponentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutServicePlansInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutServicePlansInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutServicePlansInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutServicePlansInput, Prisma.OrganizationUncheckedCreateWithoutServicePlansInput>
+}
+
+export type OrganizationUpsertWithoutServicePlansInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutServicePlansInput, Prisma.OrganizationUncheckedUpdateWithoutServicePlansInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutServicePlansInput, Prisma.OrganizationUncheckedCreateWithoutServicePlansInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutServicePlansInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutServicePlansInput, Prisma.OrganizationUncheckedUpdateWithoutServicePlansInput>
+}
+
+export type OrganizationUpdateWithoutServicePlansInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutServicePlansInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutPriceBooksInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutPriceBooksInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutPriceBooksInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutPriceBooksInput, Prisma.OrganizationUncheckedCreateWithoutPriceBooksInput>
+}
+
+export type OrganizationUpsertWithoutPriceBooksInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutPriceBooksInput, Prisma.OrganizationUncheckedUpdateWithoutPriceBooksInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutPriceBooksInput, Prisma.OrganizationUncheckedCreateWithoutPriceBooksInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutPriceBooksInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutPriceBooksInput, Prisma.OrganizationUncheckedUpdateWithoutPriceBooksInput>
+}
+
+export type OrganizationUpdateWithoutPriceBooksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutPriceBooksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutPriceRulesInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutPriceRulesInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutPriceRulesInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutPriceRulesInput, Prisma.OrganizationUncheckedCreateWithoutPriceRulesInput>
+}
+
+export type OrganizationUpsertWithoutPriceRulesInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutPriceRulesInput, Prisma.OrganizationUncheckedUpdateWithoutPriceRulesInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutPriceRulesInput, Prisma.OrganizationUncheckedCreateWithoutPriceRulesInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutPriceRulesInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutPriceRulesInput, Prisma.OrganizationUncheckedUpdateWithoutPriceRulesInput>
+}
+
+export type OrganizationUpdateWithoutPriceRulesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutPriceRulesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutPriceTiersInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutPriceTiersInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutPriceTiersInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutPriceTiersInput, Prisma.OrganizationUncheckedCreateWithoutPriceTiersInput>
+}
+
+export type OrganizationUpsertWithoutPriceTiersInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutPriceTiersInput, Prisma.OrganizationUncheckedUpdateWithoutPriceTiersInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutPriceTiersInput, Prisma.OrganizationUncheckedCreateWithoutPriceTiersInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutPriceTiersInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutPriceTiersInput, Prisma.OrganizationUncheckedUpdateWithoutPriceTiersInput>
+}
+
+export type OrganizationUpdateWithoutPriceTiersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutPriceTiersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutDiscountRulesInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutDiscountRulesInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutDiscountRulesInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutDiscountRulesInput, Prisma.OrganizationUncheckedCreateWithoutDiscountRulesInput>
+}
+
+export type OrganizationUpsertWithoutDiscountRulesInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutDiscountRulesInput, Prisma.OrganizationUncheckedUpdateWithoutDiscountRulesInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutDiscountRulesInput, Prisma.OrganizationUncheckedCreateWithoutDiscountRulesInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutDiscountRulesInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutDiscountRulesInput, Prisma.OrganizationUncheckedUpdateWithoutDiscountRulesInput>
+}
+
+export type OrganizationUpdateWithoutDiscountRulesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutDiscountRulesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 
@@ -6672,6 +9143,13 @@ export type OrganizationCountOutputType = {
   crmStaffMappings: number
   crmDealItemLinks: number
   crmWebhookEvents: number
+  itemPacks: number
+  itemBundleComponents: number
+  servicePlans: number
+  priceBooks: number
+  priceRules: number
+  priceTiers: number
+  discountRules: number
 }
 
 export type OrganizationCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -6705,6 +9183,13 @@ export type OrganizationCountOutputTypeSelect<ExtArgs extends runtime.Types.Exte
   crmStaffMappings?: boolean | OrganizationCountOutputTypeCountCrmStaffMappingsArgs
   crmDealItemLinks?: boolean | OrganizationCountOutputTypeCountCrmDealItemLinksArgs
   crmWebhookEvents?: boolean | OrganizationCountOutputTypeCountCrmWebhookEventsArgs
+  itemPacks?: boolean | OrganizationCountOutputTypeCountItemPacksArgs
+  itemBundleComponents?: boolean | OrganizationCountOutputTypeCountItemBundleComponentsArgs
+  servicePlans?: boolean | OrganizationCountOutputTypeCountServicePlansArgs
+  priceBooks?: boolean | OrganizationCountOutputTypeCountPriceBooksArgs
+  priceRules?: boolean | OrganizationCountOutputTypeCountPriceRulesArgs
+  priceTiers?: boolean | OrganizationCountOutputTypeCountPriceTiersArgs
+  discountRules?: boolean | OrganizationCountOutputTypeCountDiscountRulesArgs
 }
 
 /**
@@ -6927,6 +9412,55 @@ export type OrganizationCountOutputTypeCountCrmWebhookEventsArgs<ExtArgs extends
   where?: Prisma.CrmWebhookEventWhereInput
 }
 
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountItemPacksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ItemPackWhereInput
+}
+
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountItemBundleComponentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ItemBundleComponentWhereInput
+}
+
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountServicePlansArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ServicePlanWhereInput
+}
+
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountPriceBooksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PriceBookWhereInput
+}
+
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountPriceRulesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PriceRuleWhereInput
+}
+
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountPriceTiersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PriceTierWhereInput
+}
+
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountDiscountRulesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.DiscountRuleWhereInput
+}
+
 
 export type OrganizationSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -6967,6 +9501,13 @@ export type OrganizationSelect<ExtArgs extends runtime.Types.Extensions.Internal
   crmStaffMappings?: boolean | Prisma.Organization$crmStaffMappingsArgs<ExtArgs>
   crmDealItemLinks?: boolean | Prisma.Organization$crmDealItemLinksArgs<ExtArgs>
   crmWebhookEvents?: boolean | Prisma.Organization$crmWebhookEventsArgs<ExtArgs>
+  itemPacks?: boolean | Prisma.Organization$itemPacksArgs<ExtArgs>
+  itemBundleComponents?: boolean | Prisma.Organization$itemBundleComponentsArgs<ExtArgs>
+  servicePlans?: boolean | Prisma.Organization$servicePlansArgs<ExtArgs>
+  priceBooks?: boolean | Prisma.Organization$priceBooksArgs<ExtArgs>
+  priceRules?: boolean | Prisma.Organization$priceRulesArgs<ExtArgs>
+  priceTiers?: boolean | Prisma.Organization$priceTiersArgs<ExtArgs>
+  discountRules?: boolean | Prisma.Organization$discountRulesArgs<ExtArgs>
   _count?: boolean | Prisma.OrganizationCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["organization"]>
 
@@ -7031,6 +9572,13 @@ export type OrganizationInclude<ExtArgs extends runtime.Types.Extensions.Interna
   crmStaffMappings?: boolean | Prisma.Organization$crmStaffMappingsArgs<ExtArgs>
   crmDealItemLinks?: boolean | Prisma.Organization$crmDealItemLinksArgs<ExtArgs>
   crmWebhookEvents?: boolean | Prisma.Organization$crmWebhookEventsArgs<ExtArgs>
+  itemPacks?: boolean | Prisma.Organization$itemPacksArgs<ExtArgs>
+  itemBundleComponents?: boolean | Prisma.Organization$itemBundleComponentsArgs<ExtArgs>
+  servicePlans?: boolean | Prisma.Organization$servicePlansArgs<ExtArgs>
+  priceBooks?: boolean | Prisma.Organization$priceBooksArgs<ExtArgs>
+  priceRules?: boolean | Prisma.Organization$priceRulesArgs<ExtArgs>
+  priceTiers?: boolean | Prisma.Organization$priceTiersArgs<ExtArgs>
+  discountRules?: boolean | Prisma.Organization$discountRulesArgs<ExtArgs>
   _count?: boolean | Prisma.OrganizationCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type OrganizationIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -7071,6 +9619,13 @@ export type $OrganizationPayload<ExtArgs extends runtime.Types.Extensions.Intern
     crmStaffMappings: Prisma.$CrmStaffMappingPayload<ExtArgs>[]
     crmDealItemLinks: Prisma.$CrmDealItemLinkPayload<ExtArgs>[]
     crmWebhookEvents: Prisma.$CrmWebhookEventPayload<ExtArgs>[]
+    itemPacks: Prisma.$ItemPackPayload<ExtArgs>[]
+    itemBundleComponents: Prisma.$ItemBundleComponentPayload<ExtArgs>[]
+    servicePlans: Prisma.$ServicePlanPayload<ExtArgs>[]
+    priceBooks: Prisma.$PriceBookPayload<ExtArgs>[]
+    priceRules: Prisma.$PriceRulePayload<ExtArgs>[]
+    priceTiers: Prisma.$PriceTierPayload<ExtArgs>[]
+    discountRules: Prisma.$DiscountRulePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -7505,6 +10060,13 @@ export interface Prisma__OrganizationClient<T, Null = never, ExtArgs extends run
   crmStaffMappings<T extends Prisma.Organization$crmStaffMappingsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$crmStaffMappingsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CrmStaffMappingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   crmDealItemLinks<T extends Prisma.Organization$crmDealItemLinksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$crmDealItemLinksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CrmDealItemLinkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   crmWebhookEvents<T extends Prisma.Organization$crmWebhookEventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$crmWebhookEventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CrmWebhookEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  itemPacks<T extends Prisma.Organization$itemPacksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$itemPacksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ItemPackPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  itemBundleComponents<T extends Prisma.Organization$itemBundleComponentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$itemBundleComponentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ItemBundleComponentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  servicePlans<T extends Prisma.Organization$servicePlansArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$servicePlansArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ServicePlanPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  priceBooks<T extends Prisma.Organization$priceBooksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$priceBooksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PriceBookPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  priceRules<T extends Prisma.Organization$priceRulesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$priceRulesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PriceRulePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  priceTiers<T extends Prisma.Organization$priceTiersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$priceTiersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PriceTierPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  discountRules<T extends Prisma.Organization$discountRulesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$discountRulesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DiscountRulePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8688,6 +11250,174 @@ export type Organization$crmWebhookEventsArgs<ExtArgs extends runtime.Types.Exte
   take?: number
   skip?: number
   distinct?: Prisma.CrmWebhookEventScalarFieldEnum | Prisma.CrmWebhookEventScalarFieldEnum[]
+}
+
+/**
+ * Organization.itemPacks
+ */
+export type Organization$itemPacksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ItemPack
+   */
+  select?: Prisma.ItemPackSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ItemPack
+   */
+  omit?: Prisma.ItemPackOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ItemPackInclude<ExtArgs> | null
+  where?: Prisma.ItemPackWhereInput
+  orderBy?: Prisma.ItemPackOrderByWithRelationInput | Prisma.ItemPackOrderByWithRelationInput[]
+  cursor?: Prisma.ItemPackWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ItemPackScalarFieldEnum | Prisma.ItemPackScalarFieldEnum[]
+}
+
+/**
+ * Organization.itemBundleComponents
+ */
+export type Organization$itemBundleComponentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ItemBundleComponent
+   */
+  select?: Prisma.ItemBundleComponentSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ItemBundleComponent
+   */
+  omit?: Prisma.ItemBundleComponentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ItemBundleComponentInclude<ExtArgs> | null
+  where?: Prisma.ItemBundleComponentWhereInput
+  orderBy?: Prisma.ItemBundleComponentOrderByWithRelationInput | Prisma.ItemBundleComponentOrderByWithRelationInput[]
+  cursor?: Prisma.ItemBundleComponentWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ItemBundleComponentScalarFieldEnum | Prisma.ItemBundleComponentScalarFieldEnum[]
+}
+
+/**
+ * Organization.servicePlans
+ */
+export type Organization$servicePlansArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ServicePlan
+   */
+  select?: Prisma.ServicePlanSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ServicePlan
+   */
+  omit?: Prisma.ServicePlanOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ServicePlanInclude<ExtArgs> | null
+  where?: Prisma.ServicePlanWhereInput
+  orderBy?: Prisma.ServicePlanOrderByWithRelationInput | Prisma.ServicePlanOrderByWithRelationInput[]
+  cursor?: Prisma.ServicePlanWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ServicePlanScalarFieldEnum | Prisma.ServicePlanScalarFieldEnum[]
+}
+
+/**
+ * Organization.priceBooks
+ */
+export type Organization$priceBooksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PriceBook
+   */
+  select?: Prisma.PriceBookSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PriceBook
+   */
+  omit?: Prisma.PriceBookOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PriceBookInclude<ExtArgs> | null
+  where?: Prisma.PriceBookWhereInput
+  orderBy?: Prisma.PriceBookOrderByWithRelationInput | Prisma.PriceBookOrderByWithRelationInput[]
+  cursor?: Prisma.PriceBookWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PriceBookScalarFieldEnum | Prisma.PriceBookScalarFieldEnum[]
+}
+
+/**
+ * Organization.priceRules
+ */
+export type Organization$priceRulesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PriceRule
+   */
+  select?: Prisma.PriceRuleSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PriceRule
+   */
+  omit?: Prisma.PriceRuleOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PriceRuleInclude<ExtArgs> | null
+  where?: Prisma.PriceRuleWhereInput
+  orderBy?: Prisma.PriceRuleOrderByWithRelationInput | Prisma.PriceRuleOrderByWithRelationInput[]
+  cursor?: Prisma.PriceRuleWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PriceRuleScalarFieldEnum | Prisma.PriceRuleScalarFieldEnum[]
+}
+
+/**
+ * Organization.priceTiers
+ */
+export type Organization$priceTiersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PriceTier
+   */
+  select?: Prisma.PriceTierSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PriceTier
+   */
+  omit?: Prisma.PriceTierOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PriceTierInclude<ExtArgs> | null
+  where?: Prisma.PriceTierWhereInput
+  orderBy?: Prisma.PriceTierOrderByWithRelationInput | Prisma.PriceTierOrderByWithRelationInput[]
+  cursor?: Prisma.PriceTierWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PriceTierScalarFieldEnum | Prisma.PriceTierScalarFieldEnum[]
+}
+
+/**
+ * Organization.discountRules
+ */
+export type Organization$discountRulesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the DiscountRule
+   */
+  select?: Prisma.DiscountRuleSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the DiscountRule
+   */
+  omit?: Prisma.DiscountRuleOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.DiscountRuleInclude<ExtArgs> | null
+  where?: Prisma.DiscountRuleWhereInput
+  orderBy?: Prisma.DiscountRuleOrderByWithRelationInput | Prisma.DiscountRuleOrderByWithRelationInput[]
+  cursor?: Prisma.DiscountRuleWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.DiscountRuleScalarFieldEnum | Prisma.DiscountRuleScalarFieldEnum[]
 }
 
 /**

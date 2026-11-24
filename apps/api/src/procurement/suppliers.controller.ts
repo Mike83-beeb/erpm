@@ -97,6 +97,7 @@ const restoreSupplierSchema = z.object({
 
 const upsertSupplierItemSchema = z.object({
   itemId: z.string().trim().min(1),
+  packId: z.string().trim().min(1).nullable().optional(),
   supplierSku: z.string().trim().min(1).max(64).nullable().optional(),
   unitCostCents: z.number().int().min(0).max(2_000_000_000),
   currency: currencySchema.optional(),

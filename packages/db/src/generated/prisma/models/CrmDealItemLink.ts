@@ -29,11 +29,15 @@ export type AggregateCrmDealItemLink = {
 export type CrmDealItemLinkAvgAggregateOutputType = {
   quantity: number | null
   unitPriceCents: number | null
+  baseSubtotalCents: number | null
+  discountCents: number | null
 }
 
 export type CrmDealItemLinkSumAggregateOutputType = {
   quantity: number | null
   unitPriceCents: number | null
+  baseSubtotalCents: number | null
+  discountCents: number | null
 }
 
 export type CrmDealItemLinkMinAggregateOutputType = {
@@ -41,9 +45,15 @@ export type CrmDealItemLinkMinAggregateOutputType = {
   organizationId: string | null
   externalDealId: string | null
   itemId: string | null
+  packId: string | null
+  servicePlanId: string | null
+  priceBookId: string | null
+  promoCode: string | null
   externalServiceId: string | null
   quantity: number | null
   unitPriceCents: number | null
+  baseSubtotalCents: number | null
+  discountCents: number | null
   currency: string | null
   notes: string | null
   createdByUserId: string | null
@@ -56,9 +66,15 @@ export type CrmDealItemLinkMaxAggregateOutputType = {
   organizationId: string | null
   externalDealId: string | null
   itemId: string | null
+  packId: string | null
+  servicePlanId: string | null
+  priceBookId: string | null
+  promoCode: string | null
   externalServiceId: string | null
   quantity: number | null
   unitPriceCents: number | null
+  baseSubtotalCents: number | null
+  discountCents: number | null
   currency: string | null
   notes: string | null
   createdByUserId: string | null
@@ -71,10 +87,17 @@ export type CrmDealItemLinkCountAggregateOutputType = {
   organizationId: number
   externalDealId: number
   itemId: number
+  packId: number
+  servicePlanId: number
+  priceBookId: number
+  promoCode: number
   externalServiceId: number
   quantity: number
   unitPriceCents: number
+  baseSubtotalCents: number
+  discountCents: number
   currency: number
+  appliedPricing: number
   notes: number
   createdByUserId: number
   createdAt: number
@@ -86,11 +109,15 @@ export type CrmDealItemLinkCountAggregateOutputType = {
 export type CrmDealItemLinkAvgAggregateInputType = {
   quantity?: true
   unitPriceCents?: true
+  baseSubtotalCents?: true
+  discountCents?: true
 }
 
 export type CrmDealItemLinkSumAggregateInputType = {
   quantity?: true
   unitPriceCents?: true
+  baseSubtotalCents?: true
+  discountCents?: true
 }
 
 export type CrmDealItemLinkMinAggregateInputType = {
@@ -98,9 +125,15 @@ export type CrmDealItemLinkMinAggregateInputType = {
   organizationId?: true
   externalDealId?: true
   itemId?: true
+  packId?: true
+  servicePlanId?: true
+  priceBookId?: true
+  promoCode?: true
   externalServiceId?: true
   quantity?: true
   unitPriceCents?: true
+  baseSubtotalCents?: true
+  discountCents?: true
   currency?: true
   notes?: true
   createdByUserId?: true
@@ -113,9 +146,15 @@ export type CrmDealItemLinkMaxAggregateInputType = {
   organizationId?: true
   externalDealId?: true
   itemId?: true
+  packId?: true
+  servicePlanId?: true
+  priceBookId?: true
+  promoCode?: true
   externalServiceId?: true
   quantity?: true
   unitPriceCents?: true
+  baseSubtotalCents?: true
+  discountCents?: true
   currency?: true
   notes?: true
   createdByUserId?: true
@@ -128,10 +167,17 @@ export type CrmDealItemLinkCountAggregateInputType = {
   organizationId?: true
   externalDealId?: true
   itemId?: true
+  packId?: true
+  servicePlanId?: true
+  priceBookId?: true
+  promoCode?: true
   externalServiceId?: true
   quantity?: true
   unitPriceCents?: true
+  baseSubtotalCents?: true
+  discountCents?: true
   currency?: true
+  appliedPricing?: true
   notes?: true
   createdByUserId?: true
   createdAt?: true
@@ -230,10 +276,17 @@ export type CrmDealItemLinkGroupByOutputType = {
   organizationId: string
   externalDealId: string
   itemId: string
+  packId: string | null
+  servicePlanId: string | null
+  priceBookId: string | null
+  promoCode: string | null
   externalServiceId: string | null
   quantity: number
   unitPriceCents: number
+  baseSubtotalCents: number | null
+  discountCents: number
   currency: string
+  appliedPricing: runtime.JsonValue | null
   notes: string | null
   createdByUserId: string | null
   createdAt: Date
@@ -268,16 +321,26 @@ export type CrmDealItemLinkWhereInput = {
   organizationId?: Prisma.StringFilter<"CrmDealItemLink"> | string
   externalDealId?: Prisma.StringFilter<"CrmDealItemLink"> | string
   itemId?: Prisma.StringFilter<"CrmDealItemLink"> | string
+  packId?: Prisma.StringNullableFilter<"CrmDealItemLink"> | string | null
+  servicePlanId?: Prisma.StringNullableFilter<"CrmDealItemLink"> | string | null
+  priceBookId?: Prisma.StringNullableFilter<"CrmDealItemLink"> | string | null
+  promoCode?: Prisma.StringNullableFilter<"CrmDealItemLink"> | string | null
   externalServiceId?: Prisma.StringNullableFilter<"CrmDealItemLink"> | string | null
   quantity?: Prisma.IntFilter<"CrmDealItemLink"> | number
   unitPriceCents?: Prisma.IntFilter<"CrmDealItemLink"> | number
+  baseSubtotalCents?: Prisma.IntNullableFilter<"CrmDealItemLink"> | number | null
+  discountCents?: Prisma.IntFilter<"CrmDealItemLink"> | number
   currency?: Prisma.StringFilter<"CrmDealItemLink"> | string
+  appliedPricing?: Prisma.JsonNullableFilter<"CrmDealItemLink">
   notes?: Prisma.StringNullableFilter<"CrmDealItemLink"> | string | null
   createdByUserId?: Prisma.StringNullableFilter<"CrmDealItemLink"> | string | null
   createdAt?: Prisma.DateTimeFilter<"CrmDealItemLink"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"CrmDealItemLink"> | Date | string
   organization?: Prisma.XOR<Prisma.OrganizationScalarRelationFilter, Prisma.OrganizationWhereInput>
   item?: Prisma.XOR<Prisma.ItemScalarRelationFilter, Prisma.ItemWhereInput>
+  pack?: Prisma.XOR<Prisma.ItemPackNullableScalarRelationFilter, Prisma.ItemPackWhereInput> | null
+  servicePlan?: Prisma.XOR<Prisma.ServicePlanNullableScalarRelationFilter, Prisma.ServicePlanWhereInput> | null
+  priceBook?: Prisma.XOR<Prisma.PriceBookNullableScalarRelationFilter, Prisma.PriceBookWhereInput> | null
 }
 
 export type CrmDealItemLinkOrderByWithRelationInput = {
@@ -285,16 +348,26 @@ export type CrmDealItemLinkOrderByWithRelationInput = {
   organizationId?: Prisma.SortOrder
   externalDealId?: Prisma.SortOrder
   itemId?: Prisma.SortOrder
+  packId?: Prisma.SortOrderInput | Prisma.SortOrder
+  servicePlanId?: Prisma.SortOrderInput | Prisma.SortOrder
+  priceBookId?: Prisma.SortOrderInput | Prisma.SortOrder
+  promoCode?: Prisma.SortOrderInput | Prisma.SortOrder
   externalServiceId?: Prisma.SortOrderInput | Prisma.SortOrder
   quantity?: Prisma.SortOrder
   unitPriceCents?: Prisma.SortOrder
+  baseSubtotalCents?: Prisma.SortOrderInput | Prisma.SortOrder
+  discountCents?: Prisma.SortOrder
   currency?: Prisma.SortOrder
+  appliedPricing?: Prisma.SortOrderInput | Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   createdByUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   organization?: Prisma.OrganizationOrderByWithRelationInput
   item?: Prisma.ItemOrderByWithRelationInput
+  pack?: Prisma.ItemPackOrderByWithRelationInput
+  servicePlan?: Prisma.ServicePlanOrderByWithRelationInput
+  priceBook?: Prisma.PriceBookOrderByWithRelationInput
 }
 
 export type CrmDealItemLinkWhereUniqueInput = Prisma.AtLeast<{
@@ -306,16 +379,26 @@ export type CrmDealItemLinkWhereUniqueInput = Prisma.AtLeast<{
   organizationId?: Prisma.StringFilter<"CrmDealItemLink"> | string
   externalDealId?: Prisma.StringFilter<"CrmDealItemLink"> | string
   itemId?: Prisma.StringFilter<"CrmDealItemLink"> | string
+  packId?: Prisma.StringNullableFilter<"CrmDealItemLink"> | string | null
+  servicePlanId?: Prisma.StringNullableFilter<"CrmDealItemLink"> | string | null
+  priceBookId?: Prisma.StringNullableFilter<"CrmDealItemLink"> | string | null
+  promoCode?: Prisma.StringNullableFilter<"CrmDealItemLink"> | string | null
   externalServiceId?: Prisma.StringNullableFilter<"CrmDealItemLink"> | string | null
   quantity?: Prisma.IntFilter<"CrmDealItemLink"> | number
   unitPriceCents?: Prisma.IntFilter<"CrmDealItemLink"> | number
+  baseSubtotalCents?: Prisma.IntNullableFilter<"CrmDealItemLink"> | number | null
+  discountCents?: Prisma.IntFilter<"CrmDealItemLink"> | number
   currency?: Prisma.StringFilter<"CrmDealItemLink"> | string
+  appliedPricing?: Prisma.JsonNullableFilter<"CrmDealItemLink">
   notes?: Prisma.StringNullableFilter<"CrmDealItemLink"> | string | null
   createdByUserId?: Prisma.StringNullableFilter<"CrmDealItemLink"> | string | null
   createdAt?: Prisma.DateTimeFilter<"CrmDealItemLink"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"CrmDealItemLink"> | Date | string
   organization?: Prisma.XOR<Prisma.OrganizationScalarRelationFilter, Prisma.OrganizationWhereInput>
   item?: Prisma.XOR<Prisma.ItemScalarRelationFilter, Prisma.ItemWhereInput>
+  pack?: Prisma.XOR<Prisma.ItemPackNullableScalarRelationFilter, Prisma.ItemPackWhereInput> | null
+  servicePlan?: Prisma.XOR<Prisma.ServicePlanNullableScalarRelationFilter, Prisma.ServicePlanWhereInput> | null
+  priceBook?: Prisma.XOR<Prisma.PriceBookNullableScalarRelationFilter, Prisma.PriceBookWhereInput> | null
 }, "id" | "organizationId_externalDealId_itemId">
 
 export type CrmDealItemLinkOrderByWithAggregationInput = {
@@ -323,10 +406,17 @@ export type CrmDealItemLinkOrderByWithAggregationInput = {
   organizationId?: Prisma.SortOrder
   externalDealId?: Prisma.SortOrder
   itemId?: Prisma.SortOrder
+  packId?: Prisma.SortOrderInput | Prisma.SortOrder
+  servicePlanId?: Prisma.SortOrderInput | Prisma.SortOrder
+  priceBookId?: Prisma.SortOrderInput | Prisma.SortOrder
+  promoCode?: Prisma.SortOrderInput | Prisma.SortOrder
   externalServiceId?: Prisma.SortOrderInput | Prisma.SortOrder
   quantity?: Prisma.SortOrder
   unitPriceCents?: Prisma.SortOrder
+  baseSubtotalCents?: Prisma.SortOrderInput | Prisma.SortOrder
+  discountCents?: Prisma.SortOrder
   currency?: Prisma.SortOrder
+  appliedPricing?: Prisma.SortOrderInput | Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   createdByUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -346,10 +436,17 @@ export type CrmDealItemLinkScalarWhereWithAggregatesInput = {
   organizationId?: Prisma.StringWithAggregatesFilter<"CrmDealItemLink"> | string
   externalDealId?: Prisma.StringWithAggregatesFilter<"CrmDealItemLink"> | string
   itemId?: Prisma.StringWithAggregatesFilter<"CrmDealItemLink"> | string
+  packId?: Prisma.StringNullableWithAggregatesFilter<"CrmDealItemLink"> | string | null
+  servicePlanId?: Prisma.StringNullableWithAggregatesFilter<"CrmDealItemLink"> | string | null
+  priceBookId?: Prisma.StringNullableWithAggregatesFilter<"CrmDealItemLink"> | string | null
+  promoCode?: Prisma.StringNullableWithAggregatesFilter<"CrmDealItemLink"> | string | null
   externalServiceId?: Prisma.StringNullableWithAggregatesFilter<"CrmDealItemLink"> | string | null
   quantity?: Prisma.IntWithAggregatesFilter<"CrmDealItemLink"> | number
   unitPriceCents?: Prisma.IntWithAggregatesFilter<"CrmDealItemLink"> | number
+  baseSubtotalCents?: Prisma.IntNullableWithAggregatesFilter<"CrmDealItemLink"> | number | null
+  discountCents?: Prisma.IntWithAggregatesFilter<"CrmDealItemLink"> | number
   currency?: Prisma.StringWithAggregatesFilter<"CrmDealItemLink"> | string
+  appliedPricing?: Prisma.JsonNullableWithAggregatesFilter<"CrmDealItemLink">
   notes?: Prisma.StringNullableWithAggregatesFilter<"CrmDealItemLink"> | string | null
   createdByUserId?: Prisma.StringNullableWithAggregatesFilter<"CrmDealItemLink"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"CrmDealItemLink"> | Date | string
@@ -359,16 +456,23 @@ export type CrmDealItemLinkScalarWhereWithAggregatesInput = {
 export type CrmDealItemLinkCreateInput = {
   id?: string
   externalDealId: string
+  promoCode?: string | null
   externalServiceId?: string | null
   quantity?: number
   unitPriceCents: number
+  baseSubtotalCents?: number | null
+  discountCents?: number
   currency?: string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   notes?: string | null
   createdByUserId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutCrmDealItemLinksInput
   item: Prisma.ItemCreateNestedOneWithoutCrmDealLinksInput
+  pack?: Prisma.ItemPackCreateNestedOneWithoutCrmDealLinksInput
+  servicePlan?: Prisma.ServicePlanCreateNestedOneWithoutCrmDealLinksInput
+  priceBook?: Prisma.PriceBookCreateNestedOneWithoutCrmDealLinksInput
 }
 
 export type CrmDealItemLinkUncheckedCreateInput = {
@@ -376,10 +480,17 @@ export type CrmDealItemLinkUncheckedCreateInput = {
   organizationId: string
   externalDealId: string
   itemId: string
+  packId?: string | null
+  servicePlanId?: string | null
+  priceBookId?: string | null
+  promoCode?: string | null
   externalServiceId?: string | null
   quantity?: number
   unitPriceCents: number
+  baseSubtotalCents?: number | null
+  discountCents?: number
   currency?: string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   notes?: string | null
   createdByUserId?: string | null
   createdAt?: Date | string
@@ -389,16 +500,23 @@ export type CrmDealItemLinkUncheckedCreateInput = {
 export type CrmDealItemLinkUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   externalDealId?: Prisma.StringFieldUpdateOperationsInput | string
+  promoCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalServiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   unitPriceCents?: Prisma.IntFieldUpdateOperationsInput | number
+  baseSubtotalCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  discountCents?: Prisma.IntFieldUpdateOperationsInput | number
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutCrmDealItemLinksNestedInput
   item?: Prisma.ItemUpdateOneRequiredWithoutCrmDealLinksNestedInput
+  pack?: Prisma.ItemPackUpdateOneWithoutCrmDealLinksNestedInput
+  servicePlan?: Prisma.ServicePlanUpdateOneWithoutCrmDealLinksNestedInput
+  priceBook?: Prisma.PriceBookUpdateOneWithoutCrmDealLinksNestedInput
 }
 
 export type CrmDealItemLinkUncheckedUpdateInput = {
@@ -406,10 +524,17 @@ export type CrmDealItemLinkUncheckedUpdateInput = {
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   externalDealId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  servicePlanId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  priceBookId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  promoCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalServiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   unitPriceCents?: Prisma.IntFieldUpdateOperationsInput | number
+  baseSubtotalCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  discountCents?: Prisma.IntFieldUpdateOperationsInput | number
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -421,10 +546,17 @@ export type CrmDealItemLinkCreateManyInput = {
   organizationId: string
   externalDealId: string
   itemId: string
+  packId?: string | null
+  servicePlanId?: string | null
+  priceBookId?: string | null
+  promoCode?: string | null
   externalServiceId?: string | null
   quantity?: number
   unitPriceCents: number
+  baseSubtotalCents?: number | null
+  discountCents?: number
   currency?: string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   notes?: string | null
   createdByUserId?: string | null
   createdAt?: Date | string
@@ -434,10 +566,14 @@ export type CrmDealItemLinkCreateManyInput = {
 export type CrmDealItemLinkUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   externalDealId?: Prisma.StringFieldUpdateOperationsInput | string
+  promoCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalServiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   unitPriceCents?: Prisma.IntFieldUpdateOperationsInput | number
+  baseSubtotalCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  discountCents?: Prisma.IntFieldUpdateOperationsInput | number
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -449,10 +585,17 @@ export type CrmDealItemLinkUncheckedUpdateManyInput = {
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   externalDealId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  servicePlanId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  priceBookId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  promoCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalServiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   unitPriceCents?: Prisma.IntFieldUpdateOperationsInput | number
+  baseSubtotalCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  discountCents?: Prisma.IntFieldUpdateOperationsInput | number
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -480,10 +623,17 @@ export type CrmDealItemLinkCountOrderByAggregateInput = {
   organizationId?: Prisma.SortOrder
   externalDealId?: Prisma.SortOrder
   itemId?: Prisma.SortOrder
+  packId?: Prisma.SortOrder
+  servicePlanId?: Prisma.SortOrder
+  priceBookId?: Prisma.SortOrder
+  promoCode?: Prisma.SortOrder
   externalServiceId?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   unitPriceCents?: Prisma.SortOrder
+  baseSubtotalCents?: Prisma.SortOrder
+  discountCents?: Prisma.SortOrder
   currency?: Prisma.SortOrder
+  appliedPricing?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   createdByUserId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -493,6 +643,8 @@ export type CrmDealItemLinkCountOrderByAggregateInput = {
 export type CrmDealItemLinkAvgOrderByAggregateInput = {
   quantity?: Prisma.SortOrder
   unitPriceCents?: Prisma.SortOrder
+  baseSubtotalCents?: Prisma.SortOrder
+  discountCents?: Prisma.SortOrder
 }
 
 export type CrmDealItemLinkMaxOrderByAggregateInput = {
@@ -500,9 +652,15 @@ export type CrmDealItemLinkMaxOrderByAggregateInput = {
   organizationId?: Prisma.SortOrder
   externalDealId?: Prisma.SortOrder
   itemId?: Prisma.SortOrder
+  packId?: Prisma.SortOrder
+  servicePlanId?: Prisma.SortOrder
+  priceBookId?: Prisma.SortOrder
+  promoCode?: Prisma.SortOrder
   externalServiceId?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   unitPriceCents?: Prisma.SortOrder
+  baseSubtotalCents?: Prisma.SortOrder
+  discountCents?: Prisma.SortOrder
   currency?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   createdByUserId?: Prisma.SortOrder
@@ -515,9 +673,15 @@ export type CrmDealItemLinkMinOrderByAggregateInput = {
   organizationId?: Prisma.SortOrder
   externalDealId?: Prisma.SortOrder
   itemId?: Prisma.SortOrder
+  packId?: Prisma.SortOrder
+  servicePlanId?: Prisma.SortOrder
+  priceBookId?: Prisma.SortOrder
+  promoCode?: Prisma.SortOrder
   externalServiceId?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   unitPriceCents?: Prisma.SortOrder
+  baseSubtotalCents?: Prisma.SortOrder
+  discountCents?: Prisma.SortOrder
   currency?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   createdByUserId?: Prisma.SortOrder
@@ -528,6 +692,8 @@ export type CrmDealItemLinkMinOrderByAggregateInput = {
 export type CrmDealItemLinkSumOrderByAggregateInput = {
   quantity?: Prisma.SortOrder
   unitPriceCents?: Prisma.SortOrder
+  baseSubtotalCents?: Prisma.SortOrder
+  discountCents?: Prisma.SortOrder
 }
 
 export type CrmDealItemLinkCreateNestedManyWithoutOrganizationInput = {
@@ -614,28 +780,168 @@ export type CrmDealItemLinkUncheckedUpdateManyWithoutItemNestedInput = {
   deleteMany?: Prisma.CrmDealItemLinkScalarWhereInput | Prisma.CrmDealItemLinkScalarWhereInput[]
 }
 
+export type CrmDealItemLinkCreateNestedManyWithoutPackInput = {
+  create?: Prisma.XOR<Prisma.CrmDealItemLinkCreateWithoutPackInput, Prisma.CrmDealItemLinkUncheckedCreateWithoutPackInput> | Prisma.CrmDealItemLinkCreateWithoutPackInput[] | Prisma.CrmDealItemLinkUncheckedCreateWithoutPackInput[]
+  connectOrCreate?: Prisma.CrmDealItemLinkCreateOrConnectWithoutPackInput | Prisma.CrmDealItemLinkCreateOrConnectWithoutPackInput[]
+  createMany?: Prisma.CrmDealItemLinkCreateManyPackInputEnvelope
+  connect?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+}
+
+export type CrmDealItemLinkUncheckedCreateNestedManyWithoutPackInput = {
+  create?: Prisma.XOR<Prisma.CrmDealItemLinkCreateWithoutPackInput, Prisma.CrmDealItemLinkUncheckedCreateWithoutPackInput> | Prisma.CrmDealItemLinkCreateWithoutPackInput[] | Prisma.CrmDealItemLinkUncheckedCreateWithoutPackInput[]
+  connectOrCreate?: Prisma.CrmDealItemLinkCreateOrConnectWithoutPackInput | Prisma.CrmDealItemLinkCreateOrConnectWithoutPackInput[]
+  createMany?: Prisma.CrmDealItemLinkCreateManyPackInputEnvelope
+  connect?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+}
+
+export type CrmDealItemLinkUpdateManyWithoutPackNestedInput = {
+  create?: Prisma.XOR<Prisma.CrmDealItemLinkCreateWithoutPackInput, Prisma.CrmDealItemLinkUncheckedCreateWithoutPackInput> | Prisma.CrmDealItemLinkCreateWithoutPackInput[] | Prisma.CrmDealItemLinkUncheckedCreateWithoutPackInput[]
+  connectOrCreate?: Prisma.CrmDealItemLinkCreateOrConnectWithoutPackInput | Prisma.CrmDealItemLinkCreateOrConnectWithoutPackInput[]
+  upsert?: Prisma.CrmDealItemLinkUpsertWithWhereUniqueWithoutPackInput | Prisma.CrmDealItemLinkUpsertWithWhereUniqueWithoutPackInput[]
+  createMany?: Prisma.CrmDealItemLinkCreateManyPackInputEnvelope
+  set?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+  disconnect?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+  delete?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+  connect?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+  update?: Prisma.CrmDealItemLinkUpdateWithWhereUniqueWithoutPackInput | Prisma.CrmDealItemLinkUpdateWithWhereUniqueWithoutPackInput[]
+  updateMany?: Prisma.CrmDealItemLinkUpdateManyWithWhereWithoutPackInput | Prisma.CrmDealItemLinkUpdateManyWithWhereWithoutPackInput[]
+  deleteMany?: Prisma.CrmDealItemLinkScalarWhereInput | Prisma.CrmDealItemLinkScalarWhereInput[]
+}
+
+export type CrmDealItemLinkUncheckedUpdateManyWithoutPackNestedInput = {
+  create?: Prisma.XOR<Prisma.CrmDealItemLinkCreateWithoutPackInput, Prisma.CrmDealItemLinkUncheckedCreateWithoutPackInput> | Prisma.CrmDealItemLinkCreateWithoutPackInput[] | Prisma.CrmDealItemLinkUncheckedCreateWithoutPackInput[]
+  connectOrCreate?: Prisma.CrmDealItemLinkCreateOrConnectWithoutPackInput | Prisma.CrmDealItemLinkCreateOrConnectWithoutPackInput[]
+  upsert?: Prisma.CrmDealItemLinkUpsertWithWhereUniqueWithoutPackInput | Prisma.CrmDealItemLinkUpsertWithWhereUniqueWithoutPackInput[]
+  createMany?: Prisma.CrmDealItemLinkCreateManyPackInputEnvelope
+  set?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+  disconnect?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+  delete?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+  connect?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+  update?: Prisma.CrmDealItemLinkUpdateWithWhereUniqueWithoutPackInput | Prisma.CrmDealItemLinkUpdateWithWhereUniqueWithoutPackInput[]
+  updateMany?: Prisma.CrmDealItemLinkUpdateManyWithWhereWithoutPackInput | Prisma.CrmDealItemLinkUpdateManyWithWhereWithoutPackInput[]
+  deleteMany?: Prisma.CrmDealItemLinkScalarWhereInput | Prisma.CrmDealItemLinkScalarWhereInput[]
+}
+
+export type CrmDealItemLinkCreateNestedManyWithoutServicePlanInput = {
+  create?: Prisma.XOR<Prisma.CrmDealItemLinkCreateWithoutServicePlanInput, Prisma.CrmDealItemLinkUncheckedCreateWithoutServicePlanInput> | Prisma.CrmDealItemLinkCreateWithoutServicePlanInput[] | Prisma.CrmDealItemLinkUncheckedCreateWithoutServicePlanInput[]
+  connectOrCreate?: Prisma.CrmDealItemLinkCreateOrConnectWithoutServicePlanInput | Prisma.CrmDealItemLinkCreateOrConnectWithoutServicePlanInput[]
+  createMany?: Prisma.CrmDealItemLinkCreateManyServicePlanInputEnvelope
+  connect?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+}
+
+export type CrmDealItemLinkUncheckedCreateNestedManyWithoutServicePlanInput = {
+  create?: Prisma.XOR<Prisma.CrmDealItemLinkCreateWithoutServicePlanInput, Prisma.CrmDealItemLinkUncheckedCreateWithoutServicePlanInput> | Prisma.CrmDealItemLinkCreateWithoutServicePlanInput[] | Prisma.CrmDealItemLinkUncheckedCreateWithoutServicePlanInput[]
+  connectOrCreate?: Prisma.CrmDealItemLinkCreateOrConnectWithoutServicePlanInput | Prisma.CrmDealItemLinkCreateOrConnectWithoutServicePlanInput[]
+  createMany?: Prisma.CrmDealItemLinkCreateManyServicePlanInputEnvelope
+  connect?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+}
+
+export type CrmDealItemLinkUpdateManyWithoutServicePlanNestedInput = {
+  create?: Prisma.XOR<Prisma.CrmDealItemLinkCreateWithoutServicePlanInput, Prisma.CrmDealItemLinkUncheckedCreateWithoutServicePlanInput> | Prisma.CrmDealItemLinkCreateWithoutServicePlanInput[] | Prisma.CrmDealItemLinkUncheckedCreateWithoutServicePlanInput[]
+  connectOrCreate?: Prisma.CrmDealItemLinkCreateOrConnectWithoutServicePlanInput | Prisma.CrmDealItemLinkCreateOrConnectWithoutServicePlanInput[]
+  upsert?: Prisma.CrmDealItemLinkUpsertWithWhereUniqueWithoutServicePlanInput | Prisma.CrmDealItemLinkUpsertWithWhereUniqueWithoutServicePlanInput[]
+  createMany?: Prisma.CrmDealItemLinkCreateManyServicePlanInputEnvelope
+  set?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+  disconnect?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+  delete?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+  connect?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+  update?: Prisma.CrmDealItemLinkUpdateWithWhereUniqueWithoutServicePlanInput | Prisma.CrmDealItemLinkUpdateWithWhereUniqueWithoutServicePlanInput[]
+  updateMany?: Prisma.CrmDealItemLinkUpdateManyWithWhereWithoutServicePlanInput | Prisma.CrmDealItemLinkUpdateManyWithWhereWithoutServicePlanInput[]
+  deleteMany?: Prisma.CrmDealItemLinkScalarWhereInput | Prisma.CrmDealItemLinkScalarWhereInput[]
+}
+
+export type CrmDealItemLinkUncheckedUpdateManyWithoutServicePlanNestedInput = {
+  create?: Prisma.XOR<Prisma.CrmDealItemLinkCreateWithoutServicePlanInput, Prisma.CrmDealItemLinkUncheckedCreateWithoutServicePlanInput> | Prisma.CrmDealItemLinkCreateWithoutServicePlanInput[] | Prisma.CrmDealItemLinkUncheckedCreateWithoutServicePlanInput[]
+  connectOrCreate?: Prisma.CrmDealItemLinkCreateOrConnectWithoutServicePlanInput | Prisma.CrmDealItemLinkCreateOrConnectWithoutServicePlanInput[]
+  upsert?: Prisma.CrmDealItemLinkUpsertWithWhereUniqueWithoutServicePlanInput | Prisma.CrmDealItemLinkUpsertWithWhereUniqueWithoutServicePlanInput[]
+  createMany?: Prisma.CrmDealItemLinkCreateManyServicePlanInputEnvelope
+  set?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+  disconnect?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+  delete?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+  connect?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+  update?: Prisma.CrmDealItemLinkUpdateWithWhereUniqueWithoutServicePlanInput | Prisma.CrmDealItemLinkUpdateWithWhereUniqueWithoutServicePlanInput[]
+  updateMany?: Prisma.CrmDealItemLinkUpdateManyWithWhereWithoutServicePlanInput | Prisma.CrmDealItemLinkUpdateManyWithWhereWithoutServicePlanInput[]
+  deleteMany?: Prisma.CrmDealItemLinkScalarWhereInput | Prisma.CrmDealItemLinkScalarWhereInput[]
+}
+
+export type CrmDealItemLinkCreateNestedManyWithoutPriceBookInput = {
+  create?: Prisma.XOR<Prisma.CrmDealItemLinkCreateWithoutPriceBookInput, Prisma.CrmDealItemLinkUncheckedCreateWithoutPriceBookInput> | Prisma.CrmDealItemLinkCreateWithoutPriceBookInput[] | Prisma.CrmDealItemLinkUncheckedCreateWithoutPriceBookInput[]
+  connectOrCreate?: Prisma.CrmDealItemLinkCreateOrConnectWithoutPriceBookInput | Prisma.CrmDealItemLinkCreateOrConnectWithoutPriceBookInput[]
+  createMany?: Prisma.CrmDealItemLinkCreateManyPriceBookInputEnvelope
+  connect?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+}
+
+export type CrmDealItemLinkUncheckedCreateNestedManyWithoutPriceBookInput = {
+  create?: Prisma.XOR<Prisma.CrmDealItemLinkCreateWithoutPriceBookInput, Prisma.CrmDealItemLinkUncheckedCreateWithoutPriceBookInput> | Prisma.CrmDealItemLinkCreateWithoutPriceBookInput[] | Prisma.CrmDealItemLinkUncheckedCreateWithoutPriceBookInput[]
+  connectOrCreate?: Prisma.CrmDealItemLinkCreateOrConnectWithoutPriceBookInput | Prisma.CrmDealItemLinkCreateOrConnectWithoutPriceBookInput[]
+  createMany?: Prisma.CrmDealItemLinkCreateManyPriceBookInputEnvelope
+  connect?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+}
+
+export type CrmDealItemLinkUpdateManyWithoutPriceBookNestedInput = {
+  create?: Prisma.XOR<Prisma.CrmDealItemLinkCreateWithoutPriceBookInput, Prisma.CrmDealItemLinkUncheckedCreateWithoutPriceBookInput> | Prisma.CrmDealItemLinkCreateWithoutPriceBookInput[] | Prisma.CrmDealItemLinkUncheckedCreateWithoutPriceBookInput[]
+  connectOrCreate?: Prisma.CrmDealItemLinkCreateOrConnectWithoutPriceBookInput | Prisma.CrmDealItemLinkCreateOrConnectWithoutPriceBookInput[]
+  upsert?: Prisma.CrmDealItemLinkUpsertWithWhereUniqueWithoutPriceBookInput | Prisma.CrmDealItemLinkUpsertWithWhereUniqueWithoutPriceBookInput[]
+  createMany?: Prisma.CrmDealItemLinkCreateManyPriceBookInputEnvelope
+  set?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+  disconnect?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+  delete?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+  connect?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+  update?: Prisma.CrmDealItemLinkUpdateWithWhereUniqueWithoutPriceBookInput | Prisma.CrmDealItemLinkUpdateWithWhereUniqueWithoutPriceBookInput[]
+  updateMany?: Prisma.CrmDealItemLinkUpdateManyWithWhereWithoutPriceBookInput | Prisma.CrmDealItemLinkUpdateManyWithWhereWithoutPriceBookInput[]
+  deleteMany?: Prisma.CrmDealItemLinkScalarWhereInput | Prisma.CrmDealItemLinkScalarWhereInput[]
+}
+
+export type CrmDealItemLinkUncheckedUpdateManyWithoutPriceBookNestedInput = {
+  create?: Prisma.XOR<Prisma.CrmDealItemLinkCreateWithoutPriceBookInput, Prisma.CrmDealItemLinkUncheckedCreateWithoutPriceBookInput> | Prisma.CrmDealItemLinkCreateWithoutPriceBookInput[] | Prisma.CrmDealItemLinkUncheckedCreateWithoutPriceBookInput[]
+  connectOrCreate?: Prisma.CrmDealItemLinkCreateOrConnectWithoutPriceBookInput | Prisma.CrmDealItemLinkCreateOrConnectWithoutPriceBookInput[]
+  upsert?: Prisma.CrmDealItemLinkUpsertWithWhereUniqueWithoutPriceBookInput | Prisma.CrmDealItemLinkUpsertWithWhereUniqueWithoutPriceBookInput[]
+  createMany?: Prisma.CrmDealItemLinkCreateManyPriceBookInputEnvelope
+  set?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+  disconnect?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+  delete?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+  connect?: Prisma.CrmDealItemLinkWhereUniqueInput | Prisma.CrmDealItemLinkWhereUniqueInput[]
+  update?: Prisma.CrmDealItemLinkUpdateWithWhereUniqueWithoutPriceBookInput | Prisma.CrmDealItemLinkUpdateWithWhereUniqueWithoutPriceBookInput[]
+  updateMany?: Prisma.CrmDealItemLinkUpdateManyWithWhereWithoutPriceBookInput | Prisma.CrmDealItemLinkUpdateManyWithWhereWithoutPriceBookInput[]
+  deleteMany?: Prisma.CrmDealItemLinkScalarWhereInput | Prisma.CrmDealItemLinkScalarWhereInput[]
+}
+
 export type CrmDealItemLinkCreateWithoutOrganizationInput = {
   id?: string
   externalDealId: string
+  promoCode?: string | null
   externalServiceId?: string | null
   quantity?: number
   unitPriceCents: number
+  baseSubtotalCents?: number | null
+  discountCents?: number
   currency?: string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   notes?: string | null
   createdByUserId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   item: Prisma.ItemCreateNestedOneWithoutCrmDealLinksInput
+  pack?: Prisma.ItemPackCreateNestedOneWithoutCrmDealLinksInput
+  servicePlan?: Prisma.ServicePlanCreateNestedOneWithoutCrmDealLinksInput
+  priceBook?: Prisma.PriceBookCreateNestedOneWithoutCrmDealLinksInput
 }
 
 export type CrmDealItemLinkUncheckedCreateWithoutOrganizationInput = {
   id?: string
   externalDealId: string
   itemId: string
+  packId?: string | null
+  servicePlanId?: string | null
+  priceBookId?: string | null
+  promoCode?: string | null
   externalServiceId?: string | null
   quantity?: number
   unitPriceCents: number
+  baseSubtotalCents?: number | null
+  discountCents?: number
   currency?: string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   notes?: string | null
   createdByUserId?: string | null
   createdAt?: Date | string
@@ -676,10 +982,17 @@ export type CrmDealItemLinkScalarWhereInput = {
   organizationId?: Prisma.StringFilter<"CrmDealItemLink"> | string
   externalDealId?: Prisma.StringFilter<"CrmDealItemLink"> | string
   itemId?: Prisma.StringFilter<"CrmDealItemLink"> | string
+  packId?: Prisma.StringNullableFilter<"CrmDealItemLink"> | string | null
+  servicePlanId?: Prisma.StringNullableFilter<"CrmDealItemLink"> | string | null
+  priceBookId?: Prisma.StringNullableFilter<"CrmDealItemLink"> | string | null
+  promoCode?: Prisma.StringNullableFilter<"CrmDealItemLink"> | string | null
   externalServiceId?: Prisma.StringNullableFilter<"CrmDealItemLink"> | string | null
   quantity?: Prisma.IntFilter<"CrmDealItemLink"> | number
   unitPriceCents?: Prisma.IntFilter<"CrmDealItemLink"> | number
+  baseSubtotalCents?: Prisma.IntNullableFilter<"CrmDealItemLink"> | number | null
+  discountCents?: Prisma.IntFilter<"CrmDealItemLink"> | number
   currency?: Prisma.StringFilter<"CrmDealItemLink"> | string
+  appliedPricing?: Prisma.JsonNullableFilter<"CrmDealItemLink">
   notes?: Prisma.StringNullableFilter<"CrmDealItemLink"> | string | null
   createdByUserId?: Prisma.StringNullableFilter<"CrmDealItemLink"> | string | null
   createdAt?: Prisma.DateTimeFilter<"CrmDealItemLink"> | Date | string
@@ -689,25 +1002,39 @@ export type CrmDealItemLinkScalarWhereInput = {
 export type CrmDealItemLinkCreateWithoutItemInput = {
   id?: string
   externalDealId: string
+  promoCode?: string | null
   externalServiceId?: string | null
   quantity?: number
   unitPriceCents: number
+  baseSubtotalCents?: number | null
+  discountCents?: number
   currency?: string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   notes?: string | null
   createdByUserId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutCrmDealItemLinksInput
+  pack?: Prisma.ItemPackCreateNestedOneWithoutCrmDealLinksInput
+  servicePlan?: Prisma.ServicePlanCreateNestedOneWithoutCrmDealLinksInput
+  priceBook?: Prisma.PriceBookCreateNestedOneWithoutCrmDealLinksInput
 }
 
 export type CrmDealItemLinkUncheckedCreateWithoutItemInput = {
   id?: string
   organizationId: string
   externalDealId: string
+  packId?: string | null
+  servicePlanId?: string | null
+  priceBookId?: string | null
+  promoCode?: string | null
   externalServiceId?: string | null
   quantity?: number
   unitPriceCents: number
+  baseSubtotalCents?: number | null
+  discountCents?: number
   currency?: string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   notes?: string | null
   createdByUserId?: string | null
   createdAt?: Date | string
@@ -740,14 +1067,225 @@ export type CrmDealItemLinkUpdateManyWithWhereWithoutItemInput = {
   data: Prisma.XOR<Prisma.CrmDealItemLinkUpdateManyMutationInput, Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutItemInput>
 }
 
+export type CrmDealItemLinkCreateWithoutPackInput = {
+  id?: string
+  externalDealId: string
+  promoCode?: string | null
+  externalServiceId?: string | null
+  quantity?: number
+  unitPriceCents: number
+  baseSubtotalCents?: number | null
+  discountCents?: number
+  currency?: string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  notes?: string | null
+  createdByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutCrmDealItemLinksInput
+  item: Prisma.ItemCreateNestedOneWithoutCrmDealLinksInput
+  servicePlan?: Prisma.ServicePlanCreateNestedOneWithoutCrmDealLinksInput
+  priceBook?: Prisma.PriceBookCreateNestedOneWithoutCrmDealLinksInput
+}
+
+export type CrmDealItemLinkUncheckedCreateWithoutPackInput = {
+  id?: string
+  organizationId: string
+  externalDealId: string
+  itemId: string
+  servicePlanId?: string | null
+  priceBookId?: string | null
+  promoCode?: string | null
+  externalServiceId?: string | null
+  quantity?: number
+  unitPriceCents: number
+  baseSubtotalCents?: number | null
+  discountCents?: number
+  currency?: string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  notes?: string | null
+  createdByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type CrmDealItemLinkCreateOrConnectWithoutPackInput = {
+  where: Prisma.CrmDealItemLinkWhereUniqueInput
+  create: Prisma.XOR<Prisma.CrmDealItemLinkCreateWithoutPackInput, Prisma.CrmDealItemLinkUncheckedCreateWithoutPackInput>
+}
+
+export type CrmDealItemLinkCreateManyPackInputEnvelope = {
+  data: Prisma.CrmDealItemLinkCreateManyPackInput | Prisma.CrmDealItemLinkCreateManyPackInput[]
+  skipDuplicates?: boolean
+}
+
+export type CrmDealItemLinkUpsertWithWhereUniqueWithoutPackInput = {
+  where: Prisma.CrmDealItemLinkWhereUniqueInput
+  update: Prisma.XOR<Prisma.CrmDealItemLinkUpdateWithoutPackInput, Prisma.CrmDealItemLinkUncheckedUpdateWithoutPackInput>
+  create: Prisma.XOR<Prisma.CrmDealItemLinkCreateWithoutPackInput, Prisma.CrmDealItemLinkUncheckedCreateWithoutPackInput>
+}
+
+export type CrmDealItemLinkUpdateWithWhereUniqueWithoutPackInput = {
+  where: Prisma.CrmDealItemLinkWhereUniqueInput
+  data: Prisma.XOR<Prisma.CrmDealItemLinkUpdateWithoutPackInput, Prisma.CrmDealItemLinkUncheckedUpdateWithoutPackInput>
+}
+
+export type CrmDealItemLinkUpdateManyWithWhereWithoutPackInput = {
+  where: Prisma.CrmDealItemLinkScalarWhereInput
+  data: Prisma.XOR<Prisma.CrmDealItemLinkUpdateManyMutationInput, Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutPackInput>
+}
+
+export type CrmDealItemLinkCreateWithoutServicePlanInput = {
+  id?: string
+  externalDealId: string
+  promoCode?: string | null
+  externalServiceId?: string | null
+  quantity?: number
+  unitPriceCents: number
+  baseSubtotalCents?: number | null
+  discountCents?: number
+  currency?: string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  notes?: string | null
+  createdByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutCrmDealItemLinksInput
+  item: Prisma.ItemCreateNestedOneWithoutCrmDealLinksInput
+  pack?: Prisma.ItemPackCreateNestedOneWithoutCrmDealLinksInput
+  priceBook?: Prisma.PriceBookCreateNestedOneWithoutCrmDealLinksInput
+}
+
+export type CrmDealItemLinkUncheckedCreateWithoutServicePlanInput = {
+  id?: string
+  organizationId: string
+  externalDealId: string
+  itemId: string
+  packId?: string | null
+  priceBookId?: string | null
+  promoCode?: string | null
+  externalServiceId?: string | null
+  quantity?: number
+  unitPriceCents: number
+  baseSubtotalCents?: number | null
+  discountCents?: number
+  currency?: string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  notes?: string | null
+  createdByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type CrmDealItemLinkCreateOrConnectWithoutServicePlanInput = {
+  where: Prisma.CrmDealItemLinkWhereUniqueInput
+  create: Prisma.XOR<Prisma.CrmDealItemLinkCreateWithoutServicePlanInput, Prisma.CrmDealItemLinkUncheckedCreateWithoutServicePlanInput>
+}
+
+export type CrmDealItemLinkCreateManyServicePlanInputEnvelope = {
+  data: Prisma.CrmDealItemLinkCreateManyServicePlanInput | Prisma.CrmDealItemLinkCreateManyServicePlanInput[]
+  skipDuplicates?: boolean
+}
+
+export type CrmDealItemLinkUpsertWithWhereUniqueWithoutServicePlanInput = {
+  where: Prisma.CrmDealItemLinkWhereUniqueInput
+  update: Prisma.XOR<Prisma.CrmDealItemLinkUpdateWithoutServicePlanInput, Prisma.CrmDealItemLinkUncheckedUpdateWithoutServicePlanInput>
+  create: Prisma.XOR<Prisma.CrmDealItemLinkCreateWithoutServicePlanInput, Prisma.CrmDealItemLinkUncheckedCreateWithoutServicePlanInput>
+}
+
+export type CrmDealItemLinkUpdateWithWhereUniqueWithoutServicePlanInput = {
+  where: Prisma.CrmDealItemLinkWhereUniqueInput
+  data: Prisma.XOR<Prisma.CrmDealItemLinkUpdateWithoutServicePlanInput, Prisma.CrmDealItemLinkUncheckedUpdateWithoutServicePlanInput>
+}
+
+export type CrmDealItemLinkUpdateManyWithWhereWithoutServicePlanInput = {
+  where: Prisma.CrmDealItemLinkScalarWhereInput
+  data: Prisma.XOR<Prisma.CrmDealItemLinkUpdateManyMutationInput, Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutServicePlanInput>
+}
+
+export type CrmDealItemLinkCreateWithoutPriceBookInput = {
+  id?: string
+  externalDealId: string
+  promoCode?: string | null
+  externalServiceId?: string | null
+  quantity?: number
+  unitPriceCents: number
+  baseSubtotalCents?: number | null
+  discountCents?: number
+  currency?: string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  notes?: string | null
+  createdByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutCrmDealItemLinksInput
+  item: Prisma.ItemCreateNestedOneWithoutCrmDealLinksInput
+  pack?: Prisma.ItemPackCreateNestedOneWithoutCrmDealLinksInput
+  servicePlan?: Prisma.ServicePlanCreateNestedOneWithoutCrmDealLinksInput
+}
+
+export type CrmDealItemLinkUncheckedCreateWithoutPriceBookInput = {
+  id?: string
+  organizationId: string
+  externalDealId: string
+  itemId: string
+  packId?: string | null
+  servicePlanId?: string | null
+  promoCode?: string | null
+  externalServiceId?: string | null
+  quantity?: number
+  unitPriceCents: number
+  baseSubtotalCents?: number | null
+  discountCents?: number
+  currency?: string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  notes?: string | null
+  createdByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type CrmDealItemLinkCreateOrConnectWithoutPriceBookInput = {
+  where: Prisma.CrmDealItemLinkWhereUniqueInput
+  create: Prisma.XOR<Prisma.CrmDealItemLinkCreateWithoutPriceBookInput, Prisma.CrmDealItemLinkUncheckedCreateWithoutPriceBookInput>
+}
+
+export type CrmDealItemLinkCreateManyPriceBookInputEnvelope = {
+  data: Prisma.CrmDealItemLinkCreateManyPriceBookInput | Prisma.CrmDealItemLinkCreateManyPriceBookInput[]
+  skipDuplicates?: boolean
+}
+
+export type CrmDealItemLinkUpsertWithWhereUniqueWithoutPriceBookInput = {
+  where: Prisma.CrmDealItemLinkWhereUniqueInput
+  update: Prisma.XOR<Prisma.CrmDealItemLinkUpdateWithoutPriceBookInput, Prisma.CrmDealItemLinkUncheckedUpdateWithoutPriceBookInput>
+  create: Prisma.XOR<Prisma.CrmDealItemLinkCreateWithoutPriceBookInput, Prisma.CrmDealItemLinkUncheckedCreateWithoutPriceBookInput>
+}
+
+export type CrmDealItemLinkUpdateWithWhereUniqueWithoutPriceBookInput = {
+  where: Prisma.CrmDealItemLinkWhereUniqueInput
+  data: Prisma.XOR<Prisma.CrmDealItemLinkUpdateWithoutPriceBookInput, Prisma.CrmDealItemLinkUncheckedUpdateWithoutPriceBookInput>
+}
+
+export type CrmDealItemLinkUpdateManyWithWhereWithoutPriceBookInput = {
+  where: Prisma.CrmDealItemLinkScalarWhereInput
+  data: Prisma.XOR<Prisma.CrmDealItemLinkUpdateManyMutationInput, Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutPriceBookInput>
+}
+
 export type CrmDealItemLinkCreateManyOrganizationInput = {
   id?: string
   externalDealId: string
   itemId: string
+  packId?: string | null
+  servicePlanId?: string | null
+  priceBookId?: string | null
+  promoCode?: string | null
   externalServiceId?: string | null
   quantity?: number
   unitPriceCents: number
+  baseSubtotalCents?: number | null
+  discountCents?: number
   currency?: string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   notes?: string | null
   createdByUserId?: string | null
   createdAt?: Date | string
@@ -757,25 +1295,39 @@ export type CrmDealItemLinkCreateManyOrganizationInput = {
 export type CrmDealItemLinkUpdateWithoutOrganizationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   externalDealId?: Prisma.StringFieldUpdateOperationsInput | string
+  promoCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalServiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   unitPriceCents?: Prisma.IntFieldUpdateOperationsInput | number
+  baseSubtotalCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  discountCents?: Prisma.IntFieldUpdateOperationsInput | number
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   item?: Prisma.ItemUpdateOneRequiredWithoutCrmDealLinksNestedInput
+  pack?: Prisma.ItemPackUpdateOneWithoutCrmDealLinksNestedInput
+  servicePlan?: Prisma.ServicePlanUpdateOneWithoutCrmDealLinksNestedInput
+  priceBook?: Prisma.PriceBookUpdateOneWithoutCrmDealLinksNestedInput
 }
 
 export type CrmDealItemLinkUncheckedUpdateWithoutOrganizationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   externalDealId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  servicePlanId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  priceBookId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  promoCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalServiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   unitPriceCents?: Prisma.IntFieldUpdateOperationsInput | number
+  baseSubtotalCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  discountCents?: Prisma.IntFieldUpdateOperationsInput | number
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -786,10 +1338,17 @@ export type CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   externalDealId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  servicePlanId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  priceBookId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  promoCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalServiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   unitPriceCents?: Prisma.IntFieldUpdateOperationsInput | number
+  baseSubtotalCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  discountCents?: Prisma.IntFieldUpdateOperationsInput | number
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -800,10 +1359,17 @@ export type CrmDealItemLinkCreateManyItemInput = {
   id?: string
   organizationId: string
   externalDealId: string
+  packId?: string | null
+  servicePlanId?: string | null
+  priceBookId?: string | null
+  promoCode?: string | null
   externalServiceId?: string | null
   quantity?: number
   unitPriceCents: number
+  baseSubtotalCents?: number | null
+  discountCents?: number
   currency?: string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   notes?: string | null
   createdByUserId?: string | null
   createdAt?: Date | string
@@ -813,25 +1379,39 @@ export type CrmDealItemLinkCreateManyItemInput = {
 export type CrmDealItemLinkUpdateWithoutItemInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   externalDealId?: Prisma.StringFieldUpdateOperationsInput | string
+  promoCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalServiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   unitPriceCents?: Prisma.IntFieldUpdateOperationsInput | number
+  baseSubtotalCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  discountCents?: Prisma.IntFieldUpdateOperationsInput | number
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutCrmDealItemLinksNestedInput
+  pack?: Prisma.ItemPackUpdateOneWithoutCrmDealLinksNestedInput
+  servicePlan?: Prisma.ServicePlanUpdateOneWithoutCrmDealLinksNestedInput
+  priceBook?: Prisma.PriceBookUpdateOneWithoutCrmDealLinksNestedInput
 }
 
 export type CrmDealItemLinkUncheckedUpdateWithoutItemInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   externalDealId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  servicePlanId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  priceBookId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  promoCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalServiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   unitPriceCents?: Prisma.IntFieldUpdateOperationsInput | number
+  baseSubtotalCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  discountCents?: Prisma.IntFieldUpdateOperationsInput | number
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -842,10 +1422,269 @@ export type CrmDealItemLinkUncheckedUpdateManyWithoutItemInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   externalDealId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  servicePlanId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  priceBookId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  promoCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalServiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   unitPriceCents?: Prisma.IntFieldUpdateOperationsInput | number
+  baseSubtotalCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  discountCents?: Prisma.IntFieldUpdateOperationsInput | number
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type CrmDealItemLinkCreateManyPackInput = {
+  id?: string
+  organizationId: string
+  externalDealId: string
+  itemId: string
+  servicePlanId?: string | null
+  priceBookId?: string | null
+  promoCode?: string | null
+  externalServiceId?: string | null
+  quantity?: number
+  unitPriceCents: number
+  baseSubtotalCents?: number | null
+  discountCents?: number
+  currency?: string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  notes?: string | null
+  createdByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type CrmDealItemLinkUpdateWithoutPackInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  externalDealId?: Prisma.StringFieldUpdateOperationsInput | string
+  promoCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  externalServiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  unitPriceCents?: Prisma.IntFieldUpdateOperationsInput | number
+  baseSubtotalCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  discountCents?: Prisma.IntFieldUpdateOperationsInput | number
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutCrmDealItemLinksNestedInput
+  item?: Prisma.ItemUpdateOneRequiredWithoutCrmDealLinksNestedInput
+  servicePlan?: Prisma.ServicePlanUpdateOneWithoutCrmDealLinksNestedInput
+  priceBook?: Prisma.PriceBookUpdateOneWithoutCrmDealLinksNestedInput
+}
+
+export type CrmDealItemLinkUncheckedUpdateWithoutPackInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  externalDealId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  servicePlanId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  priceBookId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  promoCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  externalServiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  unitPriceCents?: Prisma.IntFieldUpdateOperationsInput | number
+  baseSubtotalCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  discountCents?: Prisma.IntFieldUpdateOperationsInput | number
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type CrmDealItemLinkUncheckedUpdateManyWithoutPackInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  externalDealId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  servicePlanId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  priceBookId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  promoCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  externalServiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  unitPriceCents?: Prisma.IntFieldUpdateOperationsInput | number
+  baseSubtotalCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  discountCents?: Prisma.IntFieldUpdateOperationsInput | number
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type CrmDealItemLinkCreateManyServicePlanInput = {
+  id?: string
+  organizationId: string
+  externalDealId: string
+  itemId: string
+  packId?: string | null
+  priceBookId?: string | null
+  promoCode?: string | null
+  externalServiceId?: string | null
+  quantity?: number
+  unitPriceCents: number
+  baseSubtotalCents?: number | null
+  discountCents?: number
+  currency?: string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  notes?: string | null
+  createdByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type CrmDealItemLinkUpdateWithoutServicePlanInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  externalDealId?: Prisma.StringFieldUpdateOperationsInput | string
+  promoCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  externalServiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  unitPriceCents?: Prisma.IntFieldUpdateOperationsInput | number
+  baseSubtotalCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  discountCents?: Prisma.IntFieldUpdateOperationsInput | number
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutCrmDealItemLinksNestedInput
+  item?: Prisma.ItemUpdateOneRequiredWithoutCrmDealLinksNestedInput
+  pack?: Prisma.ItemPackUpdateOneWithoutCrmDealLinksNestedInput
+  priceBook?: Prisma.PriceBookUpdateOneWithoutCrmDealLinksNestedInput
+}
+
+export type CrmDealItemLinkUncheckedUpdateWithoutServicePlanInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  externalDealId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  priceBookId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  promoCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  externalServiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  unitPriceCents?: Prisma.IntFieldUpdateOperationsInput | number
+  baseSubtotalCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  discountCents?: Prisma.IntFieldUpdateOperationsInput | number
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type CrmDealItemLinkUncheckedUpdateManyWithoutServicePlanInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  externalDealId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  priceBookId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  promoCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  externalServiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  unitPriceCents?: Prisma.IntFieldUpdateOperationsInput | number
+  baseSubtotalCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  discountCents?: Prisma.IntFieldUpdateOperationsInput | number
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type CrmDealItemLinkCreateManyPriceBookInput = {
+  id?: string
+  organizationId: string
+  externalDealId: string
+  itemId: string
+  packId?: string | null
+  servicePlanId?: string | null
+  promoCode?: string | null
+  externalServiceId?: string | null
+  quantity?: number
+  unitPriceCents: number
+  baseSubtotalCents?: number | null
+  discountCents?: number
+  currency?: string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  notes?: string | null
+  createdByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type CrmDealItemLinkUpdateWithoutPriceBookInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  externalDealId?: Prisma.StringFieldUpdateOperationsInput | string
+  promoCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  externalServiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  unitPriceCents?: Prisma.IntFieldUpdateOperationsInput | number
+  baseSubtotalCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  discountCents?: Prisma.IntFieldUpdateOperationsInput | number
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutCrmDealItemLinksNestedInput
+  item?: Prisma.ItemUpdateOneRequiredWithoutCrmDealLinksNestedInput
+  pack?: Prisma.ItemPackUpdateOneWithoutCrmDealLinksNestedInput
+  servicePlan?: Prisma.ServicePlanUpdateOneWithoutCrmDealLinksNestedInput
+}
+
+export type CrmDealItemLinkUncheckedUpdateWithoutPriceBookInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  externalDealId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  servicePlanId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  promoCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  externalServiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  unitPriceCents?: Prisma.IntFieldUpdateOperationsInput | number
+  baseSubtotalCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  discountCents?: Prisma.IntFieldUpdateOperationsInput | number
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type CrmDealItemLinkUncheckedUpdateManyWithoutPriceBookInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  externalDealId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  servicePlanId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  promoCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  externalServiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  unitPriceCents?: Prisma.IntFieldUpdateOperationsInput | number
+  baseSubtotalCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  discountCents?: Prisma.IntFieldUpdateOperationsInput | number
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  appliedPricing?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -859,16 +1698,26 @@ export type CrmDealItemLinkSelect<ExtArgs extends runtime.Types.Extensions.Inter
   organizationId?: boolean
   externalDealId?: boolean
   itemId?: boolean
+  packId?: boolean
+  servicePlanId?: boolean
+  priceBookId?: boolean
+  promoCode?: boolean
   externalServiceId?: boolean
   quantity?: boolean
   unitPriceCents?: boolean
+  baseSubtotalCents?: boolean
+  discountCents?: boolean
   currency?: boolean
+  appliedPricing?: boolean
   notes?: boolean
   createdByUserId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
+  pack?: boolean | Prisma.CrmDealItemLink$packArgs<ExtArgs>
+  servicePlan?: boolean | Prisma.CrmDealItemLink$servicePlanArgs<ExtArgs>
+  priceBook?: boolean | Prisma.CrmDealItemLink$priceBookArgs<ExtArgs>
 }, ExtArgs["result"]["crmDealItemLink"]>
 
 export type CrmDealItemLinkSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -876,16 +1725,26 @@ export type CrmDealItemLinkSelectCreateManyAndReturn<ExtArgs extends runtime.Typ
   organizationId?: boolean
   externalDealId?: boolean
   itemId?: boolean
+  packId?: boolean
+  servicePlanId?: boolean
+  priceBookId?: boolean
+  promoCode?: boolean
   externalServiceId?: boolean
   quantity?: boolean
   unitPriceCents?: boolean
+  baseSubtotalCents?: boolean
+  discountCents?: boolean
   currency?: boolean
+  appliedPricing?: boolean
   notes?: boolean
   createdByUserId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
+  pack?: boolean | Prisma.CrmDealItemLink$packArgs<ExtArgs>
+  servicePlan?: boolean | Prisma.CrmDealItemLink$servicePlanArgs<ExtArgs>
+  priceBook?: boolean | Prisma.CrmDealItemLink$priceBookArgs<ExtArgs>
 }, ExtArgs["result"]["crmDealItemLink"]>
 
 export type CrmDealItemLinkSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -893,16 +1752,26 @@ export type CrmDealItemLinkSelectUpdateManyAndReturn<ExtArgs extends runtime.Typ
   organizationId?: boolean
   externalDealId?: boolean
   itemId?: boolean
+  packId?: boolean
+  servicePlanId?: boolean
+  priceBookId?: boolean
+  promoCode?: boolean
   externalServiceId?: boolean
   quantity?: boolean
   unitPriceCents?: boolean
+  baseSubtotalCents?: boolean
+  discountCents?: boolean
   currency?: boolean
+  appliedPricing?: boolean
   notes?: boolean
   createdByUserId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
+  pack?: boolean | Prisma.CrmDealItemLink$packArgs<ExtArgs>
+  servicePlan?: boolean | Prisma.CrmDealItemLink$servicePlanArgs<ExtArgs>
+  priceBook?: boolean | Prisma.CrmDealItemLink$priceBookArgs<ExtArgs>
 }, ExtArgs["result"]["crmDealItemLink"]>
 
 export type CrmDealItemLinkSelectScalar = {
@@ -910,28 +1779,44 @@ export type CrmDealItemLinkSelectScalar = {
   organizationId?: boolean
   externalDealId?: boolean
   itemId?: boolean
+  packId?: boolean
+  servicePlanId?: boolean
+  priceBookId?: boolean
+  promoCode?: boolean
   externalServiceId?: boolean
   quantity?: boolean
   unitPriceCents?: boolean
+  baseSubtotalCents?: boolean
+  discountCents?: boolean
   currency?: boolean
+  appliedPricing?: boolean
   notes?: boolean
   createdByUserId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type CrmDealItemLinkOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organizationId" | "externalDealId" | "itemId" | "externalServiceId" | "quantity" | "unitPriceCents" | "currency" | "notes" | "createdByUserId" | "createdAt" | "updatedAt", ExtArgs["result"]["crmDealItemLink"]>
+export type CrmDealItemLinkOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organizationId" | "externalDealId" | "itemId" | "packId" | "servicePlanId" | "priceBookId" | "promoCode" | "externalServiceId" | "quantity" | "unitPriceCents" | "baseSubtotalCents" | "discountCents" | "currency" | "appliedPricing" | "notes" | "createdByUserId" | "createdAt" | "updatedAt", ExtArgs["result"]["crmDealItemLink"]>
 export type CrmDealItemLinkInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
+  pack?: boolean | Prisma.CrmDealItemLink$packArgs<ExtArgs>
+  servicePlan?: boolean | Prisma.CrmDealItemLink$servicePlanArgs<ExtArgs>
+  priceBook?: boolean | Prisma.CrmDealItemLink$priceBookArgs<ExtArgs>
 }
 export type CrmDealItemLinkIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
+  pack?: boolean | Prisma.CrmDealItemLink$packArgs<ExtArgs>
+  servicePlan?: boolean | Prisma.CrmDealItemLink$servicePlanArgs<ExtArgs>
+  priceBook?: boolean | Prisma.CrmDealItemLink$priceBookArgs<ExtArgs>
 }
 export type CrmDealItemLinkIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
+  pack?: boolean | Prisma.CrmDealItemLink$packArgs<ExtArgs>
+  servicePlan?: boolean | Prisma.CrmDealItemLink$servicePlanArgs<ExtArgs>
+  priceBook?: boolean | Prisma.CrmDealItemLink$priceBookArgs<ExtArgs>
 }
 
 export type $CrmDealItemLinkPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -939,16 +1824,26 @@ export type $CrmDealItemLinkPayload<ExtArgs extends runtime.Types.Extensions.Int
   objects: {
     organization: Prisma.$OrganizationPayload<ExtArgs>
     item: Prisma.$ItemPayload<ExtArgs>
+    pack: Prisma.$ItemPackPayload<ExtArgs> | null
+    servicePlan: Prisma.$ServicePlanPayload<ExtArgs> | null
+    priceBook: Prisma.$PriceBookPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     organizationId: string
     externalDealId: string
     itemId: string
+    packId: string | null
+    servicePlanId: string | null
+    priceBookId: string | null
+    promoCode: string | null
     externalServiceId: string | null
     quantity: number
     unitPriceCents: number
+    baseSubtotalCents: number | null
+    discountCents: number
     currency: string
+    appliedPricing: runtime.JsonValue | null
     notes: string | null
     createdByUserId: string | null
     createdAt: Date
@@ -1349,6 +2244,9 @@ export interface Prisma__CrmDealItemLinkClient<T, Null = never, ExtArgs extends 
   readonly [Symbol.toStringTag]: "PrismaPromise"
   organization<T extends Prisma.OrganizationDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.OrganizationDefaultArgs<ExtArgs>>): Prisma.Prisma__OrganizationClient<runtime.Types.Result.GetResult<Prisma.$OrganizationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   item<T extends Prisma.ItemDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ItemDefaultArgs<ExtArgs>>): Prisma.Prisma__ItemClient<runtime.Types.Result.GetResult<Prisma.$ItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  pack<T extends Prisma.CrmDealItemLink$packArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CrmDealItemLink$packArgs<ExtArgs>>): Prisma.Prisma__ItemPackClient<runtime.Types.Result.GetResult<Prisma.$ItemPackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  servicePlan<T extends Prisma.CrmDealItemLink$servicePlanArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CrmDealItemLink$servicePlanArgs<ExtArgs>>): Prisma.Prisma__ServicePlanClient<runtime.Types.Result.GetResult<Prisma.$ServicePlanPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  priceBook<T extends Prisma.CrmDealItemLink$priceBookArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CrmDealItemLink$priceBookArgs<ExtArgs>>): Prisma.Prisma__PriceBookClient<runtime.Types.Result.GetResult<Prisma.$PriceBookPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1382,10 +2280,17 @@ export interface CrmDealItemLinkFieldRefs {
   readonly organizationId: Prisma.FieldRef<"CrmDealItemLink", 'String'>
   readonly externalDealId: Prisma.FieldRef<"CrmDealItemLink", 'String'>
   readonly itemId: Prisma.FieldRef<"CrmDealItemLink", 'String'>
+  readonly packId: Prisma.FieldRef<"CrmDealItemLink", 'String'>
+  readonly servicePlanId: Prisma.FieldRef<"CrmDealItemLink", 'String'>
+  readonly priceBookId: Prisma.FieldRef<"CrmDealItemLink", 'String'>
+  readonly promoCode: Prisma.FieldRef<"CrmDealItemLink", 'String'>
   readonly externalServiceId: Prisma.FieldRef<"CrmDealItemLink", 'String'>
   readonly quantity: Prisma.FieldRef<"CrmDealItemLink", 'Int'>
   readonly unitPriceCents: Prisma.FieldRef<"CrmDealItemLink", 'Int'>
+  readonly baseSubtotalCents: Prisma.FieldRef<"CrmDealItemLink", 'Int'>
+  readonly discountCents: Prisma.FieldRef<"CrmDealItemLink", 'Int'>
   readonly currency: Prisma.FieldRef<"CrmDealItemLink", 'String'>
+  readonly appliedPricing: Prisma.FieldRef<"CrmDealItemLink", 'Json'>
   readonly notes: Prisma.FieldRef<"CrmDealItemLink", 'String'>
   readonly createdByUserId: Prisma.FieldRef<"CrmDealItemLink", 'String'>
   readonly createdAt: Prisma.FieldRef<"CrmDealItemLink", 'DateTime'>
@@ -1788,6 +2693,63 @@ export type CrmDealItemLinkDeleteManyArgs<ExtArgs extends runtime.Types.Extensio
    * Limit how many CrmDealItemLinks to delete.
    */
   limit?: number
+}
+
+/**
+ * CrmDealItemLink.pack
+ */
+export type CrmDealItemLink$packArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ItemPack
+   */
+  select?: Prisma.ItemPackSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ItemPack
+   */
+  omit?: Prisma.ItemPackOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ItemPackInclude<ExtArgs> | null
+  where?: Prisma.ItemPackWhereInput
+}
+
+/**
+ * CrmDealItemLink.servicePlan
+ */
+export type CrmDealItemLink$servicePlanArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ServicePlan
+   */
+  select?: Prisma.ServicePlanSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ServicePlan
+   */
+  omit?: Prisma.ServicePlanOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ServicePlanInclude<ExtArgs> | null
+  where?: Prisma.ServicePlanWhereInput
+}
+
+/**
+ * CrmDealItemLink.priceBook
+ */
+export type CrmDealItemLink$priceBookArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PriceBook
+   */
+  select?: Prisma.PriceBookSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PriceBook
+   */
+  omit?: Prisma.PriceBookOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PriceBookInclude<ExtArgs> | null
+  where?: Prisma.PriceBookWhereInput
 }
 
 /**

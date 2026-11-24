@@ -27,12 +27,16 @@ export type AggregateGoodsReceiptLine = {
 }
 
 export type GoodsReceiptLineAvgAggregateOutputType = {
+  unitsPerPack: number | null
   receivedQty: number | null
+  receivedBaseQty: number | null
   unitCostCents: number | null
 }
 
 export type GoodsReceiptLineSumAggregateOutputType = {
+  unitsPerPack: number | null
   receivedQty: number | null
+  receivedBaseQty: number | null
   unitCostCents: number | null
 }
 
@@ -42,7 +46,10 @@ export type GoodsReceiptLineMinAggregateOutputType = {
   goodsReceiptId: string | null
   purchaseOrderLineId: string | null
   itemId: string | null
+  packId: string | null
+  unitsPerPack: number | null
   receivedQty: number | null
+  receivedBaseQty: number | null
   unitCostCents: number | null
   createdAt: Date | null
 }
@@ -53,7 +60,10 @@ export type GoodsReceiptLineMaxAggregateOutputType = {
   goodsReceiptId: string | null
   purchaseOrderLineId: string | null
   itemId: string | null
+  packId: string | null
+  unitsPerPack: number | null
   receivedQty: number | null
+  receivedBaseQty: number | null
   unitCostCents: number | null
   createdAt: Date | null
 }
@@ -64,7 +74,10 @@ export type GoodsReceiptLineCountAggregateOutputType = {
   goodsReceiptId: number
   purchaseOrderLineId: number
   itemId: number
+  packId: number
+  unitsPerPack: number
   receivedQty: number
+  receivedBaseQty: number
   unitCostCents: number
   createdAt: number
   _all: number
@@ -72,12 +85,16 @@ export type GoodsReceiptLineCountAggregateOutputType = {
 
 
 export type GoodsReceiptLineAvgAggregateInputType = {
+  unitsPerPack?: true
   receivedQty?: true
+  receivedBaseQty?: true
   unitCostCents?: true
 }
 
 export type GoodsReceiptLineSumAggregateInputType = {
+  unitsPerPack?: true
   receivedQty?: true
+  receivedBaseQty?: true
   unitCostCents?: true
 }
 
@@ -87,7 +104,10 @@ export type GoodsReceiptLineMinAggregateInputType = {
   goodsReceiptId?: true
   purchaseOrderLineId?: true
   itemId?: true
+  packId?: true
+  unitsPerPack?: true
   receivedQty?: true
+  receivedBaseQty?: true
   unitCostCents?: true
   createdAt?: true
 }
@@ -98,7 +118,10 @@ export type GoodsReceiptLineMaxAggregateInputType = {
   goodsReceiptId?: true
   purchaseOrderLineId?: true
   itemId?: true
+  packId?: true
+  unitsPerPack?: true
   receivedQty?: true
+  receivedBaseQty?: true
   unitCostCents?: true
   createdAt?: true
 }
@@ -109,7 +132,10 @@ export type GoodsReceiptLineCountAggregateInputType = {
   goodsReceiptId?: true
   purchaseOrderLineId?: true
   itemId?: true
+  packId?: true
+  unitsPerPack?: true
   receivedQty?: true
+  receivedBaseQty?: true
   unitCostCents?: true
   createdAt?: true
   _all?: true
@@ -207,7 +233,10 @@ export type GoodsReceiptLineGroupByOutputType = {
   goodsReceiptId: string
   purchaseOrderLineId: string
   itemId: string
+  packId: string | null
+  unitsPerPack: number
   receivedQty: number
+  receivedBaseQty: number
   unitCostCents: number
   createdAt: Date
   _count: GoodsReceiptLineCountAggregateOutputType | null
@@ -241,7 +270,10 @@ export type GoodsReceiptLineWhereInput = {
   goodsReceiptId?: Prisma.StringFilter<"GoodsReceiptLine"> | string
   purchaseOrderLineId?: Prisma.StringFilter<"GoodsReceiptLine"> | string
   itemId?: Prisma.StringFilter<"GoodsReceiptLine"> | string
+  packId?: Prisma.StringNullableFilter<"GoodsReceiptLine"> | string | null
+  unitsPerPack?: Prisma.IntFilter<"GoodsReceiptLine"> | number
   receivedQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
+  receivedBaseQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
   unitCostCents?: Prisma.IntFilter<"GoodsReceiptLine"> | number
   createdAt?: Prisma.DateTimeFilter<"GoodsReceiptLine"> | Date | string
   organization?: Prisma.XOR<Prisma.OrganizationScalarRelationFilter, Prisma.OrganizationWhereInput>
@@ -256,7 +288,10 @@ export type GoodsReceiptLineOrderByWithRelationInput = {
   goodsReceiptId?: Prisma.SortOrder
   purchaseOrderLineId?: Prisma.SortOrder
   itemId?: Prisma.SortOrder
+  packId?: Prisma.SortOrderInput | Prisma.SortOrder
+  unitsPerPack?: Prisma.SortOrder
   receivedQty?: Prisma.SortOrder
+  receivedBaseQty?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   organization?: Prisma.OrganizationOrderByWithRelationInput
@@ -274,7 +309,10 @@ export type GoodsReceiptLineWhereUniqueInput = Prisma.AtLeast<{
   goodsReceiptId?: Prisma.StringFilter<"GoodsReceiptLine"> | string
   purchaseOrderLineId?: Prisma.StringFilter<"GoodsReceiptLine"> | string
   itemId?: Prisma.StringFilter<"GoodsReceiptLine"> | string
+  packId?: Prisma.StringNullableFilter<"GoodsReceiptLine"> | string | null
+  unitsPerPack?: Prisma.IntFilter<"GoodsReceiptLine"> | number
   receivedQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
+  receivedBaseQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
   unitCostCents?: Prisma.IntFilter<"GoodsReceiptLine"> | number
   createdAt?: Prisma.DateTimeFilter<"GoodsReceiptLine"> | Date | string
   organization?: Prisma.XOR<Prisma.OrganizationScalarRelationFilter, Prisma.OrganizationWhereInput>
@@ -289,7 +327,10 @@ export type GoodsReceiptLineOrderByWithAggregationInput = {
   goodsReceiptId?: Prisma.SortOrder
   purchaseOrderLineId?: Prisma.SortOrder
   itemId?: Prisma.SortOrder
+  packId?: Prisma.SortOrderInput | Prisma.SortOrder
+  unitsPerPack?: Prisma.SortOrder
   receivedQty?: Prisma.SortOrder
+  receivedBaseQty?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   _count?: Prisma.GoodsReceiptLineCountOrderByAggregateInput
@@ -308,14 +349,20 @@ export type GoodsReceiptLineScalarWhereWithAggregatesInput = {
   goodsReceiptId?: Prisma.StringWithAggregatesFilter<"GoodsReceiptLine"> | string
   purchaseOrderLineId?: Prisma.StringWithAggregatesFilter<"GoodsReceiptLine"> | string
   itemId?: Prisma.StringWithAggregatesFilter<"GoodsReceiptLine"> | string
+  packId?: Prisma.StringNullableWithAggregatesFilter<"GoodsReceiptLine"> | string | null
+  unitsPerPack?: Prisma.IntWithAggregatesFilter<"GoodsReceiptLine"> | number
   receivedQty?: Prisma.IntWithAggregatesFilter<"GoodsReceiptLine"> | number
+  receivedBaseQty?: Prisma.IntWithAggregatesFilter<"GoodsReceiptLine"> | number
   unitCostCents?: Prisma.IntWithAggregatesFilter<"GoodsReceiptLine"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"GoodsReceiptLine"> | Date | string
 }
 
 export type GoodsReceiptLineCreateInput = {
   id?: string
+  packId?: string | null
+  unitsPerPack?: number
   receivedQty: number
+  receivedBaseQty?: number
   unitCostCents: number
   createdAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutGoodsReceiptLinesInput
@@ -330,14 +377,20 @@ export type GoodsReceiptLineUncheckedCreateInput = {
   goodsReceiptId: string
   purchaseOrderLineId: string
   itemId: string
+  packId?: string | null
+  unitsPerPack?: number
   receivedQty: number
+  receivedBaseQty?: number
   unitCostCents: number
   createdAt?: Date | string
 }
 
 export type GoodsReceiptLineUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutGoodsReceiptLinesNestedInput
@@ -352,7 +405,10 @@ export type GoodsReceiptLineUncheckedUpdateInput = {
   goodsReceiptId?: Prisma.StringFieldUpdateOperationsInput | string
   purchaseOrderLineId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -363,14 +419,20 @@ export type GoodsReceiptLineCreateManyInput = {
   goodsReceiptId: string
   purchaseOrderLineId: string
   itemId: string
+  packId?: string | null
+  unitsPerPack?: number
   receivedQty: number
+  receivedBaseQty?: number
   unitCostCents: number
   createdAt?: Date | string
 }
 
 export type GoodsReceiptLineUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -381,7 +443,10 @@ export type GoodsReceiptLineUncheckedUpdateManyInput = {
   goodsReceiptId?: Prisma.StringFieldUpdateOperationsInput | string
   purchaseOrderLineId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -402,13 +467,18 @@ export type GoodsReceiptLineCountOrderByAggregateInput = {
   goodsReceiptId?: Prisma.SortOrder
   purchaseOrderLineId?: Prisma.SortOrder
   itemId?: Prisma.SortOrder
+  packId?: Prisma.SortOrder
+  unitsPerPack?: Prisma.SortOrder
   receivedQty?: Prisma.SortOrder
+  receivedBaseQty?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
 export type GoodsReceiptLineAvgOrderByAggregateInput = {
+  unitsPerPack?: Prisma.SortOrder
   receivedQty?: Prisma.SortOrder
+  receivedBaseQty?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
 }
 
@@ -418,7 +488,10 @@ export type GoodsReceiptLineMaxOrderByAggregateInput = {
   goodsReceiptId?: Prisma.SortOrder
   purchaseOrderLineId?: Prisma.SortOrder
   itemId?: Prisma.SortOrder
+  packId?: Prisma.SortOrder
+  unitsPerPack?: Prisma.SortOrder
   receivedQty?: Prisma.SortOrder
+  receivedBaseQty?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
@@ -429,13 +502,18 @@ export type GoodsReceiptLineMinOrderByAggregateInput = {
   goodsReceiptId?: Prisma.SortOrder
   purchaseOrderLineId?: Prisma.SortOrder
   itemId?: Prisma.SortOrder
+  packId?: Prisma.SortOrder
+  unitsPerPack?: Prisma.SortOrder
   receivedQty?: Prisma.SortOrder
+  receivedBaseQty?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
 export type GoodsReceiptLineSumOrderByAggregateInput = {
+  unitsPerPack?: Prisma.SortOrder
   receivedQty?: Prisma.SortOrder
+  receivedBaseQty?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
 }
 
@@ -609,7 +687,10 @@ export type GoodsReceiptLineUncheckedUpdateManyWithoutGoodsReceiptNestedInput = 
 
 export type GoodsReceiptLineCreateWithoutOrganizationInput = {
   id?: string
+  packId?: string | null
+  unitsPerPack?: number
   receivedQty: number
+  receivedBaseQty?: number
   unitCostCents: number
   createdAt?: Date | string
   goodsReceipt: Prisma.GoodsReceiptCreateNestedOneWithoutLinesInput
@@ -622,7 +703,10 @@ export type GoodsReceiptLineUncheckedCreateWithoutOrganizationInput = {
   goodsReceiptId: string
   purchaseOrderLineId: string
   itemId: string
+  packId?: string | null
+  unitsPerPack?: number
   receivedQty: number
+  receivedBaseQty?: number
   unitCostCents: number
   createdAt?: Date | string
 }
@@ -662,14 +746,20 @@ export type GoodsReceiptLineScalarWhereInput = {
   goodsReceiptId?: Prisma.StringFilter<"GoodsReceiptLine"> | string
   purchaseOrderLineId?: Prisma.StringFilter<"GoodsReceiptLine"> | string
   itemId?: Prisma.StringFilter<"GoodsReceiptLine"> | string
+  packId?: Prisma.StringNullableFilter<"GoodsReceiptLine"> | string | null
+  unitsPerPack?: Prisma.IntFilter<"GoodsReceiptLine"> | number
   receivedQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
+  receivedBaseQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
   unitCostCents?: Prisma.IntFilter<"GoodsReceiptLine"> | number
   createdAt?: Prisma.DateTimeFilter<"GoodsReceiptLine"> | Date | string
 }
 
 export type GoodsReceiptLineCreateWithoutItemInput = {
   id?: string
+  packId?: string | null
+  unitsPerPack?: number
   receivedQty: number
+  receivedBaseQty?: number
   unitCostCents: number
   createdAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutGoodsReceiptLinesInput
@@ -682,7 +772,10 @@ export type GoodsReceiptLineUncheckedCreateWithoutItemInput = {
   organizationId: string
   goodsReceiptId: string
   purchaseOrderLineId: string
+  packId?: string | null
+  unitsPerPack?: number
   receivedQty: number
+  receivedBaseQty?: number
   unitCostCents: number
   createdAt?: Date | string
 }
@@ -715,7 +808,10 @@ export type GoodsReceiptLineUpdateManyWithWhereWithoutItemInput = {
 
 export type GoodsReceiptLineCreateWithoutPurchaseOrderLineInput = {
   id?: string
+  packId?: string | null
+  unitsPerPack?: number
   receivedQty: number
+  receivedBaseQty?: number
   unitCostCents: number
   createdAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutGoodsReceiptLinesInput
@@ -728,7 +824,10 @@ export type GoodsReceiptLineUncheckedCreateWithoutPurchaseOrderLineInput = {
   organizationId: string
   goodsReceiptId: string
   itemId: string
+  packId?: string | null
+  unitsPerPack?: number
   receivedQty: number
+  receivedBaseQty?: number
   unitCostCents: number
   createdAt?: Date | string
 }
@@ -761,7 +860,10 @@ export type GoodsReceiptLineUpdateManyWithWhereWithoutPurchaseOrderLineInput = {
 
 export type GoodsReceiptLineCreateWithoutGoodsReceiptInput = {
   id?: string
+  packId?: string | null
+  unitsPerPack?: number
   receivedQty: number
+  receivedBaseQty?: number
   unitCostCents: number
   createdAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutGoodsReceiptLinesInput
@@ -774,7 +876,10 @@ export type GoodsReceiptLineUncheckedCreateWithoutGoodsReceiptInput = {
   organizationId: string
   purchaseOrderLineId: string
   itemId: string
+  packId?: string | null
+  unitsPerPack?: number
   receivedQty: number
+  receivedBaseQty?: number
   unitCostCents: number
   createdAt?: Date | string
 }
@@ -810,14 +915,20 @@ export type GoodsReceiptLineCreateManyOrganizationInput = {
   goodsReceiptId: string
   purchaseOrderLineId: string
   itemId: string
+  packId?: string | null
+  unitsPerPack?: number
   receivedQty: number
+  receivedBaseQty?: number
   unitCostCents: number
   createdAt?: Date | string
 }
 
 export type GoodsReceiptLineUpdateWithoutOrganizationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   goodsReceipt?: Prisma.GoodsReceiptUpdateOneRequiredWithoutLinesNestedInput
@@ -830,7 +941,10 @@ export type GoodsReceiptLineUncheckedUpdateWithoutOrganizationInput = {
   goodsReceiptId?: Prisma.StringFieldUpdateOperationsInput | string
   purchaseOrderLineId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -840,7 +954,10 @@ export type GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationInput = {
   goodsReceiptId?: Prisma.StringFieldUpdateOperationsInput | string
   purchaseOrderLineId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -850,14 +967,20 @@ export type GoodsReceiptLineCreateManyItemInput = {
   organizationId: string
   goodsReceiptId: string
   purchaseOrderLineId: string
+  packId?: string | null
+  unitsPerPack?: number
   receivedQty: number
+  receivedBaseQty?: number
   unitCostCents: number
   createdAt?: Date | string
 }
 
 export type GoodsReceiptLineUpdateWithoutItemInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutGoodsReceiptLinesNestedInput
@@ -870,7 +993,10 @@ export type GoodsReceiptLineUncheckedUpdateWithoutItemInput = {
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   goodsReceiptId?: Prisma.StringFieldUpdateOperationsInput | string
   purchaseOrderLineId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -880,7 +1006,10 @@ export type GoodsReceiptLineUncheckedUpdateManyWithoutItemInput = {
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   goodsReceiptId?: Prisma.StringFieldUpdateOperationsInput | string
   purchaseOrderLineId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -890,14 +1019,20 @@ export type GoodsReceiptLineCreateManyPurchaseOrderLineInput = {
   organizationId: string
   goodsReceiptId: string
   itemId: string
+  packId?: string | null
+  unitsPerPack?: number
   receivedQty: number
+  receivedBaseQty?: number
   unitCostCents: number
   createdAt?: Date | string
 }
 
 export type GoodsReceiptLineUpdateWithoutPurchaseOrderLineInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutGoodsReceiptLinesNestedInput
@@ -910,7 +1045,10 @@ export type GoodsReceiptLineUncheckedUpdateWithoutPurchaseOrderLineInput = {
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   goodsReceiptId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -920,7 +1058,10 @@ export type GoodsReceiptLineUncheckedUpdateManyWithoutPurchaseOrderLineInput = {
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   goodsReceiptId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -930,14 +1071,20 @@ export type GoodsReceiptLineCreateManyGoodsReceiptInput = {
   organizationId: string
   purchaseOrderLineId: string
   itemId: string
+  packId?: string | null
+  unitsPerPack?: number
   receivedQty: number
+  receivedBaseQty?: number
   unitCostCents: number
   createdAt?: Date | string
 }
 
 export type GoodsReceiptLineUpdateWithoutGoodsReceiptInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutGoodsReceiptLinesNestedInput
@@ -950,7 +1097,10 @@ export type GoodsReceiptLineUncheckedUpdateWithoutGoodsReceiptInput = {
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   purchaseOrderLineId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -960,7 +1110,10 @@ export type GoodsReceiptLineUncheckedUpdateManyWithoutGoodsReceiptInput = {
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   purchaseOrderLineId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -973,7 +1126,10 @@ export type GoodsReceiptLineSelect<ExtArgs extends runtime.Types.Extensions.Inte
   goodsReceiptId?: boolean
   purchaseOrderLineId?: boolean
   itemId?: boolean
+  packId?: boolean
+  unitsPerPack?: boolean
   receivedQty?: boolean
+  receivedBaseQty?: boolean
   unitCostCents?: boolean
   createdAt?: boolean
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
@@ -988,7 +1144,10 @@ export type GoodsReceiptLineSelectCreateManyAndReturn<ExtArgs extends runtime.Ty
   goodsReceiptId?: boolean
   purchaseOrderLineId?: boolean
   itemId?: boolean
+  packId?: boolean
+  unitsPerPack?: boolean
   receivedQty?: boolean
+  receivedBaseQty?: boolean
   unitCostCents?: boolean
   createdAt?: boolean
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
@@ -1003,7 +1162,10 @@ export type GoodsReceiptLineSelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
   goodsReceiptId?: boolean
   purchaseOrderLineId?: boolean
   itemId?: boolean
+  packId?: boolean
+  unitsPerPack?: boolean
   receivedQty?: boolean
+  receivedBaseQty?: boolean
   unitCostCents?: boolean
   createdAt?: boolean
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
@@ -1018,12 +1180,15 @@ export type GoodsReceiptLineSelectScalar = {
   goodsReceiptId?: boolean
   purchaseOrderLineId?: boolean
   itemId?: boolean
+  packId?: boolean
+  unitsPerPack?: boolean
   receivedQty?: boolean
+  receivedBaseQty?: boolean
   unitCostCents?: boolean
   createdAt?: boolean
 }
 
-export type GoodsReceiptLineOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organizationId" | "goodsReceiptId" | "purchaseOrderLineId" | "itemId" | "receivedQty" | "unitCostCents" | "createdAt", ExtArgs["result"]["goodsReceiptLine"]>
+export type GoodsReceiptLineOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organizationId" | "goodsReceiptId" | "purchaseOrderLineId" | "itemId" | "packId" | "unitsPerPack" | "receivedQty" | "receivedBaseQty" | "unitCostCents" | "createdAt", ExtArgs["result"]["goodsReceiptLine"]>
 export type GoodsReceiptLineInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   goodsReceipt?: boolean | Prisma.GoodsReceiptDefaultArgs<ExtArgs>
@@ -1057,7 +1222,10 @@ export type $GoodsReceiptLinePayload<ExtArgs extends runtime.Types.Extensions.In
     goodsReceiptId: string
     purchaseOrderLineId: string
     itemId: string
+    packId: string | null
+    unitsPerPack: number
     receivedQty: number
+    receivedBaseQty: number
     unitCostCents: number
     createdAt: Date
   }, ExtArgs["result"]["goodsReceiptLine"]>
@@ -1492,7 +1660,10 @@ export interface GoodsReceiptLineFieldRefs {
   readonly goodsReceiptId: Prisma.FieldRef<"GoodsReceiptLine", 'String'>
   readonly purchaseOrderLineId: Prisma.FieldRef<"GoodsReceiptLine", 'String'>
   readonly itemId: Prisma.FieldRef<"GoodsReceiptLine", 'String'>
+  readonly packId: Prisma.FieldRef<"GoodsReceiptLine", 'String'>
+  readonly unitsPerPack: Prisma.FieldRef<"GoodsReceiptLine", 'Int'>
   readonly receivedQty: Prisma.FieldRef<"GoodsReceiptLine", 'Int'>
+  readonly receivedBaseQty: Prisma.FieldRef<"GoodsReceiptLine", 'Int'>
   readonly unitCostCents: Prisma.FieldRef<"GoodsReceiptLine", 'Int'>
   readonly createdAt: Prisma.FieldRef<"GoodsReceiptLine", 'DateTime'>
 }

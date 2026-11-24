@@ -43,6 +43,7 @@ export type SupplierItemMinAggregateOutputType = {
   organizationId: string | null
   supplierId: string | null
   itemId: string | null
+  packId: string | null
   supplierSku: string | null
   unitCostCents: number | null
   currency: string | null
@@ -59,6 +60,7 @@ export type SupplierItemMaxAggregateOutputType = {
   organizationId: string | null
   supplierId: string | null
   itemId: string | null
+  packId: string | null
   supplierSku: string | null
   unitCostCents: number | null
   currency: string | null
@@ -75,6 +77,7 @@ export type SupplierItemCountAggregateOutputType = {
   organizationId: number
   supplierId: number
   itemId: number
+  packId: number
   supplierSku: number
   unitCostCents: number
   currency: number
@@ -105,6 +108,7 @@ export type SupplierItemMinAggregateInputType = {
   organizationId?: true
   supplierId?: true
   itemId?: true
+  packId?: true
   supplierSku?: true
   unitCostCents?: true
   currency?: true
@@ -121,6 +125,7 @@ export type SupplierItemMaxAggregateInputType = {
   organizationId?: true
   supplierId?: true
   itemId?: true
+  packId?: true
   supplierSku?: true
   unitCostCents?: true
   currency?: true
@@ -137,6 +142,7 @@ export type SupplierItemCountAggregateInputType = {
   organizationId?: true
   supplierId?: true
   itemId?: true
+  packId?: true
   supplierSku?: true
   unitCostCents?: true
   currency?: true
@@ -240,6 +246,7 @@ export type SupplierItemGroupByOutputType = {
   organizationId: string
   supplierId: string
   itemId: string
+  packId: string | null
   supplierSku: string | null
   unitCostCents: number
   currency: string
@@ -279,6 +286,7 @@ export type SupplierItemWhereInput = {
   organizationId?: Prisma.StringFilter<"SupplierItem"> | string
   supplierId?: Prisma.StringFilter<"SupplierItem"> | string
   itemId?: Prisma.StringFilter<"SupplierItem"> | string
+  packId?: Prisma.StringNullableFilter<"SupplierItem"> | string | null
   supplierSku?: Prisma.StringNullableFilter<"SupplierItem"> | string | null
   unitCostCents?: Prisma.IntFilter<"SupplierItem"> | number
   currency?: Prisma.StringFilter<"SupplierItem"> | string
@@ -291,6 +299,7 @@ export type SupplierItemWhereInput = {
   organization?: Prisma.XOR<Prisma.OrganizationScalarRelationFilter, Prisma.OrganizationWhereInput>
   supplier?: Prisma.XOR<Prisma.SupplierScalarRelationFilter, Prisma.SupplierWhereInput>
   item?: Prisma.XOR<Prisma.ItemScalarRelationFilter, Prisma.ItemWhereInput>
+  pack?: Prisma.XOR<Prisma.ItemPackNullableScalarRelationFilter, Prisma.ItemPackWhereInput> | null
 }
 
 export type SupplierItemOrderByWithRelationInput = {
@@ -298,6 +307,7 @@ export type SupplierItemOrderByWithRelationInput = {
   organizationId?: Prisma.SortOrder
   supplierId?: Prisma.SortOrder
   itemId?: Prisma.SortOrder
+  packId?: Prisma.SortOrderInput | Prisma.SortOrder
   supplierSku?: Prisma.SortOrderInput | Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
   currency?: Prisma.SortOrder
@@ -310,6 +320,7 @@ export type SupplierItemOrderByWithRelationInput = {
   organization?: Prisma.OrganizationOrderByWithRelationInput
   supplier?: Prisma.SupplierOrderByWithRelationInput
   item?: Prisma.ItemOrderByWithRelationInput
+  pack?: Prisma.ItemPackOrderByWithRelationInput
 }
 
 export type SupplierItemWhereUniqueInput = Prisma.AtLeast<{
@@ -321,6 +332,7 @@ export type SupplierItemWhereUniqueInput = Prisma.AtLeast<{
   organizationId?: Prisma.StringFilter<"SupplierItem"> | string
   supplierId?: Prisma.StringFilter<"SupplierItem"> | string
   itemId?: Prisma.StringFilter<"SupplierItem"> | string
+  packId?: Prisma.StringNullableFilter<"SupplierItem"> | string | null
   supplierSku?: Prisma.StringNullableFilter<"SupplierItem"> | string | null
   unitCostCents?: Prisma.IntFilter<"SupplierItem"> | number
   currency?: Prisma.StringFilter<"SupplierItem"> | string
@@ -333,6 +345,7 @@ export type SupplierItemWhereUniqueInput = Prisma.AtLeast<{
   organization?: Prisma.XOR<Prisma.OrganizationScalarRelationFilter, Prisma.OrganizationWhereInput>
   supplier?: Prisma.XOR<Prisma.SupplierScalarRelationFilter, Prisma.SupplierWhereInput>
   item?: Prisma.XOR<Prisma.ItemScalarRelationFilter, Prisma.ItemWhereInput>
+  pack?: Prisma.XOR<Prisma.ItemPackNullableScalarRelationFilter, Prisma.ItemPackWhereInput> | null
 }, "id" | "organizationId_supplierId_itemId">
 
 export type SupplierItemOrderByWithAggregationInput = {
@@ -340,6 +353,7 @@ export type SupplierItemOrderByWithAggregationInput = {
   organizationId?: Prisma.SortOrder
   supplierId?: Prisma.SortOrder
   itemId?: Prisma.SortOrder
+  packId?: Prisma.SortOrderInput | Prisma.SortOrder
   supplierSku?: Prisma.SortOrderInput | Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
   currency?: Prisma.SortOrder
@@ -364,6 +378,7 @@ export type SupplierItemScalarWhereWithAggregatesInput = {
   organizationId?: Prisma.StringWithAggregatesFilter<"SupplierItem"> | string
   supplierId?: Prisma.StringWithAggregatesFilter<"SupplierItem"> | string
   itemId?: Prisma.StringWithAggregatesFilter<"SupplierItem"> | string
+  packId?: Prisma.StringNullableWithAggregatesFilter<"SupplierItem"> | string | null
   supplierSku?: Prisma.StringNullableWithAggregatesFilter<"SupplierItem"> | string | null
   unitCostCents?: Prisma.IntWithAggregatesFilter<"SupplierItem"> | number
   currency?: Prisma.StringWithAggregatesFilter<"SupplierItem"> | string
@@ -389,6 +404,7 @@ export type SupplierItemCreateInput = {
   organization: Prisma.OrganizationCreateNestedOneWithoutSupplierItemsInput
   supplier: Prisma.SupplierCreateNestedOneWithoutSupplierItemsInput
   item: Prisma.ItemCreateNestedOneWithoutSupplierItemsInput
+  pack?: Prisma.ItemPackCreateNestedOneWithoutSupplierItemsInput
 }
 
 export type SupplierItemUncheckedCreateInput = {
@@ -396,6 +412,7 @@ export type SupplierItemUncheckedCreateInput = {
   organizationId: string
   supplierId: string
   itemId: string
+  packId?: string | null
   supplierSku?: string | null
   unitCostCents: number
   currency?: string
@@ -421,6 +438,7 @@ export type SupplierItemUpdateInput = {
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutSupplierItemsNestedInput
   supplier?: Prisma.SupplierUpdateOneRequiredWithoutSupplierItemsNestedInput
   item?: Prisma.ItemUpdateOneRequiredWithoutSupplierItemsNestedInput
+  pack?: Prisma.ItemPackUpdateOneWithoutSupplierItemsNestedInput
 }
 
 export type SupplierItemUncheckedUpdateInput = {
@@ -428,6 +446,7 @@ export type SupplierItemUncheckedUpdateInput = {
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   supplierId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   currency?: Prisma.StringFieldUpdateOperationsInput | string
@@ -444,6 +463,7 @@ export type SupplierItemCreateManyInput = {
   organizationId: string
   supplierId: string
   itemId: string
+  packId?: string | null
   supplierSku?: string | null
   unitCostCents: number
   currency?: string
@@ -473,6 +493,7 @@ export type SupplierItemUncheckedUpdateManyInput = {
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   supplierId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   currency?: Prisma.StringFieldUpdateOperationsInput | string
@@ -505,6 +526,7 @@ export type SupplierItemCountOrderByAggregateInput = {
   organizationId?: Prisma.SortOrder
   supplierId?: Prisma.SortOrder
   itemId?: Prisma.SortOrder
+  packId?: Prisma.SortOrder
   supplierSku?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
   currency?: Prisma.SortOrder
@@ -527,6 +549,7 @@ export type SupplierItemMaxOrderByAggregateInput = {
   organizationId?: Prisma.SortOrder
   supplierId?: Prisma.SortOrder
   itemId?: Prisma.SortOrder
+  packId?: Prisma.SortOrder
   supplierSku?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
   currency?: Prisma.SortOrder
@@ -543,6 +566,7 @@ export type SupplierItemMinOrderByAggregateInput = {
   organizationId?: Prisma.SortOrder
   supplierId?: Prisma.SortOrder
   itemId?: Prisma.SortOrder
+  packId?: Prisma.SortOrder
   supplierSku?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
   currency?: Prisma.SortOrder
@@ -686,6 +710,48 @@ export type SupplierItemUncheckedUpdateManyWithoutSupplierNestedInput = {
   deleteMany?: Prisma.SupplierItemScalarWhereInput | Prisma.SupplierItemScalarWhereInput[]
 }
 
+export type SupplierItemCreateNestedManyWithoutPackInput = {
+  create?: Prisma.XOR<Prisma.SupplierItemCreateWithoutPackInput, Prisma.SupplierItemUncheckedCreateWithoutPackInput> | Prisma.SupplierItemCreateWithoutPackInput[] | Prisma.SupplierItemUncheckedCreateWithoutPackInput[]
+  connectOrCreate?: Prisma.SupplierItemCreateOrConnectWithoutPackInput | Prisma.SupplierItemCreateOrConnectWithoutPackInput[]
+  createMany?: Prisma.SupplierItemCreateManyPackInputEnvelope
+  connect?: Prisma.SupplierItemWhereUniqueInput | Prisma.SupplierItemWhereUniqueInput[]
+}
+
+export type SupplierItemUncheckedCreateNestedManyWithoutPackInput = {
+  create?: Prisma.XOR<Prisma.SupplierItemCreateWithoutPackInput, Prisma.SupplierItemUncheckedCreateWithoutPackInput> | Prisma.SupplierItemCreateWithoutPackInput[] | Prisma.SupplierItemUncheckedCreateWithoutPackInput[]
+  connectOrCreate?: Prisma.SupplierItemCreateOrConnectWithoutPackInput | Prisma.SupplierItemCreateOrConnectWithoutPackInput[]
+  createMany?: Prisma.SupplierItemCreateManyPackInputEnvelope
+  connect?: Prisma.SupplierItemWhereUniqueInput | Prisma.SupplierItemWhereUniqueInput[]
+}
+
+export type SupplierItemUpdateManyWithoutPackNestedInput = {
+  create?: Prisma.XOR<Prisma.SupplierItemCreateWithoutPackInput, Prisma.SupplierItemUncheckedCreateWithoutPackInput> | Prisma.SupplierItemCreateWithoutPackInput[] | Prisma.SupplierItemUncheckedCreateWithoutPackInput[]
+  connectOrCreate?: Prisma.SupplierItemCreateOrConnectWithoutPackInput | Prisma.SupplierItemCreateOrConnectWithoutPackInput[]
+  upsert?: Prisma.SupplierItemUpsertWithWhereUniqueWithoutPackInput | Prisma.SupplierItemUpsertWithWhereUniqueWithoutPackInput[]
+  createMany?: Prisma.SupplierItemCreateManyPackInputEnvelope
+  set?: Prisma.SupplierItemWhereUniqueInput | Prisma.SupplierItemWhereUniqueInput[]
+  disconnect?: Prisma.SupplierItemWhereUniqueInput | Prisma.SupplierItemWhereUniqueInput[]
+  delete?: Prisma.SupplierItemWhereUniqueInput | Prisma.SupplierItemWhereUniqueInput[]
+  connect?: Prisma.SupplierItemWhereUniqueInput | Prisma.SupplierItemWhereUniqueInput[]
+  update?: Prisma.SupplierItemUpdateWithWhereUniqueWithoutPackInput | Prisma.SupplierItemUpdateWithWhereUniqueWithoutPackInput[]
+  updateMany?: Prisma.SupplierItemUpdateManyWithWhereWithoutPackInput | Prisma.SupplierItemUpdateManyWithWhereWithoutPackInput[]
+  deleteMany?: Prisma.SupplierItemScalarWhereInput | Prisma.SupplierItemScalarWhereInput[]
+}
+
+export type SupplierItemUncheckedUpdateManyWithoutPackNestedInput = {
+  create?: Prisma.XOR<Prisma.SupplierItemCreateWithoutPackInput, Prisma.SupplierItemUncheckedCreateWithoutPackInput> | Prisma.SupplierItemCreateWithoutPackInput[] | Prisma.SupplierItemUncheckedCreateWithoutPackInput[]
+  connectOrCreate?: Prisma.SupplierItemCreateOrConnectWithoutPackInput | Prisma.SupplierItemCreateOrConnectWithoutPackInput[]
+  upsert?: Prisma.SupplierItemUpsertWithWhereUniqueWithoutPackInput | Prisma.SupplierItemUpsertWithWhereUniqueWithoutPackInput[]
+  createMany?: Prisma.SupplierItemCreateManyPackInputEnvelope
+  set?: Prisma.SupplierItemWhereUniqueInput | Prisma.SupplierItemWhereUniqueInput[]
+  disconnect?: Prisma.SupplierItemWhereUniqueInput | Prisma.SupplierItemWhereUniqueInput[]
+  delete?: Prisma.SupplierItemWhereUniqueInput | Prisma.SupplierItemWhereUniqueInput[]
+  connect?: Prisma.SupplierItemWhereUniqueInput | Prisma.SupplierItemWhereUniqueInput[]
+  update?: Prisma.SupplierItemUpdateWithWhereUniqueWithoutPackInput | Prisma.SupplierItemUpdateWithWhereUniqueWithoutPackInput[]
+  updateMany?: Prisma.SupplierItemUpdateManyWithWhereWithoutPackInput | Prisma.SupplierItemUpdateManyWithWhereWithoutPackInput[]
+  deleteMany?: Prisma.SupplierItemScalarWhereInput | Prisma.SupplierItemScalarWhereInput[]
+}
+
 export type SupplierItemCreateWithoutOrganizationInput = {
   id?: string
   supplierSku?: string | null
@@ -699,12 +765,14 @@ export type SupplierItemCreateWithoutOrganizationInput = {
   updatedAt?: Date | string
   supplier: Prisma.SupplierCreateNestedOneWithoutSupplierItemsInput
   item: Prisma.ItemCreateNestedOneWithoutSupplierItemsInput
+  pack?: Prisma.ItemPackCreateNestedOneWithoutSupplierItemsInput
 }
 
 export type SupplierItemUncheckedCreateWithoutOrganizationInput = {
   id?: string
   supplierId: string
   itemId: string
+  packId?: string | null
   supplierSku?: string | null
   unitCostCents: number
   currency?: string
@@ -750,6 +818,7 @@ export type SupplierItemScalarWhereInput = {
   organizationId?: Prisma.StringFilter<"SupplierItem"> | string
   supplierId?: Prisma.StringFilter<"SupplierItem"> | string
   itemId?: Prisma.StringFilter<"SupplierItem"> | string
+  packId?: Prisma.StringNullableFilter<"SupplierItem"> | string | null
   supplierSku?: Prisma.StringNullableFilter<"SupplierItem"> | string | null
   unitCostCents?: Prisma.IntFilter<"SupplierItem"> | number
   currency?: Prisma.StringFilter<"SupplierItem"> | string
@@ -774,12 +843,14 @@ export type SupplierItemCreateWithoutItemInput = {
   updatedAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutSupplierItemsInput
   supplier: Prisma.SupplierCreateNestedOneWithoutSupplierItemsInput
+  pack?: Prisma.ItemPackCreateNestedOneWithoutSupplierItemsInput
 }
 
 export type SupplierItemUncheckedCreateWithoutItemInput = {
   id?: string
   organizationId: string
   supplierId: string
+  packId?: string | null
   supplierSku?: string | null
   unitCostCents: number
   currency?: string
@@ -830,12 +901,14 @@ export type SupplierItemCreateWithoutSupplierInput = {
   updatedAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutSupplierItemsInput
   item: Prisma.ItemCreateNestedOneWithoutSupplierItemsInput
+  pack?: Prisma.ItemPackCreateNestedOneWithoutSupplierItemsInput
 }
 
 export type SupplierItemUncheckedCreateWithoutSupplierInput = {
   id?: string
   organizationId: string
   itemId: string
+  packId?: string | null
   supplierSku?: string | null
   unitCostCents: number
   currency?: string
@@ -873,10 +946,69 @@ export type SupplierItemUpdateManyWithWhereWithoutSupplierInput = {
   data: Prisma.XOR<Prisma.SupplierItemUpdateManyMutationInput, Prisma.SupplierItemUncheckedUpdateManyWithoutSupplierInput>
 }
 
+export type SupplierItemCreateWithoutPackInput = {
+  id?: string
+  supplierSku?: string | null
+  unitCostCents: number
+  currency?: string
+  minOrderQty?: number
+  leadTimeDays?: number | null
+  isPreferred?: boolean
+  notes?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutSupplierItemsInput
+  supplier: Prisma.SupplierCreateNestedOneWithoutSupplierItemsInput
+  item: Prisma.ItemCreateNestedOneWithoutSupplierItemsInput
+}
+
+export type SupplierItemUncheckedCreateWithoutPackInput = {
+  id?: string
+  organizationId: string
+  supplierId: string
+  itemId: string
+  supplierSku?: string | null
+  unitCostCents: number
+  currency?: string
+  minOrderQty?: number
+  leadTimeDays?: number | null
+  isPreferred?: boolean
+  notes?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type SupplierItemCreateOrConnectWithoutPackInput = {
+  where: Prisma.SupplierItemWhereUniqueInput
+  create: Prisma.XOR<Prisma.SupplierItemCreateWithoutPackInput, Prisma.SupplierItemUncheckedCreateWithoutPackInput>
+}
+
+export type SupplierItemCreateManyPackInputEnvelope = {
+  data: Prisma.SupplierItemCreateManyPackInput | Prisma.SupplierItemCreateManyPackInput[]
+  skipDuplicates?: boolean
+}
+
+export type SupplierItemUpsertWithWhereUniqueWithoutPackInput = {
+  where: Prisma.SupplierItemWhereUniqueInput
+  update: Prisma.XOR<Prisma.SupplierItemUpdateWithoutPackInput, Prisma.SupplierItemUncheckedUpdateWithoutPackInput>
+  create: Prisma.XOR<Prisma.SupplierItemCreateWithoutPackInput, Prisma.SupplierItemUncheckedCreateWithoutPackInput>
+}
+
+export type SupplierItemUpdateWithWhereUniqueWithoutPackInput = {
+  where: Prisma.SupplierItemWhereUniqueInput
+  data: Prisma.XOR<Prisma.SupplierItemUpdateWithoutPackInput, Prisma.SupplierItemUncheckedUpdateWithoutPackInput>
+}
+
+export type SupplierItemUpdateManyWithWhereWithoutPackInput = {
+  where: Prisma.SupplierItemScalarWhereInput
+  data: Prisma.XOR<Prisma.SupplierItemUpdateManyMutationInput, Prisma.SupplierItemUncheckedUpdateManyWithoutPackInput>
+}
+
 export type SupplierItemCreateManyOrganizationInput = {
   id?: string
   supplierId: string
   itemId: string
+  packId?: string | null
   supplierSku?: string | null
   unitCostCents: number
   currency?: string
@@ -901,12 +1033,14 @@ export type SupplierItemUpdateWithoutOrganizationInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   supplier?: Prisma.SupplierUpdateOneRequiredWithoutSupplierItemsNestedInput
   item?: Prisma.ItemUpdateOneRequiredWithoutSupplierItemsNestedInput
+  pack?: Prisma.ItemPackUpdateOneWithoutSupplierItemsNestedInput
 }
 
 export type SupplierItemUncheckedUpdateWithoutOrganizationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   supplierId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   currency?: Prisma.StringFieldUpdateOperationsInput | string
@@ -922,6 +1056,7 @@ export type SupplierItemUncheckedUpdateManyWithoutOrganizationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   supplierId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   currency?: Prisma.StringFieldUpdateOperationsInput | string
@@ -937,6 +1072,7 @@ export type SupplierItemCreateManyItemInput = {
   id?: string
   organizationId: string
   supplierId: string
+  packId?: string | null
   supplierSku?: string | null
   unitCostCents: number
   currency?: string
@@ -961,12 +1097,14 @@ export type SupplierItemUpdateWithoutItemInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutSupplierItemsNestedInput
   supplier?: Prisma.SupplierUpdateOneRequiredWithoutSupplierItemsNestedInput
+  pack?: Prisma.ItemPackUpdateOneWithoutSupplierItemsNestedInput
 }
 
 export type SupplierItemUncheckedUpdateWithoutItemInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   supplierId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   currency?: Prisma.StringFieldUpdateOperationsInput | string
@@ -982,6 +1120,7 @@ export type SupplierItemUncheckedUpdateManyWithoutItemInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   supplierId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   currency?: Prisma.StringFieldUpdateOperationsInput | string
@@ -997,6 +1136,7 @@ export type SupplierItemCreateManySupplierInput = {
   id?: string
   organizationId: string
   itemId: string
+  packId?: string | null
   supplierSku?: string | null
   unitCostCents: number
   currency?: string
@@ -1021,12 +1161,14 @@ export type SupplierItemUpdateWithoutSupplierInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutSupplierItemsNestedInput
   item?: Prisma.ItemUpdateOneRequiredWithoutSupplierItemsNestedInput
+  pack?: Prisma.ItemPackUpdateOneWithoutSupplierItemsNestedInput
 }
 
 export type SupplierItemUncheckedUpdateWithoutSupplierInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   currency?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1041,6 +1183,71 @@ export type SupplierItemUncheckedUpdateWithoutSupplierInput = {
 export type SupplierItemUncheckedUpdateManyWithoutSupplierInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  minOrderQty?: Prisma.IntFieldUpdateOperationsInput | number
+  leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  isPreferred?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type SupplierItemCreateManyPackInput = {
+  id?: string
+  organizationId: string
+  supplierId: string
+  itemId: string
+  supplierSku?: string | null
+  unitCostCents: number
+  currency?: string
+  minOrderQty?: number
+  leadTimeDays?: number | null
+  isPreferred?: boolean
+  notes?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type SupplierItemUpdateWithoutPackInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  minOrderQty?: Prisma.IntFieldUpdateOperationsInput | number
+  leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  isPreferred?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutSupplierItemsNestedInput
+  supplier?: Prisma.SupplierUpdateOneRequiredWithoutSupplierItemsNestedInput
+  item?: Prisma.ItemUpdateOneRequiredWithoutSupplierItemsNestedInput
+}
+
+export type SupplierItemUncheckedUpdateWithoutPackInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  minOrderQty?: Prisma.IntFieldUpdateOperationsInput | number
+  leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  isPreferred?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type SupplierItemUncheckedUpdateManyWithoutPackInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1060,6 +1267,7 @@ export type SupplierItemSelect<ExtArgs extends runtime.Types.Extensions.Internal
   organizationId?: boolean
   supplierId?: boolean
   itemId?: boolean
+  packId?: boolean
   supplierSku?: boolean
   unitCostCents?: boolean
   currency?: boolean
@@ -1072,6 +1280,7 @@ export type SupplierItemSelect<ExtArgs extends runtime.Types.Extensions.Internal
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   supplier?: boolean | Prisma.SupplierDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
+  pack?: boolean | Prisma.SupplierItem$packArgs<ExtArgs>
 }, ExtArgs["result"]["supplierItem"]>
 
 export type SupplierItemSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1079,6 +1288,7 @@ export type SupplierItemSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
   organizationId?: boolean
   supplierId?: boolean
   itemId?: boolean
+  packId?: boolean
   supplierSku?: boolean
   unitCostCents?: boolean
   currency?: boolean
@@ -1091,6 +1301,7 @@ export type SupplierItemSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   supplier?: boolean | Prisma.SupplierDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
+  pack?: boolean | Prisma.SupplierItem$packArgs<ExtArgs>
 }, ExtArgs["result"]["supplierItem"]>
 
 export type SupplierItemSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1098,6 +1309,7 @@ export type SupplierItemSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
   organizationId?: boolean
   supplierId?: boolean
   itemId?: boolean
+  packId?: boolean
   supplierSku?: boolean
   unitCostCents?: boolean
   currency?: boolean
@@ -1110,6 +1322,7 @@ export type SupplierItemSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   supplier?: boolean | Prisma.SupplierDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
+  pack?: boolean | Prisma.SupplierItem$packArgs<ExtArgs>
 }, ExtArgs["result"]["supplierItem"]>
 
 export type SupplierItemSelectScalar = {
@@ -1117,6 +1330,7 @@ export type SupplierItemSelectScalar = {
   organizationId?: boolean
   supplierId?: boolean
   itemId?: boolean
+  packId?: boolean
   supplierSku?: boolean
   unitCostCents?: boolean
   currency?: boolean
@@ -1128,21 +1342,24 @@ export type SupplierItemSelectScalar = {
   updatedAt?: boolean
 }
 
-export type SupplierItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organizationId" | "supplierId" | "itemId" | "supplierSku" | "unitCostCents" | "currency" | "minOrderQty" | "leadTimeDays" | "isPreferred" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["supplierItem"]>
+export type SupplierItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organizationId" | "supplierId" | "itemId" | "packId" | "supplierSku" | "unitCostCents" | "currency" | "minOrderQty" | "leadTimeDays" | "isPreferred" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["supplierItem"]>
 export type SupplierItemInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   supplier?: boolean | Prisma.SupplierDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
+  pack?: boolean | Prisma.SupplierItem$packArgs<ExtArgs>
 }
 export type SupplierItemIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   supplier?: boolean | Prisma.SupplierDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
+  pack?: boolean | Prisma.SupplierItem$packArgs<ExtArgs>
 }
 export type SupplierItemIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   supplier?: boolean | Prisma.SupplierDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
+  pack?: boolean | Prisma.SupplierItem$packArgs<ExtArgs>
 }
 
 export type $SupplierItemPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1151,12 +1368,14 @@ export type $SupplierItemPayload<ExtArgs extends runtime.Types.Extensions.Intern
     organization: Prisma.$OrganizationPayload<ExtArgs>
     supplier: Prisma.$SupplierPayload<ExtArgs>
     item: Prisma.$ItemPayload<ExtArgs>
+    pack: Prisma.$ItemPackPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     organizationId: string
     supplierId: string
     itemId: string
+    packId: string | null
     supplierSku: string | null
     unitCostCents: number
     currency: string
@@ -1563,6 +1782,7 @@ export interface Prisma__SupplierItemClient<T, Null = never, ExtArgs extends run
   organization<T extends Prisma.OrganizationDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.OrganizationDefaultArgs<ExtArgs>>): Prisma.Prisma__OrganizationClient<runtime.Types.Result.GetResult<Prisma.$OrganizationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   supplier<T extends Prisma.SupplierDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SupplierDefaultArgs<ExtArgs>>): Prisma.Prisma__SupplierClient<runtime.Types.Result.GetResult<Prisma.$SupplierPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   item<T extends Prisma.ItemDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ItemDefaultArgs<ExtArgs>>): Prisma.Prisma__ItemClient<runtime.Types.Result.GetResult<Prisma.$ItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  pack<T extends Prisma.SupplierItem$packArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SupplierItem$packArgs<ExtArgs>>): Prisma.Prisma__ItemPackClient<runtime.Types.Result.GetResult<Prisma.$ItemPackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1596,6 +1816,7 @@ export interface SupplierItemFieldRefs {
   readonly organizationId: Prisma.FieldRef<"SupplierItem", 'String'>
   readonly supplierId: Prisma.FieldRef<"SupplierItem", 'String'>
   readonly itemId: Prisma.FieldRef<"SupplierItem", 'String'>
+  readonly packId: Prisma.FieldRef<"SupplierItem", 'String'>
   readonly supplierSku: Prisma.FieldRef<"SupplierItem", 'String'>
   readonly unitCostCents: Prisma.FieldRef<"SupplierItem", 'Int'>
   readonly currency: Prisma.FieldRef<"SupplierItem", 'String'>
@@ -2003,6 +2224,25 @@ export type SupplierItemDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.
    * Limit how many SupplierItems to delete.
    */
   limit?: number
+}
+
+/**
+ * SupplierItem.pack
+ */
+export type SupplierItem$packArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ItemPack
+   */
+  select?: Prisma.ItemPackSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ItemPack
+   */
+  omit?: Prisma.ItemPackOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ItemPackInclude<ExtArgs> | null
+  where?: Prisma.ItemPackWhereInput
 }
 
 /**

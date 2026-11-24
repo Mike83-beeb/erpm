@@ -219,3 +219,60 @@ export const CrmWebhookStatus = {
 } as const
 
 export type CrmWebhookStatus = (typeof CrmWebhookStatus)[keyof typeof CrmWebhookStatus]
+
+
+export const ServicePlanType = {
+  RETAINER: 'RETAINER',
+  HOUR_PACK: 'HOUR_PACK',
+  SUBSCRIPTION: 'SUBSCRIPTION',
+  MILESTONE: 'MILESTONE'
+} as const
+
+export type ServicePlanType = (typeof ServicePlanType)[keyof typeof ServicePlanType]
+
+
+export const BillingCycle = {
+  ONE_TIME: 'ONE_TIME',
+  WEEKLY: 'WEEKLY',
+  MONTHLY: 'MONTHLY',
+  QUARTERLY: 'QUARTERLY',
+  ANNUAL: 'ANNUAL'
+} as const
+
+export type BillingCycle = (typeof BillingCycle)[keyof typeof BillingCycle]
+
+
+export const PriceBookDirection = {
+  SALES: 'SALES',
+  PURCHASE: 'PURCHASE'
+} as const
+
+export type PriceBookDirection = (typeof PriceBookDirection)[keyof typeof PriceBookDirection]
+
+
+export const PricingModel = {
+  FLAT: 'FLAT',
+  VOLUME: 'VOLUME',
+  GRADUATED: 'GRADUATED',
+  PACKAGE: 'PACKAGE'
+} as const
+
+export type PricingModel = (typeof PricingModel)[keyof typeof PricingModel]
+
+
+export const DiscountType = {
+  PERCENTAGE: 'PERCENTAGE',
+  FIXED_AMOUNT: 'FIXED_AMOUNT',
+  FIXED_PRICE: 'FIXED_PRICE',
+  BUY_X_GET_Y: 'BUY_X_GET_Y'
+} as const
+
+export type DiscountType = (typeof DiscountType)[keyof typeof DiscountType]
+
+
+export const DiscountScope = {
+  LINE_ITEM: 'LINE_ITEM',
+  ORDER: 'ORDER'
+} as const
+
+export type DiscountScope = (typeof DiscountScope)[keyof typeof DiscountScope]

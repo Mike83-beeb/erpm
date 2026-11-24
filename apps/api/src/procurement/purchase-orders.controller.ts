@@ -29,6 +29,7 @@ const currencySchema = z
 
 const poLineSchema = z.object({
   itemId: z.string().trim().min(1),
+  packId: z.string().trim().min(1).nullable().optional(),
   orderedQty: z.number().int().min(1).max(1_000_000),
   unitCostCents: z.number().int().min(0).max(2_000_000_000).optional(),
   supplierSku: z.string().trim().max(64).nullable().optional(),
@@ -46,6 +47,8 @@ const createPurchaseOrderSchema = z.object({
   supplierId: z.string().trim().min(1),
   locationId: z.string().trim().min(1),
   currency: currencySchema.optional(),
+  priceBookId: z.string().trim().min(1).nullable().optional(),
+  promoCodes: z.array(z.string().trim().min(1).max(64)).max(10).optional(),
   taxCents: z.number().int().min(0).max(2_000_000_000).optional(),
   expectedAt: z.string().datetime().nullable().optional(),
   notes: z.string().trim().max(2000).nullable().optional(),
@@ -55,6 +58,8 @@ const createPurchaseOrderSchema = z.object({
 const updateDraftPoSchema = z.object({
   locationId: z.string().trim().min(1).optional(),
   currency: currencySchema.optional(),
+  priceBookId: z.string().trim().min(1).nullable().optional(),
+  promoCodes: z.array(z.string().trim().min(1).max(64)).max(10).optional(),
   taxCents: z.number().int().min(0).max(2_000_000_000).optional(),
   expectedAt: z.string().datetime().nullable().optional(),
   notes: z.string().trim().max(2000).nullable().optional(),

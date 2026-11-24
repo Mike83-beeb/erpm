@@ -110,10 +110,17 @@ model Organization {
   teams              Team[]
   teamMembers        TeamMember[]
   calendarFeeds      CalendarFeed[]
-  crmConnection      CrmConnection?
-  crmStaffMappings   CrmStaffMapping[]
-  crmDealItemLinks   CrmDealItemLink[]
-  crmWebhookEvents   CrmWebhookEvent[]
+  crmConnection         CrmConnection?
+  crmStaffMappings      CrmStaffMapping[]
+  crmDealItemLinks      CrmDealItemLink[]
+  crmWebhookEvents      CrmWebhookEvent[]
+  itemPacks             ItemPack[]
+  itemBundleComponents  ItemBundleComponent[]
+  servicePlans          ServicePlan[]
+  priceBooks            PriceBook[]
+  priceRules            PriceRule[]
+  priceTiers            PriceTier[]
+  discountRules         DiscountRule[]
 
   @@map("organization")
 }
@@ -228,9 +235,10 @@ model Item {
   trackInventory     Boolean        @default(true)
   allowNegativeStock Boolean        @default(false)
   reorderPoint       Int?
-  tags               String[]       @default([])
+  isBundle           Boolean             @default(false)
+  tags               String[]            @default([])
   metadata           Json?
-  version            Int            @default(1)
+  version            Int                 @default(1)
   createdByUserId    String?
   updatedByUserId    String?
   archivedAt         DateTime?
@@ -246,6 +254,12 @@ model Item {
   goodsReceiptLines  GoodsReceiptLine[]
   vendorBillLines    VendorBillLine[]
   crmDealLinks       CrmDealItemLink[]
+  packs              ItemPack[]
+  bundleComponents   ItemBundleComponent[] @relation("BundleParentItem")
+  includedInBundles  ItemBundleComponent[] @relation("BundleComponentItem")
+  servicePlans       ServicePlan[]
+  priceRules         PriceRule[]
+  discountRules      DiscountRule[]
 
   @@unique([organizationId, sku])
   @@index([organizationId, status, type])
@@ -477,6 +491,7 @@ model Supplier {
   supplierItems    SupplierItem[]
   purchaseOrders   PurchaseOrder[]
   vendorBills      VendorBill[]
+  priceBooks       PriceBook[]
 
   @@unique([organizationId, code])
   @@index([organizationId, status])
@@ -491,6 +506,8 @@ model SupplierItem {
   supplier       Supplier     @relation(fields: [supplierId], references: [id], onDelete: Cascade)
   itemId         String
   item           Item         @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  packId         String?
+  pack           ItemPack?    @relation(fields: [packId], references: [id], onDelete: SetNull)
   supplierSku    String?
   unitCostCents  Int
   currency       String       @default("USD")
@@ -548,12 +565,18 @@ model PurchaseOrderLine {
   purchaseOrder   PurchaseOrder      @relation(fields: [purchaseOrderId], references: [id], onDelete: Cascade)
   itemId          String
   item            Item               @relation(fields: [itemId], references: [id], onDelete: Restrict)
+  packId          String?
+  pack            ItemPack?          @relation(fields: [packId], references: [id], onDelete: SetNull)
+  unitsPerPack    Int                @default(1)
+  orderedBaseQty  Int                @default(0)
+  receivedBaseQty Int                @default(0)
   supplierSku     String?
   description     String?
   orderedQty      Int
   receivedQty     Int                @default(0)
   unitCostCents   Int
   lineTotalCents  Int
+  pricingSnapshot Json?
   createdAt       DateTime           @default(now())
   updatedAt       DateTime           @updatedAt
   receiptLines    GoodsReceiptLine[]
@@ -594,7 +617,10 @@ model GoodsReceiptLine {
   purchaseOrderLine   PurchaseOrderLine @relation(fields: [purchaseOrderLineId], references: [id], onDelete: Restrict)
   itemId              String
   item                Item              @relation(fields: [itemId], references: [id], onDelete: Restrict)
+  packId              String?
+  unitsPerPack        Int               @default(1)
   receivedQty         Int
+  receivedBaseQty     Int               @default(0)
   unitCostCents       Int
   createdAt           DateTime          @default(now())
 
@@ -1034,10 +1060,20 @@ model CrmDealItemLink {
   externalDealId    String
   itemId            String
   item              Item         @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  packId            String?
+  pack              ItemPack?    @relation(fields: [packId], references: [id], onDelete: SetNull)
+  servicePlanId     String?
+  servicePlan       ServicePlan? @relation(fields: [servicePlanId], references: [id], onDelete: SetNull)
+  priceBookId       String?
+  priceBook         PriceBook?   @relation(fields: [priceBookId], references: [id], onDelete: SetNull)
+  promoCode         String?
   externalServiceId String?
   quantity          Int          @default(1)
   unitPriceCents    Int
+  baseSubtotalCents Int?
+  discountCents     Int          @default(0)
   currency          String       @default("USD")
+  appliedPricing    Json?
   notes             String?
   createdByUserId   String?
   createdAt         DateTime     @default(now())
@@ -1068,6 +1104,272 @@ model CrmWebhookEvent {
   @@index([organizationId, eventType, receivedAt])
   @@map("crm_webhook_event")
 }
+
+// ==========================================
+// Enterprise Packaging, Bundles, Service Plans & Pricing Models
+// ==========================================
+
+enum ServicePlanType {
+  RETAINER
+  HOUR_PACK
+  SUBSCRIPTION
+  MILESTONE
+}
+
+enum BillingCycle {
+  ONE_TIME
+  WEEKLY
+  MONTHLY
+  QUARTERLY
+  ANNUAL
+}
+
+enum PriceBookDirection {
+  SALES
+  PURCHASE
+}
+
+enum PricingModel {
+  FLAT
+  VOLUME
+  GRADUATED
+  PACKAGE
+}
+
+enum DiscountType {
+  PERCENTAGE
+  FIXED_AMOUNT
+  FIXED_PRICE
+  BUY_X_GET_Y
+}
+
+enum DiscountScope {
+  LINE_ITEM
+  ORDER
+}
+
+model ItemPack {
+  id                    String                @id @default(cuid())
+  organizationId        String
+  organization          Organization          @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  itemId                String
+  item                  Item                  @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  code                  String
+  name                  String
+  unitOfMeasure         String
+  unitsPerPack          Int                   @default(1)
+  barcode               String?
+  packSku               String?
+  salePriceCents        Int?
+  costPriceCents        Int?
+  isSellable            Boolean               @default(true)
+  isPurchasable         Boolean               @default(true)
+  isDefaultSalesPack    Boolean               @default(false)
+  isDefaultPurchasePack Boolean               @default(false)
+  minOrderPacks         Int                   @default(1)
+  packStep              Int                   @default(1)
+  weightGrams           Int?
+  dimensionsJson        Json?
+  isActive              Boolean               @default(true)
+  metadata              Json?
+  createdAt             DateTime              @default(now())
+  updatedAt             DateTime              @updatedAt
+  bundleComponents      ItemBundleComponent[]
+  priceRules            PriceRule[]
+  discountRules         DiscountRule[]
+  supplierItems         SupplierItem[]
+  purchaseOrderLines    PurchaseOrderLine[]
+  crmDealLinks          CrmDealItemLink[]
+
+  @@unique([organizationId, itemId, code])
+  @@index([organizationId, itemId, isActive])
+  @@index([organizationId, packSku])
+  @@map("item_pack")
+}
+
+model ItemBundleComponent {
+  id                 String       @id @default(cuid())
+  organizationId     String
+  organization       Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  bundleItemId       String
+  bundleItem         Item         @relation("BundleParentItem", fields: [bundleItemId], references: [id], onDelete: Cascade)
+  componentItemId    String
+  componentItem      Item         @relation("BundleComponentItem", fields: [componentItemId], references: [id], onDelete: Restrict)
+  componentPackId    String?
+  componentPack      ItemPack?    @relation(fields: [componentPackId], references: [id], onDelete: SetNull)
+  quantity           Int          @default(1)
+  priceAllocationBps Int?
+  isOptional         Boolean      @default(false)
+  sortOrder          Int          @default(0)
+  createdAt          DateTime     @default(now())
+  updatedAt          DateTime     @updatedAt
+
+  @@unique([organizationId, bundleItemId, componentItemId])
+  @@index([organizationId, bundleItemId])
+  @@map("item_bundle_component")
+}
+
+model ServicePlan {
+  id                    String            @id @default(cuid())
+  organizationId        String
+  organization          Organization      @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  itemId                String
+  item                  Item              @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  code                  String
+  name                  String
+  description           String?
+  planType              ServicePlanType   @default(HOUR_PACK)
+  billingCycle          BillingCycle      @default(ONE_TIME)
+  includedUnits         Int               @default(1)
+  unitLabel             String            @default("hours")
+  basePriceCents        Int
+  overageUnitPriceCents Int?
+  setupFeeCents         Int               @default(0)
+  rolloverEnabled       Boolean           @default(false)
+  maxRolloverUnits      Int?
+  validityDays          Int?
+  isActive              Boolean           @default(true)
+  metadata              Json?
+  createdAt             DateTime          @default(now())
+  updatedAt             DateTime          @updatedAt
+  priceRules            PriceRule[]
+  crmDealLinks          CrmDealItemLink[]
+
+  @@unique([organizationId, itemId, code])
+  @@index([organizationId, itemId, isActive])
+  @@map("service_plan")
+}
+
+model PriceBook {
+  id                String             @id @default(cuid())
+  organizationId    String
+  organization      Organization       @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  code              String
+  name              String
+  description       String?
+  direction         PriceBookDirection @default(SALES)
+  currency          String             @default("USD")
+  priority          Int                @default(100)
+  isDefault         Boolean            @default(false)
+  isActive          Boolean            @default(true)
+  customerSegment   String?
+  externalAccountId String?
+  supplierId        String?
+  supplier          Supplier?          @relation(fields: [supplierId], references: [id], onDelete: SetNull)
+  startsAt          DateTime?
+  endsAt            DateTime?
+  customAttributes  Json?
+  createdByUserId   String?
+  updatedByUserId   String?
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+  rules             PriceRule[]
+  crmDealLinks      CrmDealItemLink[]
+
+  @@unique([organizationId, code])
+  @@index([organizationId, direction, isActive, priority])
+  @@index([organizationId, customerSegment])
+  @@index([organizationId, externalAccountId])
+  @@index([organizationId, supplierId])
+  @@map("price_book")
+}
+
+model PriceRule {
+  id                 String       @id @default(cuid())
+  organizationId     String
+  organization       Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  priceBookId        String
+  priceBook          PriceBook    @relation(fields: [priceBookId], references: [id], onDelete: Cascade)
+  itemId             String
+  item               Item         @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  packId             String?
+  pack               ItemPack?    @relation(fields: [packId], references: [id], onDelete: SetNull)
+  servicePlanId      String?
+  servicePlan        ServicePlan? @relation(fields: [servicePlanId], references: [id], onDelete: SetNull)
+  name               String
+  pricingModel       PricingModel @default(FLAT)
+  baseUnitPriceCents Int
+  minMarginBps       Int?
+  minQuantity        Int          @default(1)
+  maxQuantity        Int?
+  conditions         Json?
+  customAdjustment   Json?
+  priority           Int          @default(100)
+  isActive           Boolean      @default(true)
+  startsAt           DateTime?
+  endsAt             DateTime?
+  createdAt          DateTime     @default(now())
+  updatedAt          DateTime     @updatedAt
+  tiers              PriceTier[]
+
+  @@index([organizationId, priceBookId, itemId, isActive])
+  @@index([organizationId, itemId, packId])
+  @@map("price_rule")
+}
+
+model PriceTier {
+  id                String       @id @default(cuid())
+  organizationId    String
+  organization      Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  priceRuleId       String
+  priceRule         PriceRule    @relation(fields: [priceRuleId], references: [id], onDelete: Cascade)
+  minQuantity       Int
+  maxQuantity       Int?
+  unitPriceCents    Int?
+  flatFeeCents      Int?
+  packageSize       Int?
+  packagePriceCents Int?
+  discountBps       Int?
+  sortOrder         Int          @default(0)
+
+  @@index([organizationId, priceRuleId, minQuantity])
+  @@map("price_tier")
+}
+
+model DiscountRule {
+  id                    String        @id @default(cuid())
+  organizationId        String
+  organization          Organization  @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  code                  String
+  name                  String
+  description           String?
+  promoCode             String?
+  discountType          DiscountType
+  scope                 DiscountScope @default(LINE_ITEM)
+  valueBps              Int?
+  amountCents           Int?
+  fixedPriceCents       Int?
+  buyQuantity           Int?
+  getQuantity           Int?
+  getDiscountBps        Int?
+  targetItemId          String?
+  targetItem            Item?         @relation(fields: [targetItemId], references: [id], onDelete: SetNull)
+  targetPackId          String?
+  targetPack            ItemPack?     @relation(fields: [targetPackId], references: [id], onDelete: SetNull)
+  targetTags            String[]      @default([])
+  customerSegments      String[]      @default([])
+  externalAccountIds    String[]      @default([])
+  minQuantity           Int?
+  minOrderSubtotalCents Int?
+  maxDiscountCents      Int?
+  isStackable           Boolean       @default(false)
+  priority              Int           @default(100)
+  startsAt              DateTime?
+  endsAt                DateTime?
+  usageLimit            Int?
+  usageCount            Int           @default(0)
+  isActive              Boolean       @default(true)
+  conditions            Json?
+  createdByUserId       String?
+  createdAt             DateTime      @default(now())
+  updatedAt             DateTime      @updatedAt
+
+  @@unique([organizationId, code])
+  @@index([organizationId, isActive, promoCode])
+  @@index([organizationId, targetItemId])
+  @@map("discount_rule")
+}
+
 
 
 

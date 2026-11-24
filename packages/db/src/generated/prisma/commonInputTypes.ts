@@ -705,6 +705,108 @@ export type EnumCrmWebhookStatusWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedEnumCrmWebhookStatusFilter<$PrismaModel>
 }
 
+export type EnumServicePlanTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ServicePlanType | Prisma.EnumServicePlanTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ServicePlanType[] | Prisma.ListEnumServicePlanTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ServicePlanType[] | Prisma.ListEnumServicePlanTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumServicePlanTypeFilter<$PrismaModel> | $Enums.ServicePlanType
+}
+
+export type EnumBillingCycleFilter<$PrismaModel = never> = {
+  equals?: $Enums.BillingCycle | Prisma.EnumBillingCycleFieldRefInput<$PrismaModel>
+  in?: $Enums.BillingCycle[] | Prisma.ListEnumBillingCycleFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BillingCycle[] | Prisma.ListEnumBillingCycleFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBillingCycleFilter<$PrismaModel> | $Enums.BillingCycle
+}
+
+export type EnumServicePlanTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ServicePlanType | Prisma.EnumServicePlanTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ServicePlanType[] | Prisma.ListEnumServicePlanTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ServicePlanType[] | Prisma.ListEnumServicePlanTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumServicePlanTypeWithAggregatesFilter<$PrismaModel> | $Enums.ServicePlanType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumServicePlanTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumServicePlanTypeFilter<$PrismaModel>
+}
+
+export type EnumBillingCycleWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BillingCycle | Prisma.EnumBillingCycleFieldRefInput<$PrismaModel>
+  in?: $Enums.BillingCycle[] | Prisma.ListEnumBillingCycleFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BillingCycle[] | Prisma.ListEnumBillingCycleFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBillingCycleWithAggregatesFilter<$PrismaModel> | $Enums.BillingCycle
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBillingCycleFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBillingCycleFilter<$PrismaModel>
+}
+
+export type EnumPriceBookDirectionFilter<$PrismaModel = never> = {
+  equals?: $Enums.PriceBookDirection | Prisma.EnumPriceBookDirectionFieldRefInput<$PrismaModel>
+  in?: $Enums.PriceBookDirection[] | Prisma.ListEnumPriceBookDirectionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PriceBookDirection[] | Prisma.ListEnumPriceBookDirectionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPriceBookDirectionFilter<$PrismaModel> | $Enums.PriceBookDirection
+}
+
+export type EnumPriceBookDirectionWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PriceBookDirection | Prisma.EnumPriceBookDirectionFieldRefInput<$PrismaModel>
+  in?: $Enums.PriceBookDirection[] | Prisma.ListEnumPriceBookDirectionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PriceBookDirection[] | Prisma.ListEnumPriceBookDirectionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPriceBookDirectionWithAggregatesFilter<$PrismaModel> | $Enums.PriceBookDirection
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPriceBookDirectionFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPriceBookDirectionFilter<$PrismaModel>
+}
+
+export type EnumPricingModelFilter<$PrismaModel = never> = {
+  equals?: $Enums.PricingModel | Prisma.EnumPricingModelFieldRefInput<$PrismaModel>
+  in?: $Enums.PricingModel[] | Prisma.ListEnumPricingModelFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PricingModel[] | Prisma.ListEnumPricingModelFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPricingModelFilter<$PrismaModel> | $Enums.PricingModel
+}
+
+export type EnumPricingModelWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PricingModel | Prisma.EnumPricingModelFieldRefInput<$PrismaModel>
+  in?: $Enums.PricingModel[] | Prisma.ListEnumPricingModelFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PricingModel[] | Prisma.ListEnumPricingModelFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPricingModelWithAggregatesFilter<$PrismaModel> | $Enums.PricingModel
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPricingModelFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPricingModelFilter<$PrismaModel>
+}
+
+export type EnumDiscountTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.DiscountType | Prisma.EnumDiscountTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.DiscountType[] | Prisma.ListEnumDiscountTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.DiscountType[] | Prisma.ListEnumDiscountTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumDiscountTypeFilter<$PrismaModel> | $Enums.DiscountType
+}
+
+export type EnumDiscountScopeFilter<$PrismaModel = never> = {
+  equals?: $Enums.DiscountScope | Prisma.EnumDiscountScopeFieldRefInput<$PrismaModel>
+  in?: $Enums.DiscountScope[] | Prisma.ListEnumDiscountScopeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.DiscountScope[] | Prisma.ListEnumDiscountScopeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumDiscountScopeFilter<$PrismaModel> | $Enums.DiscountScope
+}
+
+export type EnumDiscountTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.DiscountType | Prisma.EnumDiscountTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.DiscountType[] | Prisma.ListEnumDiscountTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.DiscountType[] | Prisma.ListEnumDiscountTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumDiscountTypeWithAggregatesFilter<$PrismaModel> | $Enums.DiscountType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumDiscountTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumDiscountTypeFilter<$PrismaModel>
+}
+
+export type EnumDiscountScopeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.DiscountScope | Prisma.EnumDiscountScopeFieldRefInput<$PrismaModel>
+  in?: $Enums.DiscountScope[] | Prisma.ListEnumDiscountScopeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.DiscountScope[] | Prisma.ListEnumDiscountScopeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumDiscountScopeWithAggregatesFilter<$PrismaModel> | $Enums.DiscountScope
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumDiscountScopeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumDiscountScopeFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -1353,6 +1455,108 @@ export type NestedEnumCrmWebhookStatusWithAggregatesFilter<$PrismaModel = never>
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumCrmWebhookStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumCrmWebhookStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumServicePlanTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ServicePlanType | Prisma.EnumServicePlanTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ServicePlanType[] | Prisma.ListEnumServicePlanTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ServicePlanType[] | Prisma.ListEnumServicePlanTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumServicePlanTypeFilter<$PrismaModel> | $Enums.ServicePlanType
+}
+
+export type NestedEnumBillingCycleFilter<$PrismaModel = never> = {
+  equals?: $Enums.BillingCycle | Prisma.EnumBillingCycleFieldRefInput<$PrismaModel>
+  in?: $Enums.BillingCycle[] | Prisma.ListEnumBillingCycleFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BillingCycle[] | Prisma.ListEnumBillingCycleFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBillingCycleFilter<$PrismaModel> | $Enums.BillingCycle
+}
+
+export type NestedEnumServicePlanTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ServicePlanType | Prisma.EnumServicePlanTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ServicePlanType[] | Prisma.ListEnumServicePlanTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ServicePlanType[] | Prisma.ListEnumServicePlanTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumServicePlanTypeWithAggregatesFilter<$PrismaModel> | $Enums.ServicePlanType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumServicePlanTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumServicePlanTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumBillingCycleWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BillingCycle | Prisma.EnumBillingCycleFieldRefInput<$PrismaModel>
+  in?: $Enums.BillingCycle[] | Prisma.ListEnumBillingCycleFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BillingCycle[] | Prisma.ListEnumBillingCycleFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBillingCycleWithAggregatesFilter<$PrismaModel> | $Enums.BillingCycle
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBillingCycleFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBillingCycleFilter<$PrismaModel>
+}
+
+export type NestedEnumPriceBookDirectionFilter<$PrismaModel = never> = {
+  equals?: $Enums.PriceBookDirection | Prisma.EnumPriceBookDirectionFieldRefInput<$PrismaModel>
+  in?: $Enums.PriceBookDirection[] | Prisma.ListEnumPriceBookDirectionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PriceBookDirection[] | Prisma.ListEnumPriceBookDirectionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPriceBookDirectionFilter<$PrismaModel> | $Enums.PriceBookDirection
+}
+
+export type NestedEnumPriceBookDirectionWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PriceBookDirection | Prisma.EnumPriceBookDirectionFieldRefInput<$PrismaModel>
+  in?: $Enums.PriceBookDirection[] | Prisma.ListEnumPriceBookDirectionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PriceBookDirection[] | Prisma.ListEnumPriceBookDirectionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPriceBookDirectionWithAggregatesFilter<$PrismaModel> | $Enums.PriceBookDirection
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPriceBookDirectionFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPriceBookDirectionFilter<$PrismaModel>
+}
+
+export type NestedEnumPricingModelFilter<$PrismaModel = never> = {
+  equals?: $Enums.PricingModel | Prisma.EnumPricingModelFieldRefInput<$PrismaModel>
+  in?: $Enums.PricingModel[] | Prisma.ListEnumPricingModelFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PricingModel[] | Prisma.ListEnumPricingModelFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPricingModelFilter<$PrismaModel> | $Enums.PricingModel
+}
+
+export type NestedEnumPricingModelWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PricingModel | Prisma.EnumPricingModelFieldRefInput<$PrismaModel>
+  in?: $Enums.PricingModel[] | Prisma.ListEnumPricingModelFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PricingModel[] | Prisma.ListEnumPricingModelFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPricingModelWithAggregatesFilter<$PrismaModel> | $Enums.PricingModel
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPricingModelFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPricingModelFilter<$PrismaModel>
+}
+
+export type NestedEnumDiscountTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.DiscountType | Prisma.EnumDiscountTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.DiscountType[] | Prisma.ListEnumDiscountTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.DiscountType[] | Prisma.ListEnumDiscountTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumDiscountTypeFilter<$PrismaModel> | $Enums.DiscountType
+}
+
+export type NestedEnumDiscountScopeFilter<$PrismaModel = never> = {
+  equals?: $Enums.DiscountScope | Prisma.EnumDiscountScopeFieldRefInput<$PrismaModel>
+  in?: $Enums.DiscountScope[] | Prisma.ListEnumDiscountScopeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.DiscountScope[] | Prisma.ListEnumDiscountScopeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumDiscountScopeFilter<$PrismaModel> | $Enums.DiscountScope
+}
+
+export type NestedEnumDiscountTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.DiscountType | Prisma.EnumDiscountTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.DiscountType[] | Prisma.ListEnumDiscountTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.DiscountType[] | Prisma.ListEnumDiscountTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumDiscountTypeWithAggregatesFilter<$PrismaModel> | $Enums.DiscountType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumDiscountTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumDiscountTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumDiscountScopeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.DiscountScope | Prisma.EnumDiscountScopeFieldRefInput<$PrismaModel>
+  in?: $Enums.DiscountScope[] | Prisma.ListEnumDiscountScopeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.DiscountScope[] | Prisma.ListEnumDiscountScopeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumDiscountScopeWithAggregatesFilter<$PrismaModel> | $Enums.DiscountScope
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumDiscountScopeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumDiscountScopeFilter<$PrismaModel>
 }
 
 

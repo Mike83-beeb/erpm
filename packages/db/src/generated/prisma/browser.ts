@@ -202,3 +202,38 @@ export type CrmDealItemLink = Prisma.CrmDealItemLinkModel
  * 
  */
 export type CrmWebhookEvent = Prisma.CrmWebhookEventModel
+/**
+ * Model ItemPack
+ * 
+ */
+export type ItemPack = Prisma.ItemPackModel
+/**
+ * Model ItemBundleComponent
+ * 
+ */
+export type ItemBundleComponent = Prisma.ItemBundleComponentModel
+/**
+ * Model ServicePlan
+ * 
+ */
+export type ServicePlan = Prisma.ServicePlanModel
+/**
+ * Model PriceBook
+ * 
+ */
+export type PriceBook = Prisma.PriceBookModel
+/**
+ * Model PriceRule
+ * 
+ */
+export type PriceRule = Prisma.PriceRuleModel
+/**
+ * Model PriceTier
+ * 
+ */
+export type PriceTier = Prisma.PriceTierModel
+/**
+ * Model DiscountRule
+ * 
+ */
+export type DiscountRule = Prisma.DiscountRuleModel

@@ -35,6 +35,7 @@ export class RootController {
         availability: "/api/v1/availability",
         calendar: "/api/v1/calendar",
         crm: "/api/v1/crm",
+        pricing: "/api/v1/pricing",
       },
     };
   }

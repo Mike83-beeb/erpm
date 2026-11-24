@@ -34,6 +34,13 @@ export const TENANT_SCOPED_MODELS = new Set<string>([
   "CrmStaffMapping",
   "CrmDealItemLink",
   "CrmWebhookEvent",
+  "ItemPack",
+  "ItemBundleComponent",
+  "ServicePlan",
+  "PriceBook",
+  "PriceRule",
+  "PriceTier",
+  "DiscountRule",
 ]);
 
 let sharedPool: Pool | null = null;

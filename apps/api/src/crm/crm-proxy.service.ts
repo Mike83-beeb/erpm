@@ -69,11 +69,18 @@ export class CrmProxyService {
       Array<{
         id: string;
         itemId: string;
+        packId: string | null;
+        servicePlanId: string | null;
+        priceBookId: string | null;
+        promoCode: string | null;
         externalServiceId: string | null;
         quantity: number;
         unitPriceCents: number;
+        baseSubtotalCents: number | null;
+        discountCents: number;
         currency: string;
         lineTotalCents: number;
+        appliedPricing: unknown;
         item: {
           id: string;
           sku: string;
@@ -81,6 +88,22 @@ export class CrmProxyService {
           type: string;
           unitOfMeasure: string;
         };
+        pack: {
+          id: string;
+          code: string;
+          name: string;
+          unitOfMeasure: string;
+          unitsPerPack: number;
+        } | null;
+        servicePlan: {
+          id: string;
+          code: string;
+          name: string;
+          planType: string;
+          billingCycle: string;
+          includedUnits: number;
+          unitLabel: string;
+        } | null;
       }>
     >();
 
@@ -101,20 +124,55 @@ export class CrmProxyService {
               unitOfMeasure: true,
             },
           },
+          pack: {
+            select: {
+              id: true,
+              code: true,
+              name: true,
+              unitOfMeasure: true,
+              unitsPerPack: true,
+            },
+          },
+          servicePlan: {
+            select: {
+              id: true,
+              code: true,
+              name: true,
+              planType: true,
+              billingCycle: true,
+              includedUnits: true,
+              unitLabel: true,
+            },
+          },
         },
       });
 
       for (const link of links) {
         const list = linksByDeal.get(link.externalDealId) ?? [];
+        const snap = link.appliedPricing as { finalLineTotalCents?: number } | null;
+        const lineTotalCents =
+          typeof snap?.finalLineTotalCents === "number"
+            ? snap.finalLineTotalCents
+            : link.quantity * link.unitPriceCents;
+
         list.push({
           id: link.id,
           itemId: link.itemId,
+          packId: link.packId,
+          servicePlanId: link.servicePlanId,
+          priceBookId: link.priceBookId,
+          promoCode: link.promoCode,
           externalServiceId: link.externalServiceId,
           quantity: link.quantity,
           unitPriceCents: link.unitPriceCents,
+          baseSubtotalCents: link.baseSubtotalCents,
+          discountCents: link.discountCents,
           currency: link.currency,
-          lineTotalCents: link.quantity * link.unitPriceCents,
+          lineTotalCents,
+          appliedPricing: link.appliedPricing,
           item: link.item,
+          pack: link.pack,
+          servicePlan: link.servicePlan,
         });
         linksByDeal.set(link.externalDealId, list);
       }
@@ -130,11 +188,16 @@ export class CrmProxyService {
           (sum, row) => sum + row.lineTotalCents,
           0,
         );
+        const linkedDiscountCents = linkedItems.reduce(
+          (sum, row) => sum + row.discountCents,
+          0,
+        );
         return {
           ...record,
           ownerStaff,
           linkedItems,
           linkedSubtotalCents,
+          linkedDiscountCents,
         };
       }
 
@@ -154,7 +217,15 @@ export class CrmProxyService {
     payload: Record<string, unknown>,
     ownerKey: "ownerId" | "assigneeId" = "ownerId",
   ): Promise<Record<string, unknown>> {
-    const { ownerStaffId, items: _items, ...rest } = payload;
+    const {
+      ownerStaffId,
+      items: _items,
+      priceBookId: _pb,
+      customerSegment: _seg,
+      externalAccountId: _acc,
+      promoCode: _promo,
+      ...rest
+    } = payload;
     const cleanPayload: Record<string, unknown> = { ...rest };
 
     if (typeof ownerStaffId === "string" && ownerStaffId.trim().length > 0) {
@@ -279,11 +350,32 @@ export class CrmProxyService {
     );
 
     if (resource === "deals" && itemsToLink.length > 0) {
+      const dealPriceBookId =
+        typeof payload.priceBookId === "string" ? payload.priceBookId : undefined;
+      const dealSegment =
+        typeof payload.customerSegment === "string"
+          ? payload.customerSegment
+          : undefined;
+      const dealAccountId =
+        typeof payload.externalAccountId === "string"
+          ? payload.externalAccountId
+          : typeof payload.companyId === "string"
+            ? payload.companyId
+            : undefined;
+      const dealPromoCode =
+        typeof payload.promoCode === "string" ? payload.promoCode : undefined;
+
       for (const linkInput of itemsToLink) {
         await this.bridgeService.linkItemToDeal(
           tenant,
           created.id,
-          linkInput,
+          {
+            ...linkInput,
+            priceBookId: linkInput.priceBookId ?? dealPriceBookId,
+            customerSegment: linkInput.customerSegment ?? dealSegment,
+            externalAccountId: linkInput.externalAccountId ?? dealAccountId,
+            promoCode: linkInput.promoCode ?? dealPromoCode,
+          },
           ipAddress,
         );
       }

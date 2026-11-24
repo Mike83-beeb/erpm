@@ -29,6 +29,7 @@ export interface CreateItemInput {
   trackInventory?: boolean;
   allowNegativeStock?: boolean;
   reorderPoint?: number | null;
+  isBundle?: boolean;
   tags?: string[];
   metadata?: Record<string, unknown> | null;
   reason?: string;
@@ -47,6 +48,7 @@ export interface UpdateItemInput {
   trackInventory?: boolean;
   allowNegativeStock?: boolean;
   reorderPoint?: number | null;
+  isBundle?: boolean;
   tags?: string[];
   metadata?: Record<string, unknown> | null;
   expectedVersion?: number;
@@ -200,6 +202,7 @@ export class ItemsService {
             trackInventory,
             allowNegativeStock,
             reorderPoint,
+            isBundle: input.isBundle ?? false,
             tags: normalizedTags,
             metadata: toNullableJsonInput(normalizedMetadata),
             version: 1,
@@ -221,6 +224,7 @@ export class ItemsService {
           trackInventory: { from: null, to: item.trackInventory },
           allowNegativeStock: { from: null, to: item.allowNegativeStock },
           reorderPoint: { from: null, to: item.reorderPoint },
+          isBundle: { from: null, to: item.isBundle },
           tags: { from: null, to: item.tags },
           metadata: { from: null, to: item.metadata },
         };
@@ -407,6 +411,7 @@ export class ItemsService {
           trackInventory: boolean;
           allowNegativeStock: boolean;
           reorderPoint: number | null;
+          isBundle: boolean;
           tags: string[];
           metadata: Prisma.JsonValue | null;
         } = {
@@ -443,6 +448,8 @@ export class ItemsService {
             : input.reorderPoint !== undefined
               ? input.reorderPoint
               : existing.reorderPoint,
+          isBundle:
+            input.isBundle !== undefined ? input.isBundle : existing.isBundle,
           tags:
             input.tags !== undefined ? normalizeTags(input.tags) : existing.tags,
           metadata:
@@ -467,6 +474,7 @@ export class ItemsService {
           "trackInventory",
           "allowNegativeStock",
           "reorderPoint",
+          "isBundle",
           "tags",
           "metadata",
         ] as const;

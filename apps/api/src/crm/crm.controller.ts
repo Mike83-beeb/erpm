@@ -75,6 +75,12 @@ const companyPayloadSchema = z
 
 const dealItemInputSchema = z.object({
   itemId: z.string().trim().min(1),
+  packId: z.string().trim().min(1).nullable().optional(),
+  servicePlanId: z.string().trim().min(1).nullable().optional(),
+  priceBookId: z.string().trim().min(1).nullable().optional(),
+  customerSegment: z.string().trim().min(1).max(80).nullable().optional(),
+  externalAccountId: z.string().trim().min(1).max(128).nullable().optional(),
+  promoCode: z.string().trim().min(1).max(64).nullable().optional(),
   externalServiceId: z.string().trim().min(1).nullable().optional(),
   quantity: z.number().int().min(1).max(1_000_000).optional(),
   unitPriceCents: z.number().int().min(0).max(2_000_000_000).optional(),
@@ -104,6 +110,10 @@ const dealPayloadSchema = z
     companyId: z.string().trim().min(1).optional(),
     ownerStaffId: z.string().trim().min(1).optional(),
     expectedCloseDate: z.string().trim().min(1).optional(),
+    priceBookId: z.string().trim().min(1).nullable().optional(),
+    customerSegment: z.string().trim().min(1).max(80).nullable().optional(),
+    externalAccountId: z.string().trim().min(1).max(128).nullable().optional(),
+    promoCode: z.string().trim().min(1).max(64).nullable().optional(),
     items: z.array(dealItemInputSchema).max(50).optional(),
   })
   .passthrough();

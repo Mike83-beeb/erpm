@@ -8,6 +8,7 @@ import {
 import {
   ItemStatus,
   LocationStatus,
+  PriceBookDirection,
   Prisma,
   PurchaseOrderStatus,
   StockMovementType,
@@ -15,10 +16,12 @@ import {
   TenantContext,
 } from "@scace/db";
 import { PrismaService } from "../database/prisma.service.js";
+import { PricingEngineService } from "../pricing/pricing-engine.service.js";
 import type { AuthenticatedTenant } from "../tenancy/tenant.decorators.js";
 
 export interface PurchaseOrderLineInput {
   itemId: string;
+  packId?: string | null;
   orderedQty: number;
   unitCostCents?: number;
   supplierSku?: string | null;
@@ -30,6 +33,8 @@ export interface CreatePurchaseOrderInput {
   supplierId: string;
   locationId: string;
   currency?: string;
+  priceBookId?: string | null;
+  promoCodes?: string[];
   taxCents?: number;
   expectedAt?: string | null;
   notes?: string | null;
@@ -39,6 +44,8 @@ export interface CreatePurchaseOrderInput {
 export interface UpdatePurchaseOrderInput {
   locationId?: string;
   currency?: string;
+  priceBookId?: string | null;
+  promoCodes?: string[];
   taxCents?: number;
   expectedAt?: string | null;
   notes?: string | null;
@@ -77,6 +84,8 @@ function isUniqueConstraintError(error: unknown): boolean {
 export class PurchaseOrdersService {
   constructor(
     @Inject(PrismaService) private readonly prismaService: PrismaService,
+    @Inject(PricingEngineService)
+    private readonly pricingEngine: PricingEngineService,
   ) {}
 
   async createPurchaseOrder(
@@ -89,83 +98,118 @@ export class PurchaseOrdersService {
       input.poNumber?.trim().toUpperCase() ||
       `PO-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
 
+    const [supplier, location, items, supplierItems] = await Promise.all([
+      this.prismaService.raw.supplier.findFirst({
+        where: { id: input.supplierId, organizationId },
+      }),
+      this.prismaService.raw.location.findFirst({
+        where: { id: input.locationId, organizationId },
+      }),
+      this.prismaService.raw.item.findMany({
+        where: {
+          organizationId,
+          id: { in: input.lines.map((l) => l.itemId) },
+        },
+      }),
+      this.prismaService.raw.supplierItem.findMany({
+        where: {
+          organizationId,
+          supplierId: input.supplierId,
+          itemId: { in: input.lines.map((l) => l.itemId) },
+        },
+      }),
+    ]);
+
+    if (!supplier || supplier.status !== SupplierStatus.ACTIVE) {
+      throw new BadRequestException(
+        "Supplier must exist and be ACTIVE to create a purchase order.",
+      );
+    }
+    if (!location || location.status !== LocationStatus.ACTIVE) {
+      throw new BadRequestException(
+        "Destination location must exist and be ACTIVE.",
+      );
+    }
+
+    const currency = (input.currency ?? supplier.currency).toUpperCase();
+    const quote = await this.pricingEngine.calculateQuote(tenant, {
+      direction: PriceBookDirection.PURCHASE,
+      currency,
+      supplierId: supplier.id,
+      priceBookId: input.priceBookId ?? null,
+      promoCodes: input.promoCodes,
+      lines: input.lines.map((l) => ({
+        itemId: l.itemId,
+        packId: l.packId ?? null,
+        quantity: l.orderedQty,
+        overrideUnitPriceCents: l.unitCostCents ?? null,
+      })),
+    });
+
+    const itemMap = new Map(items.map((it) => [it.id, it]));
+    const supplierItemMap = new Map(supplierItems.map((si) => [si.itemId, si]));
+
+    const builtLines = input.lines.map((line, idx) => {
+      const item = itemMap.get(line.itemId);
+      if (!item) {
+        throw new NotFoundException(`Catalog item "${line.itemId}" was not found.`);
+      }
+      if (item.status === ItemStatus.ARCHIVED) {
+        throw new BadRequestException(
+          `Archived item "${item.sku}" cannot be ordered.`,
+        );
+      }
+
+      const mapped = supplierItemMap.get(line.itemId);
+      const quoted = quote.lines[idx]!;
+      const unitsPerPack = quoted.unitsPerPack;
+      const orderedBaseQty = line.orderedQty * unitsPerPack;
+      const unitCostCents = line.unitCostCents ?? quoted.effectiveUnitPriceCents;
+      const lineTotalCents =
+        line.unitCostCents !== undefined
+          ? line.orderedQty * line.unitCostCents
+          : quoted.finalLineTotalCents;
+
+      return {
+        organizationId,
+        itemId: item.id,
+        packId: quoted.packId,
+        unitsPerPack,
+        orderedBaseQty,
+        receivedBaseQty: 0,
+        supplierSku: line.supplierSku ?? mapped?.supplierSku ?? null,
+        description:
+          line.description ??
+          (quoted.packCode ? `${item.name} (${quoted.packCode})` : item.name),
+        orderedQty: line.orderedQty,
+        receivedQty: 0,
+        unitCostCents,
+        lineTotalCents,
+        pricingSnapshot: {
+          pricingModel: quoted.pricingModel,
+          priceBookId: quoted.priceBookId,
+          priceBookCode: quoted.priceBookCode,
+          unitsPerPack,
+          orderedBaseQty,
+          lineDiscountCents: quoted.lineDiscountCents,
+          appliedTiers: quoted.appliedTiers,
+          appliedDiscounts: quoted.appliedDiscounts,
+        } as unknown as Prisma.InputJsonValue,
+      };
+    });
+
+    const subtotalCents = builtLines.reduce(
+      (sum, l) => sum + l.lineTotalCents,
+      0,
+    );
+    const taxCents = input.taxCents ?? 0;
+    const totalCents = Math.max(
+      0,
+      subtotalCents - quote.orderDiscountTotalCents + taxCents,
+    );
+
     try {
       return await this.prismaService.raw.$transaction(async (tx) => {
-        const [supplier, location, items, supplierItems] = await Promise.all([
-          tx.supplier.findFirst({
-            where: { id: input.supplierId, organizationId },
-          }),
-          tx.location.findFirst({
-            where: { id: input.locationId, organizationId },
-          }),
-          tx.item.findMany({
-            where: {
-              organizationId,
-              id: { in: input.lines.map((l) => l.itemId) },
-            },
-          }),
-          tx.supplierItem.findMany({
-            where: {
-              organizationId,
-              supplierId: input.supplierId,
-              itemId: { in: input.lines.map((l) => l.itemId) },
-            },
-          }),
-        ]);
-
-        if (!supplier || supplier.status !== SupplierStatus.ACTIVE) {
-          throw new BadRequestException(
-            "Supplier must exist and be ACTIVE to create a purchase order.",
-          );
-        }
-        if (!location || location.status !== LocationStatus.ACTIVE) {
-          throw new BadRequestException(
-            "Destination location must exist and be ACTIVE.",
-          );
-        }
-
-        const itemMap = new Map(items.map((it) => [it.id, it]));
-        const supplierItemMap = new Map(
-          supplierItems.map((si) => [si.itemId, si]),
-        );
-
-        const builtLines = input.lines.map((line) => {
-          const item = itemMap.get(line.itemId);
-          if (!item) {
-            throw new NotFoundException(
-              `Catalog item "${line.itemId}" was not found.`,
-            );
-          }
-          if (item.status === ItemStatus.ARCHIVED) {
-            throw new BadRequestException(
-              `Archived item "${item.sku}" cannot be ordered.`,
-            );
-          }
-
-          const mapped = supplierItemMap.get(line.itemId);
-          const unitCostCents =
-            line.unitCostCents ?? mapped?.unitCostCents ?? item.costPriceCents;
-          const lineTotalCents = line.orderedQty * unitCostCents;
-
-          return {
-            organizationId,
-            itemId: item.id,
-            supplierSku: line.supplierSku ?? mapped?.supplierSku ?? null,
-            description: line.description ?? item.name,
-            orderedQty: line.orderedQty,
-            receivedQty: 0,
-            unitCostCents,
-            lineTotalCents,
-          };
-        });
-
-        const subtotalCents = builtLines.reduce(
-          (sum, l) => sum + l.lineTotalCents,
-          0,
-        );
-        const taxCents = input.taxCents ?? 0;
-        const totalCents = subtotalCents + taxCents;
-
         const created = await tx.purchaseOrder.create({
           data: {
             organizationId,
@@ -173,7 +217,7 @@ export class PurchaseOrdersService {
             supplierId: supplier.id,
             locationId: location.id,
             status: PurchaseOrderStatus.DRAFT,
-            currency: input.currency ?? supplier.currency,
+            currency,
             subtotalCents,
             taxCents,
             totalCents,
@@ -195,6 +239,15 @@ export class PurchaseOrdersService {
                     name: true,
                     type: true,
                     unitOfMeasure: true,
+                  },
+                },
+                pack: {
+                  select: {
+                    id: true,
+                    code: true,
+                    name: true,
+                    unitOfMeasure: true,
+                    unitsPerPack: true,
                   },
                 },
               },
@@ -289,6 +342,15 @@ export class PurchaseOrdersService {
                 trackInventory: true,
               },
             },
+            pack: {
+              select: {
+                id: true,
+                code: true,
+                name: true,
+                unitOfMeasure: true,
+                unitsPerPack: true,
+              },
+            },
           },
         },
         goodsReceipts: {
@@ -313,22 +375,37 @@ export class PurchaseOrdersService {
   ) {
     const organizationId = this.resolveVerifiedOrganizationId(tenant);
 
+    const existing = await this.prismaService.raw.purchaseOrder.findFirst({
+      where: { id: poId, organizationId },
+      include: { lines: true },
+    });
+
+    if (!existing) {
+      throw new NotFoundException("Purchase order was not found.");
+    }
+
+    if (existing.status !== PurchaseOrderStatus.DRAFT) {
+      throw new BadRequestException("Only DRAFT purchase orders can be edited.");
+    }
+
+    const nextCurrency = (input.currency ?? existing.currency).toUpperCase();
+    const quote = input.lines
+      ? await this.pricingEngine.calculateQuote(tenant, {
+          direction: PriceBookDirection.PURCHASE,
+          currency: nextCurrency,
+          supplierId: existing.supplierId,
+          priceBookId: input.priceBookId ?? null,
+          promoCodes: input.promoCodes,
+          lines: input.lines.map((l) => ({
+            itemId: l.itemId,
+            packId: l.packId ?? null,
+            quantity: l.orderedQty,
+            overrideUnitPriceCents: l.unitCostCents ?? null,
+          })),
+        })
+      : null;
+
     return this.prismaService.raw.$transaction(async (tx) => {
-      const existing = await tx.purchaseOrder.findFirst({
-        where: { id: poId, organizationId },
-        include: { lines: true },
-      });
-
-      if (!existing) {
-        throw new NotFoundException("Purchase order was not found.");
-      }
-
-      if (existing.status !== PurchaseOrderStatus.DRAFT) {
-        throw new BadRequestException(
-          "Only DRAFT purchase orders can be edited.",
-        );
-      }
-
       if (input.locationId) {
         const loc = await tx.location.findFirst({
           where: { id: input.locationId, organizationId },
@@ -343,7 +420,7 @@ export class PurchaseOrdersService {
       let subtotalCents = existing.subtotalCents;
       const taxCents = input.taxCents ?? existing.taxCents;
 
-      if (input.lines) {
+      if (input.lines && quote) {
         const [items, supplierItems] = await Promise.all([
           tx.item.findMany({
             where: {
@@ -365,7 +442,7 @@ export class PurchaseOrdersService {
           supplierItems.map((si) => [si.itemId, si]),
         );
 
-        const rebuiltLines = input.lines.map((line) => {
+        const rebuiltLines = input.lines.map((line, idx) => {
           const item = itemMap.get(line.itemId);
           if (!item) {
             throw new NotFoundException(
@@ -378,18 +455,42 @@ export class PurchaseOrdersService {
             );
           }
           const mapped = supplierItemMap.get(line.itemId);
+          const quoted = quote.lines[idx]!;
+          const unitsPerPack = quoted.unitsPerPack;
+          const orderedBaseQty = line.orderedQty * unitsPerPack;
           const unitCostCents =
-            line.unitCostCents ?? mapped?.unitCostCents ?? item.costPriceCents;
+            line.unitCostCents ?? quoted.effectiveUnitPriceCents;
+          const lineTotalCents =
+            line.unitCostCents !== undefined
+              ? line.orderedQty * line.unitCostCents
+              : quoted.finalLineTotalCents;
+
           return {
             organizationId,
             purchaseOrderId: poId,
             itemId: item.id,
+            packId: quoted.packId,
+            unitsPerPack,
+            orderedBaseQty,
+            receivedBaseQty: 0,
             supplierSku: line.supplierSku ?? mapped?.supplierSku ?? null,
-            description: line.description ?? item.name,
+            description:
+              line.description ??
+              (quoted.packCode ? `${item.name} (${quoted.packCode})` : item.name),
             orderedQty: line.orderedQty,
             receivedQty: 0,
             unitCostCents,
-            lineTotalCents: line.orderedQty * unitCostCents,
+            lineTotalCents,
+            pricingSnapshot: {
+              pricingModel: quoted.pricingModel,
+              priceBookId: quoted.priceBookId,
+              priceBookCode: quoted.priceBookCode,
+              unitsPerPack,
+              orderedBaseQty,
+              lineDiscountCents: quoted.lineDiscountCents,
+              appliedTiers: quoted.appliedTiers,
+              appliedDiscounts: quoted.appliedDiscounts,
+            } as unknown as Prisma.InputJsonValue,
           };
         });
 
@@ -403,7 +504,8 @@ export class PurchaseOrdersService {
         );
       }
 
-      const totalCents = subtotalCents + taxCents;
+      const orderDiscount = quote ? quote.orderDiscountTotalCents : 0;
+      const totalCents = Math.max(0, subtotalCents - orderDiscount + taxCents);
 
       const updated = await tx.purchaseOrder.update({
         where: { id: poId },
@@ -411,7 +513,7 @@ export class PurchaseOrdersService {
           ...(input.locationId !== undefined
             ? { locationId: input.locationId }
             : {}),
-          ...(input.currency !== undefined ? { currency: input.currency } : {}),
+          ...(input.currency !== undefined ? { currency: nextCurrency } : {}),
           ...(input.taxCents !== undefined ? { taxCents } : {}),
           ...(input.expectedAt !== undefined
             ? {
@@ -430,6 +532,15 @@ export class PurchaseOrdersService {
             include: {
               item: {
                 select: { id: true, sku: true, name: true, unitOfMeasure: true },
+              },
+              pack: {
+                select: {
+                  id: true,
+                  code: true,
+                  name: true,
+                  unitOfMeasure: true,
+                  unitsPerPack: true,
+                },
               },
             },
           },
@@ -661,7 +772,10 @@ export class PurchaseOrdersService {
           organizationId: string;
           purchaseOrderLineId: string;
           itemId: string;
+          packId: string | null;
+          unitsPerPack: number;
           receivedQty: number;
+          receivedBaseQty: number;
           unitCostCents: number;
         }> = [];
 
@@ -680,11 +794,17 @@ export class PurchaseOrdersService {
             );
           }
 
+          const unitsPerPack = poLine.unitsPerPack ?? 1;
+          const receivedBaseQty = qty * unitsPerPack;
+
           receiptLinesData.push({
             organizationId,
             purchaseOrderLineId: poLine.id,
             itemId: poLine.itemId,
+            packId: poLine.packId ?? null,
+            unitsPerPack,
             receivedQty: qty,
+            receivedBaseQty,
             unitCostCents: poLine.unitCostCents,
           });
         }
@@ -715,7 +835,10 @@ export class PurchaseOrdersService {
           const poLine = lineMap.get(rLine.purchaseOrderLineId)!;
           await tx.purchaseOrderLine.update({
             where: { id: poLine.id },
-            data: { receivedQty: { increment: rLine.receivedQty } },
+            data: {
+              receivedQty: { increment: rLine.receivedQty },
+              receivedBaseQty: { increment: rLine.receivedBaseQty },
+            },
           });
 
           if (poLine.item.trackInventory) {
@@ -731,11 +854,11 @@ export class PurchaseOrdersService {
                 organizationId,
                 itemId: rLine.itemId,
                 locationId: location.id,
-                onHandQty: rLine.receivedQty,
+                onHandQty: rLine.receivedBaseQty,
                 reservedQty: 0,
               },
               update: {
-                onHandQty: { increment: rLine.receivedQty },
+                onHandQty: { increment: rLine.receivedBaseQty },
               },
             });
 
@@ -745,11 +868,14 @@ export class PurchaseOrdersService {
                 itemId: rLine.itemId,
                 locationId: location.id,
                 type: StockMovementType.RECEIPT,
-                quantityDelta: rLine.receivedQty,
+                quantityDelta: rLine.receivedBaseQty,
                 balanceAfter: bal.onHandQty,
                 referenceType: "GoodsReceipt",
                 referenceId: receipt.id,
-                reason: `Received against PO ${po.poNumber} (${receipt.receiptNumber})`,
+                reason:
+                  rLine.unitsPerPack > 1
+                    ? `Received ${rLine.receivedQty} pack(s) x ${rLine.unitsPerPack} units against PO ${po.poNumber} (${receipt.receiptNumber})`
+                    : `Received against PO ${po.poNumber} (${receipt.receiptNumber})`,
                 actorUserId: tenant.userId,
               },
             });

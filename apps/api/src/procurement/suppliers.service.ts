@@ -41,6 +41,7 @@ export interface ListSuppliersQuery {
 
 export interface UpsertSupplierItemInput {
   itemId: string;
+  packId?: string | null;
   supplierSku?: string | null;
   unitCostCents: number;
   currency?: string;
@@ -441,6 +442,15 @@ export class SuppliersService {
             unitOfMeasure: true,
           },
         },
+        pack: {
+          select: {
+            id: true,
+            code: true,
+            name: true,
+            unitOfMeasure: true,
+            unitsPerPack: true,
+          },
+        },
       },
       orderBy: [{ isPreferred: "desc" }, { updatedAt: "desc" }],
     });
@@ -482,6 +492,22 @@ export class SuppliersService {
         );
       }
 
+      if (input.packId) {
+        const pack = await tx.itemPack.findFirst({
+          where: {
+            id: input.packId,
+            organizationId,
+            itemId: item.id,
+            isActive: true,
+          },
+        });
+        if (!pack) {
+          throw new BadRequestException(
+            "Selected pack was not found or is inactive for this item.",
+          );
+        }
+      }
+
       if (input.isPreferred) {
         await tx.supplierItem.updateMany({
           where: {
@@ -506,6 +532,7 @@ export class SuppliersService {
           organizationId,
           supplierId,
           itemId: item.id,
+          packId: input.packId ?? null,
           supplierSku: input.supplierSku ?? null,
           unitCostCents: input.unitCostCents,
           currency: input.currency ?? supplier.currency,
@@ -515,6 +542,7 @@ export class SuppliersService {
           notes: input.notes ?? null,
         },
         update: {
+          ...(input.packId !== undefined ? { packId: input.packId } : {}),
           ...(input.supplierSku !== undefined
             ? { supplierSku: input.supplierSku }
             : {}),
@@ -537,6 +565,15 @@ export class SuppliersService {
           item: {
             select: { id: true, sku: true, name: true, unitOfMeasure: true },
           },
+          pack: {
+            select: {
+              id: true,
+              code: true,
+              name: true,
+              unitOfMeasure: true,
+              unitsPerPack: true,
+            },
+          },
         },
       });
 
@@ -552,6 +589,7 @@ export class SuppliersService {
             supplierCode: supplier.code,
             itemId: item.id,
             itemSku: item.sku,
+            packId: mapping.packId,
             unitCostCents: mapping.unitCostCents,
             isPreferred: mapping.isPreferred,
           } as Prisma.InputJsonValue,

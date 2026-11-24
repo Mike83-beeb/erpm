@@ -5,8 +5,15 @@ import {
   Injectable,
   NotFoundException,
 } from "@nestjs/common";
-import { ItemStatus, ItemType, StaffStatus, type Prisma } from "@scace/db";
+import {
+  ItemStatus,
+  ItemType,
+  PriceBookDirection,
+  StaffStatus,
+  type Prisma,
+} from "@scace/db";
 import { PrismaService } from "../database/prisma.service.js";
+import { PricingEngineService } from "../pricing/pricing-engine.service.js";
 import type { AuthenticatedTenant } from "../tenancy/tenant.decorators.js";
 import { CrmConnectionService } from "./crm-connection.service.js";
 import { CustomerMatesClient } from "./customermates.client.js";
@@ -20,6 +27,12 @@ export interface UpsertStaffMappingInput {
 
 export interface LinkDealItemInput {
   itemId: string;
+  packId?: string | null;
+  servicePlanId?: string | null;
+  priceBookId?: string | null;
+  customerSegment?: string | null;
+  externalAccountId?: string | null;
+  promoCode?: string | null;
   externalServiceId?: string | null;
   quantity?: number;
   unitPriceCents?: number;
@@ -40,6 +53,8 @@ export class CrmBridgeService {
     private readonly connectionService: CrmConnectionService,
     @Inject(CustomerMatesClient)
     private readonly customerMatesClient: CustomerMatesClient,
+    @Inject(PricingEngineService)
+    private readonly pricingEngine: PricingEngineService,
   ) {}
 
   async upsertStaffMapping(
@@ -253,35 +268,74 @@ export class CrmBridgeService {
     input: LinkDealItemInput,
     ipAddress?: string,
   ) {
-    return this.prismaService.raw.$transaction(async (tx) => {
-      const item = await tx.item.findFirst({
-        where: { id: input.itemId, organizationId: tenant.organizationId },
-        select: {
-          id: true,
-          sku: true,
-          name: true,
-          type: true,
-          status: true,
-          currency: true,
-          salePriceCents: true,
+    const quantity = input.quantity ?? 1;
+    const item = await this.prismaService.scoped.item.findUnique({
+      where: { id: input.itemId },
+      select: {
+        id: true,
+        sku: true,
+        name: true,
+        type: true,
+        status: true,
+        currency: true,
+        salePriceCents: true,
+      },
+    });
+
+    if (!item) {
+      throw new NotFoundException(
+        `Catalog item (${input.itemId}) was not found in the active organization.`,
+      );
+    }
+    if (item.status === ItemStatus.ARCHIVED) {
+      throw new BadRequestException(
+        "Cannot link an archived catalog item to a CRM deal.",
+      );
+    }
+
+    const currency = (input.currency ?? item.currency).toUpperCase();
+    const promoCode = input.promoCode?.trim().toUpperCase() || null;
+
+    const quote = await this.pricingEngine.calculateQuote(tenant, {
+      direction: PriceBookDirection.SALES,
+      currency,
+      priceBookId: input.priceBookId ?? null,
+      customerSegment: input.customerSegment ?? null,
+      externalAccountId: input.externalAccountId ?? null,
+      promoCodes: promoCode ? [promoCode] : undefined,
+      lines: [
+        {
+          itemId: item.id,
+          quantity,
+          packId: input.packId ?? null,
+          servicePlanId: input.servicePlanId ?? null,
+          overrideUnitPriceCents: input.unitPriceCents ?? null,
         },
-      });
+      ],
+    });
 
-      if (!item) {
-        throw new NotFoundException(
-          `Catalog item (${input.itemId}) was not found in the active organization.`,
-        );
-      }
-      if (item.status === ItemStatus.ARCHIVED) {
-        throw new BadRequestException(
-          "Cannot link an archived catalog item to a CRM deal.",
-        );
-      }
+    const quotedLine = quote.lines[0]!;
+    const unitPriceCents =
+      input.unitPriceCents ?? quotedLine.effectiveUnitPriceCents;
+    const baseSubtotalCents = quotedLine.baseSubtotalCents;
+    const discountCents = quotedLine.lineDiscountCents;
+    const appliedPricing = {
+      pricingModel: quotedLine.pricingModel,
+      priceBookId: quotedLine.priceBookId,
+      priceBookCode: quotedLine.priceBookCode,
+      listUnitPriceCents: quotedLine.listUnitPriceCents,
+      effectiveUnitPriceCents: quotedLine.effectiveUnitPriceCents,
+      unitsPerPack: quotedLine.unitsPerPack,
+      totalBaseUnits: quotedLine.totalBaseUnits,
+      bonusUnits: quotedLine.bonusUnits,
+      finalLineTotalCents: quotedLine.finalLineTotalCents,
+      appliedTiers: quotedLine.appliedTiers,
+      appliedDiscounts: quotedLine.appliedDiscounts,
+      bundleBreakdown: quotedLine.bundleBreakdown,
+      servicePlanSummary: quotedLine.servicePlanSummary,
+    };
 
-      const quantity = input.quantity ?? 1;
-      const unitPriceCents = input.unitPriceCents ?? item.salePriceCents;
-      const currency = (input.currency ?? item.currency).toUpperCase();
-
+    return this.prismaService.raw.$transaction(async (tx) => {
       const existing = await tx.crmDealItemLink.findFirst({
         where: {
           organizationId: tenant.organizationId,
@@ -290,55 +344,85 @@ export class CrmBridgeService {
         },
       });
 
+      const includeSpec = {
+        item: {
+          select: {
+            id: true,
+            sku: true,
+            name: true,
+            type: true,
+            unitOfMeasure: true,
+          },
+        },
+        pack: {
+          select: {
+            id: true,
+            code: true,
+            name: true,
+            unitOfMeasure: true,
+            unitsPerPack: true,
+          },
+        },
+        servicePlan: {
+          select: {
+            id: true,
+            code: true,
+            name: true,
+            planType: true,
+            billingCycle: true,
+            includedUnits: true,
+            unitLabel: true,
+          },
+        },
+      };
+
       const saved = existing
         ? await tx.crmDealItemLink.update({
             where: { id: existing.id },
             data: {
+              packId: input.packId !== undefined ? input.packId : existing.packId,
+              servicePlanId:
+                input.servicePlanId !== undefined
+                  ? input.servicePlanId
+                  : existing.servicePlanId,
+              priceBookId:
+                quotedLine.priceBookId ?? input.priceBookId ?? existing.priceBookId,
+              promoCode: promoCode ?? existing.promoCode,
               externalServiceId:
                 input.externalServiceId !== undefined
                   ? input.externalServiceId
                   : existing.externalServiceId,
               quantity,
               unitPriceCents,
+              baseSubtotalCents,
+              discountCents,
               currency,
+              appliedPricing: appliedPricing as unknown as Prisma.InputJsonValue,
               notes:
                 input.notes !== undefined ? input.notes : existing.notes,
             },
-            include: {
-              item: {
-                select: {
-                  id: true,
-                  sku: true,
-                  name: true,
-                  type: true,
-                  unitOfMeasure: true,
-                },
-              },
-            },
+            include: includeSpec,
           })
         : await tx.crmDealItemLink.create({
             data: {
               organizationId: tenant.organizationId,
               externalDealId,
               itemId: item.id,
+              packId: input.packId ?? null,
+              servicePlanId: input.servicePlanId ?? null,
+              priceBookId: quotedLine.priceBookId ?? input.priceBookId ?? null,
+              promoCode,
               externalServiceId: input.externalServiceId ?? null,
               quantity,
               unitPriceCents,
+              baseSubtotalCents,
+              discountCents,
               currency,
+              appliedPricing: appliedPricing as unknown as Prisma.InputJsonValue,
               notes: input.notes ?? null,
               createdByUserId: tenant.userId,
             },
-            include: {
-              item: {
-                select: {
-                  id: true,
-                  sku: true,
-                  name: true,
-                  type: true,
-                  unitOfMeasure: true,
-                },
-              },
-            },
+            include: includeSpec,
           });
 
       await tx.auditLog.create({
@@ -351,8 +435,12 @@ export class CrmBridgeService {
           metadata: {
             externalDealId,
             itemId: item.id,
+            packId: saved.packId,
+            servicePlanId: saved.servicePlanId,
+            priceBookId: saved.priceBookId,
             quantity,
             unitPriceCents,
+            discountCents,
             currency,
           } as Prisma.InputJsonValue,
           ipAddress: ipAddress ?? null,
@@ -361,7 +449,7 @@ export class CrmBridgeService {
 
       return {
         ...saved,
-        lineTotalCents: saved.quantity * saved.unitPriceCents,
+        lineTotalCents: quotedLine.finalLineTotalCents,
       };
     });
   }
@@ -386,16 +474,47 @@ export class CrmBridgeService {
             currency: true,
           },
         },
+        pack: {
+          select: {
+            id: true,
+            code: true,
+            name: true,
+            unitOfMeasure: true,
+            unitsPerPack: true,
+          },
+        },
+        servicePlan: {
+          select: {
+            id: true,
+            code: true,
+            name: true,
+            planType: true,
+            billingCycle: true,
+            includedUnits: true,
+            unitLabel: true,
+          },
+        },
       },
     });
 
-    const items = links.map((link) => ({
-      ...link,
-      lineTotalCents: link.quantity * link.unitPriceCents,
-    }));
+    const items = links.map((link) => {
+      const snap = link.appliedPricing as { finalLineTotalCents?: number } | null;
+      const lineTotalCents =
+        typeof snap?.finalLineTotalCents === "number"
+          ? snap.finalLineTotalCents
+          : link.quantity * link.unitPriceCents;
+      return {
+        ...link,
+        lineTotalCents,
+      };
+    });
 
     const subtotalCents = items.reduce(
       (sum, row) => sum + row.lineTotalCents,
+      0,
+    );
+    const totalDiscountCents = items.reduce(
+      (sum, row) => sum + (row.discountCents ?? 0),
       0,
     );
 
@@ -403,6 +522,7 @@ export class CrmBridgeService {
       organizationId: tenant.organizationId,
       externalDealId,
       subtotalCents,
+      totalDiscountCents,
       items,
     };
   }

@@ -8,6 +8,7 @@ import { EmailModule } from "./email/email.module.js";
 import { HealthModule } from "./health/health.module.js";
 import { ItemsModule } from "./items/items.module.js";
 import { LocationsModule } from "./locations/locations.module.js";
+import { PricingModule } from "./pricing/pricing.module.js";
 import { ProcurementModule } from "./procurement/procurement.module.js";
 import { RedisModule } from "./redis/redis.module.js";
 import { StaffModule } from "./staff/staff.module.js";
@@ -39,6 +40,7 @@ import { TenantsModule } from "./tenants/tenants.module.js";
     ProcurementModule,
     StaffModule,
     CrmModule,
+    PricingModule,
   ],
   controllers: [MeController],
 })

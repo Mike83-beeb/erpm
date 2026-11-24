@@ -87,7 +87,14 @@ export const ModelName = {
   CrmConnection: 'CrmConnection',
   CrmStaffMapping: 'CrmStaffMapping',
   CrmDealItemLink: 'CrmDealItemLink',
-  CrmWebhookEvent: 'CrmWebhookEvent'
+  CrmWebhookEvent: 'CrmWebhookEvent',
+  ItemPack: 'ItemPack',
+  ItemBundleComponent: 'ItemBundleComponent',
+  ServicePlan: 'ServicePlan',
+  PriceBook: 'PriceBook',
+  PriceRule: 'PriceRule',
+  PriceTier: 'PriceTier',
+  DiscountRule: 'DiscountRule'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -249,6 +256,7 @@ export const ItemScalarFieldEnum = {
   trackInventory: 'trackInventory',
   allowNegativeStock: 'allowNegativeStock',
   reorderPoint: 'reorderPoint',
+  isBundle: 'isBundle',
   tags: 'tags',
   metadata: 'metadata',
   version: 'version',
@@ -407,6 +415,7 @@ export const SupplierItemScalarFieldEnum = {
   organizationId: 'organizationId',
   supplierId: 'supplierId',
   itemId: 'itemId',
+  packId: 'packId',
   supplierSku: 'supplierSku',
   unitCostCents: 'unitCostCents',
   currency: 'currency',
@@ -451,12 +460,17 @@ export const PurchaseOrderLineScalarFieldEnum = {
   organizationId: 'organizationId',
   purchaseOrderId: 'purchaseOrderId',
   itemId: 'itemId',
+  packId: 'packId',
+  unitsPerPack: 'unitsPerPack',
+  orderedBaseQty: 'orderedBaseQty',
+  receivedBaseQty: 'receivedBaseQty',
   supplierSku: 'supplierSku',
   description: 'description',
   orderedQty: 'orderedQty',
   receivedQty: 'receivedQty',
   unitCostCents: 'unitCostCents',
   lineTotalCents: 'lineTotalCents',
+  pricingSnapshot: 'pricingSnapshot',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -485,7 +499,10 @@ export const GoodsReceiptLineScalarFieldEnum = {
   goodsReceiptId: 'goodsReceiptId',
   purchaseOrderLineId: 'purchaseOrderLineId',
   itemId: 'itemId',
+  packId: 'packId',
+  unitsPerPack: 'unitsPerPack',
   receivedQty: 'receivedQty',
+  receivedBaseQty: 'receivedBaseQty',
   unitCostCents: 'unitCostCents',
   createdAt: 'createdAt'
 } as const
@@ -766,10 +783,17 @@ export const CrmDealItemLinkScalarFieldEnum = {
   organizationId: 'organizationId',
   externalDealId: 'externalDealId',
   itemId: 'itemId',
+  packId: 'packId',
+  servicePlanId: 'servicePlanId',
+  priceBookId: 'priceBookId',
+  promoCode: 'promoCode',
   externalServiceId: 'externalServiceId',
   quantity: 'quantity',
   unitPriceCents: 'unitPriceCents',
+  baseSubtotalCents: 'baseSubtotalCents',
+  discountCents: 'discountCents',
   currency: 'currency',
+  appliedPricing: 'appliedPricing',
   notes: 'notes',
   createdByUserId: 'createdByUserId',
   createdAt: 'createdAt',
@@ -795,6 +819,186 @@ export const CrmWebhookEventScalarFieldEnum = {
 } as const
 
 export type CrmWebhookEventScalarFieldEnum = (typeof CrmWebhookEventScalarFieldEnum)[keyof typeof CrmWebhookEventScalarFieldEnum]
+
+
+export const ItemPackScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  itemId: 'itemId',
+  code: 'code',
+  name: 'name',
+  unitOfMeasure: 'unitOfMeasure',
+  unitsPerPack: 'unitsPerPack',
+  barcode: 'barcode',
+  packSku: 'packSku',
+  salePriceCents: 'salePriceCents',
+  costPriceCents: 'costPriceCents',
+  isSellable: 'isSellable',
+  isPurchasable: 'isPurchasable',
+  isDefaultSalesPack: 'isDefaultSalesPack',
+  isDefaultPurchasePack: 'isDefaultPurchasePack',
+  minOrderPacks: 'minOrderPacks',
+  packStep: 'packStep',
+  weightGrams: 'weightGrams',
+  dimensionsJson: 'dimensionsJson',
+  isActive: 'isActive',
+  metadata: 'metadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ItemPackScalarFieldEnum = (typeof ItemPackScalarFieldEnum)[keyof typeof ItemPackScalarFieldEnum]
+
+
+export const ItemBundleComponentScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  bundleItemId: 'bundleItemId',
+  componentItemId: 'componentItemId',
+  componentPackId: 'componentPackId',
+  quantity: 'quantity',
+  priceAllocationBps: 'priceAllocationBps',
+  isOptional: 'isOptional',
+  sortOrder: 'sortOrder',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ItemBundleComponentScalarFieldEnum = (typeof ItemBundleComponentScalarFieldEnum)[keyof typeof ItemBundleComponentScalarFieldEnum]
+
+
+export const ServicePlanScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  itemId: 'itemId',
+  code: 'code',
+  name: 'name',
+  description: 'description',
+  planType: 'planType',
+  billingCycle: 'billingCycle',
+  includedUnits: 'includedUnits',
+  unitLabel: 'unitLabel',
+  basePriceCents: 'basePriceCents',
+  overageUnitPriceCents: 'overageUnitPriceCents',
+  setupFeeCents: 'setupFeeCents',
+  rolloverEnabled: 'rolloverEnabled',
+  maxRolloverUnits: 'maxRolloverUnits',
+  validityDays: 'validityDays',
+  isActive: 'isActive',
+  metadata: 'metadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ServicePlanScalarFieldEnum = (typeof ServicePlanScalarFieldEnum)[keyof typeof ServicePlanScalarFieldEnum]
+
+
+export const PriceBookScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  code: 'code',
+  name: 'name',
+  description: 'description',
+  direction: 'direction',
+  currency: 'currency',
+  priority: 'priority',
+  isDefault: 'isDefault',
+  isActive: 'isActive',
+  customerSegment: 'customerSegment',
+  externalAccountId: 'externalAccountId',
+  supplierId: 'supplierId',
+  startsAt: 'startsAt',
+  endsAt: 'endsAt',
+  customAttributes: 'customAttributes',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PriceBookScalarFieldEnum = (typeof PriceBookScalarFieldEnum)[keyof typeof PriceBookScalarFieldEnum]
+
+
+export const PriceRuleScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  priceBookId: 'priceBookId',
+  itemId: 'itemId',
+  packId: 'packId',
+  servicePlanId: 'servicePlanId',
+  name: 'name',
+  pricingModel: 'pricingModel',
+  baseUnitPriceCents: 'baseUnitPriceCents',
+  minMarginBps: 'minMarginBps',
+  minQuantity: 'minQuantity',
+  maxQuantity: 'maxQuantity',
+  conditions: 'conditions',
+  customAdjustment: 'customAdjustment',
+  priority: 'priority',
+  isActive: 'isActive',
+  startsAt: 'startsAt',
+  endsAt: 'endsAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PriceRuleScalarFieldEnum = (typeof PriceRuleScalarFieldEnum)[keyof typeof PriceRuleScalarFieldEnum]
+
+
+export const PriceTierScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  priceRuleId: 'priceRuleId',
+  minQuantity: 'minQuantity',
+  maxQuantity: 'maxQuantity',
+  unitPriceCents: 'unitPriceCents',
+  flatFeeCents: 'flatFeeCents',
+  packageSize: 'packageSize',
+  packagePriceCents: 'packagePriceCents',
+  discountBps: 'discountBps',
+  sortOrder: 'sortOrder'
+} as const
+
+export type PriceTierScalarFieldEnum = (typeof PriceTierScalarFieldEnum)[keyof typeof PriceTierScalarFieldEnum]
+
+
+export const DiscountRuleScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  code: 'code',
+  name: 'name',
+  description: 'description',
+  promoCode: 'promoCode',
+  discountType: 'discountType',
+  scope: 'scope',
+  valueBps: 'valueBps',
+  amountCents: 'amountCents',
+  fixedPriceCents: 'fixedPriceCents',
+  buyQuantity: 'buyQuantity',
+  getQuantity: 'getQuantity',
+  getDiscountBps: 'getDiscountBps',
+  targetItemId: 'targetItemId',
+  targetPackId: 'targetPackId',
+  targetTags: 'targetTags',
+  customerSegments: 'customerSegments',
+  externalAccountIds: 'externalAccountIds',
+  minQuantity: 'minQuantity',
+  minOrderSubtotalCents: 'minOrderSubtotalCents',
+  maxDiscountCents: 'maxDiscountCents',
+  isStackable: 'isStackable',
+  priority: 'priority',
+  startsAt: 'startsAt',
+  endsAt: 'endsAt',
+  usageLimit: 'usageLimit',
+  usageCount: 'usageCount',
+  isActive: 'isActive',
+  conditions: 'conditions',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type DiscountRuleScalarFieldEnum = (typeof DiscountRuleScalarFieldEnum)[keyof typeof DiscountRuleScalarFieldEnum]
 
 
 export const SortOrder = {
