@@ -12,13 +12,16 @@
     "clean": "rm -rf dist *.tsbuildinfo"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1176.0",
+    "@aws-sdk/s3-request-presigner": "^3.1176.0",
     "@better-auth/prisma-adapter": "^1.7.27",
     "@better-auth/redis-storage": "^1.7.27",
-    "@scace/db": "workspace:*",
     "@fastify/cors": "^11.4.3",
+    "@fastify/multipart": "^10.1.9",
     "@nestjs/common": "^12.6.0",
     "@nestjs/core": "^12.6.0",
     "@nestjs/platform-fastify": "^12.6.0",
+    "@scace/db": "workspace:*",
     "@thallesp/nestjs-better-auth": "^2.8.0",
     "better-auth": "^1.7.27",
     "dotenv": "^17.2.3",

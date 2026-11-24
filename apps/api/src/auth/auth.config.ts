@@ -7,6 +7,7 @@ import { Redis } from "ioredis";
 import { getEnv } from "../config/env.js";
 import { emailDelivery } from "../email/email.service.js";
 import { createRedisClientWithFallback, MockRedis } from "../redis/redis-mock.js";
+import { deriveOrganizationBucketName } from "../storage/storage.utils.js";
 import { ac, organizationRoles } from "./permissions.js";
 
 const env = getEnv();
@@ -70,6 +71,162 @@ async function recordOrganizationAudit(params: {
   } catch (err) {
     console.warn(
       `[better-auth:audit] Failed to record ${params.action}: ${
+        err instanceof Error ? err.message : String(err)
+      }`,
+    );
+  }
+}
+
+const DEFAULT_WORKING_DAYS: Record<
+  string,
+  { enabled: boolean; start: string; end: string; breakMinutes: number }
+> = {
+  monday: { enabled: true, start: "09:00", end: "17:00", breakMinutes: 0 },
+  tuesday: { enabled: true, start: "09:00", end: "17:00", breakMinutes: 0 },
+  wednesday: { enabled: true, start: "09:00", end: "17:00", breakMinutes: 0 },
+  thursday: { enabled: true, start: "09:00", end: "17:00", breakMinutes: 0 },
+  friday: { enabled: true, start: "09:00", end: "17:00", breakMinutes: 0 },
+  saturday: { enabled: false, start: "09:00", end: "17:00", breakMinutes: 0 },
+  sunday: { enabled: false, start: "09:00", end: "17:00", breakMinutes: 0 },
+};
+
+function splitDisplayName(name: string, fallbackEmail: string): {
+  firstName: string;
+  lastName: string;
+  displayName: string;
+} {
+  const cleaned = name.trim();
+  if (cleaned.length > 0) {
+    const parts = cleaned.split(/\s+/);
+    const firstName = parts[0] ?? cleaned;
+    const lastName = parts.length > 1 ? parts.slice(1).join(" ") : "-";
+    return {
+      firstName: firstName.slice(0, 80),
+      lastName: lastName.slice(0, 80),
+      displayName: cleaned.slice(0, 120),
+    };
+  }
+  const local = fallbackEmail.split("@")[0] || "Staff";
+  return {
+    firstName: local.slice(0, 80),
+    lastName: "-",
+    displayName: local.slice(0, 120),
+  };
+}
+
+async function ensureDefaultWorkScheduleId(
+  organizationId: string,
+): Promise<string | null> {
+  try {
+    const existing = await prisma.workSchedule.findFirst({
+      where: { organizationId, isDefault: true, isActive: true },
+      select: { id: true },
+    });
+    if (existing?.id) {
+      return existing.id;
+    }
+    const created = await prisma.workSchedule.create({
+      data: {
+        organizationId,
+        name: "Standard 40h Week",
+        timezone: "UTC",
+        weeklyCapacityMinutes: 2400,
+        workingDays: DEFAULT_WORKING_DAYS as Prisma.InputJsonValue,
+        isDefault: true,
+        isActive: true,
+      },
+      select: { id: true },
+    });
+    return created?.id ?? null;
+  } catch {
+    return null;
+  }
+}
+
+async function linkOrProvisionStaffForMember(params: {
+  organizationId: string;
+  memberId?: string | null;
+  userId: string;
+  email: string;
+  name: string;
+}): Promise<void> {
+  try {
+    let resolvedMemberId = params.memberId ?? null;
+    if (!resolvedMemberId) {
+      const dbMember = await prisma.member.findUnique({
+        where: {
+          organizationId_userId: {
+            organizationId: params.organizationId,
+            userId: params.userId,
+          },
+        },
+        select: { id: true },
+      });
+      resolvedMemberId = dbMember?.id ?? null;
+    }
+    if (!resolvedMemberId) {
+      return;
+    }
+
+    const alreadyLinked = await prisma.staffProfile.findFirst({
+      where: {
+        organizationId: params.organizationId,
+        memberId: resolvedMemberId,
+      },
+      select: { id: true },
+    });
+    if (alreadyLinked) {
+      return;
+    }
+
+    const normalizedEmail = params.email.trim().toLowerCase();
+    const pendingByEmail = await prisma.staffProfile.findFirst({
+      where: {
+        organizationId: params.organizationId,
+        workEmail: normalizedEmail,
+      },
+      select: { id: true, status: true, memberId: true },
+    });
+
+    if (pendingByEmail) {
+      if (!pendingByEmail.memberId) {
+        await prisma.staffProfile.update({
+          where: { id: pendingByEmail.id },
+          data: {
+            memberId: resolvedMemberId,
+            status:
+              pendingByEmail.status === "PREBOARDING"
+                ? "ACTIVE"
+                : pendingByEmail.status,
+          },
+        });
+      }
+      return;
+    }
+
+    const defaultScheduleId = await ensureDefaultWorkScheduleId(
+      params.organizationId,
+    );
+    const parsedName = splitDisplayName(params.name, normalizedEmail);
+
+    await prisma.staffProfile.create({
+      data: {
+        organizationId: params.organizationId,
+        memberId: resolvedMemberId,
+        firstName: parsedName.firstName,
+        lastName: parsedName.lastName,
+        displayName: parsedName.displayName,
+        workEmail: normalizedEmail,
+        workScheduleId: defaultScheduleId,
+        status: "ACTIVE",
+        timezone: "UTC",
+        weeklyCapacityMinutes: 2400,
+        createdByUserId: params.userId,
+      },
+    });
+  } catch (err) {
+    console.warn(
+      `[better-auth:staff] Failed to link staff profile: ${
         err instanceof Error ? err.message : String(err)
       }`,
     );
@@ -158,6 +315,10 @@ export const auth = betterAuth({
       },
       organizationHooks: {
         async afterCreateOrganization({ organization: org, user }) {
+          const storageBucket = deriveOrganizationBucketName(
+            org.id,
+            env.RUSTFS_BUCKET_PREFIX,
+          );
           await prisma.tenantSettings.upsert({
             where: { organizationId: org.id },
             update: {},
@@ -166,7 +327,17 @@ export const auth = betterAuth({
               defaultCurrency: "USD",
               timezone: "UTC",
               fiscalYearStartMonth: 1,
+              storageBucket,
+              storageQuotaBytes: BigInt(env.STORAGE_DEFAULT_QUOTA_BYTES),
             },
+          });
+
+          await ensureDefaultWorkScheduleId(org.id);
+          await linkOrProvisionStaffForMember({
+            organizationId: org.id,
+            userId: user.id,
+            email: user.email,
+            name: user.name,
           });
 
           await recordOrganizationAudit({
@@ -181,6 +352,13 @@ export const auth = betterAuth({
 
         async afterAddMember({ member, user, organization: org }) {
           await invalidateMembershipCache(org.id, user.id);
+          await linkOrProvisionStaffForMember({
+            organizationId: org.id,
+            memberId: member.id,
+            userId: user.id,
+            email: user.email,
+            name: user.name,
+          });
           await recordOrganizationAudit({
             organizationId: org.id,
             actorUserId: user.id,
@@ -214,6 +392,21 @@ export const auth = betterAuth({
 
         async afterRemoveMember({ member, user, organization: org }) {
           await invalidateMembershipCache(org.id, user.id);
+          try {
+            await prisma.staffProfile.updateMany({
+              where: {
+                organizationId: org.id,
+                memberId: member.id,
+              },
+              data: {
+                memberId: null,
+                status: "OFFBOARDED",
+                offboardedAt: new Date(),
+              },
+            });
+          } catch {
+            // Non-fatal if offline mock or no linked staff record
+          }
           await recordOrganizationAudit({
             organizationId: org.id,
             actorUserId: user.id,
@@ -246,6 +439,13 @@ export const auth = betterAuth({
           organization: org,
         }) {
           await invalidateMembershipCache(org.id, user.id);
+          await linkOrProvisionStaffForMember({
+            organizationId: org.id,
+            memberId: member.id,
+            userId: user.id,
+            email: user.email,
+            name: user.name,
+          });
           await recordOrganizationAudit({
             organizationId: org.id,
             actorUserId: user.id,

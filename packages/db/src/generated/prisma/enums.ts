@@ -105,3 +105,117 @@ export const VendorBillStatus = {
 } as const
 
 export type VendorBillStatus = (typeof VendorBillStatus)[keyof typeof VendorBillStatus]
+
+
+export const StoredObjectStatus = {
+  PENDING: 'PENDING',
+  READY: 'READY',
+  DELETED: 'DELETED'
+} as const
+
+export type StoredObjectStatus = (typeof StoredObjectStatus)[keyof typeof StoredObjectStatus]
+
+
+export const StorageEntityType = {
+  ORGANIZATION: 'ORGANIZATION',
+  ITEM: 'ITEM',
+  VENDOR_BILL: 'VENDOR_BILL',
+  PURCHASE_ORDER: 'PURCHASE_ORDER',
+  GOODS_RECEIPT: 'GOODS_RECEIPT',
+  SUPPLIER: 'SUPPLIER'
+} as const
+
+export type StorageEntityType = (typeof StorageEntityType)[keyof typeof StorageEntityType]
+
+
+export const DepartmentStatus = {
+  ACTIVE: 'ACTIVE',
+  ARCHIVED: 'ARCHIVED'
+} as const
+
+export type DepartmentStatus = (typeof DepartmentStatus)[keyof typeof DepartmentStatus]
+
+
+export const EmploymentType = {
+  FULL_TIME: 'FULL_TIME',
+  PART_TIME: 'PART_TIME',
+  CONTRACTOR: 'CONTRACTOR',
+  INTERN: 'INTERN'
+} as const
+
+export type EmploymentType = (typeof EmploymentType)[keyof typeof EmploymentType]
+
+
+export const StaffStatus = {
+  PREBOARDING: 'PREBOARDING',
+  ACTIVE: 'ACTIVE',
+  ON_LEAVE: 'ON_LEAVE',
+  OFFBOARDED: 'OFFBOARDED'
+} as const
+
+export type StaffStatus = (typeof StaffStatus)[keyof typeof StaffStatus]
+
+
+export const LeaveType = {
+  VACATION: 'VACATION',
+  SICK: 'SICK',
+  PERSONAL: 'PERSONAL',
+  PARENTAL: 'PARENTAL',
+  UNPAID: 'UNPAID',
+  OTHER: 'OTHER'
+} as const
+
+export type LeaveType = (typeof LeaveType)[keyof typeof LeaveType]
+
+
+export const TimeOffStatus = {
+  PENDING: 'PENDING',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type TimeOffStatus = (typeof TimeOffStatus)[keyof typeof TimeOffStatus]
+
+
+export const TeamKind = {
+  PROJECT: 'PROJECT',
+  RESOURCE_POOL: 'RESOURCE_POOL',
+  DEPARTMENT: 'DEPARTMENT'
+} as const
+
+export type TeamKind = (typeof TeamKind)[keyof typeof TeamKind]
+
+
+export const TeamStatus = {
+  ACTIVE: 'ACTIVE',
+  ARCHIVED: 'ARCHIVED'
+} as const
+
+export type TeamStatus = (typeof TeamStatus)[keyof typeof TeamStatus]
+
+
+export const CalendarFeedScope = {
+  STAFF: 'STAFF',
+  TEAM: 'TEAM',
+  ORGANIZATION: 'ORGANIZATION'
+} as const
+
+export type CalendarFeedScope = (typeof CalendarFeedScope)[keyof typeof CalendarFeedScope]
+
+
+export const CrmProvider = {
+  CUSTOMERMATES: 'CUSTOMERMATES'
+} as const
+
+export type CrmProvider = (typeof CrmProvider)[keyof typeof CrmProvider]
+
+
+export const CrmWebhookStatus = {
+  RECEIVED: 'RECEIVED',
+  PROCESSED: 'PROCESSED',
+  FAILED: 'FAILED',
+  IGNORED: 'IGNORED'
+} as const
+
+export type CrmWebhookStatus = (typeof CrmWebhookStatus)[keyof typeof CrmWebhookStatus]

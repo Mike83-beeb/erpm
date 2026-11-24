@@ -32,6 +32,29 @@ services:
       timeout: 5s
       retries: 10
 
+  rustfs:
+    image: rustfs/rustfs:latest
+    container_name: scace-rustfs
+    restart: unless-stopped
+    environment:
+      RUSTFS_VOLUMES: /data/rustfs0
+      RUSTFS_ADDRESS: 0.0.0.0:9000
+      RUSTFS_CONSOLE_ADDRESS: 0.0.0.0:9001
+      RUSTFS_CONSOLE_ENABLE: "true"
+      RUSTFS_ACCESS_KEY: ${RUSTFS_ACCESS_KEY:-scaceadmin}
+      RUSTFS_SECRET_KEY: ${RUSTFS_SECRET_KEY:-scaceadmin}
+    ports:
+      - "${RUSTFS_PORT:-9000}:9000"
+      - "${RUSTFS_CONSOLE_PORT:-9001}:9001"
+    volumes:
+      - rustfs_data:/data/rustfs0
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9000/minio/health/live || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
 volumes:
   postgres_data:
   redis_data:
+  rustfs_data:

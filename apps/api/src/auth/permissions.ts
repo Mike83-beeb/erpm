@@ -17,6 +17,13 @@ export const erpStatements = {
   supplier: ["read", "create", "update", "archive"],
   purchaseOrder: ["read", "create", "update", "submit", "receive", "cancel"],
   vendorBill: ["read", "create", "update", "pay", "void"],
+  storage: ["read", "upload", "delete", "manage"],
+  staff: ["read", "create", "update", "archive", "selfUpdate"],
+  department: ["read", "create", "update", "archive"],
+  team: ["read", "create", "update", "archive"],
+  timeOff: ["read", "request", "approve"],
+  calendar: ["read", "manage"],
+  crm: ["read", "create", "update", "delete", "configure"],
 } as const;
 
 export type ErpStatements = typeof erpStatements;
@@ -38,6 +45,13 @@ export const owner = ac.newRole({
   supplier: ["read", "create", "update", "archive"],
   purchaseOrder: ["read", "create", "update", "submit", "receive", "cancel"],
   vendorBill: ["read", "create", "update", "pay", "void"],
+  storage: ["read", "upload", "delete", "manage"],
+  staff: ["read", "create", "update", "archive", "selfUpdate"],
+  department: ["read", "create", "update", "archive"],
+  team: ["read", "create", "update", "archive"],
+  timeOff: ["read", "request", "approve"],
+  calendar: ["read", "manage"],
+  crm: ["read", "create", "update", "delete", "configure"],
 });
 
 export const admin = ac.newRole({
@@ -51,13 +65,20 @@ export const admin = ac.newRole({
   supplier: ["read", "create", "update", "archive"],
   purchaseOrder: ["read", "create", "update", "submit", "receive", "cancel"],
   vendorBill: ["read", "create", "update", "pay", "void"],
+  storage: ["read", "upload", "delete", "manage"],
+  staff: ["read", "create", "update", "archive", "selfUpdate"],
+  department: ["read", "create", "update", "archive"],
+  team: ["read", "create", "update", "archive"],
+  timeOff: ["read", "request", "approve"],
+  calendar: ["read", "manage"],
+  crm: ["read", "create", "update", "delete", "configure"],
 });
 
 export const manager = ac.newRole({
   organization: [],
   member: ["create", "update"],
   invitation: ["create", "cancel"],
-  team: ["create", "update"],
+  team: ["read", "create", "update", "archive"],
   ac: ["read"],
   tenantSettings: ["read"],
   auditLog: ["read"],
@@ -68,6 +89,12 @@ export const manager = ac.newRole({
   supplier: ["read", "create", "update", "archive"],
   purchaseOrder: ["read", "create", "update", "submit", "receive", "cancel"],
   vendorBill: ["read", "create", "update", "pay", "void"],
+  storage: ["read", "upload", "delete"],
+  staff: ["read", "create", "update", "archive", "selfUpdate"],
+  department: ["read", "create", "update", "archive"],
+  timeOff: ["read", "request", "approve"],
+  calendar: ["read", "manage"],
+  crm: ["read", "create", "update", "delete"],
 });
 
 export const member = ac.newRole({
@@ -80,13 +107,20 @@ export const member = ac.newRole({
   supplier: ["read"],
   purchaseOrder: ["read", "create", "update", "receive"],
   vendorBill: ["read", "create"],
+  storage: ["read", "upload"],
+  staff: ["read", "selfUpdate"],
+  department: ["read"],
+  team: ["read"],
+  timeOff: ["read", "request"],
+  calendar: ["read"],
+  crm: ["read", "create", "update", "delete"],
 });
 
 export const viewer = ac.newRole({
   organization: [],
   member: [],
   invitation: [],
-  team: [],
+  team: ["read"],
   ac: ["read"],
   tenantSettings: ["read"],
   erpWorkspace: ["read"],
@@ -96,6 +130,12 @@ export const viewer = ac.newRole({
   supplier: ["read"],
   purchaseOrder: ["read"],
   vendorBill: ["read"],
+  storage: ["read"],
+  staff: ["read"],
+  department: ["read"],
+  timeOff: ["read"],
+  calendar: ["read"],
+  crm: ["read"],
 });
 
 export const organizationRoles = {
@@ -143,6 +183,12 @@ export function getResolvedPermissionsForRole(
     supplier: new Set(),
     purchaseOrder: new Set(),
     vendorBill: new Set(),
+    storage: new Set(),
+    staff: new Set(),
+    department: new Set(),
+    timeOff: new Set(),
+    calendar: new Set(),
+    crm: new Set(),
   };
 
   for (const roleName of parseRoleNames(roleNameList(roleValue))) {
@@ -173,6 +219,12 @@ export function getResolvedPermissionsForRole(
     supplier: Array.from(resolved.supplier),
     purchaseOrder: Array.from(resolved.purchaseOrder),
     vendorBill: Array.from(resolved.vendorBill),
+    storage: Array.from(resolved.storage),
+    staff: Array.from(resolved.staff),
+    department: Array.from(resolved.department),
+    timeOff: Array.from(resolved.timeOff),
+    calendar: Array.from(resolved.calendar),
+    crm: Array.from(resolved.crm),
   };
 }
 

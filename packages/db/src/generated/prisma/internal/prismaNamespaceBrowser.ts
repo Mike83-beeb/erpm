@@ -74,7 +74,20 @@ export const ModelName = {
   GoodsReceipt: 'GoodsReceipt',
   GoodsReceiptLine: 'GoodsReceiptLine',
   VendorBill: 'VendorBill',
-  VendorBillLine: 'VendorBillLine'
+  VendorBillLine: 'VendorBillLine',
+  StoredObject: 'StoredObject',
+  Department: 'Department',
+  WorkSchedule: 'WorkSchedule',
+  StaffProfile: 'StaffProfile',
+  Holiday: 'Holiday',
+  TimeOffRequest: 'TimeOffRequest',
+  Team: 'Team',
+  TeamMember: 'TeamMember',
+  CalendarFeed: 'CalendarFeed',
+  CrmConnection: 'CrmConnection',
+  CrmStaffMapping: 'CrmStaffMapping',
+  CrmDealItemLink: 'CrmDealItemLink',
+  CrmWebhookEvent: 'CrmWebhookEvent'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -196,6 +209,8 @@ export const TenantSettingsScalarFieldEnum = {
   defaultCurrency: 'defaultCurrency',
   timezone: 'timezone',
   fiscalYearStartMonth: 'fiscalYearStartMonth',
+  storageBucket: 'storageBucket',
+  storageQuotaBytes: 'storageQuotaBytes',
   features: 'features',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -518,6 +533,268 @@ export const VendorBillLineScalarFieldEnum = {
 } as const
 
 export type VendorBillLineScalarFieldEnum = (typeof VendorBillLineScalarFieldEnum)[keyof typeof VendorBillLineScalarFieldEnum]
+
+
+export const StoredObjectScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  bucket: 'bucket',
+  objectKey: 'objectKey',
+  originalName: 'originalName',
+  mimeType: 'mimeType',
+  sizeBytes: 'sizeBytes',
+  etag: 'etag',
+  status: 'status',
+  entityType: 'entityType',
+  entityId: 'entityId',
+  uploadedByUserId: 'uploadedByUserId',
+  tags: 'tags',
+  metadata: 'metadata',
+  completedAt: 'completedAt',
+  deletedAt: 'deletedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type StoredObjectScalarFieldEnum = (typeof StoredObjectScalarFieldEnum)[keyof typeof StoredObjectScalarFieldEnum]
+
+
+export const DepartmentScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  name: 'name',
+  code: 'code',
+  description: 'description',
+  parentDepartmentId: 'parentDepartmentId',
+  leadStaffId: 'leadStaffId',
+  status: 'status',
+  archivedAt: 'archivedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type DepartmentScalarFieldEnum = (typeof DepartmentScalarFieldEnum)[keyof typeof DepartmentScalarFieldEnum]
+
+
+export const WorkScheduleScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  name: 'name',
+  timezone: 'timezone',
+  weeklyCapacityMinutes: 'weeklyCapacityMinutes',
+  workingDays: 'workingDays',
+  isDefault: 'isDefault',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WorkScheduleScalarFieldEnum = (typeof WorkScheduleScalarFieldEnum)[keyof typeof WorkScheduleScalarFieldEnum]
+
+
+export const StaffProfileScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  memberId: 'memberId',
+  employeeCode: 'employeeCode',
+  firstName: 'firstName',
+  lastName: 'lastName',
+  displayName: 'displayName',
+  workEmail: 'workEmail',
+  phone: 'phone',
+  jobTitle: 'jobTitle',
+  departmentId: 'departmentId',
+  managerStaffId: 'managerStaffId',
+  locationId: 'locationId',
+  workScheduleId: 'workScheduleId',
+  employmentType: 'employmentType',
+  status: 'status',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  timezone: 'timezone',
+  weeklyCapacityMinutes: 'weeklyCapacityMinutes',
+  skills: 'skills',
+  bio: 'bio',
+  metadata: 'metadata',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  offboardedAt: 'offboardedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type StaffProfileScalarFieldEnum = (typeof StaffProfileScalarFieldEnum)[keyof typeof StaffProfileScalarFieldEnum]
+
+
+export const HolidayScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  name: 'name',
+  date: 'date',
+  isRecurringAnnual: 'isRecurringAnnual',
+  isHalfDay: 'isHalfDay',
+  locationId: 'locationId',
+  notes: 'notes',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type HolidayScalarFieldEnum = (typeof HolidayScalarFieldEnum)[keyof typeof HolidayScalarFieldEnum]
+
+
+export const TimeOffRequestScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  staffId: 'staffId',
+  leaveType: 'leaveType',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  totalMinutes: 'totalMinutes',
+  status: 'status',
+  reason: 'reason',
+  reviewedByStaffId: 'reviewedByStaffId',
+  reviewedAt: 'reviewedAt',
+  reviewNote: 'reviewNote',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type TimeOffRequestScalarFieldEnum = (typeof TimeOffRequestScalarFieldEnum)[keyof typeof TimeOffRequestScalarFieldEnum]
+
+
+export const TeamScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  name: 'name',
+  slug: 'slug',
+  description: 'description',
+  kind: 'kind',
+  status: 'status',
+  departmentId: 'departmentId',
+  leadStaffId: 'leadStaffId',
+  defaultAllocationPct: 'defaultAllocationPct',
+  metadata: 'metadata',
+  archivedAt: 'archivedAt',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type TeamScalarFieldEnum = (typeof TeamScalarFieldEnum)[keyof typeof TeamScalarFieldEnum]
+
+
+export const TeamMemberScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  teamId: 'teamId',
+  staffId: 'staffId',
+  roleInTeam: 'roleInTeam',
+  allocationPct: 'allocationPct',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type TeamMemberScalarFieldEnum = (typeof TeamMemberScalarFieldEnum)[keyof typeof TeamMemberScalarFieldEnum]
+
+
+export const CalendarFeedScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  name: 'name',
+  scope: 'scope',
+  staffId: 'staffId',
+  teamId: 'teamId',
+  tokenHash: 'tokenHash',
+  includeTimeOff: 'includeTimeOff',
+  includeHolidays: 'includeHolidays',
+  includeShifts: 'includeShifts',
+  revokedAt: 'revokedAt',
+  lastAccessedAt: 'lastAccessedAt',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CalendarFeedScalarFieldEnum = (typeof CalendarFeedScalarFieldEnum)[keyof typeof CalendarFeedScalarFieldEnum]
+
+
+export const CrmConnectionScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  provider: 'provider',
+  baseUrl: 'baseUrl',
+  workspaceId: 'workspaceId',
+  apiKeyEncrypted: 'apiKeyEncrypted',
+  apiKeyLast4: 'apiKeyLast4',
+  webhookSecretEncrypted: 'webhookSecretEncrypted',
+  isEnabled: 'isEnabled',
+  sandboxMode: 'sandboxMode',
+  lastTestedAt: 'lastTestedAt',
+  lastTestStatus: 'lastTestStatus',
+  lastTestMessage: 'lastTestMessage',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CrmConnectionScalarFieldEnum = (typeof CrmConnectionScalarFieldEnum)[keyof typeof CrmConnectionScalarFieldEnum]
+
+
+export const CrmStaffMappingScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  staffId: 'staffId',
+  externalUserId: 'externalUserId',
+  externalEmail: 'externalEmail',
+  externalName: 'externalName',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CrmStaffMappingScalarFieldEnum = (typeof CrmStaffMappingScalarFieldEnum)[keyof typeof CrmStaffMappingScalarFieldEnum]
+
+
+export const CrmDealItemLinkScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  externalDealId: 'externalDealId',
+  itemId: 'itemId',
+  externalServiceId: 'externalServiceId',
+  quantity: 'quantity',
+  unitPriceCents: 'unitPriceCents',
+  currency: 'currency',
+  notes: 'notes',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CrmDealItemLinkScalarFieldEnum = (typeof CrmDealItemLinkScalarFieldEnum)[keyof typeof CrmDealItemLinkScalarFieldEnum]
+
+
+export const CrmWebhookEventScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  deliveryId: 'deliveryId',
+  eventType: 'eventType',
+  externalEntityType: 'externalEntityType',
+  externalEntityId: 'externalEntityId',
+  signatureValid: 'signatureValid',
+  status: 'status',
+  payload: 'payload',
+  errorMessage: 'errorMessage',
+  receivedAt: 'receivedAt',
+  processedAt: 'processedAt'
+} as const
+
+export type CrmWebhookEventScalarFieldEnum = (typeof CrmWebhookEventScalarFieldEnum)[keyof typeof CrmWebhookEventScalarFieldEnum]
 
 
 export const SortOrder = {

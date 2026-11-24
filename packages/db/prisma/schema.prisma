@@ -101,18 +101,32 @@ model Organization {
   goodsReceiptLines  GoodsReceiptLine[]
   vendorBills        VendorBill[]
   vendorBillLines    VendorBillLine[]
+  storedObjects      StoredObject[]
+  departments        Department[]
+  workSchedules      WorkSchedule[]
+  staffProfiles      StaffProfile[]
+  holidays           Holiday[]
+  timeOffRequests    TimeOffRequest[]
+  teams              Team[]
+  teamMembers        TeamMember[]
+  calendarFeeds      CalendarFeed[]
+  crmConnection      CrmConnection?
+  crmStaffMappings   CrmStaffMapping[]
+  crmDealItemLinks   CrmDealItemLink[]
+  crmWebhookEvents   CrmWebhookEvent[]
 
   @@map("organization")
 }
 
 model Member {
-  id             String       @id
+  id             String        @id
   organizationId String
-  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  organization   Organization  @relation(fields: [organizationId], references: [id], onDelete: Cascade)
   userId         String
-  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
-  role           String       @default("member")
-  createdAt      DateTime     @default(now())
+  user           User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role           String        @default("member")
+  createdAt      DateTime      @default(now())
+  staffProfile   StaffProfile?
 
   @@unique([organizationId, userId])
   @@index([userId])
@@ -148,6 +162,8 @@ model TenantSettings {
   defaultCurrency      String       @default("USD")
   timezone             String       @default("UTC")
   fiscalYearStartMonth Int          @default(1)
+  storageBucket        String?      @unique
+  storageQuotaBytes    BigInt       @default(1073741824)
   features             Json?
   createdAt            DateTime     @default(now())
   updatedAt            DateTime     @updatedAt
@@ -229,6 +245,7 @@ model Item {
   purchaseOrderLines PurchaseOrderLine[]
   goodsReceiptLines  GoodsReceiptLine[]
   vendorBillLines    VendorBillLine[]
+  crmDealLinks       CrmDealItemLink[]
 
   @@unique([organizationId, sku])
   @@index([organizationId, status, type])
@@ -314,6 +331,8 @@ model Location {
   incomingTransfers StockTransfer[] @relation("TransferToLocation")
   purchaseOrders    PurchaseOrder[]
   goodsReceipts     GoodsReceipt[]
+  staffProfiles     StaffProfile[]
+  holidays          Holiday[]
 
   @@unique([organizationId, code])
   @@index([organizationId, status, type])
@@ -634,3 +653,421 @@ model VendorBillLine {
   @@index([organizationId, vendorBillId])
   @@map("vendor_bill_line")
 }
+
+// ==========================================
+// Organization Object Storage (RustFS) Models
+// ==========================================
+
+enum StoredObjectStatus {
+  PENDING
+  READY
+  DELETED
+}
+
+enum StorageEntityType {
+  ORGANIZATION
+  ITEM
+  VENDOR_BILL
+  PURCHASE_ORDER
+  GOODS_RECEIPT
+  SUPPLIER
+}
+
+model StoredObject {
+  id               String             @id @default(cuid())
+  organizationId   String
+  organization     Organization       @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  bucket           String
+  objectKey        String
+  originalName     String
+  mimeType         String
+  sizeBytes        BigInt             @default(0)
+  etag             String?
+  status           StoredObjectStatus @default(PENDING)
+  entityType       StorageEntityType  @default(ORGANIZATION)
+  entityId         String?
+  uploadedByUserId String?
+  tags             String[]           @default([])
+  metadata         Json?
+  completedAt      DateTime?
+  deletedAt        DateTime?
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+
+  @@unique([organizationId, bucket, objectKey])
+  @@index([organizationId, status, createdAt])
+  @@index([organizationId, entityType, entityId])
+  @@map("stored_object")
+}
+
+// ==========================================
+// Staff Management, Teams & Calendar Models
+// ==========================================
+
+enum DepartmentStatus {
+  ACTIVE
+  ARCHIVED
+}
+
+enum EmploymentType {
+  FULL_TIME
+  PART_TIME
+  CONTRACTOR
+  INTERN
+}
+
+enum StaffStatus {
+  PREBOARDING
+  ACTIVE
+  ON_LEAVE
+  OFFBOARDED
+}
+
+enum LeaveType {
+  VACATION
+  SICK
+  PERSONAL
+  PARENTAL
+  UNPAID
+  OTHER
+}
+
+enum TimeOffStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  CANCELLED
+}
+
+enum TeamKind {
+  PROJECT
+  RESOURCE_POOL
+  DEPARTMENT
+}
+
+enum TeamStatus {
+  ACTIVE
+  ARCHIVED
+}
+
+enum CalendarFeedScope {
+  STAFF
+  TEAM
+  ORGANIZATION
+}
+
+model Department {
+  id                 String           @id @default(cuid())
+  organizationId     String
+  organization       Organization     @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  name               String
+  code               String
+  description        String?
+  parentDepartmentId String?
+  parentDepartment   Department?      @relation("DepartmentHierarchy", fields: [parentDepartmentId], references: [id], onDelete: SetNull)
+  childDepartments   Department[]     @relation("DepartmentHierarchy")
+  leadStaffId        String?
+  leadStaff          StaffProfile?    @relation("DepartmentLead", fields: [leadStaffId], references: [id], onDelete: SetNull)
+  status             DepartmentStatus @default(ACTIVE)
+  archivedAt         DateTime?
+  createdAt          DateTime         @default(now())
+  updatedAt          DateTime         @updatedAt
+  staffMembers       StaffProfile[]   @relation("DepartmentStaff")
+  teams              Team[]
+
+  @@unique([organizationId, code])
+  @@index([organizationId, status])
+  @@index([organizationId, parentDepartmentId])
+  @@map("department")
+}
+
+model WorkSchedule {
+  id                    String         @id @default(cuid())
+  organizationId        String
+  organization          Organization   @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  name                  String
+  timezone              String         @default("UTC")
+  weeklyCapacityMinutes Int            @default(2400)
+  workingDays           Json
+  isDefault             Boolean        @default(false)
+  isActive              Boolean        @default(true)
+  createdAt             DateTime       @default(now())
+  updatedAt             DateTime       @updatedAt
+  staffProfiles         StaffProfile[]
+
+  @@unique([organizationId, name])
+  @@index([organizationId, isDefault, isActive])
+  @@map("work_schedule")
+}
+
+model StaffProfile {
+  id                    String           @id @default(cuid())
+  organizationId        String
+  organization          Organization     @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  memberId              String?          @unique
+  member                Member?          @relation(fields: [memberId], references: [id], onDelete: SetNull)
+  employeeCode          String?
+  firstName             String
+  lastName              String
+  displayName           String
+  workEmail             String
+  phone                 String?
+  jobTitle              String?
+  departmentId          String?
+  department            Department?      @relation("DepartmentStaff", fields: [departmentId], references: [id], onDelete: SetNull)
+  managerStaffId        String?
+  manager               StaffProfile?    @relation("StaffReporting", fields: [managerStaffId], references: [id], onDelete: SetNull)
+  directReports         StaffProfile[]   @relation("StaffReporting")
+  locationId            String?
+  location              Location?        @relation(fields: [locationId], references: [id], onDelete: SetNull)
+  workScheduleId        String?
+  workSchedule          WorkSchedule?    @relation(fields: [workScheduleId], references: [id], onDelete: SetNull)
+  employmentType        EmploymentType   @default(FULL_TIME)
+  status                StaffStatus      @default(ACTIVE)
+  startDate             DateTime?
+  endDate               DateTime?
+  timezone              String           @default("UTC")
+  weeklyCapacityMinutes Int              @default(2400)
+  skills                String[]         @default([])
+  bio                   String?
+  metadata              Json?
+  createdByUserId       String?
+  updatedByUserId       String?
+  offboardedAt          DateTime?
+  createdAt             DateTime         @default(now())
+  updatedAt             DateTime         @updatedAt
+  ledDepartments        Department[]     @relation("DepartmentLead")
+  ledTeams              Team[]           @relation("TeamLead")
+  teamMemberships       TeamMember[]
+  timeOffRequests       TimeOffRequest[] @relation("StaffTimeOff")
+  reviewedTimeOff       TimeOffRequest[] @relation("TimeOffReviewer")
+  calendarFeeds         CalendarFeed[]
+  crmStaffMapping       CrmStaffMapping?
+
+  @@unique([organizationId, workEmail])
+  @@unique([organizationId, employeeCode])
+  @@index([organizationId, status])
+  @@index([organizationId, departmentId])
+  @@index([organizationId, managerStaffId])
+  @@map("staff_profile")
+}
+
+model Holiday {
+  id                String       @id @default(cuid())
+  organizationId    String
+  organization      Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  name              String
+  date              DateTime
+  isRecurringAnnual Boolean      @default(false)
+  isHalfDay         Boolean      @default(false)
+  locationId        String?
+  location          Location?    @relation(fields: [locationId], references: [id], onDelete: SetNull)
+  notes             String?
+  createdByUserId   String?
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @updatedAt
+
+  @@index([organizationId, date])
+  @@index([organizationId, locationId])
+  @@map("holiday")
+}
+
+model TimeOffRequest {
+  id                String        @id @default(cuid())
+  organizationId    String
+  organization      Organization  @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  staffId           String
+  staff             StaffProfile  @relation("StaffTimeOff", fields: [staffId], references: [id], onDelete: Cascade)
+  leaveType         LeaveType
+  startDate         DateTime
+  endDate           DateTime
+  totalMinutes      Int
+  status            TimeOffStatus @default(PENDING)
+  reason            String?
+  reviewedByStaffId String?
+  reviewedByStaff   StaffProfile? @relation("TimeOffReviewer", fields: [reviewedByStaffId], references: [id], onDelete: SetNull)
+  reviewedAt        DateTime?
+  reviewNote        String?
+  createdByUserId   String?
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+
+  @@index([organizationId, staffId, status])
+  @@index([organizationId, startDate, endDate])
+  @@map("time_off_request")
+}
+
+model Team {
+  id                   String         @id @default(cuid())
+  organizationId       String
+  organization         Organization   @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  name                 String
+  slug                 String
+  description          String?
+  kind                 TeamKind       @default(PROJECT)
+  status               TeamStatus     @default(ACTIVE)
+  departmentId         String?
+  department           Department?    @relation(fields: [departmentId], references: [id], onDelete: SetNull)
+  leadStaffId          String?
+  leadStaff            StaffProfile?  @relation("TeamLead", fields: [leadStaffId], references: [id], onDelete: SetNull)
+  defaultAllocationPct Int            @default(100)
+  metadata             Json?
+  archivedAt           DateTime?
+  createdByUserId      String?
+  createdAt            DateTime       @default(now())
+  updatedAt            DateTime       @updatedAt
+  members              TeamMember[]
+  calendarFeeds        CalendarFeed[]
+
+  @@unique([organizationId, slug])
+  @@index([organizationId, status, kind])
+  @@map("team")
+}
+
+model TeamMember {
+  id             String       @id @default(cuid())
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  teamId         String
+  team           Team         @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  staffId        String
+  staff          StaffProfile @relation(fields: [staffId], references: [id], onDelete: Cascade)
+  roleInTeam     String       @default("member")
+  allocationPct  Int          @default(100)
+  startDate      DateTime?
+  endDate        DateTime?
+  isActive       Boolean      @default(true)
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@unique([organizationId, teamId, staffId])
+  @@index([organizationId, staffId])
+  @@map("team_member")
+}
+
+model CalendarFeed {
+  id              String            @id @default(cuid())
+  organizationId  String
+  organization    Organization      @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  name            String
+  scope           CalendarFeedScope
+  staffId         String?
+  staff           StaffProfile?     @relation(fields: [staffId], references: [id], onDelete: Cascade)
+  teamId          String?
+  team            Team?             @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  tokenHash       String            @unique
+  includeTimeOff  Boolean           @default(true)
+  includeHolidays Boolean           @default(true)
+  includeShifts   Boolean           @default(false)
+  revokedAt       DateTime?
+  lastAccessedAt  DateTime?
+  createdByUserId String?
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  @@index([organizationId, scope])
+  @@index([organizationId, staffId])
+  @@index([organizationId, teamId])
+  @@map("calendar_feed")
+}
+
+// ==========================================
+// CustomerMates CRM Integration Models
+// ==========================================
+
+enum CrmProvider {
+  CUSTOMERMATES
+}
+
+enum CrmWebhookStatus {
+  RECEIVED
+  PROCESSED
+  FAILED
+  IGNORED
+}
+
+model CrmConnection {
+  id                     String      @id @default(cuid())
+  organizationId         String      @unique
+  organization           Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  provider               CrmProvider @default(CUSTOMERMATES)
+  baseUrl                String
+  workspaceId            String?
+  apiKeyEncrypted        String
+  apiKeyLast4            String
+  webhookSecretEncrypted String?
+  isEnabled              Boolean     @default(true)
+  sandboxMode            Boolean     @default(false)
+  lastTestedAt           DateTime?
+  lastTestStatus         String?
+  lastTestMessage        String?
+  createdByUserId        String?
+  updatedByUserId        String?
+  createdAt              DateTime    @default(now())
+  updatedAt              DateTime    @updatedAt
+
+  @@map("crm_connection")
+}
+
+model CrmStaffMapping {
+  id              String       @id @default(cuid())
+  organizationId  String
+  organization    Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  staffId         String       @unique
+  staff           StaffProfile @relation(fields: [staffId], references: [id], onDelete: Cascade)
+  externalUserId  String
+  externalEmail   String?
+  externalName    String?
+  createdByUserId String?
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+
+  @@unique([organizationId, externalUserId])
+  @@index([organizationId, staffId])
+  @@map("crm_staff_mapping")
+}
+
+model CrmDealItemLink {
+  id                String       @id @default(cuid())
+  organizationId    String
+  organization      Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  externalDealId    String
+  itemId            String
+  item              Item         @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  externalServiceId String?
+  quantity          Int          @default(1)
+  unitPriceCents    Int
+  currency          String       @default("USD")
+  notes             String?
+  createdByUserId   String?
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @updatedAt
+
+  @@unique([organizationId, externalDealId, itemId])
+  @@index([organizationId, externalDealId])
+  @@index([organizationId, itemId])
+  @@map("crm_deal_item_link")
+}
+
+model CrmWebhookEvent {
+  id                 String           @id @default(cuid())
+  organizationId     String
+  organization       Organization     @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  deliveryId         String?
+  eventType          String
+  externalEntityType String?
+  externalEntityId   String?
+  signatureValid     Boolean          @default(false)
+  status             CrmWebhookStatus @default(RECEIVED)
+  payload            Json
+  errorMessage       String?
+  receivedAt         DateTime         @default(now())
+  processedAt        DateTime?
+
+  @@unique([organizationId, deliveryId])
+  @@index([organizationId, eventType, receivedAt])
+  @@map("crm_webhook_event")
+}
+
+
+

@@ -17,8 +17,10 @@ import {
   parseRoleNames,
   type OrganizationRoleName,
 } from "../auth/permissions.js";
+import { getEnv } from "../config/env.js";
 import { PrismaService } from "../database/prisma.service.js";
 import { RedisService } from "../redis/redis.service.js";
+import { deriveOrganizationBucketName } from "../storage/storage.utils.js";
 import type { AuthenticatedTenant } from "../tenancy/tenant.decorators.js";
 
 export interface UpdateTenantSettingsInput {
@@ -95,6 +97,7 @@ export class TenantsService {
       // Fallback to PostgreSQL on Redis read error
     }
 
+    const env = getEnv();
     let settings = await this.prismaService.scoped.tenantSettings.findFirst({});
 
     if (!settings) {
@@ -104,17 +107,24 @@ export class TenantsService {
           defaultCurrency: "USD",
           timezone: "UTC",
           fiscalYearStartMonth: 1,
+          storageBucket: deriveOrganizationBucketName(
+            organizationId,
+            env.RUSTFS_BUCKET_PREFIX,
+          ),
+          storageQuotaBytes: BigInt(env.STORAGE_DEFAULT_QUOTA_BYTES),
         },
       });
     }
 
+    const serialized = this.serializeSettings(settings);
+
     try {
-      await this.redisService.setJson(cacheKey, settings, 300);
+      await this.redisService.setJson(cacheKey, serialized, 300);
     } catch {
       // Non-fatal cache population error
     }
 
-    return settings;
+    return serialized;
   }
 
   async updateSettings(
@@ -122,6 +132,7 @@ export class TenantsService {
     input: UpdateTenantSettingsInput,
     ipAddress?: string,
   ) {
+    const env = getEnv();
     const existing = await this.prismaService.scoped.tenantSettings.findFirst({});
 
     const updated = existing
@@ -150,6 +161,11 @@ export class TenantsService {
             defaultCurrency: input.defaultCurrency ?? "USD",
             timezone: input.timezone ?? "UTC",
             fiscalYearStartMonth: input.fiscalYearStartMonth ?? 1,
+            storageBucket: deriveOrganizationBucketName(
+              tenant.organizationId,
+              env.RUSTFS_BUCKET_PREFIX,
+            ),
+            storageQuotaBytes: BigInt(env.STORAGE_DEFAULT_QUOTA_BYTES),
             ...(input.features !== undefined
               ? { features: input.features as Prisma.InputJsonValue }
               : {}),
@@ -177,7 +193,18 @@ export class TenantsService {
       // Non-fatal cache invalidation error
     }
 
-    return updated;
+    return this.serializeSettings(updated);
+  }
+
+  private serializeSettings<T extends { storageQuotaBytes?: bigint | number }>(
+    settings: T,
+  ) {
+    return {
+      ...settings,
+      ...(settings.storageQuotaBytes !== undefined
+        ? { storageQuotaBytes: Number(settings.storageQuotaBytes) }
+        : {}),
+    };
   }
 
   async listMembers(tenant: AuthenticatedTenant) {

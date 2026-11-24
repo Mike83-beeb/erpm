@@ -28,10 +28,12 @@ export type AggregateTenantSettings = {
 
 export type TenantSettingsAvgAggregateOutputType = {
   fiscalYearStartMonth: number | null
+  storageQuotaBytes: number | null
 }
 
 export type TenantSettingsSumAggregateOutputType = {
   fiscalYearStartMonth: number | null
+  storageQuotaBytes: bigint | null
 }
 
 export type TenantSettingsMinAggregateOutputType = {
@@ -41,6 +43,8 @@ export type TenantSettingsMinAggregateOutputType = {
   defaultCurrency: string | null
   timezone: string | null
   fiscalYearStartMonth: number | null
+  storageBucket: string | null
+  storageQuotaBytes: bigint | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -52,6 +56,8 @@ export type TenantSettingsMaxAggregateOutputType = {
   defaultCurrency: string | null
   timezone: string | null
   fiscalYearStartMonth: number | null
+  storageBucket: string | null
+  storageQuotaBytes: bigint | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -63,6 +69,8 @@ export type TenantSettingsCountAggregateOutputType = {
   defaultCurrency: number
   timezone: number
   fiscalYearStartMonth: number
+  storageBucket: number
+  storageQuotaBytes: number
   features: number
   createdAt: number
   updatedAt: number
@@ -72,10 +80,12 @@ export type TenantSettingsCountAggregateOutputType = {
 
 export type TenantSettingsAvgAggregateInputType = {
   fiscalYearStartMonth?: true
+  storageQuotaBytes?: true
 }
 
 export type TenantSettingsSumAggregateInputType = {
   fiscalYearStartMonth?: true
+  storageQuotaBytes?: true
 }
 
 export type TenantSettingsMinAggregateInputType = {
@@ -85,6 +95,8 @@ export type TenantSettingsMinAggregateInputType = {
   defaultCurrency?: true
   timezone?: true
   fiscalYearStartMonth?: true
+  storageBucket?: true
+  storageQuotaBytes?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -96,6 +108,8 @@ export type TenantSettingsMaxAggregateInputType = {
   defaultCurrency?: true
   timezone?: true
   fiscalYearStartMonth?: true
+  storageBucket?: true
+  storageQuotaBytes?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -107,6 +121,8 @@ export type TenantSettingsCountAggregateInputType = {
   defaultCurrency?: true
   timezone?: true
   fiscalYearStartMonth?: true
+  storageBucket?: true
+  storageQuotaBytes?: true
   features?: true
   createdAt?: true
   updatedAt?: true
@@ -206,6 +222,8 @@ export type TenantSettingsGroupByOutputType = {
   defaultCurrency: string
   timezone: string
   fiscalYearStartMonth: number
+  storageBucket: string | null
+  storageQuotaBytes: bigint
   features: runtime.JsonValue | null
   createdAt: Date
   updatedAt: Date
@@ -241,6 +259,8 @@ export type TenantSettingsWhereInput = {
   defaultCurrency?: Prisma.StringFilter<"TenantSettings"> | string
   timezone?: Prisma.StringFilter<"TenantSettings"> | string
   fiscalYearStartMonth?: Prisma.IntFilter<"TenantSettings"> | number
+  storageBucket?: Prisma.StringNullableFilter<"TenantSettings"> | string | null
+  storageQuotaBytes?: Prisma.BigIntFilter<"TenantSettings"> | bigint | number
   features?: Prisma.JsonNullableFilter<"TenantSettings">
   createdAt?: Prisma.DateTimeFilter<"TenantSettings"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"TenantSettings"> | Date | string
@@ -254,6 +274,8 @@ export type TenantSettingsOrderByWithRelationInput = {
   defaultCurrency?: Prisma.SortOrder
   timezone?: Prisma.SortOrder
   fiscalYearStartMonth?: Prisma.SortOrder
+  storageBucket?: Prisma.SortOrderInput | Prisma.SortOrder
+  storageQuotaBytes?: Prisma.SortOrder
   features?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -263,6 +285,7 @@ export type TenantSettingsOrderByWithRelationInput = {
 export type TenantSettingsWhereUniqueInput = Prisma.AtLeast<{
   id?: string
   organizationId?: string
+  storageBucket?: string
   AND?: Prisma.TenantSettingsWhereInput | Prisma.TenantSettingsWhereInput[]
   OR?: Prisma.TenantSettingsWhereInput[]
   NOT?: Prisma.TenantSettingsWhereInput | Prisma.TenantSettingsWhereInput[]
@@ -270,11 +293,12 @@ export type TenantSettingsWhereUniqueInput = Prisma.AtLeast<{
   defaultCurrency?: Prisma.StringFilter<"TenantSettings"> | string
   timezone?: Prisma.StringFilter<"TenantSettings"> | string
   fiscalYearStartMonth?: Prisma.IntFilter<"TenantSettings"> | number
+  storageQuotaBytes?: Prisma.BigIntFilter<"TenantSettings"> | bigint | number
   features?: Prisma.JsonNullableFilter<"TenantSettings">
   createdAt?: Prisma.DateTimeFilter<"TenantSettings"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"TenantSettings"> | Date | string
   organization?: Prisma.XOR<Prisma.OrganizationScalarRelationFilter, Prisma.OrganizationWhereInput>
-}, "id" | "organizationId">
+}, "id" | "organizationId" | "storageBucket">
 
 export type TenantSettingsOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -283,6 +307,8 @@ export type TenantSettingsOrderByWithAggregationInput = {
   defaultCurrency?: Prisma.SortOrder
   timezone?: Prisma.SortOrder
   fiscalYearStartMonth?: Prisma.SortOrder
+  storageBucket?: Prisma.SortOrderInput | Prisma.SortOrder
+  storageQuotaBytes?: Prisma.SortOrder
   features?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -303,6 +329,8 @@ export type TenantSettingsScalarWhereWithAggregatesInput = {
   defaultCurrency?: Prisma.StringWithAggregatesFilter<"TenantSettings"> | string
   timezone?: Prisma.StringWithAggregatesFilter<"TenantSettings"> | string
   fiscalYearStartMonth?: Prisma.IntWithAggregatesFilter<"TenantSettings"> | number
+  storageBucket?: Prisma.StringNullableWithAggregatesFilter<"TenantSettings"> | string | null
+  storageQuotaBytes?: Prisma.BigIntWithAggregatesFilter<"TenantSettings"> | bigint | number
   features?: Prisma.JsonNullableWithAggregatesFilter<"TenantSettings">
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"TenantSettings"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"TenantSettings"> | Date | string
@@ -314,6 +342,8 @@ export type TenantSettingsCreateInput = {
   defaultCurrency?: string
   timezone?: string
   fiscalYearStartMonth?: number
+  storageBucket?: string | null
+  storageQuotaBytes?: bigint | number
   features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -327,6 +357,8 @@ export type TenantSettingsUncheckedCreateInput = {
   defaultCurrency?: string
   timezone?: string
   fiscalYearStartMonth?: number
+  storageBucket?: string | null
+  storageQuotaBytes?: bigint | number
   features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -338,6 +370,8 @@ export type TenantSettingsUpdateInput = {
   defaultCurrency?: Prisma.StringFieldUpdateOperationsInput | string
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   fiscalYearStartMonth?: Prisma.IntFieldUpdateOperationsInput | number
+  storageBucket?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  storageQuotaBytes?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -351,6 +385,8 @@ export type TenantSettingsUncheckedUpdateInput = {
   defaultCurrency?: Prisma.StringFieldUpdateOperationsInput | string
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   fiscalYearStartMonth?: Prisma.IntFieldUpdateOperationsInput | number
+  storageBucket?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  storageQuotaBytes?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -363,6 +399,8 @@ export type TenantSettingsCreateManyInput = {
   defaultCurrency?: string
   timezone?: string
   fiscalYearStartMonth?: number
+  storageBucket?: string | null
+  storageQuotaBytes?: bigint | number
   features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -374,6 +412,8 @@ export type TenantSettingsUpdateManyMutationInput = {
   defaultCurrency?: Prisma.StringFieldUpdateOperationsInput | string
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   fiscalYearStartMonth?: Prisma.IntFieldUpdateOperationsInput | number
+  storageBucket?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  storageQuotaBytes?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -386,6 +426,8 @@ export type TenantSettingsUncheckedUpdateManyInput = {
   defaultCurrency?: Prisma.StringFieldUpdateOperationsInput | string
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   fiscalYearStartMonth?: Prisma.IntFieldUpdateOperationsInput | number
+  storageBucket?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  storageQuotaBytes?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -403,6 +445,8 @@ export type TenantSettingsCountOrderByAggregateInput = {
   defaultCurrency?: Prisma.SortOrder
   timezone?: Prisma.SortOrder
   fiscalYearStartMonth?: Prisma.SortOrder
+  storageBucket?: Prisma.SortOrder
+  storageQuotaBytes?: Prisma.SortOrder
   features?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -410,6 +454,7 @@ export type TenantSettingsCountOrderByAggregateInput = {
 
 export type TenantSettingsAvgOrderByAggregateInput = {
   fiscalYearStartMonth?: Prisma.SortOrder
+  storageQuotaBytes?: Prisma.SortOrder
 }
 
 export type TenantSettingsMaxOrderByAggregateInput = {
@@ -419,6 +464,8 @@ export type TenantSettingsMaxOrderByAggregateInput = {
   defaultCurrency?: Prisma.SortOrder
   timezone?: Prisma.SortOrder
   fiscalYearStartMonth?: Prisma.SortOrder
+  storageBucket?: Prisma.SortOrder
+  storageQuotaBytes?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -430,12 +477,15 @@ export type TenantSettingsMinOrderByAggregateInput = {
   defaultCurrency?: Prisma.SortOrder
   timezone?: Prisma.SortOrder
   fiscalYearStartMonth?: Prisma.SortOrder
+  storageBucket?: Prisma.SortOrder
+  storageQuotaBytes?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
 export type TenantSettingsSumOrderByAggregateInput = {
   fiscalYearStartMonth?: Prisma.SortOrder
+  storageQuotaBytes?: Prisma.SortOrder
 }
 
 export type TenantSettingsCreateNestedOneWithoutOrganizationInput = {
@@ -478,12 +528,22 @@ export type IntFieldUpdateOperationsInput = {
   divide?: number
 }
 
+export type BigIntFieldUpdateOperationsInput = {
+  set?: bigint | number
+  increment?: bigint | number
+  decrement?: bigint | number
+  multiply?: bigint | number
+  divide?: bigint | number
+}
+
 export type TenantSettingsCreateWithoutOrganizationInput = {
   id?: string
   companyLegalName?: string | null
   defaultCurrency?: string
   timezone?: string
   fiscalYearStartMonth?: number
+  storageBucket?: string | null
+  storageQuotaBytes?: bigint | number
   features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -495,6 +555,8 @@ export type TenantSettingsUncheckedCreateWithoutOrganizationInput = {
   defaultCurrency?: string
   timezone?: string
   fiscalYearStartMonth?: number
+  storageBucket?: string | null
+  storageQuotaBytes?: bigint | number
   features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -522,6 +584,8 @@ export type TenantSettingsUpdateWithoutOrganizationInput = {
   defaultCurrency?: Prisma.StringFieldUpdateOperationsInput | string
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   fiscalYearStartMonth?: Prisma.IntFieldUpdateOperationsInput | number
+  storageBucket?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  storageQuotaBytes?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -533,6 +597,8 @@ export type TenantSettingsUncheckedUpdateWithoutOrganizationInput = {
   defaultCurrency?: Prisma.StringFieldUpdateOperationsInput | string
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   fiscalYearStartMonth?: Prisma.IntFieldUpdateOperationsInput | number
+  storageBucket?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  storageQuotaBytes?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -547,6 +613,8 @@ export type TenantSettingsSelect<ExtArgs extends runtime.Types.Extensions.Intern
   defaultCurrency?: boolean
   timezone?: boolean
   fiscalYearStartMonth?: boolean
+  storageBucket?: boolean
+  storageQuotaBytes?: boolean
   features?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -560,6 +628,8 @@ export type TenantSettingsSelectCreateManyAndReturn<ExtArgs extends runtime.Type
   defaultCurrency?: boolean
   timezone?: boolean
   fiscalYearStartMonth?: boolean
+  storageBucket?: boolean
+  storageQuotaBytes?: boolean
   features?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -573,6 +643,8 @@ export type TenantSettingsSelectUpdateManyAndReturn<ExtArgs extends runtime.Type
   defaultCurrency?: boolean
   timezone?: boolean
   fiscalYearStartMonth?: boolean
+  storageBucket?: boolean
+  storageQuotaBytes?: boolean
   features?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -586,12 +658,14 @@ export type TenantSettingsSelectScalar = {
   defaultCurrency?: boolean
   timezone?: boolean
   fiscalYearStartMonth?: boolean
+  storageBucket?: boolean
+  storageQuotaBytes?: boolean
   features?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type TenantSettingsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organizationId" | "companyLegalName" | "defaultCurrency" | "timezone" | "fiscalYearStartMonth" | "features" | "createdAt" | "updatedAt", ExtArgs["result"]["tenantSettings"]>
+export type TenantSettingsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organizationId" | "companyLegalName" | "defaultCurrency" | "timezone" | "fiscalYearStartMonth" | "storageBucket" | "storageQuotaBytes" | "features" | "createdAt" | "updatedAt", ExtArgs["result"]["tenantSettings"]>
 export type TenantSettingsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
 }
@@ -614,6 +688,8 @@ export type $TenantSettingsPayload<ExtArgs extends runtime.Types.Extensions.Inte
     defaultCurrency: string
     timezone: string
     fiscalYearStartMonth: number
+    storageBucket: string | null
+    storageQuotaBytes: bigint
     features: runtime.JsonValue | null
     createdAt: Date
     updatedAt: Date
@@ -1047,6 +1123,8 @@ export interface TenantSettingsFieldRefs {
   readonly defaultCurrency: Prisma.FieldRef<"TenantSettings", 'String'>
   readonly timezone: Prisma.FieldRef<"TenantSettings", 'String'>
   readonly fiscalYearStartMonth: Prisma.FieldRef<"TenantSettings", 'Int'>
+  readonly storageBucket: Prisma.FieldRef<"TenantSettings", 'String'>
+  readonly storageQuotaBytes: Prisma.FieldRef<"TenantSettings", 'BigInt'>
   readonly features: Prisma.FieldRef<"TenantSettings", 'Json'>
   readonly createdAt: Prisma.FieldRef<"TenantSettings", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"TenantSettings", 'DateTime'>

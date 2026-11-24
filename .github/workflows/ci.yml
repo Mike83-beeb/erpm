@@ -50,6 +50,9 @@ jobs:
       BETTER_AUTH_SECRET: ci-only-secret-change-in-production-0123456789
       BETTER_AUTH_URL: http://localhost:3000
       CORS_ALLOWED_ORIGINS: http://localhost:3000
+      RUSTFS_ENDPOINT: http://localhost:9000
+      RUSTFS_REGION: us-east-1
+      RUSTFS_BUCKET_PREFIX: "scace-org-"
 
     steps:
       - name: Checkout repository
@@ -82,7 +85,7 @@ jobs:
       - name: Build workspace
         run: pnpm build
 
-      - name: Smoke test API against PostgreSQL 18 and Redis 7
+      - name: Smoke test API against PostgreSQL 18, Redis 7, and Storage
         run: |
           node apps/api/dist/main.js &
           API_PID=$!
@@ -97,4 +100,5 @@ jobs:
           echo "$HEALTH"
           echo "$HEALTH" | grep -q '"postgres":"up"'
           echo "$HEALTH" | grep -q '"redis":"up"'
+          echo "$HEALTH" | grep -q '"rustfs":"up"'
           curl -sSf http://127.0.0.1:3000/api/auth/ok | grep -q '"ok":true'

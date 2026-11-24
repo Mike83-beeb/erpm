@@ -161,3 +161,68 @@ export type VendorBill = Prisma.VendorBillModel
  * 
  */
 export type VendorBillLine = Prisma.VendorBillLineModel
+/**
+ * Model StoredObject
+ * 
+ */
+export type StoredObject = Prisma.StoredObjectModel
+/**
+ * Model Department
+ * 
+ */
+export type Department = Prisma.DepartmentModel
+/**
+ * Model WorkSchedule
+ * 
+ */
+export type WorkSchedule = Prisma.WorkScheduleModel
+/**
+ * Model StaffProfile
+ * 
+ */
+export type StaffProfile = Prisma.StaffProfileModel
+/**
+ * Model Holiday
+ * 
+ */
+export type Holiday = Prisma.HolidayModel
+/**
+ * Model TimeOffRequest
+ * 
+ */
+export type TimeOffRequest = Prisma.TimeOffRequestModel
+/**
+ * Model Team
+ * 
+ */
+export type Team = Prisma.TeamModel
+/**
+ * Model TeamMember
+ * 
+ */
+export type TeamMember = Prisma.TeamMemberModel
+/**
+ * Model CalendarFeed
+ * 
+ */
+export type CalendarFeed = Prisma.CalendarFeedModel
+/**
+ * Model CrmConnection
+ * 
+ */
+export type CrmConnection = Prisma.CrmConnectionModel
+/**
+ * Model CrmStaffMapping
+ * 
+ */
+export type CrmStaffMapping = Prisma.CrmStaffMappingModel
+/**
+ * Model CrmDealItemLink
+ * 
+ */
+export type CrmDealItemLink = Prisma.CrmDealItemLinkModel
+/**
+ * Model CrmWebhookEvent
+ * 
+ */
+export type CrmWebhookEvent = Prisma.CrmWebhookEventModel

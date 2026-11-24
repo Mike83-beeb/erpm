@@ -209,6 +209,19 @@ export type OrganizationWhereInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineListRelationFilter
   vendorBills?: Prisma.VendorBillListRelationFilter
   vendorBillLines?: Prisma.VendorBillLineListRelationFilter
+  storedObjects?: Prisma.StoredObjectListRelationFilter
+  departments?: Prisma.DepartmentListRelationFilter
+  workSchedules?: Prisma.WorkScheduleListRelationFilter
+  staffProfiles?: Prisma.StaffProfileListRelationFilter
+  holidays?: Prisma.HolidayListRelationFilter
+  timeOffRequests?: Prisma.TimeOffRequestListRelationFilter
+  teams?: Prisma.TeamListRelationFilter
+  teamMembers?: Prisma.TeamMemberListRelationFilter
+  calendarFeeds?: Prisma.CalendarFeedListRelationFilter
+  crmConnection?: Prisma.XOR<Prisma.CrmConnectionNullableScalarRelationFilter, Prisma.CrmConnectionWhereInput> | null
+  crmStaffMappings?: Prisma.CrmStaffMappingListRelationFilter
+  crmDealItemLinks?: Prisma.CrmDealItemLinkListRelationFilter
+  crmWebhookEvents?: Prisma.CrmWebhookEventListRelationFilter
 }
 
 export type OrganizationOrderByWithRelationInput = {
@@ -237,6 +250,19 @@ export type OrganizationOrderByWithRelationInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineOrderByRelationAggregateInput
   vendorBills?: Prisma.VendorBillOrderByRelationAggregateInput
   vendorBillLines?: Prisma.VendorBillLineOrderByRelationAggregateInput
+  storedObjects?: Prisma.StoredObjectOrderByRelationAggregateInput
+  departments?: Prisma.DepartmentOrderByRelationAggregateInput
+  workSchedules?: Prisma.WorkScheduleOrderByRelationAggregateInput
+  staffProfiles?: Prisma.StaffProfileOrderByRelationAggregateInput
+  holidays?: Prisma.HolidayOrderByRelationAggregateInput
+  timeOffRequests?: Prisma.TimeOffRequestOrderByRelationAggregateInput
+  teams?: Prisma.TeamOrderByRelationAggregateInput
+  teamMembers?: Prisma.TeamMemberOrderByRelationAggregateInput
+  calendarFeeds?: Prisma.CalendarFeedOrderByRelationAggregateInput
+  crmConnection?: Prisma.CrmConnectionOrderByWithRelationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingOrderByRelationAggregateInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkOrderByRelationAggregateInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventOrderByRelationAggregateInput
 }
 
 export type OrganizationWhereUniqueInput = Prisma.AtLeast<{
@@ -268,6 +294,19 @@ export type OrganizationWhereUniqueInput = Prisma.AtLeast<{
   goodsReceiptLines?: Prisma.GoodsReceiptLineListRelationFilter
   vendorBills?: Prisma.VendorBillListRelationFilter
   vendorBillLines?: Prisma.VendorBillLineListRelationFilter
+  storedObjects?: Prisma.StoredObjectListRelationFilter
+  departments?: Prisma.DepartmentListRelationFilter
+  workSchedules?: Prisma.WorkScheduleListRelationFilter
+  staffProfiles?: Prisma.StaffProfileListRelationFilter
+  holidays?: Prisma.HolidayListRelationFilter
+  timeOffRequests?: Prisma.TimeOffRequestListRelationFilter
+  teams?: Prisma.TeamListRelationFilter
+  teamMembers?: Prisma.TeamMemberListRelationFilter
+  calendarFeeds?: Prisma.CalendarFeedListRelationFilter
+  crmConnection?: Prisma.XOR<Prisma.CrmConnectionNullableScalarRelationFilter, Prisma.CrmConnectionWhereInput> | null
+  crmStaffMappings?: Prisma.CrmStaffMappingListRelationFilter
+  crmDealItemLinks?: Prisma.CrmDealItemLinkListRelationFilter
+  crmWebhookEvents?: Prisma.CrmWebhookEventListRelationFilter
 }, "id" | "slug">
 
 export type OrganizationOrderByWithAggregationInput = {
@@ -320,6 +359,19 @@ export type OrganizationCreateInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateInput = {
@@ -348,6 +400,19 @@ export type OrganizationUncheckedCreateInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUpdateInput = {
@@ -376,6 +441,19 @@ export type OrganizationUpdateInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateInput = {
@@ -404,6 +482,19 @@ export type OrganizationUncheckedUpdateInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateManyInput = {
@@ -731,6 +822,188 @@ export type OrganizationUpdateOneRequiredWithoutVendorBillLinesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutVendorBillLinesInput, Prisma.OrganizationUpdateWithoutVendorBillLinesInput>, Prisma.OrganizationUncheckedUpdateWithoutVendorBillLinesInput>
 }
 
+export type OrganizationCreateNestedOneWithoutStoredObjectsInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutStoredObjectsInput, Prisma.OrganizationUncheckedCreateWithoutStoredObjectsInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutStoredObjectsInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutStoredObjectsNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutStoredObjectsInput, Prisma.OrganizationUncheckedCreateWithoutStoredObjectsInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutStoredObjectsInput
+  upsert?: Prisma.OrganizationUpsertWithoutStoredObjectsInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutStoredObjectsInput, Prisma.OrganizationUpdateWithoutStoredObjectsInput>, Prisma.OrganizationUncheckedUpdateWithoutStoredObjectsInput>
+}
+
+export type OrganizationCreateNestedOneWithoutDepartmentsInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutDepartmentsInput, Prisma.OrganizationUncheckedCreateWithoutDepartmentsInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutDepartmentsInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutDepartmentsNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutDepartmentsInput, Prisma.OrganizationUncheckedCreateWithoutDepartmentsInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutDepartmentsInput
+  upsert?: Prisma.OrganizationUpsertWithoutDepartmentsInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutDepartmentsInput, Prisma.OrganizationUpdateWithoutDepartmentsInput>, Prisma.OrganizationUncheckedUpdateWithoutDepartmentsInput>
+}
+
+export type OrganizationCreateNestedOneWithoutWorkSchedulesInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutWorkSchedulesInput, Prisma.OrganizationUncheckedCreateWithoutWorkSchedulesInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutWorkSchedulesInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutWorkSchedulesNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutWorkSchedulesInput, Prisma.OrganizationUncheckedCreateWithoutWorkSchedulesInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutWorkSchedulesInput
+  upsert?: Prisma.OrganizationUpsertWithoutWorkSchedulesInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutWorkSchedulesInput, Prisma.OrganizationUpdateWithoutWorkSchedulesInput>, Prisma.OrganizationUncheckedUpdateWithoutWorkSchedulesInput>
+}
+
+export type OrganizationCreateNestedOneWithoutStaffProfilesInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutStaffProfilesInput, Prisma.OrganizationUncheckedCreateWithoutStaffProfilesInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutStaffProfilesInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutStaffProfilesNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutStaffProfilesInput, Prisma.OrganizationUncheckedCreateWithoutStaffProfilesInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutStaffProfilesInput
+  upsert?: Prisma.OrganizationUpsertWithoutStaffProfilesInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutStaffProfilesInput, Prisma.OrganizationUpdateWithoutStaffProfilesInput>, Prisma.OrganizationUncheckedUpdateWithoutStaffProfilesInput>
+}
+
+export type OrganizationCreateNestedOneWithoutHolidaysInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutHolidaysInput, Prisma.OrganizationUncheckedCreateWithoutHolidaysInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutHolidaysInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutHolidaysNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutHolidaysInput, Prisma.OrganizationUncheckedCreateWithoutHolidaysInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutHolidaysInput
+  upsert?: Prisma.OrganizationUpsertWithoutHolidaysInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutHolidaysInput, Prisma.OrganizationUpdateWithoutHolidaysInput>, Prisma.OrganizationUncheckedUpdateWithoutHolidaysInput>
+}
+
+export type OrganizationCreateNestedOneWithoutTimeOffRequestsInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutTimeOffRequestsInput, Prisma.OrganizationUncheckedCreateWithoutTimeOffRequestsInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutTimeOffRequestsInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutTimeOffRequestsNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutTimeOffRequestsInput, Prisma.OrganizationUncheckedCreateWithoutTimeOffRequestsInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutTimeOffRequestsInput
+  upsert?: Prisma.OrganizationUpsertWithoutTimeOffRequestsInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutTimeOffRequestsInput, Prisma.OrganizationUpdateWithoutTimeOffRequestsInput>, Prisma.OrganizationUncheckedUpdateWithoutTimeOffRequestsInput>
+}
+
+export type OrganizationCreateNestedOneWithoutTeamsInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutTeamsInput, Prisma.OrganizationUncheckedCreateWithoutTeamsInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutTeamsInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutTeamsNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutTeamsInput, Prisma.OrganizationUncheckedCreateWithoutTeamsInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutTeamsInput
+  upsert?: Prisma.OrganizationUpsertWithoutTeamsInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutTeamsInput, Prisma.OrganizationUpdateWithoutTeamsInput>, Prisma.OrganizationUncheckedUpdateWithoutTeamsInput>
+}
+
+export type OrganizationCreateNestedOneWithoutTeamMembersInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutTeamMembersInput, Prisma.OrganizationUncheckedCreateWithoutTeamMembersInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutTeamMembersInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutTeamMembersNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutTeamMembersInput, Prisma.OrganizationUncheckedCreateWithoutTeamMembersInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutTeamMembersInput
+  upsert?: Prisma.OrganizationUpsertWithoutTeamMembersInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutTeamMembersInput, Prisma.OrganizationUpdateWithoutTeamMembersInput>, Prisma.OrganizationUncheckedUpdateWithoutTeamMembersInput>
+}
+
+export type OrganizationCreateNestedOneWithoutCalendarFeedsInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutCalendarFeedsInput, Prisma.OrganizationUncheckedCreateWithoutCalendarFeedsInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutCalendarFeedsInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutCalendarFeedsNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutCalendarFeedsInput, Prisma.OrganizationUncheckedCreateWithoutCalendarFeedsInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutCalendarFeedsInput
+  upsert?: Prisma.OrganizationUpsertWithoutCalendarFeedsInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutCalendarFeedsInput, Prisma.OrganizationUpdateWithoutCalendarFeedsInput>, Prisma.OrganizationUncheckedUpdateWithoutCalendarFeedsInput>
+}
+
+export type OrganizationCreateNestedOneWithoutCrmConnectionInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutCrmConnectionInput, Prisma.OrganizationUncheckedCreateWithoutCrmConnectionInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutCrmConnectionInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutCrmConnectionNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutCrmConnectionInput, Prisma.OrganizationUncheckedCreateWithoutCrmConnectionInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutCrmConnectionInput
+  upsert?: Prisma.OrganizationUpsertWithoutCrmConnectionInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutCrmConnectionInput, Prisma.OrganizationUpdateWithoutCrmConnectionInput>, Prisma.OrganizationUncheckedUpdateWithoutCrmConnectionInput>
+}
+
+export type OrganizationCreateNestedOneWithoutCrmStaffMappingsInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutCrmStaffMappingsInput, Prisma.OrganizationUncheckedCreateWithoutCrmStaffMappingsInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutCrmStaffMappingsInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutCrmStaffMappingsNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutCrmStaffMappingsInput, Prisma.OrganizationUncheckedCreateWithoutCrmStaffMappingsInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutCrmStaffMappingsInput
+  upsert?: Prisma.OrganizationUpsertWithoutCrmStaffMappingsInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutCrmStaffMappingsInput, Prisma.OrganizationUpdateWithoutCrmStaffMappingsInput>, Prisma.OrganizationUncheckedUpdateWithoutCrmStaffMappingsInput>
+}
+
+export type OrganizationCreateNestedOneWithoutCrmDealItemLinksInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutCrmDealItemLinksInput, Prisma.OrganizationUncheckedCreateWithoutCrmDealItemLinksInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutCrmDealItemLinksInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutCrmDealItemLinksNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutCrmDealItemLinksInput, Prisma.OrganizationUncheckedCreateWithoutCrmDealItemLinksInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutCrmDealItemLinksInput
+  upsert?: Prisma.OrganizationUpsertWithoutCrmDealItemLinksInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutCrmDealItemLinksInput, Prisma.OrganizationUpdateWithoutCrmDealItemLinksInput>, Prisma.OrganizationUncheckedUpdateWithoutCrmDealItemLinksInput>
+}
+
+export type OrganizationCreateNestedOneWithoutCrmWebhookEventsInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutCrmWebhookEventsInput, Prisma.OrganizationUncheckedCreateWithoutCrmWebhookEventsInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutCrmWebhookEventsInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutCrmWebhookEventsNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutCrmWebhookEventsInput, Prisma.OrganizationUncheckedCreateWithoutCrmWebhookEventsInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutCrmWebhookEventsInput
+  upsert?: Prisma.OrganizationUpsertWithoutCrmWebhookEventsInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutCrmWebhookEventsInput, Prisma.OrganizationUpdateWithoutCrmWebhookEventsInput>, Prisma.OrganizationUncheckedUpdateWithoutCrmWebhookEventsInput>
+}
+
 export type OrganizationCreateWithoutMembersInput = {
   id: string
   name: string
@@ -756,6 +1029,19 @@ export type OrganizationCreateWithoutMembersInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutMembersInput = {
@@ -783,6 +1069,19 @@ export type OrganizationUncheckedCreateWithoutMembersInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutMembersInput = {
@@ -826,6 +1125,19 @@ export type OrganizationUpdateWithoutMembersInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutMembersInput = {
@@ -853,6 +1165,19 @@ export type OrganizationUncheckedUpdateWithoutMembersInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutInvitationsInput = {
@@ -880,6 +1205,19 @@ export type OrganizationCreateWithoutInvitationsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutInvitationsInput = {
@@ -907,6 +1245,19 @@ export type OrganizationUncheckedCreateWithoutInvitationsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutInvitationsInput = {
@@ -950,6 +1301,19 @@ export type OrganizationUpdateWithoutInvitationsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutInvitationsInput = {
@@ -977,6 +1341,19 @@ export type OrganizationUncheckedUpdateWithoutInvitationsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutTenantSettingsInput = {
@@ -1004,6 +1381,19 @@ export type OrganizationCreateWithoutTenantSettingsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutTenantSettingsInput = {
@@ -1031,6 +1421,19 @@ export type OrganizationUncheckedCreateWithoutTenantSettingsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutTenantSettingsInput = {
@@ -1074,6 +1477,19 @@ export type OrganizationUpdateWithoutTenantSettingsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutTenantSettingsInput = {
@@ -1101,6 +1517,19 @@ export type OrganizationUncheckedUpdateWithoutTenantSettingsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutAuditLogsInput = {
@@ -1128,6 +1557,19 @@ export type OrganizationCreateWithoutAuditLogsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutAuditLogsInput = {
@@ -1155,6 +1597,19 @@ export type OrganizationUncheckedCreateWithoutAuditLogsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutAuditLogsInput = {
@@ -1198,6 +1653,19 @@ export type OrganizationUpdateWithoutAuditLogsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutAuditLogsInput = {
@@ -1225,6 +1693,19 @@ export type OrganizationUncheckedUpdateWithoutAuditLogsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutItemsInput = {
@@ -1252,6 +1733,19 @@ export type OrganizationCreateWithoutItemsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutItemsInput = {
@@ -1279,6 +1773,19 @@ export type OrganizationUncheckedCreateWithoutItemsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutItemsInput = {
@@ -1322,6 +1829,19 @@ export type OrganizationUpdateWithoutItemsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutItemsInput = {
@@ -1349,6 +1869,19 @@ export type OrganizationUncheckedUpdateWithoutItemsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutItemRevisionsInput = {
@@ -1376,6 +1909,19 @@ export type OrganizationCreateWithoutItemRevisionsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutItemRevisionsInput = {
@@ -1403,6 +1949,19 @@ export type OrganizationUncheckedCreateWithoutItemRevisionsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutItemRevisionsInput = {
@@ -1446,6 +2005,19 @@ export type OrganizationUpdateWithoutItemRevisionsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutItemRevisionsInput = {
@@ -1473,6 +2045,19 @@ export type OrganizationUncheckedUpdateWithoutItemRevisionsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutLocationsInput = {
@@ -1500,6 +2085,19 @@ export type OrganizationCreateWithoutLocationsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutLocationsInput = {
@@ -1527,6 +2125,19 @@ export type OrganizationUncheckedCreateWithoutLocationsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutLocationsInput = {
@@ -1570,6 +2181,19 @@ export type OrganizationUpdateWithoutLocationsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutLocationsInput = {
@@ -1597,6 +2221,19 @@ export type OrganizationUncheckedUpdateWithoutLocationsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutStockBalancesInput = {
@@ -1624,6 +2261,19 @@ export type OrganizationCreateWithoutStockBalancesInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutStockBalancesInput = {
@@ -1651,6 +2301,19 @@ export type OrganizationUncheckedCreateWithoutStockBalancesInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutStockBalancesInput = {
@@ -1694,6 +2357,19 @@ export type OrganizationUpdateWithoutStockBalancesInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutStockBalancesInput = {
@@ -1721,6 +2397,19 @@ export type OrganizationUncheckedUpdateWithoutStockBalancesInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutStockMovementsInput = {
@@ -1748,6 +2437,19 @@ export type OrganizationCreateWithoutStockMovementsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutStockMovementsInput = {
@@ -1775,6 +2477,19 @@ export type OrganizationUncheckedCreateWithoutStockMovementsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutStockMovementsInput = {
@@ -1818,6 +2533,19 @@ export type OrganizationUpdateWithoutStockMovementsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutStockMovementsInput = {
@@ -1845,6 +2573,19 @@ export type OrganizationUncheckedUpdateWithoutStockMovementsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutStockTransfersInput = {
@@ -1872,6 +2613,19 @@ export type OrganizationCreateWithoutStockTransfersInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutStockTransfersInput = {
@@ -1899,6 +2653,19 @@ export type OrganizationUncheckedCreateWithoutStockTransfersInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutStockTransfersInput = {
@@ -1942,6 +2709,19 @@ export type OrganizationUpdateWithoutStockTransfersInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutStockTransfersInput = {
@@ -1969,6 +2749,19 @@ export type OrganizationUncheckedUpdateWithoutStockTransfersInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutStockTransferLinesInput = {
@@ -1996,6 +2789,19 @@ export type OrganizationCreateWithoutStockTransferLinesInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutStockTransferLinesInput = {
@@ -2023,6 +2829,19 @@ export type OrganizationUncheckedCreateWithoutStockTransferLinesInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutStockTransferLinesInput = {
@@ -2066,6 +2885,19 @@ export type OrganizationUpdateWithoutStockTransferLinesInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutStockTransferLinesInput = {
@@ -2093,6 +2925,19 @@ export type OrganizationUncheckedUpdateWithoutStockTransferLinesInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutSuppliersInput = {
@@ -2120,6 +2965,19 @@ export type OrganizationCreateWithoutSuppliersInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutSuppliersInput = {
@@ -2147,6 +3005,19 @@ export type OrganizationUncheckedCreateWithoutSuppliersInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutSuppliersInput = {
@@ -2190,6 +3061,19 @@ export type OrganizationUpdateWithoutSuppliersInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutSuppliersInput = {
@@ -2217,6 +3101,19 @@ export type OrganizationUncheckedUpdateWithoutSuppliersInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutSupplierItemsInput = {
@@ -2244,6 +3141,19 @@ export type OrganizationCreateWithoutSupplierItemsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutSupplierItemsInput = {
@@ -2271,6 +3181,19 @@ export type OrganizationUncheckedCreateWithoutSupplierItemsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutSupplierItemsInput = {
@@ -2314,6 +3237,19 @@ export type OrganizationUpdateWithoutSupplierItemsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutSupplierItemsInput = {
@@ -2341,6 +3277,19 @@ export type OrganizationUncheckedUpdateWithoutSupplierItemsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutPurchaseOrdersInput = {
@@ -2368,6 +3317,19 @@ export type OrganizationCreateWithoutPurchaseOrdersInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutPurchaseOrdersInput = {
@@ -2395,6 +3357,19 @@ export type OrganizationUncheckedCreateWithoutPurchaseOrdersInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutPurchaseOrdersInput = {
@@ -2438,6 +3413,19 @@ export type OrganizationUpdateWithoutPurchaseOrdersInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutPurchaseOrdersInput = {
@@ -2465,6 +3453,19 @@ export type OrganizationUncheckedUpdateWithoutPurchaseOrdersInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutPurchaseOrderLinesInput = {
@@ -2492,6 +3493,19 @@ export type OrganizationCreateWithoutPurchaseOrderLinesInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutPurchaseOrderLinesInput = {
@@ -2519,6 +3533,19 @@ export type OrganizationUncheckedCreateWithoutPurchaseOrderLinesInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutPurchaseOrderLinesInput = {
@@ -2562,6 +3589,19 @@ export type OrganizationUpdateWithoutPurchaseOrderLinesInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutPurchaseOrderLinesInput = {
@@ -2589,6 +3629,19 @@ export type OrganizationUncheckedUpdateWithoutPurchaseOrderLinesInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutGoodsReceiptsInput = {
@@ -2616,6 +3669,19 @@ export type OrganizationCreateWithoutGoodsReceiptsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutGoodsReceiptsInput = {
@@ -2643,6 +3709,19 @@ export type OrganizationUncheckedCreateWithoutGoodsReceiptsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutGoodsReceiptsInput = {
@@ -2686,6 +3765,19 @@ export type OrganizationUpdateWithoutGoodsReceiptsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutGoodsReceiptsInput = {
@@ -2713,6 +3805,19 @@ export type OrganizationUncheckedUpdateWithoutGoodsReceiptsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutGoodsReceiptLinesInput = {
@@ -2740,6 +3845,19 @@ export type OrganizationCreateWithoutGoodsReceiptLinesInput = {
   goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutGoodsReceiptLinesInput = {
@@ -2767,6 +3885,19 @@ export type OrganizationUncheckedCreateWithoutGoodsReceiptLinesInput = {
   goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutGoodsReceiptLinesInput = {
@@ -2810,6 +3941,19 @@ export type OrganizationUpdateWithoutGoodsReceiptLinesInput = {
   goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutGoodsReceiptLinesInput = {
@@ -2837,6 +3981,19 @@ export type OrganizationUncheckedUpdateWithoutGoodsReceiptLinesInput = {
   goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutVendorBillsInput = {
@@ -2864,6 +4021,19 @@ export type OrganizationCreateWithoutVendorBillsInput = {
   goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutVendorBillsInput = {
@@ -2891,6 +4061,19 @@ export type OrganizationUncheckedCreateWithoutVendorBillsInput = {
   goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutVendorBillsInput = {
@@ -2934,6 +4117,19 @@ export type OrganizationUpdateWithoutVendorBillsInput = {
   goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutVendorBillsInput = {
@@ -2961,6 +4157,19 @@ export type OrganizationUncheckedUpdateWithoutVendorBillsInput = {
   goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutVendorBillLinesInput = {
@@ -2988,6 +4197,19 @@ export type OrganizationCreateWithoutVendorBillLinesInput = {
   goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutVendorBillLinesInput = {
@@ -3015,6 +4237,19 @@ export type OrganizationUncheckedCreateWithoutVendorBillLinesInput = {
   goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutVendorBillLinesInput = {
@@ -3058,6 +4293,19 @@ export type OrganizationUpdateWithoutVendorBillLinesInput = {
   goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutVendorBillLinesInput = {
@@ -3085,6 +4333,2307 @@ export type OrganizationUncheckedUpdateWithoutVendorBillLinesInput = {
   goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutStoredObjectsInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutStoredObjectsInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutStoredObjectsInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutStoredObjectsInput, Prisma.OrganizationUncheckedCreateWithoutStoredObjectsInput>
+}
+
+export type OrganizationUpsertWithoutStoredObjectsInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutStoredObjectsInput, Prisma.OrganizationUncheckedUpdateWithoutStoredObjectsInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutStoredObjectsInput, Prisma.OrganizationUncheckedCreateWithoutStoredObjectsInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutStoredObjectsInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutStoredObjectsInput, Prisma.OrganizationUncheckedUpdateWithoutStoredObjectsInput>
+}
+
+export type OrganizationUpdateWithoutStoredObjectsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutStoredObjectsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutDepartmentsInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutDepartmentsInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutDepartmentsInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutDepartmentsInput, Prisma.OrganizationUncheckedCreateWithoutDepartmentsInput>
+}
+
+export type OrganizationUpsertWithoutDepartmentsInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutDepartmentsInput, Prisma.OrganizationUncheckedUpdateWithoutDepartmentsInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutDepartmentsInput, Prisma.OrganizationUncheckedCreateWithoutDepartmentsInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutDepartmentsInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutDepartmentsInput, Prisma.OrganizationUncheckedUpdateWithoutDepartmentsInput>
+}
+
+export type OrganizationUpdateWithoutDepartmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutDepartmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutWorkSchedulesInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutWorkSchedulesInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutWorkSchedulesInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutWorkSchedulesInput, Prisma.OrganizationUncheckedCreateWithoutWorkSchedulesInput>
+}
+
+export type OrganizationUpsertWithoutWorkSchedulesInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutWorkSchedulesInput, Prisma.OrganizationUncheckedUpdateWithoutWorkSchedulesInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutWorkSchedulesInput, Prisma.OrganizationUncheckedCreateWithoutWorkSchedulesInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutWorkSchedulesInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutWorkSchedulesInput, Prisma.OrganizationUncheckedUpdateWithoutWorkSchedulesInput>
+}
+
+export type OrganizationUpdateWithoutWorkSchedulesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutWorkSchedulesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutStaffProfilesInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutStaffProfilesInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutStaffProfilesInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutStaffProfilesInput, Prisma.OrganizationUncheckedCreateWithoutStaffProfilesInput>
+}
+
+export type OrganizationUpsertWithoutStaffProfilesInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutStaffProfilesInput, Prisma.OrganizationUncheckedUpdateWithoutStaffProfilesInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutStaffProfilesInput, Prisma.OrganizationUncheckedCreateWithoutStaffProfilesInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutStaffProfilesInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutStaffProfilesInput, Prisma.OrganizationUncheckedUpdateWithoutStaffProfilesInput>
+}
+
+export type OrganizationUpdateWithoutStaffProfilesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutStaffProfilesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutHolidaysInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutHolidaysInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutHolidaysInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutHolidaysInput, Prisma.OrganizationUncheckedCreateWithoutHolidaysInput>
+}
+
+export type OrganizationUpsertWithoutHolidaysInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutHolidaysInput, Prisma.OrganizationUncheckedUpdateWithoutHolidaysInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutHolidaysInput, Prisma.OrganizationUncheckedCreateWithoutHolidaysInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutHolidaysInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutHolidaysInput, Prisma.OrganizationUncheckedUpdateWithoutHolidaysInput>
+}
+
+export type OrganizationUpdateWithoutHolidaysInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutHolidaysInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutTimeOffRequestsInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutTimeOffRequestsInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutTimeOffRequestsInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutTimeOffRequestsInput, Prisma.OrganizationUncheckedCreateWithoutTimeOffRequestsInput>
+}
+
+export type OrganizationUpsertWithoutTimeOffRequestsInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutTimeOffRequestsInput, Prisma.OrganizationUncheckedUpdateWithoutTimeOffRequestsInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutTimeOffRequestsInput, Prisma.OrganizationUncheckedCreateWithoutTimeOffRequestsInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutTimeOffRequestsInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutTimeOffRequestsInput, Prisma.OrganizationUncheckedUpdateWithoutTimeOffRequestsInput>
+}
+
+export type OrganizationUpdateWithoutTimeOffRequestsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutTimeOffRequestsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutTeamsInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutTeamsInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutTeamsInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutTeamsInput, Prisma.OrganizationUncheckedCreateWithoutTeamsInput>
+}
+
+export type OrganizationUpsertWithoutTeamsInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutTeamsInput, Prisma.OrganizationUncheckedUpdateWithoutTeamsInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutTeamsInput, Prisma.OrganizationUncheckedCreateWithoutTeamsInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutTeamsInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutTeamsInput, Prisma.OrganizationUncheckedUpdateWithoutTeamsInput>
+}
+
+export type OrganizationUpdateWithoutTeamsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutTeamsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutTeamMembersInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutTeamMembersInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutTeamMembersInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutTeamMembersInput, Prisma.OrganizationUncheckedCreateWithoutTeamMembersInput>
+}
+
+export type OrganizationUpsertWithoutTeamMembersInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutTeamMembersInput, Prisma.OrganizationUncheckedUpdateWithoutTeamMembersInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutTeamMembersInput, Prisma.OrganizationUncheckedCreateWithoutTeamMembersInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutTeamMembersInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutTeamMembersInput, Prisma.OrganizationUncheckedUpdateWithoutTeamMembersInput>
+}
+
+export type OrganizationUpdateWithoutTeamMembersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutTeamMembersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutCalendarFeedsInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutCalendarFeedsInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutCalendarFeedsInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutCalendarFeedsInput, Prisma.OrganizationUncheckedCreateWithoutCalendarFeedsInput>
+}
+
+export type OrganizationUpsertWithoutCalendarFeedsInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutCalendarFeedsInput, Prisma.OrganizationUncheckedUpdateWithoutCalendarFeedsInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutCalendarFeedsInput, Prisma.OrganizationUncheckedCreateWithoutCalendarFeedsInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutCalendarFeedsInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutCalendarFeedsInput, Prisma.OrganizationUncheckedUpdateWithoutCalendarFeedsInput>
+}
+
+export type OrganizationUpdateWithoutCalendarFeedsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutCalendarFeedsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutCrmConnectionInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutCrmConnectionInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutCrmConnectionInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutCrmConnectionInput, Prisma.OrganizationUncheckedCreateWithoutCrmConnectionInput>
+}
+
+export type OrganizationUpsertWithoutCrmConnectionInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutCrmConnectionInput, Prisma.OrganizationUncheckedUpdateWithoutCrmConnectionInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutCrmConnectionInput, Prisma.OrganizationUncheckedCreateWithoutCrmConnectionInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutCrmConnectionInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutCrmConnectionInput, Prisma.OrganizationUncheckedUpdateWithoutCrmConnectionInput>
+}
+
+export type OrganizationUpdateWithoutCrmConnectionInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutCrmConnectionInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutCrmStaffMappingsInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutCrmStaffMappingsInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutCrmStaffMappingsInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutCrmStaffMappingsInput, Prisma.OrganizationUncheckedCreateWithoutCrmStaffMappingsInput>
+}
+
+export type OrganizationUpsertWithoutCrmStaffMappingsInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutCrmStaffMappingsInput, Prisma.OrganizationUncheckedUpdateWithoutCrmStaffMappingsInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutCrmStaffMappingsInput, Prisma.OrganizationUncheckedCreateWithoutCrmStaffMappingsInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutCrmStaffMappingsInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutCrmStaffMappingsInput, Prisma.OrganizationUncheckedUpdateWithoutCrmStaffMappingsInput>
+}
+
+export type OrganizationUpdateWithoutCrmStaffMappingsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutCrmStaffMappingsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutCrmDealItemLinksInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutCrmDealItemLinksInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutCrmDealItemLinksInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutCrmDealItemLinksInput, Prisma.OrganizationUncheckedCreateWithoutCrmDealItemLinksInput>
+}
+
+export type OrganizationUpsertWithoutCrmDealItemLinksInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutCrmDealItemLinksInput, Prisma.OrganizationUncheckedUpdateWithoutCrmDealItemLinksInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutCrmDealItemLinksInput, Prisma.OrganizationUncheckedCreateWithoutCrmDealItemLinksInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutCrmDealItemLinksInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutCrmDealItemLinksInput, Prisma.OrganizationUncheckedUpdateWithoutCrmDealItemLinksInput>
+}
+
+export type OrganizationUpdateWithoutCrmDealItemLinksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutCrmDealItemLinksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutCrmWebhookEventsInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutCrmWebhookEventsInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutCrmWebhookEventsInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutCrmWebhookEventsInput, Prisma.OrganizationUncheckedCreateWithoutCrmWebhookEventsInput>
+}
+
+export type OrganizationUpsertWithoutCrmWebhookEventsInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutCrmWebhookEventsInput, Prisma.OrganizationUncheckedUpdateWithoutCrmWebhookEventsInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutCrmWebhookEventsInput, Prisma.OrganizationUncheckedCreateWithoutCrmWebhookEventsInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutCrmWebhookEventsInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutCrmWebhookEventsInput, Prisma.OrganizationUncheckedUpdateWithoutCrmWebhookEventsInput>
+}
+
+export type OrganizationUpdateWithoutCrmWebhookEventsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutCrmWebhookEventsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 
@@ -3111,6 +6660,18 @@ export type OrganizationCountOutputType = {
   goodsReceiptLines: number
   vendorBills: number
   vendorBillLines: number
+  storedObjects: number
+  departments: number
+  workSchedules: number
+  staffProfiles: number
+  holidays: number
+  timeOffRequests: number
+  teams: number
+  teamMembers: number
+  calendarFeeds: number
+  crmStaffMappings: number
+  crmDealItemLinks: number
+  crmWebhookEvents: number
 }
 
 export type OrganizationCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -3132,6 +6693,18 @@ export type OrganizationCountOutputTypeSelect<ExtArgs extends runtime.Types.Exte
   goodsReceiptLines?: boolean | OrganizationCountOutputTypeCountGoodsReceiptLinesArgs
   vendorBills?: boolean | OrganizationCountOutputTypeCountVendorBillsArgs
   vendorBillLines?: boolean | OrganizationCountOutputTypeCountVendorBillLinesArgs
+  storedObjects?: boolean | OrganizationCountOutputTypeCountStoredObjectsArgs
+  departments?: boolean | OrganizationCountOutputTypeCountDepartmentsArgs
+  workSchedules?: boolean | OrganizationCountOutputTypeCountWorkSchedulesArgs
+  staffProfiles?: boolean | OrganizationCountOutputTypeCountStaffProfilesArgs
+  holidays?: boolean | OrganizationCountOutputTypeCountHolidaysArgs
+  timeOffRequests?: boolean | OrganizationCountOutputTypeCountTimeOffRequestsArgs
+  teams?: boolean | OrganizationCountOutputTypeCountTeamsArgs
+  teamMembers?: boolean | OrganizationCountOutputTypeCountTeamMembersArgs
+  calendarFeeds?: boolean | OrganizationCountOutputTypeCountCalendarFeedsArgs
+  crmStaffMappings?: boolean | OrganizationCountOutputTypeCountCrmStaffMappingsArgs
+  crmDealItemLinks?: boolean | OrganizationCountOutputTypeCountCrmDealItemLinksArgs
+  crmWebhookEvents?: boolean | OrganizationCountOutputTypeCountCrmWebhookEventsArgs
 }
 
 /**
@@ -3270,6 +6843,90 @@ export type OrganizationCountOutputTypeCountVendorBillLinesArgs<ExtArgs extends 
   where?: Prisma.VendorBillLineWhereInput
 }
 
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountStoredObjectsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.StoredObjectWhereInput
+}
+
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountDepartmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.DepartmentWhereInput
+}
+
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountWorkSchedulesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.WorkScheduleWhereInput
+}
+
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountStaffProfilesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.StaffProfileWhereInput
+}
+
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountHolidaysArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.HolidayWhereInput
+}
+
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountTimeOffRequestsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.TimeOffRequestWhereInput
+}
+
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountTeamsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.TeamWhereInput
+}
+
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountTeamMembersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.TeamMemberWhereInput
+}
+
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountCalendarFeedsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CalendarFeedWhereInput
+}
+
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountCrmStaffMappingsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CrmStaffMappingWhereInput
+}
+
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountCrmDealItemLinksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CrmDealItemLinkWhereInput
+}
+
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountCrmWebhookEventsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CrmWebhookEventWhereInput
+}
+
 
 export type OrganizationSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -3297,6 +6954,19 @@ export type OrganizationSelect<ExtArgs extends runtime.Types.Extensions.Internal
   goodsReceiptLines?: boolean | Prisma.Organization$goodsReceiptLinesArgs<ExtArgs>
   vendorBills?: boolean | Prisma.Organization$vendorBillsArgs<ExtArgs>
   vendorBillLines?: boolean | Prisma.Organization$vendorBillLinesArgs<ExtArgs>
+  storedObjects?: boolean | Prisma.Organization$storedObjectsArgs<ExtArgs>
+  departments?: boolean | Prisma.Organization$departmentsArgs<ExtArgs>
+  workSchedules?: boolean | Prisma.Organization$workSchedulesArgs<ExtArgs>
+  staffProfiles?: boolean | Prisma.Organization$staffProfilesArgs<ExtArgs>
+  holidays?: boolean | Prisma.Organization$holidaysArgs<ExtArgs>
+  timeOffRequests?: boolean | Prisma.Organization$timeOffRequestsArgs<ExtArgs>
+  teams?: boolean | Prisma.Organization$teamsArgs<ExtArgs>
+  teamMembers?: boolean | Prisma.Organization$teamMembersArgs<ExtArgs>
+  calendarFeeds?: boolean | Prisma.Organization$calendarFeedsArgs<ExtArgs>
+  crmConnection?: boolean | Prisma.Organization$crmConnectionArgs<ExtArgs>
+  crmStaffMappings?: boolean | Prisma.Organization$crmStaffMappingsArgs<ExtArgs>
+  crmDealItemLinks?: boolean | Prisma.Organization$crmDealItemLinksArgs<ExtArgs>
+  crmWebhookEvents?: boolean | Prisma.Organization$crmWebhookEventsArgs<ExtArgs>
   _count?: boolean | Prisma.OrganizationCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["organization"]>
 
@@ -3348,6 +7018,19 @@ export type OrganizationInclude<ExtArgs extends runtime.Types.Extensions.Interna
   goodsReceiptLines?: boolean | Prisma.Organization$goodsReceiptLinesArgs<ExtArgs>
   vendorBills?: boolean | Prisma.Organization$vendorBillsArgs<ExtArgs>
   vendorBillLines?: boolean | Prisma.Organization$vendorBillLinesArgs<ExtArgs>
+  storedObjects?: boolean | Prisma.Organization$storedObjectsArgs<ExtArgs>
+  departments?: boolean | Prisma.Organization$departmentsArgs<ExtArgs>
+  workSchedules?: boolean | Prisma.Organization$workSchedulesArgs<ExtArgs>
+  staffProfiles?: boolean | Prisma.Organization$staffProfilesArgs<ExtArgs>
+  holidays?: boolean | Prisma.Organization$holidaysArgs<ExtArgs>
+  timeOffRequests?: boolean | Prisma.Organization$timeOffRequestsArgs<ExtArgs>
+  teams?: boolean | Prisma.Organization$teamsArgs<ExtArgs>
+  teamMembers?: boolean | Prisma.Organization$teamMembersArgs<ExtArgs>
+  calendarFeeds?: boolean | Prisma.Organization$calendarFeedsArgs<ExtArgs>
+  crmConnection?: boolean | Prisma.Organization$crmConnectionArgs<ExtArgs>
+  crmStaffMappings?: boolean | Prisma.Organization$crmStaffMappingsArgs<ExtArgs>
+  crmDealItemLinks?: boolean | Prisma.Organization$crmDealItemLinksArgs<ExtArgs>
+  crmWebhookEvents?: boolean | Prisma.Organization$crmWebhookEventsArgs<ExtArgs>
   _count?: boolean | Prisma.OrganizationCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type OrganizationIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -3375,6 +7058,19 @@ export type $OrganizationPayload<ExtArgs extends runtime.Types.Extensions.Intern
     goodsReceiptLines: Prisma.$GoodsReceiptLinePayload<ExtArgs>[]
     vendorBills: Prisma.$VendorBillPayload<ExtArgs>[]
     vendorBillLines: Prisma.$VendorBillLinePayload<ExtArgs>[]
+    storedObjects: Prisma.$StoredObjectPayload<ExtArgs>[]
+    departments: Prisma.$DepartmentPayload<ExtArgs>[]
+    workSchedules: Prisma.$WorkSchedulePayload<ExtArgs>[]
+    staffProfiles: Prisma.$StaffProfilePayload<ExtArgs>[]
+    holidays: Prisma.$HolidayPayload<ExtArgs>[]
+    timeOffRequests: Prisma.$TimeOffRequestPayload<ExtArgs>[]
+    teams: Prisma.$TeamPayload<ExtArgs>[]
+    teamMembers: Prisma.$TeamMemberPayload<ExtArgs>[]
+    calendarFeeds: Prisma.$CalendarFeedPayload<ExtArgs>[]
+    crmConnection: Prisma.$CrmConnectionPayload<ExtArgs> | null
+    crmStaffMappings: Prisma.$CrmStaffMappingPayload<ExtArgs>[]
+    crmDealItemLinks: Prisma.$CrmDealItemLinkPayload<ExtArgs>[]
+    crmWebhookEvents: Prisma.$CrmWebhookEventPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -3796,6 +7492,19 @@ export interface Prisma__OrganizationClient<T, Null = never, ExtArgs extends run
   goodsReceiptLines<T extends Prisma.Organization$goodsReceiptLinesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$goodsReceiptLinesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GoodsReceiptLinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   vendorBills<T extends Prisma.Organization$vendorBillsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$vendorBillsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$VendorBillPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   vendorBillLines<T extends Prisma.Organization$vendorBillLinesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$vendorBillLinesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$VendorBillLinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  storedObjects<T extends Prisma.Organization$storedObjectsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$storedObjectsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StoredObjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  departments<T extends Prisma.Organization$departmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$departmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DepartmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  workSchedules<T extends Prisma.Organization$workSchedulesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$workSchedulesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkSchedulePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  staffProfiles<T extends Prisma.Organization$staffProfilesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$staffProfilesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StaffProfilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  holidays<T extends Prisma.Organization$holidaysArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$holidaysArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$HolidayPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  timeOffRequests<T extends Prisma.Organization$timeOffRequestsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$timeOffRequestsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TimeOffRequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  teams<T extends Prisma.Organization$teamsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$teamsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TeamPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  teamMembers<T extends Prisma.Organization$teamMembersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$teamMembersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TeamMemberPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  calendarFeeds<T extends Prisma.Organization$calendarFeedsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$calendarFeedsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CalendarFeedPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  crmConnection<T extends Prisma.Organization$crmConnectionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$crmConnectionArgs<ExtArgs>>): Prisma.Prisma__CrmConnectionClient<runtime.Types.Result.GetResult<Prisma.$CrmConnectionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  crmStaffMappings<T extends Prisma.Organization$crmStaffMappingsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$crmStaffMappingsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CrmStaffMappingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  crmDealItemLinks<T extends Prisma.Organization$crmDealItemLinksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$crmDealItemLinksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CrmDealItemLinkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  crmWebhookEvents<T extends Prisma.Organization$crmWebhookEventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$crmWebhookEventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CrmWebhookEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4672,6 +8381,313 @@ export type Organization$vendorBillLinesArgs<ExtArgs extends runtime.Types.Exten
   take?: number
   skip?: number
   distinct?: Prisma.VendorBillLineScalarFieldEnum | Prisma.VendorBillLineScalarFieldEnum[]
+}
+
+/**
+ * Organization.storedObjects
+ */
+export type Organization$storedObjectsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the StoredObject
+   */
+  select?: Prisma.StoredObjectSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the StoredObject
+   */
+  omit?: Prisma.StoredObjectOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.StoredObjectInclude<ExtArgs> | null
+  where?: Prisma.StoredObjectWhereInput
+  orderBy?: Prisma.StoredObjectOrderByWithRelationInput | Prisma.StoredObjectOrderByWithRelationInput[]
+  cursor?: Prisma.StoredObjectWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.StoredObjectScalarFieldEnum | Prisma.StoredObjectScalarFieldEnum[]
+}
+
+/**
+ * Organization.departments
+ */
+export type Organization$departmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Department
+   */
+  select?: Prisma.DepartmentSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Department
+   */
+  omit?: Prisma.DepartmentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.DepartmentInclude<ExtArgs> | null
+  where?: Prisma.DepartmentWhereInput
+  orderBy?: Prisma.DepartmentOrderByWithRelationInput | Prisma.DepartmentOrderByWithRelationInput[]
+  cursor?: Prisma.DepartmentWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.DepartmentScalarFieldEnum | Prisma.DepartmentScalarFieldEnum[]
+}
+
+/**
+ * Organization.workSchedules
+ */
+export type Organization$workSchedulesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the WorkSchedule
+   */
+  select?: Prisma.WorkScheduleSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the WorkSchedule
+   */
+  omit?: Prisma.WorkScheduleOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WorkScheduleInclude<ExtArgs> | null
+  where?: Prisma.WorkScheduleWhereInput
+  orderBy?: Prisma.WorkScheduleOrderByWithRelationInput | Prisma.WorkScheduleOrderByWithRelationInput[]
+  cursor?: Prisma.WorkScheduleWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.WorkScheduleScalarFieldEnum | Prisma.WorkScheduleScalarFieldEnum[]
+}
+
+/**
+ * Organization.staffProfiles
+ */
+export type Organization$staffProfilesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the StaffProfile
+   */
+  select?: Prisma.StaffProfileSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the StaffProfile
+   */
+  omit?: Prisma.StaffProfileOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.StaffProfileInclude<ExtArgs> | null
+  where?: Prisma.StaffProfileWhereInput
+  orderBy?: Prisma.StaffProfileOrderByWithRelationInput | Prisma.StaffProfileOrderByWithRelationInput[]
+  cursor?: Prisma.StaffProfileWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.StaffProfileScalarFieldEnum | Prisma.StaffProfileScalarFieldEnum[]
+}
+
+/**
+ * Organization.holidays
+ */
+export type Organization$holidaysArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Holiday
+   */
+  select?: Prisma.HolidaySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Holiday
+   */
+  omit?: Prisma.HolidayOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.HolidayInclude<ExtArgs> | null
+  where?: Prisma.HolidayWhereInput
+  orderBy?: Prisma.HolidayOrderByWithRelationInput | Prisma.HolidayOrderByWithRelationInput[]
+  cursor?: Prisma.HolidayWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.HolidayScalarFieldEnum | Prisma.HolidayScalarFieldEnum[]
+}
+
+/**
+ * Organization.timeOffRequests
+ */
+export type Organization$timeOffRequestsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the TimeOffRequest
+   */
+  select?: Prisma.TimeOffRequestSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the TimeOffRequest
+   */
+  omit?: Prisma.TimeOffRequestOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TimeOffRequestInclude<ExtArgs> | null
+  where?: Prisma.TimeOffRequestWhereInput
+  orderBy?: Prisma.TimeOffRequestOrderByWithRelationInput | Prisma.TimeOffRequestOrderByWithRelationInput[]
+  cursor?: Prisma.TimeOffRequestWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.TimeOffRequestScalarFieldEnum | Prisma.TimeOffRequestScalarFieldEnum[]
+}
+
+/**
+ * Organization.teams
+ */
+export type Organization$teamsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Team
+   */
+  select?: Prisma.TeamSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Team
+   */
+  omit?: Prisma.TeamOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TeamInclude<ExtArgs> | null
+  where?: Prisma.TeamWhereInput
+  orderBy?: Prisma.TeamOrderByWithRelationInput | Prisma.TeamOrderByWithRelationInput[]
+  cursor?: Prisma.TeamWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.TeamScalarFieldEnum | Prisma.TeamScalarFieldEnum[]
+}
+
+/**
+ * Organization.teamMembers
+ */
+export type Organization$teamMembersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the TeamMember
+   */
+  select?: Prisma.TeamMemberSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the TeamMember
+   */
+  omit?: Prisma.TeamMemberOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TeamMemberInclude<ExtArgs> | null
+  where?: Prisma.TeamMemberWhereInput
+  orderBy?: Prisma.TeamMemberOrderByWithRelationInput | Prisma.TeamMemberOrderByWithRelationInput[]
+  cursor?: Prisma.TeamMemberWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.TeamMemberScalarFieldEnum | Prisma.TeamMemberScalarFieldEnum[]
+}
+
+/**
+ * Organization.calendarFeeds
+ */
+export type Organization$calendarFeedsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the CalendarFeed
+   */
+  select?: Prisma.CalendarFeedSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the CalendarFeed
+   */
+  omit?: Prisma.CalendarFeedOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CalendarFeedInclude<ExtArgs> | null
+  where?: Prisma.CalendarFeedWhereInput
+  orderBy?: Prisma.CalendarFeedOrderByWithRelationInput | Prisma.CalendarFeedOrderByWithRelationInput[]
+  cursor?: Prisma.CalendarFeedWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.CalendarFeedScalarFieldEnum | Prisma.CalendarFeedScalarFieldEnum[]
+}
+
+/**
+ * Organization.crmConnection
+ */
+export type Organization$crmConnectionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the CrmConnection
+   */
+  select?: Prisma.CrmConnectionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the CrmConnection
+   */
+  omit?: Prisma.CrmConnectionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CrmConnectionInclude<ExtArgs> | null
+  where?: Prisma.CrmConnectionWhereInput
+}
+
+/**
+ * Organization.crmStaffMappings
+ */
+export type Organization$crmStaffMappingsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the CrmStaffMapping
+   */
+  select?: Prisma.CrmStaffMappingSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the CrmStaffMapping
+   */
+  omit?: Prisma.CrmStaffMappingOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CrmStaffMappingInclude<ExtArgs> | null
+  where?: Prisma.CrmStaffMappingWhereInput
+  orderBy?: Prisma.CrmStaffMappingOrderByWithRelationInput | Prisma.CrmStaffMappingOrderByWithRelationInput[]
+  cursor?: Prisma.CrmStaffMappingWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.CrmStaffMappingScalarFieldEnum | Prisma.CrmStaffMappingScalarFieldEnum[]
+}
+
+/**
+ * Organization.crmDealItemLinks
+ */
+export type Organization$crmDealItemLinksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the CrmDealItemLink
+   */
+  select?: Prisma.CrmDealItemLinkSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the CrmDealItemLink
+   */
+  omit?: Prisma.CrmDealItemLinkOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CrmDealItemLinkInclude<ExtArgs> | null
+  where?: Prisma.CrmDealItemLinkWhereInput
+  orderBy?: Prisma.CrmDealItemLinkOrderByWithRelationInput | Prisma.CrmDealItemLinkOrderByWithRelationInput[]
+  cursor?: Prisma.CrmDealItemLinkWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.CrmDealItemLinkScalarFieldEnum | Prisma.CrmDealItemLinkScalarFieldEnum[]
+}
+
+/**
+ * Organization.crmWebhookEvents
+ */
+export type Organization$crmWebhookEventsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the CrmWebhookEvent
+   */
+  select?: Prisma.CrmWebhookEventSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the CrmWebhookEvent
+   */
+  omit?: Prisma.CrmWebhookEventOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CrmWebhookEventInclude<ExtArgs> | null
+  where?: Prisma.CrmWebhookEventWhereInput
+  orderBy?: Prisma.CrmWebhookEventOrderByWithRelationInput | Prisma.CrmWebhookEventOrderByWithRelationInput[]
+  cursor?: Prisma.CrmWebhookEventWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.CrmWebhookEventScalarFieldEnum | Prisma.CrmWebhookEventScalarFieldEnum[]
 }
 
 /**

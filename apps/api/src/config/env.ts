@@ -27,15 +27,66 @@ const envSchema = z.object({
     .trim()
     .min(1)
     .default("Scace <onboarding@resend.dev>"),
+  RUSTFS_ENDPOINT: z.string().url().default("http://localhost:9000"),
+  RUSTFS_PUBLIC_ENDPOINT: z.string().url().optional(),
+  RUSTFS_REGION: z.string().trim().min(1).default("us-east-1"),
+  RUSTFS_ACCESS_KEY: z.string().optional(),
+  RUSTFS_SECRET_KEY: z.string().optional(),
+  RUSTFS_BUCKET_PREFIX: z
+    .string()
+    .trim()
+    .min(2)
+    .max(24)
+    .regex(/^[a-z0-9-]+$/)
+    .default("scace-org-"),
+  STORAGE_DEFAULT_QUOTA_BYTES: z.coerce
+    .number()
+    .int()
+    .positive()
+    .default(1_073_741_824),
+  STORAGE_MAX_FILE_BYTES: z.coerce
+    .number()
+    .int()
+    .positive()
+    .default(104_857_600),
+  STORAGE_PRESIGN_EXPIRES_SECONDS: z.coerce
+    .number()
+    .int()
+    .min(60)
+    .max(3600)
+    .default(900),
+  CRM_ENCRYPTION_KEY: z.string().optional(),
+  CRM_ALLOW_PRIVATE_URLS: z
+    .enum(["true", "false"])
+    .transform((v) => v === "true")
+    .optional(),
+  CRM_REQUEST_TIMEOUT_MS: z.coerce
+    .number()
+    .int()
+    .min(1000)
+    .max(60000)
+    .default(10000),
 });
 
 export type AppEnv = Omit<
   z.infer<typeof envSchema>,
-  "BETTER_AUTH_SECRET" | "CORS_ALLOWED_ORIGINS" | "RESEND_API_KEY"
+  | "BETTER_AUTH_SECRET"
+  | "CORS_ALLOWED_ORIGINS"
+  | "RESEND_API_KEY"
+  | "RUSTFS_ACCESS_KEY"
+  | "RUSTFS_SECRET_KEY"
+  | "RUSTFS_PUBLIC_ENDPOINT"
+  | "CRM_ENCRYPTION_KEY"
+  | "CRM_ALLOW_PRIVATE_URLS"
 > & {
   BETTER_AUTH_SECRET: string;
   CORS_ALLOWED_ORIGINS: string[];
   RESEND_API_KEY: string | null;
+  RUSTFS_ACCESS_KEY: string | null;
+  RUSTFS_SECRET_KEY: string | null;
+  RUSTFS_PUBLIC_ENDPOINT: string;
+  CRM_ENCRYPTION_KEY: string | null;
+  CRM_ALLOW_PRIVATE_URLS: boolean;
 };
 
 let cachedEnv: AppEnv | null = null;
@@ -73,9 +124,24 @@ export function getEnv(): AppEnv {
     );
   }
 
+  const rustfsAccessKey =
+    parsed.RUSTFS_ACCESS_KEY && parsed.RUSTFS_ACCESS_KEY.trim().length > 0
+      ? parsed.RUSTFS_ACCESS_KEY.trim()
+      : null;
+
+  const rustfsSecretKey =
+    parsed.RUSTFS_SECRET_KEY && parsed.RUSTFS_SECRET_KEY.trim().length > 0
+      ? parsed.RUSTFS_SECRET_KEY.trim()
+      : null;
+
   const allowedOrigins = parsed.CORS_ALLOWED_ORIGINS.split(",")
     .map((origin) => origin.trim())
     .filter((origin) => origin.length > 0 && origin !== "*");
+
+  const crmEncryptionKey =
+    parsed.CRM_ENCRYPTION_KEY && parsed.CRM_ENCRYPTION_KEY.trim().length > 0
+      ? parsed.CRM_ENCRYPTION_KEY.trim()
+      : null;
 
   cachedEnv = {
     ...parsed,
@@ -87,6 +153,11 @@ export function getEnv(): AppEnv {
         : ephemeralDevSecret,
     CORS_ALLOWED_ORIGINS: allowedOrigins,
     RESEND_API_KEY: resendApiKey,
+    RUSTFS_ACCESS_KEY: rustfsAccessKey,
+    RUSTFS_SECRET_KEY: rustfsSecretKey,
+    RUSTFS_PUBLIC_ENDPOINT: parsed.RUSTFS_PUBLIC_ENDPOINT ?? parsed.RUSTFS_ENDPOINT,
+    CRM_ENCRYPTION_KEY: crmEncryptionKey,
+    CRM_ALLOW_PRIVATE_URLS: parsed.CRM_ALLOW_PRIVATE_URLS ?? false,
   };
 
   return cachedEnv;

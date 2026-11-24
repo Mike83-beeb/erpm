@@ -1,10 +1,12 @@
 import { resolve } from "node:path";
+import { Readable } from "node:stream";
 import dotenv from "dotenv";
 import "reflect-metadata";
 
 dotenv.config({ path: resolve(process.cwd(), "../../.env") });
 dotenv.config();
 import cors from "@fastify/cors";
+import multipart from "@fastify/multipart";
 import { Logger } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import {
@@ -37,9 +39,44 @@ async function bootstrap() {
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
   });
 
+  await app.register(multipart, {
+    limits: {
+      fileSize: env.STORAGE_MAX_FILE_BYTES,
+      files: 1,
+    },
+  });
+
   app.enableShutdownHooks();
 
   const fastifyInstance = app.getHttpAdapter().getInstance();
+
+  fastifyInstance.addHook("preParsing", async (request, _reply, payload) => {
+    if (
+      request.method !== "POST" ||
+      !request.url.startsWith("/api/v1/crm/webhooks/")
+    ) {
+      return payload;
+    }
+    const chunks: Buffer[] = [];
+    let totalBytes = 0;
+    const maxBytes = 1024 * 1024;
+    for await (const chunk of payload) {
+      const buf = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
+      totalBytes += buf.byteLength;
+      if (totalBytes > maxBytes) {
+        const err = new Error("Webhook payload exceeds 1 MiB limit.") as Error & {
+          statusCode?: number;
+        };
+        err.statusCode = 413;
+        throw err;
+      }
+      chunks.push(buf);
+    }
+    const rawBuffer = Buffer.concat(chunks);
+    (request as unknown as { crmRawBody?: Buffer }).crmRawBody = rawBuffer;
+    return Readable.from(rawBuffer);
+  });
+
   fastifyInstance.addHook("onClose", async () => {
     if (authRedisClient.status !== "end") {
       await authRedisClient.quit();

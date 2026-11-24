@@ -21,6 +21,19 @@ export const TENANT_SCOPED_MODELS = new Set<string>([
   "GoodsReceiptLine",
   "VendorBill",
   "VendorBillLine",
+  "StoredObject",
+  "Department",
+  "WorkSchedule",
+  "StaffProfile",
+  "Holiday",
+  "TimeOffRequest",
+  "Team",
+  "TeamMember",
+  "CalendarFeed",
+  "CrmConnection",
+  "CrmStaffMapping",
+  "CrmDealItemLink",
+  "CrmWebhookEvent",
 ]);
 
 let sharedPool: Pool | null = null;
