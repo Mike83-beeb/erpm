@@ -5,7 +5,7 @@ import {
   Injectable,
   NotFoundException,
 } from "@nestjs/common";
-import { Prisma, SupplierStatus, TenantContext, VendorBillStatus } from "@erp/db";
+import { Prisma, SupplierStatus, TenantContext, VendorBillStatus } from "@scace/db";
 import { PrismaService } from "../database/prisma.service.js";
 import type { AuthenticatedTenant } from "../tenancy/tenant.decorators.js";
 

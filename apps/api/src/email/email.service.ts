@@ -80,15 +80,15 @@ export class EmailService {
 
     await this.sendEmail({
       to: input.to,
-      subject: "Verify your NexusERP email address",
+      subject: "Verify your Scace email address",
       devPreviewUrl: input.verificationUrl,
-      text: `Hello ${input.userName || "there"},\n\nVerify your email address to activate your NexusERP account:\n${input.verificationUrl}\n\nIf you did not request this, you can safely ignore this email.`,
+      text: `Hello ${input.userName || "there"},\n\nVerify your email address to activate your Scace account:\n${input.verificationUrl}\n\nIf you did not request this, you can safely ignore this email.`,
       html: `
         <div style="font-family:system-ui,-apple-system,sans-serif;max-width:560px;margin:0 auto;padding:24px;color:#111827;">
-          <h2 style="margin:0 0 12px;font-size:20px;">Verify your NexusERP email</h2>
+          <h2 style="margin:0 0 12px;font-size:20px;">Verify your Scace email</h2>
           <p style="margin:0 0 16px;line-height:1.5;">Hi ${safeName},</p>
           <p style="margin:0 0 20px;line-height:1.5;">
-            Please verify your email address before signing in to your NexusERP workspace.
+            Please verify your email address before signing in to your Scace workspace.
           </p>
           <p style="margin:0 0 24px;">
             <a href="${safeUrl}" style="display:inline-block;padding:12px 20px;background:#111827;color:#ffffff;text-decoration:none;border-radius:6px;font-weight:600;">
@@ -115,14 +115,14 @@ export class EmailService {
 
     await this.sendEmail({
       to: input.to,
-      subject: `Invitation to join ${input.organizationName} on NexusERP`,
+      subject: `Invitation to join ${input.organizationName} on Scace`,
       devPreviewUrl: input.acceptUrl,
       text: `${input.inviterName || input.inviterEmail} invited you to join ${input.organizationName} as "${input.role}".\n\nInvitation ID: ${input.invitationId}\nAccept URL: ${input.acceptUrl}\nExpires: ${expiresLabel}`,
       html: `
         <div style="font-family:system-ui,-apple-system,sans-serif;max-width:560px;margin:0 auto;padding:24px;color:#111827;">
           <h2 style="margin:0 0 12px;font-size:20px;">You are invited to ${safeOrg}</h2>
           <p style="margin:0 0 16px;line-height:1.5;">
-            <strong>${safeInviter}</strong> invited you to join <strong>${safeOrg}</strong> on NexusERP with the role <strong>${safeRole}</strong>.
+            <strong>${safeInviter}</strong> invited you to join <strong>${safeOrg}</strong> on Scace with the role <strong>${safeRole}</strong>.
           </p>
           <p style="margin:0 0 20px;">
             <a href="${safeUrl}" style="display:inline-block;padding:12px 20px;background:#111827;color:#ffffff;text-decoration:none;border-radius:6px;font-weight:600;">

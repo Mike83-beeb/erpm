@@ -11,8 +11,8 @@ import type { OrgPermissionRequirement } from "../auth/permissions.js";
 import { TenantGuard } from "./tenant.guard.js";
 import { TenantInterceptor } from "./tenant.interceptor.js";
 
-export const TENANT_ROLES_KEY = "erp:tenant_roles";
-export const TENANT_PERMISSIONS_KEY = "erp:tenant_permissions";
+export const TENANT_ROLES_KEY = "scace:tenant_roles";
+export const TENANT_PERMISSIONS_KEY = "scace:tenant_permissions";
 
 export interface AuthenticatedTenant {
   organizationId: string;

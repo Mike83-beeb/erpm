@@ -5,7 +5,7 @@ import {
   Injectable,
   NestInterceptor,
 } from "@nestjs/common";
-import { TenantContext } from "@erp/db";
+import { TenantContext } from "@scace/db";
 import { Observable } from "rxjs";
 import type { TenantScopedRequest } from "./tenant.decorators.js";
 

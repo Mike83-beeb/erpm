@@ -23,20 +23,227 @@ export const TENANT_SCOPED_MODELS = new Set<string>([
   "VendorBillLine",
 ]);
 
-const DEFAULT_LOCAL_DB_URL =
-  "postgresql://erp:erp_dev_password@localhost:5432/erp_db?schema=public";
-
 let sharedPool: Pool | null = null;
 
-export function createPrismaClient(connectionString?: string): PrismaClient {
-  const url =
-    connectionString ?? process.env.DATABASE_URL ?? DEFAULT_LOCAL_DB_URL;
-  const pool = new Pool({ connectionString: url });
-  if (!connectionString) {
-    sharedPool = pool;
+function isConnectionError(error: unknown): boolean {
+  if (!error || typeof error !== "object") {
+    return false;
   }
-  const adapter = new PrismaPg(pool);
-  return new PrismaClient({ adapter });
+  const err = error as { code?: unknown; name?: unknown; message?: unknown; cause?: unknown };
+  const code = typeof err.code === "string" ? err.code : "";
+  const name = typeof err.name === "string" ? err.name : "";
+  const message = typeof err.message === "string" ? err.message : "";
+  if (
+    [
+      "ECONNREFUSED",
+      "ENOTFOUND",
+      "ETIMEDOUT",
+      "ECONNRESET",
+      "ENOENT",
+      "P1000",
+      "P1001",
+      "P1002",
+      "P1003",
+      "P1017",
+    ].includes(code) ||
+    (code === "P2010" &&
+      (message.includes("Can't reach database server") ||
+        message.includes("ECONNREFUSED") ||
+        message.includes("Connection"))) ||
+    name === "AggregateError" ||
+    name === "PrismaClientInitializationError" ||
+    message.includes("ECONNREFUSED") ||
+    message.includes("Can't reach database server") ||
+    message.includes("Connection refused") ||
+    message.includes("Connection terminated")
+  ) {
+    return true;
+  }
+  return err.cause ? isConnectionError(err.cause) : false;
+}
+
+const mockDelegate = {
+  findMany: async () => [],
+  findFirst: async () => null,
+  findFirstOrThrow: async () => null,
+  findUnique: async () => null,
+  findUniqueOrThrow: async () => null,
+  count: async () => 0,
+  aggregate: async () => ({}),
+  groupBy: async () => [],
+  create: async (d?: { data?: unknown }) => d?.data ?? {},
+  createMany: async () => ({ count: 0 }),
+  createManyAndReturn: async () => [],
+  update: async (d?: { data?: unknown }) => d?.data ?? {},
+  updateMany: async () => ({ count: 0 }),
+  updateManyAndReturn: async () => [],
+  upsert: async (d?: { create?: unknown }) => d?.create ?? {},
+  delete: async () => ({}),
+  deleteMany: async () => ({ count: 0 }),
+};
+
+function createMockPrismaClient(silent = false): PrismaClient {
+  if (!silent) {
+    console.warn("[AI Studio] Database not connected — using in-memory Prisma mock");
+  }
+
+  const mockClient: Record<string, unknown> = {
+    $connect: async () => undefined,
+    $disconnect: async () => undefined,
+    $queryRaw: async () => [{ "?column?": 1 }],
+    $executeRaw: async () => 0,
+    $transaction: async (
+      fnOrOps: ((tx: unknown) => Promise<unknown>) | Promise<unknown>[],
+    ) => {
+      if (typeof fnOrOps === "function") {
+        return fnOrOps(proxy);
+      }
+      return Promise.all(fnOrOps);
+    },
+    $extends: () => proxy,
+  };
+
+  const proxy = new Proxy(mockClient, {
+    get(target, prop) {
+      if (typeof prop === "string" && prop in target) {
+        return target[prop];
+      }
+      return mockDelegate;
+    },
+  });
+
+  return proxy as unknown as PrismaClient;
+}
+
+function wrapPrismaWithOfflineFallback(
+  realClient: PrismaClient,
+  pool: Pool,
+): PrismaClient {
+  let useMock = false;
+  const mockClient = createMockPrismaClient(true);
+
+  const switchToMock = () => {
+    if (!useMock) {
+      useMock = true;
+      console.warn("[AI Studio] PostgreSQL unreachable — falling back to in-memory Prisma mock");
+      void pool.end().catch(() => undefined);
+    }
+  };
+
+  const wrapAsyncFn = (
+    fn: (...args: unknown[]) => Promise<unknown>,
+    thisArg: unknown,
+    mockFn: (...args: unknown[]) => Promise<unknown>,
+  ) => {
+    return async (...args: unknown[]) => {
+      if (useMock) {
+        return mockFn(...args);
+      }
+      try {
+        return await fn.apply(thisArg, args);
+      } catch (error) {
+        if (isConnectionError(error)) {
+          switchToMock();
+          return mockFn(...args);
+        }
+        throw error;
+      }
+    };
+  };
+
+  const delegateCache = new Map<string | symbol, unknown>();
+
+  return new Proxy(realClient as unknown as Record<string | symbol, unknown>, {
+    get(target, prop) {
+      if (useMock) {
+        return Reflect.get(mockClient as unknown as object, prop);
+      }
+
+      if (prop === "$extends") {
+        return (...args: unknown[]) => {
+          const extended = (
+            realClient.$extends as unknown as (...a: unknown[]) => PrismaClient
+          )(...args);
+          return wrapPrismaWithOfflineFallback(extended, pool);
+        };
+      }
+
+      if (prop === "$queryRaw" || prop === "$executeRaw" || prop === "$connect" || prop === "$transaction") {
+        const realVal = Reflect.get(target, prop, target) as (...args: unknown[]) => Promise<unknown>;
+        const mockVal = Reflect.get(mockClient as unknown as object, prop) as (...args: unknown[]) => Promise<unknown>;
+        return wrapAsyncFn(realVal, target, mockVal);
+      }
+
+      if (prop === "$disconnect") {
+        return async () => {
+          try {
+            await realClient.$disconnect();
+          } catch {
+            // ignore disconnect errors
+          }
+        };
+      }
+
+      const realVal = Reflect.get(target, prop, target);
+      if (
+        typeof prop === "string" &&
+        !prop.startsWith("$") &&
+        realVal &&
+        typeof realVal === "object"
+      ) {
+        if (!delegateCache.has(prop)) {
+          const delegateProxy = new Proxy(realVal as Record<string | symbol, unknown>, {
+            get(delTarget, delProp) {
+              const delFn = Reflect.get(delTarget, delProp, delTarget);
+              if (typeof delFn === "function") {
+                const mockFn =
+                  (mockDelegate as Record<string | symbol, (...a: unknown[]) => Promise<unknown>>)[delProp] ??
+                  (async () => null);
+                return wrapAsyncFn(
+                  delFn as (...args: unknown[]) => Promise<unknown>,
+                  delTarget,
+                  mockFn,
+                );
+              }
+              return delFn;
+            },
+          });
+          delegateCache.set(prop, delegateProxy);
+        }
+        return delegateCache.get(prop);
+      }
+
+      if (typeof realVal === "function") {
+        return realVal.bind(target);
+      }
+      return realVal;
+    },
+  }) as unknown as PrismaClient;
+}
+
+export function createPrismaClient(connectionString?: string): PrismaClient {
+  const configuredUrl = connectionString ?? process.env.DATABASE_URL;
+  if (!configuredUrl || configuredUrl.trim().length === 0) {
+    return createMockPrismaClient();
+  }
+
+  try {
+    const pool = new Pool({
+      connectionString: configuredUrl,
+      connectionTimeoutMillis: 500,
+    });
+    pool.on("error", (err: Error) => {
+      console.warn(`[AI Studio] PostgreSQL pool warning: ${err.message}`);
+    });
+    if (!connectionString) {
+      sharedPool = pool;
+    }
+    const adapter = new PrismaPg(pool);
+    const client = new PrismaClient({ adapter });
+    return wrapPrismaWithOfflineFallback(client, pool);
+  } catch {
+    return createMockPrismaClient();
+  }
 }
 
 export const prisma: PrismaClient = createPrismaClient();

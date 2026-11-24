@@ -9,7 +9,7 @@ import {
   Query,
   Req,
 } from "@nestjs/common";
-import { VendorBillStatus } from "@erp/db";
+import { VendorBillStatus } from "@scace/db";
 import type { FastifyRequest } from "fastify";
 import { z } from "zod";
 import {

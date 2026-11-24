@@ -13,6 +13,6 @@ export default defineConfig({
   datasource: {
     url:
       process.env.DATABASE_URL ??
-      "postgresql://erp:erp_dev_password@localhost:5432/erp_db?schema=public",
+      "postgresql://scace:scace_dev_password@localhost:5432/scace_db?schema=public",
   },
 });

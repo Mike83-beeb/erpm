@@ -1,6 +1,7 @@
 import { Injectable, Logger, OnModuleDestroy } from "@nestjs/common";
 import { Redis } from "ioredis";
 import { getEnv } from "../config/env.js";
+import { createRedisClientWithFallback, MockRedis } from "./redis-mock.js";
 
 @Injectable()
 export class RedisService implements OnModuleDestroy {
@@ -9,16 +10,29 @@ export class RedisService implements OnModuleDestroy {
 
   constructor() {
     const env = getEnv();
-    this.client = new Redis(env.REDIS_URL, {
-      keyPrefix: env.REDIS_KEY_PREFIX,
-      maxRetriesPerRequest: 3,
-      enableReadyCheck: true,
-      lazyConnect: true,
-    });
+    if (!process.env.REDIS_URL || process.env.REDIS_URL.trim().length === 0) {
+      this.logger.warn("[AI Studio] REDIS_URL not configured — using in-memory Redis mock");
+      this.client = new MockRedis({
+        keyPrefix: env.REDIS_KEY_PREFIX,
+      }) as unknown as Redis;
+      return;
+    }
 
-    this.client.on("error", (err: Error) => {
-      this.logger.warn(`Redis connection warning: ${err.message}`);
-    });
+    this.client = createRedisClientWithFallback(
+      () =>
+        new Redis(env.REDIS_URL, {
+          keyPrefix: env.REDIS_KEY_PREFIX,
+          maxRetriesPerRequest: 1,
+          connectTimeout: 500,
+          retryStrategy: () => null,
+          enableReadyCheck: false,
+          lazyConnect: true,
+        }),
+      {
+        keyPrefix: env.REDIS_KEY_PREFIX,
+        label: "RedisService",
+      },
+    );
   }
 
   async ensureConnected(): Promise<void> {

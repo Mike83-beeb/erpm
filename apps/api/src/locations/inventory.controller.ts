@@ -9,7 +9,7 @@ import {
   Query,
   Req,
 } from "@nestjs/common";
-import { StockMovementType, StockTransferStatus } from "@erp/db";
+import { StockMovementType, StockTransferStatus } from "@scace/db";
 import type { FastifyRequest } from "fastify";
 import { z } from "zod";
 import {

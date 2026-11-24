@@ -1,12 +1,13 @@
-# NexusERP Monorepo
+# Scace Monorepo
 
-Multi-tenant ERP backend monorepo powered by **Turborepo**, **pnpm**, **NestJS (Fastify)**, **Prisma 7 + PostgreSQL 18**, **Redis 7**, and **Better Auth Organizations**.
+Multi-tenant backend monorepo powered by **Turborepo**, **pnpm**, **NestJS (Fastify)**, **Prisma 7 + PostgreSQL 18**, **Redis 7**, and **Better Auth Organizations**.
 
 ## Workspace Architecture
 
-- `apps/api` (`@erp/api`): High-performance NestJS API running on Fastify with Better Auth authentication, organization RBAC, Redis caching/session storage, and tenant-isolated endpoints.
-- `packages/db` (`@erp/db`): Prisma 7 + `@prisma/adapter-pg` database package with an `AsyncLocalStorage` `TenantContext` and Prisma `$extends` client extension enforcing automatic `organizationId` isolation across tenant-scoped models.
-- `packages/typescript-config` (`@erp/typescript-config`): Shared TypeScript presets (`base.json`, `library.json`, `nestjs.json`) consumed by all workspace packages.
+- `apps/api` (`@scace/api`): High-performance NestJS API running on Fastify with Better Auth authentication, organization RBAC, Redis caching/session storage, and tenant-isolated endpoints.
+- `packages/db` (`@scace/db`): Prisma 7 + `@prisma/adapter-pg` database package with an `AsyncLocalStorage` `TenantContext` and Prisma `$extends` client extension enforcing automatic `organizationId` isolation across tenant-scoped models.
+- `packages/typescript-config` (`@scace/typescript-config`): Shared TypeScript presets (`base.json`, `library.json`, `nestjs.json`) consumed by all workspace packages.
+- `.github/workflows`: GitHub Actions CI (PostgreSQL 18 + Redis 7 validation, lint, typecheck, build, smoke check) and CD (multi-stage Docker image publish to GHCR).
 
 ## Quick Start
 

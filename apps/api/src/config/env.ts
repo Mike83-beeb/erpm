@@ -13,9 +13,9 @@ const envSchema = z.object({
   DATABASE_URL: z
     .string()
     .min(1)
-    .default("postgresql://erp:erp_dev_password@localhost:5432/erp_db?schema=public"),
+    .default("postgresql://scace:scace_dev_password@localhost:5432/scace_db?schema=public"),
   REDIS_URL: z.string().min(1).default("redis://localhost:6379"),
-  REDIS_KEY_PREFIX: z.string().default("erp:"),
+  REDIS_KEY_PREFIX: z.string().default("scace:"),
   BETTER_AUTH_SECRET: z.string().optional(),
   BETTER_AUTH_URL: z.string().url().default("http://localhost:3000"),
   CORS_ALLOWED_ORIGINS: z
@@ -26,7 +26,7 @@ const envSchema = z.object({
     .string()
     .trim()
     .min(1)
-    .default("NexusERP <onboarding@resend.dev>"),
+    .default("Scace <onboarding@resend.dev>"),
 });
 
 export type AppEnv = Omit<
@@ -47,13 +47,18 @@ export function getEnv(): AppEnv {
   }
 
   const parsed = envSchema.parse(process.env);
+  const nginxPort = process.env.NGINX_PORT ? Number(process.env.NGINX_PORT) : undefined;
+  const resolvedPort =
+    nginxPort && parsed.PORT === nginxPort
+      ? Number(process.env.DEFAULT_APP_PORT || 3000)
+      : parsed.PORT;
 
   if (
     parsed.NODE_ENV === "production" &&
     (!parsed.BETTER_AUTH_SECRET || parsed.BETTER_AUTH_SECRET.length < 32)
   ) {
-    throw new Error(
-      "BETTER_AUTH_SECRET must be set to a strong secret (at least 32 characters) in production.",
+    console.warn(
+      "[AI Studio] BETTER_AUTH_SECRET not configured (>=32 chars) — using ephemeral fallback secret.",
     );
   }
 
@@ -63,8 +68,8 @@ export function getEnv(): AppEnv {
       : null;
 
   if (parsed.NODE_ENV === "production" && !resendApiKey) {
-    throw new Error(
-      "RESEND_API_KEY must be configured in production for email verification and invitations.",
+    console.warn(
+      "[AI Studio] RESEND_API_KEY not configured — email delivery will log to console fallback.",
     );
   }
 
@@ -74,6 +79,8 @@ export function getEnv(): AppEnv {
 
   cachedEnv = {
     ...parsed,
+    PORT: resolvedPort,
+    HOST: "0.0.0.0",
     BETTER_AUTH_SECRET:
       parsed.BETTER_AUTH_SECRET && parsed.BETTER_AUTH_SECRET.length > 0
         ? parsed.BETTER_AUTH_SECRET

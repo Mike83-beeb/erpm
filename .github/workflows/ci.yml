@@ -1,0 +1,100 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Lint, Typecheck, DB Schema & Build
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:18-alpine
+        env:
+          POSTGRES_USER: scace
+          POSTGRES_PASSWORD: scace_ci_password
+          POSTGRES_DB: scace_ci
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U scace -d scace_ci"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      NODE_ENV: test
+      HOST: 0.0.0.0
+      PORT: 3000
+      DATABASE_URL: postgresql://scace:scace_ci_password@localhost:5432/scace_ci?schema=public
+      REDIS_URL: redis://localhost:6379
+      REDIS_KEY_PREFIX: "scace:"
+      BETTER_AUTH_SECRET: ci-only-secret-change-in-production-0123456789
+      BETTER_AUTH_URL: http://localhost:3000
+      CORS_ALLOWED_ORIGINS: http://localhost:3000
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Generate Prisma client
+        run: pnpm db:generate
+
+      - name: Push Prisma schema to PostgreSQL 18
+        run: pnpm db:push
+
+      - name: Lint workspace
+        run: pnpm lint
+
+      - name: Typecheck workspace
+        run: pnpm typecheck
+
+      - name: Build workspace
+        run: pnpm build
+
+      - name: Smoke test API against PostgreSQL 18 and Redis 7
+        run: |
+          node apps/api/dist/main.js &
+          API_PID=$!
+          trap "kill $API_PID 2>/dev/null || true" EXIT
+          for i in $(seq 1 30); do
+            if curl -sSf http://127.0.0.1:3000/api/v1/health >/dev/null 2>&1; then
+              break
+            fi
+            sleep 1
+          done
+          HEALTH=$(curl -sSf http://127.0.0.1:3000/api/v1/health)
+          echo "$HEALTH"
+          echo "$HEALTH" | grep -q '"postgres":"up"'
+          echo "$HEALTH" | grep -q '"redis":"up"'
+          curl -sSf http://127.0.0.1:3000/api/auth/ok | grep -q '"ok":true'

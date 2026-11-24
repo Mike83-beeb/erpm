@@ -4,7 +4,7 @@ import {
   forTenant,
   prisma,
   tenantPrisma,
-} from "@erp/db";
+} from "@scace/db";
 
 @Injectable()
 export class PrismaService implements OnModuleDestroy {

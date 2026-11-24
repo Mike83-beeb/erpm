@@ -13,7 +13,7 @@ import {
   StockMovementType,
   SupplierStatus,
   TenantContext,
-} from "@erp/db";
+} from "@scace/db";
 import { PrismaService } from "../database/prisma.service.js";
 import type { AuthenticatedTenant } from "../tenancy/tenant.decorators.js";
 

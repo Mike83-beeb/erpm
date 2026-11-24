@@ -7,7 +7,7 @@ export class RootController {
   @AllowAnonymous()
   getServiceInfo() {
     return {
-      service: "NexusERP API",
+      service: "Scace API",
       status: "ok",
       endpoints: {
         health: "/api/v1/health",

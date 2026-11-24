@@ -46,13 +46,11 @@ async function bootstrap() {
     }
   });
 
-  await app.listen(env.PORT, env.HOST);
-  logger.log(
-    `NexusERP API (Fastify) listening on http://${env.HOST}:${env.PORT}`,
-  );
+  await app.listen(3000, "0.0.0.0");
+  logger.log("Scace API (Fastify) listening on http://0.0.0.0:3000");
 }
 
 bootstrap().catch((error: unknown) => {
-  console.error("Failed to start NexusERP API:", error);
+  console.error("Failed to start Scace API:", error);
   process.exit(1);
 });

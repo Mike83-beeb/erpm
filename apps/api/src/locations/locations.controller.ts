@@ -10,7 +10,7 @@ import {
   Query,
   Req,
 } from "@nestjs/common";
-import { LocationStatus, LocationType } from "@erp/db";
+import { LocationStatus, LocationType } from "@scace/db";
 import type { FastifyRequest } from "fastify";
 import { z } from "zod";
 import {

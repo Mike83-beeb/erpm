@@ -26,15 +26,15 @@
     "db:migrate": {
       "cache": false
     },
-    "@erp/db#build": {
+    "@scace/db#build": {
       "dependsOn": ["db:generate"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": ["dist/**", "src/generated/**"]
     },
-    "@erp/db#lint": {
+    "@scace/db#lint": {
       "dependsOn": ["db:generate"]
     },
-    "@erp/db#typecheck": {
+    "@scace/db#typecheck": {
       "dependsOn": ["db:generate"]
     },
     "build": {

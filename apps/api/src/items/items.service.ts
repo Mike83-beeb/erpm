@@ -11,7 +11,7 @@ import {
   Prisma,
   TenantContext,
   type Item,
-} from "@erp/db";
+} from "@scace/db";
 import { PrismaService } from "../database/prisma.service.js";
 import { RedisService } from "../redis/redis.service.js";
 import type { AuthenticatedTenant } from "../tenancy/tenant.decorators.js";

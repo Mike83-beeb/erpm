@@ -1,25 +1,25 @@
 services:
   postgres:
     image: postgres:18-alpine
-    container_name: erp-postgres-18
+    container_name: scace-postgres-18
     restart: unless-stopped
     environment:
-      POSTGRES_USER: ${POSTGRES_USER:-erp}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-erp_dev_password}
-      POSTGRES_DB: ${POSTGRES_DB:-erp_db}
+      POSTGRES_USER: ${POSTGRES_USER:-scace}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-scace_dev_password}
+      POSTGRES_DB: ${POSTGRES_DB:-scace_db}
     ports:
       - "${POSTGRES_PORT:-5432}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-erp} -d ${POSTGRES_DB:-erp_db}"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-scace} -d ${POSTGRES_DB:-scace_db}"]
       interval: 5s
       timeout: 5s
       retries: 10
 
   redis:
     image: redis:7-alpine
-    container_name: erp-redis-7
+    container_name: scace-redis-7
     restart: unless-stopped
     command: ["redis-server", "--appendonly", "yes", "--maxmemory-policy", "noeviction"]
     ports:

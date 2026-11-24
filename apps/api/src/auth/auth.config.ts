@@ -1,4 +1,4 @@
-import { prisma, type Prisma } from "@erp/db";
+import { prisma, type Prisma } from "@scace/db";
 import { prismaAdapter } from "@better-auth/prisma-adapter";
 import { redisStorage } from "@better-auth/redis-storage";
 import { betterAuth } from "better-auth";
@@ -6,19 +6,31 @@ import { organization } from "better-auth/plugins";
 import { Redis } from "ioredis";
 import { getEnv } from "../config/env.js";
 import { emailDelivery } from "../email/email.service.js";
+import { createRedisClientWithFallback, MockRedis } from "../redis/redis-mock.js";
 import { ac, organizationRoles } from "./permissions.js";
 
 const env = getEnv();
 
-export const authRedisClient = new Redis(env.REDIS_URL, {
-  maxRetriesPerRequest: 3,
-  enableReadyCheck: true,
-  lazyConnect: true,
-});
+function createAuthRedisClient(): Redis {
+  if (!process.env.REDIS_URL || process.env.REDIS_URL.trim().length === 0) {
+    console.warn("[AI Studio] REDIS_URL not configured — using in-memory Redis mock for auth");
+    return new MockRedis() as unknown as Redis;
+  }
 
-authRedisClient.on("error", (err: Error) => {
-  console.warn(`[better-auth:redis] ${err.message}`);
-});
+  return createRedisClientWithFallback(
+    () =>
+      new Redis(env.REDIS_URL, {
+        maxRetriesPerRequest: 1,
+        connectTimeout: 500,
+        retryStrategy: () => null,
+        enableReadyCheck: false,
+        lazyConnect: true,
+      }),
+    { label: "AuthRedis" },
+  );
+}
+
+export const authRedisClient: Redis = createAuthRedisClient();
 
 async function invalidateMembershipCache(
   organizationId: string,
@@ -65,7 +77,7 @@ async function recordOrganizationAudit(params: {
 }
 
 export const auth = betterAuth({
-  appName: "NexusERP",
+  appName: "Scace",
   secret: env.BETTER_AUTH_SECRET,
   baseURL: env.BETTER_AUTH_URL,
   basePath: "/api/auth",
