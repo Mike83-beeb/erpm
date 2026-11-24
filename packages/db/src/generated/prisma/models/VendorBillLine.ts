@@ -28,12 +28,14 @@ export type AggregateVendorBillLine = {
 
 export type VendorBillLineAvgAggregateOutputType = {
   quantity: number | null
+  baseQty: number | null
   unitCostCents: number | null
   lineTotalCents: number | null
 }
 
 export type VendorBillLineSumAggregateOutputType = {
   quantity: number | null
+  baseQty: number | null
   unitCostCents: number | null
   lineTotalCents: number | null
 }
@@ -43,8 +45,10 @@ export type VendorBillLineMinAggregateOutputType = {
   organizationId: string | null
   vendorBillId: string | null
   itemId: string | null
+  goodsReceiptLineId: string | null
   description: string | null
   quantity: number | null
+  baseQty: number | null
   unitCostCents: number | null
   lineTotalCents: number | null
   createdAt: Date | null
@@ -55,8 +59,10 @@ export type VendorBillLineMaxAggregateOutputType = {
   organizationId: string | null
   vendorBillId: string | null
   itemId: string | null
+  goodsReceiptLineId: string | null
   description: string | null
   quantity: number | null
+  baseQty: number | null
   unitCostCents: number | null
   lineTotalCents: number | null
   createdAt: Date | null
@@ -67,8 +73,10 @@ export type VendorBillLineCountAggregateOutputType = {
   organizationId: number
   vendorBillId: number
   itemId: number
+  goodsReceiptLineId: number
   description: number
   quantity: number
+  baseQty: number
   unitCostCents: number
   lineTotalCents: number
   createdAt: number
@@ -78,12 +86,14 @@ export type VendorBillLineCountAggregateOutputType = {
 
 export type VendorBillLineAvgAggregateInputType = {
   quantity?: true
+  baseQty?: true
   unitCostCents?: true
   lineTotalCents?: true
 }
 
 export type VendorBillLineSumAggregateInputType = {
   quantity?: true
+  baseQty?: true
   unitCostCents?: true
   lineTotalCents?: true
 }
@@ -93,8 +103,10 @@ export type VendorBillLineMinAggregateInputType = {
   organizationId?: true
   vendorBillId?: true
   itemId?: true
+  goodsReceiptLineId?: true
   description?: true
   quantity?: true
+  baseQty?: true
   unitCostCents?: true
   lineTotalCents?: true
   createdAt?: true
@@ -105,8 +117,10 @@ export type VendorBillLineMaxAggregateInputType = {
   organizationId?: true
   vendorBillId?: true
   itemId?: true
+  goodsReceiptLineId?: true
   description?: true
   quantity?: true
+  baseQty?: true
   unitCostCents?: true
   lineTotalCents?: true
   createdAt?: true
@@ -117,8 +131,10 @@ export type VendorBillLineCountAggregateInputType = {
   organizationId?: true
   vendorBillId?: true
   itemId?: true
+  goodsReceiptLineId?: true
   description?: true
   quantity?: true
+  baseQty?: true
   unitCostCents?: true
   lineTotalCents?: true
   createdAt?: true
@@ -216,8 +232,10 @@ export type VendorBillLineGroupByOutputType = {
   organizationId: string
   vendorBillId: string
   itemId: string | null
+  goodsReceiptLineId: string | null
   description: string
   quantity: number
+  baseQty: number
   unitCostCents: number
   lineTotalCents: number
   createdAt: Date
@@ -251,14 +269,17 @@ export type VendorBillLineWhereInput = {
   organizationId?: Prisma.StringFilter<"VendorBillLine"> | string
   vendorBillId?: Prisma.StringFilter<"VendorBillLine"> | string
   itemId?: Prisma.StringNullableFilter<"VendorBillLine"> | string | null
+  goodsReceiptLineId?: Prisma.StringNullableFilter<"VendorBillLine"> | string | null
   description?: Prisma.StringFilter<"VendorBillLine"> | string
   quantity?: Prisma.IntFilter<"VendorBillLine"> | number
+  baseQty?: Prisma.IntFilter<"VendorBillLine"> | number
   unitCostCents?: Prisma.IntFilter<"VendorBillLine"> | number
   lineTotalCents?: Prisma.IntFilter<"VendorBillLine"> | number
   createdAt?: Prisma.DateTimeFilter<"VendorBillLine"> | Date | string
   organization?: Prisma.XOR<Prisma.OrganizationScalarRelationFilter, Prisma.OrganizationWhereInput>
   vendorBill?: Prisma.XOR<Prisma.VendorBillScalarRelationFilter, Prisma.VendorBillWhereInput>
   item?: Prisma.XOR<Prisma.ItemNullableScalarRelationFilter, Prisma.ItemWhereInput> | null
+  goodsReceiptLine?: Prisma.XOR<Prisma.GoodsReceiptLineNullableScalarRelationFilter, Prisma.GoodsReceiptLineWhereInput> | null
 }
 
 export type VendorBillLineOrderByWithRelationInput = {
@@ -266,14 +287,17 @@ export type VendorBillLineOrderByWithRelationInput = {
   organizationId?: Prisma.SortOrder
   vendorBillId?: Prisma.SortOrder
   itemId?: Prisma.SortOrderInput | Prisma.SortOrder
+  goodsReceiptLineId?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
+  baseQty?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
   lineTotalCents?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   organization?: Prisma.OrganizationOrderByWithRelationInput
   vendorBill?: Prisma.VendorBillOrderByWithRelationInput
   item?: Prisma.ItemOrderByWithRelationInput
+  goodsReceiptLine?: Prisma.GoodsReceiptLineOrderByWithRelationInput
 }
 
 export type VendorBillLineWhereUniqueInput = Prisma.AtLeast<{
@@ -284,14 +308,17 @@ export type VendorBillLineWhereUniqueInput = Prisma.AtLeast<{
   organizationId?: Prisma.StringFilter<"VendorBillLine"> | string
   vendorBillId?: Prisma.StringFilter<"VendorBillLine"> | string
   itemId?: Prisma.StringNullableFilter<"VendorBillLine"> | string | null
+  goodsReceiptLineId?: Prisma.StringNullableFilter<"VendorBillLine"> | string | null
   description?: Prisma.StringFilter<"VendorBillLine"> | string
   quantity?: Prisma.IntFilter<"VendorBillLine"> | number
+  baseQty?: Prisma.IntFilter<"VendorBillLine"> | number
   unitCostCents?: Prisma.IntFilter<"VendorBillLine"> | number
   lineTotalCents?: Prisma.IntFilter<"VendorBillLine"> | number
   createdAt?: Prisma.DateTimeFilter<"VendorBillLine"> | Date | string
   organization?: Prisma.XOR<Prisma.OrganizationScalarRelationFilter, Prisma.OrganizationWhereInput>
   vendorBill?: Prisma.XOR<Prisma.VendorBillScalarRelationFilter, Prisma.VendorBillWhereInput>
   item?: Prisma.XOR<Prisma.ItemNullableScalarRelationFilter, Prisma.ItemWhereInput> | null
+  goodsReceiptLine?: Prisma.XOR<Prisma.GoodsReceiptLineNullableScalarRelationFilter, Prisma.GoodsReceiptLineWhereInput> | null
 }, "id">
 
 export type VendorBillLineOrderByWithAggregationInput = {
@@ -299,8 +326,10 @@ export type VendorBillLineOrderByWithAggregationInput = {
   organizationId?: Prisma.SortOrder
   vendorBillId?: Prisma.SortOrder
   itemId?: Prisma.SortOrderInput | Prisma.SortOrder
+  goodsReceiptLineId?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
+  baseQty?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
   lineTotalCents?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -319,8 +348,10 @@ export type VendorBillLineScalarWhereWithAggregatesInput = {
   organizationId?: Prisma.StringWithAggregatesFilter<"VendorBillLine"> | string
   vendorBillId?: Prisma.StringWithAggregatesFilter<"VendorBillLine"> | string
   itemId?: Prisma.StringNullableWithAggregatesFilter<"VendorBillLine"> | string | null
+  goodsReceiptLineId?: Prisma.StringNullableWithAggregatesFilter<"VendorBillLine"> | string | null
   description?: Prisma.StringWithAggregatesFilter<"VendorBillLine"> | string
   quantity?: Prisma.IntWithAggregatesFilter<"VendorBillLine"> | number
+  baseQty?: Prisma.IntWithAggregatesFilter<"VendorBillLine"> | number
   unitCostCents?: Prisma.IntWithAggregatesFilter<"VendorBillLine"> | number
   lineTotalCents?: Prisma.IntWithAggregatesFilter<"VendorBillLine"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"VendorBillLine"> | Date | string
@@ -330,12 +361,14 @@ export type VendorBillLineCreateInput = {
   id?: string
   description: string
   quantity: number
+  baseQty?: number
   unitCostCents: number
   lineTotalCents: number
   createdAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutVendorBillLinesInput
   vendorBill: Prisma.VendorBillCreateNestedOneWithoutLinesInput
   item?: Prisma.ItemCreateNestedOneWithoutVendorBillLinesInput
+  goodsReceiptLine?: Prisma.GoodsReceiptLineCreateNestedOneWithoutVendorBillLinesInput
 }
 
 export type VendorBillLineUncheckedCreateInput = {
@@ -343,8 +376,10 @@ export type VendorBillLineUncheckedCreateInput = {
   organizationId: string
   vendorBillId: string
   itemId?: string | null
+  goodsReceiptLineId?: string | null
   description: string
   quantity: number
+  baseQty?: number
   unitCostCents: number
   lineTotalCents: number
   createdAt?: Date | string
@@ -354,12 +389,14 @@ export type VendorBillLineUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  baseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   lineTotalCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutVendorBillLinesNestedInput
   vendorBill?: Prisma.VendorBillUpdateOneRequiredWithoutLinesNestedInput
   item?: Prisma.ItemUpdateOneWithoutVendorBillLinesNestedInput
+  goodsReceiptLine?: Prisma.GoodsReceiptLineUpdateOneWithoutVendorBillLinesNestedInput
 }
 
 export type VendorBillLineUncheckedUpdateInput = {
@@ -367,8 +404,10 @@ export type VendorBillLineUncheckedUpdateInput = {
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   vendorBillId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  baseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   lineTotalCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -379,8 +418,10 @@ export type VendorBillLineCreateManyInput = {
   organizationId: string
   vendorBillId: string
   itemId?: string | null
+  goodsReceiptLineId?: string | null
   description: string
   quantity: number
+  baseQty?: number
   unitCostCents: number
   lineTotalCents: number
   createdAt?: Date | string
@@ -390,6 +431,7 @@ export type VendorBillLineUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  baseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   lineTotalCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -400,8 +442,10 @@ export type VendorBillLineUncheckedUpdateManyInput = {
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   vendorBillId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  baseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   lineTotalCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -422,8 +466,10 @@ export type VendorBillLineCountOrderByAggregateInput = {
   organizationId?: Prisma.SortOrder
   vendorBillId?: Prisma.SortOrder
   itemId?: Prisma.SortOrder
+  goodsReceiptLineId?: Prisma.SortOrder
   description?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
+  baseQty?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
   lineTotalCents?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -431,6 +477,7 @@ export type VendorBillLineCountOrderByAggregateInput = {
 
 export type VendorBillLineAvgOrderByAggregateInput = {
   quantity?: Prisma.SortOrder
+  baseQty?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
   lineTotalCents?: Prisma.SortOrder
 }
@@ -440,8 +487,10 @@ export type VendorBillLineMaxOrderByAggregateInput = {
   organizationId?: Prisma.SortOrder
   vendorBillId?: Prisma.SortOrder
   itemId?: Prisma.SortOrder
+  goodsReceiptLineId?: Prisma.SortOrder
   description?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
+  baseQty?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
   lineTotalCents?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -452,8 +501,10 @@ export type VendorBillLineMinOrderByAggregateInput = {
   organizationId?: Prisma.SortOrder
   vendorBillId?: Prisma.SortOrder
   itemId?: Prisma.SortOrder
+  goodsReceiptLineId?: Prisma.SortOrder
   description?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
+  baseQty?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
   lineTotalCents?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -461,6 +512,7 @@ export type VendorBillLineMinOrderByAggregateInput = {
 
 export type VendorBillLineSumOrderByAggregateInput = {
   quantity?: Prisma.SortOrder
+  baseQty?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
   lineTotalCents?: Prisma.SortOrder
 }
@@ -549,6 +601,48 @@ export type VendorBillLineUncheckedUpdateManyWithoutItemNestedInput = {
   deleteMany?: Prisma.VendorBillLineScalarWhereInput | Prisma.VendorBillLineScalarWhereInput[]
 }
 
+export type VendorBillLineCreateNestedManyWithoutGoodsReceiptLineInput = {
+  create?: Prisma.XOR<Prisma.VendorBillLineCreateWithoutGoodsReceiptLineInput, Prisma.VendorBillLineUncheckedCreateWithoutGoodsReceiptLineInput> | Prisma.VendorBillLineCreateWithoutGoodsReceiptLineInput[] | Prisma.VendorBillLineUncheckedCreateWithoutGoodsReceiptLineInput[]
+  connectOrCreate?: Prisma.VendorBillLineCreateOrConnectWithoutGoodsReceiptLineInput | Prisma.VendorBillLineCreateOrConnectWithoutGoodsReceiptLineInput[]
+  createMany?: Prisma.VendorBillLineCreateManyGoodsReceiptLineInputEnvelope
+  connect?: Prisma.VendorBillLineWhereUniqueInput | Prisma.VendorBillLineWhereUniqueInput[]
+}
+
+export type VendorBillLineUncheckedCreateNestedManyWithoutGoodsReceiptLineInput = {
+  create?: Prisma.XOR<Prisma.VendorBillLineCreateWithoutGoodsReceiptLineInput, Prisma.VendorBillLineUncheckedCreateWithoutGoodsReceiptLineInput> | Prisma.VendorBillLineCreateWithoutGoodsReceiptLineInput[] | Prisma.VendorBillLineUncheckedCreateWithoutGoodsReceiptLineInput[]
+  connectOrCreate?: Prisma.VendorBillLineCreateOrConnectWithoutGoodsReceiptLineInput | Prisma.VendorBillLineCreateOrConnectWithoutGoodsReceiptLineInput[]
+  createMany?: Prisma.VendorBillLineCreateManyGoodsReceiptLineInputEnvelope
+  connect?: Prisma.VendorBillLineWhereUniqueInput | Prisma.VendorBillLineWhereUniqueInput[]
+}
+
+export type VendorBillLineUpdateManyWithoutGoodsReceiptLineNestedInput = {
+  create?: Prisma.XOR<Prisma.VendorBillLineCreateWithoutGoodsReceiptLineInput, Prisma.VendorBillLineUncheckedCreateWithoutGoodsReceiptLineInput> | Prisma.VendorBillLineCreateWithoutGoodsReceiptLineInput[] | Prisma.VendorBillLineUncheckedCreateWithoutGoodsReceiptLineInput[]
+  connectOrCreate?: Prisma.VendorBillLineCreateOrConnectWithoutGoodsReceiptLineInput | Prisma.VendorBillLineCreateOrConnectWithoutGoodsReceiptLineInput[]
+  upsert?: Prisma.VendorBillLineUpsertWithWhereUniqueWithoutGoodsReceiptLineInput | Prisma.VendorBillLineUpsertWithWhereUniqueWithoutGoodsReceiptLineInput[]
+  createMany?: Prisma.VendorBillLineCreateManyGoodsReceiptLineInputEnvelope
+  set?: Prisma.VendorBillLineWhereUniqueInput | Prisma.VendorBillLineWhereUniqueInput[]
+  disconnect?: Prisma.VendorBillLineWhereUniqueInput | Prisma.VendorBillLineWhereUniqueInput[]
+  delete?: Prisma.VendorBillLineWhereUniqueInput | Prisma.VendorBillLineWhereUniqueInput[]
+  connect?: Prisma.VendorBillLineWhereUniqueInput | Prisma.VendorBillLineWhereUniqueInput[]
+  update?: Prisma.VendorBillLineUpdateWithWhereUniqueWithoutGoodsReceiptLineInput | Prisma.VendorBillLineUpdateWithWhereUniqueWithoutGoodsReceiptLineInput[]
+  updateMany?: Prisma.VendorBillLineUpdateManyWithWhereWithoutGoodsReceiptLineInput | Prisma.VendorBillLineUpdateManyWithWhereWithoutGoodsReceiptLineInput[]
+  deleteMany?: Prisma.VendorBillLineScalarWhereInput | Prisma.VendorBillLineScalarWhereInput[]
+}
+
+export type VendorBillLineUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput = {
+  create?: Prisma.XOR<Prisma.VendorBillLineCreateWithoutGoodsReceiptLineInput, Prisma.VendorBillLineUncheckedCreateWithoutGoodsReceiptLineInput> | Prisma.VendorBillLineCreateWithoutGoodsReceiptLineInput[] | Prisma.VendorBillLineUncheckedCreateWithoutGoodsReceiptLineInput[]
+  connectOrCreate?: Prisma.VendorBillLineCreateOrConnectWithoutGoodsReceiptLineInput | Prisma.VendorBillLineCreateOrConnectWithoutGoodsReceiptLineInput[]
+  upsert?: Prisma.VendorBillLineUpsertWithWhereUniqueWithoutGoodsReceiptLineInput | Prisma.VendorBillLineUpsertWithWhereUniqueWithoutGoodsReceiptLineInput[]
+  createMany?: Prisma.VendorBillLineCreateManyGoodsReceiptLineInputEnvelope
+  set?: Prisma.VendorBillLineWhereUniqueInput | Prisma.VendorBillLineWhereUniqueInput[]
+  disconnect?: Prisma.VendorBillLineWhereUniqueInput | Prisma.VendorBillLineWhereUniqueInput[]
+  delete?: Prisma.VendorBillLineWhereUniqueInput | Prisma.VendorBillLineWhereUniqueInput[]
+  connect?: Prisma.VendorBillLineWhereUniqueInput | Prisma.VendorBillLineWhereUniqueInput[]
+  update?: Prisma.VendorBillLineUpdateWithWhereUniqueWithoutGoodsReceiptLineInput | Prisma.VendorBillLineUpdateWithWhereUniqueWithoutGoodsReceiptLineInput[]
+  updateMany?: Prisma.VendorBillLineUpdateManyWithWhereWithoutGoodsReceiptLineInput | Prisma.VendorBillLineUpdateManyWithWhereWithoutGoodsReceiptLineInput[]
+  deleteMany?: Prisma.VendorBillLineScalarWhereInput | Prisma.VendorBillLineScalarWhereInput[]
+}
+
 export type VendorBillLineCreateNestedManyWithoutVendorBillInput = {
   create?: Prisma.XOR<Prisma.VendorBillLineCreateWithoutVendorBillInput, Prisma.VendorBillLineUncheckedCreateWithoutVendorBillInput> | Prisma.VendorBillLineCreateWithoutVendorBillInput[] | Prisma.VendorBillLineUncheckedCreateWithoutVendorBillInput[]
   connectOrCreate?: Prisma.VendorBillLineCreateOrConnectWithoutVendorBillInput | Prisma.VendorBillLineCreateOrConnectWithoutVendorBillInput[]
@@ -595,19 +689,23 @@ export type VendorBillLineCreateWithoutOrganizationInput = {
   id?: string
   description: string
   quantity: number
+  baseQty?: number
   unitCostCents: number
   lineTotalCents: number
   createdAt?: Date | string
   vendorBill: Prisma.VendorBillCreateNestedOneWithoutLinesInput
   item?: Prisma.ItemCreateNestedOneWithoutVendorBillLinesInput
+  goodsReceiptLine?: Prisma.GoodsReceiptLineCreateNestedOneWithoutVendorBillLinesInput
 }
 
 export type VendorBillLineUncheckedCreateWithoutOrganizationInput = {
   id?: string
   vendorBillId: string
   itemId?: string | null
+  goodsReceiptLineId?: string | null
   description: string
   quantity: number
+  baseQty?: number
   unitCostCents: number
   lineTotalCents: number
   createdAt?: Date | string
@@ -647,8 +745,10 @@ export type VendorBillLineScalarWhereInput = {
   organizationId?: Prisma.StringFilter<"VendorBillLine"> | string
   vendorBillId?: Prisma.StringFilter<"VendorBillLine"> | string
   itemId?: Prisma.StringNullableFilter<"VendorBillLine"> | string | null
+  goodsReceiptLineId?: Prisma.StringNullableFilter<"VendorBillLine"> | string | null
   description?: Prisma.StringFilter<"VendorBillLine"> | string
   quantity?: Prisma.IntFilter<"VendorBillLine"> | number
+  baseQty?: Prisma.IntFilter<"VendorBillLine"> | number
   unitCostCents?: Prisma.IntFilter<"VendorBillLine"> | number
   lineTotalCents?: Prisma.IntFilter<"VendorBillLine"> | number
   createdAt?: Prisma.DateTimeFilter<"VendorBillLine"> | Date | string
@@ -658,19 +758,23 @@ export type VendorBillLineCreateWithoutItemInput = {
   id?: string
   description: string
   quantity: number
+  baseQty?: number
   unitCostCents: number
   lineTotalCents: number
   createdAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutVendorBillLinesInput
   vendorBill: Prisma.VendorBillCreateNestedOneWithoutLinesInput
+  goodsReceiptLine?: Prisma.GoodsReceiptLineCreateNestedOneWithoutVendorBillLinesInput
 }
 
 export type VendorBillLineUncheckedCreateWithoutItemInput = {
   id?: string
   organizationId: string
   vendorBillId: string
+  goodsReceiptLineId?: string | null
   description: string
   quantity: number
+  baseQty?: number
   unitCostCents: number
   lineTotalCents: number
   createdAt?: Date | string
@@ -702,23 +806,79 @@ export type VendorBillLineUpdateManyWithWhereWithoutItemInput = {
   data: Prisma.XOR<Prisma.VendorBillLineUpdateManyMutationInput, Prisma.VendorBillLineUncheckedUpdateManyWithoutItemInput>
 }
 
+export type VendorBillLineCreateWithoutGoodsReceiptLineInput = {
+  id?: string
+  description: string
+  quantity: number
+  baseQty?: number
+  unitCostCents: number
+  lineTotalCents: number
+  createdAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutVendorBillLinesInput
+  vendorBill: Prisma.VendorBillCreateNestedOneWithoutLinesInput
+  item?: Prisma.ItemCreateNestedOneWithoutVendorBillLinesInput
+}
+
+export type VendorBillLineUncheckedCreateWithoutGoodsReceiptLineInput = {
+  id?: string
+  organizationId: string
+  vendorBillId: string
+  itemId?: string | null
+  description: string
+  quantity: number
+  baseQty?: number
+  unitCostCents: number
+  lineTotalCents: number
+  createdAt?: Date | string
+}
+
+export type VendorBillLineCreateOrConnectWithoutGoodsReceiptLineInput = {
+  where: Prisma.VendorBillLineWhereUniqueInput
+  create: Prisma.XOR<Prisma.VendorBillLineCreateWithoutGoodsReceiptLineInput, Prisma.VendorBillLineUncheckedCreateWithoutGoodsReceiptLineInput>
+}
+
+export type VendorBillLineCreateManyGoodsReceiptLineInputEnvelope = {
+  data: Prisma.VendorBillLineCreateManyGoodsReceiptLineInput | Prisma.VendorBillLineCreateManyGoodsReceiptLineInput[]
+  skipDuplicates?: boolean
+}
+
+export type VendorBillLineUpsertWithWhereUniqueWithoutGoodsReceiptLineInput = {
+  where: Prisma.VendorBillLineWhereUniqueInput
+  update: Prisma.XOR<Prisma.VendorBillLineUpdateWithoutGoodsReceiptLineInput, Prisma.VendorBillLineUncheckedUpdateWithoutGoodsReceiptLineInput>
+  create: Prisma.XOR<Prisma.VendorBillLineCreateWithoutGoodsReceiptLineInput, Prisma.VendorBillLineUncheckedCreateWithoutGoodsReceiptLineInput>
+}
+
+export type VendorBillLineUpdateWithWhereUniqueWithoutGoodsReceiptLineInput = {
+  where: Prisma.VendorBillLineWhereUniqueInput
+  data: Prisma.XOR<Prisma.VendorBillLineUpdateWithoutGoodsReceiptLineInput, Prisma.VendorBillLineUncheckedUpdateWithoutGoodsReceiptLineInput>
+}
+
+export type VendorBillLineUpdateManyWithWhereWithoutGoodsReceiptLineInput = {
+  where: Prisma.VendorBillLineScalarWhereInput
+  data: Prisma.XOR<Prisma.VendorBillLineUpdateManyMutationInput, Prisma.VendorBillLineUncheckedUpdateManyWithoutGoodsReceiptLineInput>
+}
+
 export type VendorBillLineCreateWithoutVendorBillInput = {
   id?: string
   description: string
   quantity: number
+  baseQty?: number
   unitCostCents: number
   lineTotalCents: number
   createdAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutVendorBillLinesInput
   item?: Prisma.ItemCreateNestedOneWithoutVendorBillLinesInput
+  goodsReceiptLine?: Prisma.GoodsReceiptLineCreateNestedOneWithoutVendorBillLinesInput
 }
 
 export type VendorBillLineUncheckedCreateWithoutVendorBillInput = {
   id?: string
   organizationId: string
   itemId?: string | null
+  goodsReceiptLineId?: string | null
   description: string
   quantity: number
+  baseQty?: number
   unitCostCents: number
   lineTotalCents: number
   createdAt?: Date | string
@@ -754,8 +914,10 @@ export type VendorBillLineCreateManyOrganizationInput = {
   id?: string
   vendorBillId: string
   itemId?: string | null
+  goodsReceiptLineId?: string | null
   description: string
   quantity: number
+  baseQty?: number
   unitCostCents: number
   lineTotalCents: number
   createdAt?: Date | string
@@ -765,19 +927,23 @@ export type VendorBillLineUpdateWithoutOrganizationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  baseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   lineTotalCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   vendorBill?: Prisma.VendorBillUpdateOneRequiredWithoutLinesNestedInput
   item?: Prisma.ItemUpdateOneWithoutVendorBillLinesNestedInput
+  goodsReceiptLine?: Prisma.GoodsReceiptLineUpdateOneWithoutVendorBillLinesNestedInput
 }
 
 export type VendorBillLineUncheckedUpdateWithoutOrganizationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   vendorBillId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  baseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   lineTotalCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -787,8 +953,10 @@ export type VendorBillLineUncheckedUpdateManyWithoutOrganizationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   vendorBillId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  baseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   lineTotalCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -798,8 +966,10 @@ export type VendorBillLineCreateManyItemInput = {
   id?: string
   organizationId: string
   vendorBillId: string
+  goodsReceiptLineId?: string | null
   description: string
   quantity: number
+  baseQty?: number
   unitCostCents: number
   lineTotalCents: number
   createdAt?: Date | string
@@ -809,19 +979,23 @@ export type VendorBillLineUpdateWithoutItemInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  baseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   lineTotalCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutVendorBillLinesNestedInput
   vendorBill?: Prisma.VendorBillUpdateOneRequiredWithoutLinesNestedInput
+  goodsReceiptLine?: Prisma.GoodsReceiptLineUpdateOneWithoutVendorBillLinesNestedInput
 }
 
 export type VendorBillLineUncheckedUpdateWithoutItemInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   vendorBillId?: Prisma.StringFieldUpdateOperationsInput | string
+  goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  baseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   lineTotalCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -831,8 +1005,62 @@ export type VendorBillLineUncheckedUpdateManyWithoutItemInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   vendorBillId?: Prisma.StringFieldUpdateOperationsInput | string
+  goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  baseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lineTotalCents?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type VendorBillLineCreateManyGoodsReceiptLineInput = {
+  id?: string
+  organizationId: string
+  vendorBillId: string
+  itemId?: string | null
+  description: string
+  quantity: number
+  baseQty?: number
+  unitCostCents: number
+  lineTotalCents: number
+  createdAt?: Date | string
+}
+
+export type VendorBillLineUpdateWithoutGoodsReceiptLineInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  baseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lineTotalCents?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutVendorBillLinesNestedInput
+  vendorBill?: Prisma.VendorBillUpdateOneRequiredWithoutLinesNestedInput
+  item?: Prisma.ItemUpdateOneWithoutVendorBillLinesNestedInput
+}
+
+export type VendorBillLineUncheckedUpdateWithoutGoodsReceiptLineInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  vendorBillId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  baseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lineTotalCents?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type VendorBillLineUncheckedUpdateManyWithoutGoodsReceiptLineInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  vendorBillId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  baseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   lineTotalCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -842,8 +1070,10 @@ export type VendorBillLineCreateManyVendorBillInput = {
   id?: string
   organizationId: string
   itemId?: string | null
+  goodsReceiptLineId?: string | null
   description: string
   quantity: number
+  baseQty?: number
   unitCostCents: number
   lineTotalCents: number
   createdAt?: Date | string
@@ -853,19 +1083,23 @@ export type VendorBillLineUpdateWithoutVendorBillInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  baseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   lineTotalCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutVendorBillLinesNestedInput
   item?: Prisma.ItemUpdateOneWithoutVendorBillLinesNestedInput
+  goodsReceiptLine?: Prisma.GoodsReceiptLineUpdateOneWithoutVendorBillLinesNestedInput
 }
 
 export type VendorBillLineUncheckedUpdateWithoutVendorBillInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  baseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   lineTotalCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -875,8 +1109,10 @@ export type VendorBillLineUncheckedUpdateManyWithoutVendorBillInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  baseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   lineTotalCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -889,14 +1125,17 @@ export type VendorBillLineSelect<ExtArgs extends runtime.Types.Extensions.Intern
   organizationId?: boolean
   vendorBillId?: boolean
   itemId?: boolean
+  goodsReceiptLineId?: boolean
   description?: boolean
   quantity?: boolean
+  baseQty?: boolean
   unitCostCents?: boolean
   lineTotalCents?: boolean
   createdAt?: boolean
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   vendorBill?: boolean | Prisma.VendorBillDefaultArgs<ExtArgs>
   item?: boolean | Prisma.VendorBillLine$itemArgs<ExtArgs>
+  goodsReceiptLine?: boolean | Prisma.VendorBillLine$goodsReceiptLineArgs<ExtArgs>
 }, ExtArgs["result"]["vendorBillLine"]>
 
 export type VendorBillLineSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -904,14 +1143,17 @@ export type VendorBillLineSelectCreateManyAndReturn<ExtArgs extends runtime.Type
   organizationId?: boolean
   vendorBillId?: boolean
   itemId?: boolean
+  goodsReceiptLineId?: boolean
   description?: boolean
   quantity?: boolean
+  baseQty?: boolean
   unitCostCents?: boolean
   lineTotalCents?: boolean
   createdAt?: boolean
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   vendorBill?: boolean | Prisma.VendorBillDefaultArgs<ExtArgs>
   item?: boolean | Prisma.VendorBillLine$itemArgs<ExtArgs>
+  goodsReceiptLine?: boolean | Prisma.VendorBillLine$goodsReceiptLineArgs<ExtArgs>
 }, ExtArgs["result"]["vendorBillLine"]>
 
 export type VendorBillLineSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -919,14 +1161,17 @@ export type VendorBillLineSelectUpdateManyAndReturn<ExtArgs extends runtime.Type
   organizationId?: boolean
   vendorBillId?: boolean
   itemId?: boolean
+  goodsReceiptLineId?: boolean
   description?: boolean
   quantity?: boolean
+  baseQty?: boolean
   unitCostCents?: boolean
   lineTotalCents?: boolean
   createdAt?: boolean
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   vendorBill?: boolean | Prisma.VendorBillDefaultArgs<ExtArgs>
   item?: boolean | Prisma.VendorBillLine$itemArgs<ExtArgs>
+  goodsReceiptLine?: boolean | Prisma.VendorBillLine$goodsReceiptLineArgs<ExtArgs>
 }, ExtArgs["result"]["vendorBillLine"]>
 
 export type VendorBillLineSelectScalar = {
@@ -934,28 +1179,33 @@ export type VendorBillLineSelectScalar = {
   organizationId?: boolean
   vendorBillId?: boolean
   itemId?: boolean
+  goodsReceiptLineId?: boolean
   description?: boolean
   quantity?: boolean
+  baseQty?: boolean
   unitCostCents?: boolean
   lineTotalCents?: boolean
   createdAt?: boolean
 }
 
-export type VendorBillLineOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organizationId" | "vendorBillId" | "itemId" | "description" | "quantity" | "unitCostCents" | "lineTotalCents" | "createdAt", ExtArgs["result"]["vendorBillLine"]>
+export type VendorBillLineOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organizationId" | "vendorBillId" | "itemId" | "goodsReceiptLineId" | "description" | "quantity" | "baseQty" | "unitCostCents" | "lineTotalCents" | "createdAt", ExtArgs["result"]["vendorBillLine"]>
 export type VendorBillLineInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   vendorBill?: boolean | Prisma.VendorBillDefaultArgs<ExtArgs>
   item?: boolean | Prisma.VendorBillLine$itemArgs<ExtArgs>
+  goodsReceiptLine?: boolean | Prisma.VendorBillLine$goodsReceiptLineArgs<ExtArgs>
 }
 export type VendorBillLineIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   vendorBill?: boolean | Prisma.VendorBillDefaultArgs<ExtArgs>
   item?: boolean | Prisma.VendorBillLine$itemArgs<ExtArgs>
+  goodsReceiptLine?: boolean | Prisma.VendorBillLine$goodsReceiptLineArgs<ExtArgs>
 }
 export type VendorBillLineIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   vendorBill?: boolean | Prisma.VendorBillDefaultArgs<ExtArgs>
   item?: boolean | Prisma.VendorBillLine$itemArgs<ExtArgs>
+  goodsReceiptLine?: boolean | Prisma.VendorBillLine$goodsReceiptLineArgs<ExtArgs>
 }
 
 export type $VendorBillLinePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -964,14 +1214,17 @@ export type $VendorBillLinePayload<ExtArgs extends runtime.Types.Extensions.Inte
     organization: Prisma.$OrganizationPayload<ExtArgs>
     vendorBill: Prisma.$VendorBillPayload<ExtArgs>
     item: Prisma.$ItemPayload<ExtArgs> | null
+    goodsReceiptLine: Prisma.$GoodsReceiptLinePayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     organizationId: string
     vendorBillId: string
     itemId: string | null
+    goodsReceiptLineId: string | null
     description: string
     quantity: number
+    baseQty: number
     unitCostCents: number
     lineTotalCents: number
     createdAt: Date
@@ -1372,6 +1625,7 @@ export interface Prisma__VendorBillLineClient<T, Null = never, ExtArgs extends r
   organization<T extends Prisma.OrganizationDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.OrganizationDefaultArgs<ExtArgs>>): Prisma.Prisma__OrganizationClient<runtime.Types.Result.GetResult<Prisma.$OrganizationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   vendorBill<T extends Prisma.VendorBillDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.VendorBillDefaultArgs<ExtArgs>>): Prisma.Prisma__VendorBillClient<runtime.Types.Result.GetResult<Prisma.$VendorBillPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   item<T extends Prisma.VendorBillLine$itemArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.VendorBillLine$itemArgs<ExtArgs>>): Prisma.Prisma__ItemClient<runtime.Types.Result.GetResult<Prisma.$ItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  goodsReceiptLine<T extends Prisma.VendorBillLine$goodsReceiptLineArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.VendorBillLine$goodsReceiptLineArgs<ExtArgs>>): Prisma.Prisma__GoodsReceiptLineClient<runtime.Types.Result.GetResult<Prisma.$GoodsReceiptLinePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1405,8 +1659,10 @@ export interface VendorBillLineFieldRefs {
   readonly organizationId: Prisma.FieldRef<"VendorBillLine", 'String'>
   readonly vendorBillId: Prisma.FieldRef<"VendorBillLine", 'String'>
   readonly itemId: Prisma.FieldRef<"VendorBillLine", 'String'>
+  readonly goodsReceiptLineId: Prisma.FieldRef<"VendorBillLine", 'String'>
   readonly description: Prisma.FieldRef<"VendorBillLine", 'String'>
   readonly quantity: Prisma.FieldRef<"VendorBillLine", 'Int'>
+  readonly baseQty: Prisma.FieldRef<"VendorBillLine", 'Int'>
   readonly unitCostCents: Prisma.FieldRef<"VendorBillLine", 'Int'>
   readonly lineTotalCents: Prisma.FieldRef<"VendorBillLine", 'Int'>
   readonly createdAt: Prisma.FieldRef<"VendorBillLine", 'DateTime'>
@@ -1827,6 +2083,25 @@ export type VendorBillLine$itemArgs<ExtArgs extends runtime.Types.Extensions.Int
    */
   include?: Prisma.ItemInclude<ExtArgs> | null
   where?: Prisma.ItemWhereInput
+}
+
+/**
+ * VendorBillLine.goodsReceiptLine
+ */
+export type VendorBillLine$goodsReceiptLineArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the GoodsReceiptLine
+   */
+  select?: Prisma.GoodsReceiptLineSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the GoodsReceiptLine
+   */
+  omit?: Prisma.GoodsReceiptLineOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.GoodsReceiptLineInclude<ExtArgs> | null
+  where?: Prisma.GoodsReceiptLineWhereInput
 }
 
 /**

@@ -73,6 +73,9 @@ export const ModelName = {
   PurchaseOrderLine: 'PurchaseOrderLine',
   GoodsReceipt: 'GoodsReceipt',
   GoodsReceiptLine: 'GoodsReceiptLine',
+  StockLot: 'StockLot',
+  QuarantineHold: 'QuarantineHold',
+  SupplierClaim: 'SupplierClaim',
   VendorBill: 'VendorBill',
   VendorBillLine: 'VendorBillLine',
   StoredObject: 'StoredObject',
@@ -464,6 +467,11 @@ export const PurchaseOrderLineScalarFieldEnum = {
   unitsPerPack: 'unitsPerPack',
   orderedBaseQty: 'orderedBaseQty',
   receivedBaseQty: 'receivedBaseQty',
+  acceptedBaseQty: 'acceptedBaseQty',
+  rejectedBaseQty: 'rejectedBaseQty',
+  quarantinedBaseQty: 'quarantinedBaseQty',
+  creditedClaimBaseQty: 'creditedClaimBaseQty',
+  billedBaseQty: 'billedBaseQty',
   supplierSku: 'supplierSku',
   description: 'description',
   orderedQty: 'orderedQty',
@@ -484,10 +492,24 @@ export const GoodsReceiptScalarFieldEnum = {
   receiptNumber: 'receiptNumber',
   purchaseOrderId: 'purchaseOrderId',
   locationId: 'locationId',
+  status: 'status',
+  carrier: 'carrier',
+  trackingNumber: 'trackingNumber',
+  packingSlipNumber: 'packingSlipNumber',
   notes: 'notes',
   receivedByUserId: 'receivedByUserId',
   receivedAt: 'receivedAt',
-  createdAt: 'createdAt'
+  deliveredAt: 'deliveredAt',
+  qcStartedAt: 'qcStartedAt',
+  qcCompletedAt: 'qcCompletedAt',
+  qcByUserId: 'qcByUserId',
+  qcNotes: 'qcNotes',
+  acceptedAt: 'acceptedAt',
+  acceptedByUserId: 'acceptedByUserId',
+  acceptanceNotes: 'acceptanceNotes',
+  cancelledAt: 'cancelledAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type GoodsReceiptScalarFieldEnum = (typeof GoodsReceiptScalarFieldEnum)[keyof typeof GoodsReceiptScalarFieldEnum]
@@ -501,13 +523,101 @@ export const GoodsReceiptLineScalarFieldEnum = {
   itemId: 'itemId',
   packId: 'packId',
   unitsPerPack: 'unitsPerPack',
+  packQty: 'packQty',
+  looseBaseQty: 'looseBaseQty',
   receivedQty: 'receivedQty',
   receivedBaseQty: 'receivedBaseQty',
   unitCostCents: 'unitCostCents',
-  createdAt: 'createdAt'
+  lotNumber: 'lotNumber',
+  batchCode: 'batchCode',
+  manufacturedAt: 'manufacturedAt',
+  expiresAt: 'expiresAt',
+  serialNumbers: 'serialNumbers',
+  qcStatus: 'qcStatus',
+  acceptedBaseQty: 'acceptedBaseQty',
+  rejectedBaseQty: 'rejectedBaseQty',
+  quarantinedBaseQty: 'quarantinedBaseQty',
+  rejectionDisposition: 'rejectionDisposition',
+  defectReasonCode: 'defectReasonCode',
+  qcNotes: 'qcNotes',
+  qcInspectedByUserId: 'qcInspectedByUserId',
+  qcInspectedAt: 'qcInspectedAt',
+  billedBaseQty: 'billedBaseQty',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type GoodsReceiptLineScalarFieldEnum = (typeof GoodsReceiptLineScalarFieldEnum)[keyof typeof GoodsReceiptLineScalarFieldEnum]
+
+
+export const StockLotScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  itemId: 'itemId',
+  locationId: 'locationId',
+  goodsReceiptLineId: 'goodsReceiptLineId',
+  lotNumber: 'lotNumber',
+  batchCode: 'batchCode',
+  manufacturedAt: 'manufacturedAt',
+  expiresAt: 'expiresAt',
+  serialNumbers: 'serialNumbers',
+  onHandQty: 'onHandQty',
+  quarantinedQty: 'quarantinedQty',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type StockLotScalarFieldEnum = (typeof StockLotScalarFieldEnum)[keyof typeof StockLotScalarFieldEnum]
+
+
+export const QuarantineHoldScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  goodsReceiptId: 'goodsReceiptId',
+  goodsReceiptLineId: 'goodsReceiptLineId',
+  itemId: 'itemId',
+  locationId: 'locationId',
+  stockLotId: 'stockLotId',
+  quantityBase: 'quantityBase',
+  resolvedBaseQty: 'resolvedBaseQty',
+  status: 'status',
+  reasonCode: 'reasonCode',
+  notes: 'notes',
+  resolutionNotes: 'resolutionNotes',
+  resolvedByUserId: 'resolvedByUserId',
+  resolvedAt: 'resolvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type QuarantineHoldScalarFieldEnum = (typeof QuarantineHoldScalarFieldEnum)[keyof typeof QuarantineHoldScalarFieldEnum]
+
+
+export const SupplierClaimScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  claimNumber: 'claimNumber',
+  supplierId: 'supplierId',
+  purchaseOrderId: 'purchaseOrderId',
+  goodsReceiptId: 'goodsReceiptId',
+  goodsReceiptLineId: 'goodsReceiptLineId',
+  itemId: 'itemId',
+  claimType: 'claimType',
+  status: 'status',
+  rejectedBaseQty: 'rejectedBaseQty',
+  claimAmountCents: 'claimAmountCents',
+  currency: 'currency',
+  reasonCode: 'reasonCode',
+  notes: 'notes',
+  resolutionNotes: 'resolutionNotes',
+  createdByUserId: 'createdByUserId',
+  resolvedByUserId: 'resolvedByUserId',
+  resolvedAt: 'resolvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierClaimScalarFieldEnum = (typeof SupplierClaimScalarFieldEnum)[keyof typeof SupplierClaimScalarFieldEnum]
 
 
 export const VendorBillScalarFieldEnum = {
@@ -542,8 +652,10 @@ export const VendorBillLineScalarFieldEnum = {
   organizationId: 'organizationId',
   vendorBillId: 'vendorBillId',
   itemId: 'itemId',
+  goodsReceiptLineId: 'goodsReceiptLineId',
   description: 'description',
   quantity: 'quantity',
+  baseQty: 'baseQty',
   unitCostCents: 'unitCostCents',
   lineTotalCents: 'lineTotalCents',
   createdAt: 'createdAt'

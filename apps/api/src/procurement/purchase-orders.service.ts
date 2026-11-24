@@ -6,18 +6,20 @@ import {
   NotFoundException,
 } from "@nestjs/common";
 import {
+  GoodsReceiptStatus,
   ItemStatus,
   LocationStatus,
   PriceBookDirection,
   Prisma,
   PurchaseOrderStatus,
-  StockMovementType,
   SupplierStatus,
   TenantContext,
 } from "@scace/db";
 import { PrismaService } from "../database/prisma.service.js";
 import { PricingEngineService } from "../pricing/pricing-engine.service.js";
 import type { AuthenticatedTenant } from "../tenancy/tenant.decorators.js";
+import { DeliveriesService } from "./deliveries.service.js";
+import { computePoLineCapacity, decomposeBaseToBulk } from "./delivery-units.utils.js";
 
 export interface PurchaseOrderLineInput {
   itemId: string;
@@ -64,10 +66,22 @@ export interface ListPurchaseOrdersQuery {
 export interface ReceiveGoodsInput {
   receiptNumber?: string;
   locationId?: string;
+  carrier?: string | null;
+  trackingNumber?: string | null;
+  packingSlipNumber?: string | null;
   notes?: string;
   lines: Array<{
     purchaseOrderLineId: string;
-    receivedQty: number;
+    receivedQty?: number;
+    packId?: string | null;
+    packQty?: number;
+    looseBaseQty?: number;
+    baseQty?: number;
+    lotNumber?: string | null;
+    batchCode?: string | null;
+    manufacturedAt?: string | null;
+    expiresAt?: string | null;
+    serialNumbers?: string[] | null;
   }>;
 }
 
@@ -86,6 +100,8 @@ export class PurchaseOrdersService {
     @Inject(PrismaService) private readonly prismaService: PrismaService,
     @Inject(PricingEngineService)
     private readonly pricingEngine: PricingEngineService,
+    @Inject(DeliveriesService)
+    private readonly deliveriesService: DeliveriesService,
   ) {}
 
   async createPurchaseOrder(
@@ -364,7 +380,48 @@ export class PurchaseOrdersService {
       throw new NotFoundException("Purchase order was not found.");
     }
 
-    return po;
+    const activeStagedStatuses = new Set<GoodsReceiptStatus>([
+      GoodsReceiptStatus.PENDING_QC,
+      GoodsReceiptStatus.QC_IN_PROGRESS,
+      GoodsReceiptStatus.QC_COMPLETED,
+    ]);
+    const pendingByPoLine = new Map<string, number>();
+    for (const receipt of po.goodsReceipts) {
+      if (!activeStagedStatuses.has(receipt.status)) {
+        continue;
+      }
+      for (const rLine of receipt.lines) {
+        pendingByPoLine.set(
+          rLine.purchaseOrderLineId,
+          (pendingByPoLine.get(rLine.purchaseOrderLineId) ?? 0) +
+            rLine.receivedBaseQty,
+        );
+      }
+    }
+
+    return {
+      ...po,
+      lines: po.lines.map((line) => {
+        const pendingQcBaseQty = pendingByPoLine.get(line.id) ?? 0;
+        const cap = computePoLineCapacity(line, pendingQcBaseQty);
+        const packLabel = line.pack?.unitOfMeasure ?? line.pack?.name ?? null;
+        return {
+          ...line,
+          pendingQcBaseQty,
+          openBaseQty: cap.openBaseQty,
+          openBreakdown: decomposeBaseToBulk(
+            cap.openBaseQty,
+            line.unitsPerPack,
+            packLabel,
+            line.item.unitOfMeasure,
+          ),
+          billableRemainingBaseQty: Math.max(
+            0,
+            line.acceptedBaseQty - line.billedBaseQty,
+          ),
+        };
+      }),
+    };
   }
 
   async updateDraftPurchaseOrder(
@@ -720,218 +777,46 @@ export class PurchaseOrdersService {
     input: ReceiveGoodsInput,
     ipAddress?: string,
   ) {
-    const organizationId = this.resolveVerifiedOrganizationId(tenant);
-    const receiptNumber =
-      input.receiptNumber?.trim().toUpperCase() ||
-      `GRN-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
+    const delivery = await this.deliveriesService.createDelivery(
+      tenant,
+      poId,
+      {
+        receiptNumber: input.receiptNumber,
+        locationId: input.locationId,
+        carrier: input.carrier,
+        trackingNumber: input.trackingNumber,
+        packingSlipNumber: input.packingSlipNumber,
+        notes: input.notes,
+        lines: input.lines.map((line) => ({
+          purchaseOrderLineId: line.purchaseOrderLineId,
+          packId: line.packId,
+          packQty:
+            line.packQty !== undefined
+              ? line.packQty
+              : line.baseQty === undefined && line.looseBaseQty === undefined
+                ? line.receivedQty
+                : undefined,
+          looseBaseQty: line.looseBaseQty,
+          baseQty: line.baseQty,
+          lotNumber: line.lotNumber,
+          batchCode: line.batchCode,
+          manufacturedAt: line.manufacturedAt,
+          expiresAt: line.expiresAt,
+          serialNumbers: line.serialNumbers,
+        })),
+      },
+      ipAddress,
+    );
 
-    try {
-      return await this.prismaService.raw.$transaction(async (tx) => {
-        const po = await tx.purchaseOrder.findFirst({
-          where: { id: poId, organizationId },
-          include: {
-            lines: { include: { item: true } },
-            supplier: true,
-          },
-        });
+    const purchaseOrder = await this.prismaService.scoped.purchaseOrder.findUnique({
+      where: { id: poId },
+    });
 
-        if (!po) {
-          throw new NotFoundException("Purchase order was not found.");
-        }
-
-        if (
-          po.status !== PurchaseOrderStatus.SUBMITTED &&
-          po.status !== PurchaseOrderStatus.PARTIALLY_RECEIVED
-        ) {
-          throw new BadRequestException(
-            `Purchase order must be SUBMITTED or PARTIALLY_RECEIVED to receive goods (current status: ${po.status}).`,
-          );
-        }
-
-        const receivingLocationId = input.locationId ?? po.locationId;
-        const location = await tx.location.findFirst({
-          where: { id: receivingLocationId, organizationId },
-        });
-        if (!location || location.status !== LocationStatus.ACTIVE) {
-          throw new BadRequestException(
-            "Receiving location must exist and be ACTIVE.",
-          );
-        }
-
-        const lineMap = new Map(po.lines.map((l) => [l.id, l]));
-        const qtyByLine = new Map<string, number>();
-        for (const reqLine of input.lines) {
-          qtyByLine.set(
-            reqLine.purchaseOrderLineId,
-            (qtyByLine.get(reqLine.purchaseOrderLineId) ?? 0) +
-              reqLine.receivedQty,
-          );
-        }
-
-        const receiptLinesData: Array<{
-          organizationId: string;
-          purchaseOrderLineId: string;
-          itemId: string;
-          packId: string | null;
-          unitsPerPack: number;
-          receivedQty: number;
-          receivedBaseQty: number;
-          unitCostCents: number;
-        }> = [];
-
-        for (const [poLineId, qty] of qtyByLine.entries()) {
-          const poLine = lineMap.get(poLineId);
-          if (!poLine) {
-            throw new NotFoundException(
-              `Purchase order line "${poLineId}" does not belong to this purchase order.`,
-            );
-          }
-
-          const remaining = poLine.orderedQty - poLine.receivedQty;
-          if (qty > remaining) {
-            throw new BadRequestException(
-              `Cannot receive ${qty} units for SKU "${poLine.item.sku}" (remaining open quantity: ${remaining}).`,
-            );
-          }
-
-          const unitsPerPack = poLine.unitsPerPack ?? 1;
-          const receivedBaseQty = qty * unitsPerPack;
-
-          receiptLinesData.push({
-            organizationId,
-            purchaseOrderLineId: poLine.id,
-            itemId: poLine.itemId,
-            packId: poLine.packId ?? null,
-            unitsPerPack,
-            receivedQty: qty,
-            receivedBaseQty,
-            unitCostCents: poLine.unitCostCents,
-          });
-        }
-
-        const receipt = await tx.goodsReceipt.create({
-          data: {
-            organizationId,
-            receiptNumber,
-            purchaseOrderId: po.id,
-            locationId: location.id,
-            notes: input.notes ?? null,
-            receivedByUserId: tenant.userId,
-            lines: { create: receiptLinesData },
-          },
-          include: {
-            location: { select: { id: true, code: true, name: true, type: true } },
-            lines: {
-              include: {
-                item: {
-                  select: { id: true, sku: true, name: true, unitOfMeasure: true },
-                },
-              },
-            },
-          },
-        });
-
-        for (const rLine of receiptLinesData) {
-          const poLine = lineMap.get(rLine.purchaseOrderLineId)!;
-          await tx.purchaseOrderLine.update({
-            where: { id: poLine.id },
-            data: {
-              receivedQty: { increment: rLine.receivedQty },
-              receivedBaseQty: { increment: rLine.receivedBaseQty },
-            },
-          });
-
-          if (poLine.item.trackInventory) {
-            const bal = await tx.stockBalance.upsert({
-              where: {
-                organizationId_itemId_locationId: {
-                  organizationId,
-                  itemId: rLine.itemId,
-                  locationId: location.id,
-                },
-              },
-              create: {
-                organizationId,
-                itemId: rLine.itemId,
-                locationId: location.id,
-                onHandQty: rLine.receivedBaseQty,
-                reservedQty: 0,
-              },
-              update: {
-                onHandQty: { increment: rLine.receivedBaseQty },
-              },
-            });
-
-            await tx.stockMovement.create({
-              data: {
-                organizationId,
-                itemId: rLine.itemId,
-                locationId: location.id,
-                type: StockMovementType.RECEIPT,
-                quantityDelta: rLine.receivedBaseQty,
-                balanceAfter: bal.onHandQty,
-                referenceType: "GoodsReceipt",
-                referenceId: receipt.id,
-                reason:
-                  rLine.unitsPerPack > 1
-                    ? `Received ${rLine.receivedQty} pack(s) x ${rLine.unitsPerPack} units against PO ${po.poNumber} (${receipt.receiptNumber})`
-                    : `Received against PO ${po.poNumber} (${receipt.receiptNumber})`,
-                actorUserId: tenant.userId,
-              },
-            });
-          }
-        }
-
-        const updatedLines = await tx.purchaseOrderLine.findMany({
-          where: { organizationId, purchaseOrderId: po.id },
-        });
-        const allReceived = updatedLines.every(
-          (l) => l.receivedQty >= l.orderedQty,
-        );
-        const nextPoStatus = allReceived
-          ? PurchaseOrderStatus.RECEIVED
-          : PurchaseOrderStatus.PARTIALLY_RECEIVED;
-
-        const updatedPo = await tx.purchaseOrder.update({
-          where: { id: po.id },
-          data: {
-            status: nextPoStatus,
-            updatedByUserId: tenant.userId,
-          },
-        });
-
-        await tx.auditLog.create({
-          data: {
-            organizationId,
-            actorUserId: tenant.userId,
-            action: "goods_receipt.created",
-            resourceType: "GoodsReceipt",
-            resourceId: receipt.id,
-            metadata: {
-              receiptNumber: receipt.receiptNumber,
-              purchaseOrderId: po.id,
-              poNumber: po.poNumber,
-              locationCode: location.code,
-              nextPoStatus,
-              lineCount: receiptLinesData.length,
-            } as Prisma.InputJsonValue,
-            ipAddress: ipAddress ?? null,
-          },
-        });
-
-        return {
-          receipt,
-          purchaseOrder: updatedPo,
-        };
-      });
-    } catch (error) {
-      if (isUniqueConstraintError(error)) {
-        throw new ConflictException(
-          `Goods receipt number "${receiptNumber}" already exists in this organization.`,
-        );
-      }
-      throw error;
-    }
+    return {
+      receipt: delivery,
+      delivery,
+      purchaseOrder,
+    };
   }
 
   private resolveVerifiedOrganizationId(tenant: AuthenticatedTenant): string {

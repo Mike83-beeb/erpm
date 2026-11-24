@@ -32,6 +32,16 @@ export interface ListMovementsQuery {
   cursor?: string;
 }
 
+export interface ListLotsQuery {
+  locationId?: string;
+  itemId?: string;
+  lotNumber?: string;
+  expiringBefore?: string;
+  includeZero?: boolean;
+  limit: number;
+  cursor?: string;
+}
+
 export interface AdjustStockInput {
   itemId: string;
   locationId: string;
@@ -147,6 +157,45 @@ export class InventoryService {
       take: take + 1,
       ...(query.cursor ? { cursor: { id: query.cursor }, skip: 1 } : {}),
       orderBy: [{ createdAt: "desc" }, { id: "desc" }],
+    });
+
+    const hasMore = records.length > take;
+    const items = hasMore ? records.slice(0, take) : records;
+    const nextCursor = hasMore ? (items[items.length - 1]?.id ?? null) : null;
+
+    return {
+      organizationId: tenant.organizationId,
+      items,
+      nextCursor,
+    };
+  }
+
+  async listLots(tenant: AuthenticatedTenant, query: ListLotsQuery) {
+    this.resolveVerifiedOrganizationId(tenant);
+    const take = Math.min(Math.max(query.limit, 1), 100);
+    const lotNumber = query.lotNumber?.trim();
+
+    const records = await this.prismaService.scoped.stockLot.findMany({
+      where: {
+        ...(query.locationId ? { locationId: query.locationId } : {}),
+        ...(query.itemId ? { itemId: query.itemId } : {}),
+        ...(lotNumber
+          ? { lotNumber: { contains: lotNumber, mode: "insensitive" } }
+          : {}),
+        ...(query.expiringBefore
+          ? { expiresAt: { lte: new Date(query.expiringBefore) } }
+          : {}),
+        ...(!query.includeZero
+          ? { OR: [{ onHandQty: { gt: 0 } }, { quarantinedQty: { gt: 0 } }] }
+          : {}),
+      },
+      include: {
+        item: { select: { id: true, sku: true, name: true, unitOfMeasure: true } },
+        location: { select: { id: true, code: true, name: true, type: true } },
+      },
+      take: take + 1,
+      ...(query.cursor ? { cursor: { id: query.cursor }, skip: 1 } : {}),
+      orderBy: [{ expiresAt: "asc" }, { createdAt: "desc" }],
     });
 
     const hasMore = records.length > take;

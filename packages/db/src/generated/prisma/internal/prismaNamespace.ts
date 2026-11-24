@@ -419,6 +419,9 @@ export const ModelName = {
   PurchaseOrderLine: 'PurchaseOrderLine',
   GoodsReceipt: 'GoodsReceipt',
   GoodsReceiptLine: 'GoodsReceiptLine',
+  StockLot: 'StockLot',
+  QuarantineHold: 'QuarantineHold',
+  SupplierClaim: 'SupplierClaim',
   VendorBill: 'VendorBill',
   VendorBillLine: 'VendorBillLine',
   StoredObject: 'StoredObject',
@@ -456,7 +459,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "session" | "account" | "verification" | "organization" | "member" | "invitation" | "tenantSettings" | "auditLog" | "item" | "itemRevision" | "location" | "stockBalance" | "stockMovement" | "stockTransfer" | "stockTransferLine" | "supplier" | "supplierItem" | "purchaseOrder" | "purchaseOrderLine" | "goodsReceipt" | "goodsReceiptLine" | "vendorBill" | "vendorBillLine" | "storedObject" | "department" | "workSchedule" | "staffProfile" | "holiday" | "timeOffRequest" | "team" | "teamMember" | "calendarFeed" | "crmConnection" | "crmStaffMapping" | "crmDealItemLink" | "crmWebhookEvent" | "itemPack" | "itemBundleComponent" | "servicePlan" | "priceBook" | "priceRule" | "priceTier" | "discountRule"
+    modelProps: "user" | "session" | "account" | "verification" | "organization" | "member" | "invitation" | "tenantSettings" | "auditLog" | "item" | "itemRevision" | "location" | "stockBalance" | "stockMovement" | "stockTransfer" | "stockTransferLine" | "supplier" | "supplierItem" | "purchaseOrder" | "purchaseOrderLine" | "goodsReceipt" | "goodsReceiptLine" | "stockLot" | "quarantineHold" | "supplierClaim" | "vendorBill" | "vendorBillLine" | "storedObject" | "department" | "workSchedule" | "staffProfile" | "holiday" | "timeOffRequest" | "team" | "teamMember" | "calendarFeed" | "crmConnection" | "crmStaffMapping" | "crmDealItemLink" | "crmWebhookEvent" | "itemPack" | "itemBundleComponent" | "servicePlan" | "priceBook" | "priceRule" | "priceTier" | "discountRule"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2085,6 +2088,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.GoodsReceiptLineCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.GoodsReceiptLineCountAggregateOutputType> | number
+        }
+      }
+    }
+    StockLot: {
+      payload: Prisma.$StockLotPayload<ExtArgs>
+      fields: Prisma.StockLotFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.StockLotFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockLotPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.StockLotFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockLotPayload>
+        }
+        findFirst: {
+          args: Prisma.StockLotFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockLotPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.StockLotFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockLotPayload>
+        }
+        findMany: {
+          args: Prisma.StockLotFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockLotPayload>[]
+        }
+        create: {
+          args: Prisma.StockLotCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockLotPayload>
+        }
+        createMany: {
+          args: Prisma.StockLotCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.StockLotCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockLotPayload>[]
+        }
+        delete: {
+          args: Prisma.StockLotDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockLotPayload>
+        }
+        update: {
+          args: Prisma.StockLotUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockLotPayload>
+        }
+        deleteMany: {
+          args: Prisma.StockLotDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.StockLotUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.StockLotUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockLotPayload>[]
+        }
+        upsert: {
+          args: Prisma.StockLotUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockLotPayload>
+        }
+        aggregate: {
+          args: Prisma.StockLotAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateStockLot>
+        }
+        groupBy: {
+          args: Prisma.StockLotGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.StockLotGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.StockLotCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.StockLotCountAggregateOutputType> | number
+        }
+      }
+    }
+    QuarantineHold: {
+      payload: Prisma.$QuarantineHoldPayload<ExtArgs>
+      fields: Prisma.QuarantineHoldFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.QuarantineHoldFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$QuarantineHoldPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.QuarantineHoldFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$QuarantineHoldPayload>
+        }
+        findFirst: {
+          args: Prisma.QuarantineHoldFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$QuarantineHoldPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.QuarantineHoldFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$QuarantineHoldPayload>
+        }
+        findMany: {
+          args: Prisma.QuarantineHoldFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$QuarantineHoldPayload>[]
+        }
+        create: {
+          args: Prisma.QuarantineHoldCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$QuarantineHoldPayload>
+        }
+        createMany: {
+          args: Prisma.QuarantineHoldCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.QuarantineHoldCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$QuarantineHoldPayload>[]
+        }
+        delete: {
+          args: Prisma.QuarantineHoldDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$QuarantineHoldPayload>
+        }
+        update: {
+          args: Prisma.QuarantineHoldUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$QuarantineHoldPayload>
+        }
+        deleteMany: {
+          args: Prisma.QuarantineHoldDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.QuarantineHoldUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.QuarantineHoldUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$QuarantineHoldPayload>[]
+        }
+        upsert: {
+          args: Prisma.QuarantineHoldUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$QuarantineHoldPayload>
+        }
+        aggregate: {
+          args: Prisma.QuarantineHoldAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateQuarantineHold>
+        }
+        groupBy: {
+          args: Prisma.QuarantineHoldGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.QuarantineHoldGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.QuarantineHoldCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.QuarantineHoldCountAggregateOutputType> | number
+        }
+      }
+    }
+    SupplierClaim: {
+      payload: Prisma.$SupplierClaimPayload<ExtArgs>
+      fields: Prisma.SupplierClaimFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierClaimFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierClaimFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimPayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierClaimFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierClaimFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimPayload>
+        }
+        findMany: {
+          args: Prisma.SupplierClaimFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimPayload>[]
+        }
+        create: {
+          args: Prisma.SupplierClaimCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimPayload>
+        }
+        createMany: {
+          args: Prisma.SupplierClaimCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierClaimCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimPayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierClaimDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimPayload>
+        }
+        update: {
+          args: Prisma.SupplierClaimUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimPayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierClaimDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierClaimUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierClaimUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimPayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierClaimUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimPayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierClaimAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierClaim>
+        }
+        groupBy: {
+          args: Prisma.SupplierClaimGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierClaimGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierClaimCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierClaimCountAggregateOutputType> | number
         }
       }
     }
@@ -4106,6 +4331,11 @@ export const PurchaseOrderLineScalarFieldEnum = {
   unitsPerPack: 'unitsPerPack',
   orderedBaseQty: 'orderedBaseQty',
   receivedBaseQty: 'receivedBaseQty',
+  acceptedBaseQty: 'acceptedBaseQty',
+  rejectedBaseQty: 'rejectedBaseQty',
+  quarantinedBaseQty: 'quarantinedBaseQty',
+  creditedClaimBaseQty: 'creditedClaimBaseQty',
+  billedBaseQty: 'billedBaseQty',
   supplierSku: 'supplierSku',
   description: 'description',
   orderedQty: 'orderedQty',
@@ -4126,10 +4356,24 @@ export const GoodsReceiptScalarFieldEnum = {
   receiptNumber: 'receiptNumber',
   purchaseOrderId: 'purchaseOrderId',
   locationId: 'locationId',
+  status: 'status',
+  carrier: 'carrier',
+  trackingNumber: 'trackingNumber',
+  packingSlipNumber: 'packingSlipNumber',
   notes: 'notes',
   receivedByUserId: 'receivedByUserId',
   receivedAt: 'receivedAt',
-  createdAt: 'createdAt'
+  deliveredAt: 'deliveredAt',
+  qcStartedAt: 'qcStartedAt',
+  qcCompletedAt: 'qcCompletedAt',
+  qcByUserId: 'qcByUserId',
+  qcNotes: 'qcNotes',
+  acceptedAt: 'acceptedAt',
+  acceptedByUserId: 'acceptedByUserId',
+  acceptanceNotes: 'acceptanceNotes',
+  cancelledAt: 'cancelledAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type GoodsReceiptScalarFieldEnum = (typeof GoodsReceiptScalarFieldEnum)[keyof typeof GoodsReceiptScalarFieldEnum]
@@ -4143,13 +4387,101 @@ export const GoodsReceiptLineScalarFieldEnum = {
   itemId: 'itemId',
   packId: 'packId',
   unitsPerPack: 'unitsPerPack',
+  packQty: 'packQty',
+  looseBaseQty: 'looseBaseQty',
   receivedQty: 'receivedQty',
   receivedBaseQty: 'receivedBaseQty',
   unitCostCents: 'unitCostCents',
-  createdAt: 'createdAt'
+  lotNumber: 'lotNumber',
+  batchCode: 'batchCode',
+  manufacturedAt: 'manufacturedAt',
+  expiresAt: 'expiresAt',
+  serialNumbers: 'serialNumbers',
+  qcStatus: 'qcStatus',
+  acceptedBaseQty: 'acceptedBaseQty',
+  rejectedBaseQty: 'rejectedBaseQty',
+  quarantinedBaseQty: 'quarantinedBaseQty',
+  rejectionDisposition: 'rejectionDisposition',
+  defectReasonCode: 'defectReasonCode',
+  qcNotes: 'qcNotes',
+  qcInspectedByUserId: 'qcInspectedByUserId',
+  qcInspectedAt: 'qcInspectedAt',
+  billedBaseQty: 'billedBaseQty',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type GoodsReceiptLineScalarFieldEnum = (typeof GoodsReceiptLineScalarFieldEnum)[keyof typeof GoodsReceiptLineScalarFieldEnum]
+
+
+export const StockLotScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  itemId: 'itemId',
+  locationId: 'locationId',
+  goodsReceiptLineId: 'goodsReceiptLineId',
+  lotNumber: 'lotNumber',
+  batchCode: 'batchCode',
+  manufacturedAt: 'manufacturedAt',
+  expiresAt: 'expiresAt',
+  serialNumbers: 'serialNumbers',
+  onHandQty: 'onHandQty',
+  quarantinedQty: 'quarantinedQty',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type StockLotScalarFieldEnum = (typeof StockLotScalarFieldEnum)[keyof typeof StockLotScalarFieldEnum]
+
+
+export const QuarantineHoldScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  goodsReceiptId: 'goodsReceiptId',
+  goodsReceiptLineId: 'goodsReceiptLineId',
+  itemId: 'itemId',
+  locationId: 'locationId',
+  stockLotId: 'stockLotId',
+  quantityBase: 'quantityBase',
+  resolvedBaseQty: 'resolvedBaseQty',
+  status: 'status',
+  reasonCode: 'reasonCode',
+  notes: 'notes',
+  resolutionNotes: 'resolutionNotes',
+  resolvedByUserId: 'resolvedByUserId',
+  resolvedAt: 'resolvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type QuarantineHoldScalarFieldEnum = (typeof QuarantineHoldScalarFieldEnum)[keyof typeof QuarantineHoldScalarFieldEnum]
+
+
+export const SupplierClaimScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  claimNumber: 'claimNumber',
+  supplierId: 'supplierId',
+  purchaseOrderId: 'purchaseOrderId',
+  goodsReceiptId: 'goodsReceiptId',
+  goodsReceiptLineId: 'goodsReceiptLineId',
+  itemId: 'itemId',
+  claimType: 'claimType',
+  status: 'status',
+  rejectedBaseQty: 'rejectedBaseQty',
+  claimAmountCents: 'claimAmountCents',
+  currency: 'currency',
+  reasonCode: 'reasonCode',
+  notes: 'notes',
+  resolutionNotes: 'resolutionNotes',
+  createdByUserId: 'createdByUserId',
+  resolvedByUserId: 'resolvedByUserId',
+  resolvedAt: 'resolvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierClaimScalarFieldEnum = (typeof SupplierClaimScalarFieldEnum)[keyof typeof SupplierClaimScalarFieldEnum]
 
 
 export const VendorBillScalarFieldEnum = {
@@ -4184,8 +4516,10 @@ export const VendorBillLineScalarFieldEnum = {
   organizationId: 'organizationId',
   vendorBillId: 'vendorBillId',
   itemId: 'itemId',
+  goodsReceiptLineId: 'goodsReceiptLineId',
   description: 'description',
   quantity: 'quantity',
+  baseQty: 'baseQty',
   unitCostCents: 'unitCostCents',
   lineTotalCents: 'lineTotalCents',
   createdAt: 'createdAt'
@@ -4901,6 +5235,90 @@ export type ListEnumPurchaseOrderStatusFieldRefInput<$PrismaModel> = FieldRefInp
 
 
 /**
+ * Reference to a field of type 'GoodsReceiptStatus'
+ */
+export type EnumGoodsReceiptStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GoodsReceiptStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'GoodsReceiptStatus[]'
+ */
+export type ListEnumGoodsReceiptStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GoodsReceiptStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'DeliveryLineQcStatus'
+ */
+export type EnumDeliveryLineQcStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DeliveryLineQcStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'DeliveryLineQcStatus[]'
+ */
+export type ListEnumDeliveryLineQcStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DeliveryLineQcStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'RejectionDisposition'
+ */
+export type EnumRejectionDispositionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'RejectionDisposition'>
+    
+
+
+/**
+ * Reference to a field of type 'RejectionDisposition[]'
+ */
+export type ListEnumRejectionDispositionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'RejectionDisposition[]'>
+    
+
+
+/**
+ * Reference to a field of type 'QuarantineStatus'
+ */
+export type EnumQuarantineStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QuarantineStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'QuarantineStatus[]'
+ */
+export type ListEnumQuarantineStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QuarantineStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierClaimType'
+ */
+export type EnumSupplierClaimTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierClaimType'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierClaimType[]'
+ */
+export type ListEnumSupplierClaimTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierClaimType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierClaimStatus'
+ */
+export type EnumSupplierClaimStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierClaimStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierClaimStatus[]'
+ */
+export type ListEnumSupplierClaimStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierClaimStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'VendorBillStatus'
  */
 export type EnumVendorBillStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VendorBillStatus'>
@@ -5352,6 +5770,9 @@ export type GlobalOmitConfig = {
   purchaseOrderLine?: Prisma.PurchaseOrderLineOmit
   goodsReceipt?: Prisma.GoodsReceiptOmit
   goodsReceiptLine?: Prisma.GoodsReceiptLineOmit
+  stockLot?: Prisma.StockLotOmit
+  quarantineHold?: Prisma.QuarantineHoldOmit
+  supplierClaim?: Prisma.SupplierClaimOmit
   vendorBill?: Prisma.VendorBillOmit
   vendorBillLine?: Prisma.VendorBillLineOmit
   storedObject?: Prisma.StoredObjectOmit

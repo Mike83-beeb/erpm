@@ -41,6 +41,9 @@ export const TENANT_SCOPED_MODELS = new Set<string>([
   "PriceRule",
   "PriceTier",
   "DiscountRule",
+  "StockLot",
+  "QuarantineHold",
+  "SupplierClaim",
 ]);
 
 let sharedPool: Pool | null = null;

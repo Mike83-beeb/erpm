@@ -107,6 +107,71 @@ export const VendorBillStatus = {
 export type VendorBillStatus = (typeof VendorBillStatus)[keyof typeof VendorBillStatus]
 
 
+export const GoodsReceiptStatus = {
+  PENDING_QC: 'PENDING_QC',
+  QC_IN_PROGRESS: 'QC_IN_PROGRESS',
+  QC_COMPLETED: 'QC_COMPLETED',
+  ACCEPTED: 'ACCEPTED',
+  PARTIALLY_ACCEPTED: 'PARTIALLY_ACCEPTED',
+  REJECTED: 'REJECTED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type GoodsReceiptStatus = (typeof GoodsReceiptStatus)[keyof typeof GoodsReceiptStatus]
+
+
+export const DeliveryLineQcStatus = {
+  PENDING: 'PENDING',
+  PASSED: 'PASSED',
+  PARTIAL: 'PARTIAL',
+  FAILED: 'FAILED',
+  QUARANTINED: 'QUARANTINED'
+} as const
+
+export type DeliveryLineQcStatus = (typeof DeliveryLineQcStatus)[keyof typeof DeliveryLineQcStatus]
+
+
+export const RejectionDisposition = {
+  REOPEN_PO: 'REOPEN_PO',
+  SUPPLIER_CLAIM: 'SUPPLIER_CLAIM',
+  QUARANTINE: 'QUARANTINE',
+  SCRAP: 'SCRAP'
+} as const
+
+export type RejectionDisposition = (typeof RejectionDisposition)[keyof typeof RejectionDisposition]
+
+
+export const QuarantineStatus = {
+  OPEN: 'OPEN',
+  RELEASED_TO_STOCK: 'RELEASED_TO_STOCK',
+  RETURNED_TO_SUPPLIER: 'RETURNED_TO_SUPPLIER',
+  CLAIMED: 'CLAIMED',
+  SCRAPPED: 'SCRAPPED'
+} as const
+
+export type QuarantineStatus = (typeof QuarantineStatus)[keyof typeof QuarantineStatus]
+
+
+export const SupplierClaimType = {
+  CREDIT: 'CREDIT',
+  REPLACEMENT: 'REPLACEMENT',
+  RETURN: 'RETURN'
+} as const
+
+export type SupplierClaimType = (typeof SupplierClaimType)[keyof typeof SupplierClaimType]
+
+
+export const SupplierClaimStatus = {
+  OPEN: 'OPEN',
+  SUBMITTED: 'SUBMITTED',
+  CREDITED: 'CREDITED',
+  REPLACED: 'REPLACED',
+  CLOSED: 'CLOSED'
+} as const
+
+export type SupplierClaimStatus = (typeof SupplierClaimStatus)[keyof typeof SupplierClaimStatus]
+
+
 export const StoredObjectStatus = {
   PENDING: 'PENDING',
   READY: 'READY',

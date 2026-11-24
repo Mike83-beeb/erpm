@@ -5,9 +5,16 @@ import {
   Injectable,
   NotFoundException,
 } from "@nestjs/common";
-import { Prisma, SupplierStatus, TenantContext, VendorBillStatus } from "@scace/db";
+import {
+  GoodsReceiptStatus,
+  Prisma,
+  SupplierStatus,
+  TenantContext,
+  VendorBillStatus,
+} from "@scace/db";
 import { PrismaService } from "../database/prisma.service.js";
 import type { AuthenticatedTenant } from "../tenancy/tenant.decorators.js";
+import { computeBaseUnitValueCents } from "./delivery-units.utils.js";
 
 export interface CreateVendorBillInput {
   billNumber: string;
@@ -22,10 +29,21 @@ export interface CreateVendorBillInput {
   notes?: string | null;
   lines: Array<{
     itemId?: string | null;
+    goodsReceiptLineId?: string | null;
     description: string;
     quantity: number;
+    baseQty?: number;
     unitCostCents: number;
   }>;
+}
+
+export interface CreateVendorBillFromDeliveryInput {
+  billNumber: string;
+  status?: "DRAFT" | "OPEN";
+  taxCents?: number;
+  issuedAt?: string;
+  dueAt?: string | null;
+  notes?: string | null;
 }
 
 export interface ListVendorBillsQuery {
@@ -71,9 +89,30 @@ export class VendorBillsService {
           );
         }
 
+        let linkedPo: {
+          id: string;
+          supplierId: string;
+          lines: Array<{
+            id: string;
+            itemId: string;
+            acceptedBaseQty: number;
+            billedBaseQty: number;
+          }>;
+        } | null = null;
+
         if (input.purchaseOrderId) {
           const po = await tx.purchaseOrder.findFirst({
             where: { id: input.purchaseOrderId, organizationId },
+            include: {
+              lines: {
+                select: {
+                  id: true,
+                  itemId: true,
+                  acceptedBaseQty: true,
+                  billedBaseQty: true,
+                },
+              },
+            },
           });
           if (!po) {
             throw new NotFoundException("Linked purchase order was not found.");
@@ -83,19 +122,45 @@ export class VendorBillsService {
               "Linked purchase order belongs to a different supplier.",
             );
           }
+          linkedPo = po;
         }
+
+        let linkedReceipt: {
+          id: string;
+          purchaseOrderId: string;
+          status: GoodsReceiptStatus;
+          purchaseOrder: { supplierId: string };
+          lines: Array<{
+            id: string;
+            purchaseOrderLineId: string;
+            itemId: string;
+            acceptedBaseQty: number;
+            billedBaseQty: number;
+          }>;
+        } | null = null;
 
         if (input.goodsReceiptId) {
           const receipt = await tx.goodsReceipt.findFirst({
             where: { id: input.goodsReceiptId, organizationId },
-            include: { purchaseOrder: true },
+            include: {
+              purchaseOrder: { select: { supplierId: true } },
+              lines: {
+                select: {
+                  id: true,
+                  purchaseOrderLineId: true,
+                  itemId: true,
+                  acceptedBaseQty: true,
+                  billedBaseQty: true,
+                },
+              },
+            },
           });
           if (!receipt) {
-            throw new NotFoundException("Linked goods receipt was not found.");
+            throw new NotFoundException("Linked goods receipt / delivery was not found.");
           }
           if (receipt.purchaseOrder.supplierId !== supplier.id) {
             throw new BadRequestException(
-              "Linked goods receipt belongs to a different supplier.",
+              "Linked delivery belongs to a different supplier.",
             );
           }
           if (
@@ -103,9 +168,18 @@ export class VendorBillsService {
             receipt.purchaseOrderId !== input.purchaseOrderId
           ) {
             throw new BadRequestException(
-              "Linked goods receipt does not match the specified purchase order.",
+              "Linked delivery does not match the specified purchase order.",
             );
           }
+          if (
+            receipt.status !== GoodsReceiptStatus.ACCEPTED &&
+            receipt.status !== GoodsReceiptStatus.PARTIALLY_ACCEPTED
+          ) {
+            throw new BadRequestException(
+              `Only QC-accepted deliveries can be billed (current delivery status: ${receipt.status}).`,
+            );
+          }
+          linkedReceipt = receipt;
         }
 
         const itemIds = input.lines
@@ -124,14 +198,110 @@ export class VendorBillsService {
           }
         }
 
-        const builtLines = input.lines.map((line) => ({
-          organizationId,
-          itemId: line.itemId ?? null,
-          description: line.description.trim(),
-          quantity: line.quantity,
-          unitCostCents: line.unitCostCents,
-          lineTotalCents: line.quantity * line.unitCostCents,
-        }));
+        // Enforce accepted-only billing allocations when linked to a delivery or PO
+        const receiptLineAllocations = new Map<string, number>();
+        const poLineAllocations = new Map<string, number>();
+
+        const builtLines = input.lines.map((line) => {
+          const resolvedBaseQty = line.baseQty ?? line.quantity;
+
+          if (linkedReceipt) {
+            if (line.goodsReceiptLineId) {
+              const rLine = linkedReceipt.lines.find(
+                (rl) => rl.id === line.goodsReceiptLineId,
+              );
+              if (!rLine) {
+                throw new BadRequestException(
+                  `Delivery line "${line.goodsReceiptLineId}" does not belong to the linked delivery.`,
+                );
+              }
+              const alreadyAllocated = receiptLineAllocations.get(rLine.id) ?? 0;
+              const remaining = Math.max(
+                0,
+                rLine.acceptedBaseQty - rLine.billedBaseQty - alreadyAllocated,
+              );
+              if (resolvedBaseQty > remaining) {
+                throw new BadRequestException(
+                  `Cannot bill ${resolvedBaseQty} base unit(s) for "${line.description}" (remaining QC-accepted billable units: ${remaining}).`,
+                );
+              }
+              receiptLineAllocations.set(rLine.id, alreadyAllocated + resolvedBaseQty);
+              poLineAllocations.set(
+                rLine.purchaseOrderLineId,
+                (poLineAllocations.get(rLine.purchaseOrderLineId) ?? 0) +
+                  resolvedBaseQty,
+              );
+            } else if (line.itemId) {
+              const matchingLines = linkedReceipt.lines.filter(
+                (rl) => rl.itemId === line.itemId,
+              );
+              if (matchingLines.length === 0) {
+                throw new BadRequestException(
+                  `Item "${line.itemId}" is not present on the linked delivery.`,
+                );
+              }
+              let needed = resolvedBaseQty;
+              for (const rLine of matchingLines) {
+                if (needed <= 0) break;
+                const alreadyAllocated = receiptLineAllocations.get(rLine.id) ?? 0;
+                const avail = Math.max(
+                  0,
+                  rLine.acceptedBaseQty - rLine.billedBaseQty - alreadyAllocated,
+                );
+                if (avail > 0) {
+                  const take = Math.min(needed, avail);
+                  receiptLineAllocations.set(rLine.id, alreadyAllocated + take);
+                  poLineAllocations.set(
+                    rLine.purchaseOrderLineId,
+                    (poLineAllocations.get(rLine.purchaseOrderLineId) ?? 0) + take,
+                  );
+                  needed -= take;
+                }
+              }
+              if (needed > 0) {
+                throw new BadRequestException(
+                  `Cannot bill ${resolvedBaseQty} base unit(s) for "${line.description}" — exceeds QC-accepted unbilled quantity on this delivery.`,
+                );
+              }
+            }
+          } else if (linkedPo && line.itemId) {
+            const matchingPoLines = linkedPo.lines.filter(
+              (pl) => pl.itemId === line.itemId,
+            );
+            if (matchingPoLines.length > 0) {
+              let needed = resolvedBaseQty;
+              for (const pl of matchingPoLines) {
+                if (needed <= 0) break;
+                const alreadyAllocated = poLineAllocations.get(pl.id) ?? 0;
+                const avail = Math.max(
+                  0,
+                  pl.acceptedBaseQty - pl.billedBaseQty - alreadyAllocated,
+                );
+                if (avail > 0) {
+                  const take = Math.min(needed, avail);
+                  poLineAllocations.set(pl.id, alreadyAllocated + take);
+                  needed -= take;
+                }
+              }
+              if (needed > 0) {
+                throw new BadRequestException(
+                  `Cannot bill ${resolvedBaseQty} base unit(s) for "${line.description}" — exceeds QC-accepted unbilled quantity on this purchase order.`,
+                );
+              }
+            }
+          }
+
+          return {
+            organizationId,
+            itemId: line.itemId ?? null,
+            goodsReceiptLineId: line.goodsReceiptLineId ?? null,
+            description: line.description.trim(),
+            quantity: line.quantity,
+            baseQty: resolvedBaseQty,
+            unitCostCents: line.unitCostCents,
+            lineTotalCents: line.quantity * line.unitCostCents,
+          };
+        });
 
         const subtotalCents = builtLines.reduce(
           (sum, l) => sum + l.lineTotalCents,
@@ -152,7 +322,8 @@ export class VendorBillsService {
             organizationId,
             billNumber,
             supplierId: supplier.id,
-            purchaseOrderId: input.purchaseOrderId ?? null,
+            purchaseOrderId:
+              input.purchaseOrderId ?? linkedReceipt?.purchaseOrderId ?? null,
             goodsReceiptId: input.goodsReceiptId ?? null,
             status: input.status ?? VendorBillStatus.OPEN,
             currency: input.currency ?? supplier.currency,
@@ -173,6 +344,20 @@ export class VendorBillsService {
           },
         });
 
+        for (const [rLineId, qty] of receiptLineAllocations.entries()) {
+          await tx.goodsReceiptLine.update({
+            where: { id: rLineId },
+            data: { billedBaseQty: { increment: qty } },
+          });
+        }
+
+        for (const [poLineId, qty] of poLineAllocations.entries()) {
+          await tx.purchaseOrderLine.update({
+            where: { id: poLineId },
+            data: { billedBaseQty: { increment: qty } },
+          });
+        }
+
         await tx.auditLog.create({
           data: {
             organizationId,
@@ -185,6 +370,161 @@ export class VendorBillsService {
               supplierCode: supplier.code,
               status: created.status,
               totalCents: created.totalCents,
+            } as Prisma.InputJsonValue,
+            ipAddress: ipAddress ?? null,
+          },
+        });
+
+        return created;
+      });
+    } catch (error) {
+      if (isUniqueConstraintError(error)) {
+        throw new ConflictException(
+          `Bill number "${billNumber}" already exists for this supplier.`,
+        );
+      }
+      throw error;
+    }
+  }
+
+  async createVendorBillFromDelivery(
+    tenant: AuthenticatedTenant,
+    deliveryId: string,
+    input: CreateVendorBillFromDeliveryInput,
+    ipAddress?: string,
+  ) {
+    const organizationId = this.resolveVerifiedOrganizationId(tenant);
+    const billNumber = input.billNumber.trim();
+
+    try {
+      return await this.prismaService.raw.$transaction(async (tx) => {
+        const delivery = await tx.goodsReceipt.findFirst({
+          where: { id: deliveryId, organizationId },
+          include: {
+            purchaseOrder: {
+              include: { supplier: true },
+            },
+            lines: {
+              include: {
+                item: { select: { id: true, sku: true, name: true, unitOfMeasure: true } },
+              },
+            },
+          },
+        });
+
+        if (!delivery) {
+          throw new NotFoundException("Supplier delivery was not found.");
+        }
+
+        if (
+          delivery.status !== GoodsReceiptStatus.ACCEPTED &&
+          delivery.status !== GoodsReceiptStatus.PARTIALLY_ACCEPTED
+        ) {
+          throw new BadRequestException(
+            `Only QC-accepted deliveries can be converted into a vendor bill (current status: ${delivery.status}).`,
+          );
+        }
+
+        const billableLines = delivery.lines
+          .map((line) => ({
+            line,
+            billableBaseQty: Math.max(0, line.acceptedBaseQty - line.billedBaseQty),
+          }))
+          .filter((entry) => entry.billableBaseQty > 0);
+
+        if (billableLines.length === 0) {
+          throw new BadRequestException(
+            "This delivery has no unbilled QC-accepted quantities remaining.",
+          );
+        }
+
+        const builtLines = billableLines.map(({ line, billableBaseQty }) => {
+          const lineTotalCents = computeBaseUnitValueCents(
+            line.unitCostCents,
+            line.unitsPerPack,
+            billableBaseQty,
+          );
+          const perBaseUnitCostCents = Math.round(
+            lineTotalCents / Math.max(1, billableBaseQty),
+          );
+          return {
+            organizationId,
+            itemId: line.itemId,
+            goodsReceiptLineId: line.id,
+            description: `${line.item.name} (${line.item.sku}) - ${billableBaseQty} ${line.item.unitOfMeasure} accepted`,
+            quantity: billableBaseQty,
+            baseQty: billableBaseQty,
+            unitCostCents: perBaseUnitCostCents,
+            lineTotalCents,
+          };
+        });
+
+        const subtotalCents = builtLines.reduce(
+          (sum, l) => sum + l.lineTotalCents,
+          0,
+        );
+        const taxCents = input.taxCents ?? 0;
+        const totalCents = subtotalCents + taxCents;
+
+        const supplier = delivery.purchaseOrder.supplier;
+        const issuedAt = input.issuedAt ? new Date(input.issuedAt) : new Date();
+        const dueAt = input.dueAt
+          ? new Date(input.dueAt)
+          : new Date(
+              issuedAt.getTime() + supplier.paymentTermsDays * 86_400_000,
+            );
+
+        const created = await tx.vendorBill.create({
+          data: {
+            organizationId,
+            billNumber,
+            supplierId: supplier.id,
+            purchaseOrderId: delivery.purchaseOrderId,
+            goodsReceiptId: delivery.id,
+            status: input.status ?? VendorBillStatus.OPEN,
+            currency: delivery.purchaseOrder.currency,
+            subtotalCents,
+            taxCents,
+            totalCents,
+            paidAmountCents: 0,
+            issuedAt,
+            dueAt,
+            notes: input.notes ?? null,
+            createdByUserId: tenant.userId,
+            updatedByUserId: tenant.userId,
+            lines: { create: builtLines },
+          },
+          include: {
+            supplier: { select: { id: true, code: true, name: true } },
+            lines: true,
+          },
+        });
+
+        for (const { line, billableBaseQty } of billableLines) {
+          await tx.goodsReceiptLine.update({
+            where: { id: line.id },
+            data: { billedBaseQty: { increment: billableBaseQty } },
+          });
+          await tx.purchaseOrderLine.update({
+            where: { id: line.purchaseOrderLineId },
+            data: { billedBaseQty: { increment: billableBaseQty } },
+          });
+        }
+
+        await tx.auditLog.create({
+          data: {
+            organizationId,
+            actorUserId: tenant.userId,
+            action: "vendor_bill.created_from_delivery",
+            resourceType: "VendorBill",
+            resourceId: created.id,
+            metadata: {
+              billNumber: created.billNumber,
+              deliveryId: delivery.id,
+              receiptNumber: delivery.receiptNumber,
+              purchaseOrderId: delivery.purchaseOrderId,
+              totalCents: created.totalCents,
+              lineCount: builtLines.length,
             } as Prisma.InputJsonValue,
             ipAddress: ipAddress ?? null,
           },

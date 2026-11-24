@@ -41,13 +41,24 @@ const createVendorBillSchema = z.object({
     .array(
       z.object({
         itemId: z.string().trim().min(1).nullable().optional(),
+        goodsReceiptLineId: z.string().trim().min(1).nullable().optional(),
         description: z.string().trim().min(1).max(500),
         quantity: z.number().int().min(1).max(1_000_000),
+        baseQty: z.number().int().min(1).max(10_000_000).optional(),
         unitCostCents: z.number().int().min(0).max(2_000_000_000),
       }),
     )
     .min(1)
     .max(200),
+});
+
+const createBillFromDeliverySchema = z.object({
+  billNumber: z.string().trim().min(1).max(64),
+  status: z.enum([VendorBillStatus.DRAFT, VendorBillStatus.OPEN]).optional(),
+  taxCents: z.number().int().min(0).max(2_000_000_000).optional(),
+  issuedAt: z.string().datetime().optional(),
+  dueAt: z.string().datetime().nullable().optional(),
+  notes: z.string().trim().max(2000).nullable().optional(),
 });
 
 const listVendorBillsQuerySchema = z.object({
@@ -101,6 +112,30 @@ export class VendorBillsController {
 
     return this.vendorBillsService.createVendorBill(
       tenant,
+      parsed.data,
+      req.ip,
+    );
+  }
+
+  @Post("from-delivery/:deliveryId")
+  @RequiredOrgPermissions({ vendorBill: ["create"] })
+  async createVendorBillFromDelivery(
+    @CurrentTenant() tenant: AuthenticatedTenant,
+    @Param("deliveryId") deliveryId: string,
+    @Body() body: unknown,
+    @Req() req: FastifyRequest,
+  ) {
+    const parsed = createBillFromDeliverySchema.safeParse(body);
+    if (!parsed.success) {
+      throw new BadRequestException({
+        message: "Invalid vendor bill payload.",
+        issues: parsed.error.issues,
+      });
+    }
+
+    return this.vendorBillsService.createVendorBillFromDelivery(
+      tenant,
+      deliveryId,
       parsed.data,
       req.ip,
     );

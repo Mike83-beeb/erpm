@@ -152,6 +152,21 @@ export type GoodsReceipt = Prisma.GoodsReceiptModel
  */
 export type GoodsReceiptLine = Prisma.GoodsReceiptLineModel
 /**
+ * Model StockLot
+ * 
+ */
+export type StockLot = Prisma.StockLotModel
+/**
+ * Model QuarantineHold
+ * 
+ */
+export type QuarantineHold = Prisma.QuarantineHoldModel
+/**
+ * Model SupplierClaim
+ * 
+ */
+export type SupplierClaim = Prisma.SupplierClaimModel
+/**
  * Model VendorBill
  * 
  */

@@ -28,16 +28,28 @@ export type AggregateGoodsReceiptLine = {
 
 export type GoodsReceiptLineAvgAggregateOutputType = {
   unitsPerPack: number | null
+  packQty: number | null
+  looseBaseQty: number | null
   receivedQty: number | null
   receivedBaseQty: number | null
   unitCostCents: number | null
+  acceptedBaseQty: number | null
+  rejectedBaseQty: number | null
+  quarantinedBaseQty: number | null
+  billedBaseQty: number | null
 }
 
 export type GoodsReceiptLineSumAggregateOutputType = {
   unitsPerPack: number | null
+  packQty: number | null
+  looseBaseQty: number | null
   receivedQty: number | null
   receivedBaseQty: number | null
   unitCostCents: number | null
+  acceptedBaseQty: number | null
+  rejectedBaseQty: number | null
+  quarantinedBaseQty: number | null
+  billedBaseQty: number | null
 }
 
 export type GoodsReceiptLineMinAggregateOutputType = {
@@ -48,10 +60,27 @@ export type GoodsReceiptLineMinAggregateOutputType = {
   itemId: string | null
   packId: string | null
   unitsPerPack: number | null
+  packQty: number | null
+  looseBaseQty: number | null
   receivedQty: number | null
   receivedBaseQty: number | null
   unitCostCents: number | null
+  lotNumber: string | null
+  batchCode: string | null
+  manufacturedAt: Date | null
+  expiresAt: Date | null
+  qcStatus: $Enums.DeliveryLineQcStatus | null
+  acceptedBaseQty: number | null
+  rejectedBaseQty: number | null
+  quarantinedBaseQty: number | null
+  rejectionDisposition: $Enums.RejectionDisposition | null
+  defectReasonCode: string | null
+  qcNotes: string | null
+  qcInspectedByUserId: string | null
+  qcInspectedAt: Date | null
+  billedBaseQty: number | null
   createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type GoodsReceiptLineMaxAggregateOutputType = {
@@ -62,10 +91,27 @@ export type GoodsReceiptLineMaxAggregateOutputType = {
   itemId: string | null
   packId: string | null
   unitsPerPack: number | null
+  packQty: number | null
+  looseBaseQty: number | null
   receivedQty: number | null
   receivedBaseQty: number | null
   unitCostCents: number | null
+  lotNumber: string | null
+  batchCode: string | null
+  manufacturedAt: Date | null
+  expiresAt: Date | null
+  qcStatus: $Enums.DeliveryLineQcStatus | null
+  acceptedBaseQty: number | null
+  rejectedBaseQty: number | null
+  quarantinedBaseQty: number | null
+  rejectionDisposition: $Enums.RejectionDisposition | null
+  defectReasonCode: string | null
+  qcNotes: string | null
+  qcInspectedByUserId: string | null
+  qcInspectedAt: Date | null
+  billedBaseQty: number | null
   createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type GoodsReceiptLineCountAggregateOutputType = {
@@ -76,26 +122,56 @@ export type GoodsReceiptLineCountAggregateOutputType = {
   itemId: number
   packId: number
   unitsPerPack: number
+  packQty: number
+  looseBaseQty: number
   receivedQty: number
   receivedBaseQty: number
   unitCostCents: number
+  lotNumber: number
+  batchCode: number
+  manufacturedAt: number
+  expiresAt: number
+  serialNumbers: number
+  qcStatus: number
+  acceptedBaseQty: number
+  rejectedBaseQty: number
+  quarantinedBaseQty: number
+  rejectionDisposition: number
+  defectReasonCode: number
+  qcNotes: number
+  qcInspectedByUserId: number
+  qcInspectedAt: number
+  billedBaseQty: number
   createdAt: number
+  updatedAt: number
   _all: number
 }
 
 
 export type GoodsReceiptLineAvgAggregateInputType = {
   unitsPerPack?: true
+  packQty?: true
+  looseBaseQty?: true
   receivedQty?: true
   receivedBaseQty?: true
   unitCostCents?: true
+  acceptedBaseQty?: true
+  rejectedBaseQty?: true
+  quarantinedBaseQty?: true
+  billedBaseQty?: true
 }
 
 export type GoodsReceiptLineSumAggregateInputType = {
   unitsPerPack?: true
+  packQty?: true
+  looseBaseQty?: true
   receivedQty?: true
   receivedBaseQty?: true
   unitCostCents?: true
+  acceptedBaseQty?: true
+  rejectedBaseQty?: true
+  quarantinedBaseQty?: true
+  billedBaseQty?: true
 }
 
 export type GoodsReceiptLineMinAggregateInputType = {
@@ -106,10 +182,27 @@ export type GoodsReceiptLineMinAggregateInputType = {
   itemId?: true
   packId?: true
   unitsPerPack?: true
+  packQty?: true
+  looseBaseQty?: true
   receivedQty?: true
   receivedBaseQty?: true
   unitCostCents?: true
+  lotNumber?: true
+  batchCode?: true
+  manufacturedAt?: true
+  expiresAt?: true
+  qcStatus?: true
+  acceptedBaseQty?: true
+  rejectedBaseQty?: true
+  quarantinedBaseQty?: true
+  rejectionDisposition?: true
+  defectReasonCode?: true
+  qcNotes?: true
+  qcInspectedByUserId?: true
+  qcInspectedAt?: true
+  billedBaseQty?: true
   createdAt?: true
+  updatedAt?: true
 }
 
 export type GoodsReceiptLineMaxAggregateInputType = {
@@ -120,10 +213,27 @@ export type GoodsReceiptLineMaxAggregateInputType = {
   itemId?: true
   packId?: true
   unitsPerPack?: true
+  packQty?: true
+  looseBaseQty?: true
   receivedQty?: true
   receivedBaseQty?: true
   unitCostCents?: true
+  lotNumber?: true
+  batchCode?: true
+  manufacturedAt?: true
+  expiresAt?: true
+  qcStatus?: true
+  acceptedBaseQty?: true
+  rejectedBaseQty?: true
+  quarantinedBaseQty?: true
+  rejectionDisposition?: true
+  defectReasonCode?: true
+  qcNotes?: true
+  qcInspectedByUserId?: true
+  qcInspectedAt?: true
+  billedBaseQty?: true
   createdAt?: true
+  updatedAt?: true
 }
 
 export type GoodsReceiptLineCountAggregateInputType = {
@@ -134,10 +244,28 @@ export type GoodsReceiptLineCountAggregateInputType = {
   itemId?: true
   packId?: true
   unitsPerPack?: true
+  packQty?: true
+  looseBaseQty?: true
   receivedQty?: true
   receivedBaseQty?: true
   unitCostCents?: true
+  lotNumber?: true
+  batchCode?: true
+  manufacturedAt?: true
+  expiresAt?: true
+  serialNumbers?: true
+  qcStatus?: true
+  acceptedBaseQty?: true
+  rejectedBaseQty?: true
+  quarantinedBaseQty?: true
+  rejectionDisposition?: true
+  defectReasonCode?: true
+  qcNotes?: true
+  qcInspectedByUserId?: true
+  qcInspectedAt?: true
+  billedBaseQty?: true
   createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -235,10 +363,28 @@ export type GoodsReceiptLineGroupByOutputType = {
   itemId: string
   packId: string | null
   unitsPerPack: number
+  packQty: number
+  looseBaseQty: number
   receivedQty: number
   receivedBaseQty: number
   unitCostCents: number
+  lotNumber: string | null
+  batchCode: string | null
+  manufacturedAt: Date | null
+  expiresAt: Date | null
+  serialNumbers: runtime.JsonValue | null
+  qcStatus: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty: number
+  rejectedBaseQty: number
+  quarantinedBaseQty: number
+  rejectionDisposition: $Enums.RejectionDisposition | null
+  defectReasonCode: string | null
+  qcNotes: string | null
+  qcInspectedByUserId: string | null
+  qcInspectedAt: Date | null
+  billedBaseQty: number
   createdAt: Date
+  updatedAt: Date
   _count: GoodsReceiptLineCountAggregateOutputType | null
   _avg: GoodsReceiptLineAvgAggregateOutputType | null
   _sum: GoodsReceiptLineSumAggregateOutputType | null
@@ -272,14 +418,37 @@ export type GoodsReceiptLineWhereInput = {
   itemId?: Prisma.StringFilter<"GoodsReceiptLine"> | string
   packId?: Prisma.StringNullableFilter<"GoodsReceiptLine"> | string | null
   unitsPerPack?: Prisma.IntFilter<"GoodsReceiptLine"> | number
+  packQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
+  looseBaseQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
   receivedQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
   receivedBaseQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
   unitCostCents?: Prisma.IntFilter<"GoodsReceiptLine"> | number
+  lotNumber?: Prisma.StringNullableFilter<"GoodsReceiptLine"> | string | null
+  batchCode?: Prisma.StringNullableFilter<"GoodsReceiptLine"> | string | null
+  manufacturedAt?: Prisma.DateTimeNullableFilter<"GoodsReceiptLine"> | Date | string | null
+  expiresAt?: Prisma.DateTimeNullableFilter<"GoodsReceiptLine"> | Date | string | null
+  serialNumbers?: Prisma.JsonNullableFilter<"GoodsReceiptLine">
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFilter<"GoodsReceiptLine"> | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
+  rejectedBaseQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
+  quarantinedBaseQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
+  rejectionDisposition?: Prisma.EnumRejectionDispositionNullableFilter<"GoodsReceiptLine"> | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.StringNullableFilter<"GoodsReceiptLine"> | string | null
+  qcNotes?: Prisma.StringNullableFilter<"GoodsReceiptLine"> | string | null
+  qcInspectedByUserId?: Prisma.StringNullableFilter<"GoodsReceiptLine"> | string | null
+  qcInspectedAt?: Prisma.DateTimeNullableFilter<"GoodsReceiptLine"> | Date | string | null
+  billedBaseQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
   createdAt?: Prisma.DateTimeFilter<"GoodsReceiptLine"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"GoodsReceiptLine"> | Date | string
   organization?: Prisma.XOR<Prisma.OrganizationScalarRelationFilter, Prisma.OrganizationWhereInput>
   goodsReceipt?: Prisma.XOR<Prisma.GoodsReceiptScalarRelationFilter, Prisma.GoodsReceiptWhereInput>
   purchaseOrderLine?: Prisma.XOR<Prisma.PurchaseOrderLineScalarRelationFilter, Prisma.PurchaseOrderLineWhereInput>
   item?: Prisma.XOR<Prisma.ItemScalarRelationFilter, Prisma.ItemWhereInput>
+  pack?: Prisma.XOR<Prisma.ItemPackNullableScalarRelationFilter, Prisma.ItemPackWhereInput> | null
+  stockLots?: Prisma.StockLotListRelationFilter
+  quarantineHolds?: Prisma.QuarantineHoldListRelationFilter
+  supplierClaims?: Prisma.SupplierClaimListRelationFilter
+  vendorBillLines?: Prisma.VendorBillLineListRelationFilter
 }
 
 export type GoodsReceiptLineOrderByWithRelationInput = {
@@ -290,14 +459,37 @@ export type GoodsReceiptLineOrderByWithRelationInput = {
   itemId?: Prisma.SortOrder
   packId?: Prisma.SortOrderInput | Prisma.SortOrder
   unitsPerPack?: Prisma.SortOrder
+  packQty?: Prisma.SortOrder
+  looseBaseQty?: Prisma.SortOrder
   receivedQty?: Prisma.SortOrder
   receivedBaseQty?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
+  lotNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  batchCode?: Prisma.SortOrderInput | Prisma.SortOrder
+  manufacturedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  expiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  serialNumbers?: Prisma.SortOrderInput | Prisma.SortOrder
+  qcStatus?: Prisma.SortOrder
+  acceptedBaseQty?: Prisma.SortOrder
+  rejectedBaseQty?: Prisma.SortOrder
+  quarantinedBaseQty?: Prisma.SortOrder
+  rejectionDisposition?: Prisma.SortOrderInput | Prisma.SortOrder
+  defectReasonCode?: Prisma.SortOrderInput | Prisma.SortOrder
+  qcNotes?: Prisma.SortOrderInput | Prisma.SortOrder
+  qcInspectedByUserId?: Prisma.SortOrderInput | Prisma.SortOrder
+  qcInspectedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  billedBaseQty?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   organization?: Prisma.OrganizationOrderByWithRelationInput
   goodsReceipt?: Prisma.GoodsReceiptOrderByWithRelationInput
   purchaseOrderLine?: Prisma.PurchaseOrderLineOrderByWithRelationInput
   item?: Prisma.ItemOrderByWithRelationInput
+  pack?: Prisma.ItemPackOrderByWithRelationInput
+  stockLots?: Prisma.StockLotOrderByRelationAggregateInput
+  quarantineHolds?: Prisma.QuarantineHoldOrderByRelationAggregateInput
+  supplierClaims?: Prisma.SupplierClaimOrderByRelationAggregateInput
+  vendorBillLines?: Prisma.VendorBillLineOrderByRelationAggregateInput
 }
 
 export type GoodsReceiptLineWhereUniqueInput = Prisma.AtLeast<{
@@ -311,14 +503,37 @@ export type GoodsReceiptLineWhereUniqueInput = Prisma.AtLeast<{
   itemId?: Prisma.StringFilter<"GoodsReceiptLine"> | string
   packId?: Prisma.StringNullableFilter<"GoodsReceiptLine"> | string | null
   unitsPerPack?: Prisma.IntFilter<"GoodsReceiptLine"> | number
+  packQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
+  looseBaseQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
   receivedQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
   receivedBaseQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
   unitCostCents?: Prisma.IntFilter<"GoodsReceiptLine"> | number
+  lotNumber?: Prisma.StringNullableFilter<"GoodsReceiptLine"> | string | null
+  batchCode?: Prisma.StringNullableFilter<"GoodsReceiptLine"> | string | null
+  manufacturedAt?: Prisma.DateTimeNullableFilter<"GoodsReceiptLine"> | Date | string | null
+  expiresAt?: Prisma.DateTimeNullableFilter<"GoodsReceiptLine"> | Date | string | null
+  serialNumbers?: Prisma.JsonNullableFilter<"GoodsReceiptLine">
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFilter<"GoodsReceiptLine"> | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
+  rejectedBaseQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
+  quarantinedBaseQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
+  rejectionDisposition?: Prisma.EnumRejectionDispositionNullableFilter<"GoodsReceiptLine"> | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.StringNullableFilter<"GoodsReceiptLine"> | string | null
+  qcNotes?: Prisma.StringNullableFilter<"GoodsReceiptLine"> | string | null
+  qcInspectedByUserId?: Prisma.StringNullableFilter<"GoodsReceiptLine"> | string | null
+  qcInspectedAt?: Prisma.DateTimeNullableFilter<"GoodsReceiptLine"> | Date | string | null
+  billedBaseQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
   createdAt?: Prisma.DateTimeFilter<"GoodsReceiptLine"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"GoodsReceiptLine"> | Date | string
   organization?: Prisma.XOR<Prisma.OrganizationScalarRelationFilter, Prisma.OrganizationWhereInput>
   goodsReceipt?: Prisma.XOR<Prisma.GoodsReceiptScalarRelationFilter, Prisma.GoodsReceiptWhereInput>
   purchaseOrderLine?: Prisma.XOR<Prisma.PurchaseOrderLineScalarRelationFilter, Prisma.PurchaseOrderLineWhereInput>
   item?: Prisma.XOR<Prisma.ItemScalarRelationFilter, Prisma.ItemWhereInput>
+  pack?: Prisma.XOR<Prisma.ItemPackNullableScalarRelationFilter, Prisma.ItemPackWhereInput> | null
+  stockLots?: Prisma.StockLotListRelationFilter
+  quarantineHolds?: Prisma.QuarantineHoldListRelationFilter
+  supplierClaims?: Prisma.SupplierClaimListRelationFilter
+  vendorBillLines?: Prisma.VendorBillLineListRelationFilter
 }, "id">
 
 export type GoodsReceiptLineOrderByWithAggregationInput = {
@@ -329,10 +544,28 @@ export type GoodsReceiptLineOrderByWithAggregationInput = {
   itemId?: Prisma.SortOrder
   packId?: Prisma.SortOrderInput | Prisma.SortOrder
   unitsPerPack?: Prisma.SortOrder
+  packQty?: Prisma.SortOrder
+  looseBaseQty?: Prisma.SortOrder
   receivedQty?: Prisma.SortOrder
   receivedBaseQty?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
+  lotNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  batchCode?: Prisma.SortOrderInput | Prisma.SortOrder
+  manufacturedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  expiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  serialNumbers?: Prisma.SortOrderInput | Prisma.SortOrder
+  qcStatus?: Prisma.SortOrder
+  acceptedBaseQty?: Prisma.SortOrder
+  rejectedBaseQty?: Prisma.SortOrder
+  quarantinedBaseQty?: Prisma.SortOrder
+  rejectionDisposition?: Prisma.SortOrderInput | Prisma.SortOrder
+  defectReasonCode?: Prisma.SortOrderInput | Prisma.SortOrder
+  qcNotes?: Prisma.SortOrderInput | Prisma.SortOrder
+  qcInspectedByUserId?: Prisma.SortOrderInput | Prisma.SortOrder
+  qcInspectedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  billedBaseQty?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.GoodsReceiptLineCountOrderByAggregateInput
   _avg?: Prisma.GoodsReceiptLineAvgOrderByAggregateInput
   _max?: Prisma.GoodsReceiptLineMaxOrderByAggregateInput
@@ -351,24 +584,64 @@ export type GoodsReceiptLineScalarWhereWithAggregatesInput = {
   itemId?: Prisma.StringWithAggregatesFilter<"GoodsReceiptLine"> | string
   packId?: Prisma.StringNullableWithAggregatesFilter<"GoodsReceiptLine"> | string | null
   unitsPerPack?: Prisma.IntWithAggregatesFilter<"GoodsReceiptLine"> | number
+  packQty?: Prisma.IntWithAggregatesFilter<"GoodsReceiptLine"> | number
+  looseBaseQty?: Prisma.IntWithAggregatesFilter<"GoodsReceiptLine"> | number
   receivedQty?: Prisma.IntWithAggregatesFilter<"GoodsReceiptLine"> | number
   receivedBaseQty?: Prisma.IntWithAggregatesFilter<"GoodsReceiptLine"> | number
   unitCostCents?: Prisma.IntWithAggregatesFilter<"GoodsReceiptLine"> | number
+  lotNumber?: Prisma.StringNullableWithAggregatesFilter<"GoodsReceiptLine"> | string | null
+  batchCode?: Prisma.StringNullableWithAggregatesFilter<"GoodsReceiptLine"> | string | null
+  manufacturedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"GoodsReceiptLine"> | Date | string | null
+  expiresAt?: Prisma.DateTimeNullableWithAggregatesFilter<"GoodsReceiptLine"> | Date | string | null
+  serialNumbers?: Prisma.JsonNullableWithAggregatesFilter<"GoodsReceiptLine">
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusWithAggregatesFilter<"GoodsReceiptLine"> | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntWithAggregatesFilter<"GoodsReceiptLine"> | number
+  rejectedBaseQty?: Prisma.IntWithAggregatesFilter<"GoodsReceiptLine"> | number
+  quarantinedBaseQty?: Prisma.IntWithAggregatesFilter<"GoodsReceiptLine"> | number
+  rejectionDisposition?: Prisma.EnumRejectionDispositionNullableWithAggregatesFilter<"GoodsReceiptLine"> | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.StringNullableWithAggregatesFilter<"GoodsReceiptLine"> | string | null
+  qcNotes?: Prisma.StringNullableWithAggregatesFilter<"GoodsReceiptLine"> | string | null
+  qcInspectedByUserId?: Prisma.StringNullableWithAggregatesFilter<"GoodsReceiptLine"> | string | null
+  qcInspectedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"GoodsReceiptLine"> | Date | string | null
+  billedBaseQty?: Prisma.IntWithAggregatesFilter<"GoodsReceiptLine"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"GoodsReceiptLine"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"GoodsReceiptLine"> | Date | string
 }
 
 export type GoodsReceiptLineCreateInput = {
   id?: string
-  packId?: string | null
   unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
   receivedQty: number
   receivedBaseQty?: number
   unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
   createdAt?: Date | string
+  updatedAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutGoodsReceiptLinesInput
   goodsReceipt: Prisma.GoodsReceiptCreateNestedOneWithoutLinesInput
   purchaseOrderLine: Prisma.PurchaseOrderLineCreateNestedOneWithoutReceiptLinesInput
   item: Prisma.ItemCreateNestedOneWithoutGoodsReceiptLinesInput
+  pack?: Prisma.ItemPackCreateNestedOneWithoutGoodsReceiptLinesInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutGoodsReceiptLineInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutGoodsReceiptLineInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutGoodsReceiptLineInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutGoodsReceiptLineInput
 }
 
 export type GoodsReceiptLineUncheckedCreateInput = {
@@ -379,24 +652,68 @@ export type GoodsReceiptLineUncheckedCreateInput = {
   itemId: string
   packId?: string | null
   unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
   receivedQty: number
   receivedBaseQty?: number
   unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
   createdAt?: Date | string
+  updatedAt?: Date | string
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
 }
 
 export type GoodsReceiptLineUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutGoodsReceiptLinesNestedInput
   goodsReceipt?: Prisma.GoodsReceiptUpdateOneRequiredWithoutLinesNestedInput
   purchaseOrderLine?: Prisma.PurchaseOrderLineUpdateOneRequiredWithoutReceiptLinesNestedInput
   item?: Prisma.ItemUpdateOneRequiredWithoutGoodsReceiptLinesNestedInput
+  pack?: Prisma.ItemPackUpdateOneWithoutGoodsReceiptLinesNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutGoodsReceiptLineNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutGoodsReceiptLineNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutGoodsReceiptLineNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutGoodsReceiptLineNestedInput
 }
 
 export type GoodsReceiptLineUncheckedUpdateInput = {
@@ -407,10 +724,32 @@ export type GoodsReceiptLineUncheckedUpdateInput = {
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
   packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
 }
 
 export type GoodsReceiptLineCreateManyInput = {
@@ -421,20 +760,55 @@ export type GoodsReceiptLineCreateManyInput = {
   itemId: string
   packId?: string | null
   unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
   receivedQty: number
   receivedBaseQty?: number
   unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type GoodsReceiptLineUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type GoodsReceiptLineUncheckedUpdateManyInput = {
@@ -445,10 +819,28 @@ export type GoodsReceiptLineUncheckedUpdateManyInput = {
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
   packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type GoodsReceiptLineListRelationFilter = {
@@ -469,17 +861,41 @@ export type GoodsReceiptLineCountOrderByAggregateInput = {
   itemId?: Prisma.SortOrder
   packId?: Prisma.SortOrder
   unitsPerPack?: Prisma.SortOrder
+  packQty?: Prisma.SortOrder
+  looseBaseQty?: Prisma.SortOrder
   receivedQty?: Prisma.SortOrder
   receivedBaseQty?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
+  lotNumber?: Prisma.SortOrder
+  batchCode?: Prisma.SortOrder
+  manufacturedAt?: Prisma.SortOrder
+  expiresAt?: Prisma.SortOrder
+  serialNumbers?: Prisma.SortOrder
+  qcStatus?: Prisma.SortOrder
+  acceptedBaseQty?: Prisma.SortOrder
+  rejectedBaseQty?: Prisma.SortOrder
+  quarantinedBaseQty?: Prisma.SortOrder
+  rejectionDisposition?: Prisma.SortOrder
+  defectReasonCode?: Prisma.SortOrder
+  qcNotes?: Prisma.SortOrder
+  qcInspectedByUserId?: Prisma.SortOrder
+  qcInspectedAt?: Prisma.SortOrder
+  billedBaseQty?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type GoodsReceiptLineAvgOrderByAggregateInput = {
   unitsPerPack?: Prisma.SortOrder
+  packQty?: Prisma.SortOrder
+  looseBaseQty?: Prisma.SortOrder
   receivedQty?: Prisma.SortOrder
   receivedBaseQty?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
+  acceptedBaseQty?: Prisma.SortOrder
+  rejectedBaseQty?: Prisma.SortOrder
+  quarantinedBaseQty?: Prisma.SortOrder
+  billedBaseQty?: Prisma.SortOrder
 }
 
 export type GoodsReceiptLineMaxOrderByAggregateInput = {
@@ -490,10 +906,27 @@ export type GoodsReceiptLineMaxOrderByAggregateInput = {
   itemId?: Prisma.SortOrder
   packId?: Prisma.SortOrder
   unitsPerPack?: Prisma.SortOrder
+  packQty?: Prisma.SortOrder
+  looseBaseQty?: Prisma.SortOrder
   receivedQty?: Prisma.SortOrder
   receivedBaseQty?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
+  lotNumber?: Prisma.SortOrder
+  batchCode?: Prisma.SortOrder
+  manufacturedAt?: Prisma.SortOrder
+  expiresAt?: Prisma.SortOrder
+  qcStatus?: Prisma.SortOrder
+  acceptedBaseQty?: Prisma.SortOrder
+  rejectedBaseQty?: Prisma.SortOrder
+  quarantinedBaseQty?: Prisma.SortOrder
+  rejectionDisposition?: Prisma.SortOrder
+  defectReasonCode?: Prisma.SortOrder
+  qcNotes?: Prisma.SortOrder
+  qcInspectedByUserId?: Prisma.SortOrder
+  qcInspectedAt?: Prisma.SortOrder
+  billedBaseQty?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type GoodsReceiptLineMinOrderByAggregateInput = {
@@ -504,17 +937,50 @@ export type GoodsReceiptLineMinOrderByAggregateInput = {
   itemId?: Prisma.SortOrder
   packId?: Prisma.SortOrder
   unitsPerPack?: Prisma.SortOrder
+  packQty?: Prisma.SortOrder
+  looseBaseQty?: Prisma.SortOrder
   receivedQty?: Prisma.SortOrder
   receivedBaseQty?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
+  lotNumber?: Prisma.SortOrder
+  batchCode?: Prisma.SortOrder
+  manufacturedAt?: Prisma.SortOrder
+  expiresAt?: Prisma.SortOrder
+  qcStatus?: Prisma.SortOrder
+  acceptedBaseQty?: Prisma.SortOrder
+  rejectedBaseQty?: Prisma.SortOrder
+  quarantinedBaseQty?: Prisma.SortOrder
+  rejectionDisposition?: Prisma.SortOrder
+  defectReasonCode?: Prisma.SortOrder
+  qcNotes?: Prisma.SortOrder
+  qcInspectedByUserId?: Prisma.SortOrder
+  qcInspectedAt?: Prisma.SortOrder
+  billedBaseQty?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type GoodsReceiptLineSumOrderByAggregateInput = {
   unitsPerPack?: Prisma.SortOrder
+  packQty?: Prisma.SortOrder
+  looseBaseQty?: Prisma.SortOrder
   receivedQty?: Prisma.SortOrder
   receivedBaseQty?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
+  acceptedBaseQty?: Prisma.SortOrder
+  rejectedBaseQty?: Prisma.SortOrder
+  quarantinedBaseQty?: Prisma.SortOrder
+  billedBaseQty?: Prisma.SortOrder
+}
+
+export type GoodsReceiptLineNullableScalarRelationFilter = {
+  is?: Prisma.GoodsReceiptLineWhereInput | null
+  isNot?: Prisma.GoodsReceiptLineWhereInput | null
+}
+
+export type GoodsReceiptLineScalarRelationFilter = {
+  is?: Prisma.GoodsReceiptLineWhereInput
+  isNot?: Prisma.GoodsReceiptLineWhereInput
 }
 
 export type GoodsReceiptLineCreateNestedManyWithoutOrganizationInput = {
@@ -685,17 +1151,151 @@ export type GoodsReceiptLineUncheckedUpdateManyWithoutGoodsReceiptNestedInput = 
   deleteMany?: Prisma.GoodsReceiptLineScalarWhereInput | Prisma.GoodsReceiptLineScalarWhereInput[]
 }
 
+export type EnumDeliveryLineQcStatusFieldUpdateOperationsInput = {
+  set?: $Enums.DeliveryLineQcStatus
+}
+
+export type NullableEnumRejectionDispositionFieldUpdateOperationsInput = {
+  set?: $Enums.RejectionDisposition | null
+}
+
+export type GoodsReceiptLineCreateNestedOneWithoutStockLotsInput = {
+  create?: Prisma.XOR<Prisma.GoodsReceiptLineCreateWithoutStockLotsInput, Prisma.GoodsReceiptLineUncheckedCreateWithoutStockLotsInput>
+  connectOrCreate?: Prisma.GoodsReceiptLineCreateOrConnectWithoutStockLotsInput
+  connect?: Prisma.GoodsReceiptLineWhereUniqueInput
+}
+
+export type GoodsReceiptLineUpdateOneWithoutStockLotsNestedInput = {
+  create?: Prisma.XOR<Prisma.GoodsReceiptLineCreateWithoutStockLotsInput, Prisma.GoodsReceiptLineUncheckedCreateWithoutStockLotsInput>
+  connectOrCreate?: Prisma.GoodsReceiptLineCreateOrConnectWithoutStockLotsInput
+  upsert?: Prisma.GoodsReceiptLineUpsertWithoutStockLotsInput
+  disconnect?: Prisma.GoodsReceiptLineWhereInput | boolean
+  delete?: Prisma.GoodsReceiptLineWhereInput | boolean
+  connect?: Prisma.GoodsReceiptLineWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.GoodsReceiptLineUpdateToOneWithWhereWithoutStockLotsInput, Prisma.GoodsReceiptLineUpdateWithoutStockLotsInput>, Prisma.GoodsReceiptLineUncheckedUpdateWithoutStockLotsInput>
+}
+
+export type GoodsReceiptLineCreateNestedOneWithoutQuarantineHoldsInput = {
+  create?: Prisma.XOR<Prisma.GoodsReceiptLineCreateWithoutQuarantineHoldsInput, Prisma.GoodsReceiptLineUncheckedCreateWithoutQuarantineHoldsInput>
+  connectOrCreate?: Prisma.GoodsReceiptLineCreateOrConnectWithoutQuarantineHoldsInput
+  connect?: Prisma.GoodsReceiptLineWhereUniqueInput
+}
+
+export type GoodsReceiptLineUpdateOneRequiredWithoutQuarantineHoldsNestedInput = {
+  create?: Prisma.XOR<Prisma.GoodsReceiptLineCreateWithoutQuarantineHoldsInput, Prisma.GoodsReceiptLineUncheckedCreateWithoutQuarantineHoldsInput>
+  connectOrCreate?: Prisma.GoodsReceiptLineCreateOrConnectWithoutQuarantineHoldsInput
+  upsert?: Prisma.GoodsReceiptLineUpsertWithoutQuarantineHoldsInput
+  connect?: Prisma.GoodsReceiptLineWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.GoodsReceiptLineUpdateToOneWithWhereWithoutQuarantineHoldsInput, Prisma.GoodsReceiptLineUpdateWithoutQuarantineHoldsInput>, Prisma.GoodsReceiptLineUncheckedUpdateWithoutQuarantineHoldsInput>
+}
+
+export type GoodsReceiptLineCreateNestedOneWithoutSupplierClaimsInput = {
+  create?: Prisma.XOR<Prisma.GoodsReceiptLineCreateWithoutSupplierClaimsInput, Prisma.GoodsReceiptLineUncheckedCreateWithoutSupplierClaimsInput>
+  connectOrCreate?: Prisma.GoodsReceiptLineCreateOrConnectWithoutSupplierClaimsInput
+  connect?: Prisma.GoodsReceiptLineWhereUniqueInput
+}
+
+export type GoodsReceiptLineUpdateOneWithoutSupplierClaimsNestedInput = {
+  create?: Prisma.XOR<Prisma.GoodsReceiptLineCreateWithoutSupplierClaimsInput, Prisma.GoodsReceiptLineUncheckedCreateWithoutSupplierClaimsInput>
+  connectOrCreate?: Prisma.GoodsReceiptLineCreateOrConnectWithoutSupplierClaimsInput
+  upsert?: Prisma.GoodsReceiptLineUpsertWithoutSupplierClaimsInput
+  disconnect?: Prisma.GoodsReceiptLineWhereInput | boolean
+  delete?: Prisma.GoodsReceiptLineWhereInput | boolean
+  connect?: Prisma.GoodsReceiptLineWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.GoodsReceiptLineUpdateToOneWithWhereWithoutSupplierClaimsInput, Prisma.GoodsReceiptLineUpdateWithoutSupplierClaimsInput>, Prisma.GoodsReceiptLineUncheckedUpdateWithoutSupplierClaimsInput>
+}
+
+export type GoodsReceiptLineCreateNestedOneWithoutVendorBillLinesInput = {
+  create?: Prisma.XOR<Prisma.GoodsReceiptLineCreateWithoutVendorBillLinesInput, Prisma.GoodsReceiptLineUncheckedCreateWithoutVendorBillLinesInput>
+  connectOrCreate?: Prisma.GoodsReceiptLineCreateOrConnectWithoutVendorBillLinesInput
+  connect?: Prisma.GoodsReceiptLineWhereUniqueInput
+}
+
+export type GoodsReceiptLineUpdateOneWithoutVendorBillLinesNestedInput = {
+  create?: Prisma.XOR<Prisma.GoodsReceiptLineCreateWithoutVendorBillLinesInput, Prisma.GoodsReceiptLineUncheckedCreateWithoutVendorBillLinesInput>
+  connectOrCreate?: Prisma.GoodsReceiptLineCreateOrConnectWithoutVendorBillLinesInput
+  upsert?: Prisma.GoodsReceiptLineUpsertWithoutVendorBillLinesInput
+  disconnect?: Prisma.GoodsReceiptLineWhereInput | boolean
+  delete?: Prisma.GoodsReceiptLineWhereInput | boolean
+  connect?: Prisma.GoodsReceiptLineWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.GoodsReceiptLineUpdateToOneWithWhereWithoutVendorBillLinesInput, Prisma.GoodsReceiptLineUpdateWithoutVendorBillLinesInput>, Prisma.GoodsReceiptLineUncheckedUpdateWithoutVendorBillLinesInput>
+}
+
+export type GoodsReceiptLineCreateNestedManyWithoutPackInput = {
+  create?: Prisma.XOR<Prisma.GoodsReceiptLineCreateWithoutPackInput, Prisma.GoodsReceiptLineUncheckedCreateWithoutPackInput> | Prisma.GoodsReceiptLineCreateWithoutPackInput[] | Prisma.GoodsReceiptLineUncheckedCreateWithoutPackInput[]
+  connectOrCreate?: Prisma.GoodsReceiptLineCreateOrConnectWithoutPackInput | Prisma.GoodsReceiptLineCreateOrConnectWithoutPackInput[]
+  createMany?: Prisma.GoodsReceiptLineCreateManyPackInputEnvelope
+  connect?: Prisma.GoodsReceiptLineWhereUniqueInput | Prisma.GoodsReceiptLineWhereUniqueInput[]
+}
+
+export type GoodsReceiptLineUncheckedCreateNestedManyWithoutPackInput = {
+  create?: Prisma.XOR<Prisma.GoodsReceiptLineCreateWithoutPackInput, Prisma.GoodsReceiptLineUncheckedCreateWithoutPackInput> | Prisma.GoodsReceiptLineCreateWithoutPackInput[] | Prisma.GoodsReceiptLineUncheckedCreateWithoutPackInput[]
+  connectOrCreate?: Prisma.GoodsReceiptLineCreateOrConnectWithoutPackInput | Prisma.GoodsReceiptLineCreateOrConnectWithoutPackInput[]
+  createMany?: Prisma.GoodsReceiptLineCreateManyPackInputEnvelope
+  connect?: Prisma.GoodsReceiptLineWhereUniqueInput | Prisma.GoodsReceiptLineWhereUniqueInput[]
+}
+
+export type GoodsReceiptLineUpdateManyWithoutPackNestedInput = {
+  create?: Prisma.XOR<Prisma.GoodsReceiptLineCreateWithoutPackInput, Prisma.GoodsReceiptLineUncheckedCreateWithoutPackInput> | Prisma.GoodsReceiptLineCreateWithoutPackInput[] | Prisma.GoodsReceiptLineUncheckedCreateWithoutPackInput[]
+  connectOrCreate?: Prisma.GoodsReceiptLineCreateOrConnectWithoutPackInput | Prisma.GoodsReceiptLineCreateOrConnectWithoutPackInput[]
+  upsert?: Prisma.GoodsReceiptLineUpsertWithWhereUniqueWithoutPackInput | Prisma.GoodsReceiptLineUpsertWithWhereUniqueWithoutPackInput[]
+  createMany?: Prisma.GoodsReceiptLineCreateManyPackInputEnvelope
+  set?: Prisma.GoodsReceiptLineWhereUniqueInput | Prisma.GoodsReceiptLineWhereUniqueInput[]
+  disconnect?: Prisma.GoodsReceiptLineWhereUniqueInput | Prisma.GoodsReceiptLineWhereUniqueInput[]
+  delete?: Prisma.GoodsReceiptLineWhereUniqueInput | Prisma.GoodsReceiptLineWhereUniqueInput[]
+  connect?: Prisma.GoodsReceiptLineWhereUniqueInput | Prisma.GoodsReceiptLineWhereUniqueInput[]
+  update?: Prisma.GoodsReceiptLineUpdateWithWhereUniqueWithoutPackInput | Prisma.GoodsReceiptLineUpdateWithWhereUniqueWithoutPackInput[]
+  updateMany?: Prisma.GoodsReceiptLineUpdateManyWithWhereWithoutPackInput | Prisma.GoodsReceiptLineUpdateManyWithWhereWithoutPackInput[]
+  deleteMany?: Prisma.GoodsReceiptLineScalarWhereInput | Prisma.GoodsReceiptLineScalarWhereInput[]
+}
+
+export type GoodsReceiptLineUncheckedUpdateManyWithoutPackNestedInput = {
+  create?: Prisma.XOR<Prisma.GoodsReceiptLineCreateWithoutPackInput, Prisma.GoodsReceiptLineUncheckedCreateWithoutPackInput> | Prisma.GoodsReceiptLineCreateWithoutPackInput[] | Prisma.GoodsReceiptLineUncheckedCreateWithoutPackInput[]
+  connectOrCreate?: Prisma.GoodsReceiptLineCreateOrConnectWithoutPackInput | Prisma.GoodsReceiptLineCreateOrConnectWithoutPackInput[]
+  upsert?: Prisma.GoodsReceiptLineUpsertWithWhereUniqueWithoutPackInput | Prisma.GoodsReceiptLineUpsertWithWhereUniqueWithoutPackInput[]
+  createMany?: Prisma.GoodsReceiptLineCreateManyPackInputEnvelope
+  set?: Prisma.GoodsReceiptLineWhereUniqueInput | Prisma.GoodsReceiptLineWhereUniqueInput[]
+  disconnect?: Prisma.GoodsReceiptLineWhereUniqueInput | Prisma.GoodsReceiptLineWhereUniqueInput[]
+  delete?: Prisma.GoodsReceiptLineWhereUniqueInput | Prisma.GoodsReceiptLineWhereUniqueInput[]
+  connect?: Prisma.GoodsReceiptLineWhereUniqueInput | Prisma.GoodsReceiptLineWhereUniqueInput[]
+  update?: Prisma.GoodsReceiptLineUpdateWithWhereUniqueWithoutPackInput | Prisma.GoodsReceiptLineUpdateWithWhereUniqueWithoutPackInput[]
+  updateMany?: Prisma.GoodsReceiptLineUpdateManyWithWhereWithoutPackInput | Prisma.GoodsReceiptLineUpdateManyWithWhereWithoutPackInput[]
+  deleteMany?: Prisma.GoodsReceiptLineScalarWhereInput | Prisma.GoodsReceiptLineScalarWhereInput[]
+}
+
 export type GoodsReceiptLineCreateWithoutOrganizationInput = {
   id?: string
-  packId?: string | null
   unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
   receivedQty: number
   receivedBaseQty?: number
   unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
   createdAt?: Date | string
+  updatedAt?: Date | string
   goodsReceipt: Prisma.GoodsReceiptCreateNestedOneWithoutLinesInput
   purchaseOrderLine: Prisma.PurchaseOrderLineCreateNestedOneWithoutReceiptLinesInput
   item: Prisma.ItemCreateNestedOneWithoutGoodsReceiptLinesInput
+  pack?: Prisma.ItemPackCreateNestedOneWithoutGoodsReceiptLinesInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutGoodsReceiptLineInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutGoodsReceiptLineInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutGoodsReceiptLineInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutGoodsReceiptLineInput
 }
 
 export type GoodsReceiptLineUncheckedCreateWithoutOrganizationInput = {
@@ -705,10 +1305,32 @@ export type GoodsReceiptLineUncheckedCreateWithoutOrganizationInput = {
   itemId: string
   packId?: string | null
   unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
   receivedQty: number
   receivedBaseQty?: number
   unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
   createdAt?: Date | string
+  updatedAt?: Date | string
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
 }
 
 export type GoodsReceiptLineCreateOrConnectWithoutOrganizationInput = {
@@ -748,23 +1370,63 @@ export type GoodsReceiptLineScalarWhereInput = {
   itemId?: Prisma.StringFilter<"GoodsReceiptLine"> | string
   packId?: Prisma.StringNullableFilter<"GoodsReceiptLine"> | string | null
   unitsPerPack?: Prisma.IntFilter<"GoodsReceiptLine"> | number
+  packQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
+  looseBaseQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
   receivedQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
   receivedBaseQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
   unitCostCents?: Prisma.IntFilter<"GoodsReceiptLine"> | number
+  lotNumber?: Prisma.StringNullableFilter<"GoodsReceiptLine"> | string | null
+  batchCode?: Prisma.StringNullableFilter<"GoodsReceiptLine"> | string | null
+  manufacturedAt?: Prisma.DateTimeNullableFilter<"GoodsReceiptLine"> | Date | string | null
+  expiresAt?: Prisma.DateTimeNullableFilter<"GoodsReceiptLine"> | Date | string | null
+  serialNumbers?: Prisma.JsonNullableFilter<"GoodsReceiptLine">
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFilter<"GoodsReceiptLine"> | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
+  rejectedBaseQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
+  quarantinedBaseQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
+  rejectionDisposition?: Prisma.EnumRejectionDispositionNullableFilter<"GoodsReceiptLine"> | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.StringNullableFilter<"GoodsReceiptLine"> | string | null
+  qcNotes?: Prisma.StringNullableFilter<"GoodsReceiptLine"> | string | null
+  qcInspectedByUserId?: Prisma.StringNullableFilter<"GoodsReceiptLine"> | string | null
+  qcInspectedAt?: Prisma.DateTimeNullableFilter<"GoodsReceiptLine"> | Date | string | null
+  billedBaseQty?: Prisma.IntFilter<"GoodsReceiptLine"> | number
   createdAt?: Prisma.DateTimeFilter<"GoodsReceiptLine"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"GoodsReceiptLine"> | Date | string
 }
 
 export type GoodsReceiptLineCreateWithoutItemInput = {
   id?: string
-  packId?: string | null
   unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
   receivedQty: number
   receivedBaseQty?: number
   unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
   createdAt?: Date | string
+  updatedAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutGoodsReceiptLinesInput
   goodsReceipt: Prisma.GoodsReceiptCreateNestedOneWithoutLinesInput
   purchaseOrderLine: Prisma.PurchaseOrderLineCreateNestedOneWithoutReceiptLinesInput
+  pack?: Prisma.ItemPackCreateNestedOneWithoutGoodsReceiptLinesInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutGoodsReceiptLineInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutGoodsReceiptLineInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutGoodsReceiptLineInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutGoodsReceiptLineInput
 }
 
 export type GoodsReceiptLineUncheckedCreateWithoutItemInput = {
@@ -774,10 +1436,32 @@ export type GoodsReceiptLineUncheckedCreateWithoutItemInput = {
   purchaseOrderLineId: string
   packId?: string | null
   unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
   receivedQty: number
   receivedBaseQty?: number
   unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
   createdAt?: Date | string
+  updatedAt?: Date | string
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
 }
 
 export type GoodsReceiptLineCreateOrConnectWithoutItemInput = {
@@ -808,15 +1492,37 @@ export type GoodsReceiptLineUpdateManyWithWhereWithoutItemInput = {
 
 export type GoodsReceiptLineCreateWithoutPurchaseOrderLineInput = {
   id?: string
-  packId?: string | null
   unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
   receivedQty: number
   receivedBaseQty?: number
   unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
   createdAt?: Date | string
+  updatedAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutGoodsReceiptLinesInput
   goodsReceipt: Prisma.GoodsReceiptCreateNestedOneWithoutLinesInput
   item: Prisma.ItemCreateNestedOneWithoutGoodsReceiptLinesInput
+  pack?: Prisma.ItemPackCreateNestedOneWithoutGoodsReceiptLinesInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutGoodsReceiptLineInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutGoodsReceiptLineInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutGoodsReceiptLineInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutGoodsReceiptLineInput
 }
 
 export type GoodsReceiptLineUncheckedCreateWithoutPurchaseOrderLineInput = {
@@ -826,10 +1532,32 @@ export type GoodsReceiptLineUncheckedCreateWithoutPurchaseOrderLineInput = {
   itemId: string
   packId?: string | null
   unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
   receivedQty: number
   receivedBaseQty?: number
   unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
   createdAt?: Date | string
+  updatedAt?: Date | string
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
 }
 
 export type GoodsReceiptLineCreateOrConnectWithoutPurchaseOrderLineInput = {
@@ -860,15 +1588,37 @@ export type GoodsReceiptLineUpdateManyWithWhereWithoutPurchaseOrderLineInput = {
 
 export type GoodsReceiptLineCreateWithoutGoodsReceiptInput = {
   id?: string
-  packId?: string | null
   unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
   receivedQty: number
   receivedBaseQty?: number
   unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
   createdAt?: Date | string
+  updatedAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutGoodsReceiptLinesInput
   purchaseOrderLine: Prisma.PurchaseOrderLineCreateNestedOneWithoutReceiptLinesInput
   item: Prisma.ItemCreateNestedOneWithoutGoodsReceiptLinesInput
+  pack?: Prisma.ItemPackCreateNestedOneWithoutGoodsReceiptLinesInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutGoodsReceiptLineInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutGoodsReceiptLineInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutGoodsReceiptLineInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutGoodsReceiptLineInput
 }
 
 export type GoodsReceiptLineUncheckedCreateWithoutGoodsReceiptInput = {
@@ -878,10 +1628,32 @@ export type GoodsReceiptLineUncheckedCreateWithoutGoodsReceiptInput = {
   itemId: string
   packId?: string | null
   unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
   receivedQty: number
   receivedBaseQty?: number
   unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
   createdAt?: Date | string
+  updatedAt?: Date | string
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
 }
 
 export type GoodsReceiptLineCreateOrConnectWithoutGoodsReceiptInput = {
@@ -910,6 +1682,726 @@ export type GoodsReceiptLineUpdateManyWithWhereWithoutGoodsReceiptInput = {
   data: Prisma.XOR<Prisma.GoodsReceiptLineUpdateManyMutationInput, Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutGoodsReceiptInput>
 }
 
+export type GoodsReceiptLineCreateWithoutStockLotsInput = {
+  id?: string
+  unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
+  receivedQty: number
+  receivedBaseQty?: number
+  unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutGoodsReceiptLinesInput
+  goodsReceipt: Prisma.GoodsReceiptCreateNestedOneWithoutLinesInput
+  purchaseOrderLine: Prisma.PurchaseOrderLineCreateNestedOneWithoutReceiptLinesInput
+  item: Prisma.ItemCreateNestedOneWithoutGoodsReceiptLinesInput
+  pack?: Prisma.ItemPackCreateNestedOneWithoutGoodsReceiptLinesInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutGoodsReceiptLineInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutGoodsReceiptLineInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutGoodsReceiptLineInput
+}
+
+export type GoodsReceiptLineUncheckedCreateWithoutStockLotsInput = {
+  id?: string
+  organizationId: string
+  goodsReceiptId: string
+  purchaseOrderLineId: string
+  itemId: string
+  packId?: string | null
+  unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
+  receivedQty: number
+  receivedBaseQty?: number
+  unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+}
+
+export type GoodsReceiptLineCreateOrConnectWithoutStockLotsInput = {
+  where: Prisma.GoodsReceiptLineWhereUniqueInput
+  create: Prisma.XOR<Prisma.GoodsReceiptLineCreateWithoutStockLotsInput, Prisma.GoodsReceiptLineUncheckedCreateWithoutStockLotsInput>
+}
+
+export type GoodsReceiptLineUpsertWithoutStockLotsInput = {
+  update: Prisma.XOR<Prisma.GoodsReceiptLineUpdateWithoutStockLotsInput, Prisma.GoodsReceiptLineUncheckedUpdateWithoutStockLotsInput>
+  create: Prisma.XOR<Prisma.GoodsReceiptLineCreateWithoutStockLotsInput, Prisma.GoodsReceiptLineUncheckedCreateWithoutStockLotsInput>
+  where?: Prisma.GoodsReceiptLineWhereInput
+}
+
+export type GoodsReceiptLineUpdateToOneWithWhereWithoutStockLotsInput = {
+  where?: Prisma.GoodsReceiptLineWhereInput
+  data: Prisma.XOR<Prisma.GoodsReceiptLineUpdateWithoutStockLotsInput, Prisma.GoodsReceiptLineUncheckedUpdateWithoutStockLotsInput>
+}
+
+export type GoodsReceiptLineUpdateWithoutStockLotsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutGoodsReceiptLinesNestedInput
+  goodsReceipt?: Prisma.GoodsReceiptUpdateOneRequiredWithoutLinesNestedInput
+  purchaseOrderLine?: Prisma.PurchaseOrderLineUpdateOneRequiredWithoutReceiptLinesNestedInput
+  item?: Prisma.ItemUpdateOneRequiredWithoutGoodsReceiptLinesNestedInput
+  pack?: Prisma.ItemPackUpdateOneWithoutGoodsReceiptLinesNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutGoodsReceiptLineNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutGoodsReceiptLineNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutGoodsReceiptLineNestedInput
+}
+
+export type GoodsReceiptLineUncheckedUpdateWithoutStockLotsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  goodsReceiptId?: Prisma.StringFieldUpdateOperationsInput | string
+  purchaseOrderLineId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+}
+
+export type GoodsReceiptLineCreateWithoutQuarantineHoldsInput = {
+  id?: string
+  unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
+  receivedQty: number
+  receivedBaseQty?: number
+  unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutGoodsReceiptLinesInput
+  goodsReceipt: Prisma.GoodsReceiptCreateNestedOneWithoutLinesInput
+  purchaseOrderLine: Prisma.PurchaseOrderLineCreateNestedOneWithoutReceiptLinesInput
+  item: Prisma.ItemCreateNestedOneWithoutGoodsReceiptLinesInput
+  pack?: Prisma.ItemPackCreateNestedOneWithoutGoodsReceiptLinesInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutGoodsReceiptLineInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutGoodsReceiptLineInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutGoodsReceiptLineInput
+}
+
+export type GoodsReceiptLineUncheckedCreateWithoutQuarantineHoldsInput = {
+  id?: string
+  organizationId: string
+  goodsReceiptId: string
+  purchaseOrderLineId: string
+  itemId: string
+  packId?: string | null
+  unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
+  receivedQty: number
+  receivedBaseQty?: number
+  unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+}
+
+export type GoodsReceiptLineCreateOrConnectWithoutQuarantineHoldsInput = {
+  where: Prisma.GoodsReceiptLineWhereUniqueInput
+  create: Prisma.XOR<Prisma.GoodsReceiptLineCreateWithoutQuarantineHoldsInput, Prisma.GoodsReceiptLineUncheckedCreateWithoutQuarantineHoldsInput>
+}
+
+export type GoodsReceiptLineUpsertWithoutQuarantineHoldsInput = {
+  update: Prisma.XOR<Prisma.GoodsReceiptLineUpdateWithoutQuarantineHoldsInput, Prisma.GoodsReceiptLineUncheckedUpdateWithoutQuarantineHoldsInput>
+  create: Prisma.XOR<Prisma.GoodsReceiptLineCreateWithoutQuarantineHoldsInput, Prisma.GoodsReceiptLineUncheckedCreateWithoutQuarantineHoldsInput>
+  where?: Prisma.GoodsReceiptLineWhereInput
+}
+
+export type GoodsReceiptLineUpdateToOneWithWhereWithoutQuarantineHoldsInput = {
+  where?: Prisma.GoodsReceiptLineWhereInput
+  data: Prisma.XOR<Prisma.GoodsReceiptLineUpdateWithoutQuarantineHoldsInput, Prisma.GoodsReceiptLineUncheckedUpdateWithoutQuarantineHoldsInput>
+}
+
+export type GoodsReceiptLineUpdateWithoutQuarantineHoldsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutGoodsReceiptLinesNestedInput
+  goodsReceipt?: Prisma.GoodsReceiptUpdateOneRequiredWithoutLinesNestedInput
+  purchaseOrderLine?: Prisma.PurchaseOrderLineUpdateOneRequiredWithoutReceiptLinesNestedInput
+  item?: Prisma.ItemUpdateOneRequiredWithoutGoodsReceiptLinesNestedInput
+  pack?: Prisma.ItemPackUpdateOneWithoutGoodsReceiptLinesNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutGoodsReceiptLineNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutGoodsReceiptLineNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutGoodsReceiptLineNestedInput
+}
+
+export type GoodsReceiptLineUncheckedUpdateWithoutQuarantineHoldsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  goodsReceiptId?: Prisma.StringFieldUpdateOperationsInput | string
+  purchaseOrderLineId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+}
+
+export type GoodsReceiptLineCreateWithoutSupplierClaimsInput = {
+  id?: string
+  unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
+  receivedQty: number
+  receivedBaseQty?: number
+  unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutGoodsReceiptLinesInput
+  goodsReceipt: Prisma.GoodsReceiptCreateNestedOneWithoutLinesInput
+  purchaseOrderLine: Prisma.PurchaseOrderLineCreateNestedOneWithoutReceiptLinesInput
+  item: Prisma.ItemCreateNestedOneWithoutGoodsReceiptLinesInput
+  pack?: Prisma.ItemPackCreateNestedOneWithoutGoodsReceiptLinesInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutGoodsReceiptLineInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutGoodsReceiptLineInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutGoodsReceiptLineInput
+}
+
+export type GoodsReceiptLineUncheckedCreateWithoutSupplierClaimsInput = {
+  id?: string
+  organizationId: string
+  goodsReceiptId: string
+  purchaseOrderLineId: string
+  itemId: string
+  packId?: string | null
+  unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
+  receivedQty: number
+  receivedBaseQty?: number
+  unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+}
+
+export type GoodsReceiptLineCreateOrConnectWithoutSupplierClaimsInput = {
+  where: Prisma.GoodsReceiptLineWhereUniqueInput
+  create: Prisma.XOR<Prisma.GoodsReceiptLineCreateWithoutSupplierClaimsInput, Prisma.GoodsReceiptLineUncheckedCreateWithoutSupplierClaimsInput>
+}
+
+export type GoodsReceiptLineUpsertWithoutSupplierClaimsInput = {
+  update: Prisma.XOR<Prisma.GoodsReceiptLineUpdateWithoutSupplierClaimsInput, Prisma.GoodsReceiptLineUncheckedUpdateWithoutSupplierClaimsInput>
+  create: Prisma.XOR<Prisma.GoodsReceiptLineCreateWithoutSupplierClaimsInput, Prisma.GoodsReceiptLineUncheckedCreateWithoutSupplierClaimsInput>
+  where?: Prisma.GoodsReceiptLineWhereInput
+}
+
+export type GoodsReceiptLineUpdateToOneWithWhereWithoutSupplierClaimsInput = {
+  where?: Prisma.GoodsReceiptLineWhereInput
+  data: Prisma.XOR<Prisma.GoodsReceiptLineUpdateWithoutSupplierClaimsInput, Prisma.GoodsReceiptLineUncheckedUpdateWithoutSupplierClaimsInput>
+}
+
+export type GoodsReceiptLineUpdateWithoutSupplierClaimsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutGoodsReceiptLinesNestedInput
+  goodsReceipt?: Prisma.GoodsReceiptUpdateOneRequiredWithoutLinesNestedInput
+  purchaseOrderLine?: Prisma.PurchaseOrderLineUpdateOneRequiredWithoutReceiptLinesNestedInput
+  item?: Prisma.ItemUpdateOneRequiredWithoutGoodsReceiptLinesNestedInput
+  pack?: Prisma.ItemPackUpdateOneWithoutGoodsReceiptLinesNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutGoodsReceiptLineNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutGoodsReceiptLineNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutGoodsReceiptLineNestedInput
+}
+
+export type GoodsReceiptLineUncheckedUpdateWithoutSupplierClaimsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  goodsReceiptId?: Prisma.StringFieldUpdateOperationsInput | string
+  purchaseOrderLineId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+}
+
+export type GoodsReceiptLineCreateWithoutVendorBillLinesInput = {
+  id?: string
+  unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
+  receivedQty: number
+  receivedBaseQty?: number
+  unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutGoodsReceiptLinesInput
+  goodsReceipt: Prisma.GoodsReceiptCreateNestedOneWithoutLinesInput
+  purchaseOrderLine: Prisma.PurchaseOrderLineCreateNestedOneWithoutReceiptLinesInput
+  item: Prisma.ItemCreateNestedOneWithoutGoodsReceiptLinesInput
+  pack?: Prisma.ItemPackCreateNestedOneWithoutGoodsReceiptLinesInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutGoodsReceiptLineInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutGoodsReceiptLineInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutGoodsReceiptLineInput
+}
+
+export type GoodsReceiptLineUncheckedCreateWithoutVendorBillLinesInput = {
+  id?: string
+  organizationId: string
+  goodsReceiptId: string
+  purchaseOrderLineId: string
+  itemId: string
+  packId?: string | null
+  unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
+  receivedQty: number
+  receivedBaseQty?: number
+  unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+}
+
+export type GoodsReceiptLineCreateOrConnectWithoutVendorBillLinesInput = {
+  where: Prisma.GoodsReceiptLineWhereUniqueInput
+  create: Prisma.XOR<Prisma.GoodsReceiptLineCreateWithoutVendorBillLinesInput, Prisma.GoodsReceiptLineUncheckedCreateWithoutVendorBillLinesInput>
+}
+
+export type GoodsReceiptLineUpsertWithoutVendorBillLinesInput = {
+  update: Prisma.XOR<Prisma.GoodsReceiptLineUpdateWithoutVendorBillLinesInput, Prisma.GoodsReceiptLineUncheckedUpdateWithoutVendorBillLinesInput>
+  create: Prisma.XOR<Prisma.GoodsReceiptLineCreateWithoutVendorBillLinesInput, Prisma.GoodsReceiptLineUncheckedCreateWithoutVendorBillLinesInput>
+  where?: Prisma.GoodsReceiptLineWhereInput
+}
+
+export type GoodsReceiptLineUpdateToOneWithWhereWithoutVendorBillLinesInput = {
+  where?: Prisma.GoodsReceiptLineWhereInput
+  data: Prisma.XOR<Prisma.GoodsReceiptLineUpdateWithoutVendorBillLinesInput, Prisma.GoodsReceiptLineUncheckedUpdateWithoutVendorBillLinesInput>
+}
+
+export type GoodsReceiptLineUpdateWithoutVendorBillLinesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutGoodsReceiptLinesNestedInput
+  goodsReceipt?: Prisma.GoodsReceiptUpdateOneRequiredWithoutLinesNestedInput
+  purchaseOrderLine?: Prisma.PurchaseOrderLineUpdateOneRequiredWithoutReceiptLinesNestedInput
+  item?: Prisma.ItemUpdateOneRequiredWithoutGoodsReceiptLinesNestedInput
+  pack?: Prisma.ItemPackUpdateOneWithoutGoodsReceiptLinesNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutGoodsReceiptLineNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutGoodsReceiptLineNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutGoodsReceiptLineNestedInput
+}
+
+export type GoodsReceiptLineUncheckedUpdateWithoutVendorBillLinesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  goodsReceiptId?: Prisma.StringFieldUpdateOperationsInput | string
+  purchaseOrderLineId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+}
+
+export type GoodsReceiptLineCreateWithoutPackInput = {
+  id?: string
+  unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
+  receivedQty: number
+  receivedBaseQty?: number
+  unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutGoodsReceiptLinesInput
+  goodsReceipt: Prisma.GoodsReceiptCreateNestedOneWithoutLinesInput
+  purchaseOrderLine: Prisma.PurchaseOrderLineCreateNestedOneWithoutReceiptLinesInput
+  item: Prisma.ItemCreateNestedOneWithoutGoodsReceiptLinesInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutGoodsReceiptLineInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutGoodsReceiptLineInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutGoodsReceiptLineInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutGoodsReceiptLineInput
+}
+
+export type GoodsReceiptLineUncheckedCreateWithoutPackInput = {
+  id?: string
+  organizationId: string
+  goodsReceiptId: string
+  purchaseOrderLineId: string
+  itemId: string
+  unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
+  receivedQty: number
+  receivedBaseQty?: number
+  unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutGoodsReceiptLineInput
+}
+
+export type GoodsReceiptLineCreateOrConnectWithoutPackInput = {
+  where: Prisma.GoodsReceiptLineWhereUniqueInput
+  create: Prisma.XOR<Prisma.GoodsReceiptLineCreateWithoutPackInput, Prisma.GoodsReceiptLineUncheckedCreateWithoutPackInput>
+}
+
+export type GoodsReceiptLineCreateManyPackInputEnvelope = {
+  data: Prisma.GoodsReceiptLineCreateManyPackInput | Prisma.GoodsReceiptLineCreateManyPackInput[]
+  skipDuplicates?: boolean
+}
+
+export type GoodsReceiptLineUpsertWithWhereUniqueWithoutPackInput = {
+  where: Prisma.GoodsReceiptLineWhereUniqueInput
+  update: Prisma.XOR<Prisma.GoodsReceiptLineUpdateWithoutPackInput, Prisma.GoodsReceiptLineUncheckedUpdateWithoutPackInput>
+  create: Prisma.XOR<Prisma.GoodsReceiptLineCreateWithoutPackInput, Prisma.GoodsReceiptLineUncheckedCreateWithoutPackInput>
+}
+
+export type GoodsReceiptLineUpdateWithWhereUniqueWithoutPackInput = {
+  where: Prisma.GoodsReceiptLineWhereUniqueInput
+  data: Prisma.XOR<Prisma.GoodsReceiptLineUpdateWithoutPackInput, Prisma.GoodsReceiptLineUncheckedUpdateWithoutPackInput>
+}
+
+export type GoodsReceiptLineUpdateManyWithWhereWithoutPackInput = {
+  where: Prisma.GoodsReceiptLineScalarWhereInput
+  data: Prisma.XOR<Prisma.GoodsReceiptLineUpdateManyMutationInput, Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutPackInput>
+}
+
 export type GoodsReceiptLineCreateManyOrganizationInput = {
   id?: string
   goodsReceiptId: string
@@ -917,23 +2409,63 @@ export type GoodsReceiptLineCreateManyOrganizationInput = {
   itemId: string
   packId?: string | null
   unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
   receivedQty: number
   receivedBaseQty?: number
   unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type GoodsReceiptLineUpdateWithoutOrganizationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   goodsReceipt?: Prisma.GoodsReceiptUpdateOneRequiredWithoutLinesNestedInput
   purchaseOrderLine?: Prisma.PurchaseOrderLineUpdateOneRequiredWithoutReceiptLinesNestedInput
   item?: Prisma.ItemUpdateOneRequiredWithoutGoodsReceiptLinesNestedInput
+  pack?: Prisma.ItemPackUpdateOneWithoutGoodsReceiptLinesNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutGoodsReceiptLineNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutGoodsReceiptLineNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutGoodsReceiptLineNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutGoodsReceiptLineNestedInput
 }
 
 export type GoodsReceiptLineUncheckedUpdateWithoutOrganizationInput = {
@@ -943,10 +2475,32 @@ export type GoodsReceiptLineUncheckedUpdateWithoutOrganizationInput = {
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
   packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
 }
 
 export type GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationInput = {
@@ -956,10 +2510,28 @@ export type GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationInput = {
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
   packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type GoodsReceiptLineCreateManyItemInput = {
@@ -969,23 +2541,63 @@ export type GoodsReceiptLineCreateManyItemInput = {
   purchaseOrderLineId: string
   packId?: string | null
   unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
   receivedQty: number
   receivedBaseQty?: number
   unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type GoodsReceiptLineUpdateWithoutItemInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutGoodsReceiptLinesNestedInput
   goodsReceipt?: Prisma.GoodsReceiptUpdateOneRequiredWithoutLinesNestedInput
   purchaseOrderLine?: Prisma.PurchaseOrderLineUpdateOneRequiredWithoutReceiptLinesNestedInput
+  pack?: Prisma.ItemPackUpdateOneWithoutGoodsReceiptLinesNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutGoodsReceiptLineNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutGoodsReceiptLineNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutGoodsReceiptLineNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutGoodsReceiptLineNestedInput
 }
 
 export type GoodsReceiptLineUncheckedUpdateWithoutItemInput = {
@@ -995,10 +2607,32 @@ export type GoodsReceiptLineUncheckedUpdateWithoutItemInput = {
   purchaseOrderLineId?: Prisma.StringFieldUpdateOperationsInput | string
   packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
 }
 
 export type GoodsReceiptLineUncheckedUpdateManyWithoutItemInput = {
@@ -1008,10 +2642,28 @@ export type GoodsReceiptLineUncheckedUpdateManyWithoutItemInput = {
   purchaseOrderLineId?: Prisma.StringFieldUpdateOperationsInput | string
   packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type GoodsReceiptLineCreateManyPurchaseOrderLineInput = {
@@ -1021,23 +2673,63 @@ export type GoodsReceiptLineCreateManyPurchaseOrderLineInput = {
   itemId: string
   packId?: string | null
   unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
   receivedQty: number
   receivedBaseQty?: number
   unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type GoodsReceiptLineUpdateWithoutPurchaseOrderLineInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutGoodsReceiptLinesNestedInput
   goodsReceipt?: Prisma.GoodsReceiptUpdateOneRequiredWithoutLinesNestedInput
   item?: Prisma.ItemUpdateOneRequiredWithoutGoodsReceiptLinesNestedInput
+  pack?: Prisma.ItemPackUpdateOneWithoutGoodsReceiptLinesNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutGoodsReceiptLineNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutGoodsReceiptLineNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutGoodsReceiptLineNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutGoodsReceiptLineNestedInput
 }
 
 export type GoodsReceiptLineUncheckedUpdateWithoutPurchaseOrderLineInput = {
@@ -1047,10 +2739,32 @@ export type GoodsReceiptLineUncheckedUpdateWithoutPurchaseOrderLineInput = {
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
   packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
 }
 
 export type GoodsReceiptLineUncheckedUpdateManyWithoutPurchaseOrderLineInput = {
@@ -1060,10 +2774,28 @@ export type GoodsReceiptLineUncheckedUpdateManyWithoutPurchaseOrderLineInput = {
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
   packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type GoodsReceiptLineCreateManyGoodsReceiptInput = {
@@ -1073,23 +2805,63 @@ export type GoodsReceiptLineCreateManyGoodsReceiptInput = {
   itemId: string
   packId?: string | null
   unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
   receivedQty: number
   receivedBaseQty?: number
   unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type GoodsReceiptLineUpdateWithoutGoodsReceiptInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutGoodsReceiptLinesNestedInput
   purchaseOrderLine?: Prisma.PurchaseOrderLineUpdateOneRequiredWithoutReceiptLinesNestedInput
   item?: Prisma.ItemUpdateOneRequiredWithoutGoodsReceiptLinesNestedInput
+  pack?: Prisma.ItemPackUpdateOneWithoutGoodsReceiptLinesNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutGoodsReceiptLineNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutGoodsReceiptLineNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutGoodsReceiptLineNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutGoodsReceiptLineNestedInput
 }
 
 export type GoodsReceiptLineUncheckedUpdateWithoutGoodsReceiptInput = {
@@ -1099,10 +2871,32 @@ export type GoodsReceiptLineUncheckedUpdateWithoutGoodsReceiptInput = {
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
   packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
 }
 
 export type GoodsReceiptLineUncheckedUpdateManyWithoutGoodsReceiptInput = {
@@ -1112,12 +2906,218 @@ export type GoodsReceiptLineUncheckedUpdateManyWithoutGoodsReceiptInput = {
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
   packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
+export type GoodsReceiptLineCreateManyPackInput = {
+  id?: string
+  organizationId: string
+  goodsReceiptId: string
+  purchaseOrderLineId: string
+  itemId: string
+  unitsPerPack?: number
+  packQty?: number
+  looseBaseQty?: number
+  receivedQty: number
+  receivedBaseQty?: number
+  unitCostCents: number
+  lotNumber?: string | null
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  rejectionDisposition?: $Enums.RejectionDisposition | null
+  defectReasonCode?: string | null
+  qcNotes?: string | null
+  qcInspectedByUserId?: string | null
+  qcInspectedAt?: Date | string | null
+  billedBaseQty?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type GoodsReceiptLineUpdateWithoutPackInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutGoodsReceiptLinesNestedInput
+  goodsReceipt?: Prisma.GoodsReceiptUpdateOneRequiredWithoutLinesNestedInput
+  purchaseOrderLine?: Prisma.PurchaseOrderLineUpdateOneRequiredWithoutReceiptLinesNestedInput
+  item?: Prisma.ItemUpdateOneRequiredWithoutGoodsReceiptLinesNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutGoodsReceiptLineNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutGoodsReceiptLineNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutGoodsReceiptLineNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutGoodsReceiptLineNestedInput
+}
+
+export type GoodsReceiptLineUncheckedUpdateWithoutPackInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  goodsReceiptId?: Prisma.StringFieldUpdateOperationsInput | string
+  purchaseOrderLineId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutGoodsReceiptLineNestedInput
+}
+
+export type GoodsReceiptLineUncheckedUpdateManyWithoutPackInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  goodsReceiptId?: Prisma.StringFieldUpdateOperationsInput | string
+  purchaseOrderLineId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  packQty?: Prisma.IntFieldUpdateOperationsInput | number
+  looseBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  lotNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  qcStatus?: Prisma.EnumDeliveryLineQcStatusFieldUpdateOperationsInput | $Enums.DeliveryLineQcStatus
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectionDisposition?: Prisma.NullableEnumRejectionDispositionFieldUpdateOperationsInput | $Enums.RejectionDisposition | null
+  defectReasonCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcInspectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+
+/**
+ * Count Type GoodsReceiptLineCountOutputType
+ */
+
+export type GoodsReceiptLineCountOutputType = {
+  stockLots: number
+  quarantineHolds: number
+  supplierClaims: number
+  vendorBillLines: number
+}
+
+export type GoodsReceiptLineCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  stockLots?: boolean | GoodsReceiptLineCountOutputTypeCountStockLotsArgs
+  quarantineHolds?: boolean | GoodsReceiptLineCountOutputTypeCountQuarantineHoldsArgs
+  supplierClaims?: boolean | GoodsReceiptLineCountOutputTypeCountSupplierClaimsArgs
+  vendorBillLines?: boolean | GoodsReceiptLineCountOutputTypeCountVendorBillLinesArgs
+}
+
+/**
+ * GoodsReceiptLineCountOutputType without action
+ */
+export type GoodsReceiptLineCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the GoodsReceiptLineCountOutputType
+   */
+  select?: Prisma.GoodsReceiptLineCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * GoodsReceiptLineCountOutputType without action
+ */
+export type GoodsReceiptLineCountOutputTypeCountStockLotsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.StockLotWhereInput
+}
+
+/**
+ * GoodsReceiptLineCountOutputType without action
+ */
+export type GoodsReceiptLineCountOutputTypeCountQuarantineHoldsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.QuarantineHoldWhereInput
+}
+
+/**
+ * GoodsReceiptLineCountOutputType without action
+ */
+export type GoodsReceiptLineCountOutputTypeCountSupplierClaimsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SupplierClaimWhereInput
+}
+
+/**
+ * GoodsReceiptLineCountOutputType without action
+ */
+export type GoodsReceiptLineCountOutputTypeCountVendorBillLinesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.VendorBillLineWhereInput
+}
 
 
 export type GoodsReceiptLineSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1128,14 +3128,38 @@ export type GoodsReceiptLineSelect<ExtArgs extends runtime.Types.Extensions.Inte
   itemId?: boolean
   packId?: boolean
   unitsPerPack?: boolean
+  packQty?: boolean
+  looseBaseQty?: boolean
   receivedQty?: boolean
   receivedBaseQty?: boolean
   unitCostCents?: boolean
+  lotNumber?: boolean
+  batchCode?: boolean
+  manufacturedAt?: boolean
+  expiresAt?: boolean
+  serialNumbers?: boolean
+  qcStatus?: boolean
+  acceptedBaseQty?: boolean
+  rejectedBaseQty?: boolean
+  quarantinedBaseQty?: boolean
+  rejectionDisposition?: boolean
+  defectReasonCode?: boolean
+  qcNotes?: boolean
+  qcInspectedByUserId?: boolean
+  qcInspectedAt?: boolean
+  billedBaseQty?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   goodsReceipt?: boolean | Prisma.GoodsReceiptDefaultArgs<ExtArgs>
   purchaseOrderLine?: boolean | Prisma.PurchaseOrderLineDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
+  pack?: boolean | Prisma.GoodsReceiptLine$packArgs<ExtArgs>
+  stockLots?: boolean | Prisma.GoodsReceiptLine$stockLotsArgs<ExtArgs>
+  quarantineHolds?: boolean | Prisma.GoodsReceiptLine$quarantineHoldsArgs<ExtArgs>
+  supplierClaims?: boolean | Prisma.GoodsReceiptLine$supplierClaimsArgs<ExtArgs>
+  vendorBillLines?: boolean | Prisma.GoodsReceiptLine$vendorBillLinesArgs<ExtArgs>
+  _count?: boolean | Prisma.GoodsReceiptLineCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["goodsReceiptLine"]>
 
 export type GoodsReceiptLineSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1146,14 +3170,33 @@ export type GoodsReceiptLineSelectCreateManyAndReturn<ExtArgs extends runtime.Ty
   itemId?: boolean
   packId?: boolean
   unitsPerPack?: boolean
+  packQty?: boolean
+  looseBaseQty?: boolean
   receivedQty?: boolean
   receivedBaseQty?: boolean
   unitCostCents?: boolean
+  lotNumber?: boolean
+  batchCode?: boolean
+  manufacturedAt?: boolean
+  expiresAt?: boolean
+  serialNumbers?: boolean
+  qcStatus?: boolean
+  acceptedBaseQty?: boolean
+  rejectedBaseQty?: boolean
+  quarantinedBaseQty?: boolean
+  rejectionDisposition?: boolean
+  defectReasonCode?: boolean
+  qcNotes?: boolean
+  qcInspectedByUserId?: boolean
+  qcInspectedAt?: boolean
+  billedBaseQty?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   goodsReceipt?: boolean | Prisma.GoodsReceiptDefaultArgs<ExtArgs>
   purchaseOrderLine?: boolean | Prisma.PurchaseOrderLineDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
+  pack?: boolean | Prisma.GoodsReceiptLine$packArgs<ExtArgs>
 }, ExtArgs["result"]["goodsReceiptLine"]>
 
 export type GoodsReceiptLineSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1164,14 +3207,33 @@ export type GoodsReceiptLineSelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
   itemId?: boolean
   packId?: boolean
   unitsPerPack?: boolean
+  packQty?: boolean
+  looseBaseQty?: boolean
   receivedQty?: boolean
   receivedBaseQty?: boolean
   unitCostCents?: boolean
+  lotNumber?: boolean
+  batchCode?: boolean
+  manufacturedAt?: boolean
+  expiresAt?: boolean
+  serialNumbers?: boolean
+  qcStatus?: boolean
+  acceptedBaseQty?: boolean
+  rejectedBaseQty?: boolean
+  quarantinedBaseQty?: boolean
+  rejectionDisposition?: boolean
+  defectReasonCode?: boolean
+  qcNotes?: boolean
+  qcInspectedByUserId?: boolean
+  qcInspectedAt?: boolean
+  billedBaseQty?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   goodsReceipt?: boolean | Prisma.GoodsReceiptDefaultArgs<ExtArgs>
   purchaseOrderLine?: boolean | Prisma.PurchaseOrderLineDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
+  pack?: boolean | Prisma.GoodsReceiptLine$packArgs<ExtArgs>
 }, ExtArgs["result"]["goodsReceiptLine"]>
 
 export type GoodsReceiptLineSelectScalar = {
@@ -1182,30 +3244,56 @@ export type GoodsReceiptLineSelectScalar = {
   itemId?: boolean
   packId?: boolean
   unitsPerPack?: boolean
+  packQty?: boolean
+  looseBaseQty?: boolean
   receivedQty?: boolean
   receivedBaseQty?: boolean
   unitCostCents?: boolean
+  lotNumber?: boolean
+  batchCode?: boolean
+  manufacturedAt?: boolean
+  expiresAt?: boolean
+  serialNumbers?: boolean
+  qcStatus?: boolean
+  acceptedBaseQty?: boolean
+  rejectedBaseQty?: boolean
+  quarantinedBaseQty?: boolean
+  rejectionDisposition?: boolean
+  defectReasonCode?: boolean
+  qcNotes?: boolean
+  qcInspectedByUserId?: boolean
+  qcInspectedAt?: boolean
+  billedBaseQty?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type GoodsReceiptLineOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organizationId" | "goodsReceiptId" | "purchaseOrderLineId" | "itemId" | "packId" | "unitsPerPack" | "receivedQty" | "receivedBaseQty" | "unitCostCents" | "createdAt", ExtArgs["result"]["goodsReceiptLine"]>
+export type GoodsReceiptLineOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organizationId" | "goodsReceiptId" | "purchaseOrderLineId" | "itemId" | "packId" | "unitsPerPack" | "packQty" | "looseBaseQty" | "receivedQty" | "receivedBaseQty" | "unitCostCents" | "lotNumber" | "batchCode" | "manufacturedAt" | "expiresAt" | "serialNumbers" | "qcStatus" | "acceptedBaseQty" | "rejectedBaseQty" | "quarantinedBaseQty" | "rejectionDisposition" | "defectReasonCode" | "qcNotes" | "qcInspectedByUserId" | "qcInspectedAt" | "billedBaseQty" | "createdAt" | "updatedAt", ExtArgs["result"]["goodsReceiptLine"]>
 export type GoodsReceiptLineInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   goodsReceipt?: boolean | Prisma.GoodsReceiptDefaultArgs<ExtArgs>
   purchaseOrderLine?: boolean | Prisma.PurchaseOrderLineDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
+  pack?: boolean | Prisma.GoodsReceiptLine$packArgs<ExtArgs>
+  stockLots?: boolean | Prisma.GoodsReceiptLine$stockLotsArgs<ExtArgs>
+  quarantineHolds?: boolean | Prisma.GoodsReceiptLine$quarantineHoldsArgs<ExtArgs>
+  supplierClaims?: boolean | Prisma.GoodsReceiptLine$supplierClaimsArgs<ExtArgs>
+  vendorBillLines?: boolean | Prisma.GoodsReceiptLine$vendorBillLinesArgs<ExtArgs>
+  _count?: boolean | Prisma.GoodsReceiptLineCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type GoodsReceiptLineIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   goodsReceipt?: boolean | Prisma.GoodsReceiptDefaultArgs<ExtArgs>
   purchaseOrderLine?: boolean | Prisma.PurchaseOrderLineDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
+  pack?: boolean | Prisma.GoodsReceiptLine$packArgs<ExtArgs>
 }
 export type GoodsReceiptLineIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   goodsReceipt?: boolean | Prisma.GoodsReceiptDefaultArgs<ExtArgs>
   purchaseOrderLine?: boolean | Prisma.PurchaseOrderLineDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
+  pack?: boolean | Prisma.GoodsReceiptLine$packArgs<ExtArgs>
 }
 
 export type $GoodsReceiptLinePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1215,6 +3303,11 @@ export type $GoodsReceiptLinePayload<ExtArgs extends runtime.Types.Extensions.In
     goodsReceipt: Prisma.$GoodsReceiptPayload<ExtArgs>
     purchaseOrderLine: Prisma.$PurchaseOrderLinePayload<ExtArgs>
     item: Prisma.$ItemPayload<ExtArgs>
+    pack: Prisma.$ItemPackPayload<ExtArgs> | null
+    stockLots: Prisma.$StockLotPayload<ExtArgs>[]
+    quarantineHolds: Prisma.$QuarantineHoldPayload<ExtArgs>[]
+    supplierClaims: Prisma.$SupplierClaimPayload<ExtArgs>[]
+    vendorBillLines: Prisma.$VendorBillLinePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1224,10 +3317,28 @@ export type $GoodsReceiptLinePayload<ExtArgs extends runtime.Types.Extensions.In
     itemId: string
     packId: string | null
     unitsPerPack: number
+    packQty: number
+    looseBaseQty: number
     receivedQty: number
     receivedBaseQty: number
     unitCostCents: number
+    lotNumber: string | null
+    batchCode: string | null
+    manufacturedAt: Date | null
+    expiresAt: Date | null
+    serialNumbers: runtime.JsonValue | null
+    qcStatus: $Enums.DeliveryLineQcStatus
+    acceptedBaseQty: number
+    rejectedBaseQty: number
+    quarantinedBaseQty: number
+    rejectionDisposition: $Enums.RejectionDisposition | null
+    defectReasonCode: string | null
+    qcNotes: string | null
+    qcInspectedByUserId: string | null
+    qcInspectedAt: Date | null
+    billedBaseQty: number
     createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["goodsReceiptLine"]>
   composites: {}
 }
@@ -1626,6 +3737,11 @@ export interface Prisma__GoodsReceiptLineClient<T, Null = never, ExtArgs extends
   goodsReceipt<T extends Prisma.GoodsReceiptDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GoodsReceiptDefaultArgs<ExtArgs>>): Prisma.Prisma__GoodsReceiptClient<runtime.Types.Result.GetResult<Prisma.$GoodsReceiptPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   purchaseOrderLine<T extends Prisma.PurchaseOrderLineDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PurchaseOrderLineDefaultArgs<ExtArgs>>): Prisma.Prisma__PurchaseOrderLineClient<runtime.Types.Result.GetResult<Prisma.$PurchaseOrderLinePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   item<T extends Prisma.ItemDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ItemDefaultArgs<ExtArgs>>): Prisma.Prisma__ItemClient<runtime.Types.Result.GetResult<Prisma.$ItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  pack<T extends Prisma.GoodsReceiptLine$packArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GoodsReceiptLine$packArgs<ExtArgs>>): Prisma.Prisma__ItemPackClient<runtime.Types.Result.GetResult<Prisma.$ItemPackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  stockLots<T extends Prisma.GoodsReceiptLine$stockLotsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GoodsReceiptLine$stockLotsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StockLotPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  quarantineHolds<T extends Prisma.GoodsReceiptLine$quarantineHoldsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GoodsReceiptLine$quarantineHoldsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$QuarantineHoldPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  supplierClaims<T extends Prisma.GoodsReceiptLine$supplierClaimsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GoodsReceiptLine$supplierClaimsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SupplierClaimPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  vendorBillLines<T extends Prisma.GoodsReceiptLine$vendorBillLinesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GoodsReceiptLine$vendorBillLinesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$VendorBillLinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1662,10 +3778,28 @@ export interface GoodsReceiptLineFieldRefs {
   readonly itemId: Prisma.FieldRef<"GoodsReceiptLine", 'String'>
   readonly packId: Prisma.FieldRef<"GoodsReceiptLine", 'String'>
   readonly unitsPerPack: Prisma.FieldRef<"GoodsReceiptLine", 'Int'>
+  readonly packQty: Prisma.FieldRef<"GoodsReceiptLine", 'Int'>
+  readonly looseBaseQty: Prisma.FieldRef<"GoodsReceiptLine", 'Int'>
   readonly receivedQty: Prisma.FieldRef<"GoodsReceiptLine", 'Int'>
   readonly receivedBaseQty: Prisma.FieldRef<"GoodsReceiptLine", 'Int'>
   readonly unitCostCents: Prisma.FieldRef<"GoodsReceiptLine", 'Int'>
+  readonly lotNumber: Prisma.FieldRef<"GoodsReceiptLine", 'String'>
+  readonly batchCode: Prisma.FieldRef<"GoodsReceiptLine", 'String'>
+  readonly manufacturedAt: Prisma.FieldRef<"GoodsReceiptLine", 'DateTime'>
+  readonly expiresAt: Prisma.FieldRef<"GoodsReceiptLine", 'DateTime'>
+  readonly serialNumbers: Prisma.FieldRef<"GoodsReceiptLine", 'Json'>
+  readonly qcStatus: Prisma.FieldRef<"GoodsReceiptLine", 'DeliveryLineQcStatus'>
+  readonly acceptedBaseQty: Prisma.FieldRef<"GoodsReceiptLine", 'Int'>
+  readonly rejectedBaseQty: Prisma.FieldRef<"GoodsReceiptLine", 'Int'>
+  readonly quarantinedBaseQty: Prisma.FieldRef<"GoodsReceiptLine", 'Int'>
+  readonly rejectionDisposition: Prisma.FieldRef<"GoodsReceiptLine", 'RejectionDisposition'>
+  readonly defectReasonCode: Prisma.FieldRef<"GoodsReceiptLine", 'String'>
+  readonly qcNotes: Prisma.FieldRef<"GoodsReceiptLine", 'String'>
+  readonly qcInspectedByUserId: Prisma.FieldRef<"GoodsReceiptLine", 'String'>
+  readonly qcInspectedAt: Prisma.FieldRef<"GoodsReceiptLine", 'DateTime'>
+  readonly billedBaseQty: Prisma.FieldRef<"GoodsReceiptLine", 'Int'>
   readonly createdAt: Prisma.FieldRef<"GoodsReceiptLine", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"GoodsReceiptLine", 'DateTime'>
 }
     
 
@@ -2064,6 +4198,121 @@ export type GoodsReceiptLineDeleteManyArgs<ExtArgs extends runtime.Types.Extensi
    * Limit how many GoodsReceiptLines to delete.
    */
   limit?: number
+}
+
+/**
+ * GoodsReceiptLine.pack
+ */
+export type GoodsReceiptLine$packArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ItemPack
+   */
+  select?: Prisma.ItemPackSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ItemPack
+   */
+  omit?: Prisma.ItemPackOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ItemPackInclude<ExtArgs> | null
+  where?: Prisma.ItemPackWhereInput
+}
+
+/**
+ * GoodsReceiptLine.stockLots
+ */
+export type GoodsReceiptLine$stockLotsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the StockLot
+   */
+  select?: Prisma.StockLotSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the StockLot
+   */
+  omit?: Prisma.StockLotOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.StockLotInclude<ExtArgs> | null
+  where?: Prisma.StockLotWhereInput
+  orderBy?: Prisma.StockLotOrderByWithRelationInput | Prisma.StockLotOrderByWithRelationInput[]
+  cursor?: Prisma.StockLotWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.StockLotScalarFieldEnum | Prisma.StockLotScalarFieldEnum[]
+}
+
+/**
+ * GoodsReceiptLine.quarantineHolds
+ */
+export type GoodsReceiptLine$quarantineHoldsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the QuarantineHold
+   */
+  select?: Prisma.QuarantineHoldSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the QuarantineHold
+   */
+  omit?: Prisma.QuarantineHoldOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.QuarantineHoldInclude<ExtArgs> | null
+  where?: Prisma.QuarantineHoldWhereInput
+  orderBy?: Prisma.QuarantineHoldOrderByWithRelationInput | Prisma.QuarantineHoldOrderByWithRelationInput[]
+  cursor?: Prisma.QuarantineHoldWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.QuarantineHoldScalarFieldEnum | Prisma.QuarantineHoldScalarFieldEnum[]
+}
+
+/**
+ * GoodsReceiptLine.supplierClaims
+ */
+export type GoodsReceiptLine$supplierClaimsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the SupplierClaim
+   */
+  select?: Prisma.SupplierClaimSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the SupplierClaim
+   */
+  omit?: Prisma.SupplierClaimOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SupplierClaimInclude<ExtArgs> | null
+  where?: Prisma.SupplierClaimWhereInput
+  orderBy?: Prisma.SupplierClaimOrderByWithRelationInput | Prisma.SupplierClaimOrderByWithRelationInput[]
+  cursor?: Prisma.SupplierClaimWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SupplierClaimScalarFieldEnum | Prisma.SupplierClaimScalarFieldEnum[]
+}
+
+/**
+ * GoodsReceiptLine.vendorBillLines
+ */
+export type GoodsReceiptLine$vendorBillLinesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the VendorBillLine
+   */
+  select?: Prisma.VendorBillLineSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the VendorBillLine
+   */
+  omit?: Prisma.VendorBillLineOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.VendorBillLineInclude<ExtArgs> | null
+  where?: Prisma.VendorBillLineWhereInput
+  orderBy?: Prisma.VendorBillLineOrderByWithRelationInput | Prisma.VendorBillLineOrderByWithRelationInput[]
+  cursor?: Prisma.VendorBillLineWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.VendorBillLineScalarFieldEnum | Prisma.VendorBillLineScalarFieldEnum[]
 }
 
 /**

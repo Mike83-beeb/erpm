@@ -46,6 +46,19 @@ const listMovementsQuerySchema = z.object({
   cursor: z.string().trim().min(1).optional(),
 });
 
+const listLotsQuerySchema = z.object({
+  locationId: z.string().trim().min(1).optional(),
+  itemId: z.string().trim().min(1).optional(),
+  lotNumber: z.string().trim().min(1).max(80).optional(),
+  expiringBefore: z.string().datetime().optional(),
+  includeZero: z
+    .enum(["true", "false"])
+    .transform((v) => v === "true")
+    .optional(),
+  limit: z.coerce.number().int().min(1).max(100).default(25),
+  cursor: z.string().trim().min(1).optional(),
+});
+
 const adjustStockSchema = z.object({
   itemId: z.string().trim().min(1),
   locationId: z.string().trim().min(1),
@@ -137,6 +150,23 @@ export class InventoryController {
     }
 
     return this.inventoryService.listMovements(tenant, parsed.data);
+  }
+
+  @Get("lots")
+  @RequiredOrgPermissions({ inventory: ["read"] })
+  async listLots(
+    @CurrentTenant() tenant: AuthenticatedTenant,
+    @Query() query: unknown,
+  ) {
+    const parsed = listLotsQuerySchema.safeParse(query ?? {});
+    if (!parsed.success) {
+      throw new BadRequestException({
+        message: "Invalid stock lot query parameters.",
+        issues: parsed.error.issues,
+      });
+    }
+
+    return this.inventoryService.listLots(tenant, parsed.data);
   }
 
   @Post("adjustments")

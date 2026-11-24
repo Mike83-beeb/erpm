@@ -30,6 +30,11 @@ export type PurchaseOrderLineAvgAggregateOutputType = {
   unitsPerPack: number | null
   orderedBaseQty: number | null
   receivedBaseQty: number | null
+  acceptedBaseQty: number | null
+  rejectedBaseQty: number | null
+  quarantinedBaseQty: number | null
+  creditedClaimBaseQty: number | null
+  billedBaseQty: number | null
   orderedQty: number | null
   receivedQty: number | null
   unitCostCents: number | null
@@ -40,6 +45,11 @@ export type PurchaseOrderLineSumAggregateOutputType = {
   unitsPerPack: number | null
   orderedBaseQty: number | null
   receivedBaseQty: number | null
+  acceptedBaseQty: number | null
+  rejectedBaseQty: number | null
+  quarantinedBaseQty: number | null
+  creditedClaimBaseQty: number | null
+  billedBaseQty: number | null
   orderedQty: number | null
   receivedQty: number | null
   unitCostCents: number | null
@@ -55,6 +65,11 @@ export type PurchaseOrderLineMinAggregateOutputType = {
   unitsPerPack: number | null
   orderedBaseQty: number | null
   receivedBaseQty: number | null
+  acceptedBaseQty: number | null
+  rejectedBaseQty: number | null
+  quarantinedBaseQty: number | null
+  creditedClaimBaseQty: number | null
+  billedBaseQty: number | null
   supplierSku: string | null
   description: string | null
   orderedQty: number | null
@@ -74,6 +89,11 @@ export type PurchaseOrderLineMaxAggregateOutputType = {
   unitsPerPack: number | null
   orderedBaseQty: number | null
   receivedBaseQty: number | null
+  acceptedBaseQty: number | null
+  rejectedBaseQty: number | null
+  quarantinedBaseQty: number | null
+  creditedClaimBaseQty: number | null
+  billedBaseQty: number | null
   supplierSku: string | null
   description: string | null
   orderedQty: number | null
@@ -93,6 +113,11 @@ export type PurchaseOrderLineCountAggregateOutputType = {
   unitsPerPack: number
   orderedBaseQty: number
   receivedBaseQty: number
+  acceptedBaseQty: number
+  rejectedBaseQty: number
+  quarantinedBaseQty: number
+  creditedClaimBaseQty: number
+  billedBaseQty: number
   supplierSku: number
   description: number
   orderedQty: number
@@ -110,6 +135,11 @@ export type PurchaseOrderLineAvgAggregateInputType = {
   unitsPerPack?: true
   orderedBaseQty?: true
   receivedBaseQty?: true
+  acceptedBaseQty?: true
+  rejectedBaseQty?: true
+  quarantinedBaseQty?: true
+  creditedClaimBaseQty?: true
+  billedBaseQty?: true
   orderedQty?: true
   receivedQty?: true
   unitCostCents?: true
@@ -120,6 +150,11 @@ export type PurchaseOrderLineSumAggregateInputType = {
   unitsPerPack?: true
   orderedBaseQty?: true
   receivedBaseQty?: true
+  acceptedBaseQty?: true
+  rejectedBaseQty?: true
+  quarantinedBaseQty?: true
+  creditedClaimBaseQty?: true
+  billedBaseQty?: true
   orderedQty?: true
   receivedQty?: true
   unitCostCents?: true
@@ -135,6 +170,11 @@ export type PurchaseOrderLineMinAggregateInputType = {
   unitsPerPack?: true
   orderedBaseQty?: true
   receivedBaseQty?: true
+  acceptedBaseQty?: true
+  rejectedBaseQty?: true
+  quarantinedBaseQty?: true
+  creditedClaimBaseQty?: true
+  billedBaseQty?: true
   supplierSku?: true
   description?: true
   orderedQty?: true
@@ -154,6 +194,11 @@ export type PurchaseOrderLineMaxAggregateInputType = {
   unitsPerPack?: true
   orderedBaseQty?: true
   receivedBaseQty?: true
+  acceptedBaseQty?: true
+  rejectedBaseQty?: true
+  quarantinedBaseQty?: true
+  creditedClaimBaseQty?: true
+  billedBaseQty?: true
   supplierSku?: true
   description?: true
   orderedQty?: true
@@ -173,6 +218,11 @@ export type PurchaseOrderLineCountAggregateInputType = {
   unitsPerPack?: true
   orderedBaseQty?: true
   receivedBaseQty?: true
+  acceptedBaseQty?: true
+  rejectedBaseQty?: true
+  quarantinedBaseQty?: true
+  creditedClaimBaseQty?: true
+  billedBaseQty?: true
   supplierSku?: true
   description?: true
   orderedQty?: true
@@ -280,6 +330,11 @@ export type PurchaseOrderLineGroupByOutputType = {
   unitsPerPack: number
   orderedBaseQty: number
   receivedBaseQty: number
+  acceptedBaseQty: number
+  rejectedBaseQty: number
+  quarantinedBaseQty: number
+  creditedClaimBaseQty: number
+  billedBaseQty: number
   supplierSku: string | null
   description: string | null
   orderedQty: number
@@ -323,6 +378,11 @@ export type PurchaseOrderLineWhereInput = {
   unitsPerPack?: Prisma.IntFilter<"PurchaseOrderLine"> | number
   orderedBaseQty?: Prisma.IntFilter<"PurchaseOrderLine"> | number
   receivedBaseQty?: Prisma.IntFilter<"PurchaseOrderLine"> | number
+  acceptedBaseQty?: Prisma.IntFilter<"PurchaseOrderLine"> | number
+  rejectedBaseQty?: Prisma.IntFilter<"PurchaseOrderLine"> | number
+  quarantinedBaseQty?: Prisma.IntFilter<"PurchaseOrderLine"> | number
+  creditedClaimBaseQty?: Prisma.IntFilter<"PurchaseOrderLine"> | number
+  billedBaseQty?: Prisma.IntFilter<"PurchaseOrderLine"> | number
   supplierSku?: Prisma.StringNullableFilter<"PurchaseOrderLine"> | string | null
   description?: Prisma.StringNullableFilter<"PurchaseOrderLine"> | string | null
   orderedQty?: Prisma.IntFilter<"PurchaseOrderLine"> | number
@@ -348,6 +408,11 @@ export type PurchaseOrderLineOrderByWithRelationInput = {
   unitsPerPack?: Prisma.SortOrder
   orderedBaseQty?: Prisma.SortOrder
   receivedBaseQty?: Prisma.SortOrder
+  acceptedBaseQty?: Prisma.SortOrder
+  rejectedBaseQty?: Prisma.SortOrder
+  quarantinedBaseQty?: Prisma.SortOrder
+  creditedClaimBaseQty?: Prisma.SortOrder
+  billedBaseQty?: Prisma.SortOrder
   supplierSku?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   orderedQty?: Prisma.SortOrder
@@ -376,6 +441,11 @@ export type PurchaseOrderLineWhereUniqueInput = Prisma.AtLeast<{
   unitsPerPack?: Prisma.IntFilter<"PurchaseOrderLine"> | number
   orderedBaseQty?: Prisma.IntFilter<"PurchaseOrderLine"> | number
   receivedBaseQty?: Prisma.IntFilter<"PurchaseOrderLine"> | number
+  acceptedBaseQty?: Prisma.IntFilter<"PurchaseOrderLine"> | number
+  rejectedBaseQty?: Prisma.IntFilter<"PurchaseOrderLine"> | number
+  quarantinedBaseQty?: Prisma.IntFilter<"PurchaseOrderLine"> | number
+  creditedClaimBaseQty?: Prisma.IntFilter<"PurchaseOrderLine"> | number
+  billedBaseQty?: Prisma.IntFilter<"PurchaseOrderLine"> | number
   supplierSku?: Prisma.StringNullableFilter<"PurchaseOrderLine"> | string | null
   description?: Prisma.StringNullableFilter<"PurchaseOrderLine"> | string | null
   orderedQty?: Prisma.IntFilter<"PurchaseOrderLine"> | number
@@ -401,6 +471,11 @@ export type PurchaseOrderLineOrderByWithAggregationInput = {
   unitsPerPack?: Prisma.SortOrder
   orderedBaseQty?: Prisma.SortOrder
   receivedBaseQty?: Prisma.SortOrder
+  acceptedBaseQty?: Prisma.SortOrder
+  rejectedBaseQty?: Prisma.SortOrder
+  quarantinedBaseQty?: Prisma.SortOrder
+  creditedClaimBaseQty?: Prisma.SortOrder
+  billedBaseQty?: Prisma.SortOrder
   supplierSku?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   orderedQty?: Prisma.SortOrder
@@ -429,6 +504,11 @@ export type PurchaseOrderLineScalarWhereWithAggregatesInput = {
   unitsPerPack?: Prisma.IntWithAggregatesFilter<"PurchaseOrderLine"> | number
   orderedBaseQty?: Prisma.IntWithAggregatesFilter<"PurchaseOrderLine"> | number
   receivedBaseQty?: Prisma.IntWithAggregatesFilter<"PurchaseOrderLine"> | number
+  acceptedBaseQty?: Prisma.IntWithAggregatesFilter<"PurchaseOrderLine"> | number
+  rejectedBaseQty?: Prisma.IntWithAggregatesFilter<"PurchaseOrderLine"> | number
+  quarantinedBaseQty?: Prisma.IntWithAggregatesFilter<"PurchaseOrderLine"> | number
+  creditedClaimBaseQty?: Prisma.IntWithAggregatesFilter<"PurchaseOrderLine"> | number
+  billedBaseQty?: Prisma.IntWithAggregatesFilter<"PurchaseOrderLine"> | number
   supplierSku?: Prisma.StringNullableWithAggregatesFilter<"PurchaseOrderLine"> | string | null
   description?: Prisma.StringNullableWithAggregatesFilter<"PurchaseOrderLine"> | string | null
   orderedQty?: Prisma.IntWithAggregatesFilter<"PurchaseOrderLine"> | number
@@ -445,6 +525,11 @@ export type PurchaseOrderLineCreateInput = {
   unitsPerPack?: number
   orderedBaseQty?: number
   receivedBaseQty?: number
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  creditedClaimBaseQty?: number
+  billedBaseQty?: number
   supplierSku?: string | null
   description?: string | null
   orderedQty: number
@@ -470,6 +555,11 @@ export type PurchaseOrderLineUncheckedCreateInput = {
   unitsPerPack?: number
   orderedBaseQty?: number
   receivedBaseQty?: number
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  creditedClaimBaseQty?: number
+  billedBaseQty?: number
   supplierSku?: string | null
   description?: string | null
   orderedQty: number
@@ -487,6 +577,11 @@ export type PurchaseOrderLineUpdateInput = {
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   orderedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  creditedClaimBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   orderedQty?: Prisma.IntFieldUpdateOperationsInput | number
@@ -512,6 +607,11 @@ export type PurchaseOrderLineUncheckedUpdateInput = {
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   orderedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  creditedClaimBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   orderedQty?: Prisma.IntFieldUpdateOperationsInput | number
@@ -533,6 +633,11 @@ export type PurchaseOrderLineCreateManyInput = {
   unitsPerPack?: number
   orderedBaseQty?: number
   receivedBaseQty?: number
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  creditedClaimBaseQty?: number
+  billedBaseQty?: number
   supplierSku?: string | null
   description?: string | null
   orderedQty: number
@@ -549,6 +654,11 @@ export type PurchaseOrderLineUpdateManyMutationInput = {
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   orderedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  creditedClaimBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   orderedQty?: Prisma.IntFieldUpdateOperationsInput | number
@@ -569,6 +679,11 @@ export type PurchaseOrderLineUncheckedUpdateManyInput = {
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   orderedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  creditedClaimBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   orderedQty?: Prisma.IntFieldUpdateOperationsInput | number
@@ -599,6 +714,11 @@ export type PurchaseOrderLineCountOrderByAggregateInput = {
   unitsPerPack?: Prisma.SortOrder
   orderedBaseQty?: Prisma.SortOrder
   receivedBaseQty?: Prisma.SortOrder
+  acceptedBaseQty?: Prisma.SortOrder
+  rejectedBaseQty?: Prisma.SortOrder
+  quarantinedBaseQty?: Prisma.SortOrder
+  creditedClaimBaseQty?: Prisma.SortOrder
+  billedBaseQty?: Prisma.SortOrder
   supplierSku?: Prisma.SortOrder
   description?: Prisma.SortOrder
   orderedQty?: Prisma.SortOrder
@@ -614,6 +734,11 @@ export type PurchaseOrderLineAvgOrderByAggregateInput = {
   unitsPerPack?: Prisma.SortOrder
   orderedBaseQty?: Prisma.SortOrder
   receivedBaseQty?: Prisma.SortOrder
+  acceptedBaseQty?: Prisma.SortOrder
+  rejectedBaseQty?: Prisma.SortOrder
+  quarantinedBaseQty?: Prisma.SortOrder
+  creditedClaimBaseQty?: Prisma.SortOrder
+  billedBaseQty?: Prisma.SortOrder
   orderedQty?: Prisma.SortOrder
   receivedQty?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
@@ -629,6 +754,11 @@ export type PurchaseOrderLineMaxOrderByAggregateInput = {
   unitsPerPack?: Prisma.SortOrder
   orderedBaseQty?: Prisma.SortOrder
   receivedBaseQty?: Prisma.SortOrder
+  acceptedBaseQty?: Prisma.SortOrder
+  rejectedBaseQty?: Prisma.SortOrder
+  quarantinedBaseQty?: Prisma.SortOrder
+  creditedClaimBaseQty?: Prisma.SortOrder
+  billedBaseQty?: Prisma.SortOrder
   supplierSku?: Prisma.SortOrder
   description?: Prisma.SortOrder
   orderedQty?: Prisma.SortOrder
@@ -648,6 +778,11 @@ export type PurchaseOrderLineMinOrderByAggregateInput = {
   unitsPerPack?: Prisma.SortOrder
   orderedBaseQty?: Prisma.SortOrder
   receivedBaseQty?: Prisma.SortOrder
+  acceptedBaseQty?: Prisma.SortOrder
+  rejectedBaseQty?: Prisma.SortOrder
+  quarantinedBaseQty?: Prisma.SortOrder
+  creditedClaimBaseQty?: Prisma.SortOrder
+  billedBaseQty?: Prisma.SortOrder
   supplierSku?: Prisma.SortOrder
   description?: Prisma.SortOrder
   orderedQty?: Prisma.SortOrder
@@ -662,6 +797,11 @@ export type PurchaseOrderLineSumOrderByAggregateInput = {
   unitsPerPack?: Prisma.SortOrder
   orderedBaseQty?: Prisma.SortOrder
   receivedBaseQty?: Prisma.SortOrder
+  acceptedBaseQty?: Prisma.SortOrder
+  rejectedBaseQty?: Prisma.SortOrder
+  quarantinedBaseQty?: Prisma.SortOrder
+  creditedClaimBaseQty?: Prisma.SortOrder
+  billedBaseQty?: Prisma.SortOrder
   orderedQty?: Prisma.SortOrder
   receivedQty?: Prisma.SortOrder
   unitCostCents?: Prisma.SortOrder
@@ -860,6 +1000,11 @@ export type PurchaseOrderLineCreateWithoutOrganizationInput = {
   unitsPerPack?: number
   orderedBaseQty?: number
   receivedBaseQty?: number
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  creditedClaimBaseQty?: number
+  billedBaseQty?: number
   supplierSku?: string | null
   description?: string | null
   orderedQty: number
@@ -883,6 +1028,11 @@ export type PurchaseOrderLineUncheckedCreateWithoutOrganizationInput = {
   unitsPerPack?: number
   orderedBaseQty?: number
   receivedBaseQty?: number
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  creditedClaimBaseQty?: number
+  billedBaseQty?: number
   supplierSku?: string | null
   description?: string | null
   orderedQty: number
@@ -933,6 +1083,11 @@ export type PurchaseOrderLineScalarWhereInput = {
   unitsPerPack?: Prisma.IntFilter<"PurchaseOrderLine"> | number
   orderedBaseQty?: Prisma.IntFilter<"PurchaseOrderLine"> | number
   receivedBaseQty?: Prisma.IntFilter<"PurchaseOrderLine"> | number
+  acceptedBaseQty?: Prisma.IntFilter<"PurchaseOrderLine"> | number
+  rejectedBaseQty?: Prisma.IntFilter<"PurchaseOrderLine"> | number
+  quarantinedBaseQty?: Prisma.IntFilter<"PurchaseOrderLine"> | number
+  creditedClaimBaseQty?: Prisma.IntFilter<"PurchaseOrderLine"> | number
+  billedBaseQty?: Prisma.IntFilter<"PurchaseOrderLine"> | number
   supplierSku?: Prisma.StringNullableFilter<"PurchaseOrderLine"> | string | null
   description?: Prisma.StringNullableFilter<"PurchaseOrderLine"> | string | null
   orderedQty?: Prisma.IntFilter<"PurchaseOrderLine"> | number
@@ -949,6 +1104,11 @@ export type PurchaseOrderLineCreateWithoutItemInput = {
   unitsPerPack?: number
   orderedBaseQty?: number
   receivedBaseQty?: number
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  creditedClaimBaseQty?: number
+  billedBaseQty?: number
   supplierSku?: string | null
   description?: string | null
   orderedQty: number
@@ -972,6 +1132,11 @@ export type PurchaseOrderLineUncheckedCreateWithoutItemInput = {
   unitsPerPack?: number
   orderedBaseQty?: number
   receivedBaseQty?: number
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  creditedClaimBaseQty?: number
+  billedBaseQty?: number
   supplierSku?: string | null
   description?: string | null
   orderedQty: number
@@ -1015,6 +1180,11 @@ export type PurchaseOrderLineCreateWithoutPurchaseOrderInput = {
   unitsPerPack?: number
   orderedBaseQty?: number
   receivedBaseQty?: number
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  creditedClaimBaseQty?: number
+  billedBaseQty?: number
   supplierSku?: string | null
   description?: string | null
   orderedQty: number
@@ -1038,6 +1208,11 @@ export type PurchaseOrderLineUncheckedCreateWithoutPurchaseOrderInput = {
   unitsPerPack?: number
   orderedBaseQty?: number
   receivedBaseQty?: number
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  creditedClaimBaseQty?: number
+  billedBaseQty?: number
   supplierSku?: string | null
   description?: string | null
   orderedQty: number
@@ -1081,6 +1256,11 @@ export type PurchaseOrderLineCreateWithoutReceiptLinesInput = {
   unitsPerPack?: number
   orderedBaseQty?: number
   receivedBaseQty?: number
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  creditedClaimBaseQty?: number
+  billedBaseQty?: number
   supplierSku?: string | null
   description?: string | null
   orderedQty: number
@@ -1105,6 +1285,11 @@ export type PurchaseOrderLineUncheckedCreateWithoutReceiptLinesInput = {
   unitsPerPack?: number
   orderedBaseQty?: number
   receivedBaseQty?: number
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  creditedClaimBaseQty?: number
+  billedBaseQty?: number
   supplierSku?: string | null
   description?: string | null
   orderedQty: number
@@ -1137,6 +1322,11 @@ export type PurchaseOrderLineUpdateWithoutReceiptLinesInput = {
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   orderedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  creditedClaimBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   orderedQty?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1161,6 +1351,11 @@ export type PurchaseOrderLineUncheckedUpdateWithoutReceiptLinesInput = {
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   orderedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  creditedClaimBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   orderedQty?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1177,6 +1372,11 @@ export type PurchaseOrderLineCreateWithoutPackInput = {
   unitsPerPack?: number
   orderedBaseQty?: number
   receivedBaseQty?: number
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  creditedClaimBaseQty?: number
+  billedBaseQty?: number
   supplierSku?: string | null
   description?: string | null
   orderedQty: number
@@ -1200,6 +1400,11 @@ export type PurchaseOrderLineUncheckedCreateWithoutPackInput = {
   unitsPerPack?: number
   orderedBaseQty?: number
   receivedBaseQty?: number
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  creditedClaimBaseQty?: number
+  billedBaseQty?: number
   supplierSku?: string | null
   description?: string | null
   orderedQty: number
@@ -1246,6 +1451,11 @@ export type PurchaseOrderLineCreateManyOrganizationInput = {
   unitsPerPack?: number
   orderedBaseQty?: number
   receivedBaseQty?: number
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  creditedClaimBaseQty?: number
+  billedBaseQty?: number
   supplierSku?: string | null
   description?: string | null
   orderedQty: number
@@ -1262,6 +1472,11 @@ export type PurchaseOrderLineUpdateWithoutOrganizationInput = {
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   orderedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  creditedClaimBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   orderedQty?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1285,6 +1500,11 @@ export type PurchaseOrderLineUncheckedUpdateWithoutOrganizationInput = {
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   orderedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  creditedClaimBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   orderedQty?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1305,6 +1525,11 @@ export type PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationInput = {
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   orderedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  creditedClaimBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   orderedQty?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1324,6 +1549,11 @@ export type PurchaseOrderLineCreateManyItemInput = {
   unitsPerPack?: number
   orderedBaseQty?: number
   receivedBaseQty?: number
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  creditedClaimBaseQty?: number
+  billedBaseQty?: number
   supplierSku?: string | null
   description?: string | null
   orderedQty: number
@@ -1340,6 +1570,11 @@ export type PurchaseOrderLineUpdateWithoutItemInput = {
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   orderedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  creditedClaimBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   orderedQty?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1363,6 +1598,11 @@ export type PurchaseOrderLineUncheckedUpdateWithoutItemInput = {
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   orderedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  creditedClaimBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   orderedQty?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1383,6 +1623,11 @@ export type PurchaseOrderLineUncheckedUpdateManyWithoutItemInput = {
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   orderedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  creditedClaimBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   orderedQty?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1402,6 +1647,11 @@ export type PurchaseOrderLineCreateManyPurchaseOrderInput = {
   unitsPerPack?: number
   orderedBaseQty?: number
   receivedBaseQty?: number
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  creditedClaimBaseQty?: number
+  billedBaseQty?: number
   supplierSku?: string | null
   description?: string | null
   orderedQty: number
@@ -1418,6 +1668,11 @@ export type PurchaseOrderLineUpdateWithoutPurchaseOrderInput = {
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   orderedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  creditedClaimBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   orderedQty?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1441,6 +1696,11 @@ export type PurchaseOrderLineUncheckedUpdateWithoutPurchaseOrderInput = {
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   orderedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  creditedClaimBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   orderedQty?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1461,6 +1721,11 @@ export type PurchaseOrderLineUncheckedUpdateManyWithoutPurchaseOrderInput = {
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   orderedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  creditedClaimBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   orderedQty?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1480,6 +1745,11 @@ export type PurchaseOrderLineCreateManyPackInput = {
   unitsPerPack?: number
   orderedBaseQty?: number
   receivedBaseQty?: number
+  acceptedBaseQty?: number
+  rejectedBaseQty?: number
+  quarantinedBaseQty?: number
+  creditedClaimBaseQty?: number
+  billedBaseQty?: number
   supplierSku?: string | null
   description?: string | null
   orderedQty: number
@@ -1496,6 +1766,11 @@ export type PurchaseOrderLineUpdateWithoutPackInput = {
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   orderedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  creditedClaimBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   orderedQty?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1519,6 +1794,11 @@ export type PurchaseOrderLineUncheckedUpdateWithoutPackInput = {
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   orderedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  creditedClaimBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   orderedQty?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1539,6 +1819,11 @@ export type PurchaseOrderLineUncheckedUpdateManyWithoutPackInput = {
   unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
   orderedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   receivedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  acceptedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  rejectedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  creditedClaimBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
+  billedBaseQty?: Prisma.IntFieldUpdateOperationsInput | number
   supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   orderedQty?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1590,6 +1875,11 @@ export type PurchaseOrderLineSelect<ExtArgs extends runtime.Types.Extensions.Int
   unitsPerPack?: boolean
   orderedBaseQty?: boolean
   receivedBaseQty?: boolean
+  acceptedBaseQty?: boolean
+  rejectedBaseQty?: boolean
+  quarantinedBaseQty?: boolean
+  creditedClaimBaseQty?: boolean
+  billedBaseQty?: boolean
   supplierSku?: boolean
   description?: boolean
   orderedQty?: boolean
@@ -1616,6 +1906,11 @@ export type PurchaseOrderLineSelectCreateManyAndReturn<ExtArgs extends runtime.T
   unitsPerPack?: boolean
   orderedBaseQty?: boolean
   receivedBaseQty?: boolean
+  acceptedBaseQty?: boolean
+  rejectedBaseQty?: boolean
+  quarantinedBaseQty?: boolean
+  creditedClaimBaseQty?: boolean
+  billedBaseQty?: boolean
   supplierSku?: boolean
   description?: boolean
   orderedQty?: boolean
@@ -1640,6 +1935,11 @@ export type PurchaseOrderLineSelectUpdateManyAndReturn<ExtArgs extends runtime.T
   unitsPerPack?: boolean
   orderedBaseQty?: boolean
   receivedBaseQty?: boolean
+  acceptedBaseQty?: boolean
+  rejectedBaseQty?: boolean
+  quarantinedBaseQty?: boolean
+  creditedClaimBaseQty?: boolean
+  billedBaseQty?: boolean
   supplierSku?: boolean
   description?: boolean
   orderedQty?: boolean
@@ -1664,6 +1964,11 @@ export type PurchaseOrderLineSelectScalar = {
   unitsPerPack?: boolean
   orderedBaseQty?: boolean
   receivedBaseQty?: boolean
+  acceptedBaseQty?: boolean
+  rejectedBaseQty?: boolean
+  quarantinedBaseQty?: boolean
+  creditedClaimBaseQty?: boolean
+  billedBaseQty?: boolean
   supplierSku?: boolean
   description?: boolean
   orderedQty?: boolean
@@ -1675,7 +1980,7 @@ export type PurchaseOrderLineSelectScalar = {
   updatedAt?: boolean
 }
 
-export type PurchaseOrderLineOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organizationId" | "purchaseOrderId" | "itemId" | "packId" | "unitsPerPack" | "orderedBaseQty" | "receivedBaseQty" | "supplierSku" | "description" | "orderedQty" | "receivedQty" | "unitCostCents" | "lineTotalCents" | "pricingSnapshot" | "createdAt" | "updatedAt", ExtArgs["result"]["purchaseOrderLine"]>
+export type PurchaseOrderLineOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organizationId" | "purchaseOrderId" | "itemId" | "packId" | "unitsPerPack" | "orderedBaseQty" | "receivedBaseQty" | "acceptedBaseQty" | "rejectedBaseQty" | "quarantinedBaseQty" | "creditedClaimBaseQty" | "billedBaseQty" | "supplierSku" | "description" | "orderedQty" | "receivedQty" | "unitCostCents" | "lineTotalCents" | "pricingSnapshot" | "createdAt" | "updatedAt", ExtArgs["result"]["purchaseOrderLine"]>
 export type PurchaseOrderLineInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   purchaseOrder?: boolean | Prisma.PurchaseOrderDefaultArgs<ExtArgs>
@@ -1715,6 +2020,11 @@ export type $PurchaseOrderLinePayload<ExtArgs extends runtime.Types.Extensions.I
     unitsPerPack: number
     orderedBaseQty: number
     receivedBaseQty: number
+    acceptedBaseQty: number
+    rejectedBaseQty: number
+    quarantinedBaseQty: number
+    creditedClaimBaseQty: number
+    billedBaseQty: number
     supplierSku: string | null
     description: string | null
     orderedQty: number
@@ -2160,6 +2470,11 @@ export interface PurchaseOrderLineFieldRefs {
   readonly unitsPerPack: Prisma.FieldRef<"PurchaseOrderLine", 'Int'>
   readonly orderedBaseQty: Prisma.FieldRef<"PurchaseOrderLine", 'Int'>
   readonly receivedBaseQty: Prisma.FieldRef<"PurchaseOrderLine", 'Int'>
+  readonly acceptedBaseQty: Prisma.FieldRef<"PurchaseOrderLine", 'Int'>
+  readonly rejectedBaseQty: Prisma.FieldRef<"PurchaseOrderLine", 'Int'>
+  readonly quarantinedBaseQty: Prisma.FieldRef<"PurchaseOrderLine", 'Int'>
+  readonly creditedClaimBaseQty: Prisma.FieldRef<"PurchaseOrderLine", 'Int'>
+  readonly billedBaseQty: Prisma.FieldRef<"PurchaseOrderLine", 'Int'>
   readonly supplierSku: Prisma.FieldRef<"PurchaseOrderLine", 'String'>
   readonly description: Prisma.FieldRef<"PurchaseOrderLine", 'String'>
   readonly orderedQty: Prisma.FieldRef<"PurchaseOrderLine", 'Int'>

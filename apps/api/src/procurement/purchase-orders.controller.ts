@@ -19,6 +19,7 @@ import {
   RequiredOrgPermissions,
   type AuthenticatedTenant,
 } from "../tenancy/tenant.decorators.js";
+import { DeliveriesService } from "./deliveries.service.js";
 import { PurchaseOrdersService } from "./purchase-orders.service.js";
 
 const currencySchema = z
@@ -87,6 +88,36 @@ const cancelPoSchema = z.object({
   reason: z.string().trim().min(1).max(500).optional(),
 });
 
+const deliveryLineSchema = z.object({
+  purchaseOrderLineId: z.string().trim().min(1),
+  packId: z.string().trim().min(1).nullable().optional(),
+  packQty: z.number().int().min(0).max(1_000_000).optional(),
+  looseBaseQty: z.number().int().min(0).max(10_000_000).optional(),
+  baseQty: z.number().int().min(1).max(10_000_000).optional(),
+  lotNumber: z.string().trim().max(80).nullable().optional(),
+  batchCode: z.string().trim().max(80).nullable().optional(),
+  manufacturedAt: z.string().datetime().nullable().optional(),
+  expiresAt: z.string().datetime().nullable().optional(),
+  serialNumbers: z.array(z.string().trim().min(1).max(100)).max(1000).nullable().optional(),
+});
+
+const createDeliverySchema = z.object({
+  receiptNumber: z
+    .string()
+    .trim()
+    .min(1)
+    .max(64)
+    .regex(/^[A-Za-z0-9._-]+$/)
+    .optional(),
+  locationId: z.string().trim().min(1).optional(),
+  carrier: z.string().trim().max(120).nullable().optional(),
+  trackingNumber: z.string().trim().max(120).nullable().optional(),
+  packingSlipNumber: z.string().trim().max(120).nullable().optional(),
+  deliveredAt: z.string().datetime().nullable().optional(),
+  notes: z.string().trim().max(1000).nullable().optional(),
+  lines: z.array(deliveryLineSchema).min(1).max(200),
+});
+
 const receiveGoodsSchema = z.object({
   receiptNumber: z
     .string()
@@ -96,12 +127,24 @@ const receiveGoodsSchema = z.object({
     .regex(/^[A-Za-z0-9._-]+$/)
     .optional(),
   locationId: z.string().trim().min(1).optional(),
+  carrier: z.string().trim().max(120).nullable().optional(),
+  trackingNumber: z.string().trim().max(120).nullable().optional(),
+  packingSlipNumber: z.string().trim().max(120).nullable().optional(),
   notes: z.string().trim().max(1000).optional(),
   lines: z
     .array(
       z.object({
         purchaseOrderLineId: z.string().trim().min(1),
-        receivedQty: z.number().int().min(1).max(1_000_000),
+        receivedQty: z.number().int().min(1).max(1_000_000).optional(),
+        packId: z.string().trim().min(1).nullable().optional(),
+        packQty: z.number().int().min(0).max(1_000_000).optional(),
+        looseBaseQty: z.number().int().min(0).max(10_000_000).optional(),
+        baseQty: z.number().int().min(1).max(10_000_000).optional(),
+        lotNumber: z.string().trim().max(80).nullable().optional(),
+        batchCode: z.string().trim().max(80).nullable().optional(),
+        manufacturedAt: z.string().datetime().nullable().optional(),
+        expiresAt: z.string().datetime().nullable().optional(),
+        serialNumbers: z.array(z.string().trim().min(1).max(100)).max(1000).nullable().optional(),
       }),
     )
     .min(1)
@@ -114,6 +157,8 @@ export class PurchaseOrdersController {
   constructor(
     @Inject(PurchaseOrdersService)
     private readonly purchaseOrdersService: PurchaseOrdersService,
+    @Inject(DeliveriesService)
+    private readonly deliveriesService: DeliveriesService,
   ) {}
 
   @Post()
@@ -218,6 +263,54 @@ export class PurchaseOrdersController {
       tenant,
       poId,
       parsed.data.reason,
+      req.ip,
+    );
+  }
+
+  @Get(":poId/delivery-preview")
+  @RequiredOrgPermissions({ purchaseOrder: ["read"] })
+  async getDeliveryPreview(
+    @CurrentTenant() tenant: AuthenticatedTenant,
+    @Param("poId") poId: string,
+  ) {
+    return this.deliveriesService.getDeliveryPreview(tenant, poId);
+  }
+
+  @Get(":poId/deliveries")
+  @RequiredOrgPermissions({ purchaseOrder: ["read"] })
+  async listPoDeliveries(
+    @CurrentTenant() tenant: AuthenticatedTenant,
+    @Param("poId") poId: string,
+    @Query("limit") limit?: string,
+    @Query("cursor") cursor?: string,
+  ) {
+    return this.deliveriesService.listDeliveries(tenant, {
+      purchaseOrderId: poId,
+      limit: limit ? Math.min(Math.max(Number(limit) || 25, 1), 100) : 25,
+      cursor,
+    });
+  }
+
+  @Post(":poId/deliveries")
+  @RequiredOrgPermissions({ purchaseOrder: ["receive"] })
+  async createDelivery(
+    @CurrentTenant() tenant: AuthenticatedTenant,
+    @Param("poId") poId: string,
+    @Body() body: unknown,
+    @Req() req: FastifyRequest,
+  ) {
+    const parsed = createDeliverySchema.safeParse(body);
+    if (!parsed.success) {
+      throw new BadRequestException({
+        message: "Invalid delivery payload.",
+        issues: parsed.error.issues,
+      });
+    }
+
+    return this.deliveriesService.createDelivery(
+      tenant,
+      poId,
+      parsed.data,
       req.ip,
     );
   }
