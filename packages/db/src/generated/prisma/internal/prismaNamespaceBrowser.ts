@@ -97,7 +97,19 @@ export const ModelName = {
   PriceBook: 'PriceBook',
   PriceRule: 'PriceRule',
   PriceTier: 'PriceTier',
-  DiscountRule: 'DiscountRule'
+  DiscountRule: 'DiscountRule',
+  Customer: 'Customer',
+  Order: 'Order',
+  OrderLine: 'OrderLine',
+  SalesInvoice: 'SalesInvoice',
+  SalesInvoiceLine: 'SalesInvoiceLine',
+  CustomerPayment: 'CustomerPayment',
+  PaymentReceipt: 'PaymentReceipt',
+  FulfillmentSettings: 'FulfillmentSettings',
+  OrderFulfillment: 'OrderFulfillment',
+  StaffJob: 'StaffJob',
+  NotificationTemplate: 'NotificationTemplate',
+  CustomerNotification: 'CustomerNotification'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1111,6 +1123,364 @@ export const DiscountRuleScalarFieldEnum = {
 } as const
 
 export type DiscountRuleScalarFieldEnum = (typeof DiscountRuleScalarFieldEnum)[keyof typeof DiscountRuleScalarFieldEnum]
+
+
+export const CustomerScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  code: 'code',
+  type: 'type',
+  status: 'status',
+  name: 'name',
+  companyName: 'companyName',
+  email: 'email',
+  phone: 'phone',
+  taxId: 'taxId',
+  customerSegment: 'customerSegment',
+  currency: 'currency',
+  paymentTermsDays: 'paymentTermsDays',
+  billingAddressLine1: 'billingAddressLine1',
+  billingAddressLine2: 'billingAddressLine2',
+  billingCity: 'billingCity',
+  billingState: 'billingState',
+  billingPostalCode: 'billingPostalCode',
+  billingCountry: 'billingCountry',
+  shippingAddressLine1: 'shippingAddressLine1',
+  shippingAddressLine2: 'shippingAddressLine2',
+  shippingCity: 'shippingCity',
+  shippingState: 'shippingState',
+  shippingPostalCode: 'shippingPostalCode',
+  shippingCountry: 'shippingCountry',
+  crmProvider: 'crmProvider',
+  externalContactId: 'externalContactId',
+  externalCompanyId: 'externalCompanyId',
+  externalAccountId: 'externalAccountId',
+  crmLastSyncedAt: 'crmLastSyncedAt',
+  notes: 'notes',
+  metadata: 'metadata',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  archivedAt: 'archivedAt',
+  archivedByUserId: 'archivedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CustomerScalarFieldEnum = (typeof CustomerScalarFieldEnum)[keyof typeof CustomerScalarFieldEnum]
+
+
+export const OrderScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  orderNumber: 'orderNumber',
+  channel: 'channel',
+  status: 'status',
+  locationId: 'locationId',
+  customerId: 'customerId',
+  priceBookId: 'priceBookId',
+  externalDealId: 'externalDealId',
+  customerSegment: 'customerSegment',
+  promoCodes: 'promoCodes',
+  currency: 'currency',
+  subtotalCents: 'subtotalCents',
+  discountTotalCents: 'discountTotalCents',
+  taxCents: 'taxCents',
+  totalCents: 'totalCents',
+  paidAmountCents: 'paidAmountCents',
+  notes: 'notes',
+  metadata: 'metadata',
+  confirmedAt: 'confirmedAt',
+  confirmedByUserId: 'confirmedByUserId',
+  fulfilledAt: 'fulfilledAt',
+  fulfilledByUserId: 'fulfilledByUserId',
+  completedAt: 'completedAt',
+  cancelledAt: 'cancelledAt',
+  cancelReason: 'cancelReason',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type OrderScalarFieldEnum = (typeof OrderScalarFieldEnum)[keyof typeof OrderScalarFieldEnum]
+
+
+export const OrderLineScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  orderId: 'orderId',
+  itemId: 'itemId',
+  packId: 'packId',
+  servicePlanId: 'servicePlanId',
+  sku: 'sku',
+  name: 'name',
+  description: 'description',
+  unitOfMeasure: 'unitOfMeasure',
+  unitsPerPack: 'unitsPerPack',
+  quantity: 'quantity',
+  fulfilledQty: 'fulfilledQty',
+  orderedBaseQty: 'orderedBaseQty',
+  reservedBaseQty: 'reservedBaseQty',
+  fulfilledBaseQty: 'fulfilledBaseQty',
+  bonusUnits: 'bonusUnits',
+  unitPriceCents: 'unitPriceCents',
+  discountCents: 'discountCents',
+  lineTotalCents: 'lineTotalCents',
+  pricingSnapshot: 'pricingSnapshot',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type OrderLineScalarFieldEnum = (typeof OrderLineScalarFieldEnum)[keyof typeof OrderLineScalarFieldEnum]
+
+
+export const SalesInvoiceScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  invoiceNumber: 'invoiceNumber',
+  orderId: 'orderId',
+  customerId: 'customerId',
+  status: 'status',
+  currency: 'currency',
+  subtotalCents: 'subtotalCents',
+  discountTotalCents: 'discountTotalCents',
+  taxCents: 'taxCents',
+  totalCents: 'totalCents',
+  paidAmountCents: 'paidAmountCents',
+  issuedAt: 'issuedAt',
+  dueAt: 'dueAt',
+  paidAt: 'paidAt',
+  voidedAt: 'voidedAt',
+  voidReason: 'voidReason',
+  notes: 'notes',
+  customerSnapshot: 'customerSnapshot',
+  organizationSnapshot: 'organizationSnapshot',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SalesInvoiceScalarFieldEnum = (typeof SalesInvoiceScalarFieldEnum)[keyof typeof SalesInvoiceScalarFieldEnum]
+
+
+export const SalesInvoiceLineScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  salesInvoiceId: 'salesInvoiceId',
+  orderLineId: 'orderLineId',
+  itemId: 'itemId',
+  sku: 'sku',
+  description: 'description',
+  unitOfMeasure: 'unitOfMeasure',
+  quantity: 'quantity',
+  unitPriceCents: 'unitPriceCents',
+  discountCents: 'discountCents',
+  lineTotalCents: 'lineTotalCents',
+  createdAt: 'createdAt'
+} as const
+
+export type SalesInvoiceLineScalarFieldEnum = (typeof SalesInvoiceLineScalarFieldEnum)[keyof typeof SalesInvoiceLineScalarFieldEnum]
+
+
+export const CustomerPaymentScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  paymentNumber: 'paymentNumber',
+  orderId: 'orderId',
+  salesInvoiceId: 'salesInvoiceId',
+  customerId: 'customerId',
+  method: 'method',
+  status: 'status',
+  currency: 'currency',
+  amountAppliedCents: 'amountAppliedCents',
+  cashTenderedCents: 'cashTenderedCents',
+  changeGivenCents: 'changeGivenCents',
+  reference: 'reference',
+  notes: 'notes',
+  receivedByUserId: 'receivedByUserId',
+  receivedAt: 'receivedAt',
+  voidedAt: 'voidedAt',
+  voidReason: 'voidReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CustomerPaymentScalarFieldEnum = (typeof CustomerPaymentScalarFieldEnum)[keyof typeof CustomerPaymentScalarFieldEnum]
+
+
+export const PaymentReceiptScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  receiptNumber: 'receiptNumber',
+  paymentId: 'paymentId',
+  orderId: 'orderId',
+  salesInvoiceId: 'salesInvoiceId',
+  customerId: 'customerId',
+  channel: 'channel',
+  currency: 'currency',
+  totalCents: 'totalCents',
+  cashTenderedCents: 'cashTenderedCents',
+  changeGivenCents: 'changeGivenCents',
+  snapshot: 'snapshot',
+  issuedAt: 'issuedAt',
+  issuedByUserId: 'issuedByUserId',
+  createdAt: 'createdAt'
+} as const
+
+export type PaymentReceiptScalarFieldEnum = (typeof PaymentReceiptScalarFieldEnum)[keyof typeof PaymentReceiptScalarFieldEnum]
+
+
+export const FulfillmentSettingsScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  autoConvertPreordersToJobs: 'autoConvertPreordersToJobs',
+  defaultJobLeadMinutes: 'defaultJobLeadMinutes',
+  defaultJobAssigneeStaffId: 'defaultJobAssigneeStaffId',
+  defaultJobAssigneeRole: 'defaultJobAssigneeRole',
+  syncJobsToCrm: 'syncJobsToCrm',
+  defaultChannel: 'defaultChannel',
+  autoNotifyOnPreorderReady: 'autoNotifyOnPreorderReady',
+  autoNotifyOnJobCompleted: 'autoNotifyOnJobCompleted',
+  autoNotifyOnDeliveryUpdates: 'autoNotifyOnDeliveryUpdates',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type FulfillmentSettingsScalarFieldEnum = (typeof FulfillmentSettingsScalarFieldEnum)[keyof typeof FulfillmentSettingsScalarFieldEnum]
+
+
+export const OrderFulfillmentScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  fulfillmentNumber: 'fulfillmentNumber',
+  orderId: 'orderId',
+  locationId: 'locationId',
+  customerId: 'customerId',
+  type: 'type',
+  status: 'status',
+  deliveryStage: 'deliveryStage',
+  stockReserved: 'stockReserved',
+  stockDeducted: 'stockDeducted',
+  scheduledFulfillmentAt: 'scheduledFulfillmentAt',
+  depositRequiredCents: 'depositRequiredCents',
+  depositStatus: 'depositStatus',
+  preparationNotes: 'preparationNotes',
+  autoConvertToJob: 'autoConvertToJob',
+  pickupWindowStart: 'pickupWindowStart',
+  pickupWindowEnd: 'pickupWindowEnd',
+  pickupInstructions: 'pickupInstructions',
+  handoffConfirmedAt: 'handoffConfirmedAt',
+  handoffConfirmedByUserId: 'handoffConfirmedByUserId',
+  deliveryAddressLine1: 'deliveryAddressLine1',
+  deliveryAddressLine2: 'deliveryAddressLine2',
+  deliveryCity: 'deliveryCity',
+  deliveryState: 'deliveryState',
+  deliveryPostalCode: 'deliveryPostalCode',
+  deliveryCountry: 'deliveryCountry',
+  deliveryInstructions: 'deliveryInstructions',
+  deliveryWindowStart: 'deliveryWindowStart',
+  deliveryWindowEnd: 'deliveryWindowEnd',
+  courierStaffId: 'courierStaffId',
+  courierName: 'courierName',
+  courierPhone: 'courierPhone',
+  outForDeliveryAt: 'outForDeliveryAt',
+  deliveredAt: 'deliveredAt',
+  notificationsEnabled: 'notificationsEnabled',
+  preferredChannel: 'preferredChannel',
+  notifyOnPreorderReady: 'notifyOnPreorderReady',
+  notifyOnJobCompleted: 'notifyOnJobCompleted',
+  notifyOnDeliveryUpdates: 'notifyOnDeliveryUpdates',
+  confirmedAt: 'confirmedAt',
+  confirmedByUserId: 'confirmedByUserId',
+  readyAt: 'readyAt',
+  completedAt: 'completedAt',
+  completedByUserId: 'completedByUserId',
+  cancelledAt: 'cancelledAt',
+  cancelReason: 'cancelReason',
+  metadata: 'metadata',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type OrderFulfillmentScalarFieldEnum = (typeof OrderFulfillmentScalarFieldEnum)[keyof typeof OrderFulfillmentScalarFieldEnum]
+
+
+export const StaffJobScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  jobNumber: 'jobNumber',
+  fulfillmentId: 'fulfillmentId',
+  orderId: 'orderId',
+  title: 'title',
+  instructions: 'instructions',
+  status: 'status',
+  priority: 'priority',
+  assignedStaffId: 'assignedStaffId',
+  assignedDepartmentId: 'assignedDepartmentId',
+  assignedTeamId: 'assignedTeamId',
+  assignedRole: 'assignedRole',
+  targetDueAt: 'targetDueAt',
+  startedAt: 'startedAt',
+  startedByUserId: 'startedByUserId',
+  completedAt: 'completedAt',
+  completedByUserId: 'completedByUserId',
+  cancelledAt: 'cancelledAt',
+  syncToCrm: 'syncToCrm',
+  externalTaskId: 'externalTaskId',
+  crmSyncedAt: 'crmSyncedAt',
+  metadata: 'metadata',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type StaffJobScalarFieldEnum = (typeof StaffJobScalarFieldEnum)[keyof typeof StaffJobScalarFieldEnum]
+
+
+export const NotificationTemplateScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  eventType: 'eventType',
+  channel: 'channel',
+  name: 'name',
+  subject: 'subject',
+  body: 'body',
+  isActive: 'isActive',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type NotificationTemplateScalarFieldEnum = (typeof NotificationTemplateScalarFieldEnum)[keyof typeof NotificationTemplateScalarFieldEnum]
+
+
+export const CustomerNotificationScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  fulfillmentId: 'fulfillmentId',
+  orderId: 'orderId',
+  staffJobId: 'staffJobId',
+  customerId: 'customerId',
+  eventType: 'eventType',
+  channel: 'channel',
+  triggerSource: 'triggerSource',
+  recipient: 'recipient',
+  subject: 'subject',
+  message: 'message',
+  status: 'status',
+  provider: 'provider',
+  externalMessageId: 'externalMessageId',
+  errorMessage: 'errorMessage',
+  sentAt: 'sentAt',
+  sentByUserId: 'sentByUserId',
+  createdAt: 'createdAt'
+} as const
+
+export type CustomerNotificationScalarFieldEnum = (typeof CustomerNotificationScalarFieldEnum)[keyof typeof CustomerNotificationScalarFieldEnum]
 
 
 export const SortOrder = {

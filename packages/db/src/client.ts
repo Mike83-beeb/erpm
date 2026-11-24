@@ -44,6 +44,18 @@ export const TENANT_SCOPED_MODELS = new Set<string>([
   "StockLot",
   "QuarantineHold",
   "SupplierClaim",
+  "Customer",
+  "Order",
+  "OrderLine",
+  "SalesInvoice",
+  "SalesInvoiceLine",
+  "CustomerPayment",
+  "PaymentReceipt",
+  "FulfillmentSettings",
+  "OrderFulfillment",
+  "StaffJob",
+  "NotificationTemplate",
+  "CustomerNotification",
 ]);
 
 let sharedPool: Pool | null = null;

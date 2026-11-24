@@ -60,7 +60,9 @@ export const StockMovementType = {
   RECEIPT: 'RECEIPT',
   ADJUSTMENT: 'ADJUSTMENT',
   TRANSFER_OUT: 'TRANSFER_OUT',
-  TRANSFER_IN: 'TRANSFER_IN'
+  TRANSFER_IN: 'TRANSFER_IN',
+  SALE: 'SALE',
+  SALE_RETURN: 'SALE_RETURN'
 } as const
 
 export type StockMovementType = (typeof StockMovementType)[keyof typeof StockMovementType]
@@ -187,7 +189,11 @@ export const StorageEntityType = {
   VENDOR_BILL: 'VENDOR_BILL',
   PURCHASE_ORDER: 'PURCHASE_ORDER',
   GOODS_RECEIPT: 'GOODS_RECEIPT',
-  SUPPLIER: 'SUPPLIER'
+  SUPPLIER: 'SUPPLIER',
+  CUSTOMER: 'CUSTOMER',
+  ORDER: 'ORDER',
+  SALES_INVOICE: 'SALES_INVOICE',
+  PAYMENT_RECEIPT: 'PAYMENT_RECEIPT'
 } as const
 
 export type StorageEntityType = (typeof StorageEntityType)[keyof typeof StorageEntityType]
@@ -341,3 +347,146 @@ export const DiscountScope = {
 } as const
 
 export type DiscountScope = (typeof DiscountScope)[keyof typeof DiscountScope]
+
+
+export const CustomerType = {
+  INDIVIDUAL: 'INDIVIDUAL',
+  BUSINESS: 'BUSINESS'
+} as const
+
+export type CustomerType = (typeof CustomerType)[keyof typeof CustomerType]
+
+
+export const CustomerStatus = {
+  ACTIVE: 'ACTIVE',
+  INACTIVE: 'INACTIVE',
+  ARCHIVED: 'ARCHIVED'
+} as const
+
+export type CustomerStatus = (typeof CustomerStatus)[keyof typeof CustomerStatus]
+
+
+export const OrderChannel = {
+  POS: 'POS',
+  B2B: 'B2B'
+} as const
+
+export type OrderChannel = (typeof OrderChannel)[keyof typeof OrderChannel]
+
+
+export const OrderStatus = {
+  DRAFT: 'DRAFT',
+  CONFIRMED: 'CONFIRMED',
+  PARTIALLY_FULFILLED: 'PARTIALLY_FULFILLED',
+  FULFILLED: 'FULFILLED',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type OrderStatus = (typeof OrderStatus)[keyof typeof OrderStatus]
+
+
+export const SalesInvoiceStatus = {
+  DRAFT: 'DRAFT',
+  ISSUED: 'ISSUED',
+  PARTIALLY_PAID: 'PARTIALLY_PAID',
+  PAID: 'PAID',
+  VOID: 'VOID'
+} as const
+
+export type SalesInvoiceStatus = (typeof SalesInvoiceStatus)[keyof typeof SalesInvoiceStatus]
+
+
+export const PaymentMethod = {
+  CASH: 'CASH'
+} as const
+
+export type PaymentMethod = (typeof PaymentMethod)[keyof typeof PaymentMethod]
+
+
+export const CustomerPaymentStatus = {
+  COMPLETED: 'COMPLETED',
+  VOIDED: 'VOIDED'
+} as const
+
+export type CustomerPaymentStatus = (typeof CustomerPaymentStatus)[keyof typeof CustomerPaymentStatus]
+
+
+export const FulfillmentType = {
+  PREORDER: 'PREORDER',
+  PICKUP: 'PICKUP',
+  DELIVERY: 'DELIVERY'
+} as const
+
+export type FulfillmentType = (typeof FulfillmentType)[keyof typeof FulfillmentType]
+
+
+export const FulfillmentStatus = {
+  PENDING: 'PENDING',
+  IN_PROGRESS: 'IN_PROGRESS',
+  READY: 'READY',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type FulfillmentStatus = (typeof FulfillmentStatus)[keyof typeof FulfillmentStatus]
+
+
+export const DeliveryStage = {
+  NONE: 'NONE',
+  OUT_FOR_DELIVERY: 'OUT_FOR_DELIVERY',
+  DELIVERED: 'DELIVERED'
+} as const
+
+export type DeliveryStage = (typeof DeliveryStage)[keyof typeof DeliveryStage]
+
+
+export const PreorderDepositStatus = {
+  NOT_REQUIRED: 'NOT_REQUIRED',
+  UNPAID: 'UNPAID',
+  DEPOSIT_PAID: 'DEPOSIT_PAID',
+  PAID: 'PAID'
+} as const
+
+export type PreorderDepositStatus = (typeof PreorderDepositStatus)[keyof typeof PreorderDepositStatus]
+
+
+export const StaffJobStatus = {
+  ASSIGNED: 'ASSIGNED',
+  IN_PROGRESS: 'IN_PROGRESS',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type StaffJobStatus = (typeof StaffJobStatus)[keyof typeof StaffJobStatus]
+
+
+export const CommunicationChannel = {
+  SMS: 'SMS',
+  WHATSAPP: 'WHATSAPP',
+  EMAIL: 'EMAIL'
+} as const
+
+export type CommunicationChannel = (typeof CommunicationChannel)[keyof typeof CommunicationChannel]
+
+
+export const NotificationEventType = {
+  PREORDER_READY: 'PREORDER_READY',
+  JOB_COMPLETED: 'JOB_COMPLETED',
+  DELIVERY_OUT_FOR_DELIVERY: 'DELIVERY_OUT_FOR_DELIVERY',
+  DELIVERY_DELIVERED: 'DELIVERY_DELIVERED',
+  CUSTOM: 'CUSTOM'
+} as const
+
+export type NotificationEventType = (typeof NotificationEventType)[keyof typeof NotificationEventType]
+
+
+export const NotificationDeliveryStatus = {
+  SENT: 'SENT',
+  SANDBOX: 'SANDBOX',
+  FALLBACK_SENT: 'FALLBACK_SENT',
+  SKIPPED_DISABLED: 'SKIPPED_DISABLED',
+  FAILED: 'FAILED'
+} as const
+
+export type NotificationDeliveryStatus = (typeof NotificationDeliveryStatus)[keyof typeof NotificationDeliveryStatus]

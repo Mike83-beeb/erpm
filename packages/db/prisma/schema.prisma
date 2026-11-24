@@ -124,6 +124,18 @@ model Organization {
   stockLots             StockLot[]
   quarantineHolds       QuarantineHold[]
   supplierClaims        SupplierClaim[]
+  customers             Customer[]
+  orders                Order[]
+  orderLines            OrderLine[]
+  salesInvoices         SalesInvoice[]
+  salesInvoiceLines     SalesInvoiceLine[]
+  customerPayments      CustomerPayment[]
+  paymentReceipts       PaymentReceipt[]
+  fulfillmentSettings   FulfillmentSettings?
+  orderFulfillments     OrderFulfillment[]
+  staffJobs             StaffJob[]
+  notificationTemplates NotificationTemplate[]
+  customerNotifications CustomerNotification[]
 
   @@map("organization")
 }
@@ -266,6 +278,8 @@ model Item {
   stockLots          StockLot[]
   quarantineHolds    QuarantineHold[]
   supplierClaims     SupplierClaim[]
+  orderLines         OrderLine[]
+  salesInvoiceLines  SalesInvoiceLine[]
 
   @@unique([organizationId, sku])
   @@index([organizationId, status, type])
@@ -311,6 +325,8 @@ enum StockMovementType {
   ADJUSTMENT
   TRANSFER_OUT
   TRANSFER_IN
+  SALE
+  SALE_RETURN
 }
 
 enum StockTransferStatus {
@@ -355,6 +371,8 @@ model Location {
   holidays          Holiday[]
   stockLots         StockLot[]
   quarantineHolds   QuarantineHold[]
+  orders            Order[]
+  orderFulfillments OrderFulfillment[]
 
   @@unique([organizationId, code])
   @@index([organizationId, status, type])
@@ -897,6 +915,10 @@ enum StorageEntityType {
   PURCHASE_ORDER
   GOODS_RECEIPT
   SUPPLIER
+  CUSTOMER
+  ORDER
+  SALES_INVOICE
+  PAYMENT_RECEIPT
 }
 
 model StoredObject {
@@ -1000,6 +1022,7 @@ model Department {
   updatedAt          DateTime         @updatedAt
   staffMembers       StaffProfile[]   @relation("DepartmentStaff")
   teams              Team[]
+  staffJobs          StaffJob[]
 
   @@unique([organizationId, code])
   @@index([organizationId, status])
@@ -1069,6 +1092,8 @@ model StaffProfile {
   reviewedTimeOff       TimeOffRequest[] @relation("TimeOffReviewer")
   calendarFeeds         CalendarFeed[]
   crmStaffMapping       CrmStaffMapping?
+  courierFulfillments   OrderFulfillment[] @relation("FulfillmentCourier")
+  assignedStaffJobs     StaffJob[]         @relation("StaffJobAssignee")
 
   @@unique([organizationId, workEmail])
   @@unique([organizationId, employeeCode])
@@ -1144,6 +1169,7 @@ model Team {
   updatedAt            DateTime       @updatedAt
   members              TeamMember[]
   calendarFeeds        CalendarFeed[]
+  staffJobs            StaffJob[]
 
   @@unique([organizationId, slug])
   @@index([organizationId, status, kind])
@@ -1381,6 +1407,7 @@ model ItemPack {
   purchaseOrderLines    PurchaseOrderLine[]
   goodsReceiptLines     GoodsReceiptLine[]
   crmDealLinks          CrmDealItemLink[]
+  orderLines            OrderLine[]
 
   @@unique([organizationId, itemId, code])
   @@index([organizationId, itemId, isActive])
@@ -1435,6 +1462,7 @@ model ServicePlan {
   updatedAt             DateTime          @updatedAt
   priceRules            PriceRule[]
   crmDealLinks          CrmDealItemLink[]
+  orderLines            OrderLine[]
 
   @@unique([organizationId, itemId, code])
   @@index([organizationId, itemId, isActive])
@@ -1466,6 +1494,7 @@ model PriceBook {
   updatedAt         DateTime           @updatedAt
   rules             PriceRule[]
   crmDealLinks      CrmDealItemLink[]
+  orders            Order[]
 
   @@unique([organizationId, code])
   @@index([organizationId, direction, isActive, priority])
@@ -1571,6 +1600,559 @@ model DiscountRule {
   @@map("discount_rule")
 }
 
+// ==========================================
+// Customers, Orders (POS & B2B), Invoices, Cash Payments & Receipts
+// ==========================================
 
+enum CustomerType {
+  INDIVIDUAL
+  BUSINESS
+}
 
+enum CustomerStatus {
+  ACTIVE
+  INACTIVE
+  ARCHIVED
+}
+
+enum OrderChannel {
+  POS
+  B2B
+}
+
+enum OrderStatus {
+  DRAFT
+  CONFIRMED
+  PARTIALLY_FULFILLED
+  FULFILLED
+  COMPLETED
+  CANCELLED
+}
+
+enum SalesInvoiceStatus {
+  DRAFT
+  ISSUED
+  PARTIALLY_PAID
+  PAID
+  VOID
+}
+
+enum PaymentMethod {
+  CASH
+}
+
+enum CustomerPaymentStatus {
+  COMPLETED
+  VOIDED
+}
+
+model Customer {
+  id                   String            @id @default(cuid())
+  organizationId       String
+  organization         Organization      @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  code                 String
+  type                 CustomerType      @default(INDIVIDUAL)
+  status               CustomerStatus    @default(ACTIVE)
+  name                 String
+  companyName          String?
+  email                String?
+  phone                String?
+  taxId                String?
+  customerSegment      String?
+  currency             String            @default("USD")
+  paymentTermsDays     Int               @default(0)
+  billingAddressLine1  String?
+  billingAddressLine2  String?
+  billingCity          String?
+  billingState         String?
+  billingPostalCode    String?
+  billingCountry       String?
+  shippingAddressLine1 String?
+  shippingAddressLine2 String?
+  shippingCity         String?
+  shippingState        String?
+  shippingPostalCode   String?
+  shippingCountry      String?
+  crmProvider          CrmProvider?
+  externalContactId    String?
+  externalCompanyId    String?
+  externalAccountId    String?
+  crmLastSyncedAt      DateTime?
+  notes                String?
+  metadata             Json?
+  createdByUserId      String?
+  updatedByUserId      String?
+  archivedAt           DateTime?
+  archivedByUserId     String?
+  createdAt            DateTime          @default(now())
+  updatedAt            DateTime          @updatedAt
+  orders               Order[]
+  invoices             SalesInvoice[]
+  payments             CustomerPayment[]
+  receipts             PaymentReceipt[]
+  fulfillments         OrderFulfillment[]
+  notifications        CustomerNotification[]
+
+  @@unique([organizationId, code])
+  @@index([organizationId, status, type])
+  @@index([organizationId, externalContactId])
+  @@index([organizationId, externalCompanyId])
+  @@index([organizationId, email])
+  @@map("customer")
+}
+
+model Order {
+  id                 String            @id @default(cuid())
+  organizationId     String
+  organization       Organization      @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  orderNumber        String
+  channel            OrderChannel
+  status             OrderStatus       @default(DRAFT)
+  locationId         String
+  location           Location          @relation(fields: [locationId], references: [id], onDelete: Restrict)
+  customerId         String?
+  customer           Customer?         @relation(fields: [customerId], references: [id], onDelete: Restrict)
+  priceBookId        String?
+  priceBook          PriceBook?        @relation(fields: [priceBookId], references: [id], onDelete: SetNull)
+  externalDealId     String?
+  customerSegment    String?
+  promoCodes         String[]          @default([])
+  currency           String            @default("USD")
+  subtotalCents      Int               @default(0)
+  discountTotalCents Int               @default(0)
+  taxCents           Int               @default(0)
+  totalCents         Int               @default(0)
+  paidAmountCents    Int               @default(0)
+  notes              String?
+  metadata           Json?
+  confirmedAt        DateTime?
+  confirmedByUserId  String?
+  fulfilledAt        DateTime?
+  fulfilledByUserId  String?
+  completedAt        DateTime?
+  cancelledAt        DateTime?
+  cancelReason       String?
+  createdByUserId    String?
+  updatedByUserId    String?
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+  lines              OrderLine[]
+  invoices           SalesInvoice[]
+  payments           CustomerPayment[]
+  receipts           PaymentReceipt[]
+  fulfillment        OrderFulfillment?
+  staffJobs          StaffJob[]
+  notifications      CustomerNotification[]
+
+  @@unique([organizationId, orderNumber])
+  @@index([organizationId, channel, status])
+  @@index([organizationId, customerId])
+  @@index([organizationId, locationId])
+  @@index([organizationId, createdAt])
+  @@map("sales_order")
+}
+
+model OrderLine {
+  id               String             @id @default(cuid())
+  organizationId   String
+  organization     Organization       @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  orderId          String
+  order            Order              @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  itemId           String
+  item             Item               @relation(fields: [itemId], references: [id], onDelete: Restrict)
+  packId           String?
+  pack             ItemPack?          @relation(fields: [packId], references: [id], onDelete: SetNull)
+  servicePlanId    String?
+  servicePlan      ServicePlan?       @relation(fields: [servicePlanId], references: [id], onDelete: SetNull)
+  sku              String
+  name             String
+  description      String?
+  unitOfMeasure    String             @default("unit")
+  unitsPerPack     Int                @default(1)
+  quantity         Int
+  fulfilledQty     Int                @default(0)
+  orderedBaseQty   Int                @default(0)
+  reservedBaseQty  Int                @default(0)
+  fulfilledBaseQty Int                @default(0)
+  bonusUnits       Int                @default(0)
+  unitPriceCents   Int
+  discountCents    Int                @default(0)
+  lineTotalCents   Int
+  pricingSnapshot  Json?
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+  invoiceLines     SalesInvoiceLine[]
+
+  @@index([organizationId, orderId])
+  @@index([organizationId, itemId])
+  @@map("sales_order_line")
+}
+
+model SalesInvoice {
+  id                   String             @id @default(cuid())
+  organizationId       String
+  organization         Organization       @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  invoiceNumber        String
+  orderId              String
+  order                Order              @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  customerId           String?
+  customer             Customer?          @relation(fields: [customerId], references: [id], onDelete: Restrict)
+  status               SalesInvoiceStatus @default(DRAFT)
+  currency             String             @default("USD")
+  subtotalCents        Int                @default(0)
+  discountTotalCents   Int                @default(0)
+  taxCents             Int                @default(0)
+  totalCents           Int                @default(0)
+  paidAmountCents      Int                @default(0)
+  issuedAt             DateTime?
+  dueAt                DateTime?
+  paidAt               DateTime?
+  voidedAt             DateTime?
+  voidReason           String?
+  notes                String?
+  customerSnapshot     Json?
+  organizationSnapshot Json?
+  createdByUserId      String?
+  updatedByUserId      String?
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @updatedAt
+  lines                SalesInvoiceLine[]
+  payments             CustomerPayment[]
+  receipts             PaymentReceipt[]
+
+  @@unique([organizationId, invoiceNumber])
+  @@index([organizationId, status, dueAt])
+  @@index([organizationId, orderId])
+  @@index([organizationId, customerId])
+  @@map("sales_invoice")
+}
+
+model SalesInvoiceLine {
+  id             String       @id @default(cuid())
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  salesInvoiceId String
+  salesInvoice   SalesInvoice @relation(fields: [salesInvoiceId], references: [id], onDelete: Cascade)
+  orderLineId    String?
+  orderLine      OrderLine?   @relation(fields: [orderLineId], references: [id], onDelete: SetNull)
+  itemId         String?
+  item           Item?        @relation(fields: [itemId], references: [id], onDelete: SetNull)
+  sku            String?
+  description    String
+  unitOfMeasure  String       @default("unit")
+  quantity       Int
+  unitPriceCents Int
+  discountCents  Int          @default(0)
+  lineTotalCents Int
+  createdAt      DateTime     @default(now())
+
+  @@index([organizationId, salesInvoiceId])
+  @@map("sales_invoice_line")
+}
+
+model CustomerPayment {
+  id                 String                @id @default(cuid())
+  organizationId     String
+  organization       Organization          @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  paymentNumber      String
+  orderId            String
+  order              Order                 @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  salesInvoiceId     String?
+  salesInvoice       SalesInvoice?         @relation(fields: [salesInvoiceId], references: [id], onDelete: Restrict)
+  customerId         String?
+  customer           Customer?             @relation(fields: [customerId], references: [id], onDelete: SetNull)
+  method             PaymentMethod         @default(CASH)
+  status             CustomerPaymentStatus @default(COMPLETED)
+  currency           String                @default("USD")
+  amountAppliedCents Int
+  cashTenderedCents  Int
+  changeGivenCents   Int                   @default(0)
+  reference          String?
+  notes              String?
+  receivedByUserId   String?
+  receivedAt         DateTime              @default(now())
+  voidedAt           DateTime?
+  voidReason         String?
+  createdAt          DateTime              @default(now())
+  updatedAt          DateTime              @updatedAt
+  receipt            PaymentReceipt?
+
+  @@unique([organizationId, paymentNumber])
+  @@index([organizationId, orderId])
+  @@index([organizationId, salesInvoiceId])
+  @@index([organizationId, customerId])
+  @@map("customer_payment")
+}
+
+model PaymentReceipt {
+  id                String          @id @default(cuid())
+  organizationId    String
+  organization      Organization    @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  receiptNumber     String
+  paymentId         String          @unique
+  payment           CustomerPayment @relation(fields: [paymentId], references: [id], onDelete: Cascade)
+  orderId           String
+  order             Order           @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  salesInvoiceId    String?
+  salesInvoice      SalesInvoice?   @relation(fields: [salesInvoiceId], references: [id], onDelete: SetNull)
+  customerId        String?
+  customer          Customer?       @relation(fields: [customerId], references: [id], onDelete: SetNull)
+  channel           OrderChannel
+  currency          String          @default("USD")
+  totalCents        Int
+  cashTenderedCents Int
+  changeGivenCents  Int             @default(0)
+  snapshot          Json
+  issuedAt          DateTime        @default(now())
+  issuedByUserId    String?
+  createdAt         DateTime        @default(now())
+
+  @@unique([organizationId, receiptNumber])
+  @@index([organizationId, orderId])
+  @@index([organizationId, customerId])
+  @@index([organizationId, issuedAt])
+  @@map("payment_receipt")
+}
+
+// ==========================================
+// Order Fulfillment (Preorders, Pickups, Deliveries), Staff Jobs & Notifications
+// ==========================================
+
+enum FulfillmentType {
+  PREORDER
+  PICKUP
+  DELIVERY
+}
+
+enum FulfillmentStatus {
+  PENDING
+  IN_PROGRESS
+  READY
+  COMPLETED
+  CANCELLED
+}
+
+enum DeliveryStage {
+  NONE
+  OUT_FOR_DELIVERY
+  DELIVERED
+}
+
+enum PreorderDepositStatus {
+  NOT_REQUIRED
+  UNPAID
+  DEPOSIT_PAID
+  PAID
+}
+
+enum StaffJobStatus {
+  ASSIGNED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum CommunicationChannel {
+  SMS
+  WHATSAPP
+  EMAIL
+}
+
+enum NotificationEventType {
+  PREORDER_READY
+  JOB_COMPLETED
+  DELIVERY_OUT_FOR_DELIVERY
+  DELIVERY_DELIVERED
+  CUSTOM
+}
+
+enum NotificationDeliveryStatus {
+  SENT
+  SANDBOX
+  FALLBACK_SENT
+  SKIPPED_DISABLED
+  FAILED
+}
+
+model FulfillmentSettings {
+  id                           String               @id @default(cuid())
+  organizationId               String               @unique
+  organization                 Organization         @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  autoConvertPreordersToJobs   Boolean              @default(false)
+  defaultJobLeadMinutes        Int                  @default(120)
+  defaultJobAssigneeStaffId    String?
+  defaultJobAssigneeRole       String?
+  syncJobsToCrm                Boolean              @default(false)
+  defaultChannel               CommunicationChannel @default(SMS)
+  autoNotifyOnPreorderReady    Boolean              @default(true)
+  autoNotifyOnJobCompleted     Boolean              @default(true)
+  autoNotifyOnDeliveryUpdates  Boolean              @default(true)
+  createdAt                    DateTime             @default(now())
+  updatedAt                    DateTime             @updatedAt
+
+  @@map("fulfillment_settings")
+}
+
+model OrderFulfillment {
+  id                         String                 @id @default(cuid())
+  organizationId             String
+  organization               Organization           @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  fulfillmentNumber          String
+  orderId                    String                 @unique
+  order                      Order                  @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  locationId                 String
+  location                   Location               @relation(fields: [locationId], references: [id], onDelete: Restrict)
+  customerId                 String?
+  customer                   Customer?              @relation(fields: [customerId], references: [id], onDelete: SetNull)
+  type                       FulfillmentType
+  status                     FulfillmentStatus      @default(PENDING)
+  deliveryStage              DeliveryStage          @default(NONE)
+  stockReserved              Boolean                @default(false)
+  stockDeducted              Boolean                @default(false)
+  scheduledFulfillmentAt     DateTime?
+  depositRequiredCents       Int                    @default(0)
+  depositStatus              PreorderDepositStatus  @default(NOT_REQUIRED)
+  preparationNotes           String?
+  autoConvertToJob           Boolean?
+  pickupWindowStart          DateTime?
+  pickupWindowEnd            DateTime?
+  pickupInstructions         String?
+  handoffConfirmedAt         DateTime?
+  handoffConfirmedByUserId   String?
+  deliveryAddressLine1       String?
+  deliveryAddressLine2       String?
+  deliveryCity               String?
+  deliveryState              String?
+  deliveryPostalCode         String?
+  deliveryCountry            String?
+  deliveryInstructions       String?
+  deliveryWindowStart        DateTime?
+  deliveryWindowEnd          DateTime?
+  courierStaffId             String?
+  courierStaff               StaffProfile?          @relation("FulfillmentCourier", fields: [courierStaffId], references: [id], onDelete: SetNull)
+  courierName                String?
+  courierPhone               String?
+  outForDeliveryAt           DateTime?
+  deliveredAt                DateTime?
+  notificationsEnabled       Boolean                @default(true)
+  preferredChannel           CommunicationChannel?
+  notifyOnPreorderReady      Boolean                @default(true)
+  notifyOnJobCompleted       Boolean                @default(true)
+  notifyOnDeliveryUpdates    Boolean                @default(true)
+  confirmedAt                DateTime?
+  confirmedByUserId          String?
+  readyAt                    DateTime?
+  completedAt                DateTime?
+  completedByUserId          String?
+  cancelledAt                DateTime?
+  cancelReason               String?
+  metadata                   Json?
+  createdByUserId            String?
+  updatedByUserId            String?
+  createdAt                  DateTime               @default(now())
+  updatedAt                  DateTime               @updatedAt
+  staffJobs                  StaffJob[]
+  notifications              CustomerNotification[]
+
+  @@unique([organizationId, fulfillmentNumber])
+  @@index([organizationId, type, status])
+  @@index([organizationId, customerId])
+  @@index([organizationId, locationId])
+  @@index([organizationId, scheduledFulfillmentAt])
+  @@map("order_fulfillment")
+}
+
+model StaffJob {
+  id                   String                 @id @default(cuid())
+  organizationId       String
+  organization         Organization           @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  jobNumber            String
+  fulfillmentId        String
+  fulfillment          OrderFulfillment       @relation(fields: [fulfillmentId], references: [id], onDelete: Cascade)
+  orderId              String
+  order                Order                  @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  title                String
+  instructions         String?
+  status               StaffJobStatus         @default(ASSIGNED)
+  priority             Int                    @default(2)
+  assignedStaffId      String?
+  assignedStaff        StaffProfile?          @relation("StaffJobAssignee", fields: [assignedStaffId], references: [id], onDelete: SetNull)
+  assignedDepartmentId String?
+  assignedDepartment   Department?            @relation(fields: [assignedDepartmentId], references: [id], onDelete: SetNull)
+  assignedTeamId       String?
+  assignedTeam         Team?                  @relation(fields: [assignedTeamId], references: [id], onDelete: SetNull)
+  assignedRole         String?
+  targetDueAt          DateTime?
+  startedAt            DateTime?
+  startedByUserId      String?
+  completedAt          DateTime?
+  completedByUserId    String?
+  cancelledAt          DateTime?
+  syncToCrm            Boolean                @default(false)
+  externalTaskId       String?
+  crmSyncedAt          DateTime?
+  metadata             Json?
+  createdByUserId      String?
+  updatedByUserId      String?
+  createdAt            DateTime               @default(now())
+  updatedAt            DateTime               @updatedAt
+  notifications        CustomerNotification[]
+
+  @@unique([organizationId, jobNumber])
+  @@index([organizationId, fulfillmentId, status])
+  @@index([organizationId, assignedStaffId, status])
+  @@index([organizationId, targetDueAt])
+  @@map("staff_job")
+}
+
+model NotificationTemplate {
+  id              String                @id @default(cuid())
+  organizationId  String
+  organization    Organization          @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  eventType       NotificationEventType
+  channel         CommunicationChannel
+  name            String
+  subject         String?
+  body            String
+  isActive        Boolean               @default(true)
+  updatedByUserId String?
+  createdAt       DateTime              @default(now())
+  updatedAt       DateTime              @updatedAt
+
+  @@unique([organizationId, eventType, channel])
+  @@index([organizationId, eventType])
+  @@map("notification_template")
+}
+
+model CustomerNotification {
+  id                String                     @id @default(cuid())
+  organizationId    String
+  organization      Organization               @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  fulfillmentId     String
+  fulfillment       OrderFulfillment           @relation(fields: [fulfillmentId], references: [id], onDelete: Cascade)
+  orderId           String
+  order             Order                      @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  staffJobId        String?
+  staffJob          StaffJob?                  @relation(fields: [staffJobId], references: [id], onDelete: SetNull)
+  customerId        String?
+  customer          Customer?                  @relation(fields: [customerId], references: [id], onDelete: SetNull)
+  eventType         NotificationEventType
+  channel           CommunicationChannel
+  triggerSource     String                     @default("AUTO")
+  recipient         String?
+  subject           String?
+  message           String
+  status            NotificationDeliveryStatus
+  provider          String?
+  externalMessageId String?
+  errorMessage      String?
+  sentAt            DateTime?
+  sentByUserId      String?
+  createdAt         DateTime                   @default(now())
+
+  @@index([organizationId, fulfillmentId, createdAt])
+  @@index([organizationId, orderId])
+  @@index([organizationId, customerId])
+  @@map("customer_notification")
+}
 

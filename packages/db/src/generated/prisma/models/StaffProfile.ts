@@ -406,6 +406,8 @@ export type StaffProfileWhereInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestListRelationFilter
   calendarFeeds?: Prisma.CalendarFeedListRelationFilter
   crmStaffMapping?: Prisma.XOR<Prisma.CrmStaffMappingNullableScalarRelationFilter, Prisma.CrmStaffMappingWhereInput> | null
+  courierFulfillments?: Prisma.OrderFulfillmentListRelationFilter
+  assignedStaffJobs?: Prisma.StaffJobListRelationFilter
 }
 
 export type StaffProfileOrderByWithRelationInput = {
@@ -451,6 +453,8 @@ export type StaffProfileOrderByWithRelationInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestOrderByRelationAggregateInput
   calendarFeeds?: Prisma.CalendarFeedOrderByRelationAggregateInput
   crmStaffMapping?: Prisma.CrmStaffMappingOrderByWithRelationInput
+  courierFulfillments?: Prisma.OrderFulfillmentOrderByRelationAggregateInput
+  assignedStaffJobs?: Prisma.StaffJobOrderByRelationAggregateInput
 }
 
 export type StaffProfileWhereUniqueInput = Prisma.AtLeast<{
@@ -501,6 +505,8 @@ export type StaffProfileWhereUniqueInput = Prisma.AtLeast<{
   reviewedTimeOff?: Prisma.TimeOffRequestListRelationFilter
   calendarFeeds?: Prisma.CalendarFeedListRelationFilter
   crmStaffMapping?: Prisma.XOR<Prisma.CrmStaffMappingNullableScalarRelationFilter, Prisma.CrmStaffMappingWhereInput> | null
+  courierFulfillments?: Prisma.OrderFulfillmentListRelationFilter
+  assignedStaffJobs?: Prisma.StaffJobListRelationFilter
 }, "id" | "memberId" | "organizationId_workEmail" | "organizationId_employeeCode">
 
 export type StaffProfileOrderByWithAggregationInput = {
@@ -610,6 +616,8 @@ export type StaffProfileCreateInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileUncheckedCreateInput = {
@@ -649,6 +657,8 @@ export type StaffProfileUncheckedCreateInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileUpdateInput = {
@@ -688,6 +698,8 @@ export type StaffProfileUpdateInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileUncheckedUpdateInput = {
@@ -727,6 +739,8 @@ export type StaffProfileUncheckedUpdateInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileCreateManyInput = {
@@ -1324,6 +1338,38 @@ export type StaffProfileUpdateOneRequiredWithoutCrmStaffMappingNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.StaffProfileUpdateToOneWithWhereWithoutCrmStaffMappingInput, Prisma.StaffProfileUpdateWithoutCrmStaffMappingInput>, Prisma.StaffProfileUncheckedUpdateWithoutCrmStaffMappingInput>
 }
 
+export type StaffProfileCreateNestedOneWithoutCourierFulfillmentsInput = {
+  create?: Prisma.XOR<Prisma.StaffProfileCreateWithoutCourierFulfillmentsInput, Prisma.StaffProfileUncheckedCreateWithoutCourierFulfillmentsInput>
+  connectOrCreate?: Prisma.StaffProfileCreateOrConnectWithoutCourierFulfillmentsInput
+  connect?: Prisma.StaffProfileWhereUniqueInput
+}
+
+export type StaffProfileUpdateOneWithoutCourierFulfillmentsNestedInput = {
+  create?: Prisma.XOR<Prisma.StaffProfileCreateWithoutCourierFulfillmentsInput, Prisma.StaffProfileUncheckedCreateWithoutCourierFulfillmentsInput>
+  connectOrCreate?: Prisma.StaffProfileCreateOrConnectWithoutCourierFulfillmentsInput
+  upsert?: Prisma.StaffProfileUpsertWithoutCourierFulfillmentsInput
+  disconnect?: Prisma.StaffProfileWhereInput | boolean
+  delete?: Prisma.StaffProfileWhereInput | boolean
+  connect?: Prisma.StaffProfileWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StaffProfileUpdateToOneWithWhereWithoutCourierFulfillmentsInput, Prisma.StaffProfileUpdateWithoutCourierFulfillmentsInput>, Prisma.StaffProfileUncheckedUpdateWithoutCourierFulfillmentsInput>
+}
+
+export type StaffProfileCreateNestedOneWithoutAssignedStaffJobsInput = {
+  create?: Prisma.XOR<Prisma.StaffProfileCreateWithoutAssignedStaffJobsInput, Prisma.StaffProfileUncheckedCreateWithoutAssignedStaffJobsInput>
+  connectOrCreate?: Prisma.StaffProfileCreateOrConnectWithoutAssignedStaffJobsInput
+  connect?: Prisma.StaffProfileWhereUniqueInput
+}
+
+export type StaffProfileUpdateOneWithoutAssignedStaffJobsNestedInput = {
+  create?: Prisma.XOR<Prisma.StaffProfileCreateWithoutAssignedStaffJobsInput, Prisma.StaffProfileUncheckedCreateWithoutAssignedStaffJobsInput>
+  connectOrCreate?: Prisma.StaffProfileCreateOrConnectWithoutAssignedStaffJobsInput
+  upsert?: Prisma.StaffProfileUpsertWithoutAssignedStaffJobsInput
+  disconnect?: Prisma.StaffProfileWhereInput | boolean
+  delete?: Prisma.StaffProfileWhereInput | boolean
+  connect?: Prisma.StaffProfileWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StaffProfileUpdateToOneWithWhereWithoutAssignedStaffJobsInput, Prisma.StaffProfileUpdateWithoutAssignedStaffJobsInput>, Prisma.StaffProfileUncheckedUpdateWithoutAssignedStaffJobsInput>
+}
+
 export type StaffProfileCreateWithoutOrganizationInput = {
   id?: string
   employeeCode?: string | null
@@ -1360,6 +1406,8 @@ export type StaffProfileCreateWithoutOrganizationInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileUncheckedCreateWithoutOrganizationInput = {
@@ -1398,6 +1446,8 @@ export type StaffProfileUncheckedCreateWithoutOrganizationInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileCreateOrConnectWithoutOrganizationInput = {
@@ -1496,6 +1546,8 @@ export type StaffProfileCreateWithoutMemberInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileUncheckedCreateWithoutMemberInput = {
@@ -1534,6 +1586,8 @@ export type StaffProfileUncheckedCreateWithoutMemberInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileCreateOrConnectWithoutMemberInput = {
@@ -1588,6 +1642,8 @@ export type StaffProfileUpdateWithoutMemberInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileUncheckedUpdateWithoutMemberInput = {
@@ -1626,6 +1682,8 @@ export type StaffProfileUncheckedUpdateWithoutMemberInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileCreateWithoutLocationInput = {
@@ -1664,6 +1722,8 @@ export type StaffProfileCreateWithoutLocationInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileUncheckedCreateWithoutLocationInput = {
@@ -1702,6 +1762,8 @@ export type StaffProfileUncheckedCreateWithoutLocationInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileCreateOrConnectWithoutLocationInput = {
@@ -1766,6 +1828,8 @@ export type StaffProfileCreateWithoutLedDepartmentsInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileUncheckedCreateWithoutLedDepartmentsInput = {
@@ -1804,6 +1868,8 @@ export type StaffProfileUncheckedCreateWithoutLedDepartmentsInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileCreateOrConnectWithoutLedDepartmentsInput = {
@@ -1847,6 +1913,8 @@ export type StaffProfileCreateWithoutDepartmentInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileUncheckedCreateWithoutDepartmentInput = {
@@ -1885,6 +1953,8 @@ export type StaffProfileUncheckedCreateWithoutDepartmentInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileCreateOrConnectWithoutDepartmentInput = {
@@ -1944,6 +2014,8 @@ export type StaffProfileUpdateWithoutLedDepartmentsInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileUncheckedUpdateWithoutLedDepartmentsInput = {
@@ -1982,6 +2054,8 @@ export type StaffProfileUncheckedUpdateWithoutLedDepartmentsInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileUpsertWithWhereUniqueWithoutDepartmentInput = {
@@ -2036,6 +2110,8 @@ export type StaffProfileCreateWithoutWorkScheduleInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileUncheckedCreateWithoutWorkScheduleInput = {
@@ -2074,6 +2150,8 @@ export type StaffProfileUncheckedCreateWithoutWorkScheduleInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileCreateOrConnectWithoutWorkScheduleInput = {
@@ -2138,6 +2216,8 @@ export type StaffProfileCreateWithoutDirectReportsInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileUncheckedCreateWithoutDirectReportsInput = {
@@ -2176,6 +2256,8 @@ export type StaffProfileUncheckedCreateWithoutDirectReportsInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileCreateOrConnectWithoutDirectReportsInput = {
@@ -2219,6 +2301,8 @@ export type StaffProfileCreateWithoutManagerInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileUncheckedCreateWithoutManagerInput = {
@@ -2257,6 +2341,8 @@ export type StaffProfileUncheckedCreateWithoutManagerInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileCreateOrConnectWithoutManagerInput = {
@@ -2316,6 +2402,8 @@ export type StaffProfileUpdateWithoutDirectReportsInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileUncheckedUpdateWithoutDirectReportsInput = {
@@ -2354,6 +2442,8 @@ export type StaffProfileUncheckedUpdateWithoutDirectReportsInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileUpsertWithWhereUniqueWithoutManagerInput = {
@@ -2408,6 +2498,8 @@ export type StaffProfileCreateWithoutTimeOffRequestsInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileUncheckedCreateWithoutTimeOffRequestsInput = {
@@ -2446,6 +2538,8 @@ export type StaffProfileUncheckedCreateWithoutTimeOffRequestsInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileCreateOrConnectWithoutTimeOffRequestsInput = {
@@ -2489,6 +2583,8 @@ export type StaffProfileCreateWithoutReviewedTimeOffInput = {
   timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutStaffInput
   calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileUncheckedCreateWithoutReviewedTimeOffInput = {
@@ -2527,6 +2623,8 @@ export type StaffProfileUncheckedCreateWithoutReviewedTimeOffInput = {
   timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutStaffInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileCreateOrConnectWithoutReviewedTimeOffInput = {
@@ -2581,6 +2679,8 @@ export type StaffProfileUpdateWithoutTimeOffRequestsInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileUncheckedUpdateWithoutTimeOffRequestsInput = {
@@ -2619,6 +2719,8 @@ export type StaffProfileUncheckedUpdateWithoutTimeOffRequestsInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileUpsertWithoutReviewedTimeOffInput = {
@@ -2668,6 +2770,8 @@ export type StaffProfileUpdateWithoutReviewedTimeOffInput = {
   timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileUncheckedUpdateWithoutReviewedTimeOffInput = {
@@ -2706,6 +2810,8 @@ export type StaffProfileUncheckedUpdateWithoutReviewedTimeOffInput = {
   timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileCreateWithoutLedTeamsInput = {
@@ -2744,6 +2850,8 @@ export type StaffProfileCreateWithoutLedTeamsInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileUncheckedCreateWithoutLedTeamsInput = {
@@ -2782,6 +2890,8 @@ export type StaffProfileUncheckedCreateWithoutLedTeamsInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileCreateOrConnectWithoutLedTeamsInput = {
@@ -2836,6 +2946,8 @@ export type StaffProfileUpdateWithoutLedTeamsInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileUncheckedUpdateWithoutLedTeamsInput = {
@@ -2874,6 +2986,8 @@ export type StaffProfileUncheckedUpdateWithoutLedTeamsInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileCreateWithoutTeamMembershipsInput = {
@@ -2912,6 +3026,8 @@ export type StaffProfileCreateWithoutTeamMembershipsInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileUncheckedCreateWithoutTeamMembershipsInput = {
@@ -2950,6 +3066,8 @@ export type StaffProfileUncheckedCreateWithoutTeamMembershipsInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileCreateOrConnectWithoutTeamMembershipsInput = {
@@ -3004,6 +3122,8 @@ export type StaffProfileUpdateWithoutTeamMembershipsInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileUncheckedUpdateWithoutTeamMembershipsInput = {
@@ -3042,6 +3162,8 @@ export type StaffProfileUncheckedUpdateWithoutTeamMembershipsInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileCreateWithoutCalendarFeedsInput = {
@@ -3080,6 +3202,8 @@ export type StaffProfileCreateWithoutCalendarFeedsInput = {
   timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutStaffInput
   reviewedTimeOff?: Prisma.TimeOffRequestCreateNestedManyWithoutReviewedByStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileUncheckedCreateWithoutCalendarFeedsInput = {
@@ -3118,6 +3242,8 @@ export type StaffProfileUncheckedCreateWithoutCalendarFeedsInput = {
   timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutStaffInput
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutReviewedByStaffInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileCreateOrConnectWithoutCalendarFeedsInput = {
@@ -3172,6 +3298,8 @@ export type StaffProfileUpdateWithoutCalendarFeedsInput = {
   timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutStaffNestedInput
   reviewedTimeOff?: Prisma.TimeOffRequestUpdateManyWithoutReviewedByStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileUncheckedUpdateWithoutCalendarFeedsInput = {
@@ -3210,6 +3338,8 @@ export type StaffProfileUncheckedUpdateWithoutCalendarFeedsInput = {
   timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutStaffNestedInput
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutReviewedByStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileCreateWithoutCrmStaffMappingInput = {
@@ -3248,6 +3378,8 @@ export type StaffProfileCreateWithoutCrmStaffMappingInput = {
   timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutStaffInput
   reviewedTimeOff?: Prisma.TimeOffRequestCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileUncheckedCreateWithoutCrmStaffMappingInput = {
@@ -3286,6 +3418,8 @@ export type StaffProfileUncheckedCreateWithoutCrmStaffMappingInput = {
   timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutStaffInput
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutReviewedByStaffInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutCourierStaffInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutAssignedStaffInput
 }
 
 export type StaffProfileCreateOrConnectWithoutCrmStaffMappingInput = {
@@ -3340,6 +3474,8 @@ export type StaffProfileUpdateWithoutCrmStaffMappingInput = {
   timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutStaffNestedInput
   reviewedTimeOff?: Prisma.TimeOffRequestUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileUncheckedUpdateWithoutCrmStaffMappingInput = {
@@ -3378,6 +3514,360 @@ export type StaffProfileUncheckedUpdateWithoutCrmStaffMappingInput = {
   timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutStaffNestedInput
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutAssignedStaffNestedInput
+}
+
+export type StaffProfileCreateWithoutCourierFulfillmentsInput = {
+  id?: string
+  employeeCode?: string | null
+  firstName: string
+  lastName: string
+  displayName: string
+  workEmail: string
+  phone?: string | null
+  jobTitle?: string | null
+  employmentType?: $Enums.EmploymentType
+  status?: $Enums.StaffStatus
+  startDate?: Date | string | null
+  endDate?: Date | string | null
+  timezone?: string
+  weeklyCapacityMinutes?: number
+  skills?: Prisma.StaffProfileCreateskillsInput | string[]
+  bio?: string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: string | null
+  updatedByUserId?: string | null
+  offboardedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutStaffProfilesInput
+  member?: Prisma.MemberCreateNestedOneWithoutStaffProfileInput
+  department?: Prisma.DepartmentCreateNestedOneWithoutStaffMembersInput
+  manager?: Prisma.StaffProfileCreateNestedOneWithoutDirectReportsInput
+  directReports?: Prisma.StaffProfileCreateNestedManyWithoutManagerInput
+  location?: Prisma.LocationCreateNestedOneWithoutStaffProfilesInput
+  workSchedule?: Prisma.WorkScheduleCreateNestedOneWithoutStaffProfilesInput
+  ledDepartments?: Prisma.DepartmentCreateNestedManyWithoutLeadStaffInput
+  ledTeams?: Prisma.TeamCreateNestedManyWithoutLeadStaffInput
+  teamMemberships?: Prisma.TeamMemberCreateNestedManyWithoutStaffInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutStaffInput
+  reviewedTimeOff?: Prisma.TimeOffRequestCreateNestedManyWithoutReviewedByStaffInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutStaffInput
+  crmStaffMapping?: Prisma.CrmStaffMappingCreateNestedOneWithoutStaffInput
+  assignedStaffJobs?: Prisma.StaffJobCreateNestedManyWithoutAssignedStaffInput
+}
+
+export type StaffProfileUncheckedCreateWithoutCourierFulfillmentsInput = {
+  id?: string
+  organizationId: string
+  memberId?: string | null
+  employeeCode?: string | null
+  firstName: string
+  lastName: string
+  displayName: string
+  workEmail: string
+  phone?: string | null
+  jobTitle?: string | null
+  departmentId?: string | null
+  managerStaffId?: string | null
+  locationId?: string | null
+  workScheduleId?: string | null
+  employmentType?: $Enums.EmploymentType
+  status?: $Enums.StaffStatus
+  startDate?: Date | string | null
+  endDate?: Date | string | null
+  timezone?: string
+  weeklyCapacityMinutes?: number
+  skills?: Prisma.StaffProfileCreateskillsInput | string[]
+  bio?: string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: string | null
+  updatedByUserId?: string | null
+  offboardedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  directReports?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutManagerInput
+  ledDepartments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutLeadStaffInput
+  ledTeams?: Prisma.TeamUncheckedCreateNestedManyWithoutLeadStaffInput
+  teamMemberships?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutStaffInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutStaffInput
+  reviewedTimeOff?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutReviewedByStaffInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutStaffInput
+  crmStaffMapping?: Prisma.CrmStaffMappingUncheckedCreateNestedOneWithoutStaffInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutAssignedStaffInput
+}
+
+export type StaffProfileCreateOrConnectWithoutCourierFulfillmentsInput = {
+  where: Prisma.StaffProfileWhereUniqueInput
+  create: Prisma.XOR<Prisma.StaffProfileCreateWithoutCourierFulfillmentsInput, Prisma.StaffProfileUncheckedCreateWithoutCourierFulfillmentsInput>
+}
+
+export type StaffProfileUpsertWithoutCourierFulfillmentsInput = {
+  update: Prisma.XOR<Prisma.StaffProfileUpdateWithoutCourierFulfillmentsInput, Prisma.StaffProfileUncheckedUpdateWithoutCourierFulfillmentsInput>
+  create: Prisma.XOR<Prisma.StaffProfileCreateWithoutCourierFulfillmentsInput, Prisma.StaffProfileUncheckedCreateWithoutCourierFulfillmentsInput>
+  where?: Prisma.StaffProfileWhereInput
+}
+
+export type StaffProfileUpdateToOneWithWhereWithoutCourierFulfillmentsInput = {
+  where?: Prisma.StaffProfileWhereInput
+  data: Prisma.XOR<Prisma.StaffProfileUpdateWithoutCourierFulfillmentsInput, Prisma.StaffProfileUncheckedUpdateWithoutCourierFulfillmentsInput>
+}
+
+export type StaffProfileUpdateWithoutCourierFulfillmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  employeeCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  workEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  jobTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  employmentType?: Prisma.EnumEmploymentTypeFieldUpdateOperationsInput | $Enums.EmploymentType
+  status?: Prisma.EnumStaffStatusFieldUpdateOperationsInput | $Enums.StaffStatus
+  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  weeklyCapacityMinutes?: Prisma.IntFieldUpdateOperationsInput | number
+  skills?: Prisma.StaffProfileUpdateskillsInput | string[]
+  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  offboardedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutStaffProfilesNestedInput
+  member?: Prisma.MemberUpdateOneWithoutStaffProfileNestedInput
+  department?: Prisma.DepartmentUpdateOneWithoutStaffMembersNestedInput
+  manager?: Prisma.StaffProfileUpdateOneWithoutDirectReportsNestedInput
+  directReports?: Prisma.StaffProfileUpdateManyWithoutManagerNestedInput
+  location?: Prisma.LocationUpdateOneWithoutStaffProfilesNestedInput
+  workSchedule?: Prisma.WorkScheduleUpdateOneWithoutStaffProfilesNestedInput
+  ledDepartments?: Prisma.DepartmentUpdateManyWithoutLeadStaffNestedInput
+  ledTeams?: Prisma.TeamUpdateManyWithoutLeadStaffNestedInput
+  teamMemberships?: Prisma.TeamMemberUpdateManyWithoutStaffNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutStaffNestedInput
+  reviewedTimeOff?: Prisma.TimeOffRequestUpdateManyWithoutReviewedByStaffNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutStaffNestedInput
+  crmStaffMapping?: Prisma.CrmStaffMappingUpdateOneWithoutStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUpdateManyWithoutAssignedStaffNestedInput
+}
+
+export type StaffProfileUncheckedUpdateWithoutCourierFulfillmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  memberId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  employeeCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  workEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  jobTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  departmentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  managerStaffId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  workScheduleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  employmentType?: Prisma.EnumEmploymentTypeFieldUpdateOperationsInput | $Enums.EmploymentType
+  status?: Prisma.EnumStaffStatusFieldUpdateOperationsInput | $Enums.StaffStatus
+  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  weeklyCapacityMinutes?: Prisma.IntFieldUpdateOperationsInput | number
+  skills?: Prisma.StaffProfileUpdateskillsInput | string[]
+  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  offboardedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  directReports?: Prisma.StaffProfileUncheckedUpdateManyWithoutManagerNestedInput
+  ledDepartments?: Prisma.DepartmentUncheckedUpdateManyWithoutLeadStaffNestedInput
+  ledTeams?: Prisma.TeamUncheckedUpdateManyWithoutLeadStaffNestedInput
+  teamMemberships?: Prisma.TeamMemberUncheckedUpdateManyWithoutStaffNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutStaffNestedInput
+  reviewedTimeOff?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutReviewedByStaffNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutStaffNestedInput
+  crmStaffMapping?: Prisma.CrmStaffMappingUncheckedUpdateOneWithoutStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutAssignedStaffNestedInput
+}
+
+export type StaffProfileCreateWithoutAssignedStaffJobsInput = {
+  id?: string
+  employeeCode?: string | null
+  firstName: string
+  lastName: string
+  displayName: string
+  workEmail: string
+  phone?: string | null
+  jobTitle?: string | null
+  employmentType?: $Enums.EmploymentType
+  status?: $Enums.StaffStatus
+  startDate?: Date | string | null
+  endDate?: Date | string | null
+  timezone?: string
+  weeklyCapacityMinutes?: number
+  skills?: Prisma.StaffProfileCreateskillsInput | string[]
+  bio?: string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: string | null
+  updatedByUserId?: string | null
+  offboardedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutStaffProfilesInput
+  member?: Prisma.MemberCreateNestedOneWithoutStaffProfileInput
+  department?: Prisma.DepartmentCreateNestedOneWithoutStaffMembersInput
+  manager?: Prisma.StaffProfileCreateNestedOneWithoutDirectReportsInput
+  directReports?: Prisma.StaffProfileCreateNestedManyWithoutManagerInput
+  location?: Prisma.LocationCreateNestedOneWithoutStaffProfilesInput
+  workSchedule?: Prisma.WorkScheduleCreateNestedOneWithoutStaffProfilesInput
+  ledDepartments?: Prisma.DepartmentCreateNestedManyWithoutLeadStaffInput
+  ledTeams?: Prisma.TeamCreateNestedManyWithoutLeadStaffInput
+  teamMemberships?: Prisma.TeamMemberCreateNestedManyWithoutStaffInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutStaffInput
+  reviewedTimeOff?: Prisma.TimeOffRequestCreateNestedManyWithoutReviewedByStaffInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutStaffInput
+  crmStaffMapping?: Prisma.CrmStaffMappingCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutCourierStaffInput
+}
+
+export type StaffProfileUncheckedCreateWithoutAssignedStaffJobsInput = {
+  id?: string
+  organizationId: string
+  memberId?: string | null
+  employeeCode?: string | null
+  firstName: string
+  lastName: string
+  displayName: string
+  workEmail: string
+  phone?: string | null
+  jobTitle?: string | null
+  departmentId?: string | null
+  managerStaffId?: string | null
+  locationId?: string | null
+  workScheduleId?: string | null
+  employmentType?: $Enums.EmploymentType
+  status?: $Enums.StaffStatus
+  startDate?: Date | string | null
+  endDate?: Date | string | null
+  timezone?: string
+  weeklyCapacityMinutes?: number
+  skills?: Prisma.StaffProfileCreateskillsInput | string[]
+  bio?: string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: string | null
+  updatedByUserId?: string | null
+  offboardedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  directReports?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutManagerInput
+  ledDepartments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutLeadStaffInput
+  ledTeams?: Prisma.TeamUncheckedCreateNestedManyWithoutLeadStaffInput
+  teamMemberships?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutStaffInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutStaffInput
+  reviewedTimeOff?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutReviewedByStaffInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutStaffInput
+  crmStaffMapping?: Prisma.CrmStaffMappingUncheckedCreateNestedOneWithoutStaffInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutCourierStaffInput
+}
+
+export type StaffProfileCreateOrConnectWithoutAssignedStaffJobsInput = {
+  where: Prisma.StaffProfileWhereUniqueInput
+  create: Prisma.XOR<Prisma.StaffProfileCreateWithoutAssignedStaffJobsInput, Prisma.StaffProfileUncheckedCreateWithoutAssignedStaffJobsInput>
+}
+
+export type StaffProfileUpsertWithoutAssignedStaffJobsInput = {
+  update: Prisma.XOR<Prisma.StaffProfileUpdateWithoutAssignedStaffJobsInput, Prisma.StaffProfileUncheckedUpdateWithoutAssignedStaffJobsInput>
+  create: Prisma.XOR<Prisma.StaffProfileCreateWithoutAssignedStaffJobsInput, Prisma.StaffProfileUncheckedCreateWithoutAssignedStaffJobsInput>
+  where?: Prisma.StaffProfileWhereInput
+}
+
+export type StaffProfileUpdateToOneWithWhereWithoutAssignedStaffJobsInput = {
+  where?: Prisma.StaffProfileWhereInput
+  data: Prisma.XOR<Prisma.StaffProfileUpdateWithoutAssignedStaffJobsInput, Prisma.StaffProfileUncheckedUpdateWithoutAssignedStaffJobsInput>
+}
+
+export type StaffProfileUpdateWithoutAssignedStaffJobsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  employeeCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  workEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  jobTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  employmentType?: Prisma.EnumEmploymentTypeFieldUpdateOperationsInput | $Enums.EmploymentType
+  status?: Prisma.EnumStaffStatusFieldUpdateOperationsInput | $Enums.StaffStatus
+  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  weeklyCapacityMinutes?: Prisma.IntFieldUpdateOperationsInput | number
+  skills?: Prisma.StaffProfileUpdateskillsInput | string[]
+  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  offboardedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutStaffProfilesNestedInput
+  member?: Prisma.MemberUpdateOneWithoutStaffProfileNestedInput
+  department?: Prisma.DepartmentUpdateOneWithoutStaffMembersNestedInput
+  manager?: Prisma.StaffProfileUpdateOneWithoutDirectReportsNestedInput
+  directReports?: Prisma.StaffProfileUpdateManyWithoutManagerNestedInput
+  location?: Prisma.LocationUpdateOneWithoutStaffProfilesNestedInput
+  workSchedule?: Prisma.WorkScheduleUpdateOneWithoutStaffProfilesNestedInput
+  ledDepartments?: Prisma.DepartmentUpdateManyWithoutLeadStaffNestedInput
+  ledTeams?: Prisma.TeamUpdateManyWithoutLeadStaffNestedInput
+  teamMemberships?: Prisma.TeamMemberUpdateManyWithoutStaffNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutStaffNestedInput
+  reviewedTimeOff?: Prisma.TimeOffRequestUpdateManyWithoutReviewedByStaffNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutStaffNestedInput
+  crmStaffMapping?: Prisma.CrmStaffMappingUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutCourierStaffNestedInput
+}
+
+export type StaffProfileUncheckedUpdateWithoutAssignedStaffJobsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  memberId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  employeeCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  workEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  jobTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  departmentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  managerStaffId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  workScheduleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  employmentType?: Prisma.EnumEmploymentTypeFieldUpdateOperationsInput | $Enums.EmploymentType
+  status?: Prisma.EnumStaffStatusFieldUpdateOperationsInput | $Enums.StaffStatus
+  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  weeklyCapacityMinutes?: Prisma.IntFieldUpdateOperationsInput | number
+  skills?: Prisma.StaffProfileUpdateskillsInput | string[]
+  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  offboardedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  directReports?: Prisma.StaffProfileUncheckedUpdateManyWithoutManagerNestedInput
+  ledDepartments?: Prisma.DepartmentUncheckedUpdateManyWithoutLeadStaffNestedInput
+  ledTeams?: Prisma.TeamUncheckedUpdateManyWithoutLeadStaffNestedInput
+  teamMemberships?: Prisma.TeamMemberUncheckedUpdateManyWithoutStaffNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutStaffNestedInput
+  reviewedTimeOff?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutReviewedByStaffNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutStaffNestedInput
+  crmStaffMapping?: Prisma.CrmStaffMappingUncheckedUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutCourierStaffNestedInput
 }
 
 export type StaffProfileCreateManyOrganizationInput = {
@@ -3446,6 +3936,8 @@ export type StaffProfileUpdateWithoutOrganizationInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileUncheckedUpdateWithoutOrganizationInput = {
@@ -3484,6 +3976,8 @@ export type StaffProfileUncheckedUpdateWithoutOrganizationInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileUncheckedUpdateManyWithoutOrganizationInput = {
@@ -3582,6 +4076,8 @@ export type StaffProfileUpdateWithoutLocationInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileUncheckedUpdateWithoutLocationInput = {
@@ -3620,6 +4116,8 @@ export type StaffProfileUncheckedUpdateWithoutLocationInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileUncheckedUpdateManyWithoutLocationInput = {
@@ -3718,6 +4216,8 @@ export type StaffProfileUpdateWithoutDepartmentInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileUncheckedUpdateWithoutDepartmentInput = {
@@ -3756,6 +4256,8 @@ export type StaffProfileUncheckedUpdateWithoutDepartmentInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileUncheckedUpdateManyWithoutDepartmentInput = {
@@ -3854,6 +4356,8 @@ export type StaffProfileUpdateWithoutWorkScheduleInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileUncheckedUpdateWithoutWorkScheduleInput = {
@@ -3892,6 +4396,8 @@ export type StaffProfileUncheckedUpdateWithoutWorkScheduleInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileUncheckedUpdateManyWithoutWorkScheduleInput = {
@@ -3990,6 +4496,8 @@ export type StaffProfileUpdateWithoutManagerInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileUncheckedUpdateWithoutManagerInput = {
@@ -4028,6 +4536,8 @@ export type StaffProfileUncheckedUpdateWithoutManagerInput = {
   reviewedTimeOff?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutReviewedByStaffNestedInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutStaffNestedInput
   crmStaffMapping?: Prisma.CrmStaffMappingUncheckedUpdateOneWithoutStaffNestedInput
+  courierFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutCourierStaffNestedInput
+  assignedStaffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutAssignedStaffNestedInput
 }
 
 export type StaffProfileUncheckedUpdateManyWithoutManagerInput = {
@@ -4073,6 +4583,8 @@ export type StaffProfileCountOutputType = {
   timeOffRequests: number
   reviewedTimeOff: number
   calendarFeeds: number
+  courierFulfillments: number
+  assignedStaffJobs: number
 }
 
 export type StaffProfileCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -4083,6 +4595,8 @@ export type StaffProfileCountOutputTypeSelect<ExtArgs extends runtime.Types.Exte
   timeOffRequests?: boolean | StaffProfileCountOutputTypeCountTimeOffRequestsArgs
   reviewedTimeOff?: boolean | StaffProfileCountOutputTypeCountReviewedTimeOffArgs
   calendarFeeds?: boolean | StaffProfileCountOutputTypeCountCalendarFeedsArgs
+  courierFulfillments?: boolean | StaffProfileCountOutputTypeCountCourierFulfillmentsArgs
+  assignedStaffJobs?: boolean | StaffProfileCountOutputTypeCountAssignedStaffJobsArgs
 }
 
 /**
@@ -4144,6 +4658,20 @@ export type StaffProfileCountOutputTypeCountCalendarFeedsArgs<ExtArgs extends ru
   where?: Prisma.CalendarFeedWhereInput
 }
 
+/**
+ * StaffProfileCountOutputType without action
+ */
+export type StaffProfileCountOutputTypeCountCourierFulfillmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OrderFulfillmentWhereInput
+}
+
+/**
+ * StaffProfileCountOutputType without action
+ */
+export type StaffProfileCountOutputTypeCountAssignedStaffJobsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.StaffJobWhereInput
+}
+
 
 export type StaffProfileSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -4188,6 +4716,8 @@ export type StaffProfileSelect<ExtArgs extends runtime.Types.Extensions.Internal
   reviewedTimeOff?: boolean | Prisma.StaffProfile$reviewedTimeOffArgs<ExtArgs>
   calendarFeeds?: boolean | Prisma.StaffProfile$calendarFeedsArgs<ExtArgs>
   crmStaffMapping?: boolean | Prisma.StaffProfile$crmStaffMappingArgs<ExtArgs>
+  courierFulfillments?: boolean | Prisma.StaffProfile$courierFulfillmentsArgs<ExtArgs>
+  assignedStaffJobs?: boolean | Prisma.StaffProfile$assignedStaffJobsArgs<ExtArgs>
   _count?: boolean | Prisma.StaffProfileCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["staffProfile"]>
 
@@ -4312,6 +4842,8 @@ export type StaffProfileInclude<ExtArgs extends runtime.Types.Extensions.Interna
   reviewedTimeOff?: boolean | Prisma.StaffProfile$reviewedTimeOffArgs<ExtArgs>
   calendarFeeds?: boolean | Prisma.StaffProfile$calendarFeedsArgs<ExtArgs>
   crmStaffMapping?: boolean | Prisma.StaffProfile$crmStaffMappingArgs<ExtArgs>
+  courierFulfillments?: boolean | Prisma.StaffProfile$courierFulfillmentsArgs<ExtArgs>
+  assignedStaffJobs?: boolean | Prisma.StaffProfile$assignedStaffJobsArgs<ExtArgs>
   _count?: boolean | Prisma.StaffProfileCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type StaffProfileIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -4348,6 +4880,8 @@ export type $StaffProfilePayload<ExtArgs extends runtime.Types.Extensions.Intern
     reviewedTimeOff: Prisma.$TimeOffRequestPayload<ExtArgs>[]
     calendarFeeds: Prisma.$CalendarFeedPayload<ExtArgs>[]
     crmStaffMapping: Prisma.$CrmStaffMappingPayload<ExtArgs> | null
+    courierFulfillments: Prisma.$OrderFulfillmentPayload<ExtArgs>[]
+    assignedStaffJobs: Prisma.$StaffJobPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -4786,6 +5320,8 @@ export interface Prisma__StaffProfileClient<T, Null = never, ExtArgs extends run
   reviewedTimeOff<T extends Prisma.StaffProfile$reviewedTimeOffArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StaffProfile$reviewedTimeOffArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TimeOffRequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   calendarFeeds<T extends Prisma.StaffProfile$calendarFeedsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StaffProfile$calendarFeedsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CalendarFeedPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   crmStaffMapping<T extends Prisma.StaffProfile$crmStaffMappingArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StaffProfile$crmStaffMappingArgs<ExtArgs>>): Prisma.Prisma__CrmStaffMappingClient<runtime.Types.Result.GetResult<Prisma.$CrmStaffMappingPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  courierFulfillments<T extends Prisma.StaffProfile$courierFulfillmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StaffProfile$courierFulfillmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrderFulfillmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  assignedStaffJobs<T extends Prisma.StaffProfile$assignedStaffJobsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StaffProfile$assignedStaffJobsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StaffJobPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5523,6 +6059,54 @@ export type StaffProfile$crmStaffMappingArgs<ExtArgs extends runtime.Types.Exten
    */
   include?: Prisma.CrmStaffMappingInclude<ExtArgs> | null
   where?: Prisma.CrmStaffMappingWhereInput
+}
+
+/**
+ * StaffProfile.courierFulfillments
+ */
+export type StaffProfile$courierFulfillmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the OrderFulfillment
+   */
+  select?: Prisma.OrderFulfillmentSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the OrderFulfillment
+   */
+  omit?: Prisma.OrderFulfillmentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OrderFulfillmentInclude<ExtArgs> | null
+  where?: Prisma.OrderFulfillmentWhereInput
+  orderBy?: Prisma.OrderFulfillmentOrderByWithRelationInput | Prisma.OrderFulfillmentOrderByWithRelationInput[]
+  cursor?: Prisma.OrderFulfillmentWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OrderFulfillmentScalarFieldEnum | Prisma.OrderFulfillmentScalarFieldEnum[]
+}
+
+/**
+ * StaffProfile.assignedStaffJobs
+ */
+export type StaffProfile$assignedStaffJobsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the StaffJob
+   */
+  select?: Prisma.StaffJobSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the StaffJob
+   */
+  omit?: Prisma.StaffJobOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.StaffJobInclude<ExtArgs> | null
+  where?: Prisma.StaffJobWhereInput
+  orderBy?: Prisma.StaffJobOrderByWithRelationInput | Prisma.StaffJobOrderByWithRelationInput[]
+  cursor?: Prisma.StaffJobWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.StaffJobScalarFieldEnum | Prisma.StaffJobScalarFieldEnum[]
 }
 
 /**

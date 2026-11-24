@@ -333,6 +333,8 @@ export type LocationWhereInput = {
   holidays?: Prisma.HolidayListRelationFilter
   stockLots?: Prisma.StockLotListRelationFilter
   quarantineHolds?: Prisma.QuarantineHoldListRelationFilter
+  orders?: Prisma.OrderListRelationFilter
+  orderFulfillments?: Prisma.OrderFulfillmentListRelationFilter
 }
 
 export type LocationOrderByWithRelationInput = {
@@ -370,6 +372,8 @@ export type LocationOrderByWithRelationInput = {
   holidays?: Prisma.HolidayOrderByRelationAggregateInput
   stockLots?: Prisma.StockLotOrderByRelationAggregateInput
   quarantineHolds?: Prisma.QuarantineHoldOrderByRelationAggregateInput
+  orders?: Prisma.OrderOrderByRelationAggregateInput
+  orderFulfillments?: Prisma.OrderFulfillmentOrderByRelationAggregateInput
 }
 
 export type LocationWhereUniqueInput = Prisma.AtLeast<{
@@ -411,6 +415,8 @@ export type LocationWhereUniqueInput = Prisma.AtLeast<{
   holidays?: Prisma.HolidayListRelationFilter
   stockLots?: Prisma.StockLotListRelationFilter
   quarantineHolds?: Prisma.QuarantineHoldListRelationFilter
+  orders?: Prisma.OrderListRelationFilter
+  orderFulfillments?: Prisma.OrderFulfillmentListRelationFilter
 }, "id" | "organizationId_code">
 
 export type LocationOrderByWithAggregationInput = {
@@ -505,6 +511,8 @@ export type LocationCreateInput = {
   holidays?: Prisma.HolidayCreateNestedManyWithoutLocationInput
   stockLots?: Prisma.StockLotCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateInput = {
@@ -541,6 +549,8 @@ export type LocationUncheckedCreateInput = {
   holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutLocationInput
   stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUpdateInput = {
@@ -577,6 +587,8 @@ export type LocationUpdateInput = {
   holidays?: Prisma.HolidayUpdateManyWithoutLocationNestedInput
   stockLots?: Prisma.StockLotUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateInput = {
@@ -613,6 +625,8 @@ export type LocationUncheckedUpdateInput = {
   holidays?: Prisma.HolidayUncheckedUpdateManyWithoutLocationNestedInput
   stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationCreateManyInput = {
@@ -987,6 +1001,34 @@ export type LocationUpdateOneWithoutHolidaysNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.LocationUpdateToOneWithWhereWithoutHolidaysInput, Prisma.LocationUpdateWithoutHolidaysInput>, Prisma.LocationUncheckedUpdateWithoutHolidaysInput>
 }
 
+export type LocationCreateNestedOneWithoutOrdersInput = {
+  create?: Prisma.XOR<Prisma.LocationCreateWithoutOrdersInput, Prisma.LocationUncheckedCreateWithoutOrdersInput>
+  connectOrCreate?: Prisma.LocationCreateOrConnectWithoutOrdersInput
+  connect?: Prisma.LocationWhereUniqueInput
+}
+
+export type LocationUpdateOneRequiredWithoutOrdersNestedInput = {
+  create?: Prisma.XOR<Prisma.LocationCreateWithoutOrdersInput, Prisma.LocationUncheckedCreateWithoutOrdersInput>
+  connectOrCreate?: Prisma.LocationCreateOrConnectWithoutOrdersInput
+  upsert?: Prisma.LocationUpsertWithoutOrdersInput
+  connect?: Prisma.LocationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.LocationUpdateToOneWithWhereWithoutOrdersInput, Prisma.LocationUpdateWithoutOrdersInput>, Prisma.LocationUncheckedUpdateWithoutOrdersInput>
+}
+
+export type LocationCreateNestedOneWithoutOrderFulfillmentsInput = {
+  create?: Prisma.XOR<Prisma.LocationCreateWithoutOrderFulfillmentsInput, Prisma.LocationUncheckedCreateWithoutOrderFulfillmentsInput>
+  connectOrCreate?: Prisma.LocationCreateOrConnectWithoutOrderFulfillmentsInput
+  connect?: Prisma.LocationWhereUniqueInput
+}
+
+export type LocationUpdateOneRequiredWithoutOrderFulfillmentsNestedInput = {
+  create?: Prisma.XOR<Prisma.LocationCreateWithoutOrderFulfillmentsInput, Prisma.LocationUncheckedCreateWithoutOrderFulfillmentsInput>
+  connectOrCreate?: Prisma.LocationCreateOrConnectWithoutOrderFulfillmentsInput
+  upsert?: Prisma.LocationUpsertWithoutOrderFulfillmentsInput
+  connect?: Prisma.LocationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.LocationUpdateToOneWithWhereWithoutOrderFulfillmentsInput, Prisma.LocationUpdateWithoutOrderFulfillmentsInput>, Prisma.LocationUncheckedUpdateWithoutOrderFulfillmentsInput>
+}
+
 export type LocationCreateWithoutOrganizationInput = {
   id?: string
   code: string
@@ -1020,6 +1062,8 @@ export type LocationCreateWithoutOrganizationInput = {
   holidays?: Prisma.HolidayCreateNestedManyWithoutLocationInput
   stockLots?: Prisma.StockLotCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateWithoutOrganizationInput = {
@@ -1055,6 +1099,8 @@ export type LocationUncheckedCreateWithoutOrganizationInput = {
   holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutLocationInput
   stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationCreateOrConnectWithoutOrganizationInput = {
@@ -1145,6 +1191,8 @@ export type LocationCreateWithoutStockBalancesInput = {
   holidays?: Prisma.HolidayCreateNestedManyWithoutLocationInput
   stockLots?: Prisma.StockLotCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateWithoutStockBalancesInput = {
@@ -1180,6 +1228,8 @@ export type LocationUncheckedCreateWithoutStockBalancesInput = {
   holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutLocationInput
   stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationCreateOrConnectWithoutStockBalancesInput = {
@@ -1231,6 +1281,8 @@ export type LocationUpdateWithoutStockBalancesInput = {
   holidays?: Prisma.HolidayUpdateManyWithoutLocationNestedInput
   stockLots?: Prisma.StockLotUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateWithoutStockBalancesInput = {
@@ -1266,6 +1318,8 @@ export type LocationUncheckedUpdateWithoutStockBalancesInput = {
   holidays?: Prisma.HolidayUncheckedUpdateManyWithoutLocationNestedInput
   stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationCreateWithoutStockMovementsInput = {
@@ -1301,6 +1355,8 @@ export type LocationCreateWithoutStockMovementsInput = {
   holidays?: Prisma.HolidayCreateNestedManyWithoutLocationInput
   stockLots?: Prisma.StockLotCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateWithoutStockMovementsInput = {
@@ -1336,6 +1392,8 @@ export type LocationUncheckedCreateWithoutStockMovementsInput = {
   holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutLocationInput
   stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationCreateOrConnectWithoutStockMovementsInput = {
@@ -1387,6 +1445,8 @@ export type LocationUpdateWithoutStockMovementsInput = {
   holidays?: Prisma.HolidayUpdateManyWithoutLocationNestedInput
   stockLots?: Prisma.StockLotUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateWithoutStockMovementsInput = {
@@ -1422,6 +1482,8 @@ export type LocationUncheckedUpdateWithoutStockMovementsInput = {
   holidays?: Prisma.HolidayUncheckedUpdateManyWithoutLocationNestedInput
   stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationCreateWithoutOutgoingTransfersInput = {
@@ -1457,6 +1519,8 @@ export type LocationCreateWithoutOutgoingTransfersInput = {
   holidays?: Prisma.HolidayCreateNestedManyWithoutLocationInput
   stockLots?: Prisma.StockLotCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateWithoutOutgoingTransfersInput = {
@@ -1492,6 +1556,8 @@ export type LocationUncheckedCreateWithoutOutgoingTransfersInput = {
   holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutLocationInput
   stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationCreateOrConnectWithoutOutgoingTransfersInput = {
@@ -1532,6 +1598,8 @@ export type LocationCreateWithoutIncomingTransfersInput = {
   holidays?: Prisma.HolidayCreateNestedManyWithoutLocationInput
   stockLots?: Prisma.StockLotCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateWithoutIncomingTransfersInput = {
@@ -1567,6 +1635,8 @@ export type LocationUncheckedCreateWithoutIncomingTransfersInput = {
   holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutLocationInput
   stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationCreateOrConnectWithoutIncomingTransfersInput = {
@@ -1618,6 +1688,8 @@ export type LocationUpdateWithoutOutgoingTransfersInput = {
   holidays?: Prisma.HolidayUpdateManyWithoutLocationNestedInput
   stockLots?: Prisma.StockLotUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateWithoutOutgoingTransfersInput = {
@@ -1653,6 +1725,8 @@ export type LocationUncheckedUpdateWithoutOutgoingTransfersInput = {
   holidays?: Prisma.HolidayUncheckedUpdateManyWithoutLocationNestedInput
   stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUpsertWithoutIncomingTransfersInput = {
@@ -1699,6 +1773,8 @@ export type LocationUpdateWithoutIncomingTransfersInput = {
   holidays?: Prisma.HolidayUpdateManyWithoutLocationNestedInput
   stockLots?: Prisma.StockLotUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateWithoutIncomingTransfersInput = {
@@ -1734,6 +1810,8 @@ export type LocationUncheckedUpdateWithoutIncomingTransfersInput = {
   holidays?: Prisma.HolidayUncheckedUpdateManyWithoutLocationNestedInput
   stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationCreateWithoutPurchaseOrdersInput = {
@@ -1769,6 +1847,8 @@ export type LocationCreateWithoutPurchaseOrdersInput = {
   holidays?: Prisma.HolidayCreateNestedManyWithoutLocationInput
   stockLots?: Prisma.StockLotCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateWithoutPurchaseOrdersInput = {
@@ -1804,6 +1884,8 @@ export type LocationUncheckedCreateWithoutPurchaseOrdersInput = {
   holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutLocationInput
   stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationCreateOrConnectWithoutPurchaseOrdersInput = {
@@ -1855,6 +1937,8 @@ export type LocationUpdateWithoutPurchaseOrdersInput = {
   holidays?: Prisma.HolidayUpdateManyWithoutLocationNestedInput
   stockLots?: Prisma.StockLotUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateWithoutPurchaseOrdersInput = {
@@ -1890,6 +1974,8 @@ export type LocationUncheckedUpdateWithoutPurchaseOrdersInput = {
   holidays?: Prisma.HolidayUncheckedUpdateManyWithoutLocationNestedInput
   stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationCreateWithoutGoodsReceiptsInput = {
@@ -1925,6 +2011,8 @@ export type LocationCreateWithoutGoodsReceiptsInput = {
   holidays?: Prisma.HolidayCreateNestedManyWithoutLocationInput
   stockLots?: Prisma.StockLotCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateWithoutGoodsReceiptsInput = {
@@ -1960,6 +2048,8 @@ export type LocationUncheckedCreateWithoutGoodsReceiptsInput = {
   holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutLocationInput
   stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationCreateOrConnectWithoutGoodsReceiptsInput = {
@@ -2011,6 +2101,8 @@ export type LocationUpdateWithoutGoodsReceiptsInput = {
   holidays?: Prisma.HolidayUpdateManyWithoutLocationNestedInput
   stockLots?: Prisma.StockLotUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateWithoutGoodsReceiptsInput = {
@@ -2046,6 +2138,8 @@ export type LocationUncheckedUpdateWithoutGoodsReceiptsInput = {
   holidays?: Prisma.HolidayUncheckedUpdateManyWithoutLocationNestedInput
   stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationCreateWithoutStockLotsInput = {
@@ -2081,6 +2175,8 @@ export type LocationCreateWithoutStockLotsInput = {
   staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutLocationInput
   holidays?: Prisma.HolidayCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateWithoutStockLotsInput = {
@@ -2116,6 +2212,8 @@ export type LocationUncheckedCreateWithoutStockLotsInput = {
   staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutLocationInput
   holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationCreateOrConnectWithoutStockLotsInput = {
@@ -2167,6 +2265,8 @@ export type LocationUpdateWithoutStockLotsInput = {
   staffProfiles?: Prisma.StaffProfileUpdateManyWithoutLocationNestedInput
   holidays?: Prisma.HolidayUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateWithoutStockLotsInput = {
@@ -2202,6 +2302,8 @@ export type LocationUncheckedUpdateWithoutStockLotsInput = {
   staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutLocationNestedInput
   holidays?: Prisma.HolidayUncheckedUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationCreateWithoutQuarantineHoldsInput = {
@@ -2237,6 +2339,8 @@ export type LocationCreateWithoutQuarantineHoldsInput = {
   staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutLocationInput
   holidays?: Prisma.HolidayCreateNestedManyWithoutLocationInput
   stockLots?: Prisma.StockLotCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateWithoutQuarantineHoldsInput = {
@@ -2272,6 +2376,8 @@ export type LocationUncheckedCreateWithoutQuarantineHoldsInput = {
   staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutLocationInput
   holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutLocationInput
   stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationCreateOrConnectWithoutQuarantineHoldsInput = {
@@ -2323,6 +2429,8 @@ export type LocationUpdateWithoutQuarantineHoldsInput = {
   staffProfiles?: Prisma.StaffProfileUpdateManyWithoutLocationNestedInput
   holidays?: Prisma.HolidayUpdateManyWithoutLocationNestedInput
   stockLots?: Prisma.StockLotUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateWithoutQuarantineHoldsInput = {
@@ -2358,6 +2466,8 @@ export type LocationUncheckedUpdateWithoutQuarantineHoldsInput = {
   staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutLocationNestedInput
   holidays?: Prisma.HolidayUncheckedUpdateManyWithoutLocationNestedInput
   stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationCreateWithoutStaffProfilesInput = {
@@ -2393,6 +2503,8 @@ export type LocationCreateWithoutStaffProfilesInput = {
   holidays?: Prisma.HolidayCreateNestedManyWithoutLocationInput
   stockLots?: Prisma.StockLotCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateWithoutStaffProfilesInput = {
@@ -2428,6 +2540,8 @@ export type LocationUncheckedCreateWithoutStaffProfilesInput = {
   holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutLocationInput
   stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationCreateOrConnectWithoutStaffProfilesInput = {
@@ -2479,6 +2593,8 @@ export type LocationUpdateWithoutStaffProfilesInput = {
   holidays?: Prisma.HolidayUpdateManyWithoutLocationNestedInput
   stockLots?: Prisma.StockLotUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateWithoutStaffProfilesInput = {
@@ -2514,6 +2630,8 @@ export type LocationUncheckedUpdateWithoutStaffProfilesInput = {
   holidays?: Prisma.HolidayUncheckedUpdateManyWithoutLocationNestedInput
   stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationCreateWithoutHolidaysInput = {
@@ -2549,6 +2667,8 @@ export type LocationCreateWithoutHolidaysInput = {
   staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutLocationInput
   stockLots?: Prisma.StockLotCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateWithoutHolidaysInput = {
@@ -2584,6 +2704,8 @@ export type LocationUncheckedCreateWithoutHolidaysInput = {
   staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutLocationInput
   stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationCreateOrConnectWithoutHolidaysInput = {
@@ -2635,6 +2757,8 @@ export type LocationUpdateWithoutHolidaysInput = {
   staffProfiles?: Prisma.StaffProfileUpdateManyWithoutLocationNestedInput
   stockLots?: Prisma.StockLotUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateWithoutHolidaysInput = {
@@ -2670,6 +2794,336 @@ export type LocationUncheckedUpdateWithoutHolidaysInput = {
   staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutLocationNestedInput
   stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
+}
+
+export type LocationCreateWithoutOrdersInput = {
+  id?: string
+  code: string
+  name: string
+  type: $Enums.LocationType
+  status?: $Enums.LocationStatus
+  isDefault?: boolean
+  addressLine1?: string | null
+  addressLine2?: string | null
+  city?: string | null
+  state?: string | null
+  postalCode?: string | null
+  country?: string | null
+  timezone?: string | null
+  phone?: string | null
+  email?: string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: string | null
+  updatedByUserId?: string | null
+  archivedAt?: Date | string | null
+  archivedByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutLocationsInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutLocationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutLocationInput
+  outgoingTransfers?: Prisma.StockTransferCreateNestedManyWithoutFromLocationInput
+  incomingTransfers?: Prisma.StockTransferCreateNestedManyWithoutToLocationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutLocationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutLocationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutLocationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutLocationInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutLocationInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
+}
+
+export type LocationUncheckedCreateWithoutOrdersInput = {
+  id?: string
+  organizationId: string
+  code: string
+  name: string
+  type: $Enums.LocationType
+  status?: $Enums.LocationStatus
+  isDefault?: boolean
+  addressLine1?: string | null
+  addressLine2?: string | null
+  city?: string | null
+  state?: string | null
+  postalCode?: string | null
+  country?: string | null
+  timezone?: string | null
+  phone?: string | null
+  email?: string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: string | null
+  updatedByUserId?: string | null
+  archivedAt?: Date | string | null
+  archivedByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutLocationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutLocationInput
+  outgoingTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutFromLocationInput
+  incomingTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutToLocationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutLocationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutLocationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutLocationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutLocationInput
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutLocationInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
+}
+
+export type LocationCreateOrConnectWithoutOrdersInput = {
+  where: Prisma.LocationWhereUniqueInput
+  create: Prisma.XOR<Prisma.LocationCreateWithoutOrdersInput, Prisma.LocationUncheckedCreateWithoutOrdersInput>
+}
+
+export type LocationUpsertWithoutOrdersInput = {
+  update: Prisma.XOR<Prisma.LocationUpdateWithoutOrdersInput, Prisma.LocationUncheckedUpdateWithoutOrdersInput>
+  create: Prisma.XOR<Prisma.LocationCreateWithoutOrdersInput, Prisma.LocationUncheckedCreateWithoutOrdersInput>
+  where?: Prisma.LocationWhereInput
+}
+
+export type LocationUpdateToOneWithWhereWithoutOrdersInput = {
+  where?: Prisma.LocationWhereInput
+  data: Prisma.XOR<Prisma.LocationUpdateWithoutOrdersInput, Prisma.LocationUncheckedUpdateWithoutOrdersInput>
+}
+
+export type LocationUpdateWithoutOrdersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumLocationTypeFieldUpdateOperationsInput | $Enums.LocationType
+  status?: Prisma.EnumLocationStatusFieldUpdateOperationsInput | $Enums.LocationStatus
+  isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  addressLine1?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  postalCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  timezone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  archivedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutLocationsNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutLocationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutLocationNestedInput
+  outgoingTransfers?: Prisma.StockTransferUpdateManyWithoutFromLocationNestedInput
+  incomingTransfers?: Prisma.StockTransferUpdateManyWithoutToLocationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutLocationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutLocationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutLocationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutLocationNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutLocationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
+}
+
+export type LocationUncheckedUpdateWithoutOrdersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumLocationTypeFieldUpdateOperationsInput | $Enums.LocationType
+  status?: Prisma.EnumLocationStatusFieldUpdateOperationsInput | $Enums.LocationStatus
+  isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  addressLine1?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  postalCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  timezone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  archivedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutLocationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutLocationNestedInput
+  outgoingTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutFromLocationNestedInput
+  incomingTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutToLocationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutLocationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutLocationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutLocationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutLocationNestedInput
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutLocationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
+}
+
+export type LocationCreateWithoutOrderFulfillmentsInput = {
+  id?: string
+  code: string
+  name: string
+  type: $Enums.LocationType
+  status?: $Enums.LocationStatus
+  isDefault?: boolean
+  addressLine1?: string | null
+  addressLine2?: string | null
+  city?: string | null
+  state?: string | null
+  postalCode?: string | null
+  country?: string | null
+  timezone?: string | null
+  phone?: string | null
+  email?: string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: string | null
+  updatedByUserId?: string | null
+  archivedAt?: Date | string | null
+  archivedByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutLocationsInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutLocationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutLocationInput
+  outgoingTransfers?: Prisma.StockTransferCreateNestedManyWithoutFromLocationInput
+  incomingTransfers?: Prisma.StockTransferCreateNestedManyWithoutToLocationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutLocationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutLocationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutLocationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutLocationInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutLocationInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
+}
+
+export type LocationUncheckedCreateWithoutOrderFulfillmentsInput = {
+  id?: string
+  organizationId: string
+  code: string
+  name: string
+  type: $Enums.LocationType
+  status?: $Enums.LocationStatus
+  isDefault?: boolean
+  addressLine1?: string | null
+  addressLine2?: string | null
+  city?: string | null
+  state?: string | null
+  postalCode?: string | null
+  country?: string | null
+  timezone?: string | null
+  phone?: string | null
+  email?: string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: string | null
+  updatedByUserId?: string | null
+  archivedAt?: Date | string | null
+  archivedByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutLocationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutLocationInput
+  outgoingTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutFromLocationInput
+  incomingTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutToLocationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutLocationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutLocationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutLocationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutLocationInput
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutLocationInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
+}
+
+export type LocationCreateOrConnectWithoutOrderFulfillmentsInput = {
+  where: Prisma.LocationWhereUniqueInput
+  create: Prisma.XOR<Prisma.LocationCreateWithoutOrderFulfillmentsInput, Prisma.LocationUncheckedCreateWithoutOrderFulfillmentsInput>
+}
+
+export type LocationUpsertWithoutOrderFulfillmentsInput = {
+  update: Prisma.XOR<Prisma.LocationUpdateWithoutOrderFulfillmentsInput, Prisma.LocationUncheckedUpdateWithoutOrderFulfillmentsInput>
+  create: Prisma.XOR<Prisma.LocationCreateWithoutOrderFulfillmentsInput, Prisma.LocationUncheckedCreateWithoutOrderFulfillmentsInput>
+  where?: Prisma.LocationWhereInput
+}
+
+export type LocationUpdateToOneWithWhereWithoutOrderFulfillmentsInput = {
+  where?: Prisma.LocationWhereInput
+  data: Prisma.XOR<Prisma.LocationUpdateWithoutOrderFulfillmentsInput, Prisma.LocationUncheckedUpdateWithoutOrderFulfillmentsInput>
+}
+
+export type LocationUpdateWithoutOrderFulfillmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumLocationTypeFieldUpdateOperationsInput | $Enums.LocationType
+  status?: Prisma.EnumLocationStatusFieldUpdateOperationsInput | $Enums.LocationStatus
+  isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  addressLine1?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  postalCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  timezone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  archivedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutLocationsNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutLocationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutLocationNestedInput
+  outgoingTransfers?: Prisma.StockTransferUpdateManyWithoutFromLocationNestedInput
+  incomingTransfers?: Prisma.StockTransferUpdateManyWithoutToLocationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutLocationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutLocationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutLocationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutLocationNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutLocationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
+}
+
+export type LocationUncheckedUpdateWithoutOrderFulfillmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumLocationTypeFieldUpdateOperationsInput | $Enums.LocationType
+  status?: Prisma.EnumLocationStatusFieldUpdateOperationsInput | $Enums.LocationStatus
+  isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  addressLine1?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  postalCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  timezone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  archivedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutLocationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutLocationNestedInput
+  outgoingTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutFromLocationNestedInput
+  incomingTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutToLocationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutLocationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutLocationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutLocationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutLocationNestedInput
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutLocationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationCreateManyOrganizationInput = {
@@ -2730,6 +3184,8 @@ export type LocationUpdateWithoutOrganizationInput = {
   holidays?: Prisma.HolidayUpdateManyWithoutLocationNestedInput
   stockLots?: Prisma.StockLotUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateWithoutOrganizationInput = {
@@ -2765,6 +3221,8 @@ export type LocationUncheckedUpdateWithoutOrganizationInput = {
   holidays?: Prisma.HolidayUncheckedUpdateManyWithoutLocationNestedInput
   stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateManyWithoutOrganizationInput = {
@@ -2808,6 +3266,8 @@ export type LocationCountOutputType = {
   holidays: number
   stockLots: number
   quarantineHolds: number
+  orders: number
+  orderFulfillments: number
 }
 
 export type LocationCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2821,6 +3281,8 @@ export type LocationCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensio
   holidays?: boolean | LocationCountOutputTypeCountHolidaysArgs
   stockLots?: boolean | LocationCountOutputTypeCountStockLotsArgs
   quarantineHolds?: boolean | LocationCountOutputTypeCountQuarantineHoldsArgs
+  orders?: boolean | LocationCountOutputTypeCountOrdersArgs
+  orderFulfillments?: boolean | LocationCountOutputTypeCountOrderFulfillmentsArgs
 }
 
 /**
@@ -2903,6 +3365,20 @@ export type LocationCountOutputTypeCountQuarantineHoldsArgs<ExtArgs extends runt
   where?: Prisma.QuarantineHoldWhereInput
 }
 
+/**
+ * LocationCountOutputType without action
+ */
+export type LocationCountOutputTypeCountOrdersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OrderWhereInput
+}
+
+/**
+ * LocationCountOutputType without action
+ */
+export type LocationCountOutputTypeCountOrderFulfillmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OrderFulfillmentWhereInput
+}
+
 
 export type LocationSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -2939,6 +3415,8 @@ export type LocationSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   holidays?: boolean | Prisma.Location$holidaysArgs<ExtArgs>
   stockLots?: boolean | Prisma.Location$stockLotsArgs<ExtArgs>
   quarantineHolds?: boolean | Prisma.Location$quarantineHoldsArgs<ExtArgs>
+  orders?: boolean | Prisma.Location$ordersArgs<ExtArgs>
+  orderFulfillments?: boolean | Prisma.Location$orderFulfillmentsArgs<ExtArgs>
   _count?: boolean | Prisma.LocationCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["location"]>
 
@@ -3035,6 +3513,8 @@ export type LocationInclude<ExtArgs extends runtime.Types.Extensions.InternalArg
   holidays?: boolean | Prisma.Location$holidaysArgs<ExtArgs>
   stockLots?: boolean | Prisma.Location$stockLotsArgs<ExtArgs>
   quarantineHolds?: boolean | Prisma.Location$quarantineHoldsArgs<ExtArgs>
+  orders?: boolean | Prisma.Location$ordersArgs<ExtArgs>
+  orderFulfillments?: boolean | Prisma.Location$orderFulfillmentsArgs<ExtArgs>
   _count?: boolean | Prisma.LocationCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type LocationIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -3058,6 +3538,8 @@ export type $LocationPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     holidays: Prisma.$HolidayPayload<ExtArgs>[]
     stockLots: Prisma.$StockLotPayload<ExtArgs>[]
     quarantineHolds: Prisma.$QuarantineHoldPayload<ExtArgs>[]
+    orders: Prisma.$OrderPayload<ExtArgs>[]
+    orderFulfillments: Prisma.$OrderFulfillmentPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -3488,6 +3970,8 @@ export interface Prisma__LocationClient<T, Null = never, ExtArgs extends runtime
   holidays<T extends Prisma.Location$holidaysArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Location$holidaysArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$HolidayPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   stockLots<T extends Prisma.Location$stockLotsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Location$stockLotsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StockLotPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   quarantineHolds<T extends Prisma.Location$quarantineHoldsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Location$quarantineHoldsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$QuarantineHoldPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  orders<T extends Prisma.Location$ordersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Location$ordersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  orderFulfillments<T extends Prisma.Location$orderFulfillmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Location$orderFulfillmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrderFulfillmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4178,6 +4662,54 @@ export type Location$quarantineHoldsArgs<ExtArgs extends runtime.Types.Extension
   take?: number
   skip?: number
   distinct?: Prisma.QuarantineHoldScalarFieldEnum | Prisma.QuarantineHoldScalarFieldEnum[]
+}
+
+/**
+ * Location.orders
+ */
+export type Location$ordersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Order
+   */
+  select?: Prisma.OrderSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Order
+   */
+  omit?: Prisma.OrderOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OrderInclude<ExtArgs> | null
+  where?: Prisma.OrderWhereInput
+  orderBy?: Prisma.OrderOrderByWithRelationInput | Prisma.OrderOrderByWithRelationInput[]
+  cursor?: Prisma.OrderWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OrderScalarFieldEnum | Prisma.OrderScalarFieldEnum[]
+}
+
+/**
+ * Location.orderFulfillments
+ */
+export type Location$orderFulfillmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the OrderFulfillment
+   */
+  select?: Prisma.OrderFulfillmentSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the OrderFulfillment
+   */
+  omit?: Prisma.OrderFulfillmentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OrderFulfillmentInclude<ExtArgs> | null
+  where?: Prisma.OrderFulfillmentWhereInput
+  orderBy?: Prisma.OrderFulfillmentOrderByWithRelationInput | Prisma.OrderFulfillmentOrderByWithRelationInput[]
+  cursor?: Prisma.OrderFulfillmentWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OrderFulfillmentScalarFieldEnum | Prisma.OrderFulfillmentScalarFieldEnum[]
 }
 
 /**

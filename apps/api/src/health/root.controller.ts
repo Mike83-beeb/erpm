@@ -37,6 +37,13 @@ export class RootController {
         calendar: "/api/v1/calendar",
         crm: "/api/v1/crm",
         pricing: "/api/v1/pricing",
+        customers: "/api/v1/customers",
+        orders: "/api/v1/orders",
+        invoices: "/api/v1/invoices",
+        payments: "/api/v1/payments",
+        receipts: "/api/v1/receipts",
+        fulfillments: "/api/v1/fulfillments",
+        staffJobs: "/api/v1/staff-jobs",
       },
     };
   }

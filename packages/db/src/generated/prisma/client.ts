@@ -276,3 +276,63 @@ export type PriceTier = Prisma.PriceTierModel
  * 
  */
 export type DiscountRule = Prisma.DiscountRuleModel
+/**
+ * Model Customer
+ * 
+ */
+export type Customer = Prisma.CustomerModel
+/**
+ * Model Order
+ * 
+ */
+export type Order = Prisma.OrderModel
+/**
+ * Model OrderLine
+ * 
+ */
+export type OrderLine = Prisma.OrderLineModel
+/**
+ * Model SalesInvoice
+ * 
+ */
+export type SalesInvoice = Prisma.SalesInvoiceModel
+/**
+ * Model SalesInvoiceLine
+ * 
+ */
+export type SalesInvoiceLine = Prisma.SalesInvoiceLineModel
+/**
+ * Model CustomerPayment
+ * 
+ */
+export type CustomerPayment = Prisma.CustomerPaymentModel
+/**
+ * Model PaymentReceipt
+ * 
+ */
+export type PaymentReceipt = Prisma.PaymentReceiptModel
+/**
+ * Model FulfillmentSettings
+ * 
+ */
+export type FulfillmentSettings = Prisma.FulfillmentSettingsModel
+/**
+ * Model OrderFulfillment
+ * 
+ */
+export type OrderFulfillment = Prisma.OrderFulfillmentModel
+/**
+ * Model StaffJob
+ * 
+ */
+export type StaffJob = Prisma.StaffJobModel
+/**
+ * Model NotificationTemplate
+ * 
+ */
+export type NotificationTemplate = Prisma.NotificationTemplateModel
+/**
+ * Model CustomerNotification
+ * 
+ */
+export type CustomerNotification = Prisma.CustomerNotificationModel

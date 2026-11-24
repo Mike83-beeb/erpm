@@ -356,6 +356,7 @@ export type ServicePlanWhereInput = {
   item?: Prisma.XOR<Prisma.ItemScalarRelationFilter, Prisma.ItemWhereInput>
   priceRules?: Prisma.PriceRuleListRelationFilter
   crmDealLinks?: Prisma.CrmDealItemLinkListRelationFilter
+  orderLines?: Prisma.OrderLineListRelationFilter
 }
 
 export type ServicePlanOrderByWithRelationInput = {
@@ -383,6 +384,7 @@ export type ServicePlanOrderByWithRelationInput = {
   item?: Prisma.ItemOrderByWithRelationInput
   priceRules?: Prisma.PriceRuleOrderByRelationAggregateInput
   crmDealLinks?: Prisma.CrmDealItemLinkOrderByRelationAggregateInput
+  orderLines?: Prisma.OrderLineOrderByRelationAggregateInput
 }
 
 export type ServicePlanWhereUniqueInput = Prisma.AtLeast<{
@@ -414,6 +416,7 @@ export type ServicePlanWhereUniqueInput = Prisma.AtLeast<{
   item?: Prisma.XOR<Prisma.ItemScalarRelationFilter, Prisma.ItemWhereInput>
   priceRules?: Prisma.PriceRuleListRelationFilter
   crmDealLinks?: Prisma.CrmDealItemLinkListRelationFilter
+  orderLines?: Prisma.OrderLineListRelationFilter
 }, "id" | "organizationId_itemId_code">
 
 export type ServicePlanOrderByWithAggregationInput = {
@@ -493,6 +496,7 @@ export type ServicePlanCreateInput = {
   item: Prisma.ItemCreateNestedOneWithoutServicePlansInput
   priceRules?: Prisma.PriceRuleCreateNestedManyWithoutServicePlanInput
   crmDealLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutServicePlanInput
+  orderLines?: Prisma.OrderLineCreateNestedManyWithoutServicePlanInput
 }
 
 export type ServicePlanUncheckedCreateInput = {
@@ -518,6 +522,7 @@ export type ServicePlanUncheckedCreateInput = {
   updatedAt?: Date | string
   priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutServicePlanInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutServicePlanInput
+  orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutServicePlanInput
 }
 
 export type ServicePlanUpdateInput = {
@@ -543,6 +548,7 @@ export type ServicePlanUpdateInput = {
   item?: Prisma.ItemUpdateOneRequiredWithoutServicePlansNestedInput
   priceRules?: Prisma.PriceRuleUpdateManyWithoutServicePlanNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutServicePlanNestedInput
+  orderLines?: Prisma.OrderLineUpdateManyWithoutServicePlanNestedInput
 }
 
 export type ServicePlanUncheckedUpdateInput = {
@@ -568,6 +574,7 @@ export type ServicePlanUncheckedUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutServicePlanNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutServicePlanNestedInput
+  orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutServicePlanNestedInput
 }
 
 export type ServicePlanCreateManyInput = {
@@ -867,6 +874,22 @@ export type ServicePlanUpdateOneWithoutPriceRulesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.ServicePlanUpdateToOneWithWhereWithoutPriceRulesInput, Prisma.ServicePlanUpdateWithoutPriceRulesInput>, Prisma.ServicePlanUncheckedUpdateWithoutPriceRulesInput>
 }
 
+export type ServicePlanCreateNestedOneWithoutOrderLinesInput = {
+  create?: Prisma.XOR<Prisma.ServicePlanCreateWithoutOrderLinesInput, Prisma.ServicePlanUncheckedCreateWithoutOrderLinesInput>
+  connectOrCreate?: Prisma.ServicePlanCreateOrConnectWithoutOrderLinesInput
+  connect?: Prisma.ServicePlanWhereUniqueInput
+}
+
+export type ServicePlanUpdateOneWithoutOrderLinesNestedInput = {
+  create?: Prisma.XOR<Prisma.ServicePlanCreateWithoutOrderLinesInput, Prisma.ServicePlanUncheckedCreateWithoutOrderLinesInput>
+  connectOrCreate?: Prisma.ServicePlanCreateOrConnectWithoutOrderLinesInput
+  upsert?: Prisma.ServicePlanUpsertWithoutOrderLinesInput
+  disconnect?: Prisma.ServicePlanWhereInput | boolean
+  delete?: Prisma.ServicePlanWhereInput | boolean
+  connect?: Prisma.ServicePlanWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ServicePlanUpdateToOneWithWhereWithoutOrderLinesInput, Prisma.ServicePlanUpdateWithoutOrderLinesInput>, Prisma.ServicePlanUncheckedUpdateWithoutOrderLinesInput>
+}
+
 export type ServicePlanCreateWithoutOrganizationInput = {
   id?: string
   code: string
@@ -889,6 +912,7 @@ export type ServicePlanCreateWithoutOrganizationInput = {
   item: Prisma.ItemCreateNestedOneWithoutServicePlansInput
   priceRules?: Prisma.PriceRuleCreateNestedManyWithoutServicePlanInput
   crmDealLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutServicePlanInput
+  orderLines?: Prisma.OrderLineCreateNestedManyWithoutServicePlanInput
 }
 
 export type ServicePlanUncheckedCreateWithoutOrganizationInput = {
@@ -913,6 +937,7 @@ export type ServicePlanUncheckedCreateWithoutOrganizationInput = {
   updatedAt?: Date | string
   priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutServicePlanInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutServicePlanInput
+  orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutServicePlanInput
 }
 
 export type ServicePlanCreateOrConnectWithoutOrganizationInput = {
@@ -989,6 +1014,7 @@ export type ServicePlanCreateWithoutItemInput = {
   organization: Prisma.OrganizationCreateNestedOneWithoutServicePlansInput
   priceRules?: Prisma.PriceRuleCreateNestedManyWithoutServicePlanInput
   crmDealLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutServicePlanInput
+  orderLines?: Prisma.OrderLineCreateNestedManyWithoutServicePlanInput
 }
 
 export type ServicePlanUncheckedCreateWithoutItemInput = {
@@ -1013,6 +1039,7 @@ export type ServicePlanUncheckedCreateWithoutItemInput = {
   updatedAt?: Date | string
   priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutServicePlanInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutServicePlanInput
+  orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutServicePlanInput
 }
 
 export type ServicePlanCreateOrConnectWithoutItemInput = {
@@ -1063,6 +1090,7 @@ export type ServicePlanCreateWithoutCrmDealLinksInput = {
   organization: Prisma.OrganizationCreateNestedOneWithoutServicePlansInput
   item: Prisma.ItemCreateNestedOneWithoutServicePlansInput
   priceRules?: Prisma.PriceRuleCreateNestedManyWithoutServicePlanInput
+  orderLines?: Prisma.OrderLineCreateNestedManyWithoutServicePlanInput
 }
 
 export type ServicePlanUncheckedCreateWithoutCrmDealLinksInput = {
@@ -1087,6 +1115,7 @@ export type ServicePlanUncheckedCreateWithoutCrmDealLinksInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutServicePlanInput
+  orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutServicePlanInput
 }
 
 export type ServicePlanCreateOrConnectWithoutCrmDealLinksInput = {
@@ -1127,6 +1156,7 @@ export type ServicePlanUpdateWithoutCrmDealLinksInput = {
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutServicePlansNestedInput
   item?: Prisma.ItemUpdateOneRequiredWithoutServicePlansNestedInput
   priceRules?: Prisma.PriceRuleUpdateManyWithoutServicePlanNestedInput
+  orderLines?: Prisma.OrderLineUpdateManyWithoutServicePlanNestedInput
 }
 
 export type ServicePlanUncheckedUpdateWithoutCrmDealLinksInput = {
@@ -1151,6 +1181,7 @@ export type ServicePlanUncheckedUpdateWithoutCrmDealLinksInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutServicePlanNestedInput
+  orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutServicePlanNestedInput
 }
 
 export type ServicePlanCreateWithoutPriceRulesInput = {
@@ -1175,6 +1206,7 @@ export type ServicePlanCreateWithoutPriceRulesInput = {
   organization: Prisma.OrganizationCreateNestedOneWithoutServicePlansInput
   item: Prisma.ItemCreateNestedOneWithoutServicePlansInput
   crmDealLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutServicePlanInput
+  orderLines?: Prisma.OrderLineCreateNestedManyWithoutServicePlanInput
 }
 
 export type ServicePlanUncheckedCreateWithoutPriceRulesInput = {
@@ -1199,6 +1231,7 @@ export type ServicePlanUncheckedCreateWithoutPriceRulesInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutServicePlanInput
+  orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutServicePlanInput
 }
 
 export type ServicePlanCreateOrConnectWithoutPriceRulesInput = {
@@ -1239,6 +1272,7 @@ export type ServicePlanUpdateWithoutPriceRulesInput = {
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutServicePlansNestedInput
   item?: Prisma.ItemUpdateOneRequiredWithoutServicePlansNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutServicePlanNestedInput
+  orderLines?: Prisma.OrderLineUpdateManyWithoutServicePlanNestedInput
 }
 
 export type ServicePlanUncheckedUpdateWithoutPriceRulesInput = {
@@ -1262,6 +1296,123 @@ export type ServicePlanUncheckedUpdateWithoutPriceRulesInput = {
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  crmDealLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutServicePlanNestedInput
+  orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutServicePlanNestedInput
+}
+
+export type ServicePlanCreateWithoutOrderLinesInput = {
+  id?: string
+  code: string
+  name: string
+  description?: string | null
+  planType?: $Enums.ServicePlanType
+  billingCycle?: $Enums.BillingCycle
+  includedUnits?: number
+  unitLabel?: string
+  basePriceCents: number
+  overageUnitPriceCents?: number | null
+  setupFeeCents?: number
+  rolloverEnabled?: boolean
+  maxRolloverUnits?: number | null
+  validityDays?: number | null
+  isActive?: boolean
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutServicePlansInput
+  item: Prisma.ItemCreateNestedOneWithoutServicePlansInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutServicePlanInput
+  crmDealLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutServicePlanInput
+}
+
+export type ServicePlanUncheckedCreateWithoutOrderLinesInput = {
+  id?: string
+  organizationId: string
+  itemId: string
+  code: string
+  name: string
+  description?: string | null
+  planType?: $Enums.ServicePlanType
+  billingCycle?: $Enums.BillingCycle
+  includedUnits?: number
+  unitLabel?: string
+  basePriceCents: number
+  overageUnitPriceCents?: number | null
+  setupFeeCents?: number
+  rolloverEnabled?: boolean
+  maxRolloverUnits?: number | null
+  validityDays?: number | null
+  isActive?: boolean
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutServicePlanInput
+  crmDealLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutServicePlanInput
+}
+
+export type ServicePlanCreateOrConnectWithoutOrderLinesInput = {
+  where: Prisma.ServicePlanWhereUniqueInput
+  create: Prisma.XOR<Prisma.ServicePlanCreateWithoutOrderLinesInput, Prisma.ServicePlanUncheckedCreateWithoutOrderLinesInput>
+}
+
+export type ServicePlanUpsertWithoutOrderLinesInput = {
+  update: Prisma.XOR<Prisma.ServicePlanUpdateWithoutOrderLinesInput, Prisma.ServicePlanUncheckedUpdateWithoutOrderLinesInput>
+  create: Prisma.XOR<Prisma.ServicePlanCreateWithoutOrderLinesInput, Prisma.ServicePlanUncheckedCreateWithoutOrderLinesInput>
+  where?: Prisma.ServicePlanWhereInput
+}
+
+export type ServicePlanUpdateToOneWithWhereWithoutOrderLinesInput = {
+  where?: Prisma.ServicePlanWhereInput
+  data: Prisma.XOR<Prisma.ServicePlanUpdateWithoutOrderLinesInput, Prisma.ServicePlanUncheckedUpdateWithoutOrderLinesInput>
+}
+
+export type ServicePlanUpdateWithoutOrderLinesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  planType?: Prisma.EnumServicePlanTypeFieldUpdateOperationsInput | $Enums.ServicePlanType
+  billingCycle?: Prisma.EnumBillingCycleFieldUpdateOperationsInput | $Enums.BillingCycle
+  includedUnits?: Prisma.IntFieldUpdateOperationsInput | number
+  unitLabel?: Prisma.StringFieldUpdateOperationsInput | string
+  basePriceCents?: Prisma.IntFieldUpdateOperationsInput | number
+  overageUnitPriceCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  setupFeeCents?: Prisma.IntFieldUpdateOperationsInput | number
+  rolloverEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  maxRolloverUnits?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  validityDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutServicePlansNestedInput
+  item?: Prisma.ItemUpdateOneRequiredWithoutServicePlansNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutServicePlanNestedInput
+  crmDealLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutServicePlanNestedInput
+}
+
+export type ServicePlanUncheckedUpdateWithoutOrderLinesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  planType?: Prisma.EnumServicePlanTypeFieldUpdateOperationsInput | $Enums.ServicePlanType
+  billingCycle?: Prisma.EnumBillingCycleFieldUpdateOperationsInput | $Enums.BillingCycle
+  includedUnits?: Prisma.IntFieldUpdateOperationsInput | number
+  unitLabel?: Prisma.StringFieldUpdateOperationsInput | string
+  basePriceCents?: Prisma.IntFieldUpdateOperationsInput | number
+  overageUnitPriceCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  setupFeeCents?: Prisma.IntFieldUpdateOperationsInput | number
+  rolloverEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  maxRolloverUnits?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  validityDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutServicePlanNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutServicePlanNestedInput
 }
 
@@ -1309,6 +1460,7 @@ export type ServicePlanUpdateWithoutOrganizationInput = {
   item?: Prisma.ItemUpdateOneRequiredWithoutServicePlansNestedInput
   priceRules?: Prisma.PriceRuleUpdateManyWithoutServicePlanNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutServicePlanNestedInput
+  orderLines?: Prisma.OrderLineUpdateManyWithoutServicePlanNestedInput
 }
 
 export type ServicePlanUncheckedUpdateWithoutOrganizationInput = {
@@ -1333,6 +1485,7 @@ export type ServicePlanUncheckedUpdateWithoutOrganizationInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutServicePlanNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutServicePlanNestedInput
+  orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutServicePlanNestedInput
 }
 
 export type ServicePlanUncheckedUpdateManyWithoutOrganizationInput = {
@@ -1401,6 +1554,7 @@ export type ServicePlanUpdateWithoutItemInput = {
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutServicePlansNestedInput
   priceRules?: Prisma.PriceRuleUpdateManyWithoutServicePlanNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutServicePlanNestedInput
+  orderLines?: Prisma.OrderLineUpdateManyWithoutServicePlanNestedInput
 }
 
 export type ServicePlanUncheckedUpdateWithoutItemInput = {
@@ -1425,6 +1579,7 @@ export type ServicePlanUncheckedUpdateWithoutItemInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutServicePlanNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutServicePlanNestedInput
+  orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutServicePlanNestedInput
 }
 
 export type ServicePlanUncheckedUpdateManyWithoutItemInput = {
@@ -1457,11 +1612,13 @@ export type ServicePlanUncheckedUpdateManyWithoutItemInput = {
 export type ServicePlanCountOutputType = {
   priceRules: number
   crmDealLinks: number
+  orderLines: number
 }
 
 export type ServicePlanCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   priceRules?: boolean | ServicePlanCountOutputTypeCountPriceRulesArgs
   crmDealLinks?: boolean | ServicePlanCountOutputTypeCountCrmDealLinksArgs
+  orderLines?: boolean | ServicePlanCountOutputTypeCountOrderLinesArgs
 }
 
 /**
@@ -1486,6 +1643,13 @@ export type ServicePlanCountOutputTypeCountPriceRulesArgs<ExtArgs extends runtim
  */
 export type ServicePlanCountOutputTypeCountCrmDealLinksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.CrmDealItemLinkWhereInput
+}
+
+/**
+ * ServicePlanCountOutputType without action
+ */
+export type ServicePlanCountOutputTypeCountOrderLinesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OrderLineWhereInput
 }
 
 
@@ -1514,6 +1678,7 @@ export type ServicePlanSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
   priceRules?: boolean | Prisma.ServicePlan$priceRulesArgs<ExtArgs>
   crmDealLinks?: boolean | Prisma.ServicePlan$crmDealLinksArgs<ExtArgs>
+  orderLines?: boolean | Prisma.ServicePlan$orderLinesArgs<ExtArgs>
   _count?: boolean | Prisma.ServicePlanCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["servicePlan"]>
 
@@ -1596,6 +1761,7 @@ export type ServicePlanInclude<ExtArgs extends runtime.Types.Extensions.Internal
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
   priceRules?: boolean | Prisma.ServicePlan$priceRulesArgs<ExtArgs>
   crmDealLinks?: boolean | Prisma.ServicePlan$crmDealLinksArgs<ExtArgs>
+  orderLines?: boolean | Prisma.ServicePlan$orderLinesArgs<ExtArgs>
   _count?: boolean | Prisma.ServicePlanCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ServicePlanIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1614,6 +1780,7 @@ export type $ServicePlanPayload<ExtArgs extends runtime.Types.Extensions.Interna
     item: Prisma.$ItemPayload<ExtArgs>
     priceRules: Prisma.$PriceRulePayload<ExtArgs>[]
     crmDealLinks: Prisma.$CrmDealItemLinkPayload<ExtArgs>[]
+    orderLines: Prisma.$OrderLinePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -2034,6 +2201,7 @@ export interface Prisma__ServicePlanClient<T, Null = never, ExtArgs extends runt
   item<T extends Prisma.ItemDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ItemDefaultArgs<ExtArgs>>): Prisma.Prisma__ItemClient<runtime.Types.Result.GetResult<Prisma.$ItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   priceRules<T extends Prisma.ServicePlan$priceRulesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ServicePlan$priceRulesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PriceRulePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   crmDealLinks<T extends Prisma.ServicePlan$crmDealLinksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ServicePlan$crmDealLinksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CrmDealItemLinkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  orderLines<T extends Prisma.ServicePlan$orderLinesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ServicePlan$orderLinesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrderLinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2529,6 +2697,30 @@ export type ServicePlan$crmDealLinksArgs<ExtArgs extends runtime.Types.Extension
   take?: number
   skip?: number
   distinct?: Prisma.CrmDealItemLinkScalarFieldEnum | Prisma.CrmDealItemLinkScalarFieldEnum[]
+}
+
+/**
+ * ServicePlan.orderLines
+ */
+export type ServicePlan$orderLinesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the OrderLine
+   */
+  select?: Prisma.OrderLineSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the OrderLine
+   */
+  omit?: Prisma.OrderLineOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OrderLineInclude<ExtArgs> | null
+  where?: Prisma.OrderLineWhereInput
+  orderBy?: Prisma.OrderLineOrderByWithRelationInput | Prisma.OrderLineOrderByWithRelationInput[]
+  cursor?: Prisma.OrderLineWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OrderLineScalarFieldEnum | Prisma.OrderLineScalarFieldEnum[]
 }
 
 /**

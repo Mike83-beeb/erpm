@@ -336,6 +336,7 @@ export type PriceBookWhereInput = {
   supplier?: Prisma.XOR<Prisma.SupplierNullableScalarRelationFilter, Prisma.SupplierWhereInput> | null
   rules?: Prisma.PriceRuleListRelationFilter
   crmDealLinks?: Prisma.CrmDealItemLinkListRelationFilter
+  orders?: Prisma.OrderListRelationFilter
 }
 
 export type PriceBookOrderByWithRelationInput = {
@@ -363,6 +364,7 @@ export type PriceBookOrderByWithRelationInput = {
   supplier?: Prisma.SupplierOrderByWithRelationInput
   rules?: Prisma.PriceRuleOrderByRelationAggregateInput
   crmDealLinks?: Prisma.CrmDealItemLinkOrderByRelationAggregateInput
+  orders?: Prisma.OrderOrderByRelationAggregateInput
 }
 
 export type PriceBookWhereUniqueInput = Prisma.AtLeast<{
@@ -394,6 +396,7 @@ export type PriceBookWhereUniqueInput = Prisma.AtLeast<{
   supplier?: Prisma.XOR<Prisma.SupplierNullableScalarRelationFilter, Prisma.SupplierWhereInput> | null
   rules?: Prisma.PriceRuleListRelationFilter
   crmDealLinks?: Prisma.CrmDealItemLinkListRelationFilter
+  orders?: Prisma.OrderListRelationFilter
 }, "id" | "organizationId_code">
 
 export type PriceBookOrderByWithAggregationInput = {
@@ -473,6 +476,7 @@ export type PriceBookCreateInput = {
   supplier?: Prisma.SupplierCreateNestedOneWithoutPriceBooksInput
   rules?: Prisma.PriceRuleCreateNestedManyWithoutPriceBookInput
   crmDealLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutPriceBookInput
+  orders?: Prisma.OrderCreateNestedManyWithoutPriceBookInput
 }
 
 export type PriceBookUncheckedCreateInput = {
@@ -498,6 +502,7 @@ export type PriceBookUncheckedCreateInput = {
   updatedAt?: Date | string
   rules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutPriceBookInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutPriceBookInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutPriceBookInput
 }
 
 export type PriceBookUpdateInput = {
@@ -523,6 +528,7 @@ export type PriceBookUpdateInput = {
   supplier?: Prisma.SupplierUpdateOneWithoutPriceBooksNestedInput
   rules?: Prisma.PriceRuleUpdateManyWithoutPriceBookNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutPriceBookNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutPriceBookNestedInput
 }
 
 export type PriceBookUncheckedUpdateInput = {
@@ -548,6 +554,7 @@ export type PriceBookUncheckedUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   rules?: Prisma.PriceRuleUncheckedUpdateManyWithoutPriceBookNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutPriceBookNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutPriceBookNestedInput
 }
 
 export type PriceBookCreateManyInput = {
@@ -835,6 +842,22 @@ export type PriceBookUpdateOneRequiredWithoutRulesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.PriceBookUpdateToOneWithWhereWithoutRulesInput, Prisma.PriceBookUpdateWithoutRulesInput>, Prisma.PriceBookUncheckedUpdateWithoutRulesInput>
 }
 
+export type PriceBookCreateNestedOneWithoutOrdersInput = {
+  create?: Prisma.XOR<Prisma.PriceBookCreateWithoutOrdersInput, Prisma.PriceBookUncheckedCreateWithoutOrdersInput>
+  connectOrCreate?: Prisma.PriceBookCreateOrConnectWithoutOrdersInput
+  connect?: Prisma.PriceBookWhereUniqueInput
+}
+
+export type PriceBookUpdateOneWithoutOrdersNestedInput = {
+  create?: Prisma.XOR<Prisma.PriceBookCreateWithoutOrdersInput, Prisma.PriceBookUncheckedCreateWithoutOrdersInput>
+  connectOrCreate?: Prisma.PriceBookCreateOrConnectWithoutOrdersInput
+  upsert?: Prisma.PriceBookUpsertWithoutOrdersInput
+  disconnect?: Prisma.PriceBookWhereInput | boolean
+  delete?: Prisma.PriceBookWhereInput | boolean
+  connect?: Prisma.PriceBookWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PriceBookUpdateToOneWithWhereWithoutOrdersInput, Prisma.PriceBookUpdateWithoutOrdersInput>, Prisma.PriceBookUncheckedUpdateWithoutOrdersInput>
+}
+
 export type PriceBookCreateWithoutOrganizationInput = {
   id?: string
   code: string
@@ -857,6 +880,7 @@ export type PriceBookCreateWithoutOrganizationInput = {
   supplier?: Prisma.SupplierCreateNestedOneWithoutPriceBooksInput
   rules?: Prisma.PriceRuleCreateNestedManyWithoutPriceBookInput
   crmDealLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutPriceBookInput
+  orders?: Prisma.OrderCreateNestedManyWithoutPriceBookInput
 }
 
 export type PriceBookUncheckedCreateWithoutOrganizationInput = {
@@ -881,6 +905,7 @@ export type PriceBookUncheckedCreateWithoutOrganizationInput = {
   updatedAt?: Date | string
   rules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutPriceBookInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutPriceBookInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutPriceBookInput
 }
 
 export type PriceBookCreateOrConnectWithoutOrganizationInput = {
@@ -957,6 +982,7 @@ export type PriceBookCreateWithoutSupplierInput = {
   organization: Prisma.OrganizationCreateNestedOneWithoutPriceBooksInput
   rules?: Prisma.PriceRuleCreateNestedManyWithoutPriceBookInput
   crmDealLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutPriceBookInput
+  orders?: Prisma.OrderCreateNestedManyWithoutPriceBookInput
 }
 
 export type PriceBookUncheckedCreateWithoutSupplierInput = {
@@ -981,6 +1007,7 @@ export type PriceBookUncheckedCreateWithoutSupplierInput = {
   updatedAt?: Date | string
   rules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutPriceBookInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutPriceBookInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutPriceBookInput
 }
 
 export type PriceBookCreateOrConnectWithoutSupplierInput = {
@@ -1031,6 +1058,7 @@ export type PriceBookCreateWithoutCrmDealLinksInput = {
   organization: Prisma.OrganizationCreateNestedOneWithoutPriceBooksInput
   supplier?: Prisma.SupplierCreateNestedOneWithoutPriceBooksInput
   rules?: Prisma.PriceRuleCreateNestedManyWithoutPriceBookInput
+  orders?: Prisma.OrderCreateNestedManyWithoutPriceBookInput
 }
 
 export type PriceBookUncheckedCreateWithoutCrmDealLinksInput = {
@@ -1055,6 +1083,7 @@ export type PriceBookUncheckedCreateWithoutCrmDealLinksInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   rules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutPriceBookInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutPriceBookInput
 }
 
 export type PriceBookCreateOrConnectWithoutCrmDealLinksInput = {
@@ -1095,6 +1124,7 @@ export type PriceBookUpdateWithoutCrmDealLinksInput = {
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutPriceBooksNestedInput
   supplier?: Prisma.SupplierUpdateOneWithoutPriceBooksNestedInput
   rules?: Prisma.PriceRuleUpdateManyWithoutPriceBookNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutPriceBookNestedInput
 }
 
 export type PriceBookUncheckedUpdateWithoutCrmDealLinksInput = {
@@ -1119,6 +1149,7 @@ export type PriceBookUncheckedUpdateWithoutCrmDealLinksInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   rules?: Prisma.PriceRuleUncheckedUpdateManyWithoutPriceBookNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutPriceBookNestedInput
 }
 
 export type PriceBookCreateWithoutRulesInput = {
@@ -1143,6 +1174,7 @@ export type PriceBookCreateWithoutRulesInput = {
   organization: Prisma.OrganizationCreateNestedOneWithoutPriceBooksInput
   supplier?: Prisma.SupplierCreateNestedOneWithoutPriceBooksInput
   crmDealLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutPriceBookInput
+  orders?: Prisma.OrderCreateNestedManyWithoutPriceBookInput
 }
 
 export type PriceBookUncheckedCreateWithoutRulesInput = {
@@ -1167,6 +1199,7 @@ export type PriceBookUncheckedCreateWithoutRulesInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutPriceBookInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutPriceBookInput
 }
 
 export type PriceBookCreateOrConnectWithoutRulesInput = {
@@ -1207,6 +1240,7 @@ export type PriceBookUpdateWithoutRulesInput = {
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutPriceBooksNestedInput
   supplier?: Prisma.SupplierUpdateOneWithoutPriceBooksNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutPriceBookNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutPriceBookNestedInput
 }
 
 export type PriceBookUncheckedUpdateWithoutRulesInput = {
@@ -1230,6 +1264,123 @@ export type PriceBookUncheckedUpdateWithoutRulesInput = {
   updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  crmDealLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutPriceBookNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutPriceBookNestedInput
+}
+
+export type PriceBookCreateWithoutOrdersInput = {
+  id?: string
+  code: string
+  name: string
+  description?: string | null
+  direction?: $Enums.PriceBookDirection
+  currency?: string
+  priority?: number
+  isDefault?: boolean
+  isActive?: boolean
+  customerSegment?: string | null
+  externalAccountId?: string | null
+  startsAt?: Date | string | null
+  endsAt?: Date | string | null
+  customAttributes?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: string | null
+  updatedByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutPriceBooksInput
+  supplier?: Prisma.SupplierCreateNestedOneWithoutPriceBooksInput
+  rules?: Prisma.PriceRuleCreateNestedManyWithoutPriceBookInput
+  crmDealLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutPriceBookInput
+}
+
+export type PriceBookUncheckedCreateWithoutOrdersInput = {
+  id?: string
+  organizationId: string
+  code: string
+  name: string
+  description?: string | null
+  direction?: $Enums.PriceBookDirection
+  currency?: string
+  priority?: number
+  isDefault?: boolean
+  isActive?: boolean
+  customerSegment?: string | null
+  externalAccountId?: string | null
+  supplierId?: string | null
+  startsAt?: Date | string | null
+  endsAt?: Date | string | null
+  customAttributes?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: string | null
+  updatedByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  rules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutPriceBookInput
+  crmDealLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutPriceBookInput
+}
+
+export type PriceBookCreateOrConnectWithoutOrdersInput = {
+  where: Prisma.PriceBookWhereUniqueInput
+  create: Prisma.XOR<Prisma.PriceBookCreateWithoutOrdersInput, Prisma.PriceBookUncheckedCreateWithoutOrdersInput>
+}
+
+export type PriceBookUpsertWithoutOrdersInput = {
+  update: Prisma.XOR<Prisma.PriceBookUpdateWithoutOrdersInput, Prisma.PriceBookUncheckedUpdateWithoutOrdersInput>
+  create: Prisma.XOR<Prisma.PriceBookCreateWithoutOrdersInput, Prisma.PriceBookUncheckedCreateWithoutOrdersInput>
+  where?: Prisma.PriceBookWhereInput
+}
+
+export type PriceBookUpdateToOneWithWhereWithoutOrdersInput = {
+  where?: Prisma.PriceBookWhereInput
+  data: Prisma.XOR<Prisma.PriceBookUpdateWithoutOrdersInput, Prisma.PriceBookUncheckedUpdateWithoutOrdersInput>
+}
+
+export type PriceBookUpdateWithoutOrdersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  direction?: Prisma.EnumPriceBookDirectionFieldUpdateOperationsInput | $Enums.PriceBookDirection
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  priority?: Prisma.IntFieldUpdateOperationsInput | number
+  isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  customerSegment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  externalAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  startsAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endsAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  customAttributes?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutPriceBooksNestedInput
+  supplier?: Prisma.SupplierUpdateOneWithoutPriceBooksNestedInput
+  rules?: Prisma.PriceRuleUpdateManyWithoutPriceBookNestedInput
+  crmDealLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutPriceBookNestedInput
+}
+
+export type PriceBookUncheckedUpdateWithoutOrdersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  direction?: Prisma.EnumPriceBookDirectionFieldUpdateOperationsInput | $Enums.PriceBookDirection
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  priority?: Prisma.IntFieldUpdateOperationsInput | number
+  isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  customerSegment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  externalAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  startsAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endsAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  customAttributes?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  rules?: Prisma.PriceRuleUncheckedUpdateManyWithoutPriceBookNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutPriceBookNestedInput
 }
 
@@ -1277,6 +1428,7 @@ export type PriceBookUpdateWithoutOrganizationInput = {
   supplier?: Prisma.SupplierUpdateOneWithoutPriceBooksNestedInput
   rules?: Prisma.PriceRuleUpdateManyWithoutPriceBookNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutPriceBookNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutPriceBookNestedInput
 }
 
 export type PriceBookUncheckedUpdateWithoutOrganizationInput = {
@@ -1301,6 +1453,7 @@ export type PriceBookUncheckedUpdateWithoutOrganizationInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   rules?: Prisma.PriceRuleUncheckedUpdateManyWithoutPriceBookNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutPriceBookNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutPriceBookNestedInput
 }
 
 export type PriceBookUncheckedUpdateManyWithoutOrganizationInput = {
@@ -1369,6 +1522,7 @@ export type PriceBookUpdateWithoutSupplierInput = {
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutPriceBooksNestedInput
   rules?: Prisma.PriceRuleUpdateManyWithoutPriceBookNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutPriceBookNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutPriceBookNestedInput
 }
 
 export type PriceBookUncheckedUpdateWithoutSupplierInput = {
@@ -1393,6 +1547,7 @@ export type PriceBookUncheckedUpdateWithoutSupplierInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   rules?: Prisma.PriceRuleUncheckedUpdateManyWithoutPriceBookNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutPriceBookNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutPriceBookNestedInput
 }
 
 export type PriceBookUncheckedUpdateManyWithoutSupplierInput = {
@@ -1425,11 +1580,13 @@ export type PriceBookUncheckedUpdateManyWithoutSupplierInput = {
 export type PriceBookCountOutputType = {
   rules: number
   crmDealLinks: number
+  orders: number
 }
 
 export type PriceBookCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   rules?: boolean | PriceBookCountOutputTypeCountRulesArgs
   crmDealLinks?: boolean | PriceBookCountOutputTypeCountCrmDealLinksArgs
+  orders?: boolean | PriceBookCountOutputTypeCountOrdersArgs
 }
 
 /**
@@ -1454,6 +1611,13 @@ export type PriceBookCountOutputTypeCountRulesArgs<ExtArgs extends runtime.Types
  */
 export type PriceBookCountOutputTypeCountCrmDealLinksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.CrmDealItemLinkWhereInput
+}
+
+/**
+ * PriceBookCountOutputType without action
+ */
+export type PriceBookCountOutputTypeCountOrdersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OrderWhereInput
 }
 
 
@@ -1482,6 +1646,7 @@ export type PriceBookSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   supplier?: boolean | Prisma.PriceBook$supplierArgs<ExtArgs>
   rules?: boolean | Prisma.PriceBook$rulesArgs<ExtArgs>
   crmDealLinks?: boolean | Prisma.PriceBook$crmDealLinksArgs<ExtArgs>
+  orders?: boolean | Prisma.PriceBook$ordersArgs<ExtArgs>
   _count?: boolean | Prisma.PriceBookCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["priceBook"]>
 
@@ -1564,6 +1729,7 @@ export type PriceBookInclude<ExtArgs extends runtime.Types.Extensions.InternalAr
   supplier?: boolean | Prisma.PriceBook$supplierArgs<ExtArgs>
   rules?: boolean | Prisma.PriceBook$rulesArgs<ExtArgs>
   crmDealLinks?: boolean | Prisma.PriceBook$crmDealLinksArgs<ExtArgs>
+  orders?: boolean | Prisma.PriceBook$ordersArgs<ExtArgs>
   _count?: boolean | Prisma.PriceBookCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type PriceBookIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1582,6 +1748,7 @@ export type $PriceBookPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     supplier: Prisma.$SupplierPayload<ExtArgs> | null
     rules: Prisma.$PriceRulePayload<ExtArgs>[]
     crmDealLinks: Prisma.$CrmDealItemLinkPayload<ExtArgs>[]
+    orders: Prisma.$OrderPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -2002,6 +2169,7 @@ export interface Prisma__PriceBookClient<T, Null = never, ExtArgs extends runtim
   supplier<T extends Prisma.PriceBook$supplierArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PriceBook$supplierArgs<ExtArgs>>): Prisma.Prisma__SupplierClient<runtime.Types.Result.GetResult<Prisma.$SupplierPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   rules<T extends Prisma.PriceBook$rulesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PriceBook$rulesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PriceRulePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   crmDealLinks<T extends Prisma.PriceBook$crmDealLinksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PriceBook$crmDealLinksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CrmDealItemLinkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  orders<T extends Prisma.PriceBook$ordersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PriceBook$ordersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2516,6 +2684,30 @@ export type PriceBook$crmDealLinksArgs<ExtArgs extends runtime.Types.Extensions.
   take?: number
   skip?: number
   distinct?: Prisma.CrmDealItemLinkScalarFieldEnum | Prisma.CrmDealItemLinkScalarFieldEnum[]
+}
+
+/**
+ * PriceBook.orders
+ */
+export type PriceBook$ordersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Order
+   */
+  select?: Prisma.OrderSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Order
+   */
+  omit?: Prisma.OrderOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OrderInclude<ExtArgs> | null
+  where?: Prisma.OrderWhereInput
+  orderBy?: Prisma.OrderOrderByWithRelationInput | Prisma.OrderOrderByWithRelationInput[]
+  cursor?: Prisma.OrderWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OrderScalarFieldEnum | Prisma.OrderScalarFieldEnum[]
 }
 
 /**

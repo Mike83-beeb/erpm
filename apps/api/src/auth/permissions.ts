@@ -25,6 +25,14 @@ export const erpStatements = {
   calendar: ["read", "manage"],
   crm: ["read", "create", "update", "delete", "configure"],
   pricing: ["read", "create", "update", "archive", "quote"],
+  customer: ["read", "create", "update", "archive"],
+  order: ["read", "create", "update", "confirm", "fulfill", "posCheckout", "cancel"],
+  invoice: ["read", "create", "issue", "void"],
+  payment: ["read", "record", "void"],
+  receipt: ["read"],
+  fulfillment: ["read", "create", "update", "confirm", "complete", "cancel", "configure"],
+  staffJob: ["read", "create", "assign", "update", "complete", "cancel"],
+  notification: ["read", "send", "configureTemplates"],
 } as const;
 
 export type ErpStatements = typeof erpStatements;
@@ -54,6 +62,14 @@ export const owner = ac.newRole({
   calendar: ["read", "manage"],
   crm: ["read", "create", "update", "delete", "configure"],
   pricing: ["read", "create", "update", "archive", "quote"],
+  customer: ["read", "create", "update", "archive"],
+  order: ["read", "create", "update", "confirm", "fulfill", "posCheckout", "cancel"],
+  invoice: ["read", "create", "issue", "void"],
+  payment: ["read", "record", "void"],
+  receipt: ["read"],
+  fulfillment: ["read", "create", "update", "confirm", "complete", "cancel", "configure"],
+  staffJob: ["read", "create", "assign", "update", "complete", "cancel"],
+  notification: ["read", "send", "configureTemplates"],
 });
 
 export const admin = ac.newRole({
@@ -75,6 +91,14 @@ export const admin = ac.newRole({
   calendar: ["read", "manage"],
   crm: ["read", "create", "update", "delete", "configure"],
   pricing: ["read", "create", "update", "archive", "quote"],
+  customer: ["read", "create", "update", "archive"],
+  order: ["read", "create", "update", "confirm", "fulfill", "posCheckout", "cancel"],
+  invoice: ["read", "create", "issue", "void"],
+  payment: ["read", "record", "void"],
+  receipt: ["read"],
+  fulfillment: ["read", "create", "update", "confirm", "complete", "cancel", "configure"],
+  staffJob: ["read", "create", "assign", "update", "complete", "cancel"],
+  notification: ["read", "send", "configureTemplates"],
 });
 
 export const manager = ac.newRole({
@@ -99,6 +123,14 @@ export const manager = ac.newRole({
   calendar: ["read", "manage"],
   crm: ["read", "create", "update", "delete"],
   pricing: ["read", "create", "update", "quote"],
+  customer: ["read", "create", "update", "archive"],
+  order: ["read", "create", "update", "confirm", "fulfill", "posCheckout", "cancel"],
+  invoice: ["read", "create", "issue", "void"],
+  payment: ["read", "record", "void"],
+  receipt: ["read"],
+  fulfillment: ["read", "create", "update", "confirm", "complete", "cancel", "configure"],
+  staffJob: ["read", "create", "assign", "update", "complete", "cancel"],
+  notification: ["read", "send", "configureTemplates"],
 });
 
 export const member = ac.newRole({
@@ -119,6 +151,14 @@ export const member = ac.newRole({
   calendar: ["read"],
   crm: ["read", "create", "update", "delete"],
   pricing: ["read", "quote"],
+  customer: ["read", "create", "update"],
+  order: ["read", "create", "update", "confirm", "fulfill", "posCheckout"],
+  invoice: ["read", "create", "issue"],
+  payment: ["read", "record"],
+  receipt: ["read"],
+  fulfillment: ["read", "create", "update", "confirm", "complete"],
+  staffJob: ["read", "create", "update", "complete"],
+  notification: ["read", "send"],
 });
 
 export const viewer = ac.newRole({
@@ -142,6 +182,14 @@ export const viewer = ac.newRole({
   calendar: ["read"],
   crm: ["read"],
   pricing: ["read"],
+  customer: ["read"],
+  order: ["read"],
+  invoice: ["read"],
+  payment: ["read"],
+  receipt: ["read"],
+  fulfillment: ["read"],
+  staffJob: ["read"],
+  notification: ["read"],
 });
 
 export const organizationRoles = {
@@ -196,6 +244,14 @@ export function getResolvedPermissionsForRole(
     calendar: new Set(),
     crm: new Set(),
     pricing: new Set(),
+    customer: new Set(),
+    order: new Set(),
+    invoice: new Set(),
+    payment: new Set(),
+    receipt: new Set(),
+    fulfillment: new Set(),
+    staffJob: new Set(),
+    notification: new Set(),
   };
 
   for (const roleName of parseRoleNames(roleNameList(roleValue))) {
@@ -233,6 +289,14 @@ export function getResolvedPermissionsForRole(
     calendar: Array.from(resolved.calendar),
     crm: Array.from(resolved.crm),
     pricing: Array.from(resolved.pricing),
+    customer: Array.from(resolved.customer),
+    order: Array.from(resolved.order),
+    invoice: Array.from(resolved.invoice),
+    payment: Array.from(resolved.payment),
+    receipt: Array.from(resolved.receipt),
+    fulfillment: Array.from(resolved.fulfillment),
+    staffJob: Array.from(resolved.staffJob),
+    notification: Array.from(resolved.notification),
   };
 }
 

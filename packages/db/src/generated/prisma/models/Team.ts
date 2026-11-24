@@ -297,6 +297,7 @@ export type TeamWhereInput = {
   leadStaff?: Prisma.XOR<Prisma.StaffProfileNullableScalarRelationFilter, Prisma.StaffProfileWhereInput> | null
   members?: Prisma.TeamMemberListRelationFilter
   calendarFeeds?: Prisma.CalendarFeedListRelationFilter
+  staffJobs?: Prisma.StaffJobListRelationFilter
 }
 
 export type TeamOrderByWithRelationInput = {
@@ -320,6 +321,7 @@ export type TeamOrderByWithRelationInput = {
   leadStaff?: Prisma.StaffProfileOrderByWithRelationInput
   members?: Prisma.TeamMemberOrderByRelationAggregateInput
   calendarFeeds?: Prisma.CalendarFeedOrderByRelationAggregateInput
+  staffJobs?: Prisma.StaffJobOrderByRelationAggregateInput
 }
 
 export type TeamWhereUniqueInput = Prisma.AtLeast<{
@@ -347,6 +349,7 @@ export type TeamWhereUniqueInput = Prisma.AtLeast<{
   leadStaff?: Prisma.XOR<Prisma.StaffProfileNullableScalarRelationFilter, Prisma.StaffProfileWhereInput> | null
   members?: Prisma.TeamMemberListRelationFilter
   calendarFeeds?: Prisma.CalendarFeedListRelationFilter
+  staffJobs?: Prisma.StaffJobListRelationFilter
 }, "id" | "organizationId_slug">
 
 export type TeamOrderByWithAggregationInput = {
@@ -411,6 +414,7 @@ export type TeamCreateInput = {
   leadStaff?: Prisma.StaffProfileCreateNestedOneWithoutLedTeamsInput
   members?: Prisma.TeamMemberCreateNestedManyWithoutTeamInput
   calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutTeamInput
+  staffJobs?: Prisma.StaffJobCreateNestedManyWithoutAssignedTeamInput
 }
 
 export type TeamUncheckedCreateInput = {
@@ -431,6 +435,7 @@ export type TeamUncheckedCreateInput = {
   updatedAt?: Date | string
   members?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutTeamInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutTeamInput
+  staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutAssignedTeamInput
 }
 
 export type TeamUpdateInput = {
@@ -451,6 +456,7 @@ export type TeamUpdateInput = {
   leadStaff?: Prisma.StaffProfileUpdateOneWithoutLedTeamsNestedInput
   members?: Prisma.TeamMemberUpdateManyWithoutTeamNestedInput
   calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutTeamNestedInput
+  staffJobs?: Prisma.StaffJobUpdateManyWithoutAssignedTeamNestedInput
 }
 
 export type TeamUncheckedUpdateInput = {
@@ -471,6 +477,7 @@ export type TeamUncheckedUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   members?: Prisma.TeamMemberUncheckedUpdateManyWithoutTeamNestedInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutTeamNestedInput
+  staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutAssignedTeamNestedInput
 }
 
 export type TeamCreateManyInput = {
@@ -773,6 +780,22 @@ export type TeamUpdateOneWithoutCalendarFeedsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.TeamUpdateToOneWithWhereWithoutCalendarFeedsInput, Prisma.TeamUpdateWithoutCalendarFeedsInput>, Prisma.TeamUncheckedUpdateWithoutCalendarFeedsInput>
 }
 
+export type TeamCreateNestedOneWithoutStaffJobsInput = {
+  create?: Prisma.XOR<Prisma.TeamCreateWithoutStaffJobsInput, Prisma.TeamUncheckedCreateWithoutStaffJobsInput>
+  connectOrCreate?: Prisma.TeamCreateOrConnectWithoutStaffJobsInput
+  connect?: Prisma.TeamWhereUniqueInput
+}
+
+export type TeamUpdateOneWithoutStaffJobsNestedInput = {
+  create?: Prisma.XOR<Prisma.TeamCreateWithoutStaffJobsInput, Prisma.TeamUncheckedCreateWithoutStaffJobsInput>
+  connectOrCreate?: Prisma.TeamCreateOrConnectWithoutStaffJobsInput
+  upsert?: Prisma.TeamUpsertWithoutStaffJobsInput
+  disconnect?: Prisma.TeamWhereInput | boolean
+  delete?: Prisma.TeamWhereInput | boolean
+  connect?: Prisma.TeamWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TeamUpdateToOneWithWhereWithoutStaffJobsInput, Prisma.TeamUpdateWithoutStaffJobsInput>, Prisma.TeamUncheckedUpdateWithoutStaffJobsInput>
+}
+
 export type TeamCreateWithoutOrganizationInput = {
   id?: string
   name: string
@@ -790,6 +813,7 @@ export type TeamCreateWithoutOrganizationInput = {
   leadStaff?: Prisma.StaffProfileCreateNestedOneWithoutLedTeamsInput
   members?: Prisma.TeamMemberCreateNestedManyWithoutTeamInput
   calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutTeamInput
+  staffJobs?: Prisma.StaffJobCreateNestedManyWithoutAssignedTeamInput
 }
 
 export type TeamUncheckedCreateWithoutOrganizationInput = {
@@ -809,6 +833,7 @@ export type TeamUncheckedCreateWithoutOrganizationInput = {
   updatedAt?: Date | string
   members?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutTeamInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutTeamInput
+  staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutAssignedTeamInput
 }
 
 export type TeamCreateOrConnectWithoutOrganizationInput = {
@@ -875,6 +900,7 @@ export type TeamCreateWithoutDepartmentInput = {
   leadStaff?: Prisma.StaffProfileCreateNestedOneWithoutLedTeamsInput
   members?: Prisma.TeamMemberCreateNestedManyWithoutTeamInput
   calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutTeamInput
+  staffJobs?: Prisma.StaffJobCreateNestedManyWithoutAssignedTeamInput
 }
 
 export type TeamUncheckedCreateWithoutDepartmentInput = {
@@ -894,6 +920,7 @@ export type TeamUncheckedCreateWithoutDepartmentInput = {
   updatedAt?: Date | string
   members?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutTeamInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutTeamInput
+  staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutAssignedTeamInput
 }
 
 export type TeamCreateOrConnectWithoutDepartmentInput = {
@@ -939,6 +966,7 @@ export type TeamCreateWithoutLeadStaffInput = {
   department?: Prisma.DepartmentCreateNestedOneWithoutTeamsInput
   members?: Prisma.TeamMemberCreateNestedManyWithoutTeamInput
   calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutTeamInput
+  staffJobs?: Prisma.StaffJobCreateNestedManyWithoutAssignedTeamInput
 }
 
 export type TeamUncheckedCreateWithoutLeadStaffInput = {
@@ -958,6 +986,7 @@ export type TeamUncheckedCreateWithoutLeadStaffInput = {
   updatedAt?: Date | string
   members?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutTeamInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutTeamInput
+  staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutAssignedTeamInput
 }
 
 export type TeamCreateOrConnectWithoutLeadStaffInput = {
@@ -1003,6 +1032,7 @@ export type TeamCreateWithoutMembersInput = {
   department?: Prisma.DepartmentCreateNestedOneWithoutTeamsInput
   leadStaff?: Prisma.StaffProfileCreateNestedOneWithoutLedTeamsInput
   calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutTeamInput
+  staffJobs?: Prisma.StaffJobCreateNestedManyWithoutAssignedTeamInput
 }
 
 export type TeamUncheckedCreateWithoutMembersInput = {
@@ -1022,6 +1052,7 @@ export type TeamUncheckedCreateWithoutMembersInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutTeamInput
+  staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutAssignedTeamInput
 }
 
 export type TeamCreateOrConnectWithoutMembersInput = {
@@ -1057,6 +1088,7 @@ export type TeamUpdateWithoutMembersInput = {
   department?: Prisma.DepartmentUpdateOneWithoutTeamsNestedInput
   leadStaff?: Prisma.StaffProfileUpdateOneWithoutLedTeamsNestedInput
   calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutTeamNestedInput
+  staffJobs?: Prisma.StaffJobUpdateManyWithoutAssignedTeamNestedInput
 }
 
 export type TeamUncheckedUpdateWithoutMembersInput = {
@@ -1076,6 +1108,7 @@ export type TeamUncheckedUpdateWithoutMembersInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutTeamNestedInput
+  staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutAssignedTeamNestedInput
 }
 
 export type TeamCreateWithoutCalendarFeedsInput = {
@@ -1095,6 +1128,7 @@ export type TeamCreateWithoutCalendarFeedsInput = {
   department?: Prisma.DepartmentCreateNestedOneWithoutTeamsInput
   leadStaff?: Prisma.StaffProfileCreateNestedOneWithoutLedTeamsInput
   members?: Prisma.TeamMemberCreateNestedManyWithoutTeamInput
+  staffJobs?: Prisma.StaffJobCreateNestedManyWithoutAssignedTeamInput
 }
 
 export type TeamUncheckedCreateWithoutCalendarFeedsInput = {
@@ -1114,6 +1148,7 @@ export type TeamUncheckedCreateWithoutCalendarFeedsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   members?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutTeamInput
+  staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutAssignedTeamInput
 }
 
 export type TeamCreateOrConnectWithoutCalendarFeedsInput = {
@@ -1149,6 +1184,7 @@ export type TeamUpdateWithoutCalendarFeedsInput = {
   department?: Prisma.DepartmentUpdateOneWithoutTeamsNestedInput
   leadStaff?: Prisma.StaffProfileUpdateOneWithoutLedTeamsNestedInput
   members?: Prisma.TeamMemberUpdateManyWithoutTeamNestedInput
+  staffJobs?: Prisma.StaffJobUpdateManyWithoutAssignedTeamNestedInput
 }
 
 export type TeamUncheckedUpdateWithoutCalendarFeedsInput = {
@@ -1168,6 +1204,103 @@ export type TeamUncheckedUpdateWithoutCalendarFeedsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   members?: Prisma.TeamMemberUncheckedUpdateManyWithoutTeamNestedInput
+  staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutAssignedTeamNestedInput
+}
+
+export type TeamCreateWithoutStaffJobsInput = {
+  id?: string
+  name: string
+  slug: string
+  description?: string | null
+  kind?: $Enums.TeamKind
+  status?: $Enums.TeamStatus
+  defaultAllocationPct?: number
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  archivedAt?: Date | string | null
+  createdByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutTeamsInput
+  department?: Prisma.DepartmentCreateNestedOneWithoutTeamsInput
+  leadStaff?: Prisma.StaffProfileCreateNestedOneWithoutLedTeamsInput
+  members?: Prisma.TeamMemberCreateNestedManyWithoutTeamInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutTeamInput
+}
+
+export type TeamUncheckedCreateWithoutStaffJobsInput = {
+  id?: string
+  organizationId: string
+  name: string
+  slug: string
+  description?: string | null
+  kind?: $Enums.TeamKind
+  status?: $Enums.TeamStatus
+  departmentId?: string | null
+  leadStaffId?: string | null
+  defaultAllocationPct?: number
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  archivedAt?: Date | string | null
+  createdByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  members?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutTeamInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutTeamInput
+}
+
+export type TeamCreateOrConnectWithoutStaffJobsInput = {
+  where: Prisma.TeamWhereUniqueInput
+  create: Prisma.XOR<Prisma.TeamCreateWithoutStaffJobsInput, Prisma.TeamUncheckedCreateWithoutStaffJobsInput>
+}
+
+export type TeamUpsertWithoutStaffJobsInput = {
+  update: Prisma.XOR<Prisma.TeamUpdateWithoutStaffJobsInput, Prisma.TeamUncheckedUpdateWithoutStaffJobsInput>
+  create: Prisma.XOR<Prisma.TeamCreateWithoutStaffJobsInput, Prisma.TeamUncheckedCreateWithoutStaffJobsInput>
+  where?: Prisma.TeamWhereInput
+}
+
+export type TeamUpdateToOneWithWhereWithoutStaffJobsInput = {
+  where?: Prisma.TeamWhereInput
+  data: Prisma.XOR<Prisma.TeamUpdateWithoutStaffJobsInput, Prisma.TeamUncheckedUpdateWithoutStaffJobsInput>
+}
+
+export type TeamUpdateWithoutStaffJobsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kind?: Prisma.EnumTeamKindFieldUpdateOperationsInput | $Enums.TeamKind
+  status?: Prisma.EnumTeamStatusFieldUpdateOperationsInput | $Enums.TeamStatus
+  defaultAllocationPct?: Prisma.IntFieldUpdateOperationsInput | number
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutTeamsNestedInput
+  department?: Prisma.DepartmentUpdateOneWithoutTeamsNestedInput
+  leadStaff?: Prisma.StaffProfileUpdateOneWithoutLedTeamsNestedInput
+  members?: Prisma.TeamMemberUpdateManyWithoutTeamNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutTeamNestedInput
+}
+
+export type TeamUncheckedUpdateWithoutStaffJobsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kind?: Prisma.EnumTeamKindFieldUpdateOperationsInput | $Enums.TeamKind
+  status?: Prisma.EnumTeamStatusFieldUpdateOperationsInput | $Enums.TeamStatus
+  departmentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  leadStaffId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultAllocationPct?: Prisma.IntFieldUpdateOperationsInput | number
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  members?: Prisma.TeamMemberUncheckedUpdateManyWithoutTeamNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutTeamNestedInput
 }
 
 export type TeamCreateManyOrganizationInput = {
@@ -1204,6 +1337,7 @@ export type TeamUpdateWithoutOrganizationInput = {
   leadStaff?: Prisma.StaffProfileUpdateOneWithoutLedTeamsNestedInput
   members?: Prisma.TeamMemberUpdateManyWithoutTeamNestedInput
   calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutTeamNestedInput
+  staffJobs?: Prisma.StaffJobUpdateManyWithoutAssignedTeamNestedInput
 }
 
 export type TeamUncheckedUpdateWithoutOrganizationInput = {
@@ -1223,6 +1357,7 @@ export type TeamUncheckedUpdateWithoutOrganizationInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   members?: Prisma.TeamMemberUncheckedUpdateManyWithoutTeamNestedInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutTeamNestedInput
+  staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutAssignedTeamNestedInput
 }
 
 export type TeamUncheckedUpdateManyWithoutOrganizationInput = {
@@ -1276,6 +1411,7 @@ export type TeamUpdateWithoutDepartmentInput = {
   leadStaff?: Prisma.StaffProfileUpdateOneWithoutLedTeamsNestedInput
   members?: Prisma.TeamMemberUpdateManyWithoutTeamNestedInput
   calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutTeamNestedInput
+  staffJobs?: Prisma.StaffJobUpdateManyWithoutAssignedTeamNestedInput
 }
 
 export type TeamUncheckedUpdateWithoutDepartmentInput = {
@@ -1295,6 +1431,7 @@ export type TeamUncheckedUpdateWithoutDepartmentInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   members?: Prisma.TeamMemberUncheckedUpdateManyWithoutTeamNestedInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutTeamNestedInput
+  staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutAssignedTeamNestedInput
 }
 
 export type TeamUncheckedUpdateManyWithoutDepartmentInput = {
@@ -1348,6 +1485,7 @@ export type TeamUpdateWithoutLeadStaffInput = {
   department?: Prisma.DepartmentUpdateOneWithoutTeamsNestedInput
   members?: Prisma.TeamMemberUpdateManyWithoutTeamNestedInput
   calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutTeamNestedInput
+  staffJobs?: Prisma.StaffJobUpdateManyWithoutAssignedTeamNestedInput
 }
 
 export type TeamUncheckedUpdateWithoutLeadStaffInput = {
@@ -1367,6 +1505,7 @@ export type TeamUncheckedUpdateWithoutLeadStaffInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   members?: Prisma.TeamMemberUncheckedUpdateManyWithoutTeamNestedInput
   calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutTeamNestedInput
+  staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutAssignedTeamNestedInput
 }
 
 export type TeamUncheckedUpdateManyWithoutLeadStaffInput = {
@@ -1394,11 +1533,13 @@ export type TeamUncheckedUpdateManyWithoutLeadStaffInput = {
 export type TeamCountOutputType = {
   members: number
   calendarFeeds: number
+  staffJobs: number
 }
 
 export type TeamCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   members?: boolean | TeamCountOutputTypeCountMembersArgs
   calendarFeeds?: boolean | TeamCountOutputTypeCountCalendarFeedsArgs
+  staffJobs?: boolean | TeamCountOutputTypeCountStaffJobsArgs
 }
 
 /**
@@ -1425,6 +1566,13 @@ export type TeamCountOutputTypeCountCalendarFeedsArgs<ExtArgs extends runtime.Ty
   where?: Prisma.CalendarFeedWhereInput
 }
 
+/**
+ * TeamCountOutputType without action
+ */
+export type TeamCountOutputTypeCountStaffJobsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.StaffJobWhereInput
+}
+
 
 export type TeamSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1447,6 +1595,7 @@ export type TeamSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   leadStaff?: boolean | Prisma.Team$leadStaffArgs<ExtArgs>
   members?: boolean | Prisma.Team$membersArgs<ExtArgs>
   calendarFeeds?: boolean | Prisma.Team$calendarFeedsArgs<ExtArgs>
+  staffJobs?: boolean | Prisma.Team$staffJobsArgs<ExtArgs>
   _count?: boolean | Prisma.TeamCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["team"]>
 
@@ -1517,6 +1666,7 @@ export type TeamInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   leadStaff?: boolean | Prisma.Team$leadStaffArgs<ExtArgs>
   members?: boolean | Prisma.Team$membersArgs<ExtArgs>
   calendarFeeds?: boolean | Prisma.Team$calendarFeedsArgs<ExtArgs>
+  staffJobs?: boolean | Prisma.Team$staffJobsArgs<ExtArgs>
   _count?: boolean | Prisma.TeamCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type TeamIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1538,6 +1688,7 @@ export type $TeamPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     leadStaff: Prisma.$StaffProfilePayload<ExtArgs> | null
     members: Prisma.$TeamMemberPayload<ExtArgs>[]
     calendarFeeds: Prisma.$CalendarFeedPayload<ExtArgs>[]
+    staffJobs: Prisma.$StaffJobPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1954,6 +2105,7 @@ export interface Prisma__TeamClient<T, Null = never, ExtArgs extends runtime.Typ
   leadStaff<T extends Prisma.Team$leadStaffArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Team$leadStaffArgs<ExtArgs>>): Prisma.Prisma__StaffProfileClient<runtime.Types.Result.GetResult<Prisma.$StaffProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   members<T extends Prisma.Team$membersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Team$membersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TeamMemberPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   calendarFeeds<T extends Prisma.Team$calendarFeedsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Team$calendarFeedsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CalendarFeedPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  staffJobs<T extends Prisma.Team$staffJobsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Team$staffJobsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StaffJobPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2482,6 +2634,30 @@ export type Team$calendarFeedsArgs<ExtArgs extends runtime.Types.Extensions.Inte
   take?: number
   skip?: number
   distinct?: Prisma.CalendarFeedScalarFieldEnum | Prisma.CalendarFeedScalarFieldEnum[]
+}
+
+/**
+ * Team.staffJobs
+ */
+export type Team$staffJobsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the StaffJob
+   */
+  select?: Prisma.StaffJobSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the StaffJob
+   */
+  omit?: Prisma.StaffJobOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.StaffJobInclude<ExtArgs> | null
+  where?: Prisma.StaffJobWhereInput
+  orderBy?: Prisma.StaffJobOrderByWithRelationInput | Prisma.StaffJobOrderByWithRelationInput[]
+  cursor?: Prisma.StaffJobWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.StaffJobScalarFieldEnum | Prisma.StaffJobScalarFieldEnum[]
 }
 
 /**

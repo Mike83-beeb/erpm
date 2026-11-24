@@ -13,7 +13,17 @@ export type CustomerMatesResource =
   | "organizations"
   | "deals"
   | "services"
-  | "tasks";
+  | "tasks"
+  | "communications";
+
+export interface SendCustomerMatesCommunicationInput {
+  channel: "SMS" | "WHATSAPP" | "EMAIL";
+  to: string;
+  contactId?: string | null;
+  subject?: string | null;
+  message: string;
+  metadata?: Record<string, unknown>;
+}
 
 export interface CustomerMatesConnectionContext {
   organizationId: string;
@@ -237,6 +247,50 @@ export class CustomerMatesClient {
       { method: "DELETE" },
     );
     return { deleted: true, id };
+  }
+
+  async sendCommunication(
+    ctx: CustomerMatesConnectionContext,
+    input: SendCustomerMatesCommunicationInput,
+  ): Promise<{ id: string; provider: "customermates" | "customermates-sandbox"; status: string }> {
+    const payload = {
+      channel: input.channel.toLowerCase(),
+      to: input.to,
+      ...(input.contactId ? { contactId: input.contactId } : {}),
+      ...(input.subject ? { subject: input.subject } : {}),
+      message: input.message,
+      ...(input.metadata ? { metadata: input.metadata } : {}),
+    };
+
+    if (ctx.sandboxMode) {
+      const store = this.getOrgSandboxBucket(ctx.organizationId, "communications");
+      const id = `cm_msg_${randomUUID().slice(0, 12)}`;
+      const now = new Date().toISOString();
+      store.set(id, {
+        ...payload,
+        id,
+        workspaceId: ctx.workspaceId ?? "sandbox",
+        status: "sent",
+        createdAt: now,
+        updatedAt: now,
+      });
+      return {
+        id,
+        provider: "customermates-sandbox",
+        status: "sandbox",
+      };
+    }
+
+    const data = (await this.requestJson(ctx, "/api/v1/communications/messages", {
+      method: "POST",
+      body: JSON.stringify(payload),
+    })) as { id?: string; status?: string } | null;
+
+    return {
+      id: data?.id || `cm_msg_${randomUUID().slice(0, 12)}`,
+      provider: "customermates",
+      status: data?.status || "sent",
+    };
   }
 
   private assertSafeResourceId(id: string): void {

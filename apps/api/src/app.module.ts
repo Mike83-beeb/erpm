@@ -3,11 +3,14 @@ import { AuthModule } from "@thallesp/nestjs-better-auth";
 import { auth } from "./auth/auth.config.js";
 import { MeController } from "./auth/me.controller.js";
 import { CrmModule } from "./crm/crm.module.js";
+import { CustomersModule } from "./customers/customers.module.js";
 import { DatabaseModule } from "./database/database.module.js";
 import { EmailModule } from "./email/email.module.js";
+import { FulfillmentsModule } from "./fulfillments/fulfillments.module.js";
 import { HealthModule } from "./health/health.module.js";
 import { ItemsModule } from "./items/items.module.js";
 import { LocationsModule } from "./locations/locations.module.js";
+import { OrdersModule } from "./orders/orders.module.js";
 import { PricingModule } from "./pricing/pricing.module.js";
 import { ProcurementModule } from "./procurement/procurement.module.js";
 import { RedisModule } from "./redis/redis.module.js";
@@ -41,6 +44,9 @@ import { TenantsModule } from "./tenants/tenants.module.js";
     StaffModule,
     CrmModule,
     PricingModule,
+    CustomersModule,
+    OrdersModule,
+    FulfillmentsModule,
   ],
   controllers: [MeController],
 })
