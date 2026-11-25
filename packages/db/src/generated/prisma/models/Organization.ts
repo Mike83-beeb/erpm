@@ -244,6 +244,14 @@ export type OrganizationWhereInput = {
   staffJobs?: Prisma.StaffJobListRelationFilter
   notificationTemplates?: Prisma.NotificationTemplateListRelationFilter
   customerNotifications?: Prisma.CustomerNotificationListRelationFilter
+  oauthClients?: Prisma.OAuthClientListRelationFilter
+  oauthClientKeys?: Prisma.OAuthClientKeyListRelationFilter
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeListRelationFilter
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeListRelationFilter
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenListRelationFilter
+  personalAccessTokens?: Prisma.PersonalAccessTokenListRelationFilter
+  registeredDevices?: Prisma.RegisteredDeviceListRelationFilter
+  ssoProviders?: Prisma.OrganizationSsoProviderListRelationFilter
 }
 
 export type OrganizationOrderByWithRelationInput = {
@@ -307,6 +315,14 @@ export type OrganizationOrderByWithRelationInput = {
   staffJobs?: Prisma.StaffJobOrderByRelationAggregateInput
   notificationTemplates?: Prisma.NotificationTemplateOrderByRelationAggregateInput
   customerNotifications?: Prisma.CustomerNotificationOrderByRelationAggregateInput
+  oauthClients?: Prisma.OAuthClientOrderByRelationAggregateInput
+  oauthClientKeys?: Prisma.OAuthClientKeyOrderByRelationAggregateInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeOrderByRelationAggregateInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeOrderByRelationAggregateInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenOrderByRelationAggregateInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenOrderByRelationAggregateInput
+  registeredDevices?: Prisma.RegisteredDeviceOrderByRelationAggregateInput
+  ssoProviders?: Prisma.OrganizationSsoProviderOrderByRelationAggregateInput
 }
 
 export type OrganizationWhereUniqueInput = Prisma.AtLeast<{
@@ -373,6 +389,14 @@ export type OrganizationWhereUniqueInput = Prisma.AtLeast<{
   staffJobs?: Prisma.StaffJobListRelationFilter
   notificationTemplates?: Prisma.NotificationTemplateListRelationFilter
   customerNotifications?: Prisma.CustomerNotificationListRelationFilter
+  oauthClients?: Prisma.OAuthClientListRelationFilter
+  oauthClientKeys?: Prisma.OAuthClientKeyListRelationFilter
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeListRelationFilter
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeListRelationFilter
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenListRelationFilter
+  personalAccessTokens?: Prisma.PersonalAccessTokenListRelationFilter
+  registeredDevices?: Prisma.RegisteredDeviceListRelationFilter
+  ssoProviders?: Prisma.OrganizationSsoProviderListRelationFilter
 }, "id" | "slug">
 
 export type OrganizationOrderByWithAggregationInput = {
@@ -460,6 +484,14 @@ export type OrganizationCreateInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateInput = {
@@ -523,6 +555,14 @@ export type OrganizationUncheckedCreateInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUpdateInput = {
@@ -586,6 +626,14 @@ export type OrganizationUpdateInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateInput = {
@@ -649,6 +697,14 @@ export type OrganizationUncheckedUpdateInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateManyInput = {
@@ -1466,6 +1522,118 @@ export type OrganizationUpdateOneRequiredWithoutCustomerNotificationsNestedInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutCustomerNotificationsInput, Prisma.OrganizationUpdateWithoutCustomerNotificationsInput>, Prisma.OrganizationUncheckedUpdateWithoutCustomerNotificationsInput>
 }
 
+export type OrganizationCreateNestedOneWithoutOauthClientsInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutOauthClientsInput, Prisma.OrganizationUncheckedCreateWithoutOauthClientsInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutOauthClientsInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutOauthClientsNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutOauthClientsInput, Prisma.OrganizationUncheckedCreateWithoutOauthClientsInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutOauthClientsInput
+  upsert?: Prisma.OrganizationUpsertWithoutOauthClientsInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutOauthClientsInput, Prisma.OrganizationUpdateWithoutOauthClientsInput>, Prisma.OrganizationUncheckedUpdateWithoutOauthClientsInput>
+}
+
+export type OrganizationCreateNestedOneWithoutOauthClientKeysInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutOauthClientKeysInput, Prisma.OrganizationUncheckedCreateWithoutOauthClientKeysInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutOauthClientKeysInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutOauthClientKeysNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutOauthClientKeysInput, Prisma.OrganizationUncheckedCreateWithoutOauthClientKeysInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutOauthClientKeysInput
+  upsert?: Prisma.OrganizationUpsertWithoutOauthClientKeysInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutOauthClientKeysInput, Prisma.OrganizationUpdateWithoutOauthClientKeysInput>, Prisma.OrganizationUncheckedUpdateWithoutOauthClientKeysInput>
+}
+
+export type OrganizationCreateNestedOneWithoutOauthAuthorizationCodesInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutOauthAuthorizationCodesInput, Prisma.OrganizationUncheckedCreateWithoutOauthAuthorizationCodesInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutOauthAuthorizationCodesInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutOauthAuthorizationCodesNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutOauthAuthorizationCodesInput, Prisma.OrganizationUncheckedCreateWithoutOauthAuthorizationCodesInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutOauthAuthorizationCodesInput
+  upsert?: Prisma.OrganizationUpsertWithoutOauthAuthorizationCodesInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutOauthAuthorizationCodesInput, Prisma.OrganizationUpdateWithoutOauthAuthorizationCodesInput>, Prisma.OrganizationUncheckedUpdateWithoutOauthAuthorizationCodesInput>
+}
+
+export type OrganizationCreateNestedOneWithoutOauthDeviceCodesInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutOauthDeviceCodesInput, Prisma.OrganizationUncheckedCreateWithoutOauthDeviceCodesInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutOauthDeviceCodesInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutOauthDeviceCodesNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutOauthDeviceCodesInput, Prisma.OrganizationUncheckedCreateWithoutOauthDeviceCodesInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutOauthDeviceCodesInput
+  upsert?: Prisma.OrganizationUpsertWithoutOauthDeviceCodesInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutOauthDeviceCodesInput, Prisma.OrganizationUpdateWithoutOauthDeviceCodesInput>, Prisma.OrganizationUncheckedUpdateWithoutOauthDeviceCodesInput>
+}
+
+export type OrganizationCreateNestedOneWithoutOauthRefreshTokensInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutOauthRefreshTokensInput, Prisma.OrganizationUncheckedCreateWithoutOauthRefreshTokensInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutOauthRefreshTokensInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutOauthRefreshTokensNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutOauthRefreshTokensInput, Prisma.OrganizationUncheckedCreateWithoutOauthRefreshTokensInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutOauthRefreshTokensInput
+  upsert?: Prisma.OrganizationUpsertWithoutOauthRefreshTokensInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutOauthRefreshTokensInput, Prisma.OrganizationUpdateWithoutOauthRefreshTokensInput>, Prisma.OrganizationUncheckedUpdateWithoutOauthRefreshTokensInput>
+}
+
+export type OrganizationCreateNestedOneWithoutPersonalAccessTokensInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutPersonalAccessTokensInput, Prisma.OrganizationUncheckedCreateWithoutPersonalAccessTokensInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutPersonalAccessTokensInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutPersonalAccessTokensNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutPersonalAccessTokensInput, Prisma.OrganizationUncheckedCreateWithoutPersonalAccessTokensInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutPersonalAccessTokensInput
+  upsert?: Prisma.OrganizationUpsertWithoutPersonalAccessTokensInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutPersonalAccessTokensInput, Prisma.OrganizationUpdateWithoutPersonalAccessTokensInput>, Prisma.OrganizationUncheckedUpdateWithoutPersonalAccessTokensInput>
+}
+
+export type OrganizationCreateNestedOneWithoutRegisteredDevicesInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutRegisteredDevicesInput, Prisma.OrganizationUncheckedCreateWithoutRegisteredDevicesInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutRegisteredDevicesInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutRegisteredDevicesNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutRegisteredDevicesInput, Prisma.OrganizationUncheckedCreateWithoutRegisteredDevicesInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutRegisteredDevicesInput
+  upsert?: Prisma.OrganizationUpsertWithoutRegisteredDevicesInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutRegisteredDevicesInput, Prisma.OrganizationUpdateWithoutRegisteredDevicesInput>, Prisma.OrganizationUncheckedUpdateWithoutRegisteredDevicesInput>
+}
+
+export type OrganizationCreateNestedOneWithoutSsoProvidersInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutSsoProvidersInput, Prisma.OrganizationUncheckedCreateWithoutSsoProvidersInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutSsoProvidersInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+}
+
+export type OrganizationUpdateOneRequiredWithoutSsoProvidersNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationCreateWithoutSsoProvidersInput, Prisma.OrganizationUncheckedCreateWithoutSsoProvidersInput>
+  connectOrCreate?: Prisma.OrganizationCreateOrConnectWithoutSsoProvidersInput
+  upsert?: Prisma.OrganizationUpsertWithoutSsoProvidersInput
+  connect?: Prisma.OrganizationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationUpdateToOneWithWhereWithoutSsoProvidersInput, Prisma.OrganizationUpdateWithoutSsoProvidersInput>, Prisma.OrganizationUncheckedUpdateWithoutSsoProvidersInput>
+}
+
 export type OrganizationCreateWithoutMembersInput = {
   id: string
   name: string
@@ -1526,6 +1694,14 @@ export type OrganizationCreateWithoutMembersInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutMembersInput = {
@@ -1588,6 +1764,14 @@ export type OrganizationUncheckedCreateWithoutMembersInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutMembersInput = {
@@ -1666,6 +1850,14 @@ export type OrganizationUpdateWithoutMembersInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutMembersInput = {
@@ -1728,6 +1920,14 @@ export type OrganizationUncheckedUpdateWithoutMembersInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutInvitationsInput = {
@@ -1790,6 +1990,14 @@ export type OrganizationCreateWithoutInvitationsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutInvitationsInput = {
@@ -1852,6 +2060,14 @@ export type OrganizationUncheckedCreateWithoutInvitationsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutInvitationsInput = {
@@ -1930,6 +2146,14 @@ export type OrganizationUpdateWithoutInvitationsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutInvitationsInput = {
@@ -1992,6 +2216,14 @@ export type OrganizationUncheckedUpdateWithoutInvitationsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutTenantSettingsInput = {
@@ -2054,6 +2286,14 @@ export type OrganizationCreateWithoutTenantSettingsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutTenantSettingsInput = {
@@ -2116,6 +2356,14 @@ export type OrganizationUncheckedCreateWithoutTenantSettingsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutTenantSettingsInput = {
@@ -2194,6 +2442,14 @@ export type OrganizationUpdateWithoutTenantSettingsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutTenantSettingsInput = {
@@ -2256,6 +2512,14 @@ export type OrganizationUncheckedUpdateWithoutTenantSettingsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutAuditLogsInput = {
@@ -2318,6 +2582,14 @@ export type OrganizationCreateWithoutAuditLogsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutAuditLogsInput = {
@@ -2380,6 +2652,14 @@ export type OrganizationUncheckedCreateWithoutAuditLogsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutAuditLogsInput = {
@@ -2458,6 +2738,14 @@ export type OrganizationUpdateWithoutAuditLogsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutAuditLogsInput = {
@@ -2520,6 +2808,14 @@ export type OrganizationUncheckedUpdateWithoutAuditLogsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutItemsInput = {
@@ -2582,6 +2878,14 @@ export type OrganizationCreateWithoutItemsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutItemsInput = {
@@ -2644,6 +2948,14 @@ export type OrganizationUncheckedCreateWithoutItemsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutItemsInput = {
@@ -2722,6 +3034,14 @@ export type OrganizationUpdateWithoutItemsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutItemsInput = {
@@ -2784,6 +3104,14 @@ export type OrganizationUncheckedUpdateWithoutItemsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutItemRevisionsInput = {
@@ -2846,6 +3174,14 @@ export type OrganizationCreateWithoutItemRevisionsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutItemRevisionsInput = {
@@ -2908,6 +3244,14 @@ export type OrganizationUncheckedCreateWithoutItemRevisionsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutItemRevisionsInput = {
@@ -2986,6 +3330,14 @@ export type OrganizationUpdateWithoutItemRevisionsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutItemRevisionsInput = {
@@ -3048,6 +3400,14 @@ export type OrganizationUncheckedUpdateWithoutItemRevisionsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutLocationsInput = {
@@ -3110,6 +3470,14 @@ export type OrganizationCreateWithoutLocationsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutLocationsInput = {
@@ -3172,6 +3540,14 @@ export type OrganizationUncheckedCreateWithoutLocationsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutLocationsInput = {
@@ -3250,6 +3626,14 @@ export type OrganizationUpdateWithoutLocationsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutLocationsInput = {
@@ -3312,6 +3696,14 @@ export type OrganizationUncheckedUpdateWithoutLocationsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutStockBalancesInput = {
@@ -3374,6 +3766,14 @@ export type OrganizationCreateWithoutStockBalancesInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutStockBalancesInput = {
@@ -3436,6 +3836,14 @@ export type OrganizationUncheckedCreateWithoutStockBalancesInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutStockBalancesInput = {
@@ -3514,6 +3922,14 @@ export type OrganizationUpdateWithoutStockBalancesInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutStockBalancesInput = {
@@ -3576,6 +3992,14 @@ export type OrganizationUncheckedUpdateWithoutStockBalancesInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutStockMovementsInput = {
@@ -3638,6 +4062,14 @@ export type OrganizationCreateWithoutStockMovementsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutStockMovementsInput = {
@@ -3700,6 +4132,14 @@ export type OrganizationUncheckedCreateWithoutStockMovementsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutStockMovementsInput = {
@@ -3778,6 +4218,14 @@ export type OrganizationUpdateWithoutStockMovementsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutStockMovementsInput = {
@@ -3840,6 +4288,14 @@ export type OrganizationUncheckedUpdateWithoutStockMovementsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutStockTransfersInput = {
@@ -3902,6 +4358,14 @@ export type OrganizationCreateWithoutStockTransfersInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutStockTransfersInput = {
@@ -3964,6 +4428,14 @@ export type OrganizationUncheckedCreateWithoutStockTransfersInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutStockTransfersInput = {
@@ -4042,6 +4514,14 @@ export type OrganizationUpdateWithoutStockTransfersInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutStockTransfersInput = {
@@ -4104,6 +4584,14 @@ export type OrganizationUncheckedUpdateWithoutStockTransfersInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutStockTransferLinesInput = {
@@ -4166,6 +4654,14 @@ export type OrganizationCreateWithoutStockTransferLinesInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutStockTransferLinesInput = {
@@ -4228,6 +4724,14 @@ export type OrganizationUncheckedCreateWithoutStockTransferLinesInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutStockTransferLinesInput = {
@@ -4306,6 +4810,14 @@ export type OrganizationUpdateWithoutStockTransferLinesInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutStockTransferLinesInput = {
@@ -4368,6 +4880,14 @@ export type OrganizationUncheckedUpdateWithoutStockTransferLinesInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutSuppliersInput = {
@@ -4430,6 +4950,14 @@ export type OrganizationCreateWithoutSuppliersInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutSuppliersInput = {
@@ -4492,6 +5020,14 @@ export type OrganizationUncheckedCreateWithoutSuppliersInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutSuppliersInput = {
@@ -4570,6 +5106,14 @@ export type OrganizationUpdateWithoutSuppliersInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutSuppliersInput = {
@@ -4632,6 +5176,14 @@ export type OrganizationUncheckedUpdateWithoutSuppliersInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutSupplierItemsInput = {
@@ -4694,6 +5246,14 @@ export type OrganizationCreateWithoutSupplierItemsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutSupplierItemsInput = {
@@ -4756,6 +5316,14 @@ export type OrganizationUncheckedCreateWithoutSupplierItemsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutSupplierItemsInput = {
@@ -4834,6 +5402,14 @@ export type OrganizationUpdateWithoutSupplierItemsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutSupplierItemsInput = {
@@ -4896,6 +5472,14 @@ export type OrganizationUncheckedUpdateWithoutSupplierItemsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutPurchaseOrdersInput = {
@@ -4958,6 +5542,14 @@ export type OrganizationCreateWithoutPurchaseOrdersInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutPurchaseOrdersInput = {
@@ -5020,6 +5612,14 @@ export type OrganizationUncheckedCreateWithoutPurchaseOrdersInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutPurchaseOrdersInput = {
@@ -5098,6 +5698,14 @@ export type OrganizationUpdateWithoutPurchaseOrdersInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutPurchaseOrdersInput = {
@@ -5160,6 +5768,14 @@ export type OrganizationUncheckedUpdateWithoutPurchaseOrdersInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutPurchaseOrderLinesInput = {
@@ -5222,6 +5838,14 @@ export type OrganizationCreateWithoutPurchaseOrderLinesInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutPurchaseOrderLinesInput = {
@@ -5284,6 +5908,14 @@ export type OrganizationUncheckedCreateWithoutPurchaseOrderLinesInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutPurchaseOrderLinesInput = {
@@ -5362,6 +5994,14 @@ export type OrganizationUpdateWithoutPurchaseOrderLinesInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutPurchaseOrderLinesInput = {
@@ -5424,6 +6064,14 @@ export type OrganizationUncheckedUpdateWithoutPurchaseOrderLinesInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutGoodsReceiptsInput = {
@@ -5486,6 +6134,14 @@ export type OrganizationCreateWithoutGoodsReceiptsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutGoodsReceiptsInput = {
@@ -5548,6 +6204,14 @@ export type OrganizationUncheckedCreateWithoutGoodsReceiptsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutGoodsReceiptsInput = {
@@ -5626,6 +6290,14 @@ export type OrganizationUpdateWithoutGoodsReceiptsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutGoodsReceiptsInput = {
@@ -5688,6 +6360,14 @@ export type OrganizationUncheckedUpdateWithoutGoodsReceiptsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutGoodsReceiptLinesInput = {
@@ -5750,6 +6430,14 @@ export type OrganizationCreateWithoutGoodsReceiptLinesInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutGoodsReceiptLinesInput = {
@@ -5812,6 +6500,14 @@ export type OrganizationUncheckedCreateWithoutGoodsReceiptLinesInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutGoodsReceiptLinesInput = {
@@ -5890,6 +6586,14 @@ export type OrganizationUpdateWithoutGoodsReceiptLinesInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutGoodsReceiptLinesInput = {
@@ -5952,6 +6656,14 @@ export type OrganizationUncheckedUpdateWithoutGoodsReceiptLinesInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutStockLotsInput = {
@@ -6014,6 +6726,14 @@ export type OrganizationCreateWithoutStockLotsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutStockLotsInput = {
@@ -6076,6 +6796,14 @@ export type OrganizationUncheckedCreateWithoutStockLotsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutStockLotsInput = {
@@ -6154,6 +6882,14 @@ export type OrganizationUpdateWithoutStockLotsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutStockLotsInput = {
@@ -6216,6 +6952,14 @@ export type OrganizationUncheckedUpdateWithoutStockLotsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutQuarantineHoldsInput = {
@@ -6278,6 +7022,14 @@ export type OrganizationCreateWithoutQuarantineHoldsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutQuarantineHoldsInput = {
@@ -6340,6 +7092,14 @@ export type OrganizationUncheckedCreateWithoutQuarantineHoldsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutQuarantineHoldsInput = {
@@ -6418,6 +7178,14 @@ export type OrganizationUpdateWithoutQuarantineHoldsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutQuarantineHoldsInput = {
@@ -6480,6 +7248,14 @@ export type OrganizationUncheckedUpdateWithoutQuarantineHoldsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutSupplierClaimsInput = {
@@ -6542,6 +7318,14 @@ export type OrganizationCreateWithoutSupplierClaimsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutSupplierClaimsInput = {
@@ -6604,6 +7388,14 @@ export type OrganizationUncheckedCreateWithoutSupplierClaimsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutSupplierClaimsInput = {
@@ -6682,6 +7474,14 @@ export type OrganizationUpdateWithoutSupplierClaimsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutSupplierClaimsInput = {
@@ -6744,6 +7544,14 @@ export type OrganizationUncheckedUpdateWithoutSupplierClaimsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutVendorBillsInput = {
@@ -6806,6 +7614,14 @@ export type OrganizationCreateWithoutVendorBillsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutVendorBillsInput = {
@@ -6868,6 +7684,14 @@ export type OrganizationUncheckedCreateWithoutVendorBillsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutVendorBillsInput = {
@@ -6946,6 +7770,14 @@ export type OrganizationUpdateWithoutVendorBillsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutVendorBillsInput = {
@@ -7008,6 +7840,14 @@ export type OrganizationUncheckedUpdateWithoutVendorBillsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutVendorBillLinesInput = {
@@ -7070,6 +7910,14 @@ export type OrganizationCreateWithoutVendorBillLinesInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutVendorBillLinesInput = {
@@ -7132,6 +7980,14 @@ export type OrganizationUncheckedCreateWithoutVendorBillLinesInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutVendorBillLinesInput = {
@@ -7210,6 +8066,14 @@ export type OrganizationUpdateWithoutVendorBillLinesInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutVendorBillLinesInput = {
@@ -7272,6 +8136,14 @@ export type OrganizationUncheckedUpdateWithoutVendorBillLinesInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutStoredObjectsInput = {
@@ -7334,6 +8206,14 @@ export type OrganizationCreateWithoutStoredObjectsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutStoredObjectsInput = {
@@ -7396,6 +8276,14 @@ export type OrganizationUncheckedCreateWithoutStoredObjectsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutStoredObjectsInput = {
@@ -7474,6 +8362,14 @@ export type OrganizationUpdateWithoutStoredObjectsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutStoredObjectsInput = {
@@ -7536,6 +8432,14 @@ export type OrganizationUncheckedUpdateWithoutStoredObjectsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutDepartmentsInput = {
@@ -7598,6 +8502,14 @@ export type OrganizationCreateWithoutDepartmentsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutDepartmentsInput = {
@@ -7660,6 +8572,14 @@ export type OrganizationUncheckedCreateWithoutDepartmentsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutDepartmentsInput = {
@@ -7738,6 +8658,14 @@ export type OrganizationUpdateWithoutDepartmentsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutDepartmentsInput = {
@@ -7800,6 +8728,14 @@ export type OrganizationUncheckedUpdateWithoutDepartmentsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutWorkSchedulesInput = {
@@ -7862,6 +8798,14 @@ export type OrganizationCreateWithoutWorkSchedulesInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutWorkSchedulesInput = {
@@ -7924,6 +8868,14 @@ export type OrganizationUncheckedCreateWithoutWorkSchedulesInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutWorkSchedulesInput = {
@@ -8002,6 +8954,14 @@ export type OrganizationUpdateWithoutWorkSchedulesInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutWorkSchedulesInput = {
@@ -8064,6 +9024,14 @@ export type OrganizationUncheckedUpdateWithoutWorkSchedulesInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutStaffProfilesInput = {
@@ -8126,6 +9094,14 @@ export type OrganizationCreateWithoutStaffProfilesInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutStaffProfilesInput = {
@@ -8188,6 +9164,14 @@ export type OrganizationUncheckedCreateWithoutStaffProfilesInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutStaffProfilesInput = {
@@ -8266,6 +9250,14 @@ export type OrganizationUpdateWithoutStaffProfilesInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutStaffProfilesInput = {
@@ -8328,6 +9320,14 @@ export type OrganizationUncheckedUpdateWithoutStaffProfilesInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutHolidaysInput = {
@@ -8390,6 +9390,14 @@ export type OrganizationCreateWithoutHolidaysInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutHolidaysInput = {
@@ -8452,6 +9460,14 @@ export type OrganizationUncheckedCreateWithoutHolidaysInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutHolidaysInput = {
@@ -8530,6 +9546,14 @@ export type OrganizationUpdateWithoutHolidaysInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutHolidaysInput = {
@@ -8592,6 +9616,14 @@ export type OrganizationUncheckedUpdateWithoutHolidaysInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutTimeOffRequestsInput = {
@@ -8654,6 +9686,14 @@ export type OrganizationCreateWithoutTimeOffRequestsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutTimeOffRequestsInput = {
@@ -8716,6 +9756,14 @@ export type OrganizationUncheckedCreateWithoutTimeOffRequestsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutTimeOffRequestsInput = {
@@ -8794,6 +9842,14 @@ export type OrganizationUpdateWithoutTimeOffRequestsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutTimeOffRequestsInput = {
@@ -8856,6 +9912,14 @@ export type OrganizationUncheckedUpdateWithoutTimeOffRequestsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutTeamsInput = {
@@ -8918,6 +9982,14 @@ export type OrganizationCreateWithoutTeamsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutTeamsInput = {
@@ -8980,6 +10052,14 @@ export type OrganizationUncheckedCreateWithoutTeamsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutTeamsInput = {
@@ -9058,6 +10138,14 @@ export type OrganizationUpdateWithoutTeamsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutTeamsInput = {
@@ -9120,6 +10208,14 @@ export type OrganizationUncheckedUpdateWithoutTeamsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutTeamMembersInput = {
@@ -9182,6 +10278,14 @@ export type OrganizationCreateWithoutTeamMembersInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutTeamMembersInput = {
@@ -9244,6 +10348,14 @@ export type OrganizationUncheckedCreateWithoutTeamMembersInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutTeamMembersInput = {
@@ -9322,6 +10434,14 @@ export type OrganizationUpdateWithoutTeamMembersInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutTeamMembersInput = {
@@ -9384,6 +10504,14 @@ export type OrganizationUncheckedUpdateWithoutTeamMembersInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutCalendarFeedsInput = {
@@ -9446,6 +10574,14 @@ export type OrganizationCreateWithoutCalendarFeedsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutCalendarFeedsInput = {
@@ -9508,6 +10644,14 @@ export type OrganizationUncheckedCreateWithoutCalendarFeedsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutCalendarFeedsInput = {
@@ -9586,6 +10730,14 @@ export type OrganizationUpdateWithoutCalendarFeedsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutCalendarFeedsInput = {
@@ -9648,6 +10800,14 @@ export type OrganizationUncheckedUpdateWithoutCalendarFeedsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutCrmConnectionInput = {
@@ -9710,6 +10870,14 @@ export type OrganizationCreateWithoutCrmConnectionInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutCrmConnectionInput = {
@@ -9772,6 +10940,14 @@ export type OrganizationUncheckedCreateWithoutCrmConnectionInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutCrmConnectionInput = {
@@ -9850,6 +11026,14 @@ export type OrganizationUpdateWithoutCrmConnectionInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutCrmConnectionInput = {
@@ -9912,6 +11096,14 @@ export type OrganizationUncheckedUpdateWithoutCrmConnectionInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutCrmStaffMappingsInput = {
@@ -9974,6 +11166,14 @@ export type OrganizationCreateWithoutCrmStaffMappingsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutCrmStaffMappingsInput = {
@@ -10036,6 +11236,14 @@ export type OrganizationUncheckedCreateWithoutCrmStaffMappingsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutCrmStaffMappingsInput = {
@@ -10114,6 +11322,14 @@ export type OrganizationUpdateWithoutCrmStaffMappingsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutCrmStaffMappingsInput = {
@@ -10176,6 +11392,14 @@ export type OrganizationUncheckedUpdateWithoutCrmStaffMappingsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutCrmDealItemLinksInput = {
@@ -10238,6 +11462,14 @@ export type OrganizationCreateWithoutCrmDealItemLinksInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutCrmDealItemLinksInput = {
@@ -10300,6 +11532,14 @@ export type OrganizationUncheckedCreateWithoutCrmDealItemLinksInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutCrmDealItemLinksInput = {
@@ -10378,6 +11618,14 @@ export type OrganizationUpdateWithoutCrmDealItemLinksInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutCrmDealItemLinksInput = {
@@ -10440,6 +11688,14 @@ export type OrganizationUncheckedUpdateWithoutCrmDealItemLinksInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutCrmWebhookEventsInput = {
@@ -10502,6 +11758,14 @@ export type OrganizationCreateWithoutCrmWebhookEventsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutCrmWebhookEventsInput = {
@@ -10564,6 +11828,14 @@ export type OrganizationUncheckedCreateWithoutCrmWebhookEventsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutCrmWebhookEventsInput = {
@@ -10642,6 +11914,14 @@ export type OrganizationUpdateWithoutCrmWebhookEventsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutCrmWebhookEventsInput = {
@@ -10704,6 +11984,14 @@ export type OrganizationUncheckedUpdateWithoutCrmWebhookEventsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutItemPacksInput = {
@@ -10766,6 +12054,14 @@ export type OrganizationCreateWithoutItemPacksInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutItemPacksInput = {
@@ -10828,6 +12124,14 @@ export type OrganizationUncheckedCreateWithoutItemPacksInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutItemPacksInput = {
@@ -10906,6 +12210,14 @@ export type OrganizationUpdateWithoutItemPacksInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutItemPacksInput = {
@@ -10968,6 +12280,14 @@ export type OrganizationUncheckedUpdateWithoutItemPacksInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutItemBundleComponentsInput = {
@@ -11030,6 +12350,14 @@ export type OrganizationCreateWithoutItemBundleComponentsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutItemBundleComponentsInput = {
@@ -11092,6 +12420,14 @@ export type OrganizationUncheckedCreateWithoutItemBundleComponentsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutItemBundleComponentsInput = {
@@ -11170,6 +12506,14 @@ export type OrganizationUpdateWithoutItemBundleComponentsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutItemBundleComponentsInput = {
@@ -11232,6 +12576,14 @@ export type OrganizationUncheckedUpdateWithoutItemBundleComponentsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutServicePlansInput = {
@@ -11294,6 +12646,14 @@ export type OrganizationCreateWithoutServicePlansInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutServicePlansInput = {
@@ -11356,6 +12716,14 @@ export type OrganizationUncheckedCreateWithoutServicePlansInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutServicePlansInput = {
@@ -11434,6 +12802,14 @@ export type OrganizationUpdateWithoutServicePlansInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutServicePlansInput = {
@@ -11496,6 +12872,14 @@ export type OrganizationUncheckedUpdateWithoutServicePlansInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutPriceBooksInput = {
@@ -11558,6 +12942,14 @@ export type OrganizationCreateWithoutPriceBooksInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutPriceBooksInput = {
@@ -11620,6 +13012,14 @@ export type OrganizationUncheckedCreateWithoutPriceBooksInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutPriceBooksInput = {
@@ -11698,6 +13098,14 @@ export type OrganizationUpdateWithoutPriceBooksInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutPriceBooksInput = {
@@ -11760,6 +13168,14 @@ export type OrganizationUncheckedUpdateWithoutPriceBooksInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutPriceRulesInput = {
@@ -11822,6 +13238,14 @@ export type OrganizationCreateWithoutPriceRulesInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutPriceRulesInput = {
@@ -11884,6 +13308,14 @@ export type OrganizationUncheckedCreateWithoutPriceRulesInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutPriceRulesInput = {
@@ -11962,6 +13394,14 @@ export type OrganizationUpdateWithoutPriceRulesInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutPriceRulesInput = {
@@ -12024,6 +13464,14 @@ export type OrganizationUncheckedUpdateWithoutPriceRulesInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutPriceTiersInput = {
@@ -12086,6 +13534,14 @@ export type OrganizationCreateWithoutPriceTiersInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutPriceTiersInput = {
@@ -12148,6 +13604,14 @@ export type OrganizationUncheckedCreateWithoutPriceTiersInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutPriceTiersInput = {
@@ -12226,6 +13690,14 @@ export type OrganizationUpdateWithoutPriceTiersInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutPriceTiersInput = {
@@ -12288,6 +13760,14 @@ export type OrganizationUncheckedUpdateWithoutPriceTiersInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutDiscountRulesInput = {
@@ -12350,6 +13830,14 @@ export type OrganizationCreateWithoutDiscountRulesInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutDiscountRulesInput = {
@@ -12412,6 +13900,14 @@ export type OrganizationUncheckedCreateWithoutDiscountRulesInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutDiscountRulesInput = {
@@ -12490,6 +13986,14 @@ export type OrganizationUpdateWithoutDiscountRulesInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutDiscountRulesInput = {
@@ -12552,6 +14056,14 @@ export type OrganizationUncheckedUpdateWithoutDiscountRulesInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutCustomersInput = {
@@ -12614,6 +14126,14 @@ export type OrganizationCreateWithoutCustomersInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutCustomersInput = {
@@ -12676,6 +14196,14 @@ export type OrganizationUncheckedCreateWithoutCustomersInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutCustomersInput = {
@@ -12754,6 +14282,14 @@ export type OrganizationUpdateWithoutCustomersInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutCustomersInput = {
@@ -12816,6 +14352,14 @@ export type OrganizationUncheckedUpdateWithoutCustomersInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutOrdersInput = {
@@ -12878,6 +14422,14 @@ export type OrganizationCreateWithoutOrdersInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutOrdersInput = {
@@ -12940,6 +14492,14 @@ export type OrganizationUncheckedCreateWithoutOrdersInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutOrdersInput = {
@@ -13018,6 +14578,14 @@ export type OrganizationUpdateWithoutOrdersInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutOrdersInput = {
@@ -13080,6 +14648,14 @@ export type OrganizationUncheckedUpdateWithoutOrdersInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutOrderLinesInput = {
@@ -13142,6 +14718,14 @@ export type OrganizationCreateWithoutOrderLinesInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutOrderLinesInput = {
@@ -13204,6 +14788,14 @@ export type OrganizationUncheckedCreateWithoutOrderLinesInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutOrderLinesInput = {
@@ -13282,6 +14874,14 @@ export type OrganizationUpdateWithoutOrderLinesInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutOrderLinesInput = {
@@ -13344,6 +14944,14 @@ export type OrganizationUncheckedUpdateWithoutOrderLinesInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutSalesInvoicesInput = {
@@ -13406,6 +15014,14 @@ export type OrganizationCreateWithoutSalesInvoicesInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutSalesInvoicesInput = {
@@ -13468,6 +15084,14 @@ export type OrganizationUncheckedCreateWithoutSalesInvoicesInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutSalesInvoicesInput = {
@@ -13546,6 +15170,14 @@ export type OrganizationUpdateWithoutSalesInvoicesInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutSalesInvoicesInput = {
@@ -13608,6 +15240,14 @@ export type OrganizationUncheckedUpdateWithoutSalesInvoicesInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutSalesInvoiceLinesInput = {
@@ -13670,6 +15310,14 @@ export type OrganizationCreateWithoutSalesInvoiceLinesInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutSalesInvoiceLinesInput = {
@@ -13732,6 +15380,14 @@ export type OrganizationUncheckedCreateWithoutSalesInvoiceLinesInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutSalesInvoiceLinesInput = {
@@ -13810,6 +15466,14 @@ export type OrganizationUpdateWithoutSalesInvoiceLinesInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutSalesInvoiceLinesInput = {
@@ -13872,6 +15536,14 @@ export type OrganizationUncheckedUpdateWithoutSalesInvoiceLinesInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutCustomerPaymentsInput = {
@@ -13934,6 +15606,14 @@ export type OrganizationCreateWithoutCustomerPaymentsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutCustomerPaymentsInput = {
@@ -13996,6 +15676,14 @@ export type OrganizationUncheckedCreateWithoutCustomerPaymentsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutCustomerPaymentsInput = {
@@ -14074,6 +15762,14 @@ export type OrganizationUpdateWithoutCustomerPaymentsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutCustomerPaymentsInput = {
@@ -14136,6 +15832,14 @@ export type OrganizationUncheckedUpdateWithoutCustomerPaymentsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutPaymentReceiptsInput = {
@@ -14198,6 +15902,14 @@ export type OrganizationCreateWithoutPaymentReceiptsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutPaymentReceiptsInput = {
@@ -14260,6 +15972,14 @@ export type OrganizationUncheckedCreateWithoutPaymentReceiptsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutPaymentReceiptsInput = {
@@ -14338,6 +16058,14 @@ export type OrganizationUpdateWithoutPaymentReceiptsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutPaymentReceiptsInput = {
@@ -14400,6 +16128,14 @@ export type OrganizationUncheckedUpdateWithoutPaymentReceiptsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutFulfillmentSettingsInput = {
@@ -14462,6 +16198,14 @@ export type OrganizationCreateWithoutFulfillmentSettingsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutFulfillmentSettingsInput = {
@@ -14524,6 +16268,14 @@ export type OrganizationUncheckedCreateWithoutFulfillmentSettingsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutFulfillmentSettingsInput = {
@@ -14602,6 +16354,14 @@ export type OrganizationUpdateWithoutFulfillmentSettingsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutFulfillmentSettingsInput = {
@@ -14664,6 +16424,14 @@ export type OrganizationUncheckedUpdateWithoutFulfillmentSettingsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutOrderFulfillmentsInput = {
@@ -14726,6 +16494,14 @@ export type OrganizationCreateWithoutOrderFulfillmentsInput = {
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutOrderFulfillmentsInput = {
@@ -14788,6 +16564,14 @@ export type OrganizationUncheckedCreateWithoutOrderFulfillmentsInput = {
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutOrderFulfillmentsInput = {
@@ -14866,6 +16650,14 @@ export type OrganizationUpdateWithoutOrderFulfillmentsInput = {
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutOrderFulfillmentsInput = {
@@ -14928,6 +16720,14 @@ export type OrganizationUncheckedUpdateWithoutOrderFulfillmentsInput = {
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutStaffJobsInput = {
@@ -14990,6 +16790,14 @@ export type OrganizationCreateWithoutStaffJobsInput = {
   orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutStaffJobsInput = {
@@ -15052,6 +16860,14 @@ export type OrganizationUncheckedCreateWithoutStaffJobsInput = {
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutStaffJobsInput = {
@@ -15130,6 +16946,14 @@ export type OrganizationUpdateWithoutStaffJobsInput = {
   orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutStaffJobsInput = {
@@ -15192,6 +17016,14 @@ export type OrganizationUncheckedUpdateWithoutStaffJobsInput = {
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutNotificationTemplatesInput = {
@@ -15254,6 +17086,14 @@ export type OrganizationCreateWithoutNotificationTemplatesInput = {
   orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutOrganizationInput
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutNotificationTemplatesInput = {
@@ -15316,6 +17156,14 @@ export type OrganizationUncheckedCreateWithoutNotificationTemplatesInput = {
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutOrganizationInput
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutNotificationTemplatesInput = {
@@ -15394,6 +17242,14 @@ export type OrganizationUpdateWithoutNotificationTemplatesInput = {
   orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutOrganizationNestedInput
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutNotificationTemplatesInput = {
@@ -15456,6 +17312,14 @@ export type OrganizationUncheckedUpdateWithoutNotificationTemplatesInput = {
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutOrganizationNestedInput
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationCreateWithoutCustomerNotificationsInput = {
@@ -15518,6 +17382,14 @@ export type OrganizationCreateWithoutCustomerNotificationsInput = {
   orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutOrganizationInput
   staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationUncheckedCreateWithoutCustomerNotificationsInput = {
@@ -15580,6 +17452,14 @@ export type OrganizationUncheckedCreateWithoutCustomerNotificationsInput = {
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutOrganizationInput
   staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
 }
 
 export type OrganizationCreateOrConnectWithoutCustomerNotificationsInput = {
@@ -15658,6 +17538,14 @@ export type OrganizationUpdateWithoutCustomerNotificationsInput = {
   orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutOrganizationNestedInput
   staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
 }
 
 export type OrganizationUncheckedUpdateWithoutCustomerNotificationsInput = {
@@ -15720,6 +17608,2382 @@ export type OrganizationUncheckedUpdateWithoutCustomerNotificationsInput = {
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutOrganizationNestedInput
   staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
   notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutOauthClientsInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutOrganizationInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutOrganizationInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutOrganizationInput
+  customers?: Prisma.CustomerCreateNestedManyWithoutOrganizationInput
+  orders?: Prisma.OrderCreateNestedManyWithoutOrganizationInput
+  orderLines?: Prisma.OrderLineCreateNestedManyWithoutOrganizationInput
+  salesInvoices?: Prisma.SalesInvoiceCreateNestedManyWithoutOrganizationInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineCreateNestedManyWithoutOrganizationInput
+  customerPayments?: Prisma.CustomerPaymentCreateNestedManyWithoutOrganizationInput
+  paymentReceipts?: Prisma.PaymentReceiptCreateNestedManyWithoutOrganizationInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsCreateNestedOneWithoutOrganizationInput
+  orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutOrganizationInput
+  staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
+  customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutOauthClientsInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutOrganizationInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutOrganizationInput
+  customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutOrganizationInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutOrganizationInput
+  orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  salesInvoices?: Prisma.SalesInvoiceUncheckedCreateNestedManyWithoutOrganizationInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineUncheckedCreateNestedManyWithoutOrganizationInput
+  customerPayments?: Prisma.CustomerPaymentUncheckedCreateNestedManyWithoutOrganizationInput
+  paymentReceipts?: Prisma.PaymentReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutOrganizationInput
+  staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
+  customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutOauthClientsInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutOauthClientsInput, Prisma.OrganizationUncheckedCreateWithoutOauthClientsInput>
+}
+
+export type OrganizationUpsertWithoutOauthClientsInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutOauthClientsInput, Prisma.OrganizationUncheckedUpdateWithoutOauthClientsInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutOauthClientsInput, Prisma.OrganizationUncheckedCreateWithoutOauthClientsInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutOauthClientsInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutOauthClientsInput, Prisma.OrganizationUncheckedUpdateWithoutOauthClientsInput>
+}
+
+export type OrganizationUpdateWithoutOauthClientsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutOrganizationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutOrganizationNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutOrganizationNestedInput
+  customers?: Prisma.CustomerUpdateManyWithoutOrganizationNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutOrganizationNestedInput
+  orderLines?: Prisma.OrderLineUpdateManyWithoutOrganizationNestedInput
+  salesInvoices?: Prisma.SalesInvoiceUpdateManyWithoutOrganizationNestedInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineUpdateManyWithoutOrganizationNestedInput
+  customerPayments?: Prisma.CustomerPaymentUpdateManyWithoutOrganizationNestedInput
+  paymentReceipts?: Prisma.PaymentReceiptUpdateManyWithoutOrganizationNestedInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsUpdateOneWithoutOrganizationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutOrganizationNestedInput
+  staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
+  customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutOauthClientsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutOrganizationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutOrganizationNestedInput
+  customers?: Prisma.CustomerUncheckedUpdateManyWithoutOrganizationNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  salesInvoices?: Prisma.SalesInvoiceUncheckedUpdateManyWithoutOrganizationNestedInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  customerPayments?: Prisma.CustomerPaymentUncheckedUpdateManyWithoutOrganizationNestedInput
+  paymentReceipts?: Prisma.PaymentReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
+  customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutOauthClientKeysInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutOrganizationInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutOrganizationInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutOrganizationInput
+  customers?: Prisma.CustomerCreateNestedManyWithoutOrganizationInput
+  orders?: Prisma.OrderCreateNestedManyWithoutOrganizationInput
+  orderLines?: Prisma.OrderLineCreateNestedManyWithoutOrganizationInput
+  salesInvoices?: Prisma.SalesInvoiceCreateNestedManyWithoutOrganizationInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineCreateNestedManyWithoutOrganizationInput
+  customerPayments?: Prisma.CustomerPaymentCreateNestedManyWithoutOrganizationInput
+  paymentReceipts?: Prisma.PaymentReceiptCreateNestedManyWithoutOrganizationInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsCreateNestedOneWithoutOrganizationInput
+  orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutOrganizationInput
+  staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
+  customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutOauthClientKeysInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutOrganizationInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutOrganizationInput
+  customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutOrganizationInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutOrganizationInput
+  orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  salesInvoices?: Prisma.SalesInvoiceUncheckedCreateNestedManyWithoutOrganizationInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineUncheckedCreateNestedManyWithoutOrganizationInput
+  customerPayments?: Prisma.CustomerPaymentUncheckedCreateNestedManyWithoutOrganizationInput
+  paymentReceipts?: Prisma.PaymentReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutOrganizationInput
+  staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
+  customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutOauthClientKeysInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutOauthClientKeysInput, Prisma.OrganizationUncheckedCreateWithoutOauthClientKeysInput>
+}
+
+export type OrganizationUpsertWithoutOauthClientKeysInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutOauthClientKeysInput, Prisma.OrganizationUncheckedUpdateWithoutOauthClientKeysInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutOauthClientKeysInput, Prisma.OrganizationUncheckedCreateWithoutOauthClientKeysInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutOauthClientKeysInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutOauthClientKeysInput, Prisma.OrganizationUncheckedUpdateWithoutOauthClientKeysInput>
+}
+
+export type OrganizationUpdateWithoutOauthClientKeysInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutOrganizationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutOrganizationNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutOrganizationNestedInput
+  customers?: Prisma.CustomerUpdateManyWithoutOrganizationNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutOrganizationNestedInput
+  orderLines?: Prisma.OrderLineUpdateManyWithoutOrganizationNestedInput
+  salesInvoices?: Prisma.SalesInvoiceUpdateManyWithoutOrganizationNestedInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineUpdateManyWithoutOrganizationNestedInput
+  customerPayments?: Prisma.CustomerPaymentUpdateManyWithoutOrganizationNestedInput
+  paymentReceipts?: Prisma.PaymentReceiptUpdateManyWithoutOrganizationNestedInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsUpdateOneWithoutOrganizationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutOrganizationNestedInput
+  staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
+  customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutOauthClientKeysInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutOrganizationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutOrganizationNestedInput
+  customers?: Prisma.CustomerUncheckedUpdateManyWithoutOrganizationNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  salesInvoices?: Prisma.SalesInvoiceUncheckedUpdateManyWithoutOrganizationNestedInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  customerPayments?: Prisma.CustomerPaymentUncheckedUpdateManyWithoutOrganizationNestedInput
+  paymentReceipts?: Prisma.PaymentReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
+  customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutOauthAuthorizationCodesInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutOrganizationInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutOrganizationInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutOrganizationInput
+  customers?: Prisma.CustomerCreateNestedManyWithoutOrganizationInput
+  orders?: Prisma.OrderCreateNestedManyWithoutOrganizationInput
+  orderLines?: Prisma.OrderLineCreateNestedManyWithoutOrganizationInput
+  salesInvoices?: Prisma.SalesInvoiceCreateNestedManyWithoutOrganizationInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineCreateNestedManyWithoutOrganizationInput
+  customerPayments?: Prisma.CustomerPaymentCreateNestedManyWithoutOrganizationInput
+  paymentReceipts?: Prisma.PaymentReceiptCreateNestedManyWithoutOrganizationInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsCreateNestedOneWithoutOrganizationInput
+  orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutOrganizationInput
+  staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
+  customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutOauthAuthorizationCodesInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutOrganizationInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutOrganizationInput
+  customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutOrganizationInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutOrganizationInput
+  orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  salesInvoices?: Prisma.SalesInvoiceUncheckedCreateNestedManyWithoutOrganizationInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineUncheckedCreateNestedManyWithoutOrganizationInput
+  customerPayments?: Prisma.CustomerPaymentUncheckedCreateNestedManyWithoutOrganizationInput
+  paymentReceipts?: Prisma.PaymentReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutOrganizationInput
+  staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
+  customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutOauthAuthorizationCodesInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutOauthAuthorizationCodesInput, Prisma.OrganizationUncheckedCreateWithoutOauthAuthorizationCodesInput>
+}
+
+export type OrganizationUpsertWithoutOauthAuthorizationCodesInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutOauthAuthorizationCodesInput, Prisma.OrganizationUncheckedUpdateWithoutOauthAuthorizationCodesInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutOauthAuthorizationCodesInput, Prisma.OrganizationUncheckedCreateWithoutOauthAuthorizationCodesInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutOauthAuthorizationCodesInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutOauthAuthorizationCodesInput, Prisma.OrganizationUncheckedUpdateWithoutOauthAuthorizationCodesInput>
+}
+
+export type OrganizationUpdateWithoutOauthAuthorizationCodesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutOrganizationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutOrganizationNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutOrganizationNestedInput
+  customers?: Prisma.CustomerUpdateManyWithoutOrganizationNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutOrganizationNestedInput
+  orderLines?: Prisma.OrderLineUpdateManyWithoutOrganizationNestedInput
+  salesInvoices?: Prisma.SalesInvoiceUpdateManyWithoutOrganizationNestedInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineUpdateManyWithoutOrganizationNestedInput
+  customerPayments?: Prisma.CustomerPaymentUpdateManyWithoutOrganizationNestedInput
+  paymentReceipts?: Prisma.PaymentReceiptUpdateManyWithoutOrganizationNestedInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsUpdateOneWithoutOrganizationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutOrganizationNestedInput
+  staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
+  customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutOauthAuthorizationCodesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutOrganizationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutOrganizationNestedInput
+  customers?: Prisma.CustomerUncheckedUpdateManyWithoutOrganizationNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  salesInvoices?: Prisma.SalesInvoiceUncheckedUpdateManyWithoutOrganizationNestedInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  customerPayments?: Prisma.CustomerPaymentUncheckedUpdateManyWithoutOrganizationNestedInput
+  paymentReceipts?: Prisma.PaymentReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
+  customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutOauthDeviceCodesInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutOrganizationInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutOrganizationInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutOrganizationInput
+  customers?: Prisma.CustomerCreateNestedManyWithoutOrganizationInput
+  orders?: Prisma.OrderCreateNestedManyWithoutOrganizationInput
+  orderLines?: Prisma.OrderLineCreateNestedManyWithoutOrganizationInput
+  salesInvoices?: Prisma.SalesInvoiceCreateNestedManyWithoutOrganizationInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineCreateNestedManyWithoutOrganizationInput
+  customerPayments?: Prisma.CustomerPaymentCreateNestedManyWithoutOrganizationInput
+  paymentReceipts?: Prisma.PaymentReceiptCreateNestedManyWithoutOrganizationInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsCreateNestedOneWithoutOrganizationInput
+  orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutOrganizationInput
+  staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
+  customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutOauthDeviceCodesInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutOrganizationInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutOrganizationInput
+  customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutOrganizationInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutOrganizationInput
+  orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  salesInvoices?: Prisma.SalesInvoiceUncheckedCreateNestedManyWithoutOrganizationInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineUncheckedCreateNestedManyWithoutOrganizationInput
+  customerPayments?: Prisma.CustomerPaymentUncheckedCreateNestedManyWithoutOrganizationInput
+  paymentReceipts?: Prisma.PaymentReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutOrganizationInput
+  staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
+  customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutOauthDeviceCodesInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutOauthDeviceCodesInput, Prisma.OrganizationUncheckedCreateWithoutOauthDeviceCodesInput>
+}
+
+export type OrganizationUpsertWithoutOauthDeviceCodesInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutOauthDeviceCodesInput, Prisma.OrganizationUncheckedUpdateWithoutOauthDeviceCodesInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutOauthDeviceCodesInput, Prisma.OrganizationUncheckedCreateWithoutOauthDeviceCodesInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutOauthDeviceCodesInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutOauthDeviceCodesInput, Prisma.OrganizationUncheckedUpdateWithoutOauthDeviceCodesInput>
+}
+
+export type OrganizationUpdateWithoutOauthDeviceCodesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutOrganizationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutOrganizationNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutOrganizationNestedInput
+  customers?: Prisma.CustomerUpdateManyWithoutOrganizationNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutOrganizationNestedInput
+  orderLines?: Prisma.OrderLineUpdateManyWithoutOrganizationNestedInput
+  salesInvoices?: Prisma.SalesInvoiceUpdateManyWithoutOrganizationNestedInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineUpdateManyWithoutOrganizationNestedInput
+  customerPayments?: Prisma.CustomerPaymentUpdateManyWithoutOrganizationNestedInput
+  paymentReceipts?: Prisma.PaymentReceiptUpdateManyWithoutOrganizationNestedInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsUpdateOneWithoutOrganizationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutOrganizationNestedInput
+  staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
+  customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutOauthDeviceCodesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutOrganizationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutOrganizationNestedInput
+  customers?: Prisma.CustomerUncheckedUpdateManyWithoutOrganizationNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  salesInvoices?: Prisma.SalesInvoiceUncheckedUpdateManyWithoutOrganizationNestedInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  customerPayments?: Prisma.CustomerPaymentUncheckedUpdateManyWithoutOrganizationNestedInput
+  paymentReceipts?: Prisma.PaymentReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
+  customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutOauthRefreshTokensInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutOrganizationInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutOrganizationInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutOrganizationInput
+  customers?: Prisma.CustomerCreateNestedManyWithoutOrganizationInput
+  orders?: Prisma.OrderCreateNestedManyWithoutOrganizationInput
+  orderLines?: Prisma.OrderLineCreateNestedManyWithoutOrganizationInput
+  salesInvoices?: Prisma.SalesInvoiceCreateNestedManyWithoutOrganizationInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineCreateNestedManyWithoutOrganizationInput
+  customerPayments?: Prisma.CustomerPaymentCreateNestedManyWithoutOrganizationInput
+  paymentReceipts?: Prisma.PaymentReceiptCreateNestedManyWithoutOrganizationInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsCreateNestedOneWithoutOrganizationInput
+  orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutOrganizationInput
+  staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
+  customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutOauthRefreshTokensInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutOrganizationInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutOrganizationInput
+  customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutOrganizationInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutOrganizationInput
+  orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  salesInvoices?: Prisma.SalesInvoiceUncheckedCreateNestedManyWithoutOrganizationInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineUncheckedCreateNestedManyWithoutOrganizationInput
+  customerPayments?: Prisma.CustomerPaymentUncheckedCreateNestedManyWithoutOrganizationInput
+  paymentReceipts?: Prisma.PaymentReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutOrganizationInput
+  staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
+  customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutOauthRefreshTokensInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutOauthRefreshTokensInput, Prisma.OrganizationUncheckedCreateWithoutOauthRefreshTokensInput>
+}
+
+export type OrganizationUpsertWithoutOauthRefreshTokensInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutOauthRefreshTokensInput, Prisma.OrganizationUncheckedUpdateWithoutOauthRefreshTokensInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutOauthRefreshTokensInput, Prisma.OrganizationUncheckedCreateWithoutOauthRefreshTokensInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutOauthRefreshTokensInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutOauthRefreshTokensInput, Prisma.OrganizationUncheckedUpdateWithoutOauthRefreshTokensInput>
+}
+
+export type OrganizationUpdateWithoutOauthRefreshTokensInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutOrganizationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutOrganizationNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutOrganizationNestedInput
+  customers?: Prisma.CustomerUpdateManyWithoutOrganizationNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutOrganizationNestedInput
+  orderLines?: Prisma.OrderLineUpdateManyWithoutOrganizationNestedInput
+  salesInvoices?: Prisma.SalesInvoiceUpdateManyWithoutOrganizationNestedInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineUpdateManyWithoutOrganizationNestedInput
+  customerPayments?: Prisma.CustomerPaymentUpdateManyWithoutOrganizationNestedInput
+  paymentReceipts?: Prisma.PaymentReceiptUpdateManyWithoutOrganizationNestedInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsUpdateOneWithoutOrganizationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutOrganizationNestedInput
+  staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
+  customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutOauthRefreshTokensInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutOrganizationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutOrganizationNestedInput
+  customers?: Prisma.CustomerUncheckedUpdateManyWithoutOrganizationNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  salesInvoices?: Prisma.SalesInvoiceUncheckedUpdateManyWithoutOrganizationNestedInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  customerPayments?: Prisma.CustomerPaymentUncheckedUpdateManyWithoutOrganizationNestedInput
+  paymentReceipts?: Prisma.PaymentReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
+  customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutPersonalAccessTokensInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutOrganizationInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutOrganizationInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutOrganizationInput
+  customers?: Prisma.CustomerCreateNestedManyWithoutOrganizationInput
+  orders?: Prisma.OrderCreateNestedManyWithoutOrganizationInput
+  orderLines?: Prisma.OrderLineCreateNestedManyWithoutOrganizationInput
+  salesInvoices?: Prisma.SalesInvoiceCreateNestedManyWithoutOrganizationInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineCreateNestedManyWithoutOrganizationInput
+  customerPayments?: Prisma.CustomerPaymentCreateNestedManyWithoutOrganizationInput
+  paymentReceipts?: Prisma.PaymentReceiptCreateNestedManyWithoutOrganizationInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsCreateNestedOneWithoutOrganizationInput
+  orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutOrganizationInput
+  staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
+  customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutPersonalAccessTokensInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutOrganizationInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutOrganizationInput
+  customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutOrganizationInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutOrganizationInput
+  orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  salesInvoices?: Prisma.SalesInvoiceUncheckedCreateNestedManyWithoutOrganizationInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineUncheckedCreateNestedManyWithoutOrganizationInput
+  customerPayments?: Prisma.CustomerPaymentUncheckedCreateNestedManyWithoutOrganizationInput
+  paymentReceipts?: Prisma.PaymentReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutOrganizationInput
+  staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
+  customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutPersonalAccessTokensInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutPersonalAccessTokensInput, Prisma.OrganizationUncheckedCreateWithoutPersonalAccessTokensInput>
+}
+
+export type OrganizationUpsertWithoutPersonalAccessTokensInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutPersonalAccessTokensInput, Prisma.OrganizationUncheckedUpdateWithoutPersonalAccessTokensInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutPersonalAccessTokensInput, Prisma.OrganizationUncheckedCreateWithoutPersonalAccessTokensInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutPersonalAccessTokensInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutPersonalAccessTokensInput, Prisma.OrganizationUncheckedUpdateWithoutPersonalAccessTokensInput>
+}
+
+export type OrganizationUpdateWithoutPersonalAccessTokensInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutOrganizationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutOrganizationNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutOrganizationNestedInput
+  customers?: Prisma.CustomerUpdateManyWithoutOrganizationNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutOrganizationNestedInput
+  orderLines?: Prisma.OrderLineUpdateManyWithoutOrganizationNestedInput
+  salesInvoices?: Prisma.SalesInvoiceUpdateManyWithoutOrganizationNestedInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineUpdateManyWithoutOrganizationNestedInput
+  customerPayments?: Prisma.CustomerPaymentUpdateManyWithoutOrganizationNestedInput
+  paymentReceipts?: Prisma.PaymentReceiptUpdateManyWithoutOrganizationNestedInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsUpdateOneWithoutOrganizationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutOrganizationNestedInput
+  staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
+  customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutPersonalAccessTokensInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutOrganizationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutOrganizationNestedInput
+  customers?: Prisma.CustomerUncheckedUpdateManyWithoutOrganizationNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  salesInvoices?: Prisma.SalesInvoiceUncheckedUpdateManyWithoutOrganizationNestedInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  customerPayments?: Prisma.CustomerPaymentUncheckedUpdateManyWithoutOrganizationNestedInput
+  paymentReceipts?: Prisma.PaymentReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
+  customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutRegisteredDevicesInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutOrganizationInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutOrganizationInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutOrganizationInput
+  customers?: Prisma.CustomerCreateNestedManyWithoutOrganizationInput
+  orders?: Prisma.OrderCreateNestedManyWithoutOrganizationInput
+  orderLines?: Prisma.OrderLineCreateNestedManyWithoutOrganizationInput
+  salesInvoices?: Prisma.SalesInvoiceCreateNestedManyWithoutOrganizationInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineCreateNestedManyWithoutOrganizationInput
+  customerPayments?: Prisma.CustomerPaymentCreateNestedManyWithoutOrganizationInput
+  paymentReceipts?: Prisma.PaymentReceiptCreateNestedManyWithoutOrganizationInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsCreateNestedOneWithoutOrganizationInput
+  orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutOrganizationInput
+  staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
+  customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutRegisteredDevicesInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutOrganizationInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutOrganizationInput
+  customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutOrganizationInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutOrganizationInput
+  orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  salesInvoices?: Prisma.SalesInvoiceUncheckedCreateNestedManyWithoutOrganizationInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineUncheckedCreateNestedManyWithoutOrganizationInput
+  customerPayments?: Prisma.CustomerPaymentUncheckedCreateNestedManyWithoutOrganizationInput
+  paymentReceipts?: Prisma.PaymentReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutOrganizationInput
+  staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
+  customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutRegisteredDevicesInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutRegisteredDevicesInput, Prisma.OrganizationUncheckedCreateWithoutRegisteredDevicesInput>
+}
+
+export type OrganizationUpsertWithoutRegisteredDevicesInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutRegisteredDevicesInput, Prisma.OrganizationUncheckedUpdateWithoutRegisteredDevicesInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutRegisteredDevicesInput, Prisma.OrganizationUncheckedCreateWithoutRegisteredDevicesInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutRegisteredDevicesInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutRegisteredDevicesInput, Prisma.OrganizationUncheckedUpdateWithoutRegisteredDevicesInput>
+}
+
+export type OrganizationUpdateWithoutRegisteredDevicesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutOrganizationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutOrganizationNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutOrganizationNestedInput
+  customers?: Prisma.CustomerUpdateManyWithoutOrganizationNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutOrganizationNestedInput
+  orderLines?: Prisma.OrderLineUpdateManyWithoutOrganizationNestedInput
+  salesInvoices?: Prisma.SalesInvoiceUpdateManyWithoutOrganizationNestedInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineUpdateManyWithoutOrganizationNestedInput
+  customerPayments?: Prisma.CustomerPaymentUpdateManyWithoutOrganizationNestedInput
+  paymentReceipts?: Prisma.PaymentReceiptUpdateManyWithoutOrganizationNestedInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsUpdateOneWithoutOrganizationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutOrganizationNestedInput
+  staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
+  customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutRegisteredDevicesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutOrganizationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutOrganizationNestedInput
+  customers?: Prisma.CustomerUncheckedUpdateManyWithoutOrganizationNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  salesInvoices?: Prisma.SalesInvoiceUncheckedUpdateManyWithoutOrganizationNestedInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  customerPayments?: Prisma.CustomerPaymentUncheckedUpdateManyWithoutOrganizationNestedInput
+  paymentReceipts?: Prisma.PaymentReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
+  customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  ssoProviders?: Prisma.OrganizationSsoProviderUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationCreateWithoutSsoProvidersInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutOrganizationInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutOrganizationInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutOrganizationInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutOrganizationInput
+  customers?: Prisma.CustomerCreateNestedManyWithoutOrganizationInput
+  orders?: Prisma.OrderCreateNestedManyWithoutOrganizationInput
+  orderLines?: Prisma.OrderLineCreateNestedManyWithoutOrganizationInput
+  salesInvoices?: Prisma.SalesInvoiceCreateNestedManyWithoutOrganizationInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineCreateNestedManyWithoutOrganizationInput
+  customerPayments?: Prisma.CustomerPaymentCreateNestedManyWithoutOrganizationInput
+  paymentReceipts?: Prisma.PaymentReceiptCreateNestedManyWithoutOrganizationInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsCreateNestedOneWithoutOrganizationInput
+  orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutOrganizationInput
+  staffJobs?: Prisma.StaffJobCreateNestedManyWithoutOrganizationInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutOrganizationInput
+  customerNotifications?: Prisma.CustomerNotificationCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationUncheckedCreateWithoutSsoProvidersInput = {
+  id: string
+  name: string
+  slug: string
+  logo?: string | null
+  createdAt?: Date | string
+  metadata?: string | null
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutOrganizationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+  items?: Prisma.ItemUncheckedCreateNestedManyWithoutOrganizationInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedCreateNestedManyWithoutOrganizationInput
+  locations?: Prisma.LocationUncheckedCreateNestedManyWithoutOrganizationInput
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutOrganizationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutOrganizationInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedCreateNestedManyWithoutOrganizationInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutOrganizationInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutOrganizationInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedCreateNestedManyWithoutOrganizationInput
+  storedObjects?: Prisma.StoredObjectUncheckedCreateNestedManyWithoutOrganizationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  workSchedules?: Prisma.WorkScheduleUncheckedCreateNestedManyWithoutOrganizationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutOrganizationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutOrganizationInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedCreateNestedManyWithoutOrganizationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganizationInput
+  teamMembers?: Prisma.TeamMemberUncheckedCreateNestedManyWithoutOrganizationInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedCreateNestedManyWithoutOrganizationInput
+  crmConnection?: Prisma.CrmConnectionUncheckedCreateNestedOneWithoutOrganizationInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedCreateNestedManyWithoutOrganizationInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutOrganizationInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedCreateNestedManyWithoutOrganizationInput
+  itemPacks?: Prisma.ItemPackUncheckedCreateNestedManyWithoutOrganizationInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutOrganizationInput
+  servicePlans?: Prisma.ServicePlanUncheckedCreateNestedManyWithoutOrganizationInput
+  priceBooks?: Prisma.PriceBookUncheckedCreateNestedManyWithoutOrganizationInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  priceTiers?: Prisma.PriceTierUncheckedCreateNestedManyWithoutOrganizationInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutOrganizationInput
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutOrganizationInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutOrganizationInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutOrganizationInput
+  customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutOrganizationInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutOrganizationInput
+  orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutOrganizationInput
+  salesInvoices?: Prisma.SalesInvoiceUncheckedCreateNestedManyWithoutOrganizationInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineUncheckedCreateNestedManyWithoutOrganizationInput
+  customerPayments?: Prisma.CustomerPaymentUncheckedCreateNestedManyWithoutOrganizationInput
+  paymentReceipts?: Prisma.PaymentReceiptUncheckedCreateNestedManyWithoutOrganizationInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsUncheckedCreateNestedOneWithoutOrganizationInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutOrganizationInput
+  staffJobs?: Prisma.StaffJobUncheckedCreateNestedManyWithoutOrganizationInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutOrganizationInput
+  customerNotifications?: Prisma.CustomerNotificationUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutOrganizationInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedCreateNestedManyWithoutOrganizationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationCreateOrConnectWithoutSsoProvidersInput = {
+  where: Prisma.OrganizationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutSsoProvidersInput, Prisma.OrganizationUncheckedCreateWithoutSsoProvidersInput>
+}
+
+export type OrganizationUpsertWithoutSsoProvidersInput = {
+  update: Prisma.XOR<Prisma.OrganizationUpdateWithoutSsoProvidersInput, Prisma.OrganizationUncheckedUpdateWithoutSsoProvidersInput>
+  create: Prisma.XOR<Prisma.OrganizationCreateWithoutSsoProvidersInput, Prisma.OrganizationUncheckedCreateWithoutSsoProvidersInput>
+  where?: Prisma.OrganizationWhereInput
+}
+
+export type OrganizationUpdateToOneWithWhereWithoutSsoProvidersInput = {
+  where?: Prisma.OrganizationWhereInput
+  data: Prisma.XOR<Prisma.OrganizationUpdateWithoutSsoProvidersInput, Prisma.OrganizationUncheckedUpdateWithoutSsoProvidersInput>
+}
+
+export type OrganizationUpdateWithoutSsoProvidersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutOrganizationNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutOrganizationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutOrganizationNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutOrganizationNestedInput
+  customers?: Prisma.CustomerUpdateManyWithoutOrganizationNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutOrganizationNestedInput
+  orderLines?: Prisma.OrderLineUpdateManyWithoutOrganizationNestedInput
+  salesInvoices?: Prisma.SalesInvoiceUpdateManyWithoutOrganizationNestedInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineUpdateManyWithoutOrganizationNestedInput
+  customerPayments?: Prisma.CustomerPaymentUpdateManyWithoutOrganizationNestedInput
+  paymentReceipts?: Prisma.PaymentReceiptUpdateManyWithoutOrganizationNestedInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsUpdateOneWithoutOrganizationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutOrganizationNestedInput
+  staffJobs?: Prisma.StaffJobUpdateManyWithoutOrganizationNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutOrganizationNestedInput
+  customerNotifications?: Prisma.CustomerNotificationUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationUncheckedUpdateWithoutSsoProvidersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  metadata?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  members?: Prisma.MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+  tenantSettings?: Prisma.TenantSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+  items?: Prisma.ItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemRevisions?: Prisma.ItemRevisionUncheckedUpdateManyWithoutOrganizationNestedInput
+  locations?: Prisma.LocationUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockTransferLines?: Prisma.StockTransferLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutOrganizationNestedInput
+  vendorBillLines?: Prisma.VendorBillLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  storedObjects?: Prisma.StoredObjectUncheckedUpdateManyWithoutOrganizationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  workSchedules?: Prisma.WorkScheduleUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutOrganizationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutOrganizationNestedInput
+  timeOffRequests?: Prisma.TimeOffRequestUncheckedUpdateManyWithoutOrganizationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganizationNestedInput
+  teamMembers?: Prisma.TeamMemberUncheckedUpdateManyWithoutOrganizationNestedInput
+  calendarFeeds?: Prisma.CalendarFeedUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmConnection?: Prisma.CrmConnectionUncheckedUpdateOneWithoutOrganizationNestedInput
+  crmStaffMappings?: Prisma.CrmStaffMappingUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmDealItemLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutOrganizationNestedInput
+  crmWebhookEvents?: Prisma.CrmWebhookEventUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemPacks?: Prisma.ItemPackUncheckedUpdateManyWithoutOrganizationNestedInput
+  itemBundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutOrganizationNestedInput
+  servicePlans?: Prisma.ServicePlanUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceBooks?: Prisma.PriceBookUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  priceTiers?: Prisma.PriceTierUncheckedUpdateManyWithoutOrganizationNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutOrganizationNestedInput
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutOrganizationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutOrganizationNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutOrganizationNestedInput
+  customers?: Prisma.CustomerUncheckedUpdateManyWithoutOrganizationNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutOrganizationNestedInput
+  orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  salesInvoices?: Prisma.SalesInvoiceUncheckedUpdateManyWithoutOrganizationNestedInput
+  salesInvoiceLines?: Prisma.SalesInvoiceLineUncheckedUpdateManyWithoutOrganizationNestedInput
+  customerPayments?: Prisma.CustomerPaymentUncheckedUpdateManyWithoutOrganizationNestedInput
+  paymentReceipts?: Prisma.PaymentReceiptUncheckedUpdateManyWithoutOrganizationNestedInput
+  fulfillmentSettings?: Prisma.FulfillmentSettingsUncheckedUpdateOneWithoutOrganizationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  staffJobs?: Prisma.StaffJobUncheckedUpdateManyWithoutOrganizationNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutOrganizationNestedInput
+  customerNotifications?: Prisma.CustomerNotificationUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthClientKeys?: Prisma.OAuthClientKeyUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthAuthorizationCodes?: Prisma.OAuthAuthorizationCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutOrganizationNestedInput
+  oauthRefreshTokens?: Prisma.OAuthRefreshTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  personalAccessTokens?: Prisma.PersonalAccessTokenUncheckedUpdateManyWithoutOrganizationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutOrganizationNestedInput
 }
 
 
@@ -15779,6 +20043,14 @@ export type OrganizationCountOutputType = {
   staffJobs: number
   notificationTemplates: number
   customerNotifications: number
+  oauthClients: number
+  oauthClientKeys: number
+  oauthAuthorizationCodes: number
+  oauthDeviceCodes: number
+  oauthRefreshTokens: number
+  personalAccessTokens: number
+  registeredDevices: number
+  ssoProviders: number
 }
 
 export type OrganizationCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -15833,6 +20105,14 @@ export type OrganizationCountOutputTypeSelect<ExtArgs extends runtime.Types.Exte
   staffJobs?: boolean | OrganizationCountOutputTypeCountStaffJobsArgs
   notificationTemplates?: boolean | OrganizationCountOutputTypeCountNotificationTemplatesArgs
   customerNotifications?: boolean | OrganizationCountOutputTypeCountCustomerNotificationsArgs
+  oauthClients?: boolean | OrganizationCountOutputTypeCountOauthClientsArgs
+  oauthClientKeys?: boolean | OrganizationCountOutputTypeCountOauthClientKeysArgs
+  oauthAuthorizationCodes?: boolean | OrganizationCountOutputTypeCountOauthAuthorizationCodesArgs
+  oauthDeviceCodes?: boolean | OrganizationCountOutputTypeCountOauthDeviceCodesArgs
+  oauthRefreshTokens?: boolean | OrganizationCountOutputTypeCountOauthRefreshTokensArgs
+  personalAccessTokens?: boolean | OrganizationCountOutputTypeCountPersonalAccessTokensArgs
+  registeredDevices?: boolean | OrganizationCountOutputTypeCountRegisteredDevicesArgs
+  ssoProviders?: boolean | OrganizationCountOutputTypeCountSsoProvidersArgs
 }
 
 /**
@@ -16202,6 +20482,62 @@ export type OrganizationCountOutputTypeCountCustomerNotificationsArgs<ExtArgs ex
   where?: Prisma.CustomerNotificationWhereInput
 }
 
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountOauthClientsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OAuthClientWhereInput
+}
+
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountOauthClientKeysArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OAuthClientKeyWhereInput
+}
+
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountOauthAuthorizationCodesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OAuthAuthorizationCodeWhereInput
+}
+
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountOauthDeviceCodesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OAuthDeviceCodeWhereInput
+}
+
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountOauthRefreshTokensArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OAuthRefreshTokenWhereInput
+}
+
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountPersonalAccessTokensArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PersonalAccessTokenWhereInput
+}
+
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountRegisteredDevicesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.RegisteredDeviceWhereInput
+}
+
+/**
+ * OrganizationCountOutputType without action
+ */
+export type OrganizationCountOutputTypeCountSsoProvidersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OrganizationSsoProviderWhereInput
+}
+
 
 export type OrganizationSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -16264,6 +20600,14 @@ export type OrganizationSelect<ExtArgs extends runtime.Types.Extensions.Internal
   staffJobs?: boolean | Prisma.Organization$staffJobsArgs<ExtArgs>
   notificationTemplates?: boolean | Prisma.Organization$notificationTemplatesArgs<ExtArgs>
   customerNotifications?: boolean | Prisma.Organization$customerNotificationsArgs<ExtArgs>
+  oauthClients?: boolean | Prisma.Organization$oauthClientsArgs<ExtArgs>
+  oauthClientKeys?: boolean | Prisma.Organization$oauthClientKeysArgs<ExtArgs>
+  oauthAuthorizationCodes?: boolean | Prisma.Organization$oauthAuthorizationCodesArgs<ExtArgs>
+  oauthDeviceCodes?: boolean | Prisma.Organization$oauthDeviceCodesArgs<ExtArgs>
+  oauthRefreshTokens?: boolean | Prisma.Organization$oauthRefreshTokensArgs<ExtArgs>
+  personalAccessTokens?: boolean | Prisma.Organization$personalAccessTokensArgs<ExtArgs>
+  registeredDevices?: boolean | Prisma.Organization$registeredDevicesArgs<ExtArgs>
+  ssoProviders?: boolean | Prisma.Organization$ssoProvidersArgs<ExtArgs>
   _count?: boolean | Prisma.OrganizationCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["organization"]>
 
@@ -16350,6 +20694,14 @@ export type OrganizationInclude<ExtArgs extends runtime.Types.Extensions.Interna
   staffJobs?: boolean | Prisma.Organization$staffJobsArgs<ExtArgs>
   notificationTemplates?: boolean | Prisma.Organization$notificationTemplatesArgs<ExtArgs>
   customerNotifications?: boolean | Prisma.Organization$customerNotificationsArgs<ExtArgs>
+  oauthClients?: boolean | Prisma.Organization$oauthClientsArgs<ExtArgs>
+  oauthClientKeys?: boolean | Prisma.Organization$oauthClientKeysArgs<ExtArgs>
+  oauthAuthorizationCodes?: boolean | Prisma.Organization$oauthAuthorizationCodesArgs<ExtArgs>
+  oauthDeviceCodes?: boolean | Prisma.Organization$oauthDeviceCodesArgs<ExtArgs>
+  oauthRefreshTokens?: boolean | Prisma.Organization$oauthRefreshTokensArgs<ExtArgs>
+  personalAccessTokens?: boolean | Prisma.Organization$personalAccessTokensArgs<ExtArgs>
+  registeredDevices?: boolean | Prisma.Organization$registeredDevicesArgs<ExtArgs>
+  ssoProviders?: boolean | Prisma.Organization$ssoProvidersArgs<ExtArgs>
   _count?: boolean | Prisma.OrganizationCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type OrganizationIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -16412,6 +20764,14 @@ export type $OrganizationPayload<ExtArgs extends runtime.Types.Extensions.Intern
     staffJobs: Prisma.$StaffJobPayload<ExtArgs>[]
     notificationTemplates: Prisma.$NotificationTemplatePayload<ExtArgs>[]
     customerNotifications: Prisma.$CustomerNotificationPayload<ExtArgs>[]
+    oauthClients: Prisma.$OAuthClientPayload<ExtArgs>[]
+    oauthClientKeys: Prisma.$OAuthClientKeyPayload<ExtArgs>[]
+    oauthAuthorizationCodes: Prisma.$OAuthAuthorizationCodePayload<ExtArgs>[]
+    oauthDeviceCodes: Prisma.$OAuthDeviceCodePayload<ExtArgs>[]
+    oauthRefreshTokens: Prisma.$OAuthRefreshTokenPayload<ExtArgs>[]
+    personalAccessTokens: Prisma.$PersonalAccessTokenPayload<ExtArgs>[]
+    registeredDevices: Prisma.$RegisteredDevicePayload<ExtArgs>[]
+    ssoProviders: Prisma.$OrganizationSsoProviderPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -16868,6 +21228,14 @@ export interface Prisma__OrganizationClient<T, Null = never, ExtArgs extends run
   staffJobs<T extends Prisma.Organization$staffJobsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$staffJobsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StaffJobPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   notificationTemplates<T extends Prisma.Organization$notificationTemplatesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$notificationTemplatesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$NotificationTemplatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   customerNotifications<T extends Prisma.Organization$customerNotificationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$customerNotificationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CustomerNotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  oauthClients<T extends Prisma.Organization$oauthClientsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$oauthClientsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OAuthClientPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  oauthClientKeys<T extends Prisma.Organization$oauthClientKeysArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$oauthClientKeysArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OAuthClientKeyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  oauthAuthorizationCodes<T extends Prisma.Organization$oauthAuthorizationCodesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$oauthAuthorizationCodesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OAuthAuthorizationCodePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  oauthDeviceCodes<T extends Prisma.Organization$oauthDeviceCodesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$oauthDeviceCodesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OAuthDeviceCodePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  oauthRefreshTokens<T extends Prisma.Organization$oauthRefreshTokensArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$oauthRefreshTokensArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OAuthRefreshTokenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  personalAccessTokens<T extends Prisma.Organization$personalAccessTokensArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$personalAccessTokensArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PersonalAccessTokenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  registeredDevices<T extends Prisma.Organization$registeredDevicesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$registeredDevicesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RegisteredDevicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  ssoProviders<T extends Prisma.Organization$ssoProvidersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organization$ssoProvidersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrganizationSsoProviderPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -18574,6 +22942,198 @@ export type Organization$customerNotificationsArgs<ExtArgs extends runtime.Types
   take?: number
   skip?: number
   distinct?: Prisma.CustomerNotificationScalarFieldEnum | Prisma.CustomerNotificationScalarFieldEnum[]
+}
+
+/**
+ * Organization.oauthClients
+ */
+export type Organization$oauthClientsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the OAuthClient
+   */
+  select?: Prisma.OAuthClientSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the OAuthClient
+   */
+  omit?: Prisma.OAuthClientOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OAuthClientInclude<ExtArgs> | null
+  where?: Prisma.OAuthClientWhereInput
+  orderBy?: Prisma.OAuthClientOrderByWithRelationInput | Prisma.OAuthClientOrderByWithRelationInput[]
+  cursor?: Prisma.OAuthClientWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OAuthClientScalarFieldEnum | Prisma.OAuthClientScalarFieldEnum[]
+}
+
+/**
+ * Organization.oauthClientKeys
+ */
+export type Organization$oauthClientKeysArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the OAuthClientKey
+   */
+  select?: Prisma.OAuthClientKeySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the OAuthClientKey
+   */
+  omit?: Prisma.OAuthClientKeyOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OAuthClientKeyInclude<ExtArgs> | null
+  where?: Prisma.OAuthClientKeyWhereInput
+  orderBy?: Prisma.OAuthClientKeyOrderByWithRelationInput | Prisma.OAuthClientKeyOrderByWithRelationInput[]
+  cursor?: Prisma.OAuthClientKeyWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OAuthClientKeyScalarFieldEnum | Prisma.OAuthClientKeyScalarFieldEnum[]
+}
+
+/**
+ * Organization.oauthAuthorizationCodes
+ */
+export type Organization$oauthAuthorizationCodesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the OAuthAuthorizationCode
+   */
+  select?: Prisma.OAuthAuthorizationCodeSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the OAuthAuthorizationCode
+   */
+  omit?: Prisma.OAuthAuthorizationCodeOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OAuthAuthorizationCodeInclude<ExtArgs> | null
+  where?: Prisma.OAuthAuthorizationCodeWhereInput
+  orderBy?: Prisma.OAuthAuthorizationCodeOrderByWithRelationInput | Prisma.OAuthAuthorizationCodeOrderByWithRelationInput[]
+  cursor?: Prisma.OAuthAuthorizationCodeWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OAuthAuthorizationCodeScalarFieldEnum | Prisma.OAuthAuthorizationCodeScalarFieldEnum[]
+}
+
+/**
+ * Organization.oauthDeviceCodes
+ */
+export type Organization$oauthDeviceCodesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the OAuthDeviceCode
+   */
+  select?: Prisma.OAuthDeviceCodeSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the OAuthDeviceCode
+   */
+  omit?: Prisma.OAuthDeviceCodeOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OAuthDeviceCodeInclude<ExtArgs> | null
+  where?: Prisma.OAuthDeviceCodeWhereInput
+  orderBy?: Prisma.OAuthDeviceCodeOrderByWithRelationInput | Prisma.OAuthDeviceCodeOrderByWithRelationInput[]
+  cursor?: Prisma.OAuthDeviceCodeWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OAuthDeviceCodeScalarFieldEnum | Prisma.OAuthDeviceCodeScalarFieldEnum[]
+}
+
+/**
+ * Organization.oauthRefreshTokens
+ */
+export type Organization$oauthRefreshTokensArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the OAuthRefreshToken
+   */
+  select?: Prisma.OAuthRefreshTokenSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the OAuthRefreshToken
+   */
+  omit?: Prisma.OAuthRefreshTokenOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OAuthRefreshTokenInclude<ExtArgs> | null
+  where?: Prisma.OAuthRefreshTokenWhereInput
+  orderBy?: Prisma.OAuthRefreshTokenOrderByWithRelationInput | Prisma.OAuthRefreshTokenOrderByWithRelationInput[]
+  cursor?: Prisma.OAuthRefreshTokenWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OAuthRefreshTokenScalarFieldEnum | Prisma.OAuthRefreshTokenScalarFieldEnum[]
+}
+
+/**
+ * Organization.personalAccessTokens
+ */
+export type Organization$personalAccessTokensArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PersonalAccessToken
+   */
+  select?: Prisma.PersonalAccessTokenSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PersonalAccessToken
+   */
+  omit?: Prisma.PersonalAccessTokenOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PersonalAccessTokenInclude<ExtArgs> | null
+  where?: Prisma.PersonalAccessTokenWhereInput
+  orderBy?: Prisma.PersonalAccessTokenOrderByWithRelationInput | Prisma.PersonalAccessTokenOrderByWithRelationInput[]
+  cursor?: Prisma.PersonalAccessTokenWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PersonalAccessTokenScalarFieldEnum | Prisma.PersonalAccessTokenScalarFieldEnum[]
+}
+
+/**
+ * Organization.registeredDevices
+ */
+export type Organization$registeredDevicesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the RegisteredDevice
+   */
+  select?: Prisma.RegisteredDeviceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the RegisteredDevice
+   */
+  omit?: Prisma.RegisteredDeviceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.RegisteredDeviceInclude<ExtArgs> | null
+  where?: Prisma.RegisteredDeviceWhereInput
+  orderBy?: Prisma.RegisteredDeviceOrderByWithRelationInput | Prisma.RegisteredDeviceOrderByWithRelationInput[]
+  cursor?: Prisma.RegisteredDeviceWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.RegisteredDeviceScalarFieldEnum | Prisma.RegisteredDeviceScalarFieldEnum[]
+}
+
+/**
+ * Organization.ssoProviders
+ */
+export type Organization$ssoProvidersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the OrganizationSsoProvider
+   */
+  select?: Prisma.OrganizationSsoProviderSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the OrganizationSsoProvider
+   */
+  omit?: Prisma.OrganizationSsoProviderOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OrganizationSsoProviderInclude<ExtArgs> | null
+  where?: Prisma.OrganizationSsoProviderWhereInput
+  orderBy?: Prisma.OrganizationSsoProviderOrderByWithRelationInput | Prisma.OrganizationSsoProviderOrderByWithRelationInput[]
+  cursor?: Prisma.OrganizationSsoProviderWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OrganizationSsoProviderScalarFieldEnum | Prisma.OrganizationSsoProviderScalarFieldEnum[]
 }
 
 /**

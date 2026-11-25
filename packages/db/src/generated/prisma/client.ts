@@ -336,3 +336,48 @@ export type NotificationTemplate = Prisma.NotificationTemplateModel
  * 
  */
 export type CustomerNotification = Prisma.CustomerNotificationModel
+/**
+ * Model AuthSigningKey
+ * 
+ */
+export type AuthSigningKey = Prisma.AuthSigningKeyModel
+/**
+ * Model OAuthClient
+ * 
+ */
+export type OAuthClient = Prisma.OAuthClientModel
+/**
+ * Model OAuthClientKey
+ * 
+ */
+export type OAuthClientKey = Prisma.OAuthClientKeyModel
+/**
+ * Model OAuthAuthorizationCode
+ * 
+ */
+export type OAuthAuthorizationCode = Prisma.OAuthAuthorizationCodeModel
+/**
+ * Model OAuthDeviceCode
+ * 
+ */
+export type OAuthDeviceCode = Prisma.OAuthDeviceCodeModel
+/**
+ * Model OAuthRefreshToken
+ * 
+ */
+export type OAuthRefreshToken = Prisma.OAuthRefreshTokenModel
+/**
+ * Model PersonalAccessToken
+ * 
+ */
+export type PersonalAccessToken = Prisma.PersonalAccessTokenModel
+/**
+ * Model RegisteredDevice
+ * 
+ */
+export type RegisteredDevice = Prisma.RegisteredDeviceModel
+/**
+ * Model OrganizationSsoProvider
+ * 
+ */
+export type OrganizationSsoProvider = Prisma.OrganizationSsoProviderModel

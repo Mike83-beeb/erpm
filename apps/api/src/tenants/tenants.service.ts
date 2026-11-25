@@ -13,6 +13,7 @@ import type { IncomingHttpHeaders } from "node:http";
 import { auth } from "../auth/auth.config.js";
 import {
   getResolvedPermissionsForRole,
+  intersectPermissionsWithScopes,
   ORGANIZATION_ROLE_NAMES,
   parseRoleNames,
   type OrganizationRoleName,
@@ -62,6 +63,10 @@ export class TenantsService {
     }
 
     const settings = await this.getOrCreateSettings(tenant.organizationId);
+    const basePermissions = getResolvedPermissionsForRole(tenant.role);
+    const effectivePermissions = tenant.grantedScopes
+      ? intersectPermissionsWithScopes(basePermissions, tenant.grantedScopes)
+      : basePermissions;
 
     return {
       organization,
@@ -69,19 +74,34 @@ export class TenantsService {
         memberId: tenant.memberId,
         role: tenant.role,
         userId: tenant.userId,
-        permissions: getResolvedPermissionsForRole(tenant.role),
+        authMethod: tenant.authMethod ?? "COOKIE_SESSION",
+        grantedScopes: tenant.grantedScopes ?? null,
+        deviceId: tenant.deviceId ?? null,
+        clientId: tenant.clientId ?? null,
+        isServicePrincipal: tenant.isServicePrincipal ?? false,
+        permissions: effectivePermissions,
       },
       settings,
     };
   }
 
   getEffectivePermissions(tenant: AuthenticatedTenant) {
+    const basePermissions = getResolvedPermissionsForRole(tenant.role);
+    const effectivePermissions = tenant.grantedScopes
+      ? intersectPermissionsWithScopes(basePermissions, tenant.grantedScopes)
+      : basePermissions;
+
     return {
       organizationId: tenant.organizationId,
       memberId: tenant.memberId,
       role: tenant.role,
+      authMethod: tenant.authMethod ?? "COOKIE_SESSION",
+      grantedScopes: tenant.grantedScopes ?? null,
+      deviceId: tenant.deviceId ?? null,
+      clientId: tenant.clientId ?? null,
+      isServicePrincipal: tenant.isServicePrincipal ?? false,
       availableRoles: ORGANIZATION_ROLE_NAMES,
-      permissions: getResolvedPermissionsForRole(tenant.role),
+      permissions: effectivePermissions,
     };
   }
 

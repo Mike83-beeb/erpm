@@ -490,3 +490,84 @@ export const NotificationDeliveryStatus = {
 } as const
 
 export type NotificationDeliveryStatus = (typeof NotificationDeliveryStatus)[keyof typeof NotificationDeliveryStatus]
+
+
+export const OAuthClientType = {
+  PUBLIC_PKCE: 'PUBLIC_PKCE',
+  CONFIDENTIAL: 'CONFIDENTIAL',
+  M2M_SERVICE: 'M2M_SERVICE',
+  DEVICE_TERMINAL: 'DEVICE_TERMINAL'
+} as const
+
+export type OAuthClientType = (typeof OAuthClientType)[keyof typeof OAuthClientType]
+
+
+export const OAuthAppCategory = {
+  ANDROID_MOBILE: 'ANDROID_MOBILE',
+  POS_TERMINAL: 'POS_TERMINAL',
+  PRODUCTION_SYSTEM: 'PRODUCTION_SYSTEM',
+  ERP_INTEGRATION: 'ERP_INTEGRATION',
+  WEB_APP: 'WEB_APP',
+  OTHER: 'OTHER'
+} as const
+
+export type OAuthAppCategory = (typeof OAuthAppCategory)[keyof typeof OAuthAppCategory]
+
+
+export const OAuthClientStatus = {
+  ACTIVE: 'ACTIVE',
+  SUSPENDED: 'SUSPENDED',
+  REVOKED: 'REVOKED'
+} as const
+
+export type OAuthClientStatus = (typeof OAuthClientStatus)[keyof typeof OAuthClientStatus]
+
+
+export const OAuthSigningAlgorithm = {
+  RS256: 'RS256',
+  ES256: 'ES256',
+  EDDSA: 'EDDSA'
+} as const
+
+export type OAuthSigningAlgorithm = (typeof OAuthSigningAlgorithm)[keyof typeof OAuthSigningAlgorithm]
+
+
+export const OAuthDeviceCodeStatus = {
+  PENDING: 'PENDING',
+  APPROVED: 'APPROVED',
+  DENIED: 'DENIED',
+  CONSUMED: 'CONSUMED',
+  EXPIRED: 'EXPIRED'
+} as const
+
+export type OAuthDeviceCodeStatus = (typeof OAuthDeviceCodeStatus)[keyof typeof OAuthDeviceCodeStatus]
+
+
+export const RegisteredDeviceType = {
+  ANDROID: 'ANDROID',
+  POS_TERMINAL: 'POS_TERMINAL',
+  PRODUCTION_KIOSK: 'PRODUCTION_KIOSK',
+  SCANNER: 'SCANNER',
+  SYSTEM_AGENT: 'SYSTEM_AGENT'
+} as const
+
+export type RegisteredDeviceType = (typeof RegisteredDeviceType)[keyof typeof RegisteredDeviceType]
+
+
+export const RegisteredDeviceStatus = {
+  ACTIVE: 'ACTIVE',
+  SUSPENDED: 'SUSPENDED',
+  REVOKED: 'REVOKED'
+} as const
+
+export type RegisteredDeviceStatus = (typeof RegisteredDeviceStatus)[keyof typeof RegisteredDeviceStatus]
+
+
+export const SsoProviderType = {
+  GOOGLE: 'GOOGLE',
+  MICROSOFT_ENTRA: 'MICROSOFT_ENTRA',
+  OKTA: 'OKTA',
+  OIDC: 'OIDC'
+} as const
+
+export type SsoProviderType = (typeof SsoProviderType)[keyof typeof SsoProviderType]

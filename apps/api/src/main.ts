@@ -26,6 +26,7 @@ async function bootstrap() {
     new FastifyAdapter({
       logger: env.NODE_ENV !== "test",
       trustProxy: true,
+      ignoreTrailingSlash: true,
     }),
     {
       bodyParser: false,
@@ -36,7 +37,7 @@ async function bootstrap() {
     origin: env.CORS_ALLOWED_ORIGINS,
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "X-API-Key"],
   });
 
   await app.register(multipart, {

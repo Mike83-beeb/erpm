@@ -21,8 +21,12 @@ model User {
   updatedAt     DateTime     @updatedAt
   sessions      Session[]
   accounts      Account[]
-  members       Member[]
-  invitations   Invitation[]
+  members                 Member[]
+  invitations             Invitation[]
+  personalAccessTokens    PersonalAccessToken[]
+  oauthAuthorizationCodes OAuthAuthorizationCode[]
+  oauthRefreshTokens      OAuthRefreshToken[]
+  registeredDevices       RegisteredDevice[]
 
   @@map("user")
 }
@@ -134,8 +138,16 @@ model Organization {
   fulfillmentSettings   FulfillmentSettings?
   orderFulfillments     OrderFulfillment[]
   staffJobs             StaffJob[]
-  notificationTemplates NotificationTemplate[]
-  customerNotifications CustomerNotification[]
+  notificationTemplates   NotificationTemplate[]
+  customerNotifications   CustomerNotification[]
+  oauthClients            OAuthClient[]
+  oauthClientKeys         OAuthClientKey[]
+  oauthAuthorizationCodes OAuthAuthorizationCode[]
+  oauthDeviceCodes        OAuthDeviceCode[]
+  oauthRefreshTokens      OAuthRefreshToken[]
+  personalAccessTokens    PersonalAccessToken[]
+  registeredDevices       RegisteredDevice[]
+  ssoProviders            OrganizationSsoProvider[]
 
   @@map("organization")
 }
@@ -373,6 +385,9 @@ model Location {
   quarantineHolds   QuarantineHold[]
   orders            Order[]
   orderFulfillments OrderFulfillment[]
+  oauthClients      OAuthClient[]
+  oauthDeviceCodes  OAuthDeviceCode[]
+  registeredDevices RegisteredDevice[]
 
   @@unique([organizationId, code])
   @@index([organizationId, status, type])
@@ -2155,4 +2170,312 @@ model CustomerNotification {
   @@index([organizationId, customerId])
   @@map("customer_notification")
 }
+
+// ==========================================
+// Enterprise OAuth2, PAT, Devices & SSO
+// ==========================================
+
+enum OAuthClientType {
+  PUBLIC_PKCE
+  CONFIDENTIAL
+  M2M_SERVICE
+  DEVICE_TERMINAL
+}
+
+enum OAuthAppCategory {
+  ANDROID_MOBILE
+  POS_TERMINAL
+  PRODUCTION_SYSTEM
+  ERP_INTEGRATION
+  WEB_APP
+  OTHER
+}
+
+enum OAuthClientStatus {
+  ACTIVE
+  SUSPENDED
+  REVOKED
+}
+
+enum OAuthSigningAlgorithm {
+  RS256
+  ES256
+  EDDSA
+}
+
+enum OAuthDeviceCodeStatus {
+  PENDING
+  APPROVED
+  DENIED
+  CONSUMED
+  EXPIRED
+}
+
+enum RegisteredDeviceType {
+  ANDROID
+  POS_TERMINAL
+  PRODUCTION_KIOSK
+  SCANNER
+  SYSTEM_AGENT
+}
+
+enum RegisteredDeviceStatus {
+  ACTIVE
+  SUSPENDED
+  REVOKED
+}
+
+enum SsoProviderType {
+  GOOGLE
+  MICROSOFT_ENTRA
+  OKTA
+  OIDC
+}
+
+model AuthSigningKey {
+  id                     String                @id @default(cuid())
+  kid                    String                @unique
+  algorithm              OAuthSigningAlgorithm @default(ES256)
+  publicJwk              Json
+  encryptedPrivateKeyPem String
+  isPrimary              Boolean               @default(false)
+  isActive               Boolean               @default(true)
+  expiresAt              DateTime?
+  createdAt              DateTime              @default(now())
+
+  @@index([isActive, isPrimary])
+  @@map("auth_signing_key")
+}
+
+model OAuthClient {
+  id                     String                   @id @default(cuid())
+  organizationId         String
+  organization           Organization             @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  clientId               String                   @unique
+  name                   String
+  description            String?
+  clientType             OAuthClientType
+  appCategory            OAuthAppCategory         @default(OTHER)
+  status                 OAuthClientStatus        @default(ACTIVE)
+  clientSecretHash       String?
+  clientSecretLast4      String?
+  authMethods            String[]                 @default(["client_secret_basic"])
+  allowedGrantTypes      String[]                 @default(["client_credentials"])
+  redirectUris           String[]                 @default([])
+  allowedScopes          String[]                 @default([])
+  serviceRole            String                   @default("member")
+  locationId             String?
+  location               Location?                @relation(fields: [locationId], references: [id], onDelete: SetNull)
+  ipAllowlist            String[]                 @default([])
+  jwksUri                String?
+  isFirstParty           Boolean                  @default(false)
+  requireConsent         Boolean                  @default(true)
+  accessTokenTtlSeconds  Int                      @default(900)
+  refreshTokenTtlSeconds Int                      @default(2592000)
+  createdByUserId        String?
+  revokedAt              DateTime?
+  createdAt              DateTime                 @default(now())
+  updatedAt              DateTime                 @updatedAt
+  keys                   OAuthClientKey[]
+  authorizationCodes     OAuthAuthorizationCode[]
+  deviceCodes            OAuthDeviceCode[]
+  refreshTokens          OAuthRefreshToken[]
+  registeredDevices      RegisteredDevice[]
+
+  @@index([organizationId, status])
+  @@index([organizationId, appCategory])
+  @@map("oauth_client")
+}
+
+model OAuthClientKey {
+  id              String                @id @default(cuid())
+  organizationId  String
+  organization    Organization          @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  oauthClientId   String
+  oauthClient     OAuthClient           @relation(fields: [oauthClientId], references: [id], onDelete: Cascade)
+  kid             String
+  name            String
+  algorithm       OAuthSigningAlgorithm @default(ES256)
+  publicKeyPem    String
+  publicJwk       Json
+  isActive        Boolean               @default(true)
+  expiresAt       DateTime?
+  revokedAt       DateTime?
+  createdByUserId String?
+  createdAt       DateTime              @default(now())
+
+  @@unique([oauthClientId, kid])
+  @@index([organizationId, oauthClientId, isActive])
+  @@map("oauth_client_key")
+}
+
+model OAuthAuthorizationCode {
+  id                  String       @id @default(cuid())
+  organizationId      String
+  organization        Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  oauthClientId       String
+  oauthClient         OAuthClient  @relation(fields: [oauthClientId], references: [id], onDelete: Cascade)
+  userId              String
+  user                User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  codeHash            String       @unique
+  redirectUri         String
+  scopes              String[]     @default([])
+  codeChallenge       String
+  codeChallengeMethod String       @default("S256")
+  nonce               String?
+  deviceIdentifier    String?
+  deviceName          String?
+  deviceOsVersion     String?
+  deviceAppVersion    String?
+  expiresAt           DateTime
+  consumedAt          DateTime?
+  createdAt           DateTime     @default(now())
+
+  @@index([organizationId, oauthClientId])
+  @@index([expiresAt])
+  @@map("oauth_authorization_code")
+}
+
+model OAuthDeviceCode {
+  id               String                @id @default(cuid())
+  organizationId   String
+  organization     Organization          @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  oauthClientId    String
+  oauthClient      OAuthClient           @relation(fields: [oauthClientId], references: [id], onDelete: Cascade)
+  locationId       String?
+  location         Location?             @relation(fields: [locationId], references: [id], onDelete: SetNull)
+  deviceCodeHash   String                @unique
+  userCode         String                @unique
+  scopes           String[]              @default([])
+  status           OAuthDeviceCodeStatus @default(PENDING)
+  deviceName       String?
+  deviceIdentifier String?
+  deviceType       RegisteredDeviceType  @default(POS_TERMINAL)
+  approvedByUserId String?
+  approvedAt       DateTime?
+  deniedByUserId   String?
+  deniedAt         DateTime?
+  intervalSeconds  Int                   @default(5)
+  lastPolledAt     DateTime?
+  expiresAt        DateTime
+  consumedAt       DateTime?
+  createdAt        DateTime              @default(now())
+
+  @@index([organizationId, status])
+  @@index([expiresAt])
+  @@map("oauth_device_code")
+}
+
+model OAuthRefreshToken {
+  id                 String            @id @default(cuid())
+  organizationId     String
+  organization       Organization      @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  oauthClientId      String
+  oauthClient        OAuthClient       @relation(fields: [oauthClientId], references: [id], onDelete: Cascade)
+  userId             String?
+  user               User?             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  registeredDeviceId String?
+  registeredDevice   RegisteredDevice? @relation(fields: [registeredDeviceId], references: [id], onDelete: SetNull)
+  familyId           String
+  tokenHash          String            @unique
+  scopes             String[]          @default([])
+  expiresAt          DateTime
+  revokedAt          DateTime?
+  revocationReason   String?
+  replacedById       String?
+  createdAt          DateTime          @default(now())
+
+  @@index([organizationId, familyId])
+  @@index([organizationId, userId])
+  @@index([registeredDeviceId])
+  @@map("oauth_refresh_token")
+}
+
+model PersonalAccessToken {
+  id              String       @id @default(cuid())
+  organizationId  String
+  organization    Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  userId          String
+  user            User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name            String
+  tokenPrefix     String       @unique
+  tokenHash       String       @unique
+  scopes          String[]     @default([])
+  ipAllowlist     String[]     @default([])
+  lastUsedAt      DateTime?
+  lastUsedIp      String?
+  expiresAt       DateTime?
+  revokedAt       DateTime?
+  revokedByUserId String?
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+
+  @@index([organizationId, userId])
+  @@index([organizationId, revokedAt])
+  @@map("personal_access_token")
+}
+
+model RegisteredDevice {
+  id               String                 @id @default(cuid())
+  organizationId   String
+  organization     Organization           @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  oauthClientId    String?
+  oauthClient      OAuthClient?           @relation(fields: [oauthClientId], references: [id], onDelete: SetNull)
+  userId           String?
+  user             User?                  @relation(fields: [userId], references: [id], onDelete: SetNull)
+  locationId       String?
+  location         Location?              @relation(fields: [locationId], references: [id], onDelete: SetNull)
+  deviceType       RegisteredDeviceType
+  deviceIdentifier String
+  name             String
+  osVersion        String?
+  appVersion       String?
+  status           RegisteredDeviceStatus @default(ACTIVE)
+  trusted          Boolean                @default(true)
+  ipAllowlist      String[]               @default([])
+  lastSeenAt       DateTime?
+  lastIp           String?
+  revokedAt        DateTime?
+  revokedByUserId  String?
+  revokeReason     String?
+  metadata         Json?
+  createdAt        DateTime               @default(now())
+  updatedAt        DateTime               @updatedAt
+  refreshTokens    OAuthRefreshToken[]
+
+  @@unique([organizationId, deviceIdentifier, deviceType])
+  @@index([organizationId, deviceType, status])
+  @@index([organizationId, userId])
+  @@map("registered_device")
+}
+
+model OrganizationSsoProvider {
+  id                    String          @id @default(cuid())
+  organizationId        String
+  organization          Organization    @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  providerKey           String
+  providerType          SsoProviderType
+  displayName           String
+  issuerUrl             String?
+  authorizationEndpoint String?
+  tokenEndpoint         String?
+  userinfoEndpoint      String?
+  jwksUri               String?
+  clientId              String
+  encryptedClientSecret String?
+  clientSecretLast4     String?
+  scopes                String[]        @default(["openid", "profile", "email"])
+  allowedDomains        String[]        @default([])
+  autoProvisionRole     String          @default("member")
+  enforceSsoOnly        Boolean         @default(false)
+  enabled               Boolean         @default(true)
+  createdByUserId       String?
+  createdAt             DateTime        @default(now())
+  updatedAt             DateTime        @updatedAt
+
+  @@unique([organizationId, providerKey])
+  @@index([organizationId, enabled])
+  @@map("organization_sso_provider")
+}
+
 

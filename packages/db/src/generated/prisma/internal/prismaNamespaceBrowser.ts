@@ -109,7 +109,16 @@ export const ModelName = {
   OrderFulfillment: 'OrderFulfillment',
   StaffJob: 'StaffJob',
   NotificationTemplate: 'NotificationTemplate',
-  CustomerNotification: 'CustomerNotification'
+  CustomerNotification: 'CustomerNotification',
+  AuthSigningKey: 'AuthSigningKey',
+  OAuthClient: 'OAuthClient',
+  OAuthClientKey: 'OAuthClientKey',
+  OAuthAuthorizationCode: 'OAuthAuthorizationCode',
+  OAuthDeviceCode: 'OAuthDeviceCode',
+  OAuthRefreshToken: 'OAuthRefreshToken',
+  PersonalAccessToken: 'PersonalAccessToken',
+  RegisteredDevice: 'RegisteredDevice',
+  OrganizationSsoProvider: 'OrganizationSsoProvider'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1481,6 +1490,215 @@ export const CustomerNotificationScalarFieldEnum = {
 } as const
 
 export type CustomerNotificationScalarFieldEnum = (typeof CustomerNotificationScalarFieldEnum)[keyof typeof CustomerNotificationScalarFieldEnum]
+
+
+export const AuthSigningKeyScalarFieldEnum = {
+  id: 'id',
+  kid: 'kid',
+  algorithm: 'algorithm',
+  publicJwk: 'publicJwk',
+  encryptedPrivateKeyPem: 'encryptedPrivateKeyPem',
+  isPrimary: 'isPrimary',
+  isActive: 'isActive',
+  expiresAt: 'expiresAt',
+  createdAt: 'createdAt'
+} as const
+
+export type AuthSigningKeyScalarFieldEnum = (typeof AuthSigningKeyScalarFieldEnum)[keyof typeof AuthSigningKeyScalarFieldEnum]
+
+
+export const OAuthClientScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  clientId: 'clientId',
+  name: 'name',
+  description: 'description',
+  clientType: 'clientType',
+  appCategory: 'appCategory',
+  status: 'status',
+  clientSecretHash: 'clientSecretHash',
+  clientSecretLast4: 'clientSecretLast4',
+  authMethods: 'authMethods',
+  allowedGrantTypes: 'allowedGrantTypes',
+  redirectUris: 'redirectUris',
+  allowedScopes: 'allowedScopes',
+  serviceRole: 'serviceRole',
+  locationId: 'locationId',
+  ipAllowlist: 'ipAllowlist',
+  jwksUri: 'jwksUri',
+  isFirstParty: 'isFirstParty',
+  requireConsent: 'requireConsent',
+  accessTokenTtlSeconds: 'accessTokenTtlSeconds',
+  refreshTokenTtlSeconds: 'refreshTokenTtlSeconds',
+  createdByUserId: 'createdByUserId',
+  revokedAt: 'revokedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type OAuthClientScalarFieldEnum = (typeof OAuthClientScalarFieldEnum)[keyof typeof OAuthClientScalarFieldEnum]
+
+
+export const OAuthClientKeyScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  oauthClientId: 'oauthClientId',
+  kid: 'kid',
+  name: 'name',
+  algorithm: 'algorithm',
+  publicKeyPem: 'publicKeyPem',
+  publicJwk: 'publicJwk',
+  isActive: 'isActive',
+  expiresAt: 'expiresAt',
+  revokedAt: 'revokedAt',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt'
+} as const
+
+export type OAuthClientKeyScalarFieldEnum = (typeof OAuthClientKeyScalarFieldEnum)[keyof typeof OAuthClientKeyScalarFieldEnum]
+
+
+export const OAuthAuthorizationCodeScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  oauthClientId: 'oauthClientId',
+  userId: 'userId',
+  codeHash: 'codeHash',
+  redirectUri: 'redirectUri',
+  scopes: 'scopes',
+  codeChallenge: 'codeChallenge',
+  codeChallengeMethod: 'codeChallengeMethod',
+  nonce: 'nonce',
+  deviceIdentifier: 'deviceIdentifier',
+  deviceName: 'deviceName',
+  deviceOsVersion: 'deviceOsVersion',
+  deviceAppVersion: 'deviceAppVersion',
+  expiresAt: 'expiresAt',
+  consumedAt: 'consumedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type OAuthAuthorizationCodeScalarFieldEnum = (typeof OAuthAuthorizationCodeScalarFieldEnum)[keyof typeof OAuthAuthorizationCodeScalarFieldEnum]
+
+
+export const OAuthDeviceCodeScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  oauthClientId: 'oauthClientId',
+  locationId: 'locationId',
+  deviceCodeHash: 'deviceCodeHash',
+  userCode: 'userCode',
+  scopes: 'scopes',
+  status: 'status',
+  deviceName: 'deviceName',
+  deviceIdentifier: 'deviceIdentifier',
+  deviceType: 'deviceType',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  deniedByUserId: 'deniedByUserId',
+  deniedAt: 'deniedAt',
+  intervalSeconds: 'intervalSeconds',
+  lastPolledAt: 'lastPolledAt',
+  expiresAt: 'expiresAt',
+  consumedAt: 'consumedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type OAuthDeviceCodeScalarFieldEnum = (typeof OAuthDeviceCodeScalarFieldEnum)[keyof typeof OAuthDeviceCodeScalarFieldEnum]
+
+
+export const OAuthRefreshTokenScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  oauthClientId: 'oauthClientId',
+  userId: 'userId',
+  registeredDeviceId: 'registeredDeviceId',
+  familyId: 'familyId',
+  tokenHash: 'tokenHash',
+  scopes: 'scopes',
+  expiresAt: 'expiresAt',
+  revokedAt: 'revokedAt',
+  revocationReason: 'revocationReason',
+  replacedById: 'replacedById',
+  createdAt: 'createdAt'
+} as const
+
+export type OAuthRefreshTokenScalarFieldEnum = (typeof OAuthRefreshTokenScalarFieldEnum)[keyof typeof OAuthRefreshTokenScalarFieldEnum]
+
+
+export const PersonalAccessTokenScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  userId: 'userId',
+  name: 'name',
+  tokenPrefix: 'tokenPrefix',
+  tokenHash: 'tokenHash',
+  scopes: 'scopes',
+  ipAllowlist: 'ipAllowlist',
+  lastUsedAt: 'lastUsedAt',
+  lastUsedIp: 'lastUsedIp',
+  expiresAt: 'expiresAt',
+  revokedAt: 'revokedAt',
+  revokedByUserId: 'revokedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PersonalAccessTokenScalarFieldEnum = (typeof PersonalAccessTokenScalarFieldEnum)[keyof typeof PersonalAccessTokenScalarFieldEnum]
+
+
+export const RegisteredDeviceScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  oauthClientId: 'oauthClientId',
+  userId: 'userId',
+  locationId: 'locationId',
+  deviceType: 'deviceType',
+  deviceIdentifier: 'deviceIdentifier',
+  name: 'name',
+  osVersion: 'osVersion',
+  appVersion: 'appVersion',
+  status: 'status',
+  trusted: 'trusted',
+  ipAllowlist: 'ipAllowlist',
+  lastSeenAt: 'lastSeenAt',
+  lastIp: 'lastIp',
+  revokedAt: 'revokedAt',
+  revokedByUserId: 'revokedByUserId',
+  revokeReason: 'revokeReason',
+  metadata: 'metadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type RegisteredDeviceScalarFieldEnum = (typeof RegisteredDeviceScalarFieldEnum)[keyof typeof RegisteredDeviceScalarFieldEnum]
+
+
+export const OrganizationSsoProviderScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  providerKey: 'providerKey',
+  providerType: 'providerType',
+  displayName: 'displayName',
+  issuerUrl: 'issuerUrl',
+  authorizationEndpoint: 'authorizationEndpoint',
+  tokenEndpoint: 'tokenEndpoint',
+  userinfoEndpoint: 'userinfoEndpoint',
+  jwksUri: 'jwksUri',
+  clientId: 'clientId',
+  encryptedClientSecret: 'encryptedClientSecret',
+  clientSecretLast4: 'clientSecretLast4',
+  scopes: 'scopes',
+  allowedDomains: 'allowedDomains',
+  autoProvisionRole: 'autoProvisionRole',
+  enforceSsoOnly: 'enforceSsoOnly',
+  enabled: 'enabled',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type OrganizationSsoProviderScalarFieldEnum = (typeof OrganizationSsoProviderScalarFieldEnum)[keyof typeof OrganizationSsoProviderScalarFieldEnum]
 
 
 export const SortOrder = {

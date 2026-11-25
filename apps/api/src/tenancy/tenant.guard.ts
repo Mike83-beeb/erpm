@@ -36,18 +36,20 @@ export class TenantGuard implements CanActivate {
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const request = context.switchToHttp().getRequest<TenantScopedRequest>();
     const userSession = request.session;
+    const authContext = request.authContext;
 
     if (!userSession?.user?.id) {
       throw new UnauthorizedException("Authentication required.");
     }
 
-    if (userSession.user.emailVerified === false) {
+    if (!authContext?.isServicePrincipal && userSession.user.emailVerified === false) {
       throw new ForbiddenException(
         "Email verification is required before accessing organization resources.",
       );
     }
 
-    const organizationId = userSession.session?.activeOrganizationId;
+    const organizationId =
+      authContext?.organizationId ?? userSession.session?.activeOrganizationId;
     if (!organizationId) {
       throw new ForbiddenException(
         "No active organization selected. Call /api/auth/organization/set-active before accessing tenant resources.",
@@ -55,44 +57,51 @@ export class TenantGuard implements CanActivate {
     }
 
     const userId = userSession.user.id;
-    const cacheKey = `membership:${organizationId}:${userId}`;
-
     let membership: CachedMembership | null = null;
-    try {
-      membership = await this.redisService.getJson<CachedMembership>(cacheKey);
-    } catch {
-      membership = null;
-    }
 
-    if (!membership) {
-      const dbMember = await this.prismaService.raw.member.findUnique({
-        where: {
-          organizationId_userId: {
-            organizationId,
-            userId,
-          },
-        },
-        select: {
-          id: true,
-          role: true,
-        },
-      });
-
-      if (!dbMember) {
-        throw new ForbiddenException(
-          "You are not a member of the active organization.",
-        );
+    if (authContext?.isServicePrincipal) {
+      membership = {
+        memberId: `service:${authContext.oauthClientId ?? authContext.clientId ?? "client"}`,
+        role: authContext.serviceRole ?? "member",
+      };
+    } else {
+      const cacheKey = `membership:${organizationId}:${userId}`;
+      try {
+        membership = await this.redisService.getJson<CachedMembership>(cacheKey);
+      } catch {
+        membership = null;
       }
 
-      membership = {
-        memberId: dbMember.id,
-        role: dbMember.role,
-      };
+      if (!membership) {
+        const dbMember = await this.prismaService.raw.member.findUnique({
+          where: {
+            organizationId_userId: {
+              organizationId,
+              userId,
+            },
+          },
+          select: {
+            id: true,
+            role: true,
+          },
+        });
 
-      try {
-        await this.redisService.setJson(cacheKey, membership, 60);
-      } catch {
-        // Non-fatal if Redis cache write is temporarily unavailable
+        if (!dbMember) {
+          throw new ForbiddenException(
+            "You are not a member of the active organization.",
+          );
+        }
+
+        membership = {
+          memberId: dbMember.id,
+          role: dbMember.role,
+        };
+
+        try {
+          await this.redisService.setJson(cacheKey, membership, 60);
+        } catch {
+          // Non-fatal if Redis cache write is temporarily unavailable
+        }
       }
     }
 
@@ -122,10 +131,14 @@ export class TenantGuard implements CanActivate {
 
     if (
       requiredPermissions &&
-      !hasOrganizationPermission(membership.role, requiredPermissions)
+      !hasOrganizationPermission(
+        membership.role,
+        requiredPermissions,
+        authContext?.grantedScopes,
+      )
     ) {
       throw new ForbiddenException(
-        "Insufficient organization permissions for the requested action.",
+        "Insufficient organization permissions or token scope for the requested action.",
       );
     }
 
@@ -134,6 +147,13 @@ export class TenantGuard implements CanActivate {
       memberId: membership.memberId,
       role: membership.role,
       userId,
+      authMethod: authContext?.authMethod ?? "COOKIE_SESSION",
+      grantedScopes: authContext?.grantedScopes,
+      patId: authContext?.patId,
+      oauthClientId: authContext?.oauthClientId,
+      clientId: authContext?.clientId,
+      deviceId: authContext?.deviceId,
+      isServicePrincipal: authContext?.isServicePrincipal ?? false,
     };
     request.tenant = tenant;
 

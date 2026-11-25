@@ -14,11 +14,31 @@ import { TenantInterceptor } from "./tenant.interceptor.js";
 export const TENANT_ROLES_KEY = "scace:tenant_roles";
 export const TENANT_PERMISSIONS_KEY = "scace:tenant_permissions";
 
+export interface AuthContextMetadata {
+  authMethod: "COOKIE_SESSION" | "BEARER_SESSION" | "PAT" | "OAUTH2_ACCESS_TOKEN";
+  organizationId: string | null;
+  grantedScopes?: string[];
+  patId?: string;
+  oauthClientId?: string;
+  clientId?: string;
+  deviceId?: string | null;
+  principalType?: "USER" | "SERVICE_PRINCIPAL" | "DEVICE_TERMINAL";
+  serviceRole?: string;
+  isServicePrincipal?: boolean;
+}
+
 export interface AuthenticatedTenant {
   organizationId: string;
   memberId: string;
   role: string;
   userId: string;
+  authMethod?: AuthContextMetadata["authMethod"];
+  grantedScopes?: string[];
+  patId?: string;
+  oauthClientId?: string;
+  clientId?: string;
+  deviceId?: string | null;
+  isServicePrincipal?: boolean;
 }
 
 export type TenantScopedRequest = FastifyRequest & {
@@ -31,6 +51,7 @@ export type TenantScopedRequest = FastifyRequest & {
     };
     session: { id: string; activeOrganizationId?: string | null };
   };
+  authContext?: AuthContextMetadata;
   tenant?: AuthenticatedTenant;
 };
 

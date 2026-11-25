@@ -33,6 +33,10 @@ export const erpStatements = {
   fulfillment: ["read", "create", "update", "confirm", "complete", "cancel", "configure"],
   staffJob: ["read", "create", "assign", "update", "complete", "cancel"],
   notification: ["read", "send", "configureTemplates"],
+  apiToken: ["read", "create", "revoke"],
+  oauthClient: ["read", "create", "update", "revoke", "manageKeys"],
+  device: ["read", "approve", "update", "revoke"],
+  ssoConfig: ["read", "configure"],
 } as const;
 
 export type ErpStatements = typeof erpStatements;
@@ -70,6 +74,10 @@ export const owner = ac.newRole({
   fulfillment: ["read", "create", "update", "confirm", "complete", "cancel", "configure"],
   staffJob: ["read", "create", "assign", "update", "complete", "cancel"],
   notification: ["read", "send", "configureTemplates"],
+  apiToken: ["read", "create", "revoke"],
+  oauthClient: ["read", "create", "update", "revoke", "manageKeys"],
+  device: ["read", "approve", "update", "revoke"],
+  ssoConfig: ["read", "configure"],
 });
 
 export const admin = ac.newRole({
@@ -99,6 +107,10 @@ export const admin = ac.newRole({
   fulfillment: ["read", "create", "update", "confirm", "complete", "cancel", "configure"],
   staffJob: ["read", "create", "assign", "update", "complete", "cancel"],
   notification: ["read", "send", "configureTemplates"],
+  apiToken: ["read", "create", "revoke"],
+  oauthClient: ["read", "create", "update", "revoke", "manageKeys"],
+  device: ["read", "approve", "update", "revoke"],
+  ssoConfig: ["read", "configure"],
 });
 
 export const manager = ac.newRole({
@@ -131,6 +143,10 @@ export const manager = ac.newRole({
   fulfillment: ["read", "create", "update", "confirm", "complete", "cancel", "configure"],
   staffJob: ["read", "create", "assign", "update", "complete", "cancel"],
   notification: ["read", "send", "configureTemplates"],
+  apiToken: ["read", "create", "revoke"],
+  oauthClient: ["read"],
+  device: ["read", "approve", "update", "revoke"],
+  ssoConfig: [],
 });
 
 export const member = ac.newRole({
@@ -159,6 +175,10 @@ export const member = ac.newRole({
   fulfillment: ["read", "create", "update", "confirm", "complete"],
   staffJob: ["read", "create", "update", "complete"],
   notification: ["read", "send"],
+  apiToken: ["read", "create", "revoke"],
+  oauthClient: [],
+  device: ["read", "revoke"],
+  ssoConfig: [],
 });
 
 export const viewer = ac.newRole({
@@ -190,6 +210,10 @@ export const viewer = ac.newRole({
   fulfillment: ["read"],
   staffJob: ["read"],
   notification: ["read"],
+  apiToken: [],
+  oauthClient: [],
+  device: [],
+  ssoConfig: [],
 });
 
 export const organizationRoles = {
@@ -205,6 +229,52 @@ export type OrganizationRoleName = keyof typeof organizationRoles;
 export const ORGANIZATION_ROLE_NAMES = Object.keys(
   organizationRoles,
 ) as OrganizationRoleName[];
+
+export const STANDARD_OIDC_SCOPES = [
+  "openid",
+  "profile",
+  "email",
+  "offline_access",
+] as const;
+
+export const ALL_ERP_SCOPES: readonly string[] = Object.entries(erpStatements).flatMap(
+  ([resource, actions]) => actions.map((action) => `${resource}:${action}`),
+);
+
+export const ALL_SUPPORTED_OAUTH_SCOPES: readonly string[] = [
+  ...STANDARD_OIDC_SCOPES,
+  ...ALL_ERP_SCOPES,
+];
+
+const SUPPORTED_SCOPE_SET = new Set<string>(ALL_SUPPORTED_OAUTH_SCOPES);
+const ERP_SCOPE_SET = new Set<string>(ALL_ERP_SCOPES);
+
+export function isValidErpScope(scope: string): boolean {
+  return ERP_SCOPE_SET.has(scope);
+}
+
+export function isValidOAuthScope(scope: string): boolean {
+  return SUPPORTED_SCOPE_SET.has(scope);
+}
+
+export function normalizeScopesInput(input: string | readonly string[]): string[] {
+  const rawList = Array.isArray(input)
+    ? input
+    : String(input)
+        .split(/[\s,]+/)
+        .map((s) => s.trim());
+  const seen = new Set<string>();
+  const normalized: string[] = [];
+  for (const item of rawList) {
+    const trimmed = String(item).trim();
+    if (!trimmed || seen.has(trimmed)) {
+      continue;
+    }
+    seen.add(trimmed);
+    normalized.push(trimmed);
+  }
+  return normalized;
+}
 
 export function isValidOrganizationRole(
   role: string,
@@ -252,6 +322,10 @@ export function getResolvedPermissionsForRole(
     fulfillment: new Set(),
     staffJob: new Set(),
     notification: new Set(),
+    apiToken: new Set(),
+    oauthClient: new Set(),
+    device: new Set(),
+    ssoConfig: new Set(),
   };
 
   for (const roleName of parseRoleNames(roleNameList(roleValue))) {
@@ -297,6 +371,10 @@ export function getResolvedPermissionsForRole(
     fulfillment: Array.from(resolved.fulfillment),
     staffJob: Array.from(resolved.staffJob),
     notification: Array.from(resolved.notification),
+    apiToken: Array.from(resolved.apiToken),
+    oauthClient: Array.from(resolved.oauthClient),
+    device: Array.from(resolved.device),
+    ssoConfig: Array.from(resolved.ssoConfig),
   };
 }
 
@@ -304,16 +382,34 @@ function roleNameList(roleValue: string): string {
   return roleValue ?? "";
 }
 
+export function intersectPermissionsWithScopes(
+  rolePermissions: Record<ErpResource, string[]>,
+  grantedScopes: readonly string[],
+): Record<ErpResource, string[]> {
+  const scopeSet = new Set(grantedScopes);
+  const intersected = {} as Record<ErpResource, string[]>;
+  for (const resource of Object.keys(rolePermissions) as ErpResource[]) {
+    intersected[resource] = (rolePermissions[resource] ?? []).filter((action) =>
+      scopeSet.has(`${resource}:${action}`),
+    );
+  }
+  return intersected;
+}
+
 export function hasOrganizationPermission(
   roleValue: string,
   required: OrgPermissionRequirement,
+  grantedScopes?: readonly string[],
 ): boolean {
   const roleNames = parseRoleNames(roleValue);
   if (roleNames.length === 0) {
     return false;
   }
 
-  const resolved = getResolvedPermissionsForRole(roleValue);
+  const baseResolved = getResolvedPermissionsForRole(roleValue);
+  const effective = grantedScopes
+    ? intersectPermissionsWithScopes(baseResolved, grantedScopes)
+    : baseResolved;
 
   for (const [resource, actions] of Object.entries(required) as [
     ErpResource,
@@ -322,7 +418,7 @@ export function hasOrganizationPermission(
     if (!actions || actions.length === 0) {
       continue;
     }
-    const granted = resolved[resource] ?? [];
+    const granted = effective[resource] ?? [];
     const hasAllActions = actions.every((action) => granted.includes(action));
     if (!hasAllActions) {
       return false;

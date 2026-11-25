@@ -1211,6 +1211,142 @@ export type EnumNotificationDeliveryStatusWithAggregatesFilter<$PrismaModel = ne
   _max?: Prisma.NestedEnumNotificationDeliveryStatusFilter<$PrismaModel>
 }
 
+export type EnumOAuthSigningAlgorithmFilter<$PrismaModel = never> = {
+  equals?: $Enums.OAuthSigningAlgorithm | Prisma.EnumOAuthSigningAlgorithmFieldRefInput<$PrismaModel>
+  in?: $Enums.OAuthSigningAlgorithm[] | Prisma.ListEnumOAuthSigningAlgorithmFieldRefInput<$PrismaModel>
+  notIn?: $Enums.OAuthSigningAlgorithm[] | Prisma.ListEnumOAuthSigningAlgorithmFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumOAuthSigningAlgorithmFilter<$PrismaModel> | $Enums.OAuthSigningAlgorithm
+}
+
+export type EnumOAuthSigningAlgorithmWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.OAuthSigningAlgorithm | Prisma.EnumOAuthSigningAlgorithmFieldRefInput<$PrismaModel>
+  in?: $Enums.OAuthSigningAlgorithm[] | Prisma.ListEnumOAuthSigningAlgorithmFieldRefInput<$PrismaModel>
+  notIn?: $Enums.OAuthSigningAlgorithm[] | Prisma.ListEnumOAuthSigningAlgorithmFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumOAuthSigningAlgorithmWithAggregatesFilter<$PrismaModel> | $Enums.OAuthSigningAlgorithm
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumOAuthSigningAlgorithmFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumOAuthSigningAlgorithmFilter<$PrismaModel>
+}
+
+export type EnumOAuthClientTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.OAuthClientType | Prisma.EnumOAuthClientTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.OAuthClientType[] | Prisma.ListEnumOAuthClientTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.OAuthClientType[] | Prisma.ListEnumOAuthClientTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumOAuthClientTypeFilter<$PrismaModel> | $Enums.OAuthClientType
+}
+
+export type EnumOAuthAppCategoryFilter<$PrismaModel = never> = {
+  equals?: $Enums.OAuthAppCategory | Prisma.EnumOAuthAppCategoryFieldRefInput<$PrismaModel>
+  in?: $Enums.OAuthAppCategory[] | Prisma.ListEnumOAuthAppCategoryFieldRefInput<$PrismaModel>
+  notIn?: $Enums.OAuthAppCategory[] | Prisma.ListEnumOAuthAppCategoryFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumOAuthAppCategoryFilter<$PrismaModel> | $Enums.OAuthAppCategory
+}
+
+export type EnumOAuthClientStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.OAuthClientStatus | Prisma.EnumOAuthClientStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.OAuthClientStatus[] | Prisma.ListEnumOAuthClientStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.OAuthClientStatus[] | Prisma.ListEnumOAuthClientStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumOAuthClientStatusFilter<$PrismaModel> | $Enums.OAuthClientStatus
+}
+
+export type EnumOAuthClientTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.OAuthClientType | Prisma.EnumOAuthClientTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.OAuthClientType[] | Prisma.ListEnumOAuthClientTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.OAuthClientType[] | Prisma.ListEnumOAuthClientTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumOAuthClientTypeWithAggregatesFilter<$PrismaModel> | $Enums.OAuthClientType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumOAuthClientTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumOAuthClientTypeFilter<$PrismaModel>
+}
+
+export type EnumOAuthAppCategoryWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.OAuthAppCategory | Prisma.EnumOAuthAppCategoryFieldRefInput<$PrismaModel>
+  in?: $Enums.OAuthAppCategory[] | Prisma.ListEnumOAuthAppCategoryFieldRefInput<$PrismaModel>
+  notIn?: $Enums.OAuthAppCategory[] | Prisma.ListEnumOAuthAppCategoryFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumOAuthAppCategoryWithAggregatesFilter<$PrismaModel> | $Enums.OAuthAppCategory
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumOAuthAppCategoryFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumOAuthAppCategoryFilter<$PrismaModel>
+}
+
+export type EnumOAuthClientStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.OAuthClientStatus | Prisma.EnumOAuthClientStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.OAuthClientStatus[] | Prisma.ListEnumOAuthClientStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.OAuthClientStatus[] | Prisma.ListEnumOAuthClientStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumOAuthClientStatusWithAggregatesFilter<$PrismaModel> | $Enums.OAuthClientStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumOAuthClientStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumOAuthClientStatusFilter<$PrismaModel>
+}
+
+export type EnumOAuthDeviceCodeStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.OAuthDeviceCodeStatus | Prisma.EnumOAuthDeviceCodeStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.OAuthDeviceCodeStatus[] | Prisma.ListEnumOAuthDeviceCodeStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.OAuthDeviceCodeStatus[] | Prisma.ListEnumOAuthDeviceCodeStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumOAuthDeviceCodeStatusFilter<$PrismaModel> | $Enums.OAuthDeviceCodeStatus
+}
+
+export type EnumRegisteredDeviceTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.RegisteredDeviceType | Prisma.EnumRegisteredDeviceTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.RegisteredDeviceType[] | Prisma.ListEnumRegisteredDeviceTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RegisteredDeviceType[] | Prisma.ListEnumRegisteredDeviceTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRegisteredDeviceTypeFilter<$PrismaModel> | $Enums.RegisteredDeviceType
+}
+
+export type EnumOAuthDeviceCodeStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.OAuthDeviceCodeStatus | Prisma.EnumOAuthDeviceCodeStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.OAuthDeviceCodeStatus[] | Prisma.ListEnumOAuthDeviceCodeStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.OAuthDeviceCodeStatus[] | Prisma.ListEnumOAuthDeviceCodeStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumOAuthDeviceCodeStatusWithAggregatesFilter<$PrismaModel> | $Enums.OAuthDeviceCodeStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumOAuthDeviceCodeStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumOAuthDeviceCodeStatusFilter<$PrismaModel>
+}
+
+export type EnumRegisteredDeviceTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.RegisteredDeviceType | Prisma.EnumRegisteredDeviceTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.RegisteredDeviceType[] | Prisma.ListEnumRegisteredDeviceTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RegisteredDeviceType[] | Prisma.ListEnumRegisteredDeviceTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRegisteredDeviceTypeWithAggregatesFilter<$PrismaModel> | $Enums.RegisteredDeviceType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumRegisteredDeviceTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumRegisteredDeviceTypeFilter<$PrismaModel>
+}
+
+export type EnumRegisteredDeviceStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.RegisteredDeviceStatus | Prisma.EnumRegisteredDeviceStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.RegisteredDeviceStatus[] | Prisma.ListEnumRegisteredDeviceStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RegisteredDeviceStatus[] | Prisma.ListEnumRegisteredDeviceStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRegisteredDeviceStatusFilter<$PrismaModel> | $Enums.RegisteredDeviceStatus
+}
+
+export type EnumRegisteredDeviceStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.RegisteredDeviceStatus | Prisma.EnumRegisteredDeviceStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.RegisteredDeviceStatus[] | Prisma.ListEnumRegisteredDeviceStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RegisteredDeviceStatus[] | Prisma.ListEnumRegisteredDeviceStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRegisteredDeviceStatusWithAggregatesFilter<$PrismaModel> | $Enums.RegisteredDeviceStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumRegisteredDeviceStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumRegisteredDeviceStatusFilter<$PrismaModel>
+}
+
+export type EnumSsoProviderTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.SsoProviderType | Prisma.EnumSsoProviderTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SsoProviderType[] | Prisma.ListEnumSsoProviderTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SsoProviderType[] | Prisma.ListEnumSsoProviderTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSsoProviderTypeFilter<$PrismaModel> | $Enums.SsoProviderType
+}
+
+export type EnumSsoProviderTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SsoProviderType | Prisma.EnumSsoProviderTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SsoProviderType[] | Prisma.ListEnumSsoProviderTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SsoProviderType[] | Prisma.ListEnumSsoProviderTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSsoProviderTypeWithAggregatesFilter<$PrismaModel> | $Enums.SsoProviderType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSsoProviderTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSsoProviderTypeFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -2365,6 +2501,142 @@ export type NestedEnumNotificationDeliveryStatusWithAggregatesFilter<$PrismaMode
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumNotificationDeliveryStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumNotificationDeliveryStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumOAuthSigningAlgorithmFilter<$PrismaModel = never> = {
+  equals?: $Enums.OAuthSigningAlgorithm | Prisma.EnumOAuthSigningAlgorithmFieldRefInput<$PrismaModel>
+  in?: $Enums.OAuthSigningAlgorithm[] | Prisma.ListEnumOAuthSigningAlgorithmFieldRefInput<$PrismaModel>
+  notIn?: $Enums.OAuthSigningAlgorithm[] | Prisma.ListEnumOAuthSigningAlgorithmFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumOAuthSigningAlgorithmFilter<$PrismaModel> | $Enums.OAuthSigningAlgorithm
+}
+
+export type NestedEnumOAuthSigningAlgorithmWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.OAuthSigningAlgorithm | Prisma.EnumOAuthSigningAlgorithmFieldRefInput<$PrismaModel>
+  in?: $Enums.OAuthSigningAlgorithm[] | Prisma.ListEnumOAuthSigningAlgorithmFieldRefInput<$PrismaModel>
+  notIn?: $Enums.OAuthSigningAlgorithm[] | Prisma.ListEnumOAuthSigningAlgorithmFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumOAuthSigningAlgorithmWithAggregatesFilter<$PrismaModel> | $Enums.OAuthSigningAlgorithm
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumOAuthSigningAlgorithmFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumOAuthSigningAlgorithmFilter<$PrismaModel>
+}
+
+export type NestedEnumOAuthClientTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.OAuthClientType | Prisma.EnumOAuthClientTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.OAuthClientType[] | Prisma.ListEnumOAuthClientTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.OAuthClientType[] | Prisma.ListEnumOAuthClientTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumOAuthClientTypeFilter<$PrismaModel> | $Enums.OAuthClientType
+}
+
+export type NestedEnumOAuthAppCategoryFilter<$PrismaModel = never> = {
+  equals?: $Enums.OAuthAppCategory | Prisma.EnumOAuthAppCategoryFieldRefInput<$PrismaModel>
+  in?: $Enums.OAuthAppCategory[] | Prisma.ListEnumOAuthAppCategoryFieldRefInput<$PrismaModel>
+  notIn?: $Enums.OAuthAppCategory[] | Prisma.ListEnumOAuthAppCategoryFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumOAuthAppCategoryFilter<$PrismaModel> | $Enums.OAuthAppCategory
+}
+
+export type NestedEnumOAuthClientStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.OAuthClientStatus | Prisma.EnumOAuthClientStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.OAuthClientStatus[] | Prisma.ListEnumOAuthClientStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.OAuthClientStatus[] | Prisma.ListEnumOAuthClientStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumOAuthClientStatusFilter<$PrismaModel> | $Enums.OAuthClientStatus
+}
+
+export type NestedEnumOAuthClientTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.OAuthClientType | Prisma.EnumOAuthClientTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.OAuthClientType[] | Prisma.ListEnumOAuthClientTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.OAuthClientType[] | Prisma.ListEnumOAuthClientTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumOAuthClientTypeWithAggregatesFilter<$PrismaModel> | $Enums.OAuthClientType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumOAuthClientTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumOAuthClientTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumOAuthAppCategoryWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.OAuthAppCategory | Prisma.EnumOAuthAppCategoryFieldRefInput<$PrismaModel>
+  in?: $Enums.OAuthAppCategory[] | Prisma.ListEnumOAuthAppCategoryFieldRefInput<$PrismaModel>
+  notIn?: $Enums.OAuthAppCategory[] | Prisma.ListEnumOAuthAppCategoryFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumOAuthAppCategoryWithAggregatesFilter<$PrismaModel> | $Enums.OAuthAppCategory
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumOAuthAppCategoryFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumOAuthAppCategoryFilter<$PrismaModel>
+}
+
+export type NestedEnumOAuthClientStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.OAuthClientStatus | Prisma.EnumOAuthClientStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.OAuthClientStatus[] | Prisma.ListEnumOAuthClientStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.OAuthClientStatus[] | Prisma.ListEnumOAuthClientStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumOAuthClientStatusWithAggregatesFilter<$PrismaModel> | $Enums.OAuthClientStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumOAuthClientStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumOAuthClientStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumOAuthDeviceCodeStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.OAuthDeviceCodeStatus | Prisma.EnumOAuthDeviceCodeStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.OAuthDeviceCodeStatus[] | Prisma.ListEnumOAuthDeviceCodeStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.OAuthDeviceCodeStatus[] | Prisma.ListEnumOAuthDeviceCodeStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumOAuthDeviceCodeStatusFilter<$PrismaModel> | $Enums.OAuthDeviceCodeStatus
+}
+
+export type NestedEnumRegisteredDeviceTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.RegisteredDeviceType | Prisma.EnumRegisteredDeviceTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.RegisteredDeviceType[] | Prisma.ListEnumRegisteredDeviceTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RegisteredDeviceType[] | Prisma.ListEnumRegisteredDeviceTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRegisteredDeviceTypeFilter<$PrismaModel> | $Enums.RegisteredDeviceType
+}
+
+export type NestedEnumOAuthDeviceCodeStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.OAuthDeviceCodeStatus | Prisma.EnumOAuthDeviceCodeStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.OAuthDeviceCodeStatus[] | Prisma.ListEnumOAuthDeviceCodeStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.OAuthDeviceCodeStatus[] | Prisma.ListEnumOAuthDeviceCodeStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumOAuthDeviceCodeStatusWithAggregatesFilter<$PrismaModel> | $Enums.OAuthDeviceCodeStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumOAuthDeviceCodeStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumOAuthDeviceCodeStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumRegisteredDeviceTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.RegisteredDeviceType | Prisma.EnumRegisteredDeviceTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.RegisteredDeviceType[] | Prisma.ListEnumRegisteredDeviceTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RegisteredDeviceType[] | Prisma.ListEnumRegisteredDeviceTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRegisteredDeviceTypeWithAggregatesFilter<$PrismaModel> | $Enums.RegisteredDeviceType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumRegisteredDeviceTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumRegisteredDeviceTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumRegisteredDeviceStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.RegisteredDeviceStatus | Prisma.EnumRegisteredDeviceStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.RegisteredDeviceStatus[] | Prisma.ListEnumRegisteredDeviceStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RegisteredDeviceStatus[] | Prisma.ListEnumRegisteredDeviceStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRegisteredDeviceStatusFilter<$PrismaModel> | $Enums.RegisteredDeviceStatus
+}
+
+export type NestedEnumRegisteredDeviceStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.RegisteredDeviceStatus | Prisma.EnumRegisteredDeviceStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.RegisteredDeviceStatus[] | Prisma.ListEnumRegisteredDeviceStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RegisteredDeviceStatus[] | Prisma.ListEnumRegisteredDeviceStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRegisteredDeviceStatusWithAggregatesFilter<$PrismaModel> | $Enums.RegisteredDeviceStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumRegisteredDeviceStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumRegisteredDeviceStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumSsoProviderTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.SsoProviderType | Prisma.EnumSsoProviderTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SsoProviderType[] | Prisma.ListEnumSsoProviderTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SsoProviderType[] | Prisma.ListEnumSsoProviderTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSsoProviderTypeFilter<$PrismaModel> | $Enums.SsoProviderType
+}
+
+export type NestedEnumSsoProviderTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SsoProviderType | Prisma.EnumSsoProviderTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SsoProviderType[] | Prisma.ListEnumSsoProviderTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SsoProviderType[] | Prisma.ListEnumSsoProviderTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSsoProviderTypeWithAggregatesFilter<$PrismaModel> | $Enums.SsoProviderType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSsoProviderTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSsoProviderTypeFilter<$PrismaModel>
 }
 
 

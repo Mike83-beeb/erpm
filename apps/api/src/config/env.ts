@@ -66,6 +66,31 @@ const envSchema = z.object({
     .min(1000)
     .max(60000)
     .default(10000),
+  APP_URL: z.string().url().optional(),
+  AUTH_TOKEN_ENCRYPTION_KEY: z.string().optional(),
+  OAUTH_ISSUER_URL: z.string().url().optional(),
+  OAUTH_ACCESS_TOKEN_TTL_SECONDS: z.coerce
+    .number()
+    .int()
+    .min(60)
+    .max(86400)
+    .default(900),
+  OAUTH_REFRESH_TOKEN_TTL_SECONDS: z.coerce
+    .number()
+    .int()
+    .min(300)
+    .max(31536000)
+    .default(2592000),
+  GOOGLE_OAUTH_CLIENT_ID: z.string().optional(),
+  GOOGLE_OAUTH_CLIENT_SECRET: z.string().optional(),
+  MICROSOFT_OAUTH_CLIENT_ID: z.string().optional(),
+  MICROSOFT_OAUTH_CLIENT_SECRET: z.string().optional(),
+  MICROSOFT_OAUTH_TENANT_ID: z.string().default("common"),
+  GITHUB_OAUTH_CLIENT_ID: z.string().optional(),
+  GITHUB_OAUTH_CLIENT_SECRET: z.string().optional(),
+  OIDC_SSO_CLIENT_ID: z.string().optional(),
+  OIDC_SSO_CLIENT_SECRET: z.string().optional(),
+  OIDC_SSO_ISSUER_URL: z.string().url().optional(),
 });
 
 export type AppEnv = Omit<
@@ -78,6 +103,18 @@ export type AppEnv = Omit<
   | "RUSTFS_PUBLIC_ENDPOINT"
   | "CRM_ENCRYPTION_KEY"
   | "CRM_ALLOW_PRIVATE_URLS"
+  | "APP_URL"
+  | "AUTH_TOKEN_ENCRYPTION_KEY"
+  | "OAUTH_ISSUER_URL"
+  | "GOOGLE_OAUTH_CLIENT_ID"
+  | "GOOGLE_OAUTH_CLIENT_SECRET"
+  | "MICROSOFT_OAUTH_CLIENT_ID"
+  | "MICROSOFT_OAUTH_CLIENT_SECRET"
+  | "GITHUB_OAUTH_CLIENT_ID"
+  | "GITHUB_OAUTH_CLIENT_SECRET"
+  | "OIDC_SSO_CLIENT_ID"
+  | "OIDC_SSO_CLIENT_SECRET"
+  | "OIDC_SSO_ISSUER_URL"
 > & {
   BETTER_AUTH_SECRET: string;
   CORS_ALLOWED_ORIGINS: string[];
@@ -87,10 +124,26 @@ export type AppEnv = Omit<
   RUSTFS_PUBLIC_ENDPOINT: string;
   CRM_ENCRYPTION_KEY: string | null;
   CRM_ALLOW_PRIVATE_URLS: boolean;
+  APP_URL: string;
+  AUTH_TOKEN_ENCRYPTION_KEY: string | null;
+  OAUTH_ISSUER_URL: string;
+  GOOGLE_OAUTH_CLIENT_ID: string | null;
+  GOOGLE_OAUTH_CLIENT_SECRET: string | null;
+  MICROSOFT_OAUTH_CLIENT_ID: string | null;
+  MICROSOFT_OAUTH_CLIENT_SECRET: string | null;
+  GITHUB_OAUTH_CLIENT_ID: string | null;
+  GITHUB_OAUTH_CLIENT_SECRET: string | null;
+  OIDC_SSO_CLIENT_ID: string | null;
+  OIDC_SSO_CLIENT_SECRET: string | null;
+  OIDC_SSO_ISSUER_URL: string | null;
 };
 
 let cachedEnv: AppEnv | null = null;
 const ephemeralDevSecret = randomBytes(32).toString("hex");
+
+function trimOptional(val: string | undefined): string | null {
+  return val && val.trim().length > 0 ? val.trim() : null;
+}
 
 export function getEnv(): AppEnv {
   if (cachedEnv) {
@@ -113,10 +166,7 @@ export function getEnv(): AppEnv {
     );
   }
 
-  const resendApiKey =
-    parsed.RESEND_API_KEY && parsed.RESEND_API_KEY.trim().length > 0
-      ? parsed.RESEND_API_KEY.trim()
-      : null;
+  const resendApiKey = trimOptional(parsed.RESEND_API_KEY);
 
   if (parsed.NODE_ENV === "production" && !resendApiKey) {
     console.warn(
@@ -124,24 +174,16 @@ export function getEnv(): AppEnv {
     );
   }
 
-  const rustfsAccessKey =
-    parsed.RUSTFS_ACCESS_KEY && parsed.RUSTFS_ACCESS_KEY.trim().length > 0
-      ? parsed.RUSTFS_ACCESS_KEY.trim()
-      : null;
-
-  const rustfsSecretKey =
-    parsed.RUSTFS_SECRET_KEY && parsed.RUSTFS_SECRET_KEY.trim().length > 0
-      ? parsed.RUSTFS_SECRET_KEY.trim()
-      : null;
+  const rustfsAccessKey = trimOptional(parsed.RUSTFS_ACCESS_KEY);
+  const rustfsSecretKey = trimOptional(parsed.RUSTFS_SECRET_KEY);
 
   const allowedOrigins = parsed.CORS_ALLOWED_ORIGINS.split(",")
     .map((origin) => origin.trim())
     .filter((origin) => origin.length > 0 && origin !== "*");
 
-  const crmEncryptionKey =
-    parsed.CRM_ENCRYPTION_KEY && parsed.CRM_ENCRYPTION_KEY.trim().length > 0
-      ? parsed.CRM_ENCRYPTION_KEY.trim()
-      : null;
+  const crmEncryptionKey = trimOptional(parsed.CRM_ENCRYPTION_KEY);
+  const appUrl = (trimOptional(parsed.APP_URL) ?? parsed.BETTER_AUTH_URL).replace(/\/+$/, "");
+  const oauthIssuerUrl = (trimOptional(parsed.OAUTH_ISSUER_URL) ?? appUrl).replace(/\/+$/, "");
 
   cachedEnv = {
     ...parsed,
@@ -158,6 +200,18 @@ export function getEnv(): AppEnv {
     RUSTFS_PUBLIC_ENDPOINT: parsed.RUSTFS_PUBLIC_ENDPOINT ?? parsed.RUSTFS_ENDPOINT,
     CRM_ENCRYPTION_KEY: crmEncryptionKey,
     CRM_ALLOW_PRIVATE_URLS: parsed.CRM_ALLOW_PRIVATE_URLS ?? false,
+    APP_URL: appUrl,
+    AUTH_TOKEN_ENCRYPTION_KEY: trimOptional(parsed.AUTH_TOKEN_ENCRYPTION_KEY),
+    OAUTH_ISSUER_URL: oauthIssuerUrl,
+    GOOGLE_OAUTH_CLIENT_ID: trimOptional(parsed.GOOGLE_OAUTH_CLIENT_ID),
+    GOOGLE_OAUTH_CLIENT_SECRET: trimOptional(parsed.GOOGLE_OAUTH_CLIENT_SECRET),
+    MICROSOFT_OAUTH_CLIENT_ID: trimOptional(parsed.MICROSOFT_OAUTH_CLIENT_ID),
+    MICROSOFT_OAUTH_CLIENT_SECRET: trimOptional(parsed.MICROSOFT_OAUTH_CLIENT_SECRET),
+    GITHUB_OAUTH_CLIENT_ID: trimOptional(parsed.GITHUB_OAUTH_CLIENT_ID),
+    GITHUB_OAUTH_CLIENT_SECRET: trimOptional(parsed.GITHUB_OAUTH_CLIENT_SECRET),
+    OIDC_SSO_CLIENT_ID: trimOptional(parsed.OIDC_SSO_CLIENT_ID),
+    OIDC_SSO_CLIENT_SECRET: trimOptional(parsed.OIDC_SSO_CLIENT_SECRET),
+    OIDC_SSO_ISSUER_URL: trimOptional(parsed.OIDC_SSO_ISSUER_URL),
   };
 
   return cachedEnv;

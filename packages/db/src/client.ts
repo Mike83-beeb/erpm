@@ -56,6 +56,14 @@ export const TENANT_SCOPED_MODELS = new Set<string>([
   "StaffJob",
   "NotificationTemplate",
   "CustomerNotification",
+  "OAuthClient",
+  "OAuthClientKey",
+  "OAuthAuthorizationCode",
+  "OAuthDeviceCode",
+  "OAuthRefreshToken",
+  "PersonalAccessToken",
+  "RegisteredDevice",
+  "OrganizationSsoProvider",
 ]);
 
 let sharedPool: Pool | null = null;

@@ -2,7 +2,7 @@ import { prisma, type Prisma } from "@scace/db";
 import { prismaAdapter } from "@better-auth/prisma-adapter";
 import { redisStorage } from "@better-auth/redis-storage";
 import { betterAuth } from "better-auth";
-import { organization } from "better-auth/plugins";
+import { bearer, genericOAuth, organization } from "better-auth/plugins";
 import { Redis } from "ioredis";
 import { getEnv } from "../config/env.js";
 import { emailDelivery } from "../email/email.service.js";
@@ -233,12 +233,75 @@ async function linkOrProvisionStaffForMember(params: {
   }
 }
 
+const isHttpsDeployment =
+  env.APP_URL.startsWith("https://") ||
+  env.BETTER_AUTH_URL.startsWith("https://");
+
+const socialProviders: Record<string, Record<string, unknown>> = {};
+if (env.GOOGLE_OAUTH_CLIENT_ID && env.GOOGLE_OAUTH_CLIENT_SECRET) {
+  socialProviders.google = {
+    clientId: env.GOOGLE_OAUTH_CLIENT_ID,
+    clientSecret: env.GOOGLE_OAUTH_CLIENT_SECRET,
+  };
+}
+if (env.MICROSOFT_OAUTH_CLIENT_ID && env.MICROSOFT_OAUTH_CLIENT_SECRET) {
+  socialProviders.microsoft = {
+    clientId: env.MICROSOFT_OAUTH_CLIENT_ID,
+    clientSecret: env.MICROSOFT_OAUTH_CLIENT_SECRET,
+    tenantId: env.MICROSOFT_OAUTH_TENANT_ID,
+  };
+}
+if (env.GITHUB_OAUTH_CLIENT_ID && env.GITHUB_OAUTH_CLIENT_SECRET) {
+  socialProviders.github = {
+    clientId: env.GITHUB_OAUTH_CLIENT_ID,
+    clientSecret: env.GITHUB_OAUTH_CLIENT_SECRET,
+  };
+}
+
+const genericOAuthConfigs: Array<{
+  providerId: string;
+  clientId: string;
+  clientSecret: string;
+  discoveryUrl?: string;
+  scopes?: string[];
+}> = [];
+if (
+  env.OIDC_SSO_CLIENT_ID &&
+  env.OIDC_SSO_CLIENT_SECRET &&
+  env.OIDC_SSO_ISSUER_URL
+) {
+  genericOAuthConfigs.push({
+    providerId: "enterprise-oidc",
+    clientId: env.OIDC_SSO_CLIENT_ID,
+    clientSecret: env.OIDC_SSO_CLIENT_SECRET,
+    discoveryUrl: `${env.OIDC_SSO_ISSUER_URL.replace(/\/+$/, "")}/.well-known/openid-configuration`,
+    scopes: ["openid", "profile", "email"],
+  });
+}
+
 export const auth = betterAuth({
   appName: "Scace",
   secret: env.BETTER_AUTH_SECRET,
-  baseURL: env.BETTER_AUTH_URL,
+  baseURL: env.APP_URL || env.BETTER_AUTH_URL,
   basePath: "/api/auth",
-  trustedOrigins: env.CORS_ALLOWED_ORIGINS,
+  trustedOrigins: Array.from(
+    new Set([
+      ...env.CORS_ALLOWED_ORIGINS,
+      env.APP_URL,
+      env.BETTER_AUTH_URL,
+    ]),
+  ),
+  advanced: isHttpsDeployment
+    ? {
+        useSecureCookies: true,
+        defaultCookieAttributes: {
+          sameSite: "none",
+          secure: true,
+          httpOnly: true,
+        },
+      }
+    : undefined,
+  ...(Object.keys(socialProviders).length > 0 ? { socialProviders } : {}),
   database: prismaAdapter(prisma, {
     provider: "postgresql",
   }),
@@ -289,6 +352,10 @@ export const auth = betterAuth({
     },
   },
   plugins: [
+    bearer(),
+    ...(genericOAuthConfigs.length > 0
+      ? [genericOAuth({ config: genericOAuthConfigs })]
+      : []),
     organization({
       ac,
       roles: organizationRoles,

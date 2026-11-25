@@ -1,7 +1,10 @@
 import { Module } from "@nestjs/common";
+import { APP_GUARD } from "@nestjs/core";
 import { AuthModule } from "@thallesp/nestjs-better-auth";
 import { auth } from "./auth/auth.config.js";
+import { EnterpriseAuthModule } from "./auth/enterprise-auth.module.js";
 import { MeController } from "./auth/me.controller.js";
+import { UnifiedAuthGuard } from "./auth/unified-auth.guard.js";
 import { CrmModule } from "./crm/crm.module.js";
 import { CustomersModule } from "./customers/customers.module.js";
 import { DatabaseModule } from "./database/database.module.js";
@@ -29,6 +32,7 @@ import { TenantsModule } from "./tenants/tenants.module.js";
     AuthModule.forRoot({
       auth,
       isGlobal: true,
+      disableGlobalAuthGuard: true,
       disableTrustedOriginsCors: true,
       bodyParser: {
         json: { limit: "1mb" },
@@ -36,6 +40,7 @@ import { TenantsModule } from "./tenants/tenants.module.js";
         rawBody: true,
       },
     }),
+    EnterpriseAuthModule,
     HealthModule,
     TenantsModule,
     ItemsModule,
@@ -49,5 +54,11 @@ import { TenantsModule } from "./tenants/tenants.module.js";
     FulfillmentsModule,
   ],
   controllers: [MeController],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: UnifiedAuthGuard,
+    },
+  ],
 })
 export class AppModule {}

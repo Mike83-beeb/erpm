@@ -335,6 +335,9 @@ export type LocationWhereInput = {
   quarantineHolds?: Prisma.QuarantineHoldListRelationFilter
   orders?: Prisma.OrderListRelationFilter
   orderFulfillments?: Prisma.OrderFulfillmentListRelationFilter
+  oauthClients?: Prisma.OAuthClientListRelationFilter
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeListRelationFilter
+  registeredDevices?: Prisma.RegisteredDeviceListRelationFilter
 }
 
 export type LocationOrderByWithRelationInput = {
@@ -374,6 +377,9 @@ export type LocationOrderByWithRelationInput = {
   quarantineHolds?: Prisma.QuarantineHoldOrderByRelationAggregateInput
   orders?: Prisma.OrderOrderByRelationAggregateInput
   orderFulfillments?: Prisma.OrderFulfillmentOrderByRelationAggregateInput
+  oauthClients?: Prisma.OAuthClientOrderByRelationAggregateInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeOrderByRelationAggregateInput
+  registeredDevices?: Prisma.RegisteredDeviceOrderByRelationAggregateInput
 }
 
 export type LocationWhereUniqueInput = Prisma.AtLeast<{
@@ -417,6 +423,9 @@ export type LocationWhereUniqueInput = Prisma.AtLeast<{
   quarantineHolds?: Prisma.QuarantineHoldListRelationFilter
   orders?: Prisma.OrderListRelationFilter
   orderFulfillments?: Prisma.OrderFulfillmentListRelationFilter
+  oauthClients?: Prisma.OAuthClientListRelationFilter
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeListRelationFilter
+  registeredDevices?: Prisma.RegisteredDeviceListRelationFilter
 }, "id" | "organizationId_code">
 
 export type LocationOrderByWithAggregationInput = {
@@ -513,6 +522,9 @@ export type LocationCreateInput = {
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateInput = {
@@ -551,6 +563,9 @@ export type LocationUncheckedCreateInput = {
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUpdateInput = {
@@ -589,6 +604,9 @@ export type LocationUpdateInput = {
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateInput = {
@@ -627,6 +645,9 @@ export type LocationUncheckedUpdateInput = {
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationCreateManyInput = {
@@ -1029,6 +1050,54 @@ export type LocationUpdateOneRequiredWithoutOrderFulfillmentsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.LocationUpdateToOneWithWhereWithoutOrderFulfillmentsInput, Prisma.LocationUpdateWithoutOrderFulfillmentsInput>, Prisma.LocationUncheckedUpdateWithoutOrderFulfillmentsInput>
 }
 
+export type LocationCreateNestedOneWithoutOauthClientsInput = {
+  create?: Prisma.XOR<Prisma.LocationCreateWithoutOauthClientsInput, Prisma.LocationUncheckedCreateWithoutOauthClientsInput>
+  connectOrCreate?: Prisma.LocationCreateOrConnectWithoutOauthClientsInput
+  connect?: Prisma.LocationWhereUniqueInput
+}
+
+export type LocationUpdateOneWithoutOauthClientsNestedInput = {
+  create?: Prisma.XOR<Prisma.LocationCreateWithoutOauthClientsInput, Prisma.LocationUncheckedCreateWithoutOauthClientsInput>
+  connectOrCreate?: Prisma.LocationCreateOrConnectWithoutOauthClientsInput
+  upsert?: Prisma.LocationUpsertWithoutOauthClientsInput
+  disconnect?: Prisma.LocationWhereInput | boolean
+  delete?: Prisma.LocationWhereInput | boolean
+  connect?: Prisma.LocationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.LocationUpdateToOneWithWhereWithoutOauthClientsInput, Prisma.LocationUpdateWithoutOauthClientsInput>, Prisma.LocationUncheckedUpdateWithoutOauthClientsInput>
+}
+
+export type LocationCreateNestedOneWithoutOauthDeviceCodesInput = {
+  create?: Prisma.XOR<Prisma.LocationCreateWithoutOauthDeviceCodesInput, Prisma.LocationUncheckedCreateWithoutOauthDeviceCodesInput>
+  connectOrCreate?: Prisma.LocationCreateOrConnectWithoutOauthDeviceCodesInput
+  connect?: Prisma.LocationWhereUniqueInput
+}
+
+export type LocationUpdateOneWithoutOauthDeviceCodesNestedInput = {
+  create?: Prisma.XOR<Prisma.LocationCreateWithoutOauthDeviceCodesInput, Prisma.LocationUncheckedCreateWithoutOauthDeviceCodesInput>
+  connectOrCreate?: Prisma.LocationCreateOrConnectWithoutOauthDeviceCodesInput
+  upsert?: Prisma.LocationUpsertWithoutOauthDeviceCodesInput
+  disconnect?: Prisma.LocationWhereInput | boolean
+  delete?: Prisma.LocationWhereInput | boolean
+  connect?: Prisma.LocationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.LocationUpdateToOneWithWhereWithoutOauthDeviceCodesInput, Prisma.LocationUpdateWithoutOauthDeviceCodesInput>, Prisma.LocationUncheckedUpdateWithoutOauthDeviceCodesInput>
+}
+
+export type LocationCreateNestedOneWithoutRegisteredDevicesInput = {
+  create?: Prisma.XOR<Prisma.LocationCreateWithoutRegisteredDevicesInput, Prisma.LocationUncheckedCreateWithoutRegisteredDevicesInput>
+  connectOrCreate?: Prisma.LocationCreateOrConnectWithoutRegisteredDevicesInput
+  connect?: Prisma.LocationWhereUniqueInput
+}
+
+export type LocationUpdateOneWithoutRegisteredDevicesNestedInput = {
+  create?: Prisma.XOR<Prisma.LocationCreateWithoutRegisteredDevicesInput, Prisma.LocationUncheckedCreateWithoutRegisteredDevicesInput>
+  connectOrCreate?: Prisma.LocationCreateOrConnectWithoutRegisteredDevicesInput
+  upsert?: Prisma.LocationUpsertWithoutRegisteredDevicesInput
+  disconnect?: Prisma.LocationWhereInput | boolean
+  delete?: Prisma.LocationWhereInput | boolean
+  connect?: Prisma.LocationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.LocationUpdateToOneWithWhereWithoutRegisteredDevicesInput, Prisma.LocationUpdateWithoutRegisteredDevicesInput>, Prisma.LocationUncheckedUpdateWithoutRegisteredDevicesInput>
+}
+
 export type LocationCreateWithoutOrganizationInput = {
   id?: string
   code: string
@@ -1064,6 +1133,9 @@ export type LocationCreateWithoutOrganizationInput = {
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateWithoutOrganizationInput = {
@@ -1101,6 +1173,9 @@ export type LocationUncheckedCreateWithoutOrganizationInput = {
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationCreateOrConnectWithoutOrganizationInput = {
@@ -1193,6 +1268,9 @@ export type LocationCreateWithoutStockBalancesInput = {
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateWithoutStockBalancesInput = {
@@ -1230,6 +1308,9 @@ export type LocationUncheckedCreateWithoutStockBalancesInput = {
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationCreateOrConnectWithoutStockBalancesInput = {
@@ -1283,6 +1364,9 @@ export type LocationUpdateWithoutStockBalancesInput = {
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateWithoutStockBalancesInput = {
@@ -1320,6 +1404,9 @@ export type LocationUncheckedUpdateWithoutStockBalancesInput = {
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationCreateWithoutStockMovementsInput = {
@@ -1357,6 +1444,9 @@ export type LocationCreateWithoutStockMovementsInput = {
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateWithoutStockMovementsInput = {
@@ -1394,6 +1484,9 @@ export type LocationUncheckedCreateWithoutStockMovementsInput = {
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationCreateOrConnectWithoutStockMovementsInput = {
@@ -1447,6 +1540,9 @@ export type LocationUpdateWithoutStockMovementsInput = {
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateWithoutStockMovementsInput = {
@@ -1484,6 +1580,9 @@ export type LocationUncheckedUpdateWithoutStockMovementsInput = {
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationCreateWithoutOutgoingTransfersInput = {
@@ -1521,6 +1620,9 @@ export type LocationCreateWithoutOutgoingTransfersInput = {
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateWithoutOutgoingTransfersInput = {
@@ -1558,6 +1660,9 @@ export type LocationUncheckedCreateWithoutOutgoingTransfersInput = {
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationCreateOrConnectWithoutOutgoingTransfersInput = {
@@ -1600,6 +1705,9 @@ export type LocationCreateWithoutIncomingTransfersInput = {
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateWithoutIncomingTransfersInput = {
@@ -1637,6 +1745,9 @@ export type LocationUncheckedCreateWithoutIncomingTransfersInput = {
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationCreateOrConnectWithoutIncomingTransfersInput = {
@@ -1690,6 +1801,9 @@ export type LocationUpdateWithoutOutgoingTransfersInput = {
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateWithoutOutgoingTransfersInput = {
@@ -1727,6 +1841,9 @@ export type LocationUncheckedUpdateWithoutOutgoingTransfersInput = {
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUpsertWithoutIncomingTransfersInput = {
@@ -1775,6 +1892,9 @@ export type LocationUpdateWithoutIncomingTransfersInput = {
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateWithoutIncomingTransfersInput = {
@@ -1812,6 +1932,9 @@ export type LocationUncheckedUpdateWithoutIncomingTransfersInput = {
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationCreateWithoutPurchaseOrdersInput = {
@@ -1849,6 +1972,9 @@ export type LocationCreateWithoutPurchaseOrdersInput = {
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateWithoutPurchaseOrdersInput = {
@@ -1886,6 +2012,9 @@ export type LocationUncheckedCreateWithoutPurchaseOrdersInput = {
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationCreateOrConnectWithoutPurchaseOrdersInput = {
@@ -1939,6 +2068,9 @@ export type LocationUpdateWithoutPurchaseOrdersInput = {
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateWithoutPurchaseOrdersInput = {
@@ -1976,6 +2108,9 @@ export type LocationUncheckedUpdateWithoutPurchaseOrdersInput = {
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationCreateWithoutGoodsReceiptsInput = {
@@ -2013,6 +2148,9 @@ export type LocationCreateWithoutGoodsReceiptsInput = {
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateWithoutGoodsReceiptsInput = {
@@ -2050,6 +2188,9 @@ export type LocationUncheckedCreateWithoutGoodsReceiptsInput = {
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationCreateOrConnectWithoutGoodsReceiptsInput = {
@@ -2103,6 +2244,9 @@ export type LocationUpdateWithoutGoodsReceiptsInput = {
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateWithoutGoodsReceiptsInput = {
@@ -2140,6 +2284,9 @@ export type LocationUncheckedUpdateWithoutGoodsReceiptsInput = {
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationCreateWithoutStockLotsInput = {
@@ -2177,6 +2324,9 @@ export type LocationCreateWithoutStockLotsInput = {
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateWithoutStockLotsInput = {
@@ -2214,6 +2364,9 @@ export type LocationUncheckedCreateWithoutStockLotsInput = {
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationCreateOrConnectWithoutStockLotsInput = {
@@ -2267,6 +2420,9 @@ export type LocationUpdateWithoutStockLotsInput = {
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateWithoutStockLotsInput = {
@@ -2304,6 +2460,9 @@ export type LocationUncheckedUpdateWithoutStockLotsInput = {
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationCreateWithoutQuarantineHoldsInput = {
@@ -2341,6 +2500,9 @@ export type LocationCreateWithoutQuarantineHoldsInput = {
   stockLots?: Prisma.StockLotCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateWithoutQuarantineHoldsInput = {
@@ -2378,6 +2540,9 @@ export type LocationUncheckedCreateWithoutQuarantineHoldsInput = {
   stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationCreateOrConnectWithoutQuarantineHoldsInput = {
@@ -2431,6 +2596,9 @@ export type LocationUpdateWithoutQuarantineHoldsInput = {
   stockLots?: Prisma.StockLotUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateWithoutQuarantineHoldsInput = {
@@ -2468,6 +2636,9 @@ export type LocationUncheckedUpdateWithoutQuarantineHoldsInput = {
   stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationCreateWithoutStaffProfilesInput = {
@@ -2505,6 +2676,9 @@ export type LocationCreateWithoutStaffProfilesInput = {
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateWithoutStaffProfilesInput = {
@@ -2542,6 +2716,9 @@ export type LocationUncheckedCreateWithoutStaffProfilesInput = {
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationCreateOrConnectWithoutStaffProfilesInput = {
@@ -2595,6 +2772,9 @@ export type LocationUpdateWithoutStaffProfilesInput = {
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateWithoutStaffProfilesInput = {
@@ -2632,6 +2812,9 @@ export type LocationUncheckedUpdateWithoutStaffProfilesInput = {
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationCreateWithoutHolidaysInput = {
@@ -2669,6 +2852,9 @@ export type LocationCreateWithoutHolidaysInput = {
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateWithoutHolidaysInput = {
@@ -2706,6 +2892,9 @@ export type LocationUncheckedCreateWithoutHolidaysInput = {
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationCreateOrConnectWithoutHolidaysInput = {
@@ -2759,6 +2948,9 @@ export type LocationUpdateWithoutHolidaysInput = {
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateWithoutHolidaysInput = {
@@ -2796,6 +2988,9 @@ export type LocationUncheckedUpdateWithoutHolidaysInput = {
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationCreateWithoutOrdersInput = {
@@ -2833,6 +3028,9 @@ export type LocationCreateWithoutOrdersInput = {
   stockLots?: Prisma.StockLotCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateWithoutOrdersInput = {
@@ -2870,6 +3068,9 @@ export type LocationUncheckedCreateWithoutOrdersInput = {
   stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationCreateOrConnectWithoutOrdersInput = {
@@ -2923,6 +3124,9 @@ export type LocationUpdateWithoutOrdersInput = {
   stockLots?: Prisma.StockLotUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateWithoutOrdersInput = {
@@ -2960,6 +3164,9 @@ export type LocationUncheckedUpdateWithoutOrdersInput = {
   stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationCreateWithoutOrderFulfillmentsInput = {
@@ -2997,6 +3204,9 @@ export type LocationCreateWithoutOrderFulfillmentsInput = {
   stockLots?: Prisma.StockLotCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutLocationInput
 }
 
 export type LocationUncheckedCreateWithoutOrderFulfillmentsInput = {
@@ -3034,6 +3244,9 @@ export type LocationUncheckedCreateWithoutOrderFulfillmentsInput = {
   stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutLocationInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutLocationInput
 }
 
 export type LocationCreateOrConnectWithoutOrderFulfillmentsInput = {
@@ -3087,6 +3300,9 @@ export type LocationUpdateWithoutOrderFulfillmentsInput = {
   stockLots?: Prisma.StockLotUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateWithoutOrderFulfillmentsInput = {
@@ -3124,6 +3340,537 @@ export type LocationUncheckedUpdateWithoutOrderFulfillmentsInput = {
   stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutLocationNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutLocationNestedInput
+}
+
+export type LocationCreateWithoutOauthClientsInput = {
+  id?: string
+  code: string
+  name: string
+  type: $Enums.LocationType
+  status?: $Enums.LocationStatus
+  isDefault?: boolean
+  addressLine1?: string | null
+  addressLine2?: string | null
+  city?: string | null
+  state?: string | null
+  postalCode?: string | null
+  country?: string | null
+  timezone?: string | null
+  phone?: string | null
+  email?: string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: string | null
+  updatedByUserId?: string | null
+  archivedAt?: Date | string | null
+  archivedByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutLocationsInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutLocationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutLocationInput
+  outgoingTransfers?: Prisma.StockTransferCreateNestedManyWithoutFromLocationInput
+  incomingTransfers?: Prisma.StockTransferCreateNestedManyWithoutToLocationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutLocationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutLocationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutLocationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutLocationInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutLocationInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutLocationInput
+}
+
+export type LocationUncheckedCreateWithoutOauthClientsInput = {
+  id?: string
+  organizationId: string
+  code: string
+  name: string
+  type: $Enums.LocationType
+  status?: $Enums.LocationStatus
+  isDefault?: boolean
+  addressLine1?: string | null
+  addressLine2?: string | null
+  city?: string | null
+  state?: string | null
+  postalCode?: string | null
+  country?: string | null
+  timezone?: string | null
+  phone?: string | null
+  email?: string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: string | null
+  updatedByUserId?: string | null
+  archivedAt?: Date | string | null
+  archivedByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutLocationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutLocationInput
+  outgoingTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutFromLocationInput
+  incomingTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutToLocationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutLocationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutLocationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutLocationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutLocationInput
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutLocationInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutLocationInput
+}
+
+export type LocationCreateOrConnectWithoutOauthClientsInput = {
+  where: Prisma.LocationWhereUniqueInput
+  create: Prisma.XOR<Prisma.LocationCreateWithoutOauthClientsInput, Prisma.LocationUncheckedCreateWithoutOauthClientsInput>
+}
+
+export type LocationUpsertWithoutOauthClientsInput = {
+  update: Prisma.XOR<Prisma.LocationUpdateWithoutOauthClientsInput, Prisma.LocationUncheckedUpdateWithoutOauthClientsInput>
+  create: Prisma.XOR<Prisma.LocationCreateWithoutOauthClientsInput, Prisma.LocationUncheckedCreateWithoutOauthClientsInput>
+  where?: Prisma.LocationWhereInput
+}
+
+export type LocationUpdateToOneWithWhereWithoutOauthClientsInput = {
+  where?: Prisma.LocationWhereInput
+  data: Prisma.XOR<Prisma.LocationUpdateWithoutOauthClientsInput, Prisma.LocationUncheckedUpdateWithoutOauthClientsInput>
+}
+
+export type LocationUpdateWithoutOauthClientsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumLocationTypeFieldUpdateOperationsInput | $Enums.LocationType
+  status?: Prisma.EnumLocationStatusFieldUpdateOperationsInput | $Enums.LocationStatus
+  isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  addressLine1?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  postalCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  timezone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  archivedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutLocationsNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutLocationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutLocationNestedInput
+  outgoingTransfers?: Prisma.StockTransferUpdateManyWithoutFromLocationNestedInput
+  incomingTransfers?: Prisma.StockTransferUpdateManyWithoutToLocationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutLocationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutLocationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutLocationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutLocationNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutLocationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutLocationNestedInput
+}
+
+export type LocationUncheckedUpdateWithoutOauthClientsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumLocationTypeFieldUpdateOperationsInput | $Enums.LocationType
+  status?: Prisma.EnumLocationStatusFieldUpdateOperationsInput | $Enums.LocationStatus
+  isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  addressLine1?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  postalCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  timezone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  archivedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutLocationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutLocationNestedInput
+  outgoingTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutFromLocationNestedInput
+  incomingTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutToLocationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutLocationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutLocationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutLocationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutLocationNestedInput
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutLocationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutLocationNestedInput
+}
+
+export type LocationCreateWithoutOauthDeviceCodesInput = {
+  id?: string
+  code: string
+  name: string
+  type: $Enums.LocationType
+  status?: $Enums.LocationStatus
+  isDefault?: boolean
+  addressLine1?: string | null
+  addressLine2?: string | null
+  city?: string | null
+  state?: string | null
+  postalCode?: string | null
+  country?: string | null
+  timezone?: string | null
+  phone?: string | null
+  email?: string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: string | null
+  updatedByUserId?: string | null
+  archivedAt?: Date | string | null
+  archivedByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutLocationsInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutLocationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutLocationInput
+  outgoingTransfers?: Prisma.StockTransferCreateNestedManyWithoutFromLocationInput
+  incomingTransfers?: Prisma.StockTransferCreateNestedManyWithoutToLocationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutLocationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutLocationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutLocationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutLocationInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutLocationInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceCreateNestedManyWithoutLocationInput
+}
+
+export type LocationUncheckedCreateWithoutOauthDeviceCodesInput = {
+  id?: string
+  organizationId: string
+  code: string
+  name: string
+  type: $Enums.LocationType
+  status?: $Enums.LocationStatus
+  isDefault?: boolean
+  addressLine1?: string | null
+  addressLine2?: string | null
+  city?: string | null
+  state?: string | null
+  postalCode?: string | null
+  country?: string | null
+  timezone?: string | null
+  phone?: string | null
+  email?: string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: string | null
+  updatedByUserId?: string | null
+  archivedAt?: Date | string | null
+  archivedByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutLocationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutLocationInput
+  outgoingTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutFromLocationInput
+  incomingTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutToLocationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutLocationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutLocationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutLocationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutLocationInput
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutLocationInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutLocationInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedCreateNestedManyWithoutLocationInput
+}
+
+export type LocationCreateOrConnectWithoutOauthDeviceCodesInput = {
+  where: Prisma.LocationWhereUniqueInput
+  create: Prisma.XOR<Prisma.LocationCreateWithoutOauthDeviceCodesInput, Prisma.LocationUncheckedCreateWithoutOauthDeviceCodesInput>
+}
+
+export type LocationUpsertWithoutOauthDeviceCodesInput = {
+  update: Prisma.XOR<Prisma.LocationUpdateWithoutOauthDeviceCodesInput, Prisma.LocationUncheckedUpdateWithoutOauthDeviceCodesInput>
+  create: Prisma.XOR<Prisma.LocationCreateWithoutOauthDeviceCodesInput, Prisma.LocationUncheckedCreateWithoutOauthDeviceCodesInput>
+  where?: Prisma.LocationWhereInput
+}
+
+export type LocationUpdateToOneWithWhereWithoutOauthDeviceCodesInput = {
+  where?: Prisma.LocationWhereInput
+  data: Prisma.XOR<Prisma.LocationUpdateWithoutOauthDeviceCodesInput, Prisma.LocationUncheckedUpdateWithoutOauthDeviceCodesInput>
+}
+
+export type LocationUpdateWithoutOauthDeviceCodesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumLocationTypeFieldUpdateOperationsInput | $Enums.LocationType
+  status?: Prisma.EnumLocationStatusFieldUpdateOperationsInput | $Enums.LocationStatus
+  isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  addressLine1?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  postalCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  timezone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  archivedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutLocationsNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutLocationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutLocationNestedInput
+  outgoingTransfers?: Prisma.StockTransferUpdateManyWithoutFromLocationNestedInput
+  incomingTransfers?: Prisma.StockTransferUpdateManyWithoutToLocationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutLocationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutLocationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutLocationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutLocationNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutLocationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutLocationNestedInput
+}
+
+export type LocationUncheckedUpdateWithoutOauthDeviceCodesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumLocationTypeFieldUpdateOperationsInput | $Enums.LocationType
+  status?: Prisma.EnumLocationStatusFieldUpdateOperationsInput | $Enums.LocationStatus
+  isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  addressLine1?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  postalCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  timezone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  archivedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutLocationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutLocationNestedInput
+  outgoingTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutFromLocationNestedInput
+  incomingTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutToLocationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutLocationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutLocationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutLocationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutLocationNestedInput
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutLocationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutLocationNestedInput
+}
+
+export type LocationCreateWithoutRegisteredDevicesInput = {
+  id?: string
+  code: string
+  name: string
+  type: $Enums.LocationType
+  status?: $Enums.LocationStatus
+  isDefault?: boolean
+  addressLine1?: string | null
+  addressLine2?: string | null
+  city?: string | null
+  state?: string | null
+  postalCode?: string | null
+  country?: string | null
+  timezone?: string | null
+  phone?: string | null
+  email?: string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: string | null
+  updatedByUserId?: string | null
+  archivedAt?: Date | string | null
+  archivedByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutLocationsInput
+  stockBalances?: Prisma.StockBalanceCreateNestedManyWithoutLocationInput
+  stockMovements?: Prisma.StockMovementCreateNestedManyWithoutLocationInput
+  outgoingTransfers?: Prisma.StockTransferCreateNestedManyWithoutFromLocationInput
+  incomingTransfers?: Prisma.StockTransferCreateNestedManyWithoutToLocationInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutLocationInput
+  goodsReceipts?: Prisma.GoodsReceiptCreateNestedManyWithoutLocationInput
+  staffProfiles?: Prisma.StaffProfileCreateNestedManyWithoutLocationInput
+  holidays?: Prisma.HolidayCreateNestedManyWithoutLocationInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutLocationInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeCreateNestedManyWithoutLocationInput
+}
+
+export type LocationUncheckedCreateWithoutRegisteredDevicesInput = {
+  id?: string
+  organizationId: string
+  code: string
+  name: string
+  type: $Enums.LocationType
+  status?: $Enums.LocationStatus
+  isDefault?: boolean
+  addressLine1?: string | null
+  addressLine2?: string | null
+  city?: string | null
+  state?: string | null
+  postalCode?: string | null
+  country?: string | null
+  timezone?: string | null
+  phone?: string | null
+  email?: string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: string | null
+  updatedByUserId?: string | null
+  archivedAt?: Date | string | null
+  archivedByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  stockBalances?: Prisma.StockBalanceUncheckedCreateNestedManyWithoutLocationInput
+  stockMovements?: Prisma.StockMovementUncheckedCreateNestedManyWithoutLocationInput
+  outgoingTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutFromLocationInput
+  incomingTransfers?: Prisma.StockTransferUncheckedCreateNestedManyWithoutToLocationInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutLocationInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedCreateNestedManyWithoutLocationInput
+  staffProfiles?: Prisma.StaffProfileUncheckedCreateNestedManyWithoutLocationInput
+  holidays?: Prisma.HolidayUncheckedCreateNestedManyWithoutLocationInput
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutLocationInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutLocationInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutLocationInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedCreateNestedManyWithoutLocationInput
+  oauthClients?: Prisma.OAuthClientUncheckedCreateNestedManyWithoutLocationInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedCreateNestedManyWithoutLocationInput
+}
+
+export type LocationCreateOrConnectWithoutRegisteredDevicesInput = {
+  where: Prisma.LocationWhereUniqueInput
+  create: Prisma.XOR<Prisma.LocationCreateWithoutRegisteredDevicesInput, Prisma.LocationUncheckedCreateWithoutRegisteredDevicesInput>
+}
+
+export type LocationUpsertWithoutRegisteredDevicesInput = {
+  update: Prisma.XOR<Prisma.LocationUpdateWithoutRegisteredDevicesInput, Prisma.LocationUncheckedUpdateWithoutRegisteredDevicesInput>
+  create: Prisma.XOR<Prisma.LocationCreateWithoutRegisteredDevicesInput, Prisma.LocationUncheckedCreateWithoutRegisteredDevicesInput>
+  where?: Prisma.LocationWhereInput
+}
+
+export type LocationUpdateToOneWithWhereWithoutRegisteredDevicesInput = {
+  where?: Prisma.LocationWhereInput
+  data: Prisma.XOR<Prisma.LocationUpdateWithoutRegisteredDevicesInput, Prisma.LocationUncheckedUpdateWithoutRegisteredDevicesInput>
+}
+
+export type LocationUpdateWithoutRegisteredDevicesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumLocationTypeFieldUpdateOperationsInput | $Enums.LocationType
+  status?: Prisma.EnumLocationStatusFieldUpdateOperationsInput | $Enums.LocationStatus
+  isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  addressLine1?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  postalCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  timezone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  archivedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutLocationsNestedInput
+  stockBalances?: Prisma.StockBalanceUpdateManyWithoutLocationNestedInput
+  stockMovements?: Prisma.StockMovementUpdateManyWithoutLocationNestedInput
+  outgoingTransfers?: Prisma.StockTransferUpdateManyWithoutFromLocationNestedInput
+  incomingTransfers?: Prisma.StockTransferUpdateManyWithoutToLocationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutLocationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUpdateManyWithoutLocationNestedInput
+  staffProfiles?: Prisma.StaffProfileUpdateManyWithoutLocationNestedInput
+  holidays?: Prisma.HolidayUpdateManyWithoutLocationNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutLocationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutLocationNestedInput
+}
+
+export type LocationUncheckedUpdateWithoutRegisteredDevicesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumLocationTypeFieldUpdateOperationsInput | $Enums.LocationType
+  status?: Prisma.EnumLocationStatusFieldUpdateOperationsInput | $Enums.LocationStatus
+  isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  addressLine1?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  postalCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  timezone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  archivedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  stockBalances?: Prisma.StockBalanceUncheckedUpdateManyWithoutLocationNestedInput
+  stockMovements?: Prisma.StockMovementUncheckedUpdateManyWithoutLocationNestedInput
+  outgoingTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutFromLocationNestedInput
+  incomingTransfers?: Prisma.StockTransferUncheckedUpdateManyWithoutToLocationNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutLocationNestedInput
+  goodsReceipts?: Prisma.GoodsReceiptUncheckedUpdateManyWithoutLocationNestedInput
+  staffProfiles?: Prisma.StaffProfileUncheckedUpdateManyWithoutLocationNestedInput
+  holidays?: Prisma.HolidayUncheckedUpdateManyWithoutLocationNestedInput
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutLocationNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
+  orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationCreateManyOrganizationInput = {
@@ -3186,6 +3933,9 @@ export type LocationUpdateWithoutOrganizationInput = {
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateWithoutOrganizationInput = {
@@ -3223,6 +3973,9 @@ export type LocationUncheckedUpdateWithoutOrganizationInput = {
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutLocationNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutLocationNestedInput
   orderFulfillments?: Prisma.OrderFulfillmentUncheckedUpdateManyWithoutLocationNestedInput
+  oauthClients?: Prisma.OAuthClientUncheckedUpdateManyWithoutLocationNestedInput
+  oauthDeviceCodes?: Prisma.OAuthDeviceCodeUncheckedUpdateManyWithoutLocationNestedInput
+  registeredDevices?: Prisma.RegisteredDeviceUncheckedUpdateManyWithoutLocationNestedInput
 }
 
 export type LocationUncheckedUpdateManyWithoutOrganizationInput = {
@@ -3268,6 +4021,9 @@ export type LocationCountOutputType = {
   quarantineHolds: number
   orders: number
   orderFulfillments: number
+  oauthClients: number
+  oauthDeviceCodes: number
+  registeredDevices: number
 }
 
 export type LocationCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -3283,6 +4039,9 @@ export type LocationCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensio
   quarantineHolds?: boolean | LocationCountOutputTypeCountQuarantineHoldsArgs
   orders?: boolean | LocationCountOutputTypeCountOrdersArgs
   orderFulfillments?: boolean | LocationCountOutputTypeCountOrderFulfillmentsArgs
+  oauthClients?: boolean | LocationCountOutputTypeCountOauthClientsArgs
+  oauthDeviceCodes?: boolean | LocationCountOutputTypeCountOauthDeviceCodesArgs
+  registeredDevices?: boolean | LocationCountOutputTypeCountRegisteredDevicesArgs
 }
 
 /**
@@ -3379,6 +4138,27 @@ export type LocationCountOutputTypeCountOrderFulfillmentsArgs<ExtArgs extends ru
   where?: Prisma.OrderFulfillmentWhereInput
 }
 
+/**
+ * LocationCountOutputType without action
+ */
+export type LocationCountOutputTypeCountOauthClientsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OAuthClientWhereInput
+}
+
+/**
+ * LocationCountOutputType without action
+ */
+export type LocationCountOutputTypeCountOauthDeviceCodesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OAuthDeviceCodeWhereInput
+}
+
+/**
+ * LocationCountOutputType without action
+ */
+export type LocationCountOutputTypeCountRegisteredDevicesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.RegisteredDeviceWhereInput
+}
+
 
 export type LocationSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -3417,6 +4197,9 @@ export type LocationSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   quarantineHolds?: boolean | Prisma.Location$quarantineHoldsArgs<ExtArgs>
   orders?: boolean | Prisma.Location$ordersArgs<ExtArgs>
   orderFulfillments?: boolean | Prisma.Location$orderFulfillmentsArgs<ExtArgs>
+  oauthClients?: boolean | Prisma.Location$oauthClientsArgs<ExtArgs>
+  oauthDeviceCodes?: boolean | Prisma.Location$oauthDeviceCodesArgs<ExtArgs>
+  registeredDevices?: boolean | Prisma.Location$registeredDevicesArgs<ExtArgs>
   _count?: boolean | Prisma.LocationCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["location"]>
 
@@ -3515,6 +4298,9 @@ export type LocationInclude<ExtArgs extends runtime.Types.Extensions.InternalArg
   quarantineHolds?: boolean | Prisma.Location$quarantineHoldsArgs<ExtArgs>
   orders?: boolean | Prisma.Location$ordersArgs<ExtArgs>
   orderFulfillments?: boolean | Prisma.Location$orderFulfillmentsArgs<ExtArgs>
+  oauthClients?: boolean | Prisma.Location$oauthClientsArgs<ExtArgs>
+  oauthDeviceCodes?: boolean | Prisma.Location$oauthDeviceCodesArgs<ExtArgs>
+  registeredDevices?: boolean | Prisma.Location$registeredDevicesArgs<ExtArgs>
   _count?: boolean | Prisma.LocationCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type LocationIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -3540,6 +4326,9 @@ export type $LocationPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     quarantineHolds: Prisma.$QuarantineHoldPayload<ExtArgs>[]
     orders: Prisma.$OrderPayload<ExtArgs>[]
     orderFulfillments: Prisma.$OrderFulfillmentPayload<ExtArgs>[]
+    oauthClients: Prisma.$OAuthClientPayload<ExtArgs>[]
+    oauthDeviceCodes: Prisma.$OAuthDeviceCodePayload<ExtArgs>[]
+    registeredDevices: Prisma.$RegisteredDevicePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -3972,6 +4761,9 @@ export interface Prisma__LocationClient<T, Null = never, ExtArgs extends runtime
   quarantineHolds<T extends Prisma.Location$quarantineHoldsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Location$quarantineHoldsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$QuarantineHoldPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   orders<T extends Prisma.Location$ordersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Location$ordersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   orderFulfillments<T extends Prisma.Location$orderFulfillmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Location$orderFulfillmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrderFulfillmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  oauthClients<T extends Prisma.Location$oauthClientsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Location$oauthClientsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OAuthClientPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  oauthDeviceCodes<T extends Prisma.Location$oauthDeviceCodesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Location$oauthDeviceCodesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OAuthDeviceCodePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  registeredDevices<T extends Prisma.Location$registeredDevicesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Location$registeredDevicesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RegisteredDevicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4710,6 +5502,78 @@ export type Location$orderFulfillmentsArgs<ExtArgs extends runtime.Types.Extensi
   take?: number
   skip?: number
   distinct?: Prisma.OrderFulfillmentScalarFieldEnum | Prisma.OrderFulfillmentScalarFieldEnum[]
+}
+
+/**
+ * Location.oauthClients
+ */
+export type Location$oauthClientsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the OAuthClient
+   */
+  select?: Prisma.OAuthClientSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the OAuthClient
+   */
+  omit?: Prisma.OAuthClientOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OAuthClientInclude<ExtArgs> | null
+  where?: Prisma.OAuthClientWhereInput
+  orderBy?: Prisma.OAuthClientOrderByWithRelationInput | Prisma.OAuthClientOrderByWithRelationInput[]
+  cursor?: Prisma.OAuthClientWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OAuthClientScalarFieldEnum | Prisma.OAuthClientScalarFieldEnum[]
+}
+
+/**
+ * Location.oauthDeviceCodes
+ */
+export type Location$oauthDeviceCodesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the OAuthDeviceCode
+   */
+  select?: Prisma.OAuthDeviceCodeSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the OAuthDeviceCode
+   */
+  omit?: Prisma.OAuthDeviceCodeOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OAuthDeviceCodeInclude<ExtArgs> | null
+  where?: Prisma.OAuthDeviceCodeWhereInput
+  orderBy?: Prisma.OAuthDeviceCodeOrderByWithRelationInput | Prisma.OAuthDeviceCodeOrderByWithRelationInput[]
+  cursor?: Prisma.OAuthDeviceCodeWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OAuthDeviceCodeScalarFieldEnum | Prisma.OAuthDeviceCodeScalarFieldEnum[]
+}
+
+/**
+ * Location.registeredDevices
+ */
+export type Location$registeredDevicesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the RegisteredDevice
+   */
+  select?: Prisma.RegisteredDeviceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the RegisteredDevice
+   */
+  omit?: Prisma.RegisteredDeviceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.RegisteredDeviceInclude<ExtArgs> | null
+  where?: Prisma.RegisteredDeviceWhereInput
+  orderBy?: Prisma.RegisteredDeviceOrderByWithRelationInput | Prisma.RegisteredDeviceOrderByWithRelationInput[]
+  cursor?: Prisma.RegisteredDeviceWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.RegisteredDeviceScalarFieldEnum | Prisma.RegisteredDeviceScalarFieldEnum[]
 }
 
 /**
