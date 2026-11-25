@@ -39,9 +39,12 @@ COPY --from=builder /app/packages/db/node_modules ./packages/db/node_modules
 COPY --from=builder /app/packages/db/dist ./packages/db/dist
 COPY --from=builder /app/packages/db/prisma ./packages/db/prisma
 COPY --from=builder /app/packages/db/prisma.config.ts ./packages/db/prisma.config.ts
+COPY --from=builder /app/docker-entrypoint.sh ./
+RUN chmod +x docker-entrypoint.sh
 
 USER scace
 
 EXPOSE 3000
 
+ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD ["node", "apps/api/dist/main.js"]
