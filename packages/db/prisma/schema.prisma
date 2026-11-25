@@ -159,6 +159,8 @@ model Organization {
   productionCostEntries   ProductionCostEntry[]
   productionConsumptions  ProductionConsumption[]
   productionReservations  ProductionMaterialReservation[]
+  mpesaConfiguration      MpesaConfiguration?
+  paymentTransactions     PaymentTransaction[]
 
   @@map("organization")
 }
@@ -1768,6 +1770,7 @@ enum SalesInvoiceStatus {
 
 enum PaymentMethod {
   CASH
+  MPESA
 }
 
 enum CustomerPaymentStatus {
@@ -1818,6 +1821,7 @@ model Customer {
   orders               Order[]
   invoices             SalesInvoice[]
   payments             CustomerPayment[]
+  paymentTransactions  PaymentTransaction[]
   receipts             PaymentReceipt[]
   fulfillments         OrderFulfillment[]
   notifications        CustomerNotification[]
@@ -1866,12 +1870,13 @@ model Order {
   createdAt          DateTime          @default(now())
   updatedAt          DateTime          @updatedAt
   lines              OrderLine[]
-  invoices           SalesInvoice[]
-  payments           CustomerPayment[]
-  receipts           PaymentReceipt[]
-  fulfillment        OrderFulfillment?
-  staffJobs          StaffJob[]
-  notifications      CustomerNotification[]
+  invoices            SalesInvoice[]
+  payments            CustomerPayment[]
+  paymentTransactions PaymentTransaction[]
+  receipts            PaymentReceipt[]
+  fulfillment         OrderFulfillment?
+  staffJobs           StaffJob[]
+  notifications       CustomerNotification[]
 
   @@unique([organizationId, orderNumber])
   @@index([organizationId, channel, status])
@@ -1947,6 +1952,7 @@ model SalesInvoice {
   updatedAt            DateTime           @updatedAt
   lines                SalesInvoiceLine[]
   payments             CustomerPayment[]
+  paymentTransactions  PaymentTransaction[]
   receipts             PaymentReceipt[]
 
   @@unique([organizationId, invoiceNumber])
@@ -2005,6 +2011,7 @@ model CustomerPayment {
   createdAt          DateTime              @default(now())
   updatedAt          DateTime              @updatedAt
   receipt            PaymentReceipt?
+  paymentTransaction PaymentTransaction?
 
   @@unique([organizationId, paymentNumber])
   @@index([organizationId, orderId])
@@ -2182,6 +2189,7 @@ model OrderFulfillment {
   updatedAt                  DateTime               @updatedAt
   staffJobs                  StaffJob[]
   notifications              CustomerNotification[]
+  paymentTransactions        PaymentTransaction[]
 
   @@unique([organizationId, fulfillmentNumber])
   @@index([organizationId, type, status])
@@ -3100,4 +3108,134 @@ model ProductionConsumption {
   @@map("production_consumption")
 }
 
+// ==========================================
+// M-Pesa Configuration & Payment Transactions
+// ==========================================
 
+enum PaymentProvider {
+  MPESA
+}
+
+enum MpesaEnvironment {
+  SANDBOX
+  PRODUCTION
+  LOCAL_SIMULATOR
+}
+
+enum MpesaShortcodeType {
+  PAYBILL
+  TILL
+}
+
+enum MpesaC2bResponseType {
+  COMPLETED
+  CANCELLED
+}
+
+enum PaymentTransactionFlow {
+  STK_PUSH
+  C2B_PAYBILL
+  C2B_TILL
+}
+
+enum PaymentTransactionStatus {
+  PENDING
+  SUCCEEDED
+  FAILED
+  CANCELLED
+  EXPIRED
+  UNMATCHED_C2B
+}
+
+enum PaymentTargetType {
+  POS_ORDER
+  ORDER
+  SALES_INVOICE
+  FULFILLMENT
+  UNMATCHED
+}
+
+model MpesaConfiguration {
+  id                          String               @id @default(cuid())
+  organizationId              String               @unique
+  organization                Organization         @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  isEnabled                   Boolean              @default(false)
+  environment                 MpesaEnvironment     @default(SANDBOX)
+  shortcodeType               MpesaShortcodeType   @default(PAYBILL)
+  businessShortCode           String
+  partyB                      String?
+  consumerKeyEncrypted        String?
+  consumerSecretEncrypted     String?
+  passkeyEncrypted            String?
+  callbackRouteTokenHash      String               @unique
+  callbackRouteTokenEncrypted String
+  callbackIpAllowlist         String[]             @default([])
+  c2bResponseType             MpesaC2bResponseType @default(COMPLETED)
+  c2bValidateReference        Boolean              @default(true)
+  accountReferencePrefix      String?
+  transactionDescTemplate     String?
+  c2bRegisteredAt             DateTime?
+  lastTestedAt                DateTime?
+  lastTestStatus              String?
+  createdByUserId             String?
+  updatedByUserId             String?
+  createdAt                   DateTime             @default(now())
+  updatedAt                   DateTime             @updatedAt
+
+  @@index([organizationId, businessShortCode])
+  @@map("mpesa_configuration")
+}
+
+model PaymentTransaction {
+  id                  String                   @id @default(cuid())
+  organizationId      String
+  organization        Organization             @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  transactionNumber   String
+  provider            PaymentProvider          @default(MPESA)
+  flow                PaymentTransactionFlow
+  status              PaymentTransactionStatus @default(PENDING)
+  targetType          PaymentTargetType
+  orderId             String?
+  order               Order?                   @relation(fields: [orderId], references: [id], onDelete: SetNull)
+  salesInvoiceId      String?
+  salesInvoice        SalesInvoice?            @relation(fields: [salesInvoiceId], references: [id], onDelete: SetNull)
+  fulfillmentId       String?
+  fulfillment         OrderFulfillment?        @relation(fields: [fulfillmentId], references: [id], onDelete: SetNull)
+  customerId          String?
+  customer            Customer?                @relation(fields: [customerId], references: [id], onDelete: SetNull)
+  customerPaymentId   String?                  @unique
+  customerPayment     CustomerPayment?         @relation(fields: [customerPaymentId], references: [id], onDelete: SetNull)
+  currency            String                   @default("KES")
+  amountCents         Int
+  phoneNumber         String?
+  businessShortCode   String
+  accountReference    String?
+  transactionDesc     String?
+  callbackNonceHash   String?
+  merchantRequestId   String?
+  checkoutRequestId   String?
+  mpesaReceiptNumber  String?
+  resultCode          String?
+  resultDesc          String?
+  payerName           String?
+  callbackMetadata    Json?
+  rawCallbackPayload  Json?
+  reconciledByUserId  String?
+  reconciledAt        DateTime?
+  initiatedByUserId   String?
+  initiatedAt         DateTime                 @default(now())
+  completedAt         DateTime?
+  expiresAt           DateTime?
+  createdAt           DateTime                 @default(now())
+  updatedAt           DateTime                 @updatedAt
+
+  @@unique([organizationId, transactionNumber])
+  @@unique([organizationId, checkoutRequestId])
+  @@unique([organizationId, mpesaReceiptNumber])
+  @@index([organizationId, status, createdAt])
+  @@index([organizationId, orderId])
+  @@index([organizationId, salesInvoiceId])
+  @@index([organizationId, fulfillmentId])
+  @@index([organizationId, accountReference])
+  @@map("payment_transaction")
+}

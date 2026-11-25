@@ -13,6 +13,7 @@ import {
 import { OrderChannel, OrderStatus } from "@scace/db";
 import type { FastifyRequest } from "fastify";
 import { z } from "zod";
+import { MpesaPaymentService } from "../payments/mpesa-payment.service.js";
 import {
   CurrentTenant,
   RequireActiveTenant,
@@ -61,10 +62,20 @@ const posCheckoutSchema = z.object({
   currency: currencySchema.optional(),
   taxCents: z.number().int().min(0).max(1_000_000_000).optional(),
   cashTenderedCents: z.number().int().min(0).max(1_000_000_000).optional(),
-  paymentMethod: z.enum(["CASH"]).optional(),
+  paymentMethod: z.enum(["CASH", "MPESA"]).optional(),
+  mpesaPhoneNumber: z.string().trim().min(9).max(20).nullable().optional(),
+  mpesaAccountReference: z.string().trim().max(32).nullable().optional(),
+  mpesaTransactionDesc: z.string().trim().max(64).nullable().optional(),
   reference: z.string().trim().max(120).nullable().optional(),
   notes: z.string().trim().max(2000).nullable().optional(),
   lines: z.array(orderLineSchema).min(1).max(200),
+});
+
+const orderMpesaStkSchema = z.object({
+  phoneNumber: z.string().trim().min(9).max(20),
+  amountCents: z.number().int().min(100).max(1_000_000_000).optional(),
+  accountReference: z.string().trim().max(32).nullable().optional(),
+  transactionDesc: z.string().trim().max(64).nullable().optional(),
 });
 
 const createB2bOrderSchema = z.object({
@@ -150,6 +161,8 @@ export class OrdersController {
     @Inject(OrdersService) private readonly ordersService: OrdersService,
     @Inject(InvoicesPaymentsService)
     private readonly invoicesPaymentsService: InvoicesPaymentsService,
+    @Inject(MpesaPaymentService)
+    private readonly mpesaPaymentService: MpesaPaymentService,
   ) {}
 
   @Post("pos/checkout")
@@ -327,6 +340,30 @@ export class OrdersController {
     }
 
     return this.invoicesPaymentsService.createInvoiceFromOrder(
+      tenant,
+      orderId,
+      parsed.data,
+      req.ip,
+    );
+  }
+
+  @Post(":orderId/payments/mpesa/stk-push")
+  @RequiredOrgPermissions({ payment: ["record"] })
+  async initiateOrderMpesaStkPush(
+    @CurrentTenant() tenant: AuthenticatedTenant,
+    @Param("orderId") orderId: string,
+    @Body() body: unknown,
+    @Req() req: FastifyRequest,
+  ) {
+    const parsed = orderMpesaStkSchema.safeParse(body);
+    if (!parsed.success) {
+      throw new BadRequestException({
+        message: "Invalid M-Pesa STK Push payload.",
+        issues: parsed.error.issues,
+      });
+    }
+
+    return this.mpesaPaymentService.initiateStkPushForOrder(
       tenant,
       orderId,
       parsed.data,

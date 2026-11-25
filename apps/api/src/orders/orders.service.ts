@@ -13,6 +13,7 @@ import {
   OrderChannel,
   OrderStatus,
   PaymentMethod,
+  PaymentTargetType,
   PriceBookDirection,
   Prisma,
   SalesInvoiceStatus,
@@ -21,12 +22,21 @@ import {
 } from "@scace/db";
 import { PrismaService } from "../database/prisma.service.js";
 import { AnalyticsService } from "../observability/analytics.service.js";
+import { MpesaPaymentService } from "../payments/mpesa-payment.service.js";
+import {
+  centsToDarajaWholeAmount,
+  normalizeKenyanPhoneNumber,
+} from "../payments/mpesa-security.utils.js";
 import {
   PricingEngineService,
   type CalculatedQuoteLine,
 } from "../pricing/pricing-engine.service.js";
 import type { AuthenticatedTenant } from "../tenancy/tenant.decorators.js";
 import type { PrintableReceiptDocument } from "./document-renderer.utils.js";
+import {
+  releaseOrderStockInTransaction,
+  reserveOrderStockInTransaction,
+} from "./order-stock.utils.js";
 
 export interface OrderLineInput {
   itemId: string;
@@ -46,7 +56,10 @@ export interface PosCheckoutInput {
   currency?: string;
   taxCents?: number;
   cashTenderedCents?: number;
-  paymentMethod?: "CASH";
+  paymentMethod?: "CASH" | "MPESA";
+  mpesaPhoneNumber?: string | null;
+  mpesaAccountReference?: string | null;
+  mpesaTransactionDesc?: string | null;
   reference?: string | null;
   notes?: string | null;
   lines: OrderLineInput[];
@@ -131,6 +144,8 @@ export class OrdersService {
     private readonly pricingEngine: PricingEngineService,
     @Inject(AnalyticsService)
     private readonly analyticsService: AnalyticsService,
+    @Inject(MpesaPaymentService)
+    private readonly mpesaPaymentService: MpesaPaymentService,
   ) {}
 
   async posCheckout(
@@ -139,10 +154,14 @@ export class OrdersService {
     ipAddress?: string,
   ) {
     const organizationId = this.resolveVerifiedOrganizationId(tenant);
+    const resolvedMethod = input.paymentMethod ?? PaymentMethod.CASH;
 
-    if (input.paymentMethod && input.paymentMethod !== PaymentMethod.CASH) {
+    if (
+      resolvedMethod !== PaymentMethod.CASH &&
+      resolvedMethod !== PaymentMethod.MPESA
+    ) {
       throw new BadRequestException(
-        "Only CASH payment is currently supported.",
+        "Only CASH and MPESA payment methods are supported.",
       );
     }
 
@@ -202,6 +221,164 @@ export class OrdersService {
     const discountTotalCents = quote.totalDiscountCents;
     const taxCents = input.taxCents ?? 0;
     const totalCents = quote.totalCents + taxCents;
+    const orderNumber =
+      input.orderNumber?.trim().toUpperCase() || generateDocNumber("POS");
+    const now = new Date();
+
+    if (resolvedMethod === PaymentMethod.MPESA) {
+      const rawPhone = input.mpesaPhoneNumber?.trim() || customer?.phone?.trim();
+      if (!rawPhone) {
+        throw new BadRequestException(
+          "mpesaPhoneNumber is required when checking out with MPESA.",
+        );
+      }
+      const normalizedPhone = normalizeKenyanPhoneNumber(rawPhone);
+      centsToDarajaWholeAmount(totalCents);
+
+      const lineDescMap = new Map<number, string>();
+      input.lines.forEach((l, idx) => {
+        if (l.description && l.description.trim().length > 0) {
+          lineDescMap.set(idx, l.description.trim());
+        }
+      });
+
+      let createdOrder: { id: string; orderNumber: string; currency: string };
+      try {
+        createdOrder = await this.prismaService.raw.$transaction(async (tx) => {
+          const order = await tx.order.create({
+            data: {
+              organizationId,
+              orderNumber,
+              channel: OrderChannel.POS,
+              status: OrderStatus.CONFIRMED,
+              locationId: location.id,
+              customerId: customer?.id ?? null,
+              priceBookId: input.priceBookId ?? null,
+              customerSegment: customer?.customerSegment ?? null,
+              promoCodes: quote.promoCodes,
+              currency: quote.currency,
+              subtotalCents,
+              discountTotalCents,
+              taxCents,
+              totalCents,
+              paidAmountCents: 0,
+              notes: input.notes?.trim() || null,
+              confirmedAt: now,
+              confirmedByUserId: tenant.userId,
+              createdByUserId: tenant.userId,
+              updatedByUserId: tenant.userId,
+              lines: {
+                create: quote.lines.map((ql, idx) => {
+                  const orderedBaseQty =
+                    ql.totalBaseUnits + ql.bonusUnits * ql.unitsPerPack;
+                  return {
+                    organizationId,
+                    itemId: ql.itemId,
+                    packId: ql.packId,
+                    servicePlanId: ql.servicePlanId,
+                    sku: ql.sku,
+                    name: ql.name,
+                    description: lineDescMap.get(idx) ?? ql.name,
+                    unitOfMeasure: ql.unitOfMeasure,
+                    unitsPerPack: ql.unitsPerPack,
+                    quantity: ql.quantity,
+                    fulfilledQty: 0,
+                    orderedBaseQty,
+                    reservedBaseQty: 0,
+                    fulfilledBaseQty: 0,
+                    bonusUnits: ql.bonusUnits,
+                    unitPriceCents: ql.effectiveUnitPriceCents,
+                    discountCents: ql.lineDiscountCents,
+                    lineTotalCents: ql.finalLineTotalCents,
+                    pricingSnapshot: {
+                      pricingModel: ql.pricingModel,
+                      listUnitPriceCents: ql.listUnitPriceCents,
+                      tierSubtotalCents: ql.tierSubtotalCents,
+                      appliedTiers: ql.appliedTiers,
+                      appliedDiscounts: ql.appliedDiscounts,
+                      bundleBreakdown: ql.bundleBreakdown,
+                    } as unknown as Prisma.InputJsonValue,
+                  };
+                }),
+              },
+            },
+          });
+
+          await reserveOrderStockInTransaction(tx, {
+            organizationId,
+            orderId: order.id,
+          });
+
+          await tx.auditLog.create({
+            data: {
+              organizationId,
+              actorUserId: tenant.userId,
+              action: "order.pos.mpesa_pending",
+              resourceType: "Order",
+              resourceId: order.id,
+              metadata: {
+                orderNumber: order.orderNumber,
+                locationCode: location.code,
+                customerId: customer?.id ?? null,
+                totalCents,
+                phoneNumber: normalizedPhone,
+              } as Prisma.InputJsonValue,
+              ipAddress: ipAddress ?? null,
+            },
+          });
+
+          return order;
+        });
+      } catch (error) {
+        if (isUniqueConstraintError(error)) {
+          throw new ConflictException(
+            `Order number "${orderNumber}" already exists in this organization.`,
+          );
+        }
+        throw error;
+      }
+
+      try {
+        const stkResult = await this.mpesaPaymentService.dispatchStkPush({
+          organizationId,
+          actorUserId: tenant.userId,
+          targetType: PaymentTargetType.POS_ORDER,
+          orderId: createdOrder.id,
+          customerId: customer?.id ?? null,
+          currency: createdOrder.currency,
+          amountCents: totalCents,
+          phoneNumber: normalizedPhone,
+          defaultAccountReference: createdOrder.orderNumber,
+          accountReference: input.mpesaAccountReference,
+          transactionDesc: input.mpesaTransactionDesc,
+          ipAddress,
+        });
+
+        const fullOrder = await this.getOrder(tenant, createdOrder.id);
+        return {
+          checkoutStatus: "PENDING_MPESA_CONFIRMATION",
+          order: fullOrder,
+          ...stkResult,
+        };
+      } catch (error) {
+        await this.prismaService.raw.$transaction(async (tx) => {
+          await releaseOrderStockInTransaction(tx, {
+            organizationId,
+            orderId: createdOrder.id,
+          });
+          await tx.order.update({
+            where: { id: createdOrder.id },
+            data: {
+              status: OrderStatus.CANCELLED,
+              cancelledAt: new Date(),
+              cancelReason: "M-Pesa STK Push initiation failed",
+              updatedByUserId: tenant.userId,
+            },
+          });
+        });
+        throw error;
+      }
+    }
 
     const cashTenderedCents =
       input.cashTenderedCents !== undefined
@@ -215,11 +392,8 @@ export class OrdersService {
     }
 
     const changeGivenCents = cashTenderedCents - totalCents;
-    const orderNumber =
-      input.orderNumber?.trim().toUpperCase() || generateDocNumber("POS");
     const paymentNumber = generateDocNumber("PAY");
     const receiptNumber = generateDocNumber("RCP");
-    const now = new Date();
 
     try {
       const result = await this.prismaService.raw.$transaction(async (tx) => {

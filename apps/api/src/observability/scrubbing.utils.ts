@@ -18,10 +18,10 @@ const BINARY_OMITTED = "[BINARY_OMITTED]";
 const MAX_SCRUB_DEPTH = 6;
 
 const SENSITIVE_KEY_PATTERN =
-  /^(authorization|proxy-authorization|cookie|set-cookie|x-api-key|x-auth-token|x-scace-signature|password|passwd|secret|client_secret|clientsecret|access_token|accesstoken|refresh_token|refreshtoken|id_token|idtoken|api_key|apikey|private_key|privatekey|encryption_key|encryptionkey|webhook_secret|webhooksecret|pat|session_token|sessiontoken|csrf_token|signature|ssn|credit_card|card_number|cvv|cvc)$/i;
+  /^(authorization|proxy-authorization|cookie|set-cookie|x-api-key|x-auth-token|x-scace-signature|password|passwd|secret|client_secret|clientsecret|access_token|accesstoken|refresh_token|refreshtoken|id_token|idtoken|api_key|apikey|private_key|privatekey|encryption_key|encryptionkey|webhook_secret|webhooksecret|pat|session_token|sessiontoken|csrf_token|signature|ssn|credit_card|card_number|cvv|cvc|consumer_key|consumerkey|consumer_secret|consumersecret|passkey|initiator_password|initiatorpassword|security_credential|securitycredential|callback_token|callbacktoken|callback_route_token|callbackroutetoken)$/i;
 
 const SENSITIVE_KEY_SUBSTRING_PATTERN =
-  /(password|passwd|secret|token|apikey|api_key|authorization|cookie|private_key|encryption_key|credential)/i;
+  /(password|passwd|secret|token|apikey|api_key|authorization|cookie|private_key|encryption_key|credential|passkey|consumer_key|consumerkey)/i;
 
 const SENSITIVE_QUERY_PARAMS = new Set([
   "token",
@@ -39,6 +39,9 @@ const SENSITIVE_QUERY_PARAMS = new Set([
   "signature",
   "sig",
   "pat",
+  "passkey",
+  "consumer_key",
+  "consumer_secret",
 ]);
 
 const REQUEST_ID_PATTERN = /^[A-Za-z0-9._-]{8,128}$/;

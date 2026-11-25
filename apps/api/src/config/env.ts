@@ -106,6 +106,14 @@ const envSchema = z.object({
     .enum(["true", "false"])
     .transform((v) => v === "true")
     .optional(),
+  PAYMENTS_ENCRYPTION_KEY: z.string().optional(),
+  MPESA_PUBLIC_CALLBACK_BASE_URL: z.string().url().optional(),
+  MPESA_REQUEST_TIMEOUT_MS: z.coerce
+    .number()
+    .int()
+    .min(1000)
+    .max(60000)
+    .default(15000),
 });
 
 export type AppEnv = Omit<
@@ -137,6 +145,8 @@ export type AppEnv = Omit<
   | "POSTHOG_API_KEY"
   | "POSTHOG_PERSONAL_API_KEY"
   | "POSTHOG_ENABLED"
+  | "PAYMENTS_ENCRYPTION_KEY"
+  | "MPESA_PUBLIC_CALLBACK_BASE_URL"
 > & {
   BETTER_AUTH_SECRET: string;
   CORS_ALLOWED_ORIGINS: string[];
@@ -165,6 +175,8 @@ export type AppEnv = Omit<
   POSTHOG_API_KEY: string | null;
   POSTHOG_PERSONAL_API_KEY: string | null;
   POSTHOG_ENABLED: boolean;
+  PAYMENTS_ENCRYPTION_KEY: string | null;
+  MPESA_PUBLIC_CALLBACK_BASE_URL: string;
 };
 
 let cachedEnv: AppEnv | null = null;
@@ -252,6 +264,11 @@ export function getEnv(): AppEnv {
     POSTHOG_ENABLED:
       (parsed.POSTHOG_ENABLED ?? true) &&
       trimOptional(parsed.POSTHOG_API_KEY) !== null,
+    PAYMENTS_ENCRYPTION_KEY: trimOptional(parsed.PAYMENTS_ENCRYPTION_KEY),
+    MPESA_PUBLIC_CALLBACK_BASE_URL: (
+      trimOptional(parsed.MPESA_PUBLIC_CALLBACK_BASE_URL) ?? appUrl
+    ).replace(/\/+$/, ""),
+    MPESA_REQUEST_TIMEOUT_MS: parsed.MPESA_REQUEST_TIMEOUT_MS,
   };
 
   return cachedEnv;

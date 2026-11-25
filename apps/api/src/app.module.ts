@@ -18,6 +18,7 @@ import { EnterpriseExceptionFilter } from "./observability/enterprise-exception.
 import { ObservabilityInterceptor } from "./observability/observability.interceptor.js";
 import { ObservabilityModule } from "./observability/observability.module.js";
 import { OrdersModule } from "./orders/orders.module.js";
+import { PaymentsModule } from "./payments/payments.module.js";
 import { PricingModule } from "./pricing/pricing.module.js";
 import { ProcurementModule } from "./procurement/procurement.module.js";
 import { ProductionModule } from "./production/production.module.js";
@@ -59,6 +60,7 @@ import { TenantsModule } from "./tenants/tenants.module.js";
     PricingModule,
     CustomersModule,
     OrdersModule,
+    PaymentsModule,
     FulfillmentsModule,
   ],
   controllers: [MeController],

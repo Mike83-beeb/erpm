@@ -13,6 +13,7 @@ import {
 import { SalesInvoiceStatus } from "@scace/db";
 import type { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
+import { MpesaPaymentService } from "../payments/mpesa-payment.service.js";
 import {
   CurrentTenant,
   RequireActiveTenant,
@@ -66,6 +67,13 @@ const recordCashPaymentSchema = z.object({
   notes: z.string().trim().max(2000).nullable().optional(),
 });
 
+const invoiceMpesaStkSchema = z.object({
+  phoneNumber: z.string().trim().min(9).max(20),
+  amountCents: z.number().int().min(100).max(1_000_000_000).optional(),
+  accountReference: z.string().trim().max(32).nullable().optional(),
+  transactionDesc: z.string().trim().max(64).nullable().optional(),
+});
+
 function sanitizeFilenameSegment(value: string): string {
   return value.replace(/[^A-Za-z0-9._-]/g, "_") || "document";
 }
@@ -76,6 +84,8 @@ export class InvoicesController {
   constructor(
     @Inject(InvoicesPaymentsService)
     private readonly invoicesPaymentsService: InvoicesPaymentsService,
+    @Inject(MpesaPaymentService)
+    private readonly mpesaPaymentService: MpesaPaymentService,
   ) {}
 
   @Get()
@@ -190,6 +200,30 @@ export class InvoicesController {
     }
 
     return this.invoicesPaymentsService.recordCashPayment(
+      tenant,
+      invoiceId,
+      parsed.data,
+      req.ip,
+    );
+  }
+
+  @Post(":invoiceId/payments/mpesa/stk-push")
+  @RequiredOrgPermissions({ payment: ["record"] })
+  async initiateInvoiceMpesaStkPush(
+    @CurrentTenant() tenant: AuthenticatedTenant,
+    @Param("invoiceId") invoiceId: string,
+    @Body() body: unknown,
+    @Req() req: FastifyRequest,
+  ) {
+    const parsed = invoiceMpesaStkSchema.safeParse(body);
+    if (!parsed.success) {
+      throw new BadRequestException({
+        message: "Invalid M-Pesa STK Push payload.",
+        issues: parsed.error.issues,
+      });
+    }
+
+    return this.mpesaPaymentService.initiateStkPushForInvoice(
       tenant,
       invoiceId,
       parsed.data,

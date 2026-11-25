@@ -24,6 +24,7 @@ import {
 } from "@scace/db";
 import type { FastifyRequest } from "fastify";
 import { z } from "zod";
+import { MpesaPaymentService } from "../payments/mpesa-payment.service.js";
 import {
   CurrentTenant,
   RequireActiveTenant,
@@ -297,6 +298,13 @@ const manualNotifySchema = z.object({
   overrideDisabled: z.boolean().optional(),
 });
 
+const fulfillmentMpesaStkSchema = z.object({
+  phoneNumber: z.string().trim().min(9).max(20),
+  amountCents: z.number().int().min(100).max(1_000_000_000).optional(),
+  accountReference: z.string().trim().max(32).nullable().optional(),
+  transactionDesc: z.string().trim().max(64).nullable().optional(),
+});
+
 @Controller("api/v1/fulfillments")
 @RequireActiveTenant()
 export class FulfillmentsController {
@@ -307,6 +315,8 @@ export class FulfillmentsController {
     private readonly staffJobsService: StaffJobsService,
     @Inject(FulfillmentNotificationsService)
     private readonly notificationsService: FulfillmentNotificationsService,
+    @Inject(MpesaPaymentService)
+    private readonly mpesaPaymentService: MpesaPaymentService,
   ) {}
 
   // ==========================================
@@ -522,6 +532,30 @@ export class FulfillmentsController {
       });
     }
     return this.fulfillmentsService.recordCashDepositPayment(
+      tenant,
+      fulfillmentId,
+      parsed.data,
+      req.ip,
+    );
+  }
+
+  @Post(":fulfillmentId/payments/mpesa/stk-push")
+  @RequiredOrgPermissions({ payment: ["record"] })
+  async initiateFulfillmentMpesaStkPush(
+    @CurrentTenant() tenant: AuthenticatedTenant,
+    @Param("fulfillmentId") fulfillmentId: string,
+    @Body() body: unknown,
+    @Req() req: FastifyRequest,
+  ) {
+    const parsed = fulfillmentMpesaStkSchema.safeParse(body);
+    if (!parsed.success) {
+      throw new BadRequestException({
+        message: "Invalid M-Pesa STK Push payload.",
+        issues: parsed.error.issues,
+      });
+    }
+
+    return this.mpesaPaymentService.initiateStkPushForFulfillment(
       tenant,
       fulfillmentId,
       parsed.data,

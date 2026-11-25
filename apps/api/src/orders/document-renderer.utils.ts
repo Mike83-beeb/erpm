@@ -45,6 +45,9 @@ export interface PrintableReceiptDocument {
   invoiceNumber?: string | null;
   channel: string;
   paymentMethod: string;
+  reference?: string | null;
+  mpesaReceiptNumber?: string | null;
+  phoneNumber?: string | null;
   currency: string;
   issuedAt: string;
   locationName?: string | null;
@@ -303,6 +306,8 @@ export function renderReceiptHtml(doc: PrintableReceiptDocument): string {
       <div class="summary-row bold"><span>Order Total</span><span>${escapeHtml(formatMoney(doc.totalCents, doc.currency))}</span></div>
       <div class="divider"></div>
       <div class="summary-row"><span>Payment Method</span><span>${escapeHtml(doc.paymentMethod)}</span></div>
+      ${doc.mpesaReceiptNumber ? `<div class="summary-row"><span>M-Pesa Receipt #</span><strong>${escapeHtml(doc.mpesaReceiptNumber)}</strong></div>` : doc.reference ? `<div class="summary-row"><span>Reference</span><span>${escapeHtml(doc.reference)}</span></div>` : ""}
+      ${doc.phoneNumber ? `<div class="summary-row"><span>Phone</span><span>${escapeHtml(doc.phoneNumber)}</span></div>` : ""}
       <div class="summary-row"><span>Amount Applied</span><span>${escapeHtml(formatMoney(doc.amountAppliedCents, doc.currency))}</span></div>
       <div class="summary-row"><span>Cash Tendered</span><span>${escapeHtml(formatMoney(doc.cashTenderedCents, doc.currency))}</span></div>
       <div class="summary-row bold"><span>Change Given</span><span>${escapeHtml(formatMoney(doc.changeGivenCents, doc.currency))}</span></div>
@@ -705,6 +710,14 @@ export function renderReceiptPdf(doc: PrintableReceiptDocument): Buffer {
     ["Discounts", `-${formatMoney(doc.discountTotalCents, doc.currency)}`],
     ["Tax", formatMoney(doc.taxCents, doc.currency)],
     ["Order Total", formatMoney(doc.totalCents, doc.currency), true],
+    ...(doc.mpesaReceiptNumber
+      ? [["M-Pesa Receipt #", doc.mpesaReceiptNumber] as [string, string]]
+      : doc.reference
+        ? [["Reference", doc.reference] as [string, string]]
+        : []),
+    ...(doc.phoneNumber
+      ? [["Phone", doc.phoneNumber] as [string, string]]
+      : []),
     ["Amount Applied", formatMoney(doc.amountAppliedCents, doc.currency)],
     ["Cash Tendered", formatMoney(doc.cashTenderedCents, doc.currency)],
     ["Change Given", formatMoney(doc.changeGivenCents, doc.currency), true],

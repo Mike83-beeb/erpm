@@ -77,6 +77,8 @@ export const TENANT_SCOPED_MODELS = new Set<string>([
   "ProductionQcCheckpoint",
   "ProductionCostEntry",
   "ProductionConsumption",
+  "MpesaConfiguration",
+  "PaymentTransaction",
 ]);
 
 let sharedPool: Pool | null = null;

@@ -9,15 +9,11 @@
     "pnpm": ">=10.0.0"
   },
   "scripts": {
-    "predev": "pnpm --filter @scace/db build",
+    "predev": "node -e \"import('node:fs').then(fs => { if (!fs.existsSync('packages/db/dist/index.js') || !fs.existsSync('packages/db/src/generated/prisma/client.ts')) process.exit(1); })\" || pnpm --filter @scace/db build",
     "dev": "pnpm --filter @scace/api dev",
-    "prebuild": "pnpm --filter @scace/db db:generate",
     "build": "pnpm --filter @scace/db build && pnpm --filter @scace/api build",
-    "prelint": "pnpm --filter @scace/db build",
     "lint": "pnpm --filter @scace/db build && pnpm --filter @scace/db lint && pnpm --filter @scace/api lint",
-    "pretypecheck": "pnpm --filter @scace/db build",
     "typecheck": "pnpm --filter @scace/db build && pnpm --filter @scace/db typecheck && pnpm --filter @scace/api typecheck",
-    "pretest": "pnpm --filter @scace/db build",
     "test": "pnpm --filter @scace/db build && pnpm --filter @scace/db test && pnpm --filter @scace/api test",
     "start": "node apps/api/dist/main.js",
     "db:generate": "pnpm --filter @scace/db db:generate",
