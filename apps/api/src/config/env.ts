@@ -91,6 +91,21 @@ const envSchema = z.object({
   OIDC_SSO_CLIENT_ID: z.string().optional(),
   OIDC_SSO_CLIENT_SECRET: z.string().optional(),
   OIDC_SSO_ISSUER_URL: z.string().url().optional(),
+  SENTRY_DSN: z.string().optional(),
+  SENTRY_ENVIRONMENT: z.string().optional(),
+  SENTRY_RELEASE: z.string().optional(),
+  SENTRY_TRACES_SAMPLE_RATE: z.coerce.number().min(0).max(1).default(1.0),
+  SENTRY_CAPTURE_4XX: z
+    .enum(["true", "false"])
+    .transform((v) => v === "true")
+    .optional(),
+  POSTHOG_API_KEY: z.string().optional(),
+  POSTHOG_HOST: z.string().url().default("https://us.i.posthog.com"),
+  POSTHOG_PERSONAL_API_KEY: z.string().optional(),
+  POSTHOG_ENABLED: z
+    .enum(["true", "false"])
+    .transform((v) => v === "true")
+    .optional(),
 });
 
 export type AppEnv = Omit<
@@ -115,6 +130,13 @@ export type AppEnv = Omit<
   | "OIDC_SSO_CLIENT_ID"
   | "OIDC_SSO_CLIENT_SECRET"
   | "OIDC_SSO_ISSUER_URL"
+  | "SENTRY_DSN"
+  | "SENTRY_ENVIRONMENT"
+  | "SENTRY_RELEASE"
+  | "SENTRY_CAPTURE_4XX"
+  | "POSTHOG_API_KEY"
+  | "POSTHOG_PERSONAL_API_KEY"
+  | "POSTHOG_ENABLED"
 > & {
   BETTER_AUTH_SECRET: string;
   CORS_ALLOWED_ORIGINS: string[];
@@ -136,6 +158,13 @@ export type AppEnv = Omit<
   OIDC_SSO_CLIENT_ID: string | null;
   OIDC_SSO_CLIENT_SECRET: string | null;
   OIDC_SSO_ISSUER_URL: string | null;
+  SENTRY_DSN: string | null;
+  SENTRY_ENVIRONMENT: string;
+  SENTRY_RELEASE: string | null;
+  SENTRY_CAPTURE_4XX: boolean;
+  POSTHOG_API_KEY: string | null;
+  POSTHOG_PERSONAL_API_KEY: string | null;
+  POSTHOG_ENABLED: boolean;
 };
 
 let cachedEnv: AppEnv | null = null;
@@ -212,6 +241,17 @@ export function getEnv(): AppEnv {
     OIDC_SSO_CLIENT_ID: trimOptional(parsed.OIDC_SSO_CLIENT_ID),
     OIDC_SSO_CLIENT_SECRET: trimOptional(parsed.OIDC_SSO_CLIENT_SECRET),
     OIDC_SSO_ISSUER_URL: trimOptional(parsed.OIDC_SSO_ISSUER_URL),
+    SENTRY_DSN: trimOptional(parsed.SENTRY_DSN),
+    SENTRY_ENVIRONMENT:
+      trimOptional(parsed.SENTRY_ENVIRONMENT) ?? parsed.NODE_ENV,
+    SENTRY_RELEASE: trimOptional(parsed.SENTRY_RELEASE),
+    SENTRY_CAPTURE_4XX: parsed.SENTRY_CAPTURE_4XX ?? true,
+    POSTHOG_API_KEY: trimOptional(parsed.POSTHOG_API_KEY),
+    POSTHOG_HOST: parsed.POSTHOG_HOST.replace(/\/+$/, ""),
+    POSTHOG_PERSONAL_API_KEY: trimOptional(parsed.POSTHOG_PERSONAL_API_KEY),
+    POSTHOG_ENABLED:
+      (parsed.POSTHOG_ENABLED ?? true) &&
+      trimOptional(parsed.POSTHOG_API_KEY) !== null,
   };
 
   return cachedEnv;

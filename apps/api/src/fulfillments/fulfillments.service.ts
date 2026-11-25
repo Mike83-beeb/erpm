@@ -30,6 +30,7 @@ import {
   isValidOrganizationRole,
 } from "../auth/permissions.js";
 import { PrismaService } from "../database/prisma.service.js";
+import { AnalyticsService } from "../observability/analytics.service.js";
 import type { PrintableReceiptDocument } from "../orders/document-renderer.utils.js";
 import { OrdersService, type OrderLineInput } from "../orders/orders.service.js";
 import { PricingEngineService } from "../pricing/pricing-engine.service.js";
@@ -185,6 +186,8 @@ export class FulfillmentsService {
     @Inject(StaffJobsService) private readonly staffJobsService: StaffJobsService,
     @Inject(FulfillmentNotificationsService)
     private readonly notificationsService: FulfillmentNotificationsService,
+    @Inject(AnalyticsService)
+    private readonly analyticsService: AnalyticsService,
   ) {}
 
   async getOrCreateSettings(tenant: AuthenticatedTenant) {
@@ -744,7 +747,20 @@ export class FulfillmentsService {
       );
     }
 
-    return this.getFulfillment(tenant, created.id);
+    const fulfillment = await this.getFulfillment(tenant, created.id);
+    this.analyticsService.captureDomainEvent({
+      event: "fulfillment.created",
+      distinctId: tenant.userId,
+      organizationId,
+      properties: {
+        fulfillment_id: fulfillment.id,
+        fulfillment_number: fulfillment.fulfillmentNumber,
+        order_id: fulfillment.orderId,
+        type: fulfillment.type,
+        status: fulfillment.status,
+      },
+    });
+    return fulfillment;
   }
 
   async confirmFulfillment(
@@ -852,7 +868,19 @@ export class FulfillmentsService {
       );
     }
 
-    return this.getFulfillment(tenant, txResult.fulfillment.id);
+    const confirmed = await this.getFulfillment(tenant, txResult.fulfillment.id);
+    this.analyticsService.captureDomainEvent({
+      event: "fulfillment.confirmed",
+      distinctId: tenant.userId,
+      organizationId,
+      properties: {
+        fulfillment_id: confirmed.id,
+        fulfillment_number: confirmed.fulfillmentNumber,
+        type: confirmed.type,
+        status: confirmed.status,
+      },
+    });
+    return confirmed;
   }
 
   async updateFulfillment(
@@ -1701,8 +1729,21 @@ export class FulfillmentsService {
         ipAddress,
       );
 
+    const delivered = await this.getFulfillment(tenant, fulfillmentId);
+    this.analyticsService.captureDomainEvent({
+      event: "fulfillment.delivered",
+      distinctId: tenant.userId,
+      organizationId,
+      properties: {
+        fulfillment_id: delivered.id,
+        fulfillment_number: delivered.fulfillmentNumber,
+        type: delivered.type,
+        status: delivered.status,
+      },
+    });
+
     return {
-      fulfillment: await this.getFulfillment(tenant, fulfillmentId),
+      fulfillment: delivered,
       notification,
     };
   }
@@ -1781,7 +1822,18 @@ export class FulfillmentsService {
       });
     });
 
-    return this.getFulfillment(tenant, fulfillmentId);
+    const cancelled = await this.getFulfillment(tenant, fulfillmentId);
+    this.analyticsService.captureDomainEvent({
+      event: "fulfillment.cancelled",
+      distinctId: tenant.userId,
+      organizationId,
+      properties: {
+        fulfillment_id: cancelled.id,
+        fulfillment_number: cancelled.fulfillmentNumber,
+        type: cancelled.type,
+      },
+    });
+    return cancelled;
   }
 
   async listFulfillments(

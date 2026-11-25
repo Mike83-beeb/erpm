@@ -8,4 +8,7 @@ coverage/
 *.tsbuildinfo
 .env*
 !.env.example
+packages/db/src/generated/
 packages/db/generated/
+**/src/generated/
+**/generated/

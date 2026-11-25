@@ -20,6 +20,7 @@ import {
   TenantContext,
 } from "@scace/db";
 import { PrismaService } from "../database/prisma.service.js";
+import { AnalyticsService } from "../observability/analytics.service.js";
 import {
   PricingEngineService,
   type CalculatedQuoteLine,
@@ -128,6 +129,8 @@ export class OrdersService {
     @Inject(PrismaService) private readonly prismaService: PrismaService,
     @Inject(PricingEngineService)
     private readonly pricingEngine: PricingEngineService,
+    @Inject(AnalyticsService)
+    private readonly analyticsService: AnalyticsService,
   ) {}
 
   async posCheckout(
@@ -219,7 +222,7 @@ export class OrdersService {
     const now = new Date();
 
     try {
-      return await this.prismaService.raw.$transaction(async (tx) => {
+      const result = await this.prismaService.raw.$transaction(async (tx) => {
         const lineDescMap = new Map<number, string>();
         input.lines.forEach((l, idx) => {
           if (l.description && l.description.trim().length > 0) {
@@ -434,6 +437,24 @@ export class OrdersService {
           receipt,
         };
       });
+
+      this.analyticsService.captureDomainEvent({
+        event: "pos_checkout.completed",
+        distinctId: tenant.userId,
+        organizationId,
+        properties: {
+          order_id: result.order.id,
+          order_number: result.order.orderNumber,
+          location_id: location.id,
+          has_customer: Boolean(customer),
+          currency: result.order.currency,
+          total_cents: result.order.totalCents,
+          line_count: result.order.lines.length,
+          payment_method: PaymentMethod.CASH,
+        },
+      });
+
+      return result;
     } catch (error) {
       if (isUniqueConstraintError(error)) {
         throw new ConflictException(
@@ -505,7 +526,7 @@ export class OrdersService {
       input.orderNumber?.trim().toUpperCase() || generateDocNumber("B2B");
 
     try {
-      return await this.prismaService.raw.$transaction(async (tx) => {
+      const order = await this.prismaService.raw.$transaction(async (tx) => {
         const lineDescMap = new Map<number, string>();
         input.lines.forEach((l, idx) => {
           if (l.description && l.description.trim().length > 0) {
@@ -599,6 +620,22 @@ export class OrdersService {
 
         return order;
       });
+
+      this.analyticsService.captureDomainEvent({
+        event: "order.created",
+        distinctId: tenant.userId,
+        organizationId,
+        properties: {
+          order_id: order.id,
+          order_number: order.orderNumber,
+          channel: order.channel,
+          currency: order.currency,
+          total_cents: order.totalCents,
+          line_count: order.lines.length,
+        },
+      });
+
+      return order;
     } catch (error) {
       if (isUniqueConstraintError(error)) {
         throw new ConflictException(
@@ -803,7 +840,7 @@ export class OrdersService {
   ) {
     const organizationId = this.resolveVerifiedOrganizationId(tenant);
 
-    return this.prismaService.raw.$transaction(async (tx) => {
+    const confirmed = await this.prismaService.raw.$transaction(async (tx) => {
       const existing = await tx.order.findFirst({
         where: { id: orderId, organizationId },
         include: {
@@ -985,6 +1022,22 @@ export class OrdersService {
 
       return confirmed;
     });
+
+    this.analyticsService.captureDomainEvent({
+      event: "order.confirmed",
+      distinctId: tenant.userId,
+      organizationId,
+      properties: {
+        order_id: confirmed.id,
+        order_number: confirmed.orderNumber,
+        channel: confirmed.channel,
+        currency: confirmed.currency,
+        total_cents: confirmed.totalCents,
+        issued_invoice: (confirmed.invoices?.length ?? 0) > 0,
+      },
+    });
+
+    return confirmed;
   }
 
   async fulfillB2bOrder(
@@ -995,7 +1048,7 @@ export class OrdersService {
   ) {
     const organizationId = this.resolveVerifiedOrganizationId(tenant);
 
-    return this.prismaService.raw.$transaction(async (tx) => {
+    const updated = await this.prismaService.raw.$transaction(async (tx) => {
       const existing = await tx.order.findFirst({
         where: { id: orderId, organizationId },
         include: {
@@ -1153,6 +1206,21 @@ export class OrdersService {
 
       return updated;
     });
+
+    this.analyticsService.captureDomainEvent({
+      event: "order.fulfilled",
+      distinctId: tenant.userId,
+      organizationId,
+      properties: {
+        order_id: updated.id,
+        order_number: updated.orderNumber,
+        status: updated.status,
+        channel: updated.channel,
+        total_cents: updated.totalCents,
+      },
+    });
+
+    return updated;
   }
 
   async cancelB2bOrder(
@@ -1163,7 +1231,7 @@ export class OrdersService {
   ) {
     const organizationId = this.resolveVerifiedOrganizationId(tenant);
 
-    return this.prismaService.raw.$transaction(async (tx) => {
+    const cancelled = await this.prismaService.raw.$transaction(async (tx) => {
       const existing = await tx.order.findFirst({
         where: { id: orderId, organizationId },
         include: {
@@ -1293,6 +1361,20 @@ export class OrdersService {
 
       return cancelled;
     });
+
+    this.analyticsService.captureDomainEvent({
+      event: "order.cancelled",
+      distinctId: tenant.userId,
+      organizationId,
+      properties: {
+        order_id: cancelled.id,
+        order_number: cancelled.orderNumber,
+        channel: cancelled.channel,
+        total_cents: cancelled.totalCents,
+      },
+    });
+
+    return cancelled;
   }
 
   async listOrders(tenant: AuthenticatedTenant, query: ListOrdersQuery) {

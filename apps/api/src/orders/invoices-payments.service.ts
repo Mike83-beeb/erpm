@@ -14,6 +14,7 @@ import {
   TenantContext,
 } from "@scace/db";
 import { PrismaService } from "../database/prisma.service.js";
+import { AnalyticsService } from "../observability/analytics.service.js";
 import type { AuthenticatedTenant } from "../tenancy/tenant.decorators.js";
 import type {
   PrintableInvoiceDocument,
@@ -84,6 +85,8 @@ function generateDocNumber(prefix: string): string {
 export class InvoicesPaymentsService {
   constructor(
     @Inject(PrismaService) private readonly prismaService: PrismaService,
+    @Inject(AnalyticsService)
+    private readonly analyticsService: AnalyticsService,
   ) {}
 
   async createInvoiceFromOrder(
@@ -98,7 +101,7 @@ export class InvoicesPaymentsService {
     const targetStatus = input.status ?? SalesInvoiceStatus.ISSUED;
 
     try {
-      return await this.prismaService.raw.$transaction(async (tx) => {
+      const createdInvoice = await this.prismaService.raw.$transaction(async (tx) => {
         const [order, org, settings] = await Promise.all([
           tx.order.findFirst({
             where: { id: orderId, organizationId },
@@ -245,6 +248,22 @@ export class InvoicesPaymentsService {
           balanceDueCents: Math.max(0, invoice.totalCents - invoice.paidAmountCents),
         };
       });
+
+      this.analyticsService.captureDomainEvent({
+        event: "invoice.created",
+        distinctId: tenant.userId,
+        organizationId,
+        properties: {
+          invoice_id: createdInvoice.id,
+          invoice_number: createdInvoice.invoiceNumber,
+          order_id: createdInvoice.orderId,
+          status: createdInvoice.status,
+          currency: createdInvoice.currency,
+          total_cents: createdInvoice.totalCents,
+        },
+      });
+
+      return createdInvoice;
     } catch (error) {
       if (isUniqueConstraintError(error)) {
         throw new ConflictException(
@@ -263,7 +282,7 @@ export class InvoicesPaymentsService {
   ) {
     const organizationId = this.resolveVerifiedOrganizationId(tenant);
 
-    return this.prismaService.raw.$transaction(async (tx) => {
+    const result = await this.prismaService.raw.$transaction(async (tx) => {
       const existing = await tx.salesInvoice.findFirst({
         where: { id: invoiceId, organizationId },
         include: { customer: true },
@@ -333,6 +352,20 @@ export class InvoicesPaymentsService {
         balanceDueCents: Math.max(0, updated.totalCents - updated.paidAmountCents),
       };
     });
+
+    this.analyticsService.captureDomainEvent({
+      event: "invoice.issued",
+      distinctId: tenant.userId,
+      organizationId,
+      properties: {
+        invoice_id: result.id,
+        invoice_number: result.invoiceNumber,
+        currency: result.currency,
+        total_cents: result.totalCents,
+      },
+    });
+
+    return result;
   }
 
   async voidInvoice(
@@ -343,7 +376,7 @@ export class InvoicesPaymentsService {
   ) {
     const organizationId = this.resolveVerifiedOrganizationId(tenant);
 
-    return this.prismaService.raw.$transaction(async (tx) => {
+    const result = await this.prismaService.raw.$transaction(async (tx) => {
       const existing = await tx.salesInvoice.findFirst({
         where: { id: invoiceId, organizationId },
       });
@@ -408,6 +441,19 @@ export class InvoicesPaymentsService {
         balanceDueCents: 0,
       };
     });
+
+    this.analyticsService.captureDomainEvent({
+      event: "invoice.voided",
+      distinctId: tenant.userId,
+      organizationId,
+      properties: {
+        invoice_id: result.id,
+        invoice_number: result.invoiceNumber,
+        total_cents: result.totalCents,
+      },
+    });
+
+    return result;
   }
 
   async recordCashPayment(
@@ -424,7 +470,7 @@ export class InvoicesPaymentsService {
       );
     }
 
-    return this.prismaService.raw.$transaction(async (tx) => {
+    const result = await this.prismaService.raw.$transaction(async (tx) => {
       const invoice = await tx.salesInvoice.findFirst({
         where: { id: invoiceId, organizationId },
         include: {
@@ -668,6 +714,24 @@ export class InvoicesPaymentsService {
         receipt,
       };
     });
+
+    this.analyticsService.captureDomainEvent({
+      event: "payment.recorded",
+      distinctId: tenant.userId,
+      organizationId,
+      properties: {
+        payment_id: result.payment.id,
+        payment_number: result.payment.paymentNumber,
+        invoice_id: result.invoice.id,
+        order_id: result.payment.orderId,
+        method: result.payment.method,
+        currency: result.payment.currency,
+        amount_applied_cents: result.payment.amountAppliedCents,
+        invoice_status: result.invoice.status,
+      },
+    });
+
+    return result;
   }
 
   async listInvoices(tenant: AuthenticatedTenant, query: ListInvoicesQuery) {

@@ -20,6 +20,7 @@ import {
 } from "../auth/permissions.js";
 import { getEnv } from "../config/env.js";
 import { PrismaService } from "../database/prisma.service.js";
+import { AnalyticsService } from "../observability/analytics.service.js";
 import { RedisService } from "../redis/redis.service.js";
 import { deriveOrganizationBucketName } from "../storage/storage.utils.js";
 import type { AuthenticatedTenant } from "../tenancy/tenant.decorators.js";
@@ -43,6 +44,8 @@ export class TenantsService {
   constructor(
     @Inject(PrismaService) private readonly prismaService: PrismaService,
     @Inject(RedisService) private readonly redisService: RedisService,
+    @Inject(AnalyticsService)
+    private readonly analyticsService: AnalyticsService,
   ) {}
 
   async getCurrentTenantOverview(tenant: AuthenticatedTenant) {
@@ -213,7 +216,28 @@ export class TenantsService {
       // Non-fatal cache invalidation error
     }
 
-    return this.serializeSettings(updated);
+    const serialized = this.serializeSettings(updated);
+    this.analyticsService.identifyOrganization({
+      organizationId: tenant.organizationId,
+      distinctId: tenant.userId,
+      force: true,
+      properties: {
+        default_currency: serialized.defaultCurrency,
+        timezone: serialized.timezone,
+        fiscal_year_start_month: serialized.fiscalYearStartMonth,
+      },
+    });
+    this.analyticsService.captureDomainEvent({
+      event: "tenant.settings_updated",
+      distinctId: tenant.userId,
+      organizationId: tenant.organizationId,
+      properties: {
+        default_currency: serialized.defaultCurrency,
+        timezone: serialized.timezone,
+      },
+    });
+
+    return serialized;
   }
 
   private serializeSettings<T extends { storageQuotaBytes?: bigint | number }>(
@@ -420,7 +444,7 @@ export class TenantsService {
     }
 
     try {
-      return await auth.api.createInvitation({
+      const invitation = await auth.api.createInvitation({
         headers: fromNodeHeaders(rawHeaders),
         body: {
           email: input.email.toLowerCase(),
@@ -429,6 +453,16 @@ export class TenantsService {
           resend: input.resend ?? false,
         },
       });
+      this.analyticsService.captureDomainEvent({
+        event: "tenant.member_invited",
+        distinctId: tenant.userId,
+        organizationId: tenant.organizationId,
+        properties: {
+          invited_role: input.role,
+          resend: input.resend ?? false,
+        },
+      });
+      return invitation;
     } catch (error) {
       throw this.mapBetterAuthError(error);
     }

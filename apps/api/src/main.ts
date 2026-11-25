@@ -1,10 +1,5 @@
-import { resolve } from "node:path";
-import { Readable } from "node:stream";
-import dotenv from "dotenv";
+import "./instrument.js";
 import "reflect-metadata";
-
-dotenv.config({ path: resolve(process.cwd(), "../../.env") });
-dotenv.config();
 import cors from "@fastify/cors";
 import multipart from "@fastify/multipart";
 import { Logger } from "@nestjs/common";
@@ -13,9 +8,12 @@ import {
   FastifyAdapter,
   type NestFastifyApplication,
 } from "@nestjs/platform-fastify";
+import * as Sentry from "@sentry/nestjs";
+import { Readable } from "node:stream";
 import { AppModule } from "./app.module.js";
 import { authRedisClient } from "./auth/auth.config.js";
 import { getEnv } from "./config/env.js";
+import { sanitizeRequestId } from "./observability/scrubbing.utils.js";
 
 async function bootstrap() {
   const env = getEnv();
@@ -37,7 +35,14 @@ async function bootstrap() {
     origin: env.CORS_ALLOWED_ORIGINS,
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "X-API-Key"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "X-Requested-With",
+      "X-API-Key",
+      "X-Request-Id",
+    ],
+    exposedHeaders: ["X-Request-Id"],
   });
 
   await app.register(multipart, {
@@ -50,6 +55,15 @@ async function bootstrap() {
   app.enableShutdownHooks();
 
   const fastifyInstance = app.getHttpAdapter().getInstance();
+
+  fastifyInstance.addHook("onRequest", async (request, reply) => {
+    const requestId = sanitizeRequestId(
+      request.headers["x-request-id"] ?? request.id,
+    );
+    (request as unknown as { requestId?: string }).requestId = requestId;
+    reply.header("X-Request-Id", requestId);
+    Sentry.getIsolationScope().setTag("request_id", requestId);
+  });
 
   fastifyInstance.addHook("preParsing", async (request, _reply, payload) => {
     if (
@@ -79,9 +93,10 @@ async function bootstrap() {
   });
 
   fastifyInstance.addHook("onClose", async () => {
-    if (authRedisClient.status !== "end") {
-      await authRedisClient.quit();
-    }
+    await Promise.allSettled([
+      Sentry.flush(2000),
+      authRedisClient.status !== "end" ? authRedisClient.quit() : Promise.resolve(),
+    ]);
   });
 
   await app.listen(3000, "0.0.0.0");

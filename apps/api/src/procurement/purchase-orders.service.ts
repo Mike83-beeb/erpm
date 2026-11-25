@@ -16,6 +16,7 @@ import {
   TenantContext,
 } from "@scace/db";
 import { PrismaService } from "../database/prisma.service.js";
+import { AnalyticsService } from "../observability/analytics.service.js";
 import { PricingEngineService } from "../pricing/pricing-engine.service.js";
 import type { AuthenticatedTenant } from "../tenancy/tenant.decorators.js";
 import { DeliveriesService } from "./deliveries.service.js";
@@ -102,6 +103,8 @@ export class PurchaseOrdersService {
     private readonly pricingEngine: PricingEngineService,
     @Inject(DeliveriesService)
     private readonly deliveriesService: DeliveriesService,
+    @Inject(AnalyticsService)
+    private readonly analyticsService: AnalyticsService,
   ) {}
 
   async createPurchaseOrder(
@@ -225,7 +228,7 @@ export class PurchaseOrdersService {
     );
 
     try {
-      return await this.prismaService.raw.$transaction(async (tx) => {
+      const created = await this.prismaService.raw.$transaction(async (tx) => {
         const created = await tx.purchaseOrder.create({
           data: {
             organizationId,
@@ -291,6 +294,21 @@ export class PurchaseOrdersService {
 
         return created;
       });
+
+      this.analyticsService.captureDomainEvent({
+        event: "purchase_order.created",
+        distinctId: tenant.userId,
+        organizationId,
+        properties: {
+          purchase_order_id: created.id,
+          po_number: created.poNumber,
+          currency: created.currency,
+          total_cents: created.totalCents,
+          line_count: created.lines.length,
+        },
+      });
+
+      return created;
     } catch (error) {
       if (isUniqueConstraintError(error)) {
         throw new ConflictException(
@@ -630,7 +648,7 @@ export class PurchaseOrdersService {
   ) {
     const organizationId = this.resolveVerifiedOrganizationId(tenant);
 
-    return this.prismaService.raw.$transaction(async (tx) => {
+    const submitted = await this.prismaService.raw.$transaction(async (tx) => {
       const existing = await tx.purchaseOrder.findFirst({
         where: { id: poId, organizationId },
         include: { lines: true },
@@ -696,6 +714,20 @@ export class PurchaseOrdersService {
 
       return submitted;
     });
+
+    this.analyticsService.captureDomainEvent({
+      event: "purchase_order.submitted",
+      distinctId: tenant.userId,
+      organizationId,
+      properties: {
+        purchase_order_id: submitted.id,
+        po_number: submitted.poNumber,
+        currency: submitted.currency,
+        total_cents: submitted.totalCents,
+      },
+    });
+
+    return submitted;
   }
 
   async cancelPurchaseOrder(
@@ -706,7 +738,7 @@ export class PurchaseOrdersService {
   ) {
     const organizationId = this.resolveVerifiedOrganizationId(tenant);
 
-    return this.prismaService.raw.$transaction(async (tx) => {
+    const cancelled = await this.prismaService.raw.$transaction(async (tx) => {
       const existing = await tx.purchaseOrder.findFirst({
         where: { id: poId, organizationId },
         include: { lines: true },
@@ -769,6 +801,18 @@ export class PurchaseOrdersService {
 
       return cancelled;
     });
+
+    this.analyticsService.captureDomainEvent({
+      event: "purchase_order.cancelled",
+      distinctId: tenant.userId,
+      organizationId,
+      properties: {
+        purchase_order_id: cancelled.id,
+        po_number: cancelled.poNumber,
+      },
+    });
+
+    return cancelled;
   }
 
   async receiveGoods(

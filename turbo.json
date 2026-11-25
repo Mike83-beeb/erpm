@@ -37,15 +37,21 @@
     "@scace/db#typecheck": {
       "dependsOn": ["db:generate"]
     },
+    "@scace/db#test": {
+      "dependsOn": ["db:generate"]
+    },
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": ["dist/**", "generated/**"]
+      "outputs": ["dist/**", "src/generated/**", "generated/**"]
     },
     "typecheck": {
       "dependsOn": ["^build"]
     },
     "lint": {
+      "dependsOn": ["^build"]
+    },
+    "test": {
       "dependsOn": ["^build"]
     },
     "dev": {

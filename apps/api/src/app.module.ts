@@ -1,5 +1,6 @@
 import { Module } from "@nestjs/common";
-import { APP_GUARD } from "@nestjs/core";
+import { APP_FILTER, APP_GUARD, APP_INTERCEPTOR } from "@nestjs/core";
+import { SentryModule } from "@sentry/nestjs/setup";
 import { AuthModule } from "@thallesp/nestjs-better-auth";
 import { auth } from "./auth/auth.config.js";
 import { EnterpriseAuthModule } from "./auth/enterprise-auth.module.js";
@@ -13,6 +14,9 @@ import { FulfillmentsModule } from "./fulfillments/fulfillments.module.js";
 import { HealthModule } from "./health/health.module.js";
 import { ItemsModule } from "./items/items.module.js";
 import { LocationsModule } from "./locations/locations.module.js";
+import { EnterpriseExceptionFilter } from "./observability/enterprise-exception.filter.js";
+import { ObservabilityInterceptor } from "./observability/observability.interceptor.js";
+import { ObservabilityModule } from "./observability/observability.module.js";
 import { OrdersModule } from "./orders/orders.module.js";
 import { PricingModule } from "./pricing/pricing.module.js";
 import { ProcurementModule } from "./procurement/procurement.module.js";
@@ -25,6 +29,8 @@ import { TenantsModule } from "./tenants/tenants.module.js";
 
 @Module({
   imports: [
+    SentryModule.forRoot(),
+    ObservabilityModule,
     DatabaseModule,
     RedisModule,
     StorageModule,
@@ -60,6 +66,14 @@ import { TenantsModule } from "./tenants/tenants.module.js";
     {
       provide: APP_GUARD,
       useClass: UnifiedAuthGuard,
+    },
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: ObservabilityInterceptor,
+    },
+    {
+      provide: APP_FILTER,
+      useClass: EnterpriseExceptionFilter,
     },
   ],
 })

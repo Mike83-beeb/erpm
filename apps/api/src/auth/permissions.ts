@@ -37,6 +37,7 @@ export const erpStatements = {
   oauthClient: ["read", "create", "update", "revoke", "manageKeys"],
   device: ["read", "approve", "update", "revoke"],
   ssoConfig: ["read", "configure"],
+  production: ["read", "create", "update", "release", "schedule", "consume", "qc", "costing", "complete", "cancel"],
 } as const;
 
 export type ErpStatements = typeof erpStatements;
@@ -78,6 +79,7 @@ export const owner = ac.newRole({
   oauthClient: ["read", "create", "update", "revoke", "manageKeys"],
   device: ["read", "approve", "update", "revoke"],
   ssoConfig: ["read", "configure"],
+  production: ["read", "create", "update", "release", "schedule", "consume", "qc", "costing", "complete", "cancel"],
 });
 
 export const admin = ac.newRole({
@@ -111,6 +113,7 @@ export const admin = ac.newRole({
   oauthClient: ["read", "create", "update", "revoke", "manageKeys"],
   device: ["read", "approve", "update", "revoke"],
   ssoConfig: ["read", "configure"],
+  production: ["read", "create", "update", "release", "schedule", "consume", "qc", "costing", "complete", "cancel"],
 });
 
 export const manager = ac.newRole({
@@ -147,6 +150,7 @@ export const manager = ac.newRole({
   oauthClient: ["read"],
   device: ["read", "approve", "update", "revoke"],
   ssoConfig: [],
+  production: ["read", "create", "update", "release", "schedule", "consume", "qc", "costing", "complete", "cancel"],
 });
 
 export const member = ac.newRole({
@@ -179,6 +183,7 @@ export const member = ac.newRole({
   oauthClient: [],
   device: ["read", "revoke"],
   ssoConfig: [],
+  production: ["read", "create", "update", "consume", "complete"],
 });
 
 export const viewer = ac.newRole({
@@ -214,6 +219,7 @@ export const viewer = ac.newRole({
   oauthClient: [],
   device: [],
   ssoConfig: [],
+  production: ["read"],
 });
 
 export const organizationRoles = {
@@ -326,6 +332,7 @@ export function getResolvedPermissionsForRole(
     oauthClient: new Set(),
     device: new Set(),
     ssoConfig: new Set(),
+    production: new Set(),
   };
 
   for (const roleName of parseRoleNames(roleNameList(roleValue))) {
@@ -375,6 +382,7 @@ export function getResolvedPermissionsForRole(
     oauthClient: Array.from(resolved.oauthClient),
     device: Array.from(resolved.device),
     ssoConfig: Array.from(resolved.ssoConfig),
+    production: Array.from(resolved.production),
   };
 }
 

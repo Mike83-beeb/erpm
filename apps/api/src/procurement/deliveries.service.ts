@@ -22,6 +22,7 @@ import {
 } from "@scace/db";
 import type { FastifyRequest } from "fastify";
 import { PrismaService } from "../database/prisma.service.js";
+import { AnalyticsService } from "../observability/analytics.service.js";
 import {
   type AttachmentInput,
   AttachmentsService,
@@ -157,6 +158,8 @@ export class DeliveriesService {
     @Inject(PrismaService) private readonly prismaService: PrismaService,
     @Inject(AttachmentsService)
     private readonly attachmentsService: AttachmentsService,
+    @Inject(AnalyticsService)
+    private readonly analyticsService: AnalyticsService,
   ) {}
 
   async getDeliveryPreview(tenant: AuthenticatedTenant, poId: string) {
@@ -280,7 +283,7 @@ export class DeliveriesService {
       `DLV-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
 
     try {
-      return await this.prismaService.raw.$transaction(async (tx) => {
+      const result = await this.prismaService.raw.$transaction(async (tx) => {
         const po = await tx.purchaseOrder.findFirst({
           where: { id: poId, organizationId },
           include: {
@@ -587,6 +590,21 @@ export class DeliveriesService {
 
         return this.formatDeliveryResponse(delivery);
       });
+
+      this.analyticsService.captureDomainEvent({
+        event: "delivery.received",
+        distinctId: tenant.userId,
+        organizationId,
+        properties: {
+          delivery_id: result.id,
+          receipt_number: result.receiptNumber,
+          purchase_order_id: poId,
+          status: result.status,
+          line_count: result.lines.length,
+        },
+      });
+
+      return result;
     } catch (error) {
       if (isUniqueConstraintError(error)) {
         throw new ConflictException(
@@ -673,7 +691,7 @@ export class DeliveriesService {
   ) {
     const organizationId = this.resolveVerifiedOrganizationId(tenant);
 
-    return this.prismaService.raw.$transaction(async (tx) => {
+    const result = await this.prismaService.raw.$transaction(async (tx) => {
       const delivery = await tx.goodsReceipt.findFirst({
         where: { id: deliveryId, organizationId },
         include: {
@@ -920,6 +938,20 @@ export class DeliveriesService {
 
       return this.formatDeliveryResponse(updatedDelivery);
     });
+
+    this.analyticsService.captureDomainEvent({
+      event: "delivery.qc_inspected",
+      distinctId: tenant.userId,
+      organizationId,
+      properties: {
+        delivery_id: result.id,
+        receipt_number: result.receiptNumber,
+        status: result.status,
+        inspected_line_count: input.lines.length,
+      },
+    });
+
+    return result;
   }
 
   async acceptDelivery(
@@ -930,7 +962,7 @@ export class DeliveriesService {
   ) {
     const organizationId = this.resolveVerifiedOrganizationId(tenant);
 
-    return this.prismaService.raw.$transaction(async (tx) => {
+    const result = await this.prismaService.raw.$transaction(async (tx) => {
       const delivery = await tx.goodsReceipt.findFirst({
         where: { id: deliveryId, organizationId },
         include: {
@@ -1263,6 +1295,21 @@ export class DeliveriesService {
         purchaseOrder: updatedPo,
       };
     });
+
+    this.analyticsService.captureDomainEvent({
+      event: "delivery.accepted",
+      distinctId: tenant.userId,
+      organizationId,
+      properties: {
+        delivery_id: result.delivery.id,
+        receipt_number: result.delivery.receiptNumber,
+        status: result.delivery.status,
+        purchase_order_id: result.purchaseOrder.id,
+        next_po_status: result.purchaseOrder.status,
+      },
+    });
+
+    return result;
   }
 
   async cancelDelivery(

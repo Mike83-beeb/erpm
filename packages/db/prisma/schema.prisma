@@ -148,6 +148,17 @@ model Organization {
   personalAccessTokens    PersonalAccessToken[]
   registeredDevices       RegisteredDevice[]
   ssoProviders            OrganizationSsoProvider[]
+  documentAttachments     DocumentAttachment[]
+  workCenters             WorkCenter[]
+  billsOfMaterial         BillOfMaterial[]
+  routings                Routing[]
+  productionBatches       ProductionBatch[]
+  productionOperations    ProductionOperation[]
+  productionTimeLogs      ProductionTimeLog[]
+  productionQcCheckpoints ProductionQcCheckpoint[]
+  productionCostEntries   ProductionCostEntry[]
+  productionConsumptions  ProductionConsumption[]
+  productionReservations  ProductionMaterialReservation[]
 
   @@map("organization")
 }
@@ -290,8 +301,14 @@ model Item {
   stockLots          StockLot[]
   quarantineHolds    QuarantineHold[]
   supplierClaims     SupplierClaim[]
-  orderLines         OrderLine[]
-  salesInvoiceLines  SalesInvoiceLine[]
+  orderLines                  OrderLine[]
+  salesInvoiceLines           SalesInvoiceLine[]
+  billsOfMaterialAsFinished   BillOfMaterial[]                @relation("FinishedItemBoms")
+  bomLinesAsComponent         BomLine[]                       @relation("ComponentItemBomLines")
+  routings                    Routing[]
+  productionBatchesAsFinished ProductionBatch[]               @relation("BatchFinishedItem")
+  materialReservationsAsItem  ProductionMaterialReservation[] @relation("ReservationItem")
+  productionConsumptions      ProductionConsumption[]         @relation("ConsumptionItem")
 
   @@unique([organizationId, sku])
   @@index([organizationId, status, type])
@@ -339,6 +356,14 @@ enum StockMovementType {
   TRANSFER_IN
   SALE
   SALE_RETURN
+  PRODUCTION_CONSUMPTION
+  PRODUCTION_OUTPUT
+}
+
+enum LotAllocationStrategy {
+  FEFO
+  FIFO
+  MANUAL
 }
 
 enum StockTransferStatus {
@@ -387,7 +412,11 @@ model Location {
   orderFulfillments OrderFulfillment[]
   oauthClients      OAuthClient[]
   oauthDeviceCodes  OAuthDeviceCode[]
-  registeredDevices RegisteredDevice[]
+  registeredDevices      RegisteredDevice[]
+  workCenters            WorkCenter[]
+  productionBatches      ProductionBatch[]
+  productionReservations ProductionMaterialReservation[]
+  productionConsumptions ProductionConsumption[]
 
   @@unique([organizationId, code])
   @@index([organizationId, status, type])
@@ -581,6 +610,7 @@ model Supplier {
   vendorBills      VendorBill[]
   priceBooks       PriceBook[]
   supplierClaims   SupplierClaim[]
+  stockLots        StockLot[]
 
   @@unique([organizationId, code])
   @@index([organizationId, status])
@@ -588,24 +618,27 @@ model Supplier {
 }
 
 model SupplierItem {
-  id             String       @id @default(cuid())
-  organizationId String
-  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
-  supplierId     String
-  supplier       Supplier     @relation(fields: [supplierId], references: [id], onDelete: Cascade)
-  itemId         String
-  item           Item         @relation(fields: [itemId], references: [id], onDelete: Cascade)
-  packId         String?
-  pack           ItemPack?    @relation(fields: [packId], references: [id], onDelete: SetNull)
-  supplierSku    String?
-  unitCostCents  Int
-  currency       String       @default("USD")
-  minOrderQty    Int          @default(1)
-  leadTimeDays   Int?
-  isPreferred    Boolean      @default(false)
-  notes          String?
-  createdAt      DateTime     @default(now())
-  updatedAt      DateTime     @updatedAt
+  id                String             @id @default(cuid())
+  organizationId    String
+  organization      Organization       @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  supplierId        String
+  supplier          Supplier           @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  itemId            String
+  item              Item               @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  packId            String?
+  pack              ItemPack?          @relation(fields: [packId], references: [id], onDelete: SetNull)
+  supplierSku       String?
+  unitCostCents     Int
+  currency          String             @default("USD")
+  minOrderQty       Int                @default(1)
+  leadTimeDays      Int?
+  isPreferred       Boolean            @default(false)
+  isActive          Boolean            @default(true)
+  notes             String?
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+  goodsReceiptLines GoodsReceiptLine[]
+  stockLots         StockLot[]
 
   @@unique([organizationId, supplierId, itemId])
   @@index([organizationId, itemId])
@@ -707,10 +740,11 @@ model GoodsReceipt {
   cancelledAt       DateTime?
   createdAt         DateTime           @default(now())
   updatedAt         DateTime           @updatedAt
-  lines             GoodsReceiptLine[]
-  vendorBills       VendorBill[]
-  quarantineHolds   QuarantineHold[]
-  supplierClaims    SupplierClaim[]
+  lines               GoodsReceiptLine[]
+  vendorBills         VendorBill[]
+  quarantineHolds     QuarantineHold[]
+  supplierClaims      SupplierClaim[]
+  documentAttachments DocumentAttachment[]
 
   @@unique([organizationId, receiptNumber])
   @@index([organizationId, purchaseOrderId])
@@ -731,6 +765,9 @@ model GoodsReceiptLine {
   item                 Item                  @relation(fields: [itemId], references: [id], onDelete: Restrict)
   packId               String?
   pack                 ItemPack?             @relation(fields: [packId], references: [id], onDelete: SetNull)
+  supplierItemId       String?
+  supplierItem         SupplierItem?         @relation(fields: [supplierItemId], references: [id], onDelete: SetNull)
+  supplierBatchNumber  String?
   unitsPerPack         Int                   @default(1)
   packQty              Int                   @default(0)
   looseBaseQty         Int                   @default(0)
@@ -758,36 +795,53 @@ model GoodsReceiptLine {
   quarantineHolds      QuarantineHold[]
   supplierClaims       SupplierClaim[]
   vendorBillLines      VendorBillLine[]
+  documentAttachments  DocumentAttachment[]
 
   @@index([organizationId, goodsReceiptId])
   @@index([organizationId, purchaseOrderLineId])
+  @@index([organizationId, supplierItemId])
   @@map("goods_receipt_line")
 }
 
 model StockLot {
-  id                 String            @id @default(cuid())
-  organizationId     String
-  organization       Organization      @relation(fields: [organizationId], references: [id], onDelete: Cascade)
-  itemId             String
-  item               Item              @relation(fields: [itemId], references: [id], onDelete: Cascade)
-  locationId         String
-  location           Location          @relation(fields: [locationId], references: [id], onDelete: Cascade)
-  goodsReceiptLineId String?
-  goodsReceiptLine   GoodsReceiptLine? @relation(fields: [goodsReceiptLineId], references: [id], onDelete: SetNull)
-  lotNumber          String
-  batchCode          String?
-  manufacturedAt     DateTime?
-  expiresAt          DateTime?
-  serialNumbers      Json?
-  onHandQty          Int               @default(0)
-  quarantinedQty     Int               @default(0)
-  createdAt          DateTime          @default(now())
-  updatedAt          DateTime          @updatedAt
-  quarantineHolds    QuarantineHold[]
+  id                     String                          @id @default(cuid())
+  organizationId         String
+  organization           Organization                    @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  itemId                 String
+  item                   Item                            @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  locationId             String
+  location               Location                        @relation(fields: [locationId], references: [id], onDelete: Cascade)
+  goodsReceiptLineId     String?
+  goodsReceiptLine       GoodsReceiptLine?               @relation(fields: [goodsReceiptLineId], references: [id], onDelete: SetNull)
+  supplierId             String?
+  supplier               Supplier?                       @relation(fields: [supplierId], references: [id], onDelete: SetNull)
+  supplierItemId         String?
+  supplierItem           SupplierItem?                   @relation(fields: [supplierItemId], references: [id], onDelete: SetNull)
+  supplierSku            String?
+  supplierBatchNumber    String?
+  lotNumber              String
+  batchCode              String?
+  manufacturedAt         DateTime?
+  expiresAt              DateTime?
+  serialNumbers          Json?
+  onHandQty              Int                             @default(0)
+  quarantinedQty         Int                             @default(0)
+  initialQty             Decimal                         @default(0) @db.Decimal(18, 4)
+  consumedQty            Decimal                         @default(0) @db.Decimal(18, 4)
+  unitCostCents          Int                             @default(0)
+  createdAt              DateTime                        @default(now())
+  updatedAt              DateTime                        @updatedAt
+  quarantineHolds        QuarantineHold[]
+  documentAttachments    DocumentAttachment[]
+  productionConsumptions ProductionConsumption[]
+  productionReservations ProductionMaterialReservation[]
+  producedFromBatches    ProductionBatch[]               @relation("OutputStockLot")
 
   @@index([organizationId, itemId, locationId])
   @@index([organizationId, lotNumber])
   @@index([organizationId, expiresAt])
+  @@index([organizationId, supplierId])
+  @@index([organizationId, supplierItemId])
   @@map("stock_lot")
 }
 
@@ -929,6 +983,11 @@ enum StorageEntityType {
   VENDOR_BILL
   PURCHASE_ORDER
   GOODS_RECEIPT
+  GOODS_RECEIPT_LINE
+  STOCK_LOT
+  PRODUCTION_BATCH
+  PRODUCTION_OPERATION
+  PRODUCTION_QC_CHECKPOINT
   SUPPLIER
   CUSTOMER
   ORDER
@@ -936,31 +995,77 @@ enum StorageEntityType {
   PAYMENT_RECEIPT
 }
 
+enum AttachmentDocumentType {
+  PACKING_SLIP
+  BILL_OF_LADING
+  COA
+  QC_PHOTO
+  INSPECTION_REPORT
+  SUPPLIER_INVOICE
+  SAFETY_DATA_SHEET
+  OTHER
+}
+
 model StoredObject {
-  id               String             @id @default(cuid())
-  organizationId   String
-  organization     Organization       @relation(fields: [organizationId], references: [id], onDelete: Cascade)
-  bucket           String
-  objectKey        String
-  originalName     String
-  mimeType         String
-  sizeBytes        BigInt             @default(0)
-  etag             String?
-  status           StoredObjectStatus @default(PENDING)
-  entityType       StorageEntityType  @default(ORGANIZATION)
-  entityId         String?
-  uploadedByUserId String?
-  tags             String[]           @default([])
-  metadata         Json?
-  completedAt      DateTime?
-  deletedAt        DateTime?
-  createdAt        DateTime           @default(now())
-  updatedAt        DateTime           @updatedAt
+  id                  String               @id @default(cuid())
+  organizationId      String
+  organization        Organization         @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  bucket              String
+  objectKey           String
+  originalName        String
+  mimeType            String
+  sizeBytes           BigInt               @default(0)
+  etag                String?
+  status              StoredObjectStatus   @default(PENDING)
+  entityType          StorageEntityType    @default(ORGANIZATION)
+  entityId            String?
+  uploadedByUserId    String?
+  tags                String[]             @default([])
+  metadata            Json?
+  completedAt         DateTime?
+  deletedAt           DateTime?
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
+  documentAttachments DocumentAttachment[]
 
   @@unique([organizationId, bucket, objectKey])
   @@index([organizationId, status, createdAt])
   @@index([organizationId, entityType, entityId])
   @@map("stored_object")
+}
+
+model DocumentAttachment {
+  id                       String                  @id @default(cuid())
+  organizationId           String
+  organization             Organization            @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  storedObjectId           String
+  storedObject             StoredObject            @relation(fields: [storedObjectId], references: [id], onDelete: Cascade)
+  documentType             AttachmentDocumentType  @default(OTHER)
+  caption                  String?
+  goodsReceiptId           String?
+  goodsReceipt             GoodsReceipt?           @relation(fields: [goodsReceiptId], references: [id], onDelete: Cascade)
+  goodsReceiptLineId       String?
+  goodsReceiptLine         GoodsReceiptLine?       @relation(fields: [goodsReceiptLineId], references: [id], onDelete: Cascade)
+  stockLotId               String?
+  stockLot                 StockLot?               @relation(fields: [stockLotId], references: [id], onDelete: Cascade)
+  productionBatchId        String?
+  productionBatch          ProductionBatch?        @relation(fields: [productionBatchId], references: [id], onDelete: Cascade)
+  productionOperationId    String?
+  productionOperation      ProductionOperation?    @relation(fields: [productionOperationId], references: [id], onDelete: Cascade)
+  productionQcCheckpointId String?
+  productionQcCheckpoint   ProductionQcCheckpoint? @relation(fields: [productionQcCheckpointId], references: [id], onDelete: Cascade)
+  uploadedByUserId         String?
+  createdAt                DateTime                @default(now())
+  updatedAt                DateTime                @updatedAt
+
+  @@index([organizationId, goodsReceiptId])
+  @@index([organizationId, goodsReceiptLineId])
+  @@index([organizationId, stockLotId])
+  @@index([organizationId, productionBatchId])
+  @@index([organizationId, productionOperationId])
+  @@index([organizationId, productionQcCheckpointId])
+  @@index([organizationId, storedObjectId])
+  @@map("document_attachment")
 }
 
 // ==========================================
@@ -1108,7 +1213,12 @@ model StaffProfile {
   calendarFeeds         CalendarFeed[]
   crmStaffMapping       CrmStaffMapping?
   courierFulfillments   OrderFulfillment[] @relation("FulfillmentCourier")
-  assignedStaffJobs     StaffJob[]         @relation("StaffJobAssignee")
+  assignedStaffJobs     StaffJob[]               @relation("StaffJobAssignee")
+  productionTimeLogs    ProductionTimeLog[]      @relation("TimeLogStaff")
+  assignedOperations    ProductionOperation[]    @relation("OperationAssignedStaff")
+  signedOperations      ProductionOperation[]    @relation("OperationSignOffStaff")
+  conductedCheckpoints  ProductionQcCheckpoint[] @relation("CheckpointConductedBy")
+  approvedCheckpoints   ProductionQcCheckpoint[] @relation("CheckpointApprovedBy")
 
   @@unique([organizationId, workEmail])
   @@unique([organizationId, employeeCode])
@@ -1422,7 +1532,11 @@ model ItemPack {
   purchaseOrderLines    PurchaseOrderLine[]
   goodsReceiptLines     GoodsReceiptLine[]
   crmDealLinks          CrmDealItemLink[]
-  orderLines            OrderLine[]
+  orderLines                    OrderLine[]
+  bomLinesAsPack                BomLine[]
+  billsOfMaterial               BillOfMaterial[]
+  productionReservationsAsPack  ProductionMaterialReservation[]
+  productionConsumptions        ProductionConsumption[]
 
   @@unique([organizationId, itemId, code])
   @@index([organizationId, itemId, isActive])
@@ -2476,6 +2590,514 @@ model OrganizationSsoProvider {
   @@unique([organizationId, providerKey])
   @@index([organizationId, enabled])
   @@map("organization_sso_provider")
+}
+
+// ==========================================
+// Enterprise Manufacturing & Production Lifecycle Models
+// ==========================================
+
+enum WorkCenterStatus {
+  ACTIVE
+  INACTIVE
+  MAINTENANCE
+  DECOMMISSIONED
+  ARCHIVED
+}
+
+enum OverheadAllocationType {
+  FIXED_PER_HOUR
+  PERCENT_OF_LABOR
+  PER_UNIT
+}
+
+enum BomStatus {
+  DRAFT
+  ACTIVE
+  REVISED
+  OBSOLETE
+}
+
+enum BomIssueMethod {
+  MANUAL
+  BACKFLUSH
+}
+
+enum SubAssemblyStrategy {
+  MAKE_TO_STOCK
+  CONSUME_STOCK_ONLY
+  CONSUME_STOCK_OR_EXPLODE
+  ALWAYS_EXPLODE
+}
+
+enum RoutingStatus {
+  DRAFT
+  ACTIVE
+  ARCHIVED
+  OBSOLETE
+}
+
+enum ProductionBatchStatus {
+  PLANNED
+  RELEASED
+  IN_PROGRESS
+  QC_HOLD
+  COMPLETED
+  CLOSED
+  CANCELLED
+}
+
+enum ProductionPriority {
+  LOW
+  NORMAL
+  HIGH
+  URGENT
+}
+
+enum ProductionQcStatus {
+  NOT_REQUIRED
+  PENDING
+  PASSED
+  FAILED
+  WAIVED
+}
+
+enum ProductionOperationStatus {
+  PENDING
+  SCHEDULED
+  READY
+  IN_PROGRESS
+  PAUSED
+  QC_PENDING
+  COMPLETED
+  SKIPPED
+  CANCELLED
+}
+
+enum ProductionQcCheckpointType {
+  IN_PROCESS
+  FINAL_RELEASE
+}
+
+enum ProductionQcCheckpointStatus {
+  PENDING
+  PASSED
+  FAILED
+  WAIVED
+}
+
+enum ProductionCostCategory {
+  MATERIAL
+  LABOR
+  MACHINE
+  OVERHEAD
+  SCRAP
+  ADJUSTMENT
+}
+
+model WorkCenter {
+  id                     String                 @id @default(cuid())
+  organizationId         String
+  organization           Organization           @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  locationId             String
+  location               Location               @relation(fields: [locationId], references: [id], onDelete: Cascade)
+  code                   String
+  name                   String
+  description            String?
+  status                 WorkCenterStatus       @default(ACTIVE)
+  dailyCapacityMinutes   Int                    @default(480)
+  hourlyLaborRateCents   Int                    @default(0)
+  hourlyMachineRateCents Int                    @default(0)
+  overheadRateCents      Int                    @default(0)
+  overheadType           OverheadAllocationType @default(FIXED_PER_HOUR)
+  isActive               Boolean                @default(true)
+  metadata               Json?
+  createdAt              DateTime               @default(now())
+  updatedAt              DateTime               @updatedAt
+  routingOperations      RoutingOperation[]
+  productionOperations   ProductionOperation[]
+  timeLogs               ProductionTimeLog[]
+
+  @@unique([organizationId, code])
+  @@index([organizationId, locationId, status])
+  @@map("work_center")
+}
+
+model BillOfMaterial {
+  id                    String            @id @default(cuid())
+  organizationId        String
+  organization          Organization      @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  itemId                String
+  item                  Item              @relation("FinishedItemBoms", fields: [itemId], references: [id], onDelete: Cascade)
+  packId                String?
+  pack                  ItemPack?         @relation(fields: [packId], references: [id], onDelete: SetNull)
+  code                  String
+  name                  String
+  description           String?
+  version               Int               @default(1)
+  yieldQty              Int               @default(1)
+  status                BomStatus         @default(DRAFT)
+  isDefault             Boolean           @default(false)
+  effectiveFrom         DateTime?
+  effectiveTo           DateTime?
+  standardOverheadCents Int               @default(0)
+  notes                 String?
+  createdByUserId       String?
+  approvedByUserId      String?
+  approvedAt            DateTime?
+  createdAt             DateTime          @default(now())
+  updatedAt             DateTime          @updatedAt
+  lines                 BomLine[]
+  productionBatches     ProductionBatch[]
+
+  @@unique([organizationId, code])
+  @@index([organizationId, itemId, status])
+  @@map("bill_of_material")
+}
+
+model BomLine {
+  id                  String              @id @default(cuid())
+  organizationId      String
+  bomId               String
+  billOfMaterial      BillOfMaterial      @relation(fields: [bomId], references: [id], onDelete: Cascade)
+  lineNumber          Int                 @default(1)
+  componentItemId     String
+  componentItem       Item                @relation("ComponentItemBomLines", fields: [componentItemId], references: [id], onDelete: Restrict)
+  packId              String?
+  pack                ItemPack?           @relation(fields: [packId], references: [id], onDelete: SetNull)
+  unitsPerPack        Int                 @default(1)
+  quantity            Int                 @default(1)
+  baseQuantity        Int                 @default(1)
+  scrapBps            Int                 @default(0)
+  issueMethod         BomIssueMethod      @default(MANUAL)
+  subAssemblyStrategy SubAssemblyStrategy @default(CONSUME_STOCK_OR_EXPLODE)
+  operationSequence   Int?
+  isOptional          Boolean             @default(false)
+  notes               String?
+  createdAt           DateTime            @default(now())
+  updatedAt           DateTime            @updatedAt
+
+  @@index([organizationId, bomId])
+  @@index([organizationId, componentItemId])
+  @@map("bom_line")
+}
+
+model Routing {
+  id                String             @id @default(cuid())
+  organizationId    String
+  organization      Organization       @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  itemId            String?
+  item              Item?              @relation(fields: [itemId], references: [id], onDelete: SetNull)
+  code              String
+  name              String
+  description       String?
+  version           Int                @default(1)
+  status            RoutingStatus      @default(DRAFT)
+  isDefault         Boolean            @default(false)
+  effectiveFrom     DateTime?
+  effectiveTo       DateTime?
+  notes             String?
+  createdByUserId   String?
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+  operations        RoutingOperation[]
+  productionBatches ProductionBatch[]
+
+  @@unique([organizationId, code])
+  @@index([organizationId, itemId, status])
+  @@map("routing")
+}
+
+model RoutingOperation {
+  id                   String                @id @default(cuid())
+  organizationId       String
+  routingId            String
+  routing              Routing               @relation(fields: [routingId], references: [id], onDelete: Cascade)
+  workCenterId         String
+  workCenter           WorkCenter            @relation(fields: [workCenterId], references: [id], onDelete: Restrict)
+  sequence             Int
+  operationCode        String
+  name                 String
+  setupMinutes         Int                   @default(0)
+  runMinutesPerUnit    Float                 @default(0)
+  requiresQcGate       Boolean               @default(false)
+  qcChecklistTemplate  Json?
+  instructions         String?
+  createdAt            DateTime              @default(now())
+  updatedAt            DateTime              @updatedAt
+  productionOperations ProductionOperation[]
+
+  @@unique([routingId, sequence])
+  @@index([organizationId, routingId])
+  @@index([organizationId, workCenterId])
+  @@map("routing_operation")
+}
+
+model ProductionBatch {
+  id                        String                          @id @default(cuid())
+  organizationId            String
+  organization              Organization                    @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  batchNumber               String
+  name                      String?
+  locationId                String
+  location                  Location                        @relation(fields: [locationId], references: [id], onDelete: Restrict)
+  outputItemId              String?
+  outputItem                Item?                           @relation("BatchFinishedItem", fields: [outputItemId], references: [id], onDelete: Restrict)
+  bomId                     String?
+  bom                       BillOfMaterial?                 @relation(fields: [bomId], references: [id], onDelete: SetNull)
+  routingId                 String?
+  routing                   Routing?                        @relation(fields: [routingId], references: [id], onDelete: SetNull)
+  parentBatchId             String?
+  parentBatch               ProductionBatch?                @relation("SubAssemblyBatches", fields: [parentBatchId], references: [id], onDelete: SetNull)
+  childBatches              ProductionBatch[]               @relation("SubAssemblyBatches")
+  status                    ProductionBatchStatus           @default(PLANNED)
+  priority                  ProductionPriority              @default(NORMAL)
+  qcStatus                  ProductionQcStatus              @default(NOT_REQUIRED)
+  plannedOutputQty          Int                             @default(1)
+  actualOutputQty           Int                             @default(0)
+  scrapQty                  Int                             @default(0)
+  outputLotId               String?
+  outputLot                 StockLot?                       @relation("OutputStockLot", fields: [outputLotId], references: [id], onDelete: SetNull)
+  scheduledStartAt          DateTime?
+  scheduledEndAt            DateTime?
+  releasedAt                DateTime?
+  releasedByUserId          String?
+  startedAt                 DateTime?
+  completedAt               DateTime?
+  closedAt                  DateTime?
+  cancelledAt               DateTime?
+  requiresFinalQcRelease    Boolean                         @default(false)
+  qcReleasedAt              DateTime?
+  qcReleasedByUserId        String?
+  standardMaterialCostCents Int                             @default(0)
+  standardLaborCostCents    Int                             @default(0)
+  standardMachineCostCents  Int                             @default(0)
+  standardOverheadCostCents Int                             @default(0)
+  standardTotalCostCents    Int                             @default(0)
+  actualMaterialCostCents   Int                             @default(0)
+  actualLaborCostCents      Int                             @default(0)
+  actualMachineCostCents    Int                             @default(0)
+  actualOverheadCostCents   Int                             @default(0)
+  actualScrapCostCents      Int                             @default(0)
+  actualTotalCostCents      Int                             @default(0)
+  costVarianceCents         Int                             @default(0)
+  notes                     String?
+  metadata                  Json?
+  createdByUserId           String?
+  updatedByUserId           String?
+  createdAt                 DateTime                        @default(now())
+  updatedAt                 DateTime                        @updatedAt
+  operations                ProductionOperation[]
+  reservations              ProductionMaterialReservation[]
+  consumptions              ProductionConsumption[]
+  qcCheckpoints             ProductionQcCheckpoint[]
+  costEntries               ProductionCostEntry[]
+  documentAttachments       DocumentAttachment[]
+  timeLogs                  ProductionTimeLog[]
+
+  @@unique([organizationId, batchNumber])
+  @@index([organizationId, status, priority])
+  @@index([organizationId, locationId])
+  @@index([organizationId, outputItemId])
+  @@map("production_batch")
+}
+
+model ProductionMaterialReservation {
+  id                  String                @id @default(cuid())
+  organizationId      String
+  organization        Organization          @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  productionBatchId   String
+  productionBatch     ProductionBatch       @relation(fields: [productionBatchId], references: [id], onDelete: Cascade)
+  bomLineId           String?
+  itemId              String
+  item                Item                  @relation("ReservationItem", fields: [itemId], references: [id], onDelete: Restrict)
+  packId              String?
+  pack                ItemPack?             @relation(fields: [packId], references: [id], onDelete: SetNull)
+  locationId          String
+  location            Location              @relation(fields: [locationId], references: [id], onDelete: Restrict)
+  stockLotId          String?
+  stockLot            StockLot?             @relation(fields: [stockLotId], references: [id], onDelete: SetNull)
+  routingOperationId  String?
+  unitsPerPack        Int                   @default(1)
+  requiredBaseQty     Int
+  scrapAllowanceQty   Int                   @default(0)
+  reservedBaseQty     Int                   @default(0)
+  issuedBaseQty       Int                   @default(0)
+  issueMethod         BomIssueMethod        @default(MANUAL)
+  subAssemblyStrategy SubAssemblyStrategy   @default(CONSUME_STOCK_OR_EXPLODE)
+  allocationStrategy  LotAllocationStrategy @default(FEFO)
+  operationSequence   Int?
+  isReleased          Boolean               @default(false)
+  createdAt           DateTime              @default(now())
+  updatedAt           DateTime              @updatedAt
+
+  @@index([organizationId, productionBatchId])
+  @@index([organizationId, itemId, locationId])
+  @@map("production_material_reservation")
+}
+
+model ProductionOperation {
+  id                    String                    @id @default(cuid())
+  organizationId        String
+  organization          Organization              @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  productionBatchId     String
+  productionBatch       ProductionBatch           @relation(fields: [productionBatchId], references: [id], onDelete: Cascade)
+  routingOperationId    String?
+  routingOperation      RoutingOperation?         @relation(fields: [routingOperationId], references: [id], onDelete: SetNull)
+  workCenterId          String
+  workCenter            WorkCenter                @relation(fields: [workCenterId], references: [id], onDelete: Restrict)
+  assignedStaffId       String?
+  assignedStaff         StaffProfile?             @relation("OperationAssignedStaff", fields: [assignedStaffId], references: [id], onDelete: SetNull)
+  sequence              Int
+  operationCode         String
+  name                  String
+  status                ProductionOperationStatus @default(PENDING)
+  plannedSetupMinutes   Int                       @default(0)
+  plannedRunMinutes     Int                       @default(0)
+  actualSetupMinutes    Int                       @default(0)
+  actualRunMinutes      Int                       @default(0)
+  plannedQty            Int                       @default(1)
+  completedQty          Int                       @default(0)
+  scrapQty              Int                       @default(0)
+  scheduledStartAt      DateTime?
+  scheduledEndAt        DateTime?
+  actualStartAt         DateTime?
+  actualEndAt           DateTime?
+  startedAt             DateTime?
+  completedAt           DateTime?
+  operatorSignOffUserId String?
+  signedOffAt           DateTime?
+  backflushedAt         DateTime?
+  signOffStaffId        String?
+  signOffStaff          StaffProfile?             @relation("OperationSignOffStaff", fields: [signOffStaffId], references: [id], onDelete: SetNull)
+  signOffNotes          String?
+  requiresQcGate        Boolean                   @default(false)
+  instructions          String?
+  createdAt             DateTime                  @default(now())
+  updatedAt             DateTime                  @updatedAt
+  timeLogs              ProductionTimeLog[]
+  consumptions          ProductionConsumption[]
+  qcCheckpoints         ProductionQcCheckpoint[]
+  documentAttachments   DocumentAttachment[]
+
+  @@unique([productionBatchId, sequence])
+  @@index([organizationId, productionBatchId])
+  @@index([organizationId, workCenterId, status])
+  @@map("production_operation")
+}
+
+model ProductionTimeLog {
+  id                      String                 @id @default(cuid())
+  organizationId          String
+  organization            Organization           @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  productionBatchId       String
+  productionBatch         ProductionBatch        @relation(fields: [productionBatchId], references: [id], onDelete: Cascade)
+  productionOperationId   String
+  productionOperation     ProductionOperation    @relation(fields: [productionOperationId], references: [id], onDelete: Cascade)
+  workCenterId            String?
+  workCenter              WorkCenter?            @relation(fields: [workCenterId], references: [id], onDelete: SetNull)
+  staffId                 String?
+  staff                   StaffProfile?          @relation("TimeLogStaff", fields: [staffId], references: [id], onDelete: SetNull)
+  userId                  String?
+  logType                 String                 @default("RUN")
+  startedAt               DateTime               @default(now())
+  endedAt                 DateTime?
+  durationMinutes         Int
+  hourlyLaborRateCents    Int                    @default(0)
+  hourlyMachineRateCents  Int                    @default(0)
+  overheadRateCents       Int                    @default(0)
+  overheadType            OverheadAllocationType @default(FIXED_PER_HOUR)
+  laborCostCents          Int                    @default(0)
+  machineCostCents        Int                    @default(0)
+  overheadCostCents       Int                    @default(0)
+  notes                   String?
+  createdAt               DateTime               @default(now())
+
+  @@index([organizationId, productionBatchId])
+  @@index([organizationId, productionOperationId])
+  @@map("production_time_log")
+}
+
+model ProductionQcCheckpoint {
+  id                    String                       @id @default(cuid())
+  organizationId        String
+  organization          Organization                 @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  productionBatchId     String
+  productionBatch       ProductionBatch              @relation(fields: [productionBatchId], references: [id], onDelete: Cascade)
+  productionOperationId String?
+  productionOperation   ProductionOperation?         @relation(fields: [productionOperationId], references: [id], onDelete: SetNull)
+  checkpointType        ProductionQcCheckpointType   @default(IN_PROCESS)
+  code                  String
+  name                  String
+  status                ProductionQcCheckpointStatus @default(PENDING)
+  checklistTemplate     Json?
+  checklistResults      Json?
+  disposition           String?
+  notes                 String?
+  inspectorUserId       String?
+  conductedByUserId     String?
+  conductedByStaff      StaffProfile?                @relation("CheckpointConductedBy", fields: [conductedByUserId], references: [id], onDelete: SetNull)
+  approvedByUserId      String?
+  approvedByStaff       StaffProfile?                @relation("CheckpointApprovedBy", fields: [approvedByUserId], references: [id], onDelete: SetNull)
+  inspectedAt           DateTime?
+  createdAt             DateTime                     @default(now())
+  updatedAt             DateTime                     @updatedAt
+  documentAttachments   DocumentAttachment[]
+
+  @@index([organizationId, productionBatchId])
+  @@index([organizationId, status])
+  @@map("production_qc_checkpoint")
+}
+
+model ProductionCostEntry {
+  id                String                 @id @default(cuid())
+  organizationId    String
+  organization      Organization           @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  productionBatchId String
+  productionBatch   ProductionBatch        @relation(fields: [productionBatchId], references: [id], onDelete: Cascade)
+  category          ProductionCostCategory
+  description       String
+  quantity          Float?
+  unitCostCents     Int?
+  totalCostCents    Int
+  isStandard        Boolean                @default(false)
+  createdByUserId   String?
+  createdAt         DateTime               @default(now())
+
+  @@index([organizationId, productionBatchId, category])
+  @@map("production_cost_entry")
+}
+
+model ProductionConsumption {
+  id                    String                @id @default(cuid())
+  organizationId        String
+  organization          Organization          @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  productionBatchId     String
+  productionBatch       ProductionBatch       @relation(fields: [productionBatchId], references: [id], onDelete: Cascade)
+  productionOperationId String?
+  productionOperation   ProductionOperation?  @relation(fields: [productionOperationId], references: [id], onDelete: SetNull)
+  itemId                String
+  item                  Item                  @relation("ConsumptionItem", fields: [itemId], references: [id], onDelete: Restrict)
+  locationId            String?
+  location              Location?             @relation(fields: [locationId], references: [id], onDelete: SetNull)
+  packId                String?
+  pack                  ItemPack?             @relation(fields: [packId], references: [id], onDelete: SetNull)
+  stockLotId            String
+  stockLot              StockLot              @relation(fields: [stockLotId], references: [id], onDelete: Restrict)
+  unitsPerPack          Int                   @default(1)
+  packQty               Int                   @default(0)
+  looseBaseQty          Int                   @default(0)
+  consumedBaseQty       Int
+  unitCostCents         Int                   @default(0)
+  totalCostCents        Int                   @default(0)
+  allocationStrategy    LotAllocationStrategy @default(FEFO)
+  consumedByUserId      String?
+  consumedAt            DateTime              @default(now())
+  notes                 String?
+
+  @@index([organizationId, productionBatchId])
+  @@index([organizationId, itemId])
+  @@index([organizationId, stockLotId])
+  @@map("production_consumption")
 }
 
 

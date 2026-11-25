@@ -25,6 +25,7 @@ import {
 } from "@scace/db";
 import type { FastifyRequest } from "fastify";
 import { PrismaService } from "../database/prisma.service.js";
+import { AnalyticsService } from "../observability/analytics.service.js";
 import {
   InventoryService,
   type SuggestLotsInput,
@@ -131,6 +132,8 @@ export class ProductionService {
     private readonly engineeringService: ProductionEngineeringService,
     @Inject(ProductionExecutionService)
     private readonly executionService: ProductionExecutionService,
+    @Inject(AnalyticsService)
+    private readonly analyticsService: AnalyticsService,
   ) {}
 
   async createBatch(
@@ -159,6 +162,21 @@ export class ProductionService {
         where: { id: createdId, organizationId },
         include: this.batchInclude(),
       });
+
+      this.analyticsService.captureDomainEvent({
+        event: "production_batch.created",
+        distinctId: tenant.userId,
+        organizationId,
+        properties: {
+          production_batch_id: batch.id,
+          batch_number: batch.batchNumber,
+          location_id: batch.locationId,
+          planned_output_qty: batch.plannedOutputQty,
+          priority: batch.priority,
+          requires_final_qc_release: batch.requiresFinalQcRelease,
+        },
+      });
+
       return this.formatBatchResponse(batch);
     } catch (error) {
       if (isUniqueConstraintError(error)) {
@@ -651,7 +669,18 @@ export class ProductionService {
       );
     }
 
-    return this.getBatch(tenant, batchId);
+    const released = await this.getBatch(tenant, batchId);
+    this.analyticsService.captureDomainEvent({
+      event: "production_batch.released",
+      distinctId: tenant.userId,
+      organizationId,
+      properties: {
+        production_batch_id: released.id,
+        batch_number: released.batchNumber,
+        auto_scheduled: Boolean(input.autoSchedule && hasOperations),
+      },
+    });
+    return released;
   }
 
   async listBatches(
@@ -846,7 +875,7 @@ export class ProductionService {
   ) {
     const organizationId = this.resolveVerifiedOrganizationId(tenant);
 
-    return this.prismaService.raw.$transaction(async (tx) => {
+    const result = await this.prismaService.raw.$transaction(async (tx) => {
       const batch = await tx.productionBatch.findFirst({
         where: { id: batchId, organizationId },
         include: { location: true },
@@ -933,6 +962,19 @@ export class ProductionService {
 
       return this.formatBatchResponse(refreshed);
     });
+
+    this.analyticsService.captureDomainEvent({
+      event: "production_batch.consumed",
+      distinctId: tenant.userId,
+      organizationId,
+      properties: {
+        production_batch_id: result.id,
+        batch_number: result.batchNumber,
+        line_count: input.lines.length,
+      },
+    });
+
+    return result;
   }
 
   async completeBatch(
@@ -943,7 +985,7 @@ export class ProductionService {
   ) {
     const organizationId = this.resolveVerifiedOrganizationId(tenant);
 
-    return this.prismaService.raw.$transaction(async (tx) => {
+    const result = await this.prismaService.raw.$transaction(async (tx) => {
       const batch = await tx.productionBatch.findFirst({
         where: { id: batchId, organizationId },
         include: {
@@ -1147,6 +1189,22 @@ export class ProductionService {
 
       return this.formatBatchResponse(completed);
     });
+
+    this.analyticsService.captureDomainEvent({
+      event: "production_batch.completed",
+      distinctId: tenant.userId,
+      organizationId,
+      properties: {
+        production_batch_id: result.id,
+        batch_number: result.batchNumber,
+        status: result.status,
+        actual_output_qty: result.actualOutputQty,
+        scrap_qty: result.scrapQty,
+        actual_total_cost_cents: result.actualTotalCostCents,
+      },
+    });
+
+    return result;
   }
 
   async cancelBatch(

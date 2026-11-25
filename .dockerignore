@@ -10,3 +10,5 @@ node_modules
 *.log
 *.tsbuildinfo
 coverage
+packages/db/src/generated
+**/src/generated

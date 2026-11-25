@@ -14,6 +14,7 @@ import {
 } from "@scace/db";
 import { getEnv } from "../config/env.js";
 import { PrismaService } from "../database/prisma.service.js";
+import { AnalyticsService } from "../observability/analytics.service.js";
 import { RedisService } from "../redis/redis.service.js";
 import type { AuthenticatedTenant } from "../tenancy/tenant.decorators.js";
 import { RustfsService } from "./rustfs.service.js";
@@ -88,6 +89,8 @@ export class StorageService {
     @Inject(PrismaService) private readonly prismaService: PrismaService,
     @Inject(RedisService) private readonly redisService: RedisService,
     @Inject(RustfsService) private readonly rustfsService: RustfsService,
+    @Inject(AnalyticsService)
+    private readonly analyticsService: AnalyticsService,
   ) {}
 
   private serializeObject(obj: StoredObject): SerializedStoredObject {
@@ -586,6 +589,19 @@ export class StorageService {
       return updated;
     });
 
+    this.analyticsService.captureDomainEvent({
+      event: "storage.file_uploaded",
+      distinctId: tenant.userId,
+      organizationId: tenant.organizationId,
+      properties: {
+        stored_object_id: completed.id,
+        entity_type: completed.entityType,
+        mime_type: completed.mimeType,
+        size_bytes: Number(completed.sizeBytes),
+        upload_mode: "presigned",
+      },
+    });
+
     return this.serializeObject(completed);
   }
 
@@ -698,6 +714,19 @@ export class StorageService {
         });
 
         return updated;
+      });
+
+      this.analyticsService.captureDomainEvent({
+        event: "storage.file_uploaded",
+        distinctId: tenant.userId,
+        organizationId: tenant.organizationId,
+        properties: {
+          stored_object_id: completed.id,
+          entity_type: completed.entityType,
+          mime_type: completed.mimeType,
+          size_bytes: Number(completed.sizeBytes),
+          upload_mode: "direct",
+        },
       });
 
       return this.serializeObject(completed);

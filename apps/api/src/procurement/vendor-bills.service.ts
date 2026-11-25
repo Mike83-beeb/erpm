@@ -13,6 +13,7 @@ import {
   VendorBillStatus,
 } from "@scace/db";
 import { PrismaService } from "../database/prisma.service.js";
+import { AnalyticsService } from "../observability/analytics.service.js";
 import type { AuthenticatedTenant } from "../tenancy/tenant.decorators.js";
 import { computeBaseUnitValueCents } from "./delivery-units.utils.js";
 
@@ -68,6 +69,8 @@ function isUniqueConstraintError(error: unknown): boolean {
 export class VendorBillsService {
   constructor(
     @Inject(PrismaService) private readonly prismaService: PrismaService,
+    @Inject(AnalyticsService)
+    private readonly analyticsService: AnalyticsService,
   ) {}
 
   async createVendorBill(
@@ -79,7 +82,7 @@ export class VendorBillsService {
     const billNumber = input.billNumber.trim();
 
     try {
-      return await this.prismaService.raw.$transaction(async (tx) => {
+      const created = await this.prismaService.raw.$transaction(async (tx) => {
         const supplier = await tx.supplier.findFirst({
           where: { id: input.supplierId, organizationId },
         });
@@ -377,6 +380,21 @@ export class VendorBillsService {
 
         return created;
       });
+
+      this.analyticsService.captureDomainEvent({
+        event: "vendor_bill.created",
+        distinctId: tenant.userId,
+        organizationId,
+        properties: {
+          vendor_bill_id: created.id,
+          bill_number: created.billNumber,
+          status: created.status,
+          currency: created.currency,
+          total_cents: created.totalCents,
+        },
+      });
+
+      return created;
     } catch (error) {
       if (isUniqueConstraintError(error)) {
         throw new ConflictException(
@@ -617,7 +635,7 @@ export class VendorBillsService {
   ) {
     const organizationId = this.resolveVerifiedOrganizationId(tenant);
 
-    return this.prismaService.raw.$transaction(async (tx) => {
+    const posted = await this.prismaService.raw.$transaction(async (tx) => {
       const existing = await tx.vendorBill.findFirst({
         where: { id: billId, organizationId },
       });
@@ -666,6 +684,20 @@ export class VendorBillsService {
 
       return posted;
     });
+
+    this.analyticsService.captureDomainEvent({
+      event: "vendor_bill.posted",
+      distinctId: tenant.userId,
+      organizationId,
+      properties: {
+        vendor_bill_id: posted.id,
+        bill_number: posted.billNumber,
+        currency: posted.currency,
+        total_cents: posted.totalCents,
+      },
+    });
+
+    return posted;
   }
 
   async recordPayment(
@@ -677,7 +709,7 @@ export class VendorBillsService {
   ) {
     const organizationId = this.resolveVerifiedOrganizationId(tenant);
 
-    return this.prismaService.raw.$transaction(async (tx) => {
+    const result = await this.prismaService.raw.$transaction(async (tx) => {
       const existing = await tx.vendorBill.findFirst({
         where: { id: billId, organizationId },
       });
@@ -759,6 +791,22 @@ export class VendorBillsService {
         ),
       };
     });
+
+    this.analyticsService.captureDomainEvent({
+      event: "vendor_bill.paid",
+      distinctId: tenant.userId,
+      organizationId,
+      properties: {
+        vendor_bill_id: result.id,
+        bill_number: result.billNumber,
+        status: result.status,
+        currency: result.currency,
+        amount_paid_cents: amountCents,
+        total_cents: result.totalCents,
+      },
+    });
+
+    return result;
   }
 
   async voidVendorBill(

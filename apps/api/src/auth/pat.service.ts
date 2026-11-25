@@ -7,6 +7,7 @@ import {
 } from "@nestjs/common";
 import { type Prisma } from "@scace/db";
 import { PrismaService } from "../database/prisma.service.js";
+import { AnalyticsService } from "../observability/analytics.service.js";
 import { RedisService } from "../redis/redis.service.js";
 import type { AuthenticatedTenant } from "../tenancy/tenant.decorators.js";
 import {
@@ -44,6 +45,8 @@ export class PatService {
   constructor(
     @Inject(PrismaService) private readonly prismaService: PrismaService,
     @Inject(RedisService) private readonly redisService: RedisService,
+    @Inject(AnalyticsService)
+    private readonly analyticsService: AnalyticsService,
   ) {}
 
   private cacheKey(tokenHash: string): string {
@@ -151,6 +154,18 @@ export class PatService {
         tokenPrefix: created.tokenPrefix,
         scopes: created.scopes,
         expiresAt: created.expiresAt?.toISOString() ?? null,
+      },
+    });
+
+    this.analyticsService.captureDomainEvent({
+      event: "auth.pat_created",
+      distinctId: tenant.userId,
+      organizationId: tenant.organizationId,
+      properties: {
+        pat_id: created.id,
+        scope_count: created.scopes.length,
+        has_expiry: Boolean(created.expiresAt),
+        has_ip_allowlist: (input.ipAllowlist?.length ?? 0) > 0,
       },
     });
 

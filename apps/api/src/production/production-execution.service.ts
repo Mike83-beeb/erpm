@@ -25,6 +25,7 @@ import {
 } from "@scace/db";
 import type { FastifyRequest } from "fastify";
 import { PrismaService } from "../database/prisma.service.js";
+import { AnalyticsService } from "../observability/analytics.service.js";
 import {
   type BulkQuantityInput,
   decomposeBaseToBulk,
@@ -125,6 +126,8 @@ export class ProductionExecutionService {
     @Inject(PrismaService) private readonly prismaService: PrismaService,
     @Inject(AttachmentsService)
     private readonly attachmentsService: AttachmentsService,
+    @Inject(AnalyticsService)
+    private readonly analyticsService: AnalyticsService,
   ) {}
 
   // ==========================================
@@ -1682,7 +1685,7 @@ export class ProductionExecutionService {
   ) {
     const organizationId = this.resolveVerifiedOrganizationId(tenant);
 
-    return this.prismaService.raw.$transaction(async (tx) => {
+    const result = await this.prismaService.raw.$transaction(async (tx) => {
       const cp = await tx.productionQcCheckpoint.findFirst({
         where: { id: checkpointId, productionBatchId: batchId, organizationId },
       });
@@ -1775,6 +1778,20 @@ export class ProductionExecutionService {
 
       return this.formatQcCheckpoint(updated);
     });
+
+    this.analyticsService.captureDomainEvent({
+      event: "production_qc.inspected",
+      distinctId: tenant.userId,
+      organizationId,
+      properties: {
+        production_batch_id: batchId,
+        checkpoint_id: result.id,
+        checkpoint_code: result.code,
+        status: result.status,
+      },
+    });
+
+    return result;
   }
 
   async qcReleaseBatch(
@@ -1785,7 +1802,7 @@ export class ProductionExecutionService {
   ) {
     const organizationId = this.resolveVerifiedOrganizationId(tenant);
 
-    return this.prismaService.raw.$transaction(async (tx) => {
+    const result = await this.prismaService.raw.$transaction(async (tx) => {
       const batch = await tx.productionBatch.findFirst({
         where: { id: batchId, organizationId },
         include: {
@@ -1988,6 +2005,21 @@ export class ProductionExecutionService {
         costing,
       };
     });
+
+    this.analyticsService.captureDomainEvent({
+      event: "production_batch.qc_released",
+      distinctId: tenant.userId,
+      organizationId,
+      properties: {
+        production_batch_id: result.id,
+        batch_number: result.batchNumber,
+        disposition: input.disposition,
+        qc_status: result.qcStatus,
+        status: result.status,
+      },
+    });
+
+    return result;
   }
 
   async listQcCheckpointFiles(

@@ -64,6 +64,19 @@ export const TENANT_SCOPED_MODELS = new Set<string>([
   "PersonalAccessToken",
   "RegisteredDevice",
   "OrganizationSsoProvider",
+  "DocumentAttachment",
+  "WorkCenter",
+  "BillOfMaterial",
+  "BomLine",
+  "Routing",
+  "RoutingOperation",
+  "ProductionBatch",
+  "ProductionMaterialReservation",
+  "ProductionOperation",
+  "ProductionTimeLog",
+  "ProductionQcCheckpoint",
+  "ProductionCostEntry",
+  "ProductionConsumption",
 ]);
 
 let sharedPool: Pool | null = null;

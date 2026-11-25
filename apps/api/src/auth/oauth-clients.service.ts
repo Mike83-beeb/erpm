@@ -8,6 +8,7 @@ import {
 } from "@nestjs/common";
 import { type Prisma } from "@scace/db";
 import { PrismaService } from "../database/prisma.service.js";
+import { AnalyticsService } from "../observability/analytics.service.js";
 import { RedisService } from "../redis/redis.service.js";
 import type { AuthenticatedTenant } from "../tenancy/tenant.decorators.js";
 import {
@@ -114,6 +115,8 @@ export class OAuthClientsService {
   constructor(
     @Inject(PrismaService) private readonly prismaService: PrismaService,
     @Inject(RedisService) private readonly redisService: RedisService,
+    @Inject(AnalyticsService)
+    private readonly analyticsService: AnalyticsService,
   ) {}
 
   private async recordAudit(params: {
@@ -294,6 +297,19 @@ export class OAuthClientsService {
         appCategory: created.appCategory,
         authMethods: created.authMethods,
         allowedGrantTypes: created.allowedGrantTypes,
+      },
+    });
+
+    this.analyticsService.captureDomainEvent({
+      event: "auth.oauth_client_created",
+      distinctId: tenant.userId,
+      organizationId: tenant.organizationId,
+      properties: {
+        oauth_client_id: created.id,
+        client_type: created.clientType,
+        app_category: created.appCategory,
+        scope_count: created.allowedScopes.length,
+        service_role: created.serviceRole,
       },
     });
 
