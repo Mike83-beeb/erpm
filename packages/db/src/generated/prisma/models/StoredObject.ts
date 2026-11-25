@@ -313,6 +313,7 @@ export type StoredObjectWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"StoredObject"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"StoredObject"> | Date | string
   organization?: Prisma.XOR<Prisma.OrganizationScalarRelationFilter, Prisma.OrganizationWhereInput>
+  documentAttachments?: Prisma.DocumentAttachmentListRelationFilter
 }
 
 export type StoredObjectOrderByWithRelationInput = {
@@ -335,6 +336,7 @@ export type StoredObjectOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   organization?: Prisma.OrganizationOrderByWithRelationInput
+  documentAttachments?: Prisma.DocumentAttachmentOrderByRelationAggregateInput
 }
 
 export type StoredObjectWhereUniqueInput = Prisma.AtLeast<{
@@ -361,6 +363,7 @@ export type StoredObjectWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"StoredObject"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"StoredObject"> | Date | string
   organization?: Prisma.XOR<Prisma.OrganizationScalarRelationFilter, Prisma.OrganizationWhereInput>
+  documentAttachments?: Prisma.DocumentAttachmentListRelationFilter
 }, "id" | "organizationId_bucket_objectKey">
 
 export type StoredObjectOrderByWithAggregationInput = {
@@ -432,6 +435,7 @@ export type StoredObjectCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutStoredObjectsInput
+  documentAttachments?: Prisma.DocumentAttachmentCreateNestedManyWithoutStoredObjectInput
 }
 
 export type StoredObjectUncheckedCreateInput = {
@@ -453,6 +457,7 @@ export type StoredObjectUncheckedCreateInput = {
   deletedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedCreateNestedManyWithoutStoredObjectInput
 }
 
 export type StoredObjectUpdateInput = {
@@ -474,6 +479,7 @@ export type StoredObjectUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutStoredObjectsNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUpdateManyWithoutStoredObjectNestedInput
 }
 
 export type StoredObjectUncheckedUpdateInput = {
@@ -495,6 +501,7 @@ export type StoredObjectUncheckedUpdateInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedUpdateManyWithoutStoredObjectNestedInput
 }
 
 export type StoredObjectCreateManyInput = {
@@ -642,6 +649,11 @@ export type StoredObjectSumOrderByAggregateInput = {
   sizeBytes?: Prisma.SortOrder
 }
 
+export type StoredObjectScalarRelationFilter = {
+  is?: Prisma.StoredObjectWhereInput
+  isNot?: Prisma.StoredObjectWhereInput
+}
+
 export type StoredObjectCreateNestedManyWithoutOrganizationInput = {
   create?: Prisma.XOR<Prisma.StoredObjectCreateWithoutOrganizationInput, Prisma.StoredObjectUncheckedCreateWithoutOrganizationInput> | Prisma.StoredObjectCreateWithoutOrganizationInput[] | Prisma.StoredObjectUncheckedCreateWithoutOrganizationInput[]
   connectOrCreate?: Prisma.StoredObjectCreateOrConnectWithoutOrganizationInput | Prisma.StoredObjectCreateOrConnectWithoutOrganizationInput[]
@@ -701,6 +713,20 @@ export type StoredObjectUpdatetagsInput = {
   push?: string | string[]
 }
 
+export type StoredObjectCreateNestedOneWithoutDocumentAttachmentsInput = {
+  create?: Prisma.XOR<Prisma.StoredObjectCreateWithoutDocumentAttachmentsInput, Prisma.StoredObjectUncheckedCreateWithoutDocumentAttachmentsInput>
+  connectOrCreate?: Prisma.StoredObjectCreateOrConnectWithoutDocumentAttachmentsInput
+  connect?: Prisma.StoredObjectWhereUniqueInput
+}
+
+export type StoredObjectUpdateOneRequiredWithoutDocumentAttachmentsNestedInput = {
+  create?: Prisma.XOR<Prisma.StoredObjectCreateWithoutDocumentAttachmentsInput, Prisma.StoredObjectUncheckedCreateWithoutDocumentAttachmentsInput>
+  connectOrCreate?: Prisma.StoredObjectCreateOrConnectWithoutDocumentAttachmentsInput
+  upsert?: Prisma.StoredObjectUpsertWithoutDocumentAttachmentsInput
+  connect?: Prisma.StoredObjectWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StoredObjectUpdateToOneWithWhereWithoutDocumentAttachmentsInput, Prisma.StoredObjectUpdateWithoutDocumentAttachmentsInput>, Prisma.StoredObjectUncheckedUpdateWithoutDocumentAttachmentsInput>
+}
+
 export type StoredObjectCreateWithoutOrganizationInput = {
   id?: string
   bucket: string
@@ -719,6 +745,7 @@ export type StoredObjectCreateWithoutOrganizationInput = {
   deletedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  documentAttachments?: Prisma.DocumentAttachmentCreateNestedManyWithoutStoredObjectInput
 }
 
 export type StoredObjectUncheckedCreateWithoutOrganizationInput = {
@@ -739,6 +766,7 @@ export type StoredObjectUncheckedCreateWithoutOrganizationInput = {
   deletedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedCreateNestedManyWithoutStoredObjectInput
 }
 
 export type StoredObjectCreateOrConnectWithoutOrganizationInput = {
@@ -791,6 +819,106 @@ export type StoredObjectScalarWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"StoredObject"> | Date | string
 }
 
+export type StoredObjectCreateWithoutDocumentAttachmentsInput = {
+  id?: string
+  bucket: string
+  objectKey: string
+  originalName: string
+  mimeType: string
+  sizeBytes?: bigint | number
+  etag?: string | null
+  status?: $Enums.StoredObjectStatus
+  entityType?: $Enums.StorageEntityType
+  entityId?: string | null
+  uploadedByUserId?: string | null
+  tags?: Prisma.StoredObjectCreatetagsInput | string[]
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  completedAt?: Date | string | null
+  deletedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutStoredObjectsInput
+}
+
+export type StoredObjectUncheckedCreateWithoutDocumentAttachmentsInput = {
+  id?: string
+  organizationId: string
+  bucket: string
+  objectKey: string
+  originalName: string
+  mimeType: string
+  sizeBytes?: bigint | number
+  etag?: string | null
+  status?: $Enums.StoredObjectStatus
+  entityType?: $Enums.StorageEntityType
+  entityId?: string | null
+  uploadedByUserId?: string | null
+  tags?: Prisma.StoredObjectCreatetagsInput | string[]
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  completedAt?: Date | string | null
+  deletedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type StoredObjectCreateOrConnectWithoutDocumentAttachmentsInput = {
+  where: Prisma.StoredObjectWhereUniqueInput
+  create: Prisma.XOR<Prisma.StoredObjectCreateWithoutDocumentAttachmentsInput, Prisma.StoredObjectUncheckedCreateWithoutDocumentAttachmentsInput>
+}
+
+export type StoredObjectUpsertWithoutDocumentAttachmentsInput = {
+  update: Prisma.XOR<Prisma.StoredObjectUpdateWithoutDocumentAttachmentsInput, Prisma.StoredObjectUncheckedUpdateWithoutDocumentAttachmentsInput>
+  create: Prisma.XOR<Prisma.StoredObjectCreateWithoutDocumentAttachmentsInput, Prisma.StoredObjectUncheckedCreateWithoutDocumentAttachmentsInput>
+  where?: Prisma.StoredObjectWhereInput
+}
+
+export type StoredObjectUpdateToOneWithWhereWithoutDocumentAttachmentsInput = {
+  where?: Prisma.StoredObjectWhereInput
+  data: Prisma.XOR<Prisma.StoredObjectUpdateWithoutDocumentAttachmentsInput, Prisma.StoredObjectUncheckedUpdateWithoutDocumentAttachmentsInput>
+}
+
+export type StoredObjectUpdateWithoutDocumentAttachmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  bucket?: Prisma.StringFieldUpdateOperationsInput | string
+  objectKey?: Prisma.StringFieldUpdateOperationsInput | string
+  originalName?: Prisma.StringFieldUpdateOperationsInput | string
+  mimeType?: Prisma.StringFieldUpdateOperationsInput | string
+  sizeBytes?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  etag?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStoredObjectStatusFieldUpdateOperationsInput | $Enums.StoredObjectStatus
+  entityType?: Prisma.EnumStorageEntityTypeFieldUpdateOperationsInput | $Enums.StorageEntityType
+  entityId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  uploadedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tags?: Prisma.StoredObjectUpdatetagsInput | string[]
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutStoredObjectsNestedInput
+}
+
+export type StoredObjectUncheckedUpdateWithoutDocumentAttachmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  bucket?: Prisma.StringFieldUpdateOperationsInput | string
+  objectKey?: Prisma.StringFieldUpdateOperationsInput | string
+  originalName?: Prisma.StringFieldUpdateOperationsInput | string
+  mimeType?: Prisma.StringFieldUpdateOperationsInput | string
+  sizeBytes?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  etag?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStoredObjectStatusFieldUpdateOperationsInput | $Enums.StoredObjectStatus
+  entityType?: Prisma.EnumStorageEntityTypeFieldUpdateOperationsInput | $Enums.StorageEntityType
+  entityId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  uploadedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tags?: Prisma.StoredObjectUpdatetagsInput | string[]
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
 export type StoredObjectCreateManyOrganizationInput = {
   id?: string
   bucket: string
@@ -829,6 +957,7 @@ export type StoredObjectUpdateWithoutOrganizationInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  documentAttachments?: Prisma.DocumentAttachmentUpdateManyWithoutStoredObjectNestedInput
 }
 
 export type StoredObjectUncheckedUpdateWithoutOrganizationInput = {
@@ -849,6 +978,7 @@ export type StoredObjectUncheckedUpdateWithoutOrganizationInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedUpdateManyWithoutStoredObjectNestedInput
 }
 
 export type StoredObjectUncheckedUpdateManyWithoutOrganizationInput = {
@@ -872,6 +1002,35 @@ export type StoredObjectUncheckedUpdateManyWithoutOrganizationInput = {
 }
 
 
+/**
+ * Count Type StoredObjectCountOutputType
+ */
+
+export type StoredObjectCountOutputType = {
+  documentAttachments: number
+}
+
+export type StoredObjectCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  documentAttachments?: boolean | StoredObjectCountOutputTypeCountDocumentAttachmentsArgs
+}
+
+/**
+ * StoredObjectCountOutputType without action
+ */
+export type StoredObjectCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the StoredObjectCountOutputType
+   */
+  select?: Prisma.StoredObjectCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * StoredObjectCountOutputType without action
+ */
+export type StoredObjectCountOutputTypeCountDocumentAttachmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.DocumentAttachmentWhereInput
+}
+
 
 export type StoredObjectSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -893,6 +1052,8 @@ export type StoredObjectSelect<ExtArgs extends runtime.Types.Extensions.Internal
   createdAt?: boolean
   updatedAt?: boolean
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
+  documentAttachments?: boolean | Prisma.StoredObject$documentAttachmentsArgs<ExtArgs>
+  _count?: boolean | Prisma.StoredObjectCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["storedObject"]>
 
 export type StoredObjectSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -963,6 +1124,8 @@ export type StoredObjectSelectScalar = {
 export type StoredObjectOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organizationId" | "bucket" | "objectKey" | "originalName" | "mimeType" | "sizeBytes" | "etag" | "status" | "entityType" | "entityId" | "uploadedByUserId" | "tags" | "metadata" | "completedAt" | "deletedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["storedObject"]>
 export type StoredObjectInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
+  documentAttachments?: boolean | Prisma.StoredObject$documentAttachmentsArgs<ExtArgs>
+  _count?: boolean | Prisma.StoredObjectCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type StoredObjectIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
@@ -975,6 +1138,7 @@ export type $StoredObjectPayload<ExtArgs extends runtime.Types.Extensions.Intern
   name: "StoredObject"
   objects: {
     organization: Prisma.$OrganizationPayload<ExtArgs>
+    documentAttachments: Prisma.$DocumentAttachmentPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1390,6 +1554,7 @@ readonly fields: StoredObjectFieldRefs;
 export interface Prisma__StoredObjectClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   organization<T extends Prisma.OrganizationDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.OrganizationDefaultArgs<ExtArgs>>): Prisma.Prisma__OrganizationClient<runtime.Types.Result.GetResult<Prisma.$OrganizationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  documentAttachments<T extends Prisma.StoredObject$documentAttachmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StoredObject$documentAttachmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DocumentAttachmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1835,6 +2000,30 @@ export type StoredObjectDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.
    * Limit how many StoredObjects to delete.
    */
   limit?: number
+}
+
+/**
+ * StoredObject.documentAttachments
+ */
+export type StoredObject$documentAttachmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the DocumentAttachment
+   */
+  select?: Prisma.DocumentAttachmentSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the DocumentAttachment
+   */
+  omit?: Prisma.DocumentAttachmentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.DocumentAttachmentInclude<ExtArgs> | null
+  where?: Prisma.DocumentAttachmentWhereInput
+  orderBy?: Prisma.DocumentAttachmentOrderByWithRelationInput | Prisma.DocumentAttachmentOrderByWithRelationInput[]
+  cursor?: Prisma.DocumentAttachmentWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.DocumentAttachmentScalarFieldEnum | Prisma.DocumentAttachmentScalarFieldEnum[]
 }
 
 /**

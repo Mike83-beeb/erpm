@@ -50,6 +50,7 @@ export type SupplierItemMinAggregateOutputType = {
   minOrderQty: number | null
   leadTimeDays: number | null
   isPreferred: boolean | null
+  isActive: boolean | null
   notes: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -67,6 +68,7 @@ export type SupplierItemMaxAggregateOutputType = {
   minOrderQty: number | null
   leadTimeDays: number | null
   isPreferred: boolean | null
+  isActive: boolean | null
   notes: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -84,6 +86,7 @@ export type SupplierItemCountAggregateOutputType = {
   minOrderQty: number
   leadTimeDays: number
   isPreferred: number
+  isActive: number
   notes: number
   createdAt: number
   updatedAt: number
@@ -115,6 +118,7 @@ export type SupplierItemMinAggregateInputType = {
   minOrderQty?: true
   leadTimeDays?: true
   isPreferred?: true
+  isActive?: true
   notes?: true
   createdAt?: true
   updatedAt?: true
@@ -132,6 +136,7 @@ export type SupplierItemMaxAggregateInputType = {
   minOrderQty?: true
   leadTimeDays?: true
   isPreferred?: true
+  isActive?: true
   notes?: true
   createdAt?: true
   updatedAt?: true
@@ -149,6 +154,7 @@ export type SupplierItemCountAggregateInputType = {
   minOrderQty?: true
   leadTimeDays?: true
   isPreferred?: true
+  isActive?: true
   notes?: true
   createdAt?: true
   updatedAt?: true
@@ -253,6 +259,7 @@ export type SupplierItemGroupByOutputType = {
   minOrderQty: number
   leadTimeDays: number | null
   isPreferred: boolean
+  isActive: boolean
   notes: string | null
   createdAt: Date
   updatedAt: Date
@@ -293,6 +300,7 @@ export type SupplierItemWhereInput = {
   minOrderQty?: Prisma.IntFilter<"SupplierItem"> | number
   leadTimeDays?: Prisma.IntNullableFilter<"SupplierItem"> | number | null
   isPreferred?: Prisma.BoolFilter<"SupplierItem"> | boolean
+  isActive?: Prisma.BoolFilter<"SupplierItem"> | boolean
   notes?: Prisma.StringNullableFilter<"SupplierItem"> | string | null
   createdAt?: Prisma.DateTimeFilter<"SupplierItem"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"SupplierItem"> | Date | string
@@ -300,6 +308,8 @@ export type SupplierItemWhereInput = {
   supplier?: Prisma.XOR<Prisma.SupplierScalarRelationFilter, Prisma.SupplierWhereInput>
   item?: Prisma.XOR<Prisma.ItemScalarRelationFilter, Prisma.ItemWhereInput>
   pack?: Prisma.XOR<Prisma.ItemPackNullableScalarRelationFilter, Prisma.ItemPackWhereInput> | null
+  goodsReceiptLines?: Prisma.GoodsReceiptLineListRelationFilter
+  stockLots?: Prisma.StockLotListRelationFilter
 }
 
 export type SupplierItemOrderByWithRelationInput = {
@@ -314,6 +324,7 @@ export type SupplierItemOrderByWithRelationInput = {
   minOrderQty?: Prisma.SortOrder
   leadTimeDays?: Prisma.SortOrderInput | Prisma.SortOrder
   isPreferred?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -321,6 +332,8 @@ export type SupplierItemOrderByWithRelationInput = {
   supplier?: Prisma.SupplierOrderByWithRelationInput
   item?: Prisma.ItemOrderByWithRelationInput
   pack?: Prisma.ItemPackOrderByWithRelationInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineOrderByRelationAggregateInput
+  stockLots?: Prisma.StockLotOrderByRelationAggregateInput
 }
 
 export type SupplierItemWhereUniqueInput = Prisma.AtLeast<{
@@ -339,6 +352,7 @@ export type SupplierItemWhereUniqueInput = Prisma.AtLeast<{
   minOrderQty?: Prisma.IntFilter<"SupplierItem"> | number
   leadTimeDays?: Prisma.IntNullableFilter<"SupplierItem"> | number | null
   isPreferred?: Prisma.BoolFilter<"SupplierItem"> | boolean
+  isActive?: Prisma.BoolFilter<"SupplierItem"> | boolean
   notes?: Prisma.StringNullableFilter<"SupplierItem"> | string | null
   createdAt?: Prisma.DateTimeFilter<"SupplierItem"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"SupplierItem"> | Date | string
@@ -346,6 +360,8 @@ export type SupplierItemWhereUniqueInput = Prisma.AtLeast<{
   supplier?: Prisma.XOR<Prisma.SupplierScalarRelationFilter, Prisma.SupplierWhereInput>
   item?: Prisma.XOR<Prisma.ItemScalarRelationFilter, Prisma.ItemWhereInput>
   pack?: Prisma.XOR<Prisma.ItemPackNullableScalarRelationFilter, Prisma.ItemPackWhereInput> | null
+  goodsReceiptLines?: Prisma.GoodsReceiptLineListRelationFilter
+  stockLots?: Prisma.StockLotListRelationFilter
 }, "id" | "organizationId_supplierId_itemId">
 
 export type SupplierItemOrderByWithAggregationInput = {
@@ -360,6 +376,7 @@ export type SupplierItemOrderByWithAggregationInput = {
   minOrderQty?: Prisma.SortOrder
   leadTimeDays?: Prisma.SortOrderInput | Prisma.SortOrder
   isPreferred?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -385,6 +402,7 @@ export type SupplierItemScalarWhereWithAggregatesInput = {
   minOrderQty?: Prisma.IntWithAggregatesFilter<"SupplierItem"> | number
   leadTimeDays?: Prisma.IntNullableWithAggregatesFilter<"SupplierItem"> | number | null
   isPreferred?: Prisma.BoolWithAggregatesFilter<"SupplierItem"> | boolean
+  isActive?: Prisma.BoolWithAggregatesFilter<"SupplierItem"> | boolean
   notes?: Prisma.StringNullableWithAggregatesFilter<"SupplierItem"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"SupplierItem"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"SupplierItem"> | Date | string
@@ -398,6 +416,7 @@ export type SupplierItemCreateInput = {
   minOrderQty?: number
   leadTimeDays?: number | null
   isPreferred?: boolean
+  isActive?: boolean
   notes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -405,6 +424,8 @@ export type SupplierItemCreateInput = {
   supplier: Prisma.SupplierCreateNestedOneWithoutSupplierItemsInput
   item: Prisma.ItemCreateNestedOneWithoutSupplierItemsInput
   pack?: Prisma.ItemPackCreateNestedOneWithoutSupplierItemsInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutSupplierItemInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutSupplierItemInput
 }
 
 export type SupplierItemUncheckedCreateInput = {
@@ -419,9 +440,12 @@ export type SupplierItemUncheckedCreateInput = {
   minOrderQty?: number
   leadTimeDays?: number | null
   isPreferred?: boolean
+  isActive?: boolean
   notes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutSupplierItemInput
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutSupplierItemInput
 }
 
 export type SupplierItemUpdateInput = {
@@ -432,6 +456,7 @@ export type SupplierItemUpdateInput = {
   minOrderQty?: Prisma.IntFieldUpdateOperationsInput | number
   leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPreferred?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -439,6 +464,8 @@ export type SupplierItemUpdateInput = {
   supplier?: Prisma.SupplierUpdateOneRequiredWithoutSupplierItemsNestedInput
   item?: Prisma.ItemUpdateOneRequiredWithoutSupplierItemsNestedInput
   pack?: Prisma.ItemPackUpdateOneWithoutSupplierItemsNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutSupplierItemNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutSupplierItemNestedInput
 }
 
 export type SupplierItemUncheckedUpdateInput = {
@@ -453,9 +480,12 @@ export type SupplierItemUncheckedUpdateInput = {
   minOrderQty?: Prisma.IntFieldUpdateOperationsInput | number
   leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPreferred?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutSupplierItemNestedInput
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutSupplierItemNestedInput
 }
 
 export type SupplierItemCreateManyInput = {
@@ -470,6 +500,7 @@ export type SupplierItemCreateManyInput = {
   minOrderQty?: number
   leadTimeDays?: number | null
   isPreferred?: boolean
+  isActive?: boolean
   notes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -483,6 +514,7 @@ export type SupplierItemUpdateManyMutationInput = {
   minOrderQty?: Prisma.IntFieldUpdateOperationsInput | number
   leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPreferred?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -500,6 +532,7 @@ export type SupplierItemUncheckedUpdateManyInput = {
   minOrderQty?: Prisma.IntFieldUpdateOperationsInput | number
   leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPreferred?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -533,6 +566,7 @@ export type SupplierItemCountOrderByAggregateInput = {
   minOrderQty?: Prisma.SortOrder
   leadTimeDays?: Prisma.SortOrder
   isPreferred?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -556,6 +590,7 @@ export type SupplierItemMaxOrderByAggregateInput = {
   minOrderQty?: Prisma.SortOrder
   leadTimeDays?: Prisma.SortOrder
   isPreferred?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -573,6 +608,7 @@ export type SupplierItemMinOrderByAggregateInput = {
   minOrderQty?: Prisma.SortOrder
   leadTimeDays?: Prisma.SortOrder
   isPreferred?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -582,6 +618,11 @@ export type SupplierItemSumOrderByAggregateInput = {
   unitCostCents?: Prisma.SortOrder
   minOrderQty?: Prisma.SortOrder
   leadTimeDays?: Prisma.SortOrder
+}
+
+export type SupplierItemNullableScalarRelationFilter = {
+  is?: Prisma.SupplierItemWhereInput | null
+  isNot?: Prisma.SupplierItemWhereInput | null
 }
 
 export type SupplierItemCreateNestedManyWithoutOrganizationInput = {
@@ -710,6 +751,38 @@ export type SupplierItemUncheckedUpdateManyWithoutSupplierNestedInput = {
   deleteMany?: Prisma.SupplierItemScalarWhereInput | Prisma.SupplierItemScalarWhereInput[]
 }
 
+export type SupplierItemCreateNestedOneWithoutGoodsReceiptLinesInput = {
+  create?: Prisma.XOR<Prisma.SupplierItemCreateWithoutGoodsReceiptLinesInput, Prisma.SupplierItemUncheckedCreateWithoutGoodsReceiptLinesInput>
+  connectOrCreate?: Prisma.SupplierItemCreateOrConnectWithoutGoodsReceiptLinesInput
+  connect?: Prisma.SupplierItemWhereUniqueInput
+}
+
+export type SupplierItemUpdateOneWithoutGoodsReceiptLinesNestedInput = {
+  create?: Prisma.XOR<Prisma.SupplierItemCreateWithoutGoodsReceiptLinesInput, Prisma.SupplierItemUncheckedCreateWithoutGoodsReceiptLinesInput>
+  connectOrCreate?: Prisma.SupplierItemCreateOrConnectWithoutGoodsReceiptLinesInput
+  upsert?: Prisma.SupplierItemUpsertWithoutGoodsReceiptLinesInput
+  disconnect?: Prisma.SupplierItemWhereInput | boolean
+  delete?: Prisma.SupplierItemWhereInput | boolean
+  connect?: Prisma.SupplierItemWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.SupplierItemUpdateToOneWithWhereWithoutGoodsReceiptLinesInput, Prisma.SupplierItemUpdateWithoutGoodsReceiptLinesInput>, Prisma.SupplierItemUncheckedUpdateWithoutGoodsReceiptLinesInput>
+}
+
+export type SupplierItemCreateNestedOneWithoutStockLotsInput = {
+  create?: Prisma.XOR<Prisma.SupplierItemCreateWithoutStockLotsInput, Prisma.SupplierItemUncheckedCreateWithoutStockLotsInput>
+  connectOrCreate?: Prisma.SupplierItemCreateOrConnectWithoutStockLotsInput
+  connect?: Prisma.SupplierItemWhereUniqueInput
+}
+
+export type SupplierItemUpdateOneWithoutStockLotsNestedInput = {
+  create?: Prisma.XOR<Prisma.SupplierItemCreateWithoutStockLotsInput, Prisma.SupplierItemUncheckedCreateWithoutStockLotsInput>
+  connectOrCreate?: Prisma.SupplierItemCreateOrConnectWithoutStockLotsInput
+  upsert?: Prisma.SupplierItemUpsertWithoutStockLotsInput
+  disconnect?: Prisma.SupplierItemWhereInput | boolean
+  delete?: Prisma.SupplierItemWhereInput | boolean
+  connect?: Prisma.SupplierItemWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.SupplierItemUpdateToOneWithWhereWithoutStockLotsInput, Prisma.SupplierItemUpdateWithoutStockLotsInput>, Prisma.SupplierItemUncheckedUpdateWithoutStockLotsInput>
+}
+
 export type SupplierItemCreateNestedManyWithoutPackInput = {
   create?: Prisma.XOR<Prisma.SupplierItemCreateWithoutPackInput, Prisma.SupplierItemUncheckedCreateWithoutPackInput> | Prisma.SupplierItemCreateWithoutPackInput[] | Prisma.SupplierItemUncheckedCreateWithoutPackInput[]
   connectOrCreate?: Prisma.SupplierItemCreateOrConnectWithoutPackInput | Prisma.SupplierItemCreateOrConnectWithoutPackInput[]
@@ -760,12 +833,15 @@ export type SupplierItemCreateWithoutOrganizationInput = {
   minOrderQty?: number
   leadTimeDays?: number | null
   isPreferred?: boolean
+  isActive?: boolean
   notes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   supplier: Prisma.SupplierCreateNestedOneWithoutSupplierItemsInput
   item: Prisma.ItemCreateNestedOneWithoutSupplierItemsInput
   pack?: Prisma.ItemPackCreateNestedOneWithoutSupplierItemsInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutSupplierItemInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutSupplierItemInput
 }
 
 export type SupplierItemUncheckedCreateWithoutOrganizationInput = {
@@ -779,9 +855,12 @@ export type SupplierItemUncheckedCreateWithoutOrganizationInput = {
   minOrderQty?: number
   leadTimeDays?: number | null
   isPreferred?: boolean
+  isActive?: boolean
   notes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutSupplierItemInput
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutSupplierItemInput
 }
 
 export type SupplierItemCreateOrConnectWithoutOrganizationInput = {
@@ -825,6 +904,7 @@ export type SupplierItemScalarWhereInput = {
   minOrderQty?: Prisma.IntFilter<"SupplierItem"> | number
   leadTimeDays?: Prisma.IntNullableFilter<"SupplierItem"> | number | null
   isPreferred?: Prisma.BoolFilter<"SupplierItem"> | boolean
+  isActive?: Prisma.BoolFilter<"SupplierItem"> | boolean
   notes?: Prisma.StringNullableFilter<"SupplierItem"> | string | null
   createdAt?: Prisma.DateTimeFilter<"SupplierItem"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"SupplierItem"> | Date | string
@@ -838,12 +918,15 @@ export type SupplierItemCreateWithoutItemInput = {
   minOrderQty?: number
   leadTimeDays?: number | null
   isPreferred?: boolean
+  isActive?: boolean
   notes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutSupplierItemsInput
   supplier: Prisma.SupplierCreateNestedOneWithoutSupplierItemsInput
   pack?: Prisma.ItemPackCreateNestedOneWithoutSupplierItemsInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutSupplierItemInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutSupplierItemInput
 }
 
 export type SupplierItemUncheckedCreateWithoutItemInput = {
@@ -857,9 +940,12 @@ export type SupplierItemUncheckedCreateWithoutItemInput = {
   minOrderQty?: number
   leadTimeDays?: number | null
   isPreferred?: boolean
+  isActive?: boolean
   notes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutSupplierItemInput
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutSupplierItemInput
 }
 
 export type SupplierItemCreateOrConnectWithoutItemInput = {
@@ -896,12 +982,15 @@ export type SupplierItemCreateWithoutSupplierInput = {
   minOrderQty?: number
   leadTimeDays?: number | null
   isPreferred?: boolean
+  isActive?: boolean
   notes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutSupplierItemsInput
   item: Prisma.ItemCreateNestedOneWithoutSupplierItemsInput
   pack?: Prisma.ItemPackCreateNestedOneWithoutSupplierItemsInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutSupplierItemInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutSupplierItemInput
 }
 
 export type SupplierItemUncheckedCreateWithoutSupplierInput = {
@@ -915,9 +1004,12 @@ export type SupplierItemUncheckedCreateWithoutSupplierInput = {
   minOrderQty?: number
   leadTimeDays?: number | null
   isPreferred?: boolean
+  isActive?: boolean
   notes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutSupplierItemInput
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutSupplierItemInput
 }
 
 export type SupplierItemCreateOrConnectWithoutSupplierInput = {
@@ -946,6 +1038,190 @@ export type SupplierItemUpdateManyWithWhereWithoutSupplierInput = {
   data: Prisma.XOR<Prisma.SupplierItemUpdateManyMutationInput, Prisma.SupplierItemUncheckedUpdateManyWithoutSupplierInput>
 }
 
+export type SupplierItemCreateWithoutGoodsReceiptLinesInput = {
+  id?: string
+  supplierSku?: string | null
+  unitCostCents: number
+  currency?: string
+  minOrderQty?: number
+  leadTimeDays?: number | null
+  isPreferred?: boolean
+  isActive?: boolean
+  notes?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutSupplierItemsInput
+  supplier: Prisma.SupplierCreateNestedOneWithoutSupplierItemsInput
+  item: Prisma.ItemCreateNestedOneWithoutSupplierItemsInput
+  pack?: Prisma.ItemPackCreateNestedOneWithoutSupplierItemsInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutSupplierItemInput
+}
+
+export type SupplierItemUncheckedCreateWithoutGoodsReceiptLinesInput = {
+  id?: string
+  organizationId: string
+  supplierId: string
+  itemId: string
+  packId?: string | null
+  supplierSku?: string | null
+  unitCostCents: number
+  currency?: string
+  minOrderQty?: number
+  leadTimeDays?: number | null
+  isPreferred?: boolean
+  isActive?: boolean
+  notes?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutSupplierItemInput
+}
+
+export type SupplierItemCreateOrConnectWithoutGoodsReceiptLinesInput = {
+  where: Prisma.SupplierItemWhereUniqueInput
+  create: Prisma.XOR<Prisma.SupplierItemCreateWithoutGoodsReceiptLinesInput, Prisma.SupplierItemUncheckedCreateWithoutGoodsReceiptLinesInput>
+}
+
+export type SupplierItemUpsertWithoutGoodsReceiptLinesInput = {
+  update: Prisma.XOR<Prisma.SupplierItemUpdateWithoutGoodsReceiptLinesInput, Prisma.SupplierItemUncheckedUpdateWithoutGoodsReceiptLinesInput>
+  create: Prisma.XOR<Prisma.SupplierItemCreateWithoutGoodsReceiptLinesInput, Prisma.SupplierItemUncheckedCreateWithoutGoodsReceiptLinesInput>
+  where?: Prisma.SupplierItemWhereInput
+}
+
+export type SupplierItemUpdateToOneWithWhereWithoutGoodsReceiptLinesInput = {
+  where?: Prisma.SupplierItemWhereInput
+  data: Prisma.XOR<Prisma.SupplierItemUpdateWithoutGoodsReceiptLinesInput, Prisma.SupplierItemUncheckedUpdateWithoutGoodsReceiptLinesInput>
+}
+
+export type SupplierItemUpdateWithoutGoodsReceiptLinesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  minOrderQty?: Prisma.IntFieldUpdateOperationsInput | number
+  leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  isPreferred?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutSupplierItemsNestedInput
+  supplier?: Prisma.SupplierUpdateOneRequiredWithoutSupplierItemsNestedInput
+  item?: Prisma.ItemUpdateOneRequiredWithoutSupplierItemsNestedInput
+  pack?: Prisma.ItemPackUpdateOneWithoutSupplierItemsNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutSupplierItemNestedInput
+}
+
+export type SupplierItemUncheckedUpdateWithoutGoodsReceiptLinesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  minOrderQty?: Prisma.IntFieldUpdateOperationsInput | number
+  leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  isPreferred?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutSupplierItemNestedInput
+}
+
+export type SupplierItemCreateWithoutStockLotsInput = {
+  id?: string
+  supplierSku?: string | null
+  unitCostCents: number
+  currency?: string
+  minOrderQty?: number
+  leadTimeDays?: number | null
+  isPreferred?: boolean
+  isActive?: boolean
+  notes?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutSupplierItemsInput
+  supplier: Prisma.SupplierCreateNestedOneWithoutSupplierItemsInput
+  item: Prisma.ItemCreateNestedOneWithoutSupplierItemsInput
+  pack?: Prisma.ItemPackCreateNestedOneWithoutSupplierItemsInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutSupplierItemInput
+}
+
+export type SupplierItemUncheckedCreateWithoutStockLotsInput = {
+  id?: string
+  organizationId: string
+  supplierId: string
+  itemId: string
+  packId?: string | null
+  supplierSku?: string | null
+  unitCostCents: number
+  currency?: string
+  minOrderQty?: number
+  leadTimeDays?: number | null
+  isPreferred?: boolean
+  isActive?: boolean
+  notes?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutSupplierItemInput
+}
+
+export type SupplierItemCreateOrConnectWithoutStockLotsInput = {
+  where: Prisma.SupplierItemWhereUniqueInput
+  create: Prisma.XOR<Prisma.SupplierItemCreateWithoutStockLotsInput, Prisma.SupplierItemUncheckedCreateWithoutStockLotsInput>
+}
+
+export type SupplierItemUpsertWithoutStockLotsInput = {
+  update: Prisma.XOR<Prisma.SupplierItemUpdateWithoutStockLotsInput, Prisma.SupplierItemUncheckedUpdateWithoutStockLotsInput>
+  create: Prisma.XOR<Prisma.SupplierItemCreateWithoutStockLotsInput, Prisma.SupplierItemUncheckedCreateWithoutStockLotsInput>
+  where?: Prisma.SupplierItemWhereInput
+}
+
+export type SupplierItemUpdateToOneWithWhereWithoutStockLotsInput = {
+  where?: Prisma.SupplierItemWhereInput
+  data: Prisma.XOR<Prisma.SupplierItemUpdateWithoutStockLotsInput, Prisma.SupplierItemUncheckedUpdateWithoutStockLotsInput>
+}
+
+export type SupplierItemUpdateWithoutStockLotsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  minOrderQty?: Prisma.IntFieldUpdateOperationsInput | number
+  leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  isPreferred?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutSupplierItemsNestedInput
+  supplier?: Prisma.SupplierUpdateOneRequiredWithoutSupplierItemsNestedInput
+  item?: Prisma.ItemUpdateOneRequiredWithoutSupplierItemsNestedInput
+  pack?: Prisma.ItemPackUpdateOneWithoutSupplierItemsNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutSupplierItemNestedInput
+}
+
+export type SupplierItemUncheckedUpdateWithoutStockLotsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  packId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  minOrderQty?: Prisma.IntFieldUpdateOperationsInput | number
+  leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  isPreferred?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutSupplierItemNestedInput
+}
+
 export type SupplierItemCreateWithoutPackInput = {
   id?: string
   supplierSku?: string | null
@@ -954,12 +1230,15 @@ export type SupplierItemCreateWithoutPackInput = {
   minOrderQty?: number
   leadTimeDays?: number | null
   isPreferred?: boolean
+  isActive?: boolean
   notes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutSupplierItemsInput
   supplier: Prisma.SupplierCreateNestedOneWithoutSupplierItemsInput
   item: Prisma.ItemCreateNestedOneWithoutSupplierItemsInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutSupplierItemInput
+  stockLots?: Prisma.StockLotCreateNestedManyWithoutSupplierItemInput
 }
 
 export type SupplierItemUncheckedCreateWithoutPackInput = {
@@ -973,9 +1252,12 @@ export type SupplierItemUncheckedCreateWithoutPackInput = {
   minOrderQty?: number
   leadTimeDays?: number | null
   isPreferred?: boolean
+  isActive?: boolean
   notes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutSupplierItemInput
+  stockLots?: Prisma.StockLotUncheckedCreateNestedManyWithoutSupplierItemInput
 }
 
 export type SupplierItemCreateOrConnectWithoutPackInput = {
@@ -1015,6 +1297,7 @@ export type SupplierItemCreateManyOrganizationInput = {
   minOrderQty?: number
   leadTimeDays?: number | null
   isPreferred?: boolean
+  isActive?: boolean
   notes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1028,12 +1311,15 @@ export type SupplierItemUpdateWithoutOrganizationInput = {
   minOrderQty?: Prisma.IntFieldUpdateOperationsInput | number
   leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPreferred?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   supplier?: Prisma.SupplierUpdateOneRequiredWithoutSupplierItemsNestedInput
   item?: Prisma.ItemUpdateOneRequiredWithoutSupplierItemsNestedInput
   pack?: Prisma.ItemPackUpdateOneWithoutSupplierItemsNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutSupplierItemNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutSupplierItemNestedInput
 }
 
 export type SupplierItemUncheckedUpdateWithoutOrganizationInput = {
@@ -1047,9 +1333,12 @@ export type SupplierItemUncheckedUpdateWithoutOrganizationInput = {
   minOrderQty?: Prisma.IntFieldUpdateOperationsInput | number
   leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPreferred?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutSupplierItemNestedInput
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutSupplierItemNestedInput
 }
 
 export type SupplierItemUncheckedUpdateManyWithoutOrganizationInput = {
@@ -1063,6 +1352,7 @@ export type SupplierItemUncheckedUpdateManyWithoutOrganizationInput = {
   minOrderQty?: Prisma.IntFieldUpdateOperationsInput | number
   leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPreferred?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1079,6 +1369,7 @@ export type SupplierItemCreateManyItemInput = {
   minOrderQty?: number
   leadTimeDays?: number | null
   isPreferred?: boolean
+  isActive?: boolean
   notes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1092,12 +1383,15 @@ export type SupplierItemUpdateWithoutItemInput = {
   minOrderQty?: Prisma.IntFieldUpdateOperationsInput | number
   leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPreferred?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutSupplierItemsNestedInput
   supplier?: Prisma.SupplierUpdateOneRequiredWithoutSupplierItemsNestedInput
   pack?: Prisma.ItemPackUpdateOneWithoutSupplierItemsNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutSupplierItemNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutSupplierItemNestedInput
 }
 
 export type SupplierItemUncheckedUpdateWithoutItemInput = {
@@ -1111,9 +1405,12 @@ export type SupplierItemUncheckedUpdateWithoutItemInput = {
   minOrderQty?: Prisma.IntFieldUpdateOperationsInput | number
   leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPreferred?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutSupplierItemNestedInput
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutSupplierItemNestedInput
 }
 
 export type SupplierItemUncheckedUpdateManyWithoutItemInput = {
@@ -1127,6 +1424,7 @@ export type SupplierItemUncheckedUpdateManyWithoutItemInput = {
   minOrderQty?: Prisma.IntFieldUpdateOperationsInput | number
   leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPreferred?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1143,6 +1441,7 @@ export type SupplierItemCreateManySupplierInput = {
   minOrderQty?: number
   leadTimeDays?: number | null
   isPreferred?: boolean
+  isActive?: boolean
   notes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1156,12 +1455,15 @@ export type SupplierItemUpdateWithoutSupplierInput = {
   minOrderQty?: Prisma.IntFieldUpdateOperationsInput | number
   leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPreferred?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutSupplierItemsNestedInput
   item?: Prisma.ItemUpdateOneRequiredWithoutSupplierItemsNestedInput
   pack?: Prisma.ItemPackUpdateOneWithoutSupplierItemsNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutSupplierItemNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutSupplierItemNestedInput
 }
 
 export type SupplierItemUncheckedUpdateWithoutSupplierInput = {
@@ -1175,9 +1477,12 @@ export type SupplierItemUncheckedUpdateWithoutSupplierInput = {
   minOrderQty?: Prisma.IntFieldUpdateOperationsInput | number
   leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPreferred?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutSupplierItemNestedInput
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutSupplierItemNestedInput
 }
 
 export type SupplierItemUncheckedUpdateManyWithoutSupplierInput = {
@@ -1191,6 +1496,7 @@ export type SupplierItemUncheckedUpdateManyWithoutSupplierInput = {
   minOrderQty?: Prisma.IntFieldUpdateOperationsInput | number
   leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPreferred?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1207,6 +1513,7 @@ export type SupplierItemCreateManyPackInput = {
   minOrderQty?: number
   leadTimeDays?: number | null
   isPreferred?: boolean
+  isActive?: boolean
   notes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1220,12 +1527,15 @@ export type SupplierItemUpdateWithoutPackInput = {
   minOrderQty?: Prisma.IntFieldUpdateOperationsInput | number
   leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPreferred?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutSupplierItemsNestedInput
   supplier?: Prisma.SupplierUpdateOneRequiredWithoutSupplierItemsNestedInput
   item?: Prisma.ItemUpdateOneRequiredWithoutSupplierItemsNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutSupplierItemNestedInput
+  stockLots?: Prisma.StockLotUpdateManyWithoutSupplierItemNestedInput
 }
 
 export type SupplierItemUncheckedUpdateWithoutPackInput = {
@@ -1239,9 +1549,12 @@ export type SupplierItemUncheckedUpdateWithoutPackInput = {
   minOrderQty?: Prisma.IntFieldUpdateOperationsInput | number
   leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPreferred?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutSupplierItemNestedInput
+  stockLots?: Prisma.StockLotUncheckedUpdateManyWithoutSupplierItemNestedInput
 }
 
 export type SupplierItemUncheckedUpdateManyWithoutPackInput = {
@@ -1255,11 +1568,50 @@ export type SupplierItemUncheckedUpdateManyWithoutPackInput = {
   minOrderQty?: Prisma.IntFieldUpdateOperationsInput | number
   leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPreferred?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
+
+/**
+ * Count Type SupplierItemCountOutputType
+ */
+
+export type SupplierItemCountOutputType = {
+  goodsReceiptLines: number
+  stockLots: number
+}
+
+export type SupplierItemCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  goodsReceiptLines?: boolean | SupplierItemCountOutputTypeCountGoodsReceiptLinesArgs
+  stockLots?: boolean | SupplierItemCountOutputTypeCountStockLotsArgs
+}
+
+/**
+ * SupplierItemCountOutputType without action
+ */
+export type SupplierItemCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the SupplierItemCountOutputType
+   */
+  select?: Prisma.SupplierItemCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * SupplierItemCountOutputType without action
+ */
+export type SupplierItemCountOutputTypeCountGoodsReceiptLinesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.GoodsReceiptLineWhereInput
+}
+
+/**
+ * SupplierItemCountOutputType without action
+ */
+export type SupplierItemCountOutputTypeCountStockLotsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.StockLotWhereInput
+}
 
 
 export type SupplierItemSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1274,6 +1626,7 @@ export type SupplierItemSelect<ExtArgs extends runtime.Types.Extensions.Internal
   minOrderQty?: boolean
   leadTimeDays?: boolean
   isPreferred?: boolean
+  isActive?: boolean
   notes?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -1281,6 +1634,9 @@ export type SupplierItemSelect<ExtArgs extends runtime.Types.Extensions.Internal
   supplier?: boolean | Prisma.SupplierDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
   pack?: boolean | Prisma.SupplierItem$packArgs<ExtArgs>
+  goodsReceiptLines?: boolean | Prisma.SupplierItem$goodsReceiptLinesArgs<ExtArgs>
+  stockLots?: boolean | Prisma.SupplierItem$stockLotsArgs<ExtArgs>
+  _count?: boolean | Prisma.SupplierItemCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["supplierItem"]>
 
 export type SupplierItemSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1295,6 +1651,7 @@ export type SupplierItemSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
   minOrderQty?: boolean
   leadTimeDays?: boolean
   isPreferred?: boolean
+  isActive?: boolean
   notes?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -1316,6 +1673,7 @@ export type SupplierItemSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
   minOrderQty?: boolean
   leadTimeDays?: boolean
   isPreferred?: boolean
+  isActive?: boolean
   notes?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -1337,17 +1695,21 @@ export type SupplierItemSelectScalar = {
   minOrderQty?: boolean
   leadTimeDays?: boolean
   isPreferred?: boolean
+  isActive?: boolean
   notes?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type SupplierItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organizationId" | "supplierId" | "itemId" | "packId" | "supplierSku" | "unitCostCents" | "currency" | "minOrderQty" | "leadTimeDays" | "isPreferred" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["supplierItem"]>
+export type SupplierItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organizationId" | "supplierId" | "itemId" | "packId" | "supplierSku" | "unitCostCents" | "currency" | "minOrderQty" | "leadTimeDays" | "isPreferred" | "isActive" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["supplierItem"]>
 export type SupplierItemInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   supplier?: boolean | Prisma.SupplierDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
   pack?: boolean | Prisma.SupplierItem$packArgs<ExtArgs>
+  goodsReceiptLines?: boolean | Prisma.SupplierItem$goodsReceiptLinesArgs<ExtArgs>
+  stockLots?: boolean | Prisma.SupplierItem$stockLotsArgs<ExtArgs>
+  _count?: boolean | Prisma.SupplierItemCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type SupplierItemIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
@@ -1369,6 +1731,8 @@ export type $SupplierItemPayload<ExtArgs extends runtime.Types.Extensions.Intern
     supplier: Prisma.$SupplierPayload<ExtArgs>
     item: Prisma.$ItemPayload<ExtArgs>
     pack: Prisma.$ItemPackPayload<ExtArgs> | null
+    goodsReceiptLines: Prisma.$GoodsReceiptLinePayload<ExtArgs>[]
+    stockLots: Prisma.$StockLotPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1382,6 +1746,7 @@ export type $SupplierItemPayload<ExtArgs extends runtime.Types.Extensions.Intern
     minOrderQty: number
     leadTimeDays: number | null
     isPreferred: boolean
+    isActive: boolean
     notes: string | null
     createdAt: Date
     updatedAt: Date
@@ -1783,6 +2148,8 @@ export interface Prisma__SupplierItemClient<T, Null = never, ExtArgs extends run
   supplier<T extends Prisma.SupplierDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SupplierDefaultArgs<ExtArgs>>): Prisma.Prisma__SupplierClient<runtime.Types.Result.GetResult<Prisma.$SupplierPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   item<T extends Prisma.ItemDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ItemDefaultArgs<ExtArgs>>): Prisma.Prisma__ItemClient<runtime.Types.Result.GetResult<Prisma.$ItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   pack<T extends Prisma.SupplierItem$packArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SupplierItem$packArgs<ExtArgs>>): Prisma.Prisma__ItemPackClient<runtime.Types.Result.GetResult<Prisma.$ItemPackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  goodsReceiptLines<T extends Prisma.SupplierItem$goodsReceiptLinesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SupplierItem$goodsReceiptLinesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GoodsReceiptLinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  stockLots<T extends Prisma.SupplierItem$stockLotsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SupplierItem$stockLotsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StockLotPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1823,6 +2190,7 @@ export interface SupplierItemFieldRefs {
   readonly minOrderQty: Prisma.FieldRef<"SupplierItem", 'Int'>
   readonly leadTimeDays: Prisma.FieldRef<"SupplierItem", 'Int'>
   readonly isPreferred: Prisma.FieldRef<"SupplierItem", 'Boolean'>
+  readonly isActive: Prisma.FieldRef<"SupplierItem", 'Boolean'>
   readonly notes: Prisma.FieldRef<"SupplierItem", 'String'>
   readonly createdAt: Prisma.FieldRef<"SupplierItem", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"SupplierItem", 'DateTime'>
@@ -2243,6 +2611,54 @@ export type SupplierItem$packArgs<ExtArgs extends runtime.Types.Extensions.Inter
    */
   include?: Prisma.ItemPackInclude<ExtArgs> | null
   where?: Prisma.ItemPackWhereInput
+}
+
+/**
+ * SupplierItem.goodsReceiptLines
+ */
+export type SupplierItem$goodsReceiptLinesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the GoodsReceiptLine
+   */
+  select?: Prisma.GoodsReceiptLineSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the GoodsReceiptLine
+   */
+  omit?: Prisma.GoodsReceiptLineOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.GoodsReceiptLineInclude<ExtArgs> | null
+  where?: Prisma.GoodsReceiptLineWhereInput
+  orderBy?: Prisma.GoodsReceiptLineOrderByWithRelationInput | Prisma.GoodsReceiptLineOrderByWithRelationInput[]
+  cursor?: Prisma.GoodsReceiptLineWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.GoodsReceiptLineScalarFieldEnum | Prisma.GoodsReceiptLineScalarFieldEnum[]
+}
+
+/**
+ * SupplierItem.stockLots
+ */
+export type SupplierItem$stockLotsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the StockLot
+   */
+  select?: Prisma.StockLotSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the StockLot
+   */
+  omit?: Prisma.StockLotOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.StockLotInclude<ExtArgs> | null
+  where?: Prisma.StockLotWhereInput
+  orderBy?: Prisma.StockLotOrderByWithRelationInput | Prisma.StockLotOrderByWithRelationInput[]
+  cursor?: Prisma.StockLotWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.StockLotScalarFieldEnum | Prisma.StockLotScalarFieldEnum[]
 }
 
 /**

@@ -27,13 +27,19 @@ export type AggregateStockLot = {
 }
 
 export type StockLotAvgAggregateOutputType = {
+  initialQty: number | null
   onHandQty: number | null
   quarantinedQty: number | null
+  consumedQty: number | null
+  unitCostCents: number | null
 }
 
 export type StockLotSumAggregateOutputType = {
+  initialQty: number | null
   onHandQty: number | null
   quarantinedQty: number | null
+  consumedQty: number | null
+  unitCostCents: number | null
 }
 
 export type StockLotMinAggregateOutputType = {
@@ -41,13 +47,20 @@ export type StockLotMinAggregateOutputType = {
   organizationId: string | null
   itemId: string | null
   locationId: string | null
+  supplierId: string | null
+  supplierItemId: string | null
+  supplierSku: string | null
+  supplierBatchNumber: string | null
   goodsReceiptLineId: string | null
   lotNumber: string | null
   batchCode: string | null
   manufacturedAt: Date | null
   expiresAt: Date | null
+  initialQty: number | null
   onHandQty: number | null
   quarantinedQty: number | null
+  consumedQty: number | null
+  unitCostCents: number | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -57,13 +70,20 @@ export type StockLotMaxAggregateOutputType = {
   organizationId: string | null
   itemId: string | null
   locationId: string | null
+  supplierId: string | null
+  supplierItemId: string | null
+  supplierSku: string | null
+  supplierBatchNumber: string | null
   goodsReceiptLineId: string | null
   lotNumber: string | null
   batchCode: string | null
   manufacturedAt: Date | null
   expiresAt: Date | null
+  initialQty: number | null
   onHandQty: number | null
   quarantinedQty: number | null
+  consumedQty: number | null
+  unitCostCents: number | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -73,14 +93,21 @@ export type StockLotCountAggregateOutputType = {
   organizationId: number
   itemId: number
   locationId: number
+  supplierId: number
+  supplierItemId: number
+  supplierSku: number
+  supplierBatchNumber: number
   goodsReceiptLineId: number
   lotNumber: number
   batchCode: number
   manufacturedAt: number
   expiresAt: number
   serialNumbers: number
+  initialQty: number
   onHandQty: number
   quarantinedQty: number
+  consumedQty: number
+  unitCostCents: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -88,13 +115,19 @@ export type StockLotCountAggregateOutputType = {
 
 
 export type StockLotAvgAggregateInputType = {
+  initialQty?: true
   onHandQty?: true
   quarantinedQty?: true
+  consumedQty?: true
+  unitCostCents?: true
 }
 
 export type StockLotSumAggregateInputType = {
+  initialQty?: true
   onHandQty?: true
   quarantinedQty?: true
+  consumedQty?: true
+  unitCostCents?: true
 }
 
 export type StockLotMinAggregateInputType = {
@@ -102,13 +135,20 @@ export type StockLotMinAggregateInputType = {
   organizationId?: true
   itemId?: true
   locationId?: true
+  supplierId?: true
+  supplierItemId?: true
+  supplierSku?: true
+  supplierBatchNumber?: true
   goodsReceiptLineId?: true
   lotNumber?: true
   batchCode?: true
   manufacturedAt?: true
   expiresAt?: true
+  initialQty?: true
   onHandQty?: true
   quarantinedQty?: true
+  consumedQty?: true
+  unitCostCents?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -118,13 +158,20 @@ export type StockLotMaxAggregateInputType = {
   organizationId?: true
   itemId?: true
   locationId?: true
+  supplierId?: true
+  supplierItemId?: true
+  supplierSku?: true
+  supplierBatchNumber?: true
   goodsReceiptLineId?: true
   lotNumber?: true
   batchCode?: true
   manufacturedAt?: true
   expiresAt?: true
+  initialQty?: true
   onHandQty?: true
   quarantinedQty?: true
+  consumedQty?: true
+  unitCostCents?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -134,14 +181,21 @@ export type StockLotCountAggregateInputType = {
   organizationId?: true
   itemId?: true
   locationId?: true
+  supplierId?: true
+  supplierItemId?: true
+  supplierSku?: true
+  supplierBatchNumber?: true
   goodsReceiptLineId?: true
   lotNumber?: true
   batchCode?: true
   manufacturedAt?: true
   expiresAt?: true
   serialNumbers?: true
+  initialQty?: true
   onHandQty?: true
   quarantinedQty?: true
+  consumedQty?: true
+  unitCostCents?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -238,14 +292,21 @@ export type StockLotGroupByOutputType = {
   organizationId: string
   itemId: string
   locationId: string
+  supplierId: string | null
+  supplierItemId: string | null
+  supplierSku: string | null
+  supplierBatchNumber: string | null
   goodsReceiptLineId: string | null
   lotNumber: string
   batchCode: string | null
   manufacturedAt: Date | null
   expiresAt: Date | null
   serialNumbers: runtime.JsonValue | null
+  initialQty: number
   onHandQty: number
   quarantinedQty: number
+  consumedQty: number
+  unitCostCents: number
   createdAt: Date
   updatedAt: Date
   _count: StockLotCountAggregateOutputType | null
@@ -278,21 +339,34 @@ export type StockLotWhereInput = {
   organizationId?: Prisma.StringFilter<"StockLot"> | string
   itemId?: Prisma.StringFilter<"StockLot"> | string
   locationId?: Prisma.StringFilter<"StockLot"> | string
+  supplierId?: Prisma.StringNullableFilter<"StockLot"> | string | null
+  supplierItemId?: Prisma.StringNullableFilter<"StockLot"> | string | null
+  supplierSku?: Prisma.StringNullableFilter<"StockLot"> | string | null
+  supplierBatchNumber?: Prisma.StringNullableFilter<"StockLot"> | string | null
   goodsReceiptLineId?: Prisma.StringNullableFilter<"StockLot"> | string | null
   lotNumber?: Prisma.StringFilter<"StockLot"> | string
   batchCode?: Prisma.StringNullableFilter<"StockLot"> | string | null
   manufacturedAt?: Prisma.DateTimeNullableFilter<"StockLot"> | Date | string | null
   expiresAt?: Prisma.DateTimeNullableFilter<"StockLot"> | Date | string | null
   serialNumbers?: Prisma.JsonNullableFilter<"StockLot">
+  initialQty?: Prisma.IntFilter<"StockLot"> | number
   onHandQty?: Prisma.IntFilter<"StockLot"> | number
   quarantinedQty?: Prisma.IntFilter<"StockLot"> | number
+  consumedQty?: Prisma.IntFilter<"StockLot"> | number
+  unitCostCents?: Prisma.IntFilter<"StockLot"> | number
   createdAt?: Prisma.DateTimeFilter<"StockLot"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"StockLot"> | Date | string
   organization?: Prisma.XOR<Prisma.OrganizationScalarRelationFilter, Prisma.OrganizationWhereInput>
   item?: Prisma.XOR<Prisma.ItemScalarRelationFilter, Prisma.ItemWhereInput>
   location?: Prisma.XOR<Prisma.LocationScalarRelationFilter, Prisma.LocationWhereInput>
+  supplier?: Prisma.XOR<Prisma.SupplierNullableScalarRelationFilter, Prisma.SupplierWhereInput> | null
+  supplierItem?: Prisma.XOR<Prisma.SupplierItemNullableScalarRelationFilter, Prisma.SupplierItemWhereInput> | null
   goodsReceiptLine?: Prisma.XOR<Prisma.GoodsReceiptLineNullableScalarRelationFilter, Prisma.GoodsReceiptLineWhereInput> | null
   quarantineHolds?: Prisma.QuarantineHoldListRelationFilter
+  documentAttachments?: Prisma.DocumentAttachmentListRelationFilter
+  productionConsumptions?: Prisma.ProductionConsumptionListRelationFilter
+  productionReservations?: Prisma.ProductionMaterialReservationListRelationFilter
+  producedFromBatches?: Prisma.ProductionBatchListRelationFilter
 }
 
 export type StockLotOrderByWithRelationInput = {
@@ -300,21 +374,34 @@ export type StockLotOrderByWithRelationInput = {
   organizationId?: Prisma.SortOrder
   itemId?: Prisma.SortOrder
   locationId?: Prisma.SortOrder
+  supplierId?: Prisma.SortOrderInput | Prisma.SortOrder
+  supplierItemId?: Prisma.SortOrderInput | Prisma.SortOrder
+  supplierSku?: Prisma.SortOrderInput | Prisma.SortOrder
+  supplierBatchNumber?: Prisma.SortOrderInput | Prisma.SortOrder
   goodsReceiptLineId?: Prisma.SortOrderInput | Prisma.SortOrder
   lotNumber?: Prisma.SortOrder
   batchCode?: Prisma.SortOrderInput | Prisma.SortOrder
   manufacturedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   expiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
   serialNumbers?: Prisma.SortOrderInput | Prisma.SortOrder
+  initialQty?: Prisma.SortOrder
   onHandQty?: Prisma.SortOrder
   quarantinedQty?: Prisma.SortOrder
+  consumedQty?: Prisma.SortOrder
+  unitCostCents?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   organization?: Prisma.OrganizationOrderByWithRelationInput
   item?: Prisma.ItemOrderByWithRelationInput
   location?: Prisma.LocationOrderByWithRelationInput
+  supplier?: Prisma.SupplierOrderByWithRelationInput
+  supplierItem?: Prisma.SupplierItemOrderByWithRelationInput
   goodsReceiptLine?: Prisma.GoodsReceiptLineOrderByWithRelationInput
   quarantineHolds?: Prisma.QuarantineHoldOrderByRelationAggregateInput
+  documentAttachments?: Prisma.DocumentAttachmentOrderByRelationAggregateInput
+  productionConsumptions?: Prisma.ProductionConsumptionOrderByRelationAggregateInput
+  productionReservations?: Prisma.ProductionMaterialReservationOrderByRelationAggregateInput
+  producedFromBatches?: Prisma.ProductionBatchOrderByRelationAggregateInput
 }
 
 export type StockLotWhereUniqueInput = Prisma.AtLeast<{
@@ -325,21 +412,34 @@ export type StockLotWhereUniqueInput = Prisma.AtLeast<{
   organizationId?: Prisma.StringFilter<"StockLot"> | string
   itemId?: Prisma.StringFilter<"StockLot"> | string
   locationId?: Prisma.StringFilter<"StockLot"> | string
+  supplierId?: Prisma.StringNullableFilter<"StockLot"> | string | null
+  supplierItemId?: Prisma.StringNullableFilter<"StockLot"> | string | null
+  supplierSku?: Prisma.StringNullableFilter<"StockLot"> | string | null
+  supplierBatchNumber?: Prisma.StringNullableFilter<"StockLot"> | string | null
   goodsReceiptLineId?: Prisma.StringNullableFilter<"StockLot"> | string | null
   lotNumber?: Prisma.StringFilter<"StockLot"> | string
   batchCode?: Prisma.StringNullableFilter<"StockLot"> | string | null
   manufacturedAt?: Prisma.DateTimeNullableFilter<"StockLot"> | Date | string | null
   expiresAt?: Prisma.DateTimeNullableFilter<"StockLot"> | Date | string | null
   serialNumbers?: Prisma.JsonNullableFilter<"StockLot">
+  initialQty?: Prisma.IntFilter<"StockLot"> | number
   onHandQty?: Prisma.IntFilter<"StockLot"> | number
   quarantinedQty?: Prisma.IntFilter<"StockLot"> | number
+  consumedQty?: Prisma.IntFilter<"StockLot"> | number
+  unitCostCents?: Prisma.IntFilter<"StockLot"> | number
   createdAt?: Prisma.DateTimeFilter<"StockLot"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"StockLot"> | Date | string
   organization?: Prisma.XOR<Prisma.OrganizationScalarRelationFilter, Prisma.OrganizationWhereInput>
   item?: Prisma.XOR<Prisma.ItemScalarRelationFilter, Prisma.ItemWhereInput>
   location?: Prisma.XOR<Prisma.LocationScalarRelationFilter, Prisma.LocationWhereInput>
+  supplier?: Prisma.XOR<Prisma.SupplierNullableScalarRelationFilter, Prisma.SupplierWhereInput> | null
+  supplierItem?: Prisma.XOR<Prisma.SupplierItemNullableScalarRelationFilter, Prisma.SupplierItemWhereInput> | null
   goodsReceiptLine?: Prisma.XOR<Prisma.GoodsReceiptLineNullableScalarRelationFilter, Prisma.GoodsReceiptLineWhereInput> | null
   quarantineHolds?: Prisma.QuarantineHoldListRelationFilter
+  documentAttachments?: Prisma.DocumentAttachmentListRelationFilter
+  productionConsumptions?: Prisma.ProductionConsumptionListRelationFilter
+  productionReservations?: Prisma.ProductionMaterialReservationListRelationFilter
+  producedFromBatches?: Prisma.ProductionBatchListRelationFilter
 }, "id">
 
 export type StockLotOrderByWithAggregationInput = {
@@ -347,14 +447,21 @@ export type StockLotOrderByWithAggregationInput = {
   organizationId?: Prisma.SortOrder
   itemId?: Prisma.SortOrder
   locationId?: Prisma.SortOrder
+  supplierId?: Prisma.SortOrderInput | Prisma.SortOrder
+  supplierItemId?: Prisma.SortOrderInput | Prisma.SortOrder
+  supplierSku?: Prisma.SortOrderInput | Prisma.SortOrder
+  supplierBatchNumber?: Prisma.SortOrderInput | Prisma.SortOrder
   goodsReceiptLineId?: Prisma.SortOrderInput | Prisma.SortOrder
   lotNumber?: Prisma.SortOrder
   batchCode?: Prisma.SortOrderInput | Prisma.SortOrder
   manufacturedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   expiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
   serialNumbers?: Prisma.SortOrderInput | Prisma.SortOrder
+  initialQty?: Prisma.SortOrder
   onHandQty?: Prisma.SortOrder
   quarantinedQty?: Prisma.SortOrder
+  consumedQty?: Prisma.SortOrder
+  unitCostCents?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.StockLotCountOrderByAggregateInput
@@ -372,34 +479,52 @@ export type StockLotScalarWhereWithAggregatesInput = {
   organizationId?: Prisma.StringWithAggregatesFilter<"StockLot"> | string
   itemId?: Prisma.StringWithAggregatesFilter<"StockLot"> | string
   locationId?: Prisma.StringWithAggregatesFilter<"StockLot"> | string
+  supplierId?: Prisma.StringNullableWithAggregatesFilter<"StockLot"> | string | null
+  supplierItemId?: Prisma.StringNullableWithAggregatesFilter<"StockLot"> | string | null
+  supplierSku?: Prisma.StringNullableWithAggregatesFilter<"StockLot"> | string | null
+  supplierBatchNumber?: Prisma.StringNullableWithAggregatesFilter<"StockLot"> | string | null
   goodsReceiptLineId?: Prisma.StringNullableWithAggregatesFilter<"StockLot"> | string | null
   lotNumber?: Prisma.StringWithAggregatesFilter<"StockLot"> | string
   batchCode?: Prisma.StringNullableWithAggregatesFilter<"StockLot"> | string | null
   manufacturedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"StockLot"> | Date | string | null
   expiresAt?: Prisma.DateTimeNullableWithAggregatesFilter<"StockLot"> | Date | string | null
   serialNumbers?: Prisma.JsonNullableWithAggregatesFilter<"StockLot">
+  initialQty?: Prisma.IntWithAggregatesFilter<"StockLot"> | number
   onHandQty?: Prisma.IntWithAggregatesFilter<"StockLot"> | number
   quarantinedQty?: Prisma.IntWithAggregatesFilter<"StockLot"> | number
+  consumedQty?: Prisma.IntWithAggregatesFilter<"StockLot"> | number
+  unitCostCents?: Prisma.IntWithAggregatesFilter<"StockLot"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"StockLot"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"StockLot"> | Date | string
 }
 
 export type StockLotCreateInput = {
   id?: string
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
   lotNumber: string
   batchCode?: string | null
   manufacturedAt?: Date | string | null
   expiresAt?: Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
   onHandQty?: number
   quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutStockLotsInput
   item: Prisma.ItemCreateNestedOneWithoutStockLotsInput
   location: Prisma.LocationCreateNestedOneWithoutStockLotsInput
+  supplier?: Prisma.SupplierCreateNestedOneWithoutStockLotsInput
+  supplierItem?: Prisma.SupplierItemCreateNestedOneWithoutStockLotsInput
   goodsReceiptLine?: Prisma.GoodsReceiptLineCreateNestedOneWithoutStockLotsInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutStockLotInput
+  documentAttachments?: Prisma.DocumentAttachmentCreateNestedManyWithoutStockLotInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutStockLotInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutStockLotInput
+  producedFromBatches?: Prisma.ProductionBatchCreateNestedManyWithoutOutputLotInput
 }
 
 export type StockLotUncheckedCreateInput = {
@@ -407,35 +532,57 @@ export type StockLotUncheckedCreateInput = {
   organizationId: string
   itemId: string
   locationId: string
+  supplierId?: string | null
+  supplierItemId?: string | null
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
   goodsReceiptLineId?: string | null
   lotNumber: string
   batchCode?: string | null
   manufacturedAt?: Date | string | null
   expiresAt?: Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
   onHandQty?: number
   quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutStockLotInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedCreateNestedManyWithoutStockLotInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutStockLotInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutStockLotInput
+  producedFromBatches?: Prisma.ProductionBatchUncheckedCreateNestedManyWithoutOutputLotInput
 }
 
 export type StockLotUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
   batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
   onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
   quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutStockLotsNestedInput
   item?: Prisma.ItemUpdateOneRequiredWithoutStockLotsNestedInput
   location?: Prisma.LocationUpdateOneRequiredWithoutStockLotsNestedInput
+  supplier?: Prisma.SupplierUpdateOneWithoutStockLotsNestedInput
+  supplierItem?: Prisma.SupplierItemUpdateOneWithoutStockLotsNestedInput
   goodsReceiptLine?: Prisma.GoodsReceiptLineUpdateOneWithoutStockLotsNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutStockLotNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUpdateManyWithoutStockLotNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutStockLotNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutStockLotNestedInput
+  producedFromBatches?: Prisma.ProductionBatchUpdateManyWithoutOutputLotNestedInput
 }
 
 export type StockLotUncheckedUpdateInput = {
@@ -443,17 +590,28 @@ export type StockLotUncheckedUpdateInput = {
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
   locationId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
   batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
   onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
   quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutStockLotNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedUpdateManyWithoutStockLotNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutStockLotNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutStockLotNestedInput
+  producedFromBatches?: Prisma.ProductionBatchUncheckedUpdateManyWithoutOutputLotNestedInput
 }
 
 export type StockLotCreateManyInput = {
@@ -461,27 +619,39 @@ export type StockLotCreateManyInput = {
   organizationId: string
   itemId: string
   locationId: string
+  supplierId?: string | null
+  supplierItemId?: string | null
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
   goodsReceiptLineId?: string | null
   lotNumber: string
   batchCode?: string | null
   manufacturedAt?: Date | string | null
   expiresAt?: Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
   onHandQty?: number
   quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
 
 export type StockLotUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
   batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
   onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
   quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -491,14 +661,21 @@ export type StockLotUncheckedUpdateManyInput = {
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
   locationId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
   batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
   onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
   quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -518,21 +695,31 @@ export type StockLotCountOrderByAggregateInput = {
   organizationId?: Prisma.SortOrder
   itemId?: Prisma.SortOrder
   locationId?: Prisma.SortOrder
+  supplierId?: Prisma.SortOrder
+  supplierItemId?: Prisma.SortOrder
+  supplierSku?: Prisma.SortOrder
+  supplierBatchNumber?: Prisma.SortOrder
   goodsReceiptLineId?: Prisma.SortOrder
   lotNumber?: Prisma.SortOrder
   batchCode?: Prisma.SortOrder
   manufacturedAt?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
   serialNumbers?: Prisma.SortOrder
+  initialQty?: Prisma.SortOrder
   onHandQty?: Prisma.SortOrder
   quarantinedQty?: Prisma.SortOrder
+  consumedQty?: Prisma.SortOrder
+  unitCostCents?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
 export type StockLotAvgOrderByAggregateInput = {
+  initialQty?: Prisma.SortOrder
   onHandQty?: Prisma.SortOrder
   quarantinedQty?: Prisma.SortOrder
+  consumedQty?: Prisma.SortOrder
+  unitCostCents?: Prisma.SortOrder
 }
 
 export type StockLotMaxOrderByAggregateInput = {
@@ -540,13 +727,20 @@ export type StockLotMaxOrderByAggregateInput = {
   organizationId?: Prisma.SortOrder
   itemId?: Prisma.SortOrder
   locationId?: Prisma.SortOrder
+  supplierId?: Prisma.SortOrder
+  supplierItemId?: Prisma.SortOrder
+  supplierSku?: Prisma.SortOrder
+  supplierBatchNumber?: Prisma.SortOrder
   goodsReceiptLineId?: Prisma.SortOrder
   lotNumber?: Prisma.SortOrder
   batchCode?: Prisma.SortOrder
   manufacturedAt?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
+  initialQty?: Prisma.SortOrder
   onHandQty?: Prisma.SortOrder
   quarantinedQty?: Prisma.SortOrder
+  consumedQty?: Prisma.SortOrder
+  unitCostCents?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -556,25 +750,40 @@ export type StockLotMinOrderByAggregateInput = {
   organizationId?: Prisma.SortOrder
   itemId?: Prisma.SortOrder
   locationId?: Prisma.SortOrder
+  supplierId?: Prisma.SortOrder
+  supplierItemId?: Prisma.SortOrder
+  supplierSku?: Prisma.SortOrder
+  supplierBatchNumber?: Prisma.SortOrder
   goodsReceiptLineId?: Prisma.SortOrder
   lotNumber?: Prisma.SortOrder
   batchCode?: Prisma.SortOrder
   manufacturedAt?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
+  initialQty?: Prisma.SortOrder
   onHandQty?: Prisma.SortOrder
   quarantinedQty?: Prisma.SortOrder
+  consumedQty?: Prisma.SortOrder
+  unitCostCents?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
 export type StockLotSumOrderByAggregateInput = {
+  initialQty?: Prisma.SortOrder
   onHandQty?: Prisma.SortOrder
   quarantinedQty?: Prisma.SortOrder
+  consumedQty?: Prisma.SortOrder
+  unitCostCents?: Prisma.SortOrder
 }
 
 export type StockLotNullableScalarRelationFilter = {
   is?: Prisma.StockLotWhereInput | null
   isNot?: Prisma.StockLotWhereInput | null
+}
+
+export type StockLotScalarRelationFilter = {
+  is?: Prisma.StockLotWhereInput
+  isNot?: Prisma.StockLotWhereInput
 }
 
 export type StockLotCreateNestedManyWithoutOrganizationInput = {
@@ -703,6 +912,90 @@ export type StockLotUncheckedUpdateManyWithoutLocationNestedInput = {
   deleteMany?: Prisma.StockLotScalarWhereInput | Prisma.StockLotScalarWhereInput[]
 }
 
+export type StockLotCreateNestedManyWithoutSupplierInput = {
+  create?: Prisma.XOR<Prisma.StockLotCreateWithoutSupplierInput, Prisma.StockLotUncheckedCreateWithoutSupplierInput> | Prisma.StockLotCreateWithoutSupplierInput[] | Prisma.StockLotUncheckedCreateWithoutSupplierInput[]
+  connectOrCreate?: Prisma.StockLotCreateOrConnectWithoutSupplierInput | Prisma.StockLotCreateOrConnectWithoutSupplierInput[]
+  createMany?: Prisma.StockLotCreateManySupplierInputEnvelope
+  connect?: Prisma.StockLotWhereUniqueInput | Prisma.StockLotWhereUniqueInput[]
+}
+
+export type StockLotUncheckedCreateNestedManyWithoutSupplierInput = {
+  create?: Prisma.XOR<Prisma.StockLotCreateWithoutSupplierInput, Prisma.StockLotUncheckedCreateWithoutSupplierInput> | Prisma.StockLotCreateWithoutSupplierInput[] | Prisma.StockLotUncheckedCreateWithoutSupplierInput[]
+  connectOrCreate?: Prisma.StockLotCreateOrConnectWithoutSupplierInput | Prisma.StockLotCreateOrConnectWithoutSupplierInput[]
+  createMany?: Prisma.StockLotCreateManySupplierInputEnvelope
+  connect?: Prisma.StockLotWhereUniqueInput | Prisma.StockLotWhereUniqueInput[]
+}
+
+export type StockLotUpdateManyWithoutSupplierNestedInput = {
+  create?: Prisma.XOR<Prisma.StockLotCreateWithoutSupplierInput, Prisma.StockLotUncheckedCreateWithoutSupplierInput> | Prisma.StockLotCreateWithoutSupplierInput[] | Prisma.StockLotUncheckedCreateWithoutSupplierInput[]
+  connectOrCreate?: Prisma.StockLotCreateOrConnectWithoutSupplierInput | Prisma.StockLotCreateOrConnectWithoutSupplierInput[]
+  upsert?: Prisma.StockLotUpsertWithWhereUniqueWithoutSupplierInput | Prisma.StockLotUpsertWithWhereUniqueWithoutSupplierInput[]
+  createMany?: Prisma.StockLotCreateManySupplierInputEnvelope
+  set?: Prisma.StockLotWhereUniqueInput | Prisma.StockLotWhereUniqueInput[]
+  disconnect?: Prisma.StockLotWhereUniqueInput | Prisma.StockLotWhereUniqueInput[]
+  delete?: Prisma.StockLotWhereUniqueInput | Prisma.StockLotWhereUniqueInput[]
+  connect?: Prisma.StockLotWhereUniqueInput | Prisma.StockLotWhereUniqueInput[]
+  update?: Prisma.StockLotUpdateWithWhereUniqueWithoutSupplierInput | Prisma.StockLotUpdateWithWhereUniqueWithoutSupplierInput[]
+  updateMany?: Prisma.StockLotUpdateManyWithWhereWithoutSupplierInput | Prisma.StockLotUpdateManyWithWhereWithoutSupplierInput[]
+  deleteMany?: Prisma.StockLotScalarWhereInput | Prisma.StockLotScalarWhereInput[]
+}
+
+export type StockLotUncheckedUpdateManyWithoutSupplierNestedInput = {
+  create?: Prisma.XOR<Prisma.StockLotCreateWithoutSupplierInput, Prisma.StockLotUncheckedCreateWithoutSupplierInput> | Prisma.StockLotCreateWithoutSupplierInput[] | Prisma.StockLotUncheckedCreateWithoutSupplierInput[]
+  connectOrCreate?: Prisma.StockLotCreateOrConnectWithoutSupplierInput | Prisma.StockLotCreateOrConnectWithoutSupplierInput[]
+  upsert?: Prisma.StockLotUpsertWithWhereUniqueWithoutSupplierInput | Prisma.StockLotUpsertWithWhereUniqueWithoutSupplierInput[]
+  createMany?: Prisma.StockLotCreateManySupplierInputEnvelope
+  set?: Prisma.StockLotWhereUniqueInput | Prisma.StockLotWhereUniqueInput[]
+  disconnect?: Prisma.StockLotWhereUniqueInput | Prisma.StockLotWhereUniqueInput[]
+  delete?: Prisma.StockLotWhereUniqueInput | Prisma.StockLotWhereUniqueInput[]
+  connect?: Prisma.StockLotWhereUniqueInput | Prisma.StockLotWhereUniqueInput[]
+  update?: Prisma.StockLotUpdateWithWhereUniqueWithoutSupplierInput | Prisma.StockLotUpdateWithWhereUniqueWithoutSupplierInput[]
+  updateMany?: Prisma.StockLotUpdateManyWithWhereWithoutSupplierInput | Prisma.StockLotUpdateManyWithWhereWithoutSupplierInput[]
+  deleteMany?: Prisma.StockLotScalarWhereInput | Prisma.StockLotScalarWhereInput[]
+}
+
+export type StockLotCreateNestedManyWithoutSupplierItemInput = {
+  create?: Prisma.XOR<Prisma.StockLotCreateWithoutSupplierItemInput, Prisma.StockLotUncheckedCreateWithoutSupplierItemInput> | Prisma.StockLotCreateWithoutSupplierItemInput[] | Prisma.StockLotUncheckedCreateWithoutSupplierItemInput[]
+  connectOrCreate?: Prisma.StockLotCreateOrConnectWithoutSupplierItemInput | Prisma.StockLotCreateOrConnectWithoutSupplierItemInput[]
+  createMany?: Prisma.StockLotCreateManySupplierItemInputEnvelope
+  connect?: Prisma.StockLotWhereUniqueInput | Prisma.StockLotWhereUniqueInput[]
+}
+
+export type StockLotUncheckedCreateNestedManyWithoutSupplierItemInput = {
+  create?: Prisma.XOR<Prisma.StockLotCreateWithoutSupplierItemInput, Prisma.StockLotUncheckedCreateWithoutSupplierItemInput> | Prisma.StockLotCreateWithoutSupplierItemInput[] | Prisma.StockLotUncheckedCreateWithoutSupplierItemInput[]
+  connectOrCreate?: Prisma.StockLotCreateOrConnectWithoutSupplierItemInput | Prisma.StockLotCreateOrConnectWithoutSupplierItemInput[]
+  createMany?: Prisma.StockLotCreateManySupplierItemInputEnvelope
+  connect?: Prisma.StockLotWhereUniqueInput | Prisma.StockLotWhereUniqueInput[]
+}
+
+export type StockLotUpdateManyWithoutSupplierItemNestedInput = {
+  create?: Prisma.XOR<Prisma.StockLotCreateWithoutSupplierItemInput, Prisma.StockLotUncheckedCreateWithoutSupplierItemInput> | Prisma.StockLotCreateWithoutSupplierItemInput[] | Prisma.StockLotUncheckedCreateWithoutSupplierItemInput[]
+  connectOrCreate?: Prisma.StockLotCreateOrConnectWithoutSupplierItemInput | Prisma.StockLotCreateOrConnectWithoutSupplierItemInput[]
+  upsert?: Prisma.StockLotUpsertWithWhereUniqueWithoutSupplierItemInput | Prisma.StockLotUpsertWithWhereUniqueWithoutSupplierItemInput[]
+  createMany?: Prisma.StockLotCreateManySupplierItemInputEnvelope
+  set?: Prisma.StockLotWhereUniqueInput | Prisma.StockLotWhereUniqueInput[]
+  disconnect?: Prisma.StockLotWhereUniqueInput | Prisma.StockLotWhereUniqueInput[]
+  delete?: Prisma.StockLotWhereUniqueInput | Prisma.StockLotWhereUniqueInput[]
+  connect?: Prisma.StockLotWhereUniqueInput | Prisma.StockLotWhereUniqueInput[]
+  update?: Prisma.StockLotUpdateWithWhereUniqueWithoutSupplierItemInput | Prisma.StockLotUpdateWithWhereUniqueWithoutSupplierItemInput[]
+  updateMany?: Prisma.StockLotUpdateManyWithWhereWithoutSupplierItemInput | Prisma.StockLotUpdateManyWithWhereWithoutSupplierItemInput[]
+  deleteMany?: Prisma.StockLotScalarWhereInput | Prisma.StockLotScalarWhereInput[]
+}
+
+export type StockLotUncheckedUpdateManyWithoutSupplierItemNestedInput = {
+  create?: Prisma.XOR<Prisma.StockLotCreateWithoutSupplierItemInput, Prisma.StockLotUncheckedCreateWithoutSupplierItemInput> | Prisma.StockLotCreateWithoutSupplierItemInput[] | Prisma.StockLotUncheckedCreateWithoutSupplierItemInput[]
+  connectOrCreate?: Prisma.StockLotCreateOrConnectWithoutSupplierItemInput | Prisma.StockLotCreateOrConnectWithoutSupplierItemInput[]
+  upsert?: Prisma.StockLotUpsertWithWhereUniqueWithoutSupplierItemInput | Prisma.StockLotUpsertWithWhereUniqueWithoutSupplierItemInput[]
+  createMany?: Prisma.StockLotCreateManySupplierItemInputEnvelope
+  set?: Prisma.StockLotWhereUniqueInput | Prisma.StockLotWhereUniqueInput[]
+  disconnect?: Prisma.StockLotWhereUniqueInput | Prisma.StockLotWhereUniqueInput[]
+  delete?: Prisma.StockLotWhereUniqueInput | Prisma.StockLotWhereUniqueInput[]
+  connect?: Prisma.StockLotWhereUniqueInput | Prisma.StockLotWhereUniqueInput[]
+  update?: Prisma.StockLotUpdateWithWhereUniqueWithoutSupplierItemInput | Prisma.StockLotUpdateWithWhereUniqueWithoutSupplierItemInput[]
+  updateMany?: Prisma.StockLotUpdateManyWithWhereWithoutSupplierItemInput | Prisma.StockLotUpdateManyWithWhereWithoutSupplierItemInput[]
+  deleteMany?: Prisma.StockLotScalarWhereInput | Prisma.StockLotScalarWhereInput[]
+}
+
 export type StockLotCreateNestedManyWithoutGoodsReceiptLineInput = {
   create?: Prisma.XOR<Prisma.StockLotCreateWithoutGoodsReceiptLineInput, Prisma.StockLotUncheckedCreateWithoutGoodsReceiptLineInput> | Prisma.StockLotCreateWithoutGoodsReceiptLineInput[] | Prisma.StockLotUncheckedCreateWithoutGoodsReceiptLineInput[]
   connectOrCreate?: Prisma.StockLotCreateOrConnectWithoutGoodsReceiptLineInput | Prisma.StockLotCreateOrConnectWithoutGoodsReceiptLineInput[]
@@ -761,38 +1054,122 @@ export type StockLotUpdateOneWithoutQuarantineHoldsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.StockLotUpdateToOneWithWhereWithoutQuarantineHoldsInput, Prisma.StockLotUpdateWithoutQuarantineHoldsInput>, Prisma.StockLotUncheckedUpdateWithoutQuarantineHoldsInput>
 }
 
+export type StockLotCreateNestedOneWithoutDocumentAttachmentsInput = {
+  create?: Prisma.XOR<Prisma.StockLotCreateWithoutDocumentAttachmentsInput, Prisma.StockLotUncheckedCreateWithoutDocumentAttachmentsInput>
+  connectOrCreate?: Prisma.StockLotCreateOrConnectWithoutDocumentAttachmentsInput
+  connect?: Prisma.StockLotWhereUniqueInput
+}
+
+export type StockLotUpdateOneWithoutDocumentAttachmentsNestedInput = {
+  create?: Prisma.XOR<Prisma.StockLotCreateWithoutDocumentAttachmentsInput, Prisma.StockLotUncheckedCreateWithoutDocumentAttachmentsInput>
+  connectOrCreate?: Prisma.StockLotCreateOrConnectWithoutDocumentAttachmentsInput
+  upsert?: Prisma.StockLotUpsertWithoutDocumentAttachmentsInput
+  disconnect?: Prisma.StockLotWhereInput | boolean
+  delete?: Prisma.StockLotWhereInput | boolean
+  connect?: Prisma.StockLotWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StockLotUpdateToOneWithWhereWithoutDocumentAttachmentsInput, Prisma.StockLotUpdateWithoutDocumentAttachmentsInput>, Prisma.StockLotUncheckedUpdateWithoutDocumentAttachmentsInput>
+}
+
+export type StockLotCreateNestedOneWithoutProducedFromBatchesInput = {
+  create?: Prisma.XOR<Prisma.StockLotCreateWithoutProducedFromBatchesInput, Prisma.StockLotUncheckedCreateWithoutProducedFromBatchesInput>
+  connectOrCreate?: Prisma.StockLotCreateOrConnectWithoutProducedFromBatchesInput
+  connect?: Prisma.StockLotWhereUniqueInput
+}
+
+export type StockLotUpdateOneWithoutProducedFromBatchesNestedInput = {
+  create?: Prisma.XOR<Prisma.StockLotCreateWithoutProducedFromBatchesInput, Prisma.StockLotUncheckedCreateWithoutProducedFromBatchesInput>
+  connectOrCreate?: Prisma.StockLotCreateOrConnectWithoutProducedFromBatchesInput
+  upsert?: Prisma.StockLotUpsertWithoutProducedFromBatchesInput
+  disconnect?: Prisma.StockLotWhereInput | boolean
+  delete?: Prisma.StockLotWhereInput | boolean
+  connect?: Prisma.StockLotWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StockLotUpdateToOneWithWhereWithoutProducedFromBatchesInput, Prisma.StockLotUpdateWithoutProducedFromBatchesInput>, Prisma.StockLotUncheckedUpdateWithoutProducedFromBatchesInput>
+}
+
+export type StockLotCreateNestedOneWithoutProductionReservationsInput = {
+  create?: Prisma.XOR<Prisma.StockLotCreateWithoutProductionReservationsInput, Prisma.StockLotUncheckedCreateWithoutProductionReservationsInput>
+  connectOrCreate?: Prisma.StockLotCreateOrConnectWithoutProductionReservationsInput
+  connect?: Prisma.StockLotWhereUniqueInput
+}
+
+export type StockLotUpdateOneWithoutProductionReservationsNestedInput = {
+  create?: Prisma.XOR<Prisma.StockLotCreateWithoutProductionReservationsInput, Prisma.StockLotUncheckedCreateWithoutProductionReservationsInput>
+  connectOrCreate?: Prisma.StockLotCreateOrConnectWithoutProductionReservationsInput
+  upsert?: Prisma.StockLotUpsertWithoutProductionReservationsInput
+  disconnect?: Prisma.StockLotWhereInput | boolean
+  delete?: Prisma.StockLotWhereInput | boolean
+  connect?: Prisma.StockLotWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StockLotUpdateToOneWithWhereWithoutProductionReservationsInput, Prisma.StockLotUpdateWithoutProductionReservationsInput>, Prisma.StockLotUncheckedUpdateWithoutProductionReservationsInput>
+}
+
+export type StockLotCreateNestedOneWithoutProductionConsumptionsInput = {
+  create?: Prisma.XOR<Prisma.StockLotCreateWithoutProductionConsumptionsInput, Prisma.StockLotUncheckedCreateWithoutProductionConsumptionsInput>
+  connectOrCreate?: Prisma.StockLotCreateOrConnectWithoutProductionConsumptionsInput
+  connect?: Prisma.StockLotWhereUniqueInput
+}
+
+export type StockLotUpdateOneRequiredWithoutProductionConsumptionsNestedInput = {
+  create?: Prisma.XOR<Prisma.StockLotCreateWithoutProductionConsumptionsInput, Prisma.StockLotUncheckedCreateWithoutProductionConsumptionsInput>
+  connectOrCreate?: Prisma.StockLotCreateOrConnectWithoutProductionConsumptionsInput
+  upsert?: Prisma.StockLotUpsertWithoutProductionConsumptionsInput
+  connect?: Prisma.StockLotWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StockLotUpdateToOneWithWhereWithoutProductionConsumptionsInput, Prisma.StockLotUpdateWithoutProductionConsumptionsInput>, Prisma.StockLotUncheckedUpdateWithoutProductionConsumptionsInput>
+}
+
 export type StockLotCreateWithoutOrganizationInput = {
   id?: string
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
   lotNumber: string
   batchCode?: string | null
   manufacturedAt?: Date | string | null
   expiresAt?: Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
   onHandQty?: number
   quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   item: Prisma.ItemCreateNestedOneWithoutStockLotsInput
   location: Prisma.LocationCreateNestedOneWithoutStockLotsInput
+  supplier?: Prisma.SupplierCreateNestedOneWithoutStockLotsInput
+  supplierItem?: Prisma.SupplierItemCreateNestedOneWithoutStockLotsInput
   goodsReceiptLine?: Prisma.GoodsReceiptLineCreateNestedOneWithoutStockLotsInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutStockLotInput
+  documentAttachments?: Prisma.DocumentAttachmentCreateNestedManyWithoutStockLotInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutStockLotInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutStockLotInput
+  producedFromBatches?: Prisma.ProductionBatchCreateNestedManyWithoutOutputLotInput
 }
 
 export type StockLotUncheckedCreateWithoutOrganizationInput = {
   id?: string
   itemId: string
   locationId: string
+  supplierId?: string | null
+  supplierItemId?: string | null
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
   goodsReceiptLineId?: string | null
   lotNumber: string
   batchCode?: string | null
   manufacturedAt?: Date | string | null
   expiresAt?: Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
   onHandQty?: number
   quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutStockLotInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedCreateNestedManyWithoutStockLotInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutStockLotInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutStockLotInput
+  producedFromBatches?: Prisma.ProductionBatchUncheckedCreateNestedManyWithoutOutputLotInput
 }
 
 export type StockLotCreateOrConnectWithoutOrganizationInput = {
@@ -829,50 +1206,79 @@ export type StockLotScalarWhereInput = {
   organizationId?: Prisma.StringFilter<"StockLot"> | string
   itemId?: Prisma.StringFilter<"StockLot"> | string
   locationId?: Prisma.StringFilter<"StockLot"> | string
+  supplierId?: Prisma.StringNullableFilter<"StockLot"> | string | null
+  supplierItemId?: Prisma.StringNullableFilter<"StockLot"> | string | null
+  supplierSku?: Prisma.StringNullableFilter<"StockLot"> | string | null
+  supplierBatchNumber?: Prisma.StringNullableFilter<"StockLot"> | string | null
   goodsReceiptLineId?: Prisma.StringNullableFilter<"StockLot"> | string | null
   lotNumber?: Prisma.StringFilter<"StockLot"> | string
   batchCode?: Prisma.StringNullableFilter<"StockLot"> | string | null
   manufacturedAt?: Prisma.DateTimeNullableFilter<"StockLot"> | Date | string | null
   expiresAt?: Prisma.DateTimeNullableFilter<"StockLot"> | Date | string | null
   serialNumbers?: Prisma.JsonNullableFilter<"StockLot">
+  initialQty?: Prisma.IntFilter<"StockLot"> | number
   onHandQty?: Prisma.IntFilter<"StockLot"> | number
   quarantinedQty?: Prisma.IntFilter<"StockLot"> | number
+  consumedQty?: Prisma.IntFilter<"StockLot"> | number
+  unitCostCents?: Prisma.IntFilter<"StockLot"> | number
   createdAt?: Prisma.DateTimeFilter<"StockLot"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"StockLot"> | Date | string
 }
 
 export type StockLotCreateWithoutItemInput = {
   id?: string
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
   lotNumber: string
   batchCode?: string | null
   manufacturedAt?: Date | string | null
   expiresAt?: Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
   onHandQty?: number
   quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutStockLotsInput
   location: Prisma.LocationCreateNestedOneWithoutStockLotsInput
+  supplier?: Prisma.SupplierCreateNestedOneWithoutStockLotsInput
+  supplierItem?: Prisma.SupplierItemCreateNestedOneWithoutStockLotsInput
   goodsReceiptLine?: Prisma.GoodsReceiptLineCreateNestedOneWithoutStockLotsInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutStockLotInput
+  documentAttachments?: Prisma.DocumentAttachmentCreateNestedManyWithoutStockLotInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutStockLotInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutStockLotInput
+  producedFromBatches?: Prisma.ProductionBatchCreateNestedManyWithoutOutputLotInput
 }
 
 export type StockLotUncheckedCreateWithoutItemInput = {
   id?: string
   organizationId: string
   locationId: string
+  supplierId?: string | null
+  supplierItemId?: string | null
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
   goodsReceiptLineId?: string | null
   lotNumber: string
   batchCode?: string | null
   manufacturedAt?: Date | string | null
   expiresAt?: Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
   onHandQty?: number
   quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutStockLotInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedCreateNestedManyWithoutStockLotInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutStockLotInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutStockLotInput
+  producedFromBatches?: Prisma.ProductionBatchUncheckedCreateNestedManyWithoutOutputLotInput
 }
 
 export type StockLotCreateOrConnectWithoutItemInput = {
@@ -903,36 +1309,58 @@ export type StockLotUpdateManyWithWhereWithoutItemInput = {
 
 export type StockLotCreateWithoutLocationInput = {
   id?: string
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
   lotNumber: string
   batchCode?: string | null
   manufacturedAt?: Date | string | null
   expiresAt?: Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
   onHandQty?: number
   quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutStockLotsInput
   item: Prisma.ItemCreateNestedOneWithoutStockLotsInput
+  supplier?: Prisma.SupplierCreateNestedOneWithoutStockLotsInput
+  supplierItem?: Prisma.SupplierItemCreateNestedOneWithoutStockLotsInput
   goodsReceiptLine?: Prisma.GoodsReceiptLineCreateNestedOneWithoutStockLotsInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutStockLotInput
+  documentAttachments?: Prisma.DocumentAttachmentCreateNestedManyWithoutStockLotInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutStockLotInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutStockLotInput
+  producedFromBatches?: Prisma.ProductionBatchCreateNestedManyWithoutOutputLotInput
 }
 
 export type StockLotUncheckedCreateWithoutLocationInput = {
   id?: string
   organizationId: string
   itemId: string
+  supplierId?: string | null
+  supplierItemId?: string | null
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
   goodsReceiptLineId?: string | null
   lotNumber: string
   batchCode?: string | null
   manufacturedAt?: Date | string | null
   expiresAt?: Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
   onHandQty?: number
   quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutStockLotInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedCreateNestedManyWithoutStockLotInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutStockLotInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutStockLotInput
+  producedFromBatches?: Prisma.ProductionBatchUncheckedCreateNestedManyWithoutOutputLotInput
 }
 
 export type StockLotCreateOrConnectWithoutLocationInput = {
@@ -961,21 +1389,196 @@ export type StockLotUpdateManyWithWhereWithoutLocationInput = {
   data: Prisma.XOR<Prisma.StockLotUpdateManyMutationInput, Prisma.StockLotUncheckedUpdateManyWithoutLocationInput>
 }
 
-export type StockLotCreateWithoutGoodsReceiptLineInput = {
+export type StockLotCreateWithoutSupplierInput = {
   id?: string
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
   lotNumber: string
   batchCode?: string | null
   manufacturedAt?: Date | string | null
   expiresAt?: Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
   onHandQty?: number
   quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutStockLotsInput
   item: Prisma.ItemCreateNestedOneWithoutStockLotsInput
   location: Prisma.LocationCreateNestedOneWithoutStockLotsInput
+  supplierItem?: Prisma.SupplierItemCreateNestedOneWithoutStockLotsInput
+  goodsReceiptLine?: Prisma.GoodsReceiptLineCreateNestedOneWithoutStockLotsInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutStockLotInput
+  documentAttachments?: Prisma.DocumentAttachmentCreateNestedManyWithoutStockLotInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutStockLotInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutStockLotInput
+  producedFromBatches?: Prisma.ProductionBatchCreateNestedManyWithoutOutputLotInput
+}
+
+export type StockLotUncheckedCreateWithoutSupplierInput = {
+  id?: string
+  organizationId: string
+  itemId: string
+  locationId: string
+  supplierItemId?: string | null
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
+  goodsReceiptLineId?: string | null
+  lotNumber: string
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
+  onHandQty?: number
+  quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutStockLotInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedCreateNestedManyWithoutStockLotInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutStockLotInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutStockLotInput
+  producedFromBatches?: Prisma.ProductionBatchUncheckedCreateNestedManyWithoutOutputLotInput
+}
+
+export type StockLotCreateOrConnectWithoutSupplierInput = {
+  where: Prisma.StockLotWhereUniqueInput
+  create: Prisma.XOR<Prisma.StockLotCreateWithoutSupplierInput, Prisma.StockLotUncheckedCreateWithoutSupplierInput>
+}
+
+export type StockLotCreateManySupplierInputEnvelope = {
+  data: Prisma.StockLotCreateManySupplierInput | Prisma.StockLotCreateManySupplierInput[]
+  skipDuplicates?: boolean
+}
+
+export type StockLotUpsertWithWhereUniqueWithoutSupplierInput = {
+  where: Prisma.StockLotWhereUniqueInput
+  update: Prisma.XOR<Prisma.StockLotUpdateWithoutSupplierInput, Prisma.StockLotUncheckedUpdateWithoutSupplierInput>
+  create: Prisma.XOR<Prisma.StockLotCreateWithoutSupplierInput, Prisma.StockLotUncheckedCreateWithoutSupplierInput>
+}
+
+export type StockLotUpdateWithWhereUniqueWithoutSupplierInput = {
+  where: Prisma.StockLotWhereUniqueInput
+  data: Prisma.XOR<Prisma.StockLotUpdateWithoutSupplierInput, Prisma.StockLotUncheckedUpdateWithoutSupplierInput>
+}
+
+export type StockLotUpdateManyWithWhereWithoutSupplierInput = {
+  where: Prisma.StockLotScalarWhereInput
+  data: Prisma.XOR<Prisma.StockLotUpdateManyMutationInput, Prisma.StockLotUncheckedUpdateManyWithoutSupplierInput>
+}
+
+export type StockLotCreateWithoutSupplierItemInput = {
+  id?: string
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
+  lotNumber: string
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
+  onHandQty?: number
+  quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutStockLotsInput
+  item: Prisma.ItemCreateNestedOneWithoutStockLotsInput
+  location: Prisma.LocationCreateNestedOneWithoutStockLotsInput
+  supplier?: Prisma.SupplierCreateNestedOneWithoutStockLotsInput
+  goodsReceiptLine?: Prisma.GoodsReceiptLineCreateNestedOneWithoutStockLotsInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutStockLotInput
+  documentAttachments?: Prisma.DocumentAttachmentCreateNestedManyWithoutStockLotInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutStockLotInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutStockLotInput
+  producedFromBatches?: Prisma.ProductionBatchCreateNestedManyWithoutOutputLotInput
+}
+
+export type StockLotUncheckedCreateWithoutSupplierItemInput = {
+  id?: string
+  organizationId: string
+  itemId: string
+  locationId: string
+  supplierId?: string | null
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
+  goodsReceiptLineId?: string | null
+  lotNumber: string
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
+  onHandQty?: number
+  quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutStockLotInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedCreateNestedManyWithoutStockLotInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutStockLotInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutStockLotInput
+  producedFromBatches?: Prisma.ProductionBatchUncheckedCreateNestedManyWithoutOutputLotInput
+}
+
+export type StockLotCreateOrConnectWithoutSupplierItemInput = {
+  where: Prisma.StockLotWhereUniqueInput
+  create: Prisma.XOR<Prisma.StockLotCreateWithoutSupplierItemInput, Prisma.StockLotUncheckedCreateWithoutSupplierItemInput>
+}
+
+export type StockLotCreateManySupplierItemInputEnvelope = {
+  data: Prisma.StockLotCreateManySupplierItemInput | Prisma.StockLotCreateManySupplierItemInput[]
+  skipDuplicates?: boolean
+}
+
+export type StockLotUpsertWithWhereUniqueWithoutSupplierItemInput = {
+  where: Prisma.StockLotWhereUniqueInput
+  update: Prisma.XOR<Prisma.StockLotUpdateWithoutSupplierItemInput, Prisma.StockLotUncheckedUpdateWithoutSupplierItemInput>
+  create: Prisma.XOR<Prisma.StockLotCreateWithoutSupplierItemInput, Prisma.StockLotUncheckedCreateWithoutSupplierItemInput>
+}
+
+export type StockLotUpdateWithWhereUniqueWithoutSupplierItemInput = {
+  where: Prisma.StockLotWhereUniqueInput
+  data: Prisma.XOR<Prisma.StockLotUpdateWithoutSupplierItemInput, Prisma.StockLotUncheckedUpdateWithoutSupplierItemInput>
+}
+
+export type StockLotUpdateManyWithWhereWithoutSupplierItemInput = {
+  where: Prisma.StockLotScalarWhereInput
+  data: Prisma.XOR<Prisma.StockLotUpdateManyMutationInput, Prisma.StockLotUncheckedUpdateManyWithoutSupplierItemInput>
+}
+
+export type StockLotCreateWithoutGoodsReceiptLineInput = {
+  id?: string
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
+  lotNumber: string
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
+  onHandQty?: number
+  quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutStockLotsInput
+  item: Prisma.ItemCreateNestedOneWithoutStockLotsInput
+  location: Prisma.LocationCreateNestedOneWithoutStockLotsInput
+  supplier?: Prisma.SupplierCreateNestedOneWithoutStockLotsInput
+  supplierItem?: Prisma.SupplierItemCreateNestedOneWithoutStockLotsInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutStockLotInput
+  documentAttachments?: Prisma.DocumentAttachmentCreateNestedManyWithoutStockLotInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutStockLotInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutStockLotInput
+  producedFromBatches?: Prisma.ProductionBatchCreateNestedManyWithoutOutputLotInput
 }
 
 export type StockLotUncheckedCreateWithoutGoodsReceiptLineInput = {
@@ -983,16 +1586,27 @@ export type StockLotUncheckedCreateWithoutGoodsReceiptLineInput = {
   organizationId: string
   itemId: string
   locationId: string
+  supplierId?: string | null
+  supplierItemId?: string | null
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
   lotNumber: string
   batchCode?: string | null
   manufacturedAt?: Date | string | null
   expiresAt?: Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
   onHandQty?: number
   quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutStockLotInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedCreateNestedManyWithoutStockLotInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutStockLotInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutStockLotInput
+  producedFromBatches?: Prisma.ProductionBatchUncheckedCreateNestedManyWithoutOutputLotInput
 }
 
 export type StockLotCreateOrConnectWithoutGoodsReceiptLineInput = {
@@ -1023,19 +1637,30 @@ export type StockLotUpdateManyWithWhereWithoutGoodsReceiptLineInput = {
 
 export type StockLotCreateWithoutQuarantineHoldsInput = {
   id?: string
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
   lotNumber: string
   batchCode?: string | null
   manufacturedAt?: Date | string | null
   expiresAt?: Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
   onHandQty?: number
   quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutStockLotsInput
   item: Prisma.ItemCreateNestedOneWithoutStockLotsInput
   location: Prisma.LocationCreateNestedOneWithoutStockLotsInput
+  supplier?: Prisma.SupplierCreateNestedOneWithoutStockLotsInput
+  supplierItem?: Prisma.SupplierItemCreateNestedOneWithoutStockLotsInput
   goodsReceiptLine?: Prisma.GoodsReceiptLineCreateNestedOneWithoutStockLotsInput
+  documentAttachments?: Prisma.DocumentAttachmentCreateNestedManyWithoutStockLotInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutStockLotInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutStockLotInput
+  producedFromBatches?: Prisma.ProductionBatchCreateNestedManyWithoutOutputLotInput
 }
 
 export type StockLotUncheckedCreateWithoutQuarantineHoldsInput = {
@@ -1043,16 +1668,27 @@ export type StockLotUncheckedCreateWithoutQuarantineHoldsInput = {
   organizationId: string
   itemId: string
   locationId: string
+  supplierId?: string | null
+  supplierItemId?: string | null
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
   goodsReceiptLineId?: string | null
   lotNumber: string
   batchCode?: string | null
   manufacturedAt?: Date | string | null
   expiresAt?: Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
   onHandQty?: number
   quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
   createdAt?: Date | string
   updatedAt?: Date | string
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedCreateNestedManyWithoutStockLotInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutStockLotInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutStockLotInput
+  producedFromBatches?: Prisma.ProductionBatchUncheckedCreateNestedManyWithoutOutputLotInput
 }
 
 export type StockLotCreateOrConnectWithoutQuarantineHoldsInput = {
@@ -1073,19 +1709,30 @@ export type StockLotUpdateToOneWithWhereWithoutQuarantineHoldsInput = {
 
 export type StockLotUpdateWithoutQuarantineHoldsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
   batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
   onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
   quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutStockLotsNestedInput
   item?: Prisma.ItemUpdateOneRequiredWithoutStockLotsNestedInput
   location?: Prisma.LocationUpdateOneRequiredWithoutStockLotsNestedInput
+  supplier?: Prisma.SupplierUpdateOneWithoutStockLotsNestedInput
+  supplierItem?: Prisma.SupplierItemUpdateOneWithoutStockLotsNestedInput
   goodsReceiptLine?: Prisma.GoodsReceiptLineUpdateOneWithoutStockLotsNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUpdateManyWithoutStockLotNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutStockLotNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutStockLotNestedInput
+  producedFromBatches?: Prisma.ProductionBatchUpdateManyWithoutOutputLotNestedInput
 }
 
 export type StockLotUncheckedUpdateWithoutQuarantineHoldsInput = {
@@ -1093,80 +1740,639 @@ export type StockLotUncheckedUpdateWithoutQuarantineHoldsInput = {
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
   locationId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
   batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
   onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
   quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedUpdateManyWithoutStockLotNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutStockLotNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutStockLotNestedInput
+  producedFromBatches?: Prisma.ProductionBatchUncheckedUpdateManyWithoutOutputLotNestedInput
 }
 
-export type StockLotCreateManyOrganizationInput = {
+export type StockLotCreateWithoutDocumentAttachmentsInput = {
   id?: string
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
+  lotNumber: string
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
+  onHandQty?: number
+  quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutStockLotsInput
+  item: Prisma.ItemCreateNestedOneWithoutStockLotsInput
+  location: Prisma.LocationCreateNestedOneWithoutStockLotsInput
+  supplier?: Prisma.SupplierCreateNestedOneWithoutStockLotsInput
+  supplierItem?: Prisma.SupplierItemCreateNestedOneWithoutStockLotsInput
+  goodsReceiptLine?: Prisma.GoodsReceiptLineCreateNestedOneWithoutStockLotsInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutStockLotInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutStockLotInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutStockLotInput
+  producedFromBatches?: Prisma.ProductionBatchCreateNestedManyWithoutOutputLotInput
+}
+
+export type StockLotUncheckedCreateWithoutDocumentAttachmentsInput = {
+  id?: string
+  organizationId: string
   itemId: string
   locationId: string
+  supplierId?: string | null
+  supplierItemId?: string | null
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
   goodsReceiptLineId?: string | null
   lotNumber: string
   batchCode?: string | null
   manufacturedAt?: Date | string | null
   expiresAt?: Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
   onHandQty?: number
   quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutStockLotInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutStockLotInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutStockLotInput
+  producedFromBatches?: Prisma.ProductionBatchUncheckedCreateNestedManyWithoutOutputLotInput
+}
+
+export type StockLotCreateOrConnectWithoutDocumentAttachmentsInput = {
+  where: Prisma.StockLotWhereUniqueInput
+  create: Prisma.XOR<Prisma.StockLotCreateWithoutDocumentAttachmentsInput, Prisma.StockLotUncheckedCreateWithoutDocumentAttachmentsInput>
+}
+
+export type StockLotUpsertWithoutDocumentAttachmentsInput = {
+  update: Prisma.XOR<Prisma.StockLotUpdateWithoutDocumentAttachmentsInput, Prisma.StockLotUncheckedUpdateWithoutDocumentAttachmentsInput>
+  create: Prisma.XOR<Prisma.StockLotCreateWithoutDocumentAttachmentsInput, Prisma.StockLotUncheckedCreateWithoutDocumentAttachmentsInput>
+  where?: Prisma.StockLotWhereInput
+}
+
+export type StockLotUpdateToOneWithWhereWithoutDocumentAttachmentsInput = {
+  where?: Prisma.StockLotWhereInput
+  data: Prisma.XOR<Prisma.StockLotUpdateWithoutDocumentAttachmentsInput, Prisma.StockLotUncheckedUpdateWithoutDocumentAttachmentsInput>
+}
+
+export type StockLotUpdateWithoutDocumentAttachmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
+  onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutStockLotsNestedInput
+  item?: Prisma.ItemUpdateOneRequiredWithoutStockLotsNestedInput
+  location?: Prisma.LocationUpdateOneRequiredWithoutStockLotsNestedInput
+  supplier?: Prisma.SupplierUpdateOneWithoutStockLotsNestedInput
+  supplierItem?: Prisma.SupplierItemUpdateOneWithoutStockLotsNestedInput
+  goodsReceiptLine?: Prisma.GoodsReceiptLineUpdateOneWithoutStockLotsNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutStockLotNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutStockLotNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutStockLotNestedInput
+  producedFromBatches?: Prisma.ProductionBatchUpdateManyWithoutOutputLotNestedInput
+}
+
+export type StockLotUncheckedUpdateWithoutDocumentAttachmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  locationId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
+  onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutStockLotNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutStockLotNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutStockLotNestedInput
+  producedFromBatches?: Prisma.ProductionBatchUncheckedUpdateManyWithoutOutputLotNestedInput
+}
+
+export type StockLotCreateWithoutProducedFromBatchesInput = {
+  id?: string
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
+  lotNumber: string
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
+  onHandQty?: number
+  quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutStockLotsInput
+  item: Prisma.ItemCreateNestedOneWithoutStockLotsInput
+  location: Prisma.LocationCreateNestedOneWithoutStockLotsInput
+  supplier?: Prisma.SupplierCreateNestedOneWithoutStockLotsInput
+  supplierItem?: Prisma.SupplierItemCreateNestedOneWithoutStockLotsInput
+  goodsReceiptLine?: Prisma.GoodsReceiptLineCreateNestedOneWithoutStockLotsInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutStockLotInput
+  documentAttachments?: Prisma.DocumentAttachmentCreateNestedManyWithoutStockLotInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutStockLotInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutStockLotInput
+}
+
+export type StockLotUncheckedCreateWithoutProducedFromBatchesInput = {
+  id?: string
+  organizationId: string
+  itemId: string
+  locationId: string
+  supplierId?: string | null
+  supplierItemId?: string | null
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
+  goodsReceiptLineId?: string | null
+  lotNumber: string
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
+  onHandQty?: number
+  quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutStockLotInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedCreateNestedManyWithoutStockLotInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutStockLotInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutStockLotInput
+}
+
+export type StockLotCreateOrConnectWithoutProducedFromBatchesInput = {
+  where: Prisma.StockLotWhereUniqueInput
+  create: Prisma.XOR<Prisma.StockLotCreateWithoutProducedFromBatchesInput, Prisma.StockLotUncheckedCreateWithoutProducedFromBatchesInput>
+}
+
+export type StockLotUpsertWithoutProducedFromBatchesInput = {
+  update: Prisma.XOR<Prisma.StockLotUpdateWithoutProducedFromBatchesInput, Prisma.StockLotUncheckedUpdateWithoutProducedFromBatchesInput>
+  create: Prisma.XOR<Prisma.StockLotCreateWithoutProducedFromBatchesInput, Prisma.StockLotUncheckedCreateWithoutProducedFromBatchesInput>
+  where?: Prisma.StockLotWhereInput
+}
+
+export type StockLotUpdateToOneWithWhereWithoutProducedFromBatchesInput = {
+  where?: Prisma.StockLotWhereInput
+  data: Prisma.XOR<Prisma.StockLotUpdateWithoutProducedFromBatchesInput, Prisma.StockLotUncheckedUpdateWithoutProducedFromBatchesInput>
+}
+
+export type StockLotUpdateWithoutProducedFromBatchesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
+  onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutStockLotsNestedInput
+  item?: Prisma.ItemUpdateOneRequiredWithoutStockLotsNestedInput
+  location?: Prisma.LocationUpdateOneRequiredWithoutStockLotsNestedInput
+  supplier?: Prisma.SupplierUpdateOneWithoutStockLotsNestedInput
+  supplierItem?: Prisma.SupplierItemUpdateOneWithoutStockLotsNestedInput
+  goodsReceiptLine?: Prisma.GoodsReceiptLineUpdateOneWithoutStockLotsNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutStockLotNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUpdateManyWithoutStockLotNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutStockLotNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutStockLotNestedInput
+}
+
+export type StockLotUncheckedUpdateWithoutProducedFromBatchesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  locationId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
+  onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutStockLotNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedUpdateManyWithoutStockLotNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutStockLotNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutStockLotNestedInput
+}
+
+export type StockLotCreateWithoutProductionReservationsInput = {
+  id?: string
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
+  lotNumber: string
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
+  onHandQty?: number
+  quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutStockLotsInput
+  item: Prisma.ItemCreateNestedOneWithoutStockLotsInput
+  location: Prisma.LocationCreateNestedOneWithoutStockLotsInput
+  supplier?: Prisma.SupplierCreateNestedOneWithoutStockLotsInput
+  supplierItem?: Prisma.SupplierItemCreateNestedOneWithoutStockLotsInput
+  goodsReceiptLine?: Prisma.GoodsReceiptLineCreateNestedOneWithoutStockLotsInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutStockLotInput
+  documentAttachments?: Prisma.DocumentAttachmentCreateNestedManyWithoutStockLotInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutStockLotInput
+  producedFromBatches?: Prisma.ProductionBatchCreateNestedManyWithoutOutputLotInput
+}
+
+export type StockLotUncheckedCreateWithoutProductionReservationsInput = {
+  id?: string
+  organizationId: string
+  itemId: string
+  locationId: string
+  supplierId?: string | null
+  supplierItemId?: string | null
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
+  goodsReceiptLineId?: string | null
+  lotNumber: string
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
+  onHandQty?: number
+  quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutStockLotInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedCreateNestedManyWithoutStockLotInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutStockLotInput
+  producedFromBatches?: Prisma.ProductionBatchUncheckedCreateNestedManyWithoutOutputLotInput
+}
+
+export type StockLotCreateOrConnectWithoutProductionReservationsInput = {
+  where: Prisma.StockLotWhereUniqueInput
+  create: Prisma.XOR<Prisma.StockLotCreateWithoutProductionReservationsInput, Prisma.StockLotUncheckedCreateWithoutProductionReservationsInput>
+}
+
+export type StockLotUpsertWithoutProductionReservationsInput = {
+  update: Prisma.XOR<Prisma.StockLotUpdateWithoutProductionReservationsInput, Prisma.StockLotUncheckedUpdateWithoutProductionReservationsInput>
+  create: Prisma.XOR<Prisma.StockLotCreateWithoutProductionReservationsInput, Prisma.StockLotUncheckedCreateWithoutProductionReservationsInput>
+  where?: Prisma.StockLotWhereInput
+}
+
+export type StockLotUpdateToOneWithWhereWithoutProductionReservationsInput = {
+  where?: Prisma.StockLotWhereInput
+  data: Prisma.XOR<Prisma.StockLotUpdateWithoutProductionReservationsInput, Prisma.StockLotUncheckedUpdateWithoutProductionReservationsInput>
+}
+
+export type StockLotUpdateWithoutProductionReservationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
+  onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutStockLotsNestedInput
+  item?: Prisma.ItemUpdateOneRequiredWithoutStockLotsNestedInput
+  location?: Prisma.LocationUpdateOneRequiredWithoutStockLotsNestedInput
+  supplier?: Prisma.SupplierUpdateOneWithoutStockLotsNestedInput
+  supplierItem?: Prisma.SupplierItemUpdateOneWithoutStockLotsNestedInput
+  goodsReceiptLine?: Prisma.GoodsReceiptLineUpdateOneWithoutStockLotsNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutStockLotNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUpdateManyWithoutStockLotNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutStockLotNestedInput
+  producedFromBatches?: Prisma.ProductionBatchUpdateManyWithoutOutputLotNestedInput
+}
+
+export type StockLotUncheckedUpdateWithoutProductionReservationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  locationId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
+  onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutStockLotNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedUpdateManyWithoutStockLotNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutStockLotNestedInput
+  producedFromBatches?: Prisma.ProductionBatchUncheckedUpdateManyWithoutOutputLotNestedInput
+}
+
+export type StockLotCreateWithoutProductionConsumptionsInput = {
+  id?: string
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
+  lotNumber: string
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
+  onHandQty?: number
+  quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutStockLotsInput
+  item: Prisma.ItemCreateNestedOneWithoutStockLotsInput
+  location: Prisma.LocationCreateNestedOneWithoutStockLotsInput
+  supplier?: Prisma.SupplierCreateNestedOneWithoutStockLotsInput
+  supplierItem?: Prisma.SupplierItemCreateNestedOneWithoutStockLotsInput
+  goodsReceiptLine?: Prisma.GoodsReceiptLineCreateNestedOneWithoutStockLotsInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutStockLotInput
+  documentAttachments?: Prisma.DocumentAttachmentCreateNestedManyWithoutStockLotInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutStockLotInput
+  producedFromBatches?: Prisma.ProductionBatchCreateNestedManyWithoutOutputLotInput
+}
+
+export type StockLotUncheckedCreateWithoutProductionConsumptionsInput = {
+  id?: string
+  organizationId: string
+  itemId: string
+  locationId: string
+  supplierId?: string | null
+  supplierItemId?: string | null
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
+  goodsReceiptLineId?: string | null
+  lotNumber: string
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
+  onHandQty?: number
+  quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutStockLotInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedCreateNestedManyWithoutStockLotInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutStockLotInput
+  producedFromBatches?: Prisma.ProductionBatchUncheckedCreateNestedManyWithoutOutputLotInput
+}
+
+export type StockLotCreateOrConnectWithoutProductionConsumptionsInput = {
+  where: Prisma.StockLotWhereUniqueInput
+  create: Prisma.XOR<Prisma.StockLotCreateWithoutProductionConsumptionsInput, Prisma.StockLotUncheckedCreateWithoutProductionConsumptionsInput>
+}
+
+export type StockLotUpsertWithoutProductionConsumptionsInput = {
+  update: Prisma.XOR<Prisma.StockLotUpdateWithoutProductionConsumptionsInput, Prisma.StockLotUncheckedUpdateWithoutProductionConsumptionsInput>
+  create: Prisma.XOR<Prisma.StockLotCreateWithoutProductionConsumptionsInput, Prisma.StockLotUncheckedCreateWithoutProductionConsumptionsInput>
+  where?: Prisma.StockLotWhereInput
+}
+
+export type StockLotUpdateToOneWithWhereWithoutProductionConsumptionsInput = {
+  where?: Prisma.StockLotWhereInput
+  data: Prisma.XOR<Prisma.StockLotUpdateWithoutProductionConsumptionsInput, Prisma.StockLotUncheckedUpdateWithoutProductionConsumptionsInput>
+}
+
+export type StockLotUpdateWithoutProductionConsumptionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
+  onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutStockLotsNestedInput
+  item?: Prisma.ItemUpdateOneRequiredWithoutStockLotsNestedInput
+  location?: Prisma.LocationUpdateOneRequiredWithoutStockLotsNestedInput
+  supplier?: Prisma.SupplierUpdateOneWithoutStockLotsNestedInput
+  supplierItem?: Prisma.SupplierItemUpdateOneWithoutStockLotsNestedInput
+  goodsReceiptLine?: Prisma.GoodsReceiptLineUpdateOneWithoutStockLotsNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutStockLotNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUpdateManyWithoutStockLotNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutStockLotNestedInput
+  producedFromBatches?: Prisma.ProductionBatchUpdateManyWithoutOutputLotNestedInput
+}
+
+export type StockLotUncheckedUpdateWithoutProductionConsumptionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  locationId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
+  onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutStockLotNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedUpdateManyWithoutStockLotNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutStockLotNestedInput
+  producedFromBatches?: Prisma.ProductionBatchUncheckedUpdateManyWithoutOutputLotNestedInput
+}
+
+export type StockLotCreateManyOrganizationInput = {
+  id?: string
+  itemId: string
+  locationId: string
+  supplierId?: string | null
+  supplierItemId?: string | null
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
+  goodsReceiptLineId?: string | null
+  lotNumber: string
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
+  onHandQty?: number
+  quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
 
 export type StockLotUpdateWithoutOrganizationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
   batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
   onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
   quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   item?: Prisma.ItemUpdateOneRequiredWithoutStockLotsNestedInput
   location?: Prisma.LocationUpdateOneRequiredWithoutStockLotsNestedInput
+  supplier?: Prisma.SupplierUpdateOneWithoutStockLotsNestedInput
+  supplierItem?: Prisma.SupplierItemUpdateOneWithoutStockLotsNestedInput
   goodsReceiptLine?: Prisma.GoodsReceiptLineUpdateOneWithoutStockLotsNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutStockLotNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUpdateManyWithoutStockLotNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutStockLotNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutStockLotNestedInput
+  producedFromBatches?: Prisma.ProductionBatchUpdateManyWithoutOutputLotNestedInput
 }
 
 export type StockLotUncheckedUpdateWithoutOrganizationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
   locationId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
   batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
   onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
   quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutStockLotNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedUpdateManyWithoutStockLotNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutStockLotNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutStockLotNestedInput
+  producedFromBatches?: Prisma.ProductionBatchUncheckedUpdateManyWithoutOutputLotNestedInput
 }
 
 export type StockLotUncheckedUpdateManyWithoutOrganizationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
   locationId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
   batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
   onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
   quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1175,64 +2381,100 @@ export type StockLotCreateManyItemInput = {
   id?: string
   organizationId: string
   locationId: string
+  supplierId?: string | null
+  supplierItemId?: string | null
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
   goodsReceiptLineId?: string | null
   lotNumber: string
   batchCode?: string | null
   manufacturedAt?: Date | string | null
   expiresAt?: Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
   onHandQty?: number
   quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
 
 export type StockLotUpdateWithoutItemInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
   batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
   onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
   quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutStockLotsNestedInput
   location?: Prisma.LocationUpdateOneRequiredWithoutStockLotsNestedInput
+  supplier?: Prisma.SupplierUpdateOneWithoutStockLotsNestedInput
+  supplierItem?: Prisma.SupplierItemUpdateOneWithoutStockLotsNestedInput
   goodsReceiptLine?: Prisma.GoodsReceiptLineUpdateOneWithoutStockLotsNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutStockLotNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUpdateManyWithoutStockLotNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutStockLotNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutStockLotNestedInput
+  producedFromBatches?: Prisma.ProductionBatchUpdateManyWithoutOutputLotNestedInput
 }
 
 export type StockLotUncheckedUpdateWithoutItemInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   locationId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
   batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
   onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
   quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutStockLotNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedUpdateManyWithoutStockLotNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutStockLotNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutStockLotNestedInput
+  producedFromBatches?: Prisma.ProductionBatchUncheckedUpdateManyWithoutOutputLotNestedInput
 }
 
 export type StockLotUncheckedUpdateManyWithoutItemInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   locationId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
   batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
   onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
   quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1241,64 +2483,304 @@ export type StockLotCreateManyLocationInput = {
   id?: string
   organizationId: string
   itemId: string
+  supplierId?: string | null
+  supplierItemId?: string | null
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
   goodsReceiptLineId?: string | null
   lotNumber: string
   batchCode?: string | null
   manufacturedAt?: Date | string | null
   expiresAt?: Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
   onHandQty?: number
   quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
 
 export type StockLotUpdateWithoutLocationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
   batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
   onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
   quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutStockLotsNestedInput
   item?: Prisma.ItemUpdateOneRequiredWithoutStockLotsNestedInput
+  supplier?: Prisma.SupplierUpdateOneWithoutStockLotsNestedInput
+  supplierItem?: Prisma.SupplierItemUpdateOneWithoutStockLotsNestedInput
   goodsReceiptLine?: Prisma.GoodsReceiptLineUpdateOneWithoutStockLotsNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutStockLotNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUpdateManyWithoutStockLotNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutStockLotNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutStockLotNestedInput
+  producedFromBatches?: Prisma.ProductionBatchUpdateManyWithoutOutputLotNestedInput
 }
 
 export type StockLotUncheckedUpdateWithoutLocationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
   batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
   onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
   quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutStockLotNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedUpdateManyWithoutStockLotNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutStockLotNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutStockLotNestedInput
+  producedFromBatches?: Prisma.ProductionBatchUncheckedUpdateManyWithoutOutputLotNestedInput
 }
 
 export type StockLotUncheckedUpdateManyWithoutLocationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
   batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
   onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
   quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type StockLotCreateManySupplierInput = {
+  id?: string
+  organizationId: string
+  itemId: string
+  locationId: string
+  supplierItemId?: string | null
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
+  goodsReceiptLineId?: string | null
+  lotNumber: string
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
+  onHandQty?: number
+  quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type StockLotUpdateWithoutSupplierInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
+  onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutStockLotsNestedInput
+  item?: Prisma.ItemUpdateOneRequiredWithoutStockLotsNestedInput
+  location?: Prisma.LocationUpdateOneRequiredWithoutStockLotsNestedInput
+  supplierItem?: Prisma.SupplierItemUpdateOneWithoutStockLotsNestedInput
+  goodsReceiptLine?: Prisma.GoodsReceiptLineUpdateOneWithoutStockLotsNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutStockLotNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUpdateManyWithoutStockLotNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutStockLotNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutStockLotNestedInput
+  producedFromBatches?: Prisma.ProductionBatchUpdateManyWithoutOutputLotNestedInput
+}
+
+export type StockLotUncheckedUpdateWithoutSupplierInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  locationId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
+  onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutStockLotNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedUpdateManyWithoutStockLotNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutStockLotNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutStockLotNestedInput
+  producedFromBatches?: Prisma.ProductionBatchUncheckedUpdateManyWithoutOutputLotNestedInput
+}
+
+export type StockLotUncheckedUpdateManyWithoutSupplierInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  locationId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
+  onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type StockLotCreateManySupplierItemInput = {
+  id?: string
+  organizationId: string
+  itemId: string
+  locationId: string
+  supplierId?: string | null
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
+  goodsReceiptLineId?: string | null
+  lotNumber: string
+  batchCode?: string | null
+  manufacturedAt?: Date | string | null
+  expiresAt?: Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
+  onHandQty?: number
+  quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type StockLotUpdateWithoutSupplierItemInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
+  onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutStockLotsNestedInput
+  item?: Prisma.ItemUpdateOneRequiredWithoutStockLotsNestedInput
+  location?: Prisma.LocationUpdateOneRequiredWithoutStockLotsNestedInput
+  supplier?: Prisma.SupplierUpdateOneWithoutStockLotsNestedInput
+  goodsReceiptLine?: Prisma.GoodsReceiptLineUpdateOneWithoutStockLotsNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutStockLotNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUpdateManyWithoutStockLotNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutStockLotNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutStockLotNestedInput
+  producedFromBatches?: Prisma.ProductionBatchUpdateManyWithoutOutputLotNestedInput
+}
+
+export type StockLotUncheckedUpdateWithoutSupplierItemInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  locationId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
+  onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutStockLotNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedUpdateManyWithoutStockLotNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutStockLotNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutStockLotNestedInput
+  producedFromBatches?: Prisma.ProductionBatchUncheckedUpdateManyWithoutOutputLotNestedInput
+}
+
+export type StockLotUncheckedUpdateManyWithoutSupplierItemInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  locationId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  goodsReceiptLineId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
+  onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
+  quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1308,32 +2790,50 @@ export type StockLotCreateManyGoodsReceiptLineInput = {
   organizationId: string
   itemId: string
   locationId: string
+  supplierId?: string | null
+  supplierItemId?: string | null
+  supplierSku?: string | null
+  supplierBatchNumber?: string | null
   lotNumber: string
   batchCode?: string | null
   manufacturedAt?: Date | string | null
   expiresAt?: Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: number
   onHandQty?: number
   quarantinedQty?: number
+  consumedQty?: number
+  unitCostCents?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
 
 export type StockLotUpdateWithoutGoodsReceiptLineInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
   batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
   onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
   quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organization?: Prisma.OrganizationUpdateOneRequiredWithoutStockLotsNestedInput
   item?: Prisma.ItemUpdateOneRequiredWithoutStockLotsNestedInput
   location?: Prisma.LocationUpdateOneRequiredWithoutStockLotsNestedInput
+  supplier?: Prisma.SupplierUpdateOneWithoutStockLotsNestedInput
+  supplierItem?: Prisma.SupplierItemUpdateOneWithoutStockLotsNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutStockLotNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUpdateManyWithoutStockLotNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutStockLotNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutStockLotNestedInput
+  producedFromBatches?: Prisma.ProductionBatchUpdateManyWithoutOutputLotNestedInput
 }
 
 export type StockLotUncheckedUpdateWithoutGoodsReceiptLineInput = {
@@ -1341,16 +2841,27 @@ export type StockLotUncheckedUpdateWithoutGoodsReceiptLineInput = {
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
   locationId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
   batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
   onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
   quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutStockLotNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedUpdateManyWithoutStockLotNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutStockLotNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutStockLotNestedInput
+  producedFromBatches?: Prisma.ProductionBatchUncheckedUpdateManyWithoutOutputLotNestedInput
 }
 
 export type StockLotUncheckedUpdateManyWithoutGoodsReceiptLineInput = {
@@ -1358,13 +2869,20 @@ export type StockLotUncheckedUpdateManyWithoutGoodsReceiptLineInput = {
   organizationId?: Prisma.StringFieldUpdateOperationsInput | string
   itemId?: Prisma.StringFieldUpdateOperationsInput | string
   locationId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierBatchNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lotNumber?: Prisma.StringFieldUpdateOperationsInput | string
   batchCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   manufacturedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   serialNumbers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  initialQty?: Prisma.IntFieldUpdateOperationsInput | number
   onHandQty?: Prisma.IntFieldUpdateOperationsInput | number
   quarantinedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  consumedQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitCostCents?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1376,10 +2894,18 @@ export type StockLotUncheckedUpdateManyWithoutGoodsReceiptLineInput = {
 
 export type StockLotCountOutputType = {
   quarantineHolds: number
+  documentAttachments: number
+  productionConsumptions: number
+  productionReservations: number
+  producedFromBatches: number
 }
 
 export type StockLotCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   quarantineHolds?: boolean | StockLotCountOutputTypeCountQuarantineHoldsArgs
+  documentAttachments?: boolean | StockLotCountOutputTypeCountDocumentAttachmentsArgs
+  productionConsumptions?: boolean | StockLotCountOutputTypeCountProductionConsumptionsArgs
+  productionReservations?: boolean | StockLotCountOutputTypeCountProductionReservationsArgs
+  producedFromBatches?: boolean | StockLotCountOutputTypeCountProducedFromBatchesArgs
 }
 
 /**
@@ -1399,27 +2925,68 @@ export type StockLotCountOutputTypeCountQuarantineHoldsArgs<ExtArgs extends runt
   where?: Prisma.QuarantineHoldWhereInput
 }
 
+/**
+ * StockLotCountOutputType without action
+ */
+export type StockLotCountOutputTypeCountDocumentAttachmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.DocumentAttachmentWhereInput
+}
+
+/**
+ * StockLotCountOutputType without action
+ */
+export type StockLotCountOutputTypeCountProductionConsumptionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductionConsumptionWhereInput
+}
+
+/**
+ * StockLotCountOutputType without action
+ */
+export type StockLotCountOutputTypeCountProductionReservationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductionMaterialReservationWhereInput
+}
+
+/**
+ * StockLotCountOutputType without action
+ */
+export type StockLotCountOutputTypeCountProducedFromBatchesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductionBatchWhereInput
+}
+
 
 export type StockLotSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   organizationId?: boolean
   itemId?: boolean
   locationId?: boolean
+  supplierId?: boolean
+  supplierItemId?: boolean
+  supplierSku?: boolean
+  supplierBatchNumber?: boolean
   goodsReceiptLineId?: boolean
   lotNumber?: boolean
   batchCode?: boolean
   manufacturedAt?: boolean
   expiresAt?: boolean
   serialNumbers?: boolean
+  initialQty?: boolean
   onHandQty?: boolean
   quarantinedQty?: boolean
+  consumedQty?: boolean
+  unitCostCents?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
   location?: boolean | Prisma.LocationDefaultArgs<ExtArgs>
+  supplier?: boolean | Prisma.StockLot$supplierArgs<ExtArgs>
+  supplierItem?: boolean | Prisma.StockLot$supplierItemArgs<ExtArgs>
   goodsReceiptLine?: boolean | Prisma.StockLot$goodsReceiptLineArgs<ExtArgs>
   quarantineHolds?: boolean | Prisma.StockLot$quarantineHoldsArgs<ExtArgs>
+  documentAttachments?: boolean | Prisma.StockLot$documentAttachmentsArgs<ExtArgs>
+  productionConsumptions?: boolean | Prisma.StockLot$productionConsumptionsArgs<ExtArgs>
+  productionReservations?: boolean | Prisma.StockLot$productionReservationsArgs<ExtArgs>
+  producedFromBatches?: boolean | Prisma.StockLot$producedFromBatchesArgs<ExtArgs>
   _count?: boolean | Prisma.StockLotCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["stockLot"]>
 
@@ -1428,19 +2995,28 @@ export type StockLotSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   organizationId?: boolean
   itemId?: boolean
   locationId?: boolean
+  supplierId?: boolean
+  supplierItemId?: boolean
+  supplierSku?: boolean
+  supplierBatchNumber?: boolean
   goodsReceiptLineId?: boolean
   lotNumber?: boolean
   batchCode?: boolean
   manufacturedAt?: boolean
   expiresAt?: boolean
   serialNumbers?: boolean
+  initialQty?: boolean
   onHandQty?: boolean
   quarantinedQty?: boolean
+  consumedQty?: boolean
+  unitCostCents?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
   location?: boolean | Prisma.LocationDefaultArgs<ExtArgs>
+  supplier?: boolean | Prisma.StockLot$supplierArgs<ExtArgs>
+  supplierItem?: boolean | Prisma.StockLot$supplierItemArgs<ExtArgs>
   goodsReceiptLine?: boolean | Prisma.StockLot$goodsReceiptLineArgs<ExtArgs>
 }, ExtArgs["result"]["stockLot"]>
 
@@ -1449,19 +3025,28 @@ export type StockLotSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   organizationId?: boolean
   itemId?: boolean
   locationId?: boolean
+  supplierId?: boolean
+  supplierItemId?: boolean
+  supplierSku?: boolean
+  supplierBatchNumber?: boolean
   goodsReceiptLineId?: boolean
   lotNumber?: boolean
   batchCode?: boolean
   manufacturedAt?: boolean
   expiresAt?: boolean
   serialNumbers?: boolean
+  initialQty?: boolean
   onHandQty?: boolean
   quarantinedQty?: boolean
+  consumedQty?: boolean
+  unitCostCents?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
   location?: boolean | Prisma.LocationDefaultArgs<ExtArgs>
+  supplier?: boolean | Prisma.StockLot$supplierArgs<ExtArgs>
+  supplierItem?: boolean | Prisma.StockLot$supplierItemArgs<ExtArgs>
   goodsReceiptLine?: boolean | Prisma.StockLot$goodsReceiptLineArgs<ExtArgs>
 }, ExtArgs["result"]["stockLot"]>
 
@@ -1470,37 +3055,54 @@ export type StockLotSelectScalar = {
   organizationId?: boolean
   itemId?: boolean
   locationId?: boolean
+  supplierId?: boolean
+  supplierItemId?: boolean
+  supplierSku?: boolean
+  supplierBatchNumber?: boolean
   goodsReceiptLineId?: boolean
   lotNumber?: boolean
   batchCode?: boolean
   manufacturedAt?: boolean
   expiresAt?: boolean
   serialNumbers?: boolean
+  initialQty?: boolean
   onHandQty?: boolean
   quarantinedQty?: boolean
+  consumedQty?: boolean
+  unitCostCents?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type StockLotOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organizationId" | "itemId" | "locationId" | "goodsReceiptLineId" | "lotNumber" | "batchCode" | "manufacturedAt" | "expiresAt" | "serialNumbers" | "onHandQty" | "quarantinedQty" | "createdAt" | "updatedAt", ExtArgs["result"]["stockLot"]>
+export type StockLotOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organizationId" | "itemId" | "locationId" | "supplierId" | "supplierItemId" | "supplierSku" | "supplierBatchNumber" | "goodsReceiptLineId" | "lotNumber" | "batchCode" | "manufacturedAt" | "expiresAt" | "serialNumbers" | "initialQty" | "onHandQty" | "quarantinedQty" | "consumedQty" | "unitCostCents" | "createdAt" | "updatedAt", ExtArgs["result"]["stockLot"]>
 export type StockLotInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
   location?: boolean | Prisma.LocationDefaultArgs<ExtArgs>
+  supplier?: boolean | Prisma.StockLot$supplierArgs<ExtArgs>
+  supplierItem?: boolean | Prisma.StockLot$supplierItemArgs<ExtArgs>
   goodsReceiptLine?: boolean | Prisma.StockLot$goodsReceiptLineArgs<ExtArgs>
   quarantineHolds?: boolean | Prisma.StockLot$quarantineHoldsArgs<ExtArgs>
+  documentAttachments?: boolean | Prisma.StockLot$documentAttachmentsArgs<ExtArgs>
+  productionConsumptions?: boolean | Prisma.StockLot$productionConsumptionsArgs<ExtArgs>
+  productionReservations?: boolean | Prisma.StockLot$productionReservationsArgs<ExtArgs>
+  producedFromBatches?: boolean | Prisma.StockLot$producedFromBatchesArgs<ExtArgs>
   _count?: boolean | Prisma.StockLotCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type StockLotIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
   location?: boolean | Prisma.LocationDefaultArgs<ExtArgs>
+  supplier?: boolean | Prisma.StockLot$supplierArgs<ExtArgs>
+  supplierItem?: boolean | Prisma.StockLot$supplierItemArgs<ExtArgs>
   goodsReceiptLine?: boolean | Prisma.StockLot$goodsReceiptLineArgs<ExtArgs>
 }
 export type StockLotIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   item?: boolean | Prisma.ItemDefaultArgs<ExtArgs>
   location?: boolean | Prisma.LocationDefaultArgs<ExtArgs>
+  supplier?: boolean | Prisma.StockLot$supplierArgs<ExtArgs>
+  supplierItem?: boolean | Prisma.StockLot$supplierItemArgs<ExtArgs>
   goodsReceiptLine?: boolean | Prisma.StockLot$goodsReceiptLineArgs<ExtArgs>
 }
 
@@ -1510,22 +3112,35 @@ export type $StockLotPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     organization: Prisma.$OrganizationPayload<ExtArgs>
     item: Prisma.$ItemPayload<ExtArgs>
     location: Prisma.$LocationPayload<ExtArgs>
+    supplier: Prisma.$SupplierPayload<ExtArgs> | null
+    supplierItem: Prisma.$SupplierItemPayload<ExtArgs> | null
     goodsReceiptLine: Prisma.$GoodsReceiptLinePayload<ExtArgs> | null
     quarantineHolds: Prisma.$QuarantineHoldPayload<ExtArgs>[]
+    documentAttachments: Prisma.$DocumentAttachmentPayload<ExtArgs>[]
+    productionConsumptions: Prisma.$ProductionConsumptionPayload<ExtArgs>[]
+    productionReservations: Prisma.$ProductionMaterialReservationPayload<ExtArgs>[]
+    producedFromBatches: Prisma.$ProductionBatchPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     organizationId: string
     itemId: string
     locationId: string
+    supplierId: string | null
+    supplierItemId: string | null
+    supplierSku: string | null
+    supplierBatchNumber: string | null
     goodsReceiptLineId: string | null
     lotNumber: string
     batchCode: string | null
     manufacturedAt: Date | null
     expiresAt: Date | null
     serialNumbers: runtime.JsonValue | null
+    initialQty: number
     onHandQty: number
     quarantinedQty: number
+    consumedQty: number
+    unitCostCents: number
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["stockLot"]>
@@ -1925,8 +3540,14 @@ export interface Prisma__StockLotClient<T, Null = never, ExtArgs extends runtime
   organization<T extends Prisma.OrganizationDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.OrganizationDefaultArgs<ExtArgs>>): Prisma.Prisma__OrganizationClient<runtime.Types.Result.GetResult<Prisma.$OrganizationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   item<T extends Prisma.ItemDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ItemDefaultArgs<ExtArgs>>): Prisma.Prisma__ItemClient<runtime.Types.Result.GetResult<Prisma.$ItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   location<T extends Prisma.LocationDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.LocationDefaultArgs<ExtArgs>>): Prisma.Prisma__LocationClient<runtime.Types.Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  supplier<T extends Prisma.StockLot$supplierArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StockLot$supplierArgs<ExtArgs>>): Prisma.Prisma__SupplierClient<runtime.Types.Result.GetResult<Prisma.$SupplierPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  supplierItem<T extends Prisma.StockLot$supplierItemArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StockLot$supplierItemArgs<ExtArgs>>): Prisma.Prisma__SupplierItemClient<runtime.Types.Result.GetResult<Prisma.$SupplierItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   goodsReceiptLine<T extends Prisma.StockLot$goodsReceiptLineArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StockLot$goodsReceiptLineArgs<ExtArgs>>): Prisma.Prisma__GoodsReceiptLineClient<runtime.Types.Result.GetResult<Prisma.$GoodsReceiptLinePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   quarantineHolds<T extends Prisma.StockLot$quarantineHoldsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StockLot$quarantineHoldsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$QuarantineHoldPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  documentAttachments<T extends Prisma.StockLot$documentAttachmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StockLot$documentAttachmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DocumentAttachmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  productionConsumptions<T extends Prisma.StockLot$productionConsumptionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StockLot$productionConsumptionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductionConsumptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  productionReservations<T extends Prisma.StockLot$productionReservationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StockLot$productionReservationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductionMaterialReservationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  producedFromBatches<T extends Prisma.StockLot$producedFromBatchesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StockLot$producedFromBatchesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductionBatchPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1960,14 +3581,21 @@ export interface StockLotFieldRefs {
   readonly organizationId: Prisma.FieldRef<"StockLot", 'String'>
   readonly itemId: Prisma.FieldRef<"StockLot", 'String'>
   readonly locationId: Prisma.FieldRef<"StockLot", 'String'>
+  readonly supplierId: Prisma.FieldRef<"StockLot", 'String'>
+  readonly supplierItemId: Prisma.FieldRef<"StockLot", 'String'>
+  readonly supplierSku: Prisma.FieldRef<"StockLot", 'String'>
+  readonly supplierBatchNumber: Prisma.FieldRef<"StockLot", 'String'>
   readonly goodsReceiptLineId: Prisma.FieldRef<"StockLot", 'String'>
   readonly lotNumber: Prisma.FieldRef<"StockLot", 'String'>
   readonly batchCode: Prisma.FieldRef<"StockLot", 'String'>
   readonly manufacturedAt: Prisma.FieldRef<"StockLot", 'DateTime'>
   readonly expiresAt: Prisma.FieldRef<"StockLot", 'DateTime'>
   readonly serialNumbers: Prisma.FieldRef<"StockLot", 'Json'>
+  readonly initialQty: Prisma.FieldRef<"StockLot", 'Int'>
   readonly onHandQty: Prisma.FieldRef<"StockLot", 'Int'>
   readonly quarantinedQty: Prisma.FieldRef<"StockLot", 'Int'>
+  readonly consumedQty: Prisma.FieldRef<"StockLot", 'Int'>
+  readonly unitCostCents: Prisma.FieldRef<"StockLot", 'Int'>
   readonly createdAt: Prisma.FieldRef<"StockLot", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"StockLot", 'DateTime'>
 }
@@ -2371,6 +3999,44 @@ export type StockLotDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inte
 }
 
 /**
+ * StockLot.supplier
+ */
+export type StockLot$supplierArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Supplier
+   */
+  select?: Prisma.SupplierSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Supplier
+   */
+  omit?: Prisma.SupplierOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SupplierInclude<ExtArgs> | null
+  where?: Prisma.SupplierWhereInput
+}
+
+/**
+ * StockLot.supplierItem
+ */
+export type StockLot$supplierItemArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the SupplierItem
+   */
+  select?: Prisma.SupplierItemSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the SupplierItem
+   */
+  omit?: Prisma.SupplierItemOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SupplierItemInclude<ExtArgs> | null
+  where?: Prisma.SupplierItemWhereInput
+}
+
+/**
  * StockLot.goodsReceiptLine
  */
 export type StockLot$goodsReceiptLineArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2411,6 +4077,102 @@ export type StockLot$quarantineHoldsArgs<ExtArgs extends runtime.Types.Extension
   take?: number
   skip?: number
   distinct?: Prisma.QuarantineHoldScalarFieldEnum | Prisma.QuarantineHoldScalarFieldEnum[]
+}
+
+/**
+ * StockLot.documentAttachments
+ */
+export type StockLot$documentAttachmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the DocumentAttachment
+   */
+  select?: Prisma.DocumentAttachmentSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the DocumentAttachment
+   */
+  omit?: Prisma.DocumentAttachmentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.DocumentAttachmentInclude<ExtArgs> | null
+  where?: Prisma.DocumentAttachmentWhereInput
+  orderBy?: Prisma.DocumentAttachmentOrderByWithRelationInput | Prisma.DocumentAttachmentOrderByWithRelationInput[]
+  cursor?: Prisma.DocumentAttachmentWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.DocumentAttachmentScalarFieldEnum | Prisma.DocumentAttachmentScalarFieldEnum[]
+}
+
+/**
+ * StockLot.productionConsumptions
+ */
+export type StockLot$productionConsumptionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ProductionConsumption
+   */
+  select?: Prisma.ProductionConsumptionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ProductionConsumption
+   */
+  omit?: Prisma.ProductionConsumptionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductionConsumptionInclude<ExtArgs> | null
+  where?: Prisma.ProductionConsumptionWhereInput
+  orderBy?: Prisma.ProductionConsumptionOrderByWithRelationInput | Prisma.ProductionConsumptionOrderByWithRelationInput[]
+  cursor?: Prisma.ProductionConsumptionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProductionConsumptionScalarFieldEnum | Prisma.ProductionConsumptionScalarFieldEnum[]
+}
+
+/**
+ * StockLot.productionReservations
+ */
+export type StockLot$productionReservationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ProductionMaterialReservation
+   */
+  select?: Prisma.ProductionMaterialReservationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ProductionMaterialReservation
+   */
+  omit?: Prisma.ProductionMaterialReservationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductionMaterialReservationInclude<ExtArgs> | null
+  where?: Prisma.ProductionMaterialReservationWhereInput
+  orderBy?: Prisma.ProductionMaterialReservationOrderByWithRelationInput | Prisma.ProductionMaterialReservationOrderByWithRelationInput[]
+  cursor?: Prisma.ProductionMaterialReservationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProductionMaterialReservationScalarFieldEnum | Prisma.ProductionMaterialReservationScalarFieldEnum[]
+}
+
+/**
+ * StockLot.producedFromBatches
+ */
+export type StockLot$producedFromBatchesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ProductionBatch
+   */
+  select?: Prisma.ProductionBatchSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ProductionBatch
+   */
+  omit?: Prisma.ProductionBatchOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductionBatchInclude<ExtArgs> | null
+  where?: Prisma.ProductionBatchWhereInput
+  orderBy?: Prisma.ProductionBatchOrderByWithRelationInput | Prisma.ProductionBatchOrderByWithRelationInput[]
+  cursor?: Prisma.ProductionBatchWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProductionBatchScalarFieldEnum | Prisma.ProductionBatchScalarFieldEnum[]
 }
 
 /**

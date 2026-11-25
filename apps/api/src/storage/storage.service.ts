@@ -197,8 +197,62 @@ export class StorageService {
           select: { id: true },
         });
         break;
+      case StorageEntityType.GOODS_RECEIPT_LINE:
+        found = await tx.goodsReceiptLine.findFirst({
+          where: { id: trimmedId, organizationId },
+          select: { id: true },
+        });
+        break;
+      case StorageEntityType.STOCK_LOT:
+        found = await tx.stockLot.findFirst({
+          where: { id: trimmedId, organizationId },
+          select: { id: true },
+        });
+        break;
+      case StorageEntityType.PRODUCTION_BATCH:
+        found = await tx.productionBatch.findFirst({
+          where: { id: trimmedId, organizationId },
+          select: { id: true },
+        });
+        break;
+      case StorageEntityType.PRODUCTION_OPERATION:
+        found = await tx.productionOperation.findFirst({
+          where: { id: trimmedId, organizationId },
+          select: { id: true },
+        });
+        break;
+      case StorageEntityType.PRODUCTION_QC_CHECKPOINT:
+        found = await tx.productionQcCheckpoint.findFirst({
+          where: { id: trimmedId, organizationId },
+          select: { id: true },
+        });
+        break;
       case StorageEntityType.SUPPLIER:
         found = await tx.supplier.findFirst({
+          where: { id: trimmedId, organizationId },
+          select: { id: true },
+        });
+        break;
+      case StorageEntityType.CUSTOMER:
+        found = await tx.customer.findFirst({
+          where: { id: trimmedId, organizationId },
+          select: { id: true },
+        });
+        break;
+      case StorageEntityType.ORDER:
+        found = await tx.order.findFirst({
+          where: { id: trimmedId, organizationId },
+          select: { id: true },
+        });
+        break;
+      case StorageEntityType.SALES_INVOICE:
+        found = await tx.salesInvoice.findFirst({
+          where: { id: trimmedId, organizationId },
+          select: { id: true },
+        });
+        break;
+      case StorageEntityType.PAYMENT_RECEIPT:
+        found = await tx.paymentReceipt.findFirst({
           where: { id: trimmedId, organizationId },
           select: { id: true },
         });

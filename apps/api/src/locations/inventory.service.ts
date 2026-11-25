@@ -7,13 +7,26 @@ import {
 } from "@nestjs/common";
 import {
   ItemStatus,
+  ItemType,
   LocationStatus,
+  LotAllocationStrategy,
   Prisma,
   StockMovementType,
   StockTransferStatus,
+  StorageEntityType,
   TenantContext,
 } from "@scace/db";
+import type { FastifyRequest } from "fastify";
 import { PrismaService } from "../database/prisma.service.js";
+import {
+  type BulkQuantityInput,
+  decomposeBaseToBulk,
+  normalizeBulkQuantity,
+} from "../procurement/delivery-units.utils.js";
+import {
+  AttachmentsService,
+  STORED_OBJECT_SUMMARY_SELECT,
+} from "../storage/attachments.service.js";
 import type { AuthenticatedTenant } from "../tenancy/tenant.decorators.js";
 
 export interface ListBalancesQuery {
@@ -35,11 +48,23 @@ export interface ListMovementsQuery {
 export interface ListLotsQuery {
   locationId?: string;
   itemId?: string;
+  supplierId?: string;
+  supplierItemId?: string;
+  supplierBatchNumber?: string;
+  itemType?: ItemType;
   lotNumber?: string;
   expiringBefore?: string;
   includeZero?: boolean;
   limit: number;
   cursor?: string;
+}
+
+export interface SuggestLotsInput extends BulkQuantityInput {
+  itemId: string;
+  locationId: string;
+  strategy?: "FEFO" | "FIFO";
+  packId?: string | null;
+  includeExpired?: boolean;
 }
 
 export interface AdjustStockInput {
@@ -78,6 +103,8 @@ function isUniqueConstraintError(error: unknown): boolean {
 export class InventoryService {
   constructor(
     @Inject(PrismaService) private readonly prismaService: PrismaService,
+    @Inject(AttachmentsService)
+    private readonly attachmentsService: AttachmentsService,
   ) {}
 
   async listBalances(tenant: AuthenticatedTenant, query: ListBalancesQuery) {
@@ -174,13 +201,27 @@ export class InventoryService {
     this.resolveVerifiedOrganizationId(tenant);
     const take = Math.min(Math.max(query.limit, 1), 100);
     const lotNumber = query.lotNumber?.trim();
+    const supplierBatchNumber = query.supplierBatchNumber?.trim();
 
     const records = await this.prismaService.scoped.stockLot.findMany({
       where: {
         ...(query.locationId ? { locationId: query.locationId } : {}),
         ...(query.itemId ? { itemId: query.itemId } : {}),
+        ...(query.supplierId ? { supplierId: query.supplierId } : {}),
+        ...(query.supplierItemId
+          ? { supplierItemId: query.supplierItemId }
+          : {}),
+        ...(query.itemType ? { item: { type: query.itemType } } : {}),
         ...(lotNumber
           ? { lotNumber: { contains: lotNumber, mode: "insensitive" } }
+          : {}),
+        ...(supplierBatchNumber
+          ? {
+              supplierBatchNumber: {
+                contains: supplierBatchNumber,
+                mode: "insensitive",
+              },
+            }
           : {}),
         ...(query.expiringBefore
           ? { expiresAt: { lte: new Date(query.expiringBefore) } }
@@ -190,8 +231,26 @@ export class InventoryService {
           : {}),
       },
       include: {
-        item: { select: { id: true, sku: true, name: true, unitOfMeasure: true } },
+        item: {
+          select: {
+            id: true,
+            sku: true,
+            name: true,
+            type: true,
+            unitOfMeasure: true,
+          },
+        },
         location: { select: { id: true, code: true, name: true, type: true } },
+        supplier: { select: { id: true, code: true, name: true } },
+        supplierItem: {
+          select: { id: true, supplierSku: true, unitCostCents: true },
+        },
+        documentAttachments: {
+          include: {
+            storedObject: { select: STORED_OBJECT_SUMMARY_SELECT },
+          },
+          orderBy: { createdAt: "desc" },
+        },
       },
       take: take + 1,
       ...(query.cursor ? { cursor: { id: query.cursor }, skip: 1 } : {}),
@@ -199,14 +258,374 @@ export class InventoryService {
     });
 
     const hasMore = records.length > take;
-    const items = hasMore ? records.slice(0, take) : records;
-    const nextCursor = hasMore ? (items[items.length - 1]?.id ?? null) : null;
+    const sliced = hasMore ? records.slice(0, take) : records;
+    const nextCursor = hasMore ? (sliced[sliced.length - 1]?.id ?? null) : null;
 
     return {
       organizationId: tenant.organizationId,
-      items,
+      items: sliced.map((lot) => ({
+        ...lot,
+        documentAttachments: lot.documentAttachments.map((att) =>
+          this.attachmentsService.serializeAttachment(att),
+        ),
+      })),
       nextCursor,
     };
+  }
+
+  async suggestLots(tenant: AuthenticatedTenant, input: SuggestLotsInput) {
+    const organizationId = this.resolveVerifiedOrganizationId(tenant);
+    const strategy = input.strategy ?? "FEFO";
+    const includeExpired = input.includeExpired ?? false;
+
+    const [item, location] = await Promise.all([
+      this.prismaService.raw.item.findFirst({
+        where: { id: input.itemId, organizationId },
+      }),
+      this.prismaService.raw.location.findFirst({
+        where: { id: input.locationId, organizationId },
+      }),
+    ]);
+
+    if (!item) {
+      throw new NotFoundException("Catalog item was not found.");
+    }
+    if (!location) {
+      throw new NotFoundException("Location was not found.");
+    }
+
+    let unitsPerPack = 1;
+    let packLabel: string | null = null;
+    if (input.packId) {
+      const pack = await this.prismaService.raw.itemPack.findFirst({
+        where: {
+          id: input.packId,
+          organizationId,
+          itemId: item.id,
+          isActive: true,
+        },
+      });
+      if (!pack) {
+        throw new BadRequestException(
+          `Pack "${input.packId}" was not found or is inactive for SKU "${item.sku}".`,
+        );
+      }
+      unitsPerPack = pack.unitsPerPack;
+      packLabel = pack.unitOfMeasure ?? pack.name;
+    }
+
+    const normalized = normalizeBulkQuantity(input, {
+      unitsPerPack,
+      packLabel,
+      baseLabel: item.unitOfMeasure,
+      allowZero: false,
+      fieldLabel: `lot suggestion for SKU "${item.sku}"`,
+    });
+
+    const now = new Date();
+    const candidateLots = await this.prismaService.raw.stockLot.findMany({
+      where: {
+        organizationId,
+        itemId: item.id,
+        locationId: location.id,
+        onHandQty: { gt: 0 },
+        ...(!includeExpired
+          ? { OR: [{ expiresAt: null }, { expiresAt: { gt: now } }] }
+          : {}),
+      },
+      include: {
+        supplier: { select: { id: true, code: true, name: true } },
+        supplierItem: { select: { id: true, supplierSku: true } },
+      },
+    });
+
+    const sortedLots = [...candidateLots].sort((a, b) => {
+      if (strategy === LotAllocationStrategy.FEFO) {
+        const aExp = a.expiresAt ? a.expiresAt.getTime() : Number.POSITIVE_INFINITY;
+        const bExp = b.expiresAt ? b.expiresAt.getTime() : Number.POSITIVE_INFINITY;
+        if (aExp !== bExp) {
+          return aExp - bExp;
+        }
+      }
+      const timeDiff = a.createdAt.getTime() - b.createdAt.getTime();
+      if (timeDiff !== 0) {
+        return timeDiff;
+      }
+      return a.id.localeCompare(b.id);
+    });
+
+    let remaining = normalized.totalBaseQty;
+    const allocations: Array<{
+      stockLotId: string;
+      lotNumber: string;
+      batchCode: string | null;
+      supplierBatchNumber: string | null;
+      supplier: { id: string; code: string; name: string } | null;
+      supplierItem: { id: string; supplierSku: string | null } | null;
+      supplierSku: string | null;
+      manufacturedAt: Date | null;
+      expiresAt: Date | null;
+      availableQty: number;
+      suggestedQty: number;
+      suggestedBreakdown: ReturnType<typeof decomposeBaseToBulk>;
+    }> = [];
+
+    for (const lot of sortedLots) {
+      if (remaining <= 0) {
+        break;
+      }
+      const takeQty = Math.min(lot.onHandQty, remaining);
+      if (takeQty <= 0) {
+        continue;
+      }
+      allocations.push({
+        stockLotId: lot.id,
+        lotNumber: lot.lotNumber,
+        batchCode: lot.batchCode,
+        supplierBatchNumber: lot.supplierBatchNumber,
+        supplier: lot.supplier,
+        supplierItem: lot.supplierItem,
+        supplierSku: lot.supplierSku,
+        manufacturedAt: lot.manufacturedAt,
+        expiresAt: lot.expiresAt,
+        availableQty: lot.onHandQty,
+        suggestedQty: takeQty,
+        suggestedBreakdown: decomposeBaseToBulk(
+          takeQty,
+          unitsPerPack,
+          packLabel,
+          item.unitOfMeasure,
+        ),
+      });
+      remaining -= takeQty;
+    }
+
+    const totalAllocatedQty = normalized.totalBaseQty - remaining;
+
+    return {
+      organizationId,
+      itemId: item.id,
+      sku: item.sku,
+      itemName: item.name,
+      itemType: item.type,
+      locationId: location.id,
+      locationCode: location.code,
+      strategy,
+      includeExpired,
+      requestedBaseQty: normalized.totalBaseQty,
+      requestedSummary: normalized.formattedSummary,
+      totalAllocatedQty,
+      shortfallQty: remaining,
+      fullySatisfied: remaining === 0,
+      allocations,
+    };
+  }
+
+  async getLotTraceability(tenant: AuthenticatedTenant, lotId: string) {
+    const organizationId = this.resolveVerifiedOrganizationId(tenant);
+
+    const lot = await this.prismaService.scoped.stockLot.findFirst({
+      where: { id: lotId, organizationId },
+      include: {
+        item: {
+          select: {
+            id: true,
+            sku: true,
+            name: true,
+            type: true,
+            unitOfMeasure: true,
+          },
+        },
+        location: { select: { id: true, code: true, name: true, type: true } },
+        supplier: { select: { id: true, code: true, name: true } },
+        supplierItem: {
+          select: { id: true, supplierSku: true, unitCostCents: true },
+        },
+        documentAttachments: {
+          include: {
+            storedObject: { select: STORED_OBJECT_SUMMARY_SELECT },
+          },
+          orderBy: { createdAt: "desc" },
+        },
+        goodsReceiptLine: {
+          include: {
+            goodsReceipt: {
+              select: {
+                id: true,
+                receiptNumber: true,
+                status: true,
+                deliveredAt: true,
+                acceptedAt: true,
+                packingSlipNumber: true,
+                purchaseOrder: {
+                  select: {
+                    id: true,
+                    poNumber: true,
+                    status: true,
+                    supplierId: true,
+                  },
+                },
+                documentAttachments: {
+                  include: {
+                    storedObject: { select: STORED_OBJECT_SUMMARY_SELECT },
+                  },
+                  orderBy: { createdAt: "desc" },
+                },
+              },
+            },
+            documentAttachments: {
+              include: {
+                storedObject: { select: STORED_OBJECT_SUMMARY_SELECT },
+              },
+              orderBy: { createdAt: "desc" },
+            },
+          },
+        },
+        quarantineHolds: {
+          orderBy: { createdAt: "desc" },
+        },
+        productionConsumptions: {
+          include: {
+            pack: {
+              select: {
+                id: true,
+                code: true,
+                name: true,
+                unitOfMeasure: true,
+                unitsPerPack: true,
+              },
+            },
+            productionBatch: {
+              select: {
+                id: true,
+                batchNumber: true,
+                name: true,
+                status: true,
+                plannedOutputQty: true,
+                actualOutputQty: true,
+                startedAt: true,
+                completedAt: true,
+                outputItem: {
+                  select: { id: true, sku: true, name: true, unitOfMeasure: true },
+                },
+                outputLot: {
+                  select: {
+                    id: true,
+                    lotNumber: true,
+                    batchCode: true,
+                    expiresAt: true,
+                  },
+                },
+              },
+            },
+          },
+          orderBy: { consumedAt: "desc" },
+        },
+        producedFromBatches: {
+          select: {
+            id: true,
+            batchNumber: true,
+            name: true,
+            status: true,
+            actualOutputQty: true,
+            completedAt: true,
+            location: { select: { id: true, code: true, name: true } },
+          },
+        },
+      },
+    });
+
+    if (!lot) {
+      throw new NotFoundException("Stock lot was not found.");
+    }
+
+    return {
+      ...lot,
+      documentAttachments: lot.documentAttachments.map((a) =>
+        this.attachmentsService.serializeAttachment(a),
+      ),
+      goodsReceiptLine: lot.goodsReceiptLine
+        ? {
+            ...lot.goodsReceiptLine,
+            documentAttachments: lot.goodsReceiptLine.documentAttachments.map(
+              (a) => this.attachmentsService.serializeAttachment(a),
+            ),
+            goodsReceipt: {
+              ...lot.goodsReceiptLine.goodsReceipt,
+              documentAttachments:
+                lot.goodsReceiptLine.goodsReceipt.documentAttachments.map((a) =>
+                  this.attachmentsService.serializeAttachment(a),
+                ),
+            },
+          }
+        : null,
+    };
+  }
+
+  async listLotFiles(tenant: AuthenticatedTenant, lotId: string) {
+    const organizationId = this.resolveVerifiedOrganizationId(tenant);
+    const lot = await this.prismaService.scoped.stockLot.findFirst({
+      where: { id: lotId, organizationId },
+      select: { id: true, lotNumber: true },
+    });
+    if (!lot) {
+      throw new NotFoundException("Stock lot was not found.");
+    }
+
+    const items = await this.attachmentsService.listForTarget(tenant, {
+      stockLotId: lotId,
+    });
+    return {
+      organizationId,
+      stockLotId: lot.id,
+      lotNumber: lot.lotNumber,
+      items,
+    };
+  }
+
+  async addLotFile(
+    tenant: AuthenticatedTenant,
+    lotId: string,
+    req: FastifyRequest,
+    body: unknown,
+  ) {
+    const organizationId = this.resolveVerifiedOrganizationId(tenant);
+    const lot = await this.prismaService.scoped.stockLot.findFirst({
+      where: { id: lotId, organizationId },
+      select: { id: true },
+    });
+    if (!lot) {
+      throw new NotFoundException("Stock lot was not found.");
+    }
+
+    return this.attachmentsService.handleUploadOrLinkRequest(tenant, req, body, {
+      entityType: StorageEntityType.STOCK_LOT,
+      entityId: lotId,
+      target: { stockLotId: lotId },
+    });
+  }
+
+  async removeLotFile(
+    tenant: AuthenticatedTenant,
+    lotId: string,
+    attachmentId: string,
+    ipAddress?: string,
+  ) {
+    const organizationId = this.resolveVerifiedOrganizationId(tenant);
+    const lot = await this.prismaService.scoped.stockLot.findFirst({
+      where: { id: lotId, organizationId },
+      select: { id: true },
+    });
+    if (!lot) {
+      throw new NotFoundException("Stock lot was not found.");
+    }
+
+    return this.attachmentsService.removeAttachment(
+      tenant,
+      attachmentId,
+      { stockLotId: lotId },
+      ipAddress,
+    );
   }
 
   async adjustStock(

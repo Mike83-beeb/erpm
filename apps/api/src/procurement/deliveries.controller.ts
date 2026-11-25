@@ -2,6 +2,7 @@ import {
   BadRequestException,
   Body,
   Controller,
+  Delete,
   Get,
   Inject,
   Param,
@@ -19,6 +20,7 @@ import {
 } from "@scace/db";
 import type { FastifyRequest } from "fastify";
 import { z } from "zod";
+import { attachStoredObjectSchema } from "../storage/attachments.service.js";
 import {
   CurrentTenant,
   RequireActiveTenant,
@@ -57,6 +59,7 @@ const listDeliveriesQuerySchema = z.object({
 
 const submitQcSchema = z.object({
   qcNotes: z.string().trim().max(2000).nullable().optional(),
+  attachments: z.array(attachStoredObjectSchema).max(20).optional(),
   lines: z
     .array(
       z.object({
@@ -79,9 +82,15 @@ const submitQcSchema = z.object({
         qcNotes: z.string().trim().max(1000).nullable().optional(),
         lotNumber: z.string().trim().max(80).nullable().optional(),
         batchCode: z.string().trim().max(80).nullable().optional(),
+        supplierBatchNumber: z.string().trim().max(100).nullable().optional(),
         manufacturedAt: z.string().datetime().nullable().optional(),
         expiresAt: z.string().datetime().nullable().optional(),
-        serialNumbers: z.array(z.string().trim().min(1).max(100)).max(1000).nullable().optional(),
+        serialNumbers: z
+          .array(z.string().trim().min(1).max(100))
+          .max(1000)
+          .nullable()
+          .optional(),
+        attachments: z.array(attachStoredObjectSchema).max(20).optional(),
       }),
     )
     .min(1)
@@ -321,6 +330,65 @@ export class DeliveriesController {
       tenant,
       deliveryId,
       parsed.data,
+      req.ip,
+    );
+  }
+
+  @Get(":deliveryId/files")
+  @RequiredOrgPermissions({ purchaseOrder: ["read"] })
+  async listDeliveryFiles(
+    @CurrentTenant() tenant: AuthenticatedTenant,
+    @Param("deliveryId") deliveryId: string,
+  ) {
+    return this.deliveriesService.listFiles(tenant, deliveryId);
+  }
+
+  @Post(":deliveryId/files")
+  @RequiredOrgPermissions({ purchaseOrder: ["receive"] })
+  async addDeliveryFile(
+    @CurrentTenant() tenant: AuthenticatedTenant,
+    @Param("deliveryId") deliveryId: string,
+    @Req() req: FastifyRequest,
+    @Body() body: unknown,
+  ) {
+    return this.deliveriesService.addDeliveryFile(
+      tenant,
+      deliveryId,
+      req,
+      body,
+    );
+  }
+
+  @Post(":deliveryId/lines/:lineId/files")
+  @RequiredOrgPermissions({ purchaseOrder: ["receive"] })
+  async addDeliveryLineFile(
+    @CurrentTenant() tenant: AuthenticatedTenant,
+    @Param("deliveryId") deliveryId: string,
+    @Param("lineId") lineId: string,
+    @Req() req: FastifyRequest,
+    @Body() body: unknown,
+  ) {
+    return this.deliveriesService.addDeliveryLineFile(
+      tenant,
+      deliveryId,
+      lineId,
+      req,
+      body,
+    );
+  }
+
+  @Delete(":deliveryId/files/:attachmentId")
+  @RequiredOrgPermissions({ purchaseOrder: ["update"] })
+  async removeDeliveryFile(
+    @CurrentTenant() tenant: AuthenticatedTenant,
+    @Param("deliveryId") deliveryId: string,
+    @Param("attachmentId") attachmentId: string,
+    @Req() req: FastifyRequest,
+  ) {
+    return this.deliveriesService.removeDeliveryFile(
+      tenant,
+      deliveryId,
+      attachmentId,
       req.ip,
     );
   }

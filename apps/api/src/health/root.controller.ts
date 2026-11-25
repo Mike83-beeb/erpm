@@ -25,6 +25,7 @@ export class RootController {
         suppliers: "/api/v1/suppliers",
         purchaseOrders: "/api/v1/purchase-orders",
         deliveries: "/api/v1/deliveries",
+        production: "/api/v1/production",
         vendorBills: "/api/v1/vendor-bills",
         storage: "/api/v1/storage",
         departments: "/api/v1/departments",

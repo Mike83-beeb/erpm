@@ -16,6 +16,7 @@ import { LocationsModule } from "./locations/locations.module.js";
 import { OrdersModule } from "./orders/orders.module.js";
 import { PricingModule } from "./pricing/pricing.module.js";
 import { ProcurementModule } from "./procurement/procurement.module.js";
+import { ProductionModule } from "./production/production.module.js";
 import { RedisModule } from "./redis/redis.module.js";
 import { StaffModule } from "./staff/staff.module.js";
 import { StorageModule } from "./storage/storage.module.js";
@@ -46,6 +47,7 @@ import { TenantsModule } from "./tenants/tenants.module.js";
     ItemsModule,
     LocationsModule,
     ProcurementModule,
+    ProductionModule,
     StaffModule,
     CrmModule,
     PricingModule,

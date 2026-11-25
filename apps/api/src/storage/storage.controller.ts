@@ -30,7 +30,16 @@ const entityTypeEnum = z.enum([
   StorageEntityType.VENDOR_BILL,
   StorageEntityType.PURCHASE_ORDER,
   StorageEntityType.GOODS_RECEIPT,
+  StorageEntityType.GOODS_RECEIPT_LINE,
+  StorageEntityType.STOCK_LOT,
+  StorageEntityType.PRODUCTION_BATCH,
+  StorageEntityType.PRODUCTION_OPERATION,
+  StorageEntityType.PRODUCTION_QC_CHECKPOINT,
   StorageEntityType.SUPPLIER,
+  StorageEntityType.CUSTOMER,
+  StorageEntityType.ORDER,
+  StorageEntityType.SALES_INVOICE,
+  StorageEntityType.PAYMENT_RECEIPT,
 ]);
 
 const objectStatusEnum = z.enum([

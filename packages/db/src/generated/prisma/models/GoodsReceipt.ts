@@ -333,6 +333,7 @@ export type GoodsReceiptWhereInput = {
   vendorBills?: Prisma.VendorBillListRelationFilter
   quarantineHolds?: Prisma.QuarantineHoldListRelationFilter
   supplierClaims?: Prisma.SupplierClaimListRelationFilter
+  documentAttachments?: Prisma.DocumentAttachmentListRelationFilter
 }
 
 export type GoodsReceiptOrderByWithRelationInput = {
@@ -366,6 +367,7 @@ export type GoodsReceiptOrderByWithRelationInput = {
   vendorBills?: Prisma.VendorBillOrderByRelationAggregateInput
   quarantineHolds?: Prisma.QuarantineHoldOrderByRelationAggregateInput
   supplierClaims?: Prisma.SupplierClaimOrderByRelationAggregateInput
+  documentAttachments?: Prisma.DocumentAttachmentOrderByRelationAggregateInput
 }
 
 export type GoodsReceiptWhereUniqueInput = Prisma.AtLeast<{
@@ -403,6 +405,7 @@ export type GoodsReceiptWhereUniqueInput = Prisma.AtLeast<{
   vendorBills?: Prisma.VendorBillListRelationFilter
   quarantineHolds?: Prisma.QuarantineHoldListRelationFilter
   supplierClaims?: Prisma.SupplierClaimListRelationFilter
+  documentAttachments?: Prisma.DocumentAttachmentListRelationFilter
 }, "id" | "organizationId_receiptNumber">
 
 export type GoodsReceiptOrderByWithAggregationInput = {
@@ -491,6 +494,7 @@ export type GoodsReceiptCreateInput = {
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutGoodsReceiptInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutGoodsReceiptInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutGoodsReceiptInput
+  documentAttachments?: Prisma.DocumentAttachmentCreateNestedManyWithoutGoodsReceiptInput
 }
 
 export type GoodsReceiptUncheckedCreateInput = {
@@ -521,6 +525,7 @@ export type GoodsReceiptUncheckedCreateInput = {
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutGoodsReceiptInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutGoodsReceiptInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutGoodsReceiptInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedCreateNestedManyWithoutGoodsReceiptInput
 }
 
 export type GoodsReceiptUpdateInput = {
@@ -551,6 +556,7 @@ export type GoodsReceiptUpdateInput = {
   vendorBills?: Prisma.VendorBillUpdateManyWithoutGoodsReceiptNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutGoodsReceiptNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutGoodsReceiptNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUpdateManyWithoutGoodsReceiptNestedInput
 }
 
 export type GoodsReceiptUncheckedUpdateInput = {
@@ -581,6 +587,7 @@ export type GoodsReceiptUncheckedUpdateInput = {
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutGoodsReceiptNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutGoodsReceiptNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutGoodsReceiptNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedUpdateManyWithoutGoodsReceiptNestedInput
 }
 
 export type GoodsReceiptCreateManyInput = {
@@ -951,6 +958,22 @@ export type GoodsReceiptUpdateOneWithoutVendorBillsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.GoodsReceiptUpdateToOneWithWhereWithoutVendorBillsInput, Prisma.GoodsReceiptUpdateWithoutVendorBillsInput>, Prisma.GoodsReceiptUncheckedUpdateWithoutVendorBillsInput>
 }
 
+export type GoodsReceiptCreateNestedOneWithoutDocumentAttachmentsInput = {
+  create?: Prisma.XOR<Prisma.GoodsReceiptCreateWithoutDocumentAttachmentsInput, Prisma.GoodsReceiptUncheckedCreateWithoutDocumentAttachmentsInput>
+  connectOrCreate?: Prisma.GoodsReceiptCreateOrConnectWithoutDocumentAttachmentsInput
+  connect?: Prisma.GoodsReceiptWhereUniqueInput
+}
+
+export type GoodsReceiptUpdateOneWithoutDocumentAttachmentsNestedInput = {
+  create?: Prisma.XOR<Prisma.GoodsReceiptCreateWithoutDocumentAttachmentsInput, Prisma.GoodsReceiptUncheckedCreateWithoutDocumentAttachmentsInput>
+  connectOrCreate?: Prisma.GoodsReceiptCreateOrConnectWithoutDocumentAttachmentsInput
+  upsert?: Prisma.GoodsReceiptUpsertWithoutDocumentAttachmentsInput
+  disconnect?: Prisma.GoodsReceiptWhereInput | boolean
+  delete?: Prisma.GoodsReceiptWhereInput | boolean
+  connect?: Prisma.GoodsReceiptWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.GoodsReceiptUpdateToOneWithWhereWithoutDocumentAttachmentsInput, Prisma.GoodsReceiptUpdateWithoutDocumentAttachmentsInput>, Prisma.GoodsReceiptUncheckedUpdateWithoutDocumentAttachmentsInput>
+}
+
 export type GoodsReceiptCreateWithoutOrganizationInput = {
   id?: string
   receiptNumber: string
@@ -978,6 +1001,7 @@ export type GoodsReceiptCreateWithoutOrganizationInput = {
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutGoodsReceiptInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutGoodsReceiptInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutGoodsReceiptInput
+  documentAttachments?: Prisma.DocumentAttachmentCreateNestedManyWithoutGoodsReceiptInput
 }
 
 export type GoodsReceiptUncheckedCreateWithoutOrganizationInput = {
@@ -1007,6 +1031,7 @@ export type GoodsReceiptUncheckedCreateWithoutOrganizationInput = {
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutGoodsReceiptInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutGoodsReceiptInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutGoodsReceiptInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedCreateNestedManyWithoutGoodsReceiptInput
 }
 
 export type GoodsReceiptCreateOrConnectWithoutOrganizationInput = {
@@ -1091,6 +1116,7 @@ export type GoodsReceiptCreateWithoutLocationInput = {
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutGoodsReceiptInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutGoodsReceiptInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutGoodsReceiptInput
+  documentAttachments?: Prisma.DocumentAttachmentCreateNestedManyWithoutGoodsReceiptInput
 }
 
 export type GoodsReceiptUncheckedCreateWithoutLocationInput = {
@@ -1120,6 +1146,7 @@ export type GoodsReceiptUncheckedCreateWithoutLocationInput = {
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutGoodsReceiptInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutGoodsReceiptInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutGoodsReceiptInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedCreateNestedManyWithoutGoodsReceiptInput
 }
 
 export type GoodsReceiptCreateOrConnectWithoutLocationInput = {
@@ -1175,6 +1202,7 @@ export type GoodsReceiptCreateWithoutPurchaseOrderInput = {
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutGoodsReceiptInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutGoodsReceiptInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutGoodsReceiptInput
+  documentAttachments?: Prisma.DocumentAttachmentCreateNestedManyWithoutGoodsReceiptInput
 }
 
 export type GoodsReceiptUncheckedCreateWithoutPurchaseOrderInput = {
@@ -1204,6 +1232,7 @@ export type GoodsReceiptUncheckedCreateWithoutPurchaseOrderInput = {
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutGoodsReceiptInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutGoodsReceiptInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutGoodsReceiptInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedCreateNestedManyWithoutGoodsReceiptInput
 }
 
 export type GoodsReceiptCreateOrConnectWithoutPurchaseOrderInput = {
@@ -1259,6 +1288,7 @@ export type GoodsReceiptCreateWithoutLinesInput = {
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutGoodsReceiptInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutGoodsReceiptInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutGoodsReceiptInput
+  documentAttachments?: Prisma.DocumentAttachmentCreateNestedManyWithoutGoodsReceiptInput
 }
 
 export type GoodsReceiptUncheckedCreateWithoutLinesInput = {
@@ -1288,6 +1318,7 @@ export type GoodsReceiptUncheckedCreateWithoutLinesInput = {
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutGoodsReceiptInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutGoodsReceiptInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutGoodsReceiptInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedCreateNestedManyWithoutGoodsReceiptInput
 }
 
 export type GoodsReceiptCreateOrConnectWithoutLinesInput = {
@@ -1333,6 +1364,7 @@ export type GoodsReceiptUpdateWithoutLinesInput = {
   vendorBills?: Prisma.VendorBillUpdateManyWithoutGoodsReceiptNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutGoodsReceiptNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutGoodsReceiptNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUpdateManyWithoutGoodsReceiptNestedInput
 }
 
 export type GoodsReceiptUncheckedUpdateWithoutLinesInput = {
@@ -1362,6 +1394,7 @@ export type GoodsReceiptUncheckedUpdateWithoutLinesInput = {
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutGoodsReceiptNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutGoodsReceiptNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutGoodsReceiptNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedUpdateManyWithoutGoodsReceiptNestedInput
 }
 
 export type GoodsReceiptCreateWithoutQuarantineHoldsInput = {
@@ -1391,6 +1424,7 @@ export type GoodsReceiptCreateWithoutQuarantineHoldsInput = {
   lines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutGoodsReceiptInput
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutGoodsReceiptInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutGoodsReceiptInput
+  documentAttachments?: Prisma.DocumentAttachmentCreateNestedManyWithoutGoodsReceiptInput
 }
 
 export type GoodsReceiptUncheckedCreateWithoutQuarantineHoldsInput = {
@@ -1420,6 +1454,7 @@ export type GoodsReceiptUncheckedCreateWithoutQuarantineHoldsInput = {
   lines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutGoodsReceiptInput
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutGoodsReceiptInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutGoodsReceiptInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedCreateNestedManyWithoutGoodsReceiptInput
 }
 
 export type GoodsReceiptCreateOrConnectWithoutQuarantineHoldsInput = {
@@ -1465,6 +1500,7 @@ export type GoodsReceiptUpdateWithoutQuarantineHoldsInput = {
   lines?: Prisma.GoodsReceiptLineUpdateManyWithoutGoodsReceiptNestedInput
   vendorBills?: Prisma.VendorBillUpdateManyWithoutGoodsReceiptNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutGoodsReceiptNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUpdateManyWithoutGoodsReceiptNestedInput
 }
 
 export type GoodsReceiptUncheckedUpdateWithoutQuarantineHoldsInput = {
@@ -1494,6 +1530,7 @@ export type GoodsReceiptUncheckedUpdateWithoutQuarantineHoldsInput = {
   lines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutGoodsReceiptNestedInput
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutGoodsReceiptNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutGoodsReceiptNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedUpdateManyWithoutGoodsReceiptNestedInput
 }
 
 export type GoodsReceiptCreateWithoutSupplierClaimsInput = {
@@ -1523,6 +1560,7 @@ export type GoodsReceiptCreateWithoutSupplierClaimsInput = {
   lines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutGoodsReceiptInput
   vendorBills?: Prisma.VendorBillCreateNestedManyWithoutGoodsReceiptInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutGoodsReceiptInput
+  documentAttachments?: Prisma.DocumentAttachmentCreateNestedManyWithoutGoodsReceiptInput
 }
 
 export type GoodsReceiptUncheckedCreateWithoutSupplierClaimsInput = {
@@ -1552,6 +1590,7 @@ export type GoodsReceiptUncheckedCreateWithoutSupplierClaimsInput = {
   lines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutGoodsReceiptInput
   vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutGoodsReceiptInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutGoodsReceiptInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedCreateNestedManyWithoutGoodsReceiptInput
 }
 
 export type GoodsReceiptCreateOrConnectWithoutSupplierClaimsInput = {
@@ -1597,6 +1636,7 @@ export type GoodsReceiptUpdateWithoutSupplierClaimsInput = {
   lines?: Prisma.GoodsReceiptLineUpdateManyWithoutGoodsReceiptNestedInput
   vendorBills?: Prisma.VendorBillUpdateManyWithoutGoodsReceiptNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutGoodsReceiptNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUpdateManyWithoutGoodsReceiptNestedInput
 }
 
 export type GoodsReceiptUncheckedUpdateWithoutSupplierClaimsInput = {
@@ -1626,6 +1666,7 @@ export type GoodsReceiptUncheckedUpdateWithoutSupplierClaimsInput = {
   lines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutGoodsReceiptNestedInput
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutGoodsReceiptNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutGoodsReceiptNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedUpdateManyWithoutGoodsReceiptNestedInput
 }
 
 export type GoodsReceiptCreateWithoutVendorBillsInput = {
@@ -1655,6 +1696,7 @@ export type GoodsReceiptCreateWithoutVendorBillsInput = {
   lines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutGoodsReceiptInput
   quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutGoodsReceiptInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutGoodsReceiptInput
+  documentAttachments?: Prisma.DocumentAttachmentCreateNestedManyWithoutGoodsReceiptInput
 }
 
 export type GoodsReceiptUncheckedCreateWithoutVendorBillsInput = {
@@ -1684,6 +1726,7 @@ export type GoodsReceiptUncheckedCreateWithoutVendorBillsInput = {
   lines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutGoodsReceiptInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutGoodsReceiptInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutGoodsReceiptInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedCreateNestedManyWithoutGoodsReceiptInput
 }
 
 export type GoodsReceiptCreateOrConnectWithoutVendorBillsInput = {
@@ -1729,6 +1772,7 @@ export type GoodsReceiptUpdateWithoutVendorBillsInput = {
   lines?: Prisma.GoodsReceiptLineUpdateManyWithoutGoodsReceiptNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutGoodsReceiptNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutGoodsReceiptNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUpdateManyWithoutGoodsReceiptNestedInput
 }
 
 export type GoodsReceiptUncheckedUpdateWithoutVendorBillsInput = {
@@ -1756,6 +1800,143 @@ export type GoodsReceiptUncheckedUpdateWithoutVendorBillsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   lines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutGoodsReceiptNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutGoodsReceiptNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutGoodsReceiptNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedUpdateManyWithoutGoodsReceiptNestedInput
+}
+
+export type GoodsReceiptCreateWithoutDocumentAttachmentsInput = {
+  id?: string
+  receiptNumber: string
+  status?: $Enums.GoodsReceiptStatus
+  carrier?: string | null
+  trackingNumber?: string | null
+  packingSlipNumber?: string | null
+  notes?: string | null
+  receivedByUserId?: string | null
+  receivedAt?: Date | string
+  deliveredAt?: Date | string
+  qcStartedAt?: Date | string | null
+  qcCompletedAt?: Date | string | null
+  qcByUserId?: string | null
+  qcNotes?: string | null
+  acceptedAt?: Date | string | null
+  acceptedByUserId?: string | null
+  acceptanceNotes?: string | null
+  cancelledAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutGoodsReceiptsInput
+  purchaseOrder: Prisma.PurchaseOrderCreateNestedOneWithoutGoodsReceiptsInput
+  location: Prisma.LocationCreateNestedOneWithoutGoodsReceiptsInput
+  lines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutGoodsReceiptInput
+  vendorBills?: Prisma.VendorBillCreateNestedManyWithoutGoodsReceiptInput
+  quarantineHolds?: Prisma.QuarantineHoldCreateNestedManyWithoutGoodsReceiptInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutGoodsReceiptInput
+}
+
+export type GoodsReceiptUncheckedCreateWithoutDocumentAttachmentsInput = {
+  id?: string
+  organizationId: string
+  receiptNumber: string
+  purchaseOrderId: string
+  locationId: string
+  status?: $Enums.GoodsReceiptStatus
+  carrier?: string | null
+  trackingNumber?: string | null
+  packingSlipNumber?: string | null
+  notes?: string | null
+  receivedByUserId?: string | null
+  receivedAt?: Date | string
+  deliveredAt?: Date | string
+  qcStartedAt?: Date | string | null
+  qcCompletedAt?: Date | string | null
+  qcByUserId?: string | null
+  qcNotes?: string | null
+  acceptedAt?: Date | string | null
+  acceptedByUserId?: string | null
+  acceptanceNotes?: string | null
+  cancelledAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  lines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutGoodsReceiptInput
+  vendorBills?: Prisma.VendorBillUncheckedCreateNestedManyWithoutGoodsReceiptInput
+  quarantineHolds?: Prisma.QuarantineHoldUncheckedCreateNestedManyWithoutGoodsReceiptInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutGoodsReceiptInput
+}
+
+export type GoodsReceiptCreateOrConnectWithoutDocumentAttachmentsInput = {
+  where: Prisma.GoodsReceiptWhereUniqueInput
+  create: Prisma.XOR<Prisma.GoodsReceiptCreateWithoutDocumentAttachmentsInput, Prisma.GoodsReceiptUncheckedCreateWithoutDocumentAttachmentsInput>
+}
+
+export type GoodsReceiptUpsertWithoutDocumentAttachmentsInput = {
+  update: Prisma.XOR<Prisma.GoodsReceiptUpdateWithoutDocumentAttachmentsInput, Prisma.GoodsReceiptUncheckedUpdateWithoutDocumentAttachmentsInput>
+  create: Prisma.XOR<Prisma.GoodsReceiptCreateWithoutDocumentAttachmentsInput, Prisma.GoodsReceiptUncheckedCreateWithoutDocumentAttachmentsInput>
+  where?: Prisma.GoodsReceiptWhereInput
+}
+
+export type GoodsReceiptUpdateToOneWithWhereWithoutDocumentAttachmentsInput = {
+  where?: Prisma.GoodsReceiptWhereInput
+  data: Prisma.XOR<Prisma.GoodsReceiptUpdateWithoutDocumentAttachmentsInput, Prisma.GoodsReceiptUncheckedUpdateWithoutDocumentAttachmentsInput>
+}
+
+export type GoodsReceiptUpdateWithoutDocumentAttachmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  receiptNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumGoodsReceiptStatusFieldUpdateOperationsInput | $Enums.GoodsReceiptStatus
+  carrier?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackingNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  packingSlipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  receivedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  receivedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deliveredAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  qcStartedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  qcCompletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  qcByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  acceptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  acceptanceNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutGoodsReceiptsNestedInput
+  purchaseOrder?: Prisma.PurchaseOrderUpdateOneRequiredWithoutGoodsReceiptsNestedInput
+  location?: Prisma.LocationUpdateOneRequiredWithoutGoodsReceiptsNestedInput
+  lines?: Prisma.GoodsReceiptLineUpdateManyWithoutGoodsReceiptNestedInput
+  vendorBills?: Prisma.VendorBillUpdateManyWithoutGoodsReceiptNestedInput
+  quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutGoodsReceiptNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutGoodsReceiptNestedInput
+}
+
+export type GoodsReceiptUncheckedUpdateWithoutDocumentAttachmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  receiptNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  purchaseOrderId?: Prisma.StringFieldUpdateOperationsInput | string
+  locationId?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumGoodsReceiptStatusFieldUpdateOperationsInput | $Enums.GoodsReceiptStatus
+  carrier?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackingNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  packingSlipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  receivedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  receivedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deliveredAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  qcStartedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  qcCompletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  qcByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qcNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  acceptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  acceptanceNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  lines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutGoodsReceiptNestedInput
+  vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutGoodsReceiptNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutGoodsReceiptNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutGoodsReceiptNestedInput
 }
@@ -1812,6 +1993,7 @@ export type GoodsReceiptUpdateWithoutOrganizationInput = {
   vendorBills?: Prisma.VendorBillUpdateManyWithoutGoodsReceiptNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutGoodsReceiptNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutGoodsReceiptNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUpdateManyWithoutGoodsReceiptNestedInput
 }
 
 export type GoodsReceiptUncheckedUpdateWithoutOrganizationInput = {
@@ -1841,6 +2023,7 @@ export type GoodsReceiptUncheckedUpdateWithoutOrganizationInput = {
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutGoodsReceiptNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutGoodsReceiptNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutGoodsReceiptNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedUpdateManyWithoutGoodsReceiptNestedInput
 }
 
 export type GoodsReceiptUncheckedUpdateManyWithoutOrganizationInput = {
@@ -1920,6 +2103,7 @@ export type GoodsReceiptUpdateWithoutLocationInput = {
   vendorBills?: Prisma.VendorBillUpdateManyWithoutGoodsReceiptNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutGoodsReceiptNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutGoodsReceiptNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUpdateManyWithoutGoodsReceiptNestedInput
 }
 
 export type GoodsReceiptUncheckedUpdateWithoutLocationInput = {
@@ -1949,6 +2133,7 @@ export type GoodsReceiptUncheckedUpdateWithoutLocationInput = {
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutGoodsReceiptNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutGoodsReceiptNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutGoodsReceiptNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedUpdateManyWithoutGoodsReceiptNestedInput
 }
 
 export type GoodsReceiptUncheckedUpdateManyWithoutLocationInput = {
@@ -2028,6 +2213,7 @@ export type GoodsReceiptUpdateWithoutPurchaseOrderInput = {
   vendorBills?: Prisma.VendorBillUpdateManyWithoutGoodsReceiptNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUpdateManyWithoutGoodsReceiptNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutGoodsReceiptNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUpdateManyWithoutGoodsReceiptNestedInput
 }
 
 export type GoodsReceiptUncheckedUpdateWithoutPurchaseOrderInput = {
@@ -2057,6 +2243,7 @@ export type GoodsReceiptUncheckedUpdateWithoutPurchaseOrderInput = {
   vendorBills?: Prisma.VendorBillUncheckedUpdateManyWithoutGoodsReceiptNestedInput
   quarantineHolds?: Prisma.QuarantineHoldUncheckedUpdateManyWithoutGoodsReceiptNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutGoodsReceiptNestedInput
+  documentAttachments?: Prisma.DocumentAttachmentUncheckedUpdateManyWithoutGoodsReceiptNestedInput
 }
 
 export type GoodsReceiptUncheckedUpdateManyWithoutPurchaseOrderInput = {
@@ -2094,6 +2281,7 @@ export type GoodsReceiptCountOutputType = {
   vendorBills: number
   quarantineHolds: number
   supplierClaims: number
+  documentAttachments: number
 }
 
 export type GoodsReceiptCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2101,6 +2289,7 @@ export type GoodsReceiptCountOutputTypeSelect<ExtArgs extends runtime.Types.Exte
   vendorBills?: boolean | GoodsReceiptCountOutputTypeCountVendorBillsArgs
   quarantineHolds?: boolean | GoodsReceiptCountOutputTypeCountQuarantineHoldsArgs
   supplierClaims?: boolean | GoodsReceiptCountOutputTypeCountSupplierClaimsArgs
+  documentAttachments?: boolean | GoodsReceiptCountOutputTypeCountDocumentAttachmentsArgs
 }
 
 /**
@@ -2141,6 +2330,13 @@ export type GoodsReceiptCountOutputTypeCountSupplierClaimsArgs<ExtArgs extends r
   where?: Prisma.SupplierClaimWhereInput
 }
 
+/**
+ * GoodsReceiptCountOutputType without action
+ */
+export type GoodsReceiptCountOutputTypeCountDocumentAttachmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.DocumentAttachmentWhereInput
+}
+
 
 export type GoodsReceiptSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -2173,6 +2369,7 @@ export type GoodsReceiptSelect<ExtArgs extends runtime.Types.Extensions.Internal
   vendorBills?: boolean | Prisma.GoodsReceipt$vendorBillsArgs<ExtArgs>
   quarantineHolds?: boolean | Prisma.GoodsReceipt$quarantineHoldsArgs<ExtArgs>
   supplierClaims?: boolean | Prisma.GoodsReceipt$supplierClaimsArgs<ExtArgs>
+  documentAttachments?: boolean | Prisma.GoodsReceipt$documentAttachmentsArgs<ExtArgs>
   _count?: boolean | Prisma.GoodsReceiptCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["goodsReceipt"]>
 
@@ -2269,6 +2466,7 @@ export type GoodsReceiptInclude<ExtArgs extends runtime.Types.Extensions.Interna
   vendorBills?: boolean | Prisma.GoodsReceipt$vendorBillsArgs<ExtArgs>
   quarantineHolds?: boolean | Prisma.GoodsReceipt$quarantineHoldsArgs<ExtArgs>
   supplierClaims?: boolean | Prisma.GoodsReceipt$supplierClaimsArgs<ExtArgs>
+  documentAttachments?: boolean | Prisma.GoodsReceipt$documentAttachmentsArgs<ExtArgs>
   _count?: boolean | Prisma.GoodsReceiptCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type GoodsReceiptIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2292,6 +2490,7 @@ export type $GoodsReceiptPayload<ExtArgs extends runtime.Types.Extensions.Intern
     vendorBills: Prisma.$VendorBillPayload<ExtArgs>[]
     quarantineHolds: Prisma.$QuarantineHoldPayload<ExtArgs>[]
     supplierClaims: Prisma.$SupplierClaimPayload<ExtArgs>[]
+    documentAttachments: Prisma.$DocumentAttachmentPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -2718,6 +2917,7 @@ export interface Prisma__GoodsReceiptClient<T, Null = never, ExtArgs extends run
   vendorBills<T extends Prisma.GoodsReceipt$vendorBillsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GoodsReceipt$vendorBillsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$VendorBillPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   quarantineHolds<T extends Prisma.GoodsReceipt$quarantineHoldsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GoodsReceipt$quarantineHoldsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$QuarantineHoldPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   supplierClaims<T extends Prisma.GoodsReceipt$supplierClaimsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GoodsReceipt$supplierClaimsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SupplierClaimPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  documentAttachments<T extends Prisma.GoodsReceipt$documentAttachmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GoodsReceipt$documentAttachmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DocumentAttachmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3264,6 +3464,30 @@ export type GoodsReceipt$supplierClaimsArgs<ExtArgs extends runtime.Types.Extens
   take?: number
   skip?: number
   distinct?: Prisma.SupplierClaimScalarFieldEnum | Prisma.SupplierClaimScalarFieldEnum[]
+}
+
+/**
+ * GoodsReceipt.documentAttachments
+ */
+export type GoodsReceipt$documentAttachmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the DocumentAttachment
+   */
+  select?: Prisma.DocumentAttachmentSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the DocumentAttachment
+   */
+  omit?: Prisma.DocumentAttachmentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.DocumentAttachmentInclude<ExtArgs> | null
+  where?: Prisma.DocumentAttachmentWhereInput
+  orderBy?: Prisma.DocumentAttachmentOrderByWithRelationInput | Prisma.DocumentAttachmentOrderByWithRelationInput[]
+  cursor?: Prisma.DocumentAttachmentWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.DocumentAttachmentScalarFieldEnum | Prisma.DocumentAttachmentScalarFieldEnum[]
 }
 
 /**

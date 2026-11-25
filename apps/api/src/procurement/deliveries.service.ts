@@ -6,6 +6,7 @@ import {
   NotFoundException,
 } from "@nestjs/common";
 import {
+  AttachmentDocumentType,
   DeliveryLineQcStatus,
   GoodsReceiptStatus,
   LocationStatus,
@@ -14,11 +15,18 @@ import {
   QuarantineStatus,
   RejectionDisposition,
   StockMovementType,
+  StorageEntityType,
   SupplierClaimStatus,
   SupplierClaimType,
   TenantContext,
 } from "@scace/db";
+import type { FastifyRequest } from "fastify";
 import { PrismaService } from "../database/prisma.service.js";
+import {
+  type AttachmentInput,
+  AttachmentsService,
+  STORED_OBJECT_SUMMARY_SELECT,
+} from "../storage/attachments.service.js";
 import type { AuthenticatedTenant } from "../tenancy/tenant.decorators.js";
 import {
   type BulkQuantityInput,
@@ -33,9 +41,11 @@ export interface CreateDeliveryLineInput extends BulkQuantityInput {
   packId?: string | null;
   lotNumber?: string | null;
   batchCode?: string | null;
+  supplierBatchNumber?: string | null;
   manufacturedAt?: string | null;
   expiresAt?: string | null;
   serialNumbers?: string[] | null;
+  attachments?: AttachmentInput[];
 }
 
 export interface CreateDeliveryInput {
@@ -46,6 +56,7 @@ export interface CreateDeliveryInput {
   packingSlipNumber?: string | null;
   deliveredAt?: string | null;
   notes?: string | null;
+  attachments?: AttachmentInput[];
   lines: CreateDeliveryLineInput[];
 }
 
@@ -72,13 +83,16 @@ export interface SubmitQcLineInput {
   qcNotes?: string | null;
   lotNumber?: string | null;
   batchCode?: string | null;
+  supplierBatchNumber?: string | null;
   manufacturedAt?: string | null;
   expiresAt?: string | null;
   serialNumbers?: string[] | null;
+  attachments?: AttachmentInput[];
 }
 
 export interface SubmitQcInspectionInput {
   qcNotes?: string | null;
+  attachments?: AttachmentInput[];
   lines: SubmitQcLineInput[];
 }
 
@@ -141,6 +155,8 @@ function isUniqueConstraintError(error: unknown): boolean {
 export class DeliveriesService {
   constructor(
     @Inject(PrismaService) private readonly prismaService: PrismaService,
+    @Inject(AttachmentsService)
+    private readonly attachmentsService: AttachmentsService,
   ) {}
 
   async getDeliveryPreview(tenant: AuthenticatedTenant, poId: string) {
@@ -351,8 +367,26 @@ export class DeliveriesService {
         const packMap = new Map(packRecords.map((p) => [p.id, p]));
         const poLineMap = new Map(po.lines.map((l) => [l.id, l]));
 
+        const supplierItems =
+          po.lines.length > 0
+            ? await tx.supplierItem.findMany({
+                where: {
+                  organizationId,
+                  supplierId: po.supplierId,
+                  itemId: { in: po.lines.map((l) => l.itemId) },
+                },
+                select: { id: true, itemId: true },
+              })
+            : [];
+        const supplierItemMap = new Map(
+          supplierItems.map((si) => [si.itemId, si.id]),
+        );
+
         const requestedBaseByPoLine = new Map<string, number>();
-        const builtLines: Prisma.GoodsReceiptLineCreateWithoutGoodsReceiptInput[] = [];
+        const builtLines: Array<{
+          data: Prisma.GoodsReceiptLineCreateWithoutGoodsReceiptInput;
+          attachments?: AttachmentInput[];
+        }> = [];
 
         for (const reqLine of input.lines) {
           const poLine = poLineMap.get(reqLine.purchaseOrderLineId);
@@ -412,32 +446,40 @@ export class DeliveriesService {
             poLine.unitsPerPack,
             unitsPerPack,
           );
+          const supplierItemId = supplierItemMap.get(poLine.itemId);
 
           builtLines.push({
-            organization: { connect: { id: organizationId } },
-            purchaseOrderLine: { connect: { id: poLine.id } },
-            item: { connect: { id: poLine.itemId } },
-            ...(effectivePack
-              ? { pack: { connect: { id: effectivePack.id } } }
-              : {}),
-            unitsPerPack,
-            packQty: normalized.packQty,
-            looseBaseQty: normalized.looseBaseQty,
-            receivedQty: normalized.packEquivalentCeil,
-            receivedBaseQty: normalized.totalBaseQty,
-            unitCostCents: effectivePackUnitCost,
-            lotNumber: reqLine.lotNumber?.trim() || null,
-            batchCode: reqLine.batchCode?.trim() || null,
-            manufacturedAt,
-            expiresAt,
-            serialNumbers:
-              reqLine.serialNumbers && reqLine.serialNumbers.length > 0
-                ? (reqLine.serialNumbers as Prisma.InputJsonValue)
-                : Prisma.DbNull,
-            qcStatus: DeliveryLineQcStatus.PENDING,
-            acceptedBaseQty: 0,
-            rejectedBaseQty: 0,
-            quarantinedBaseQty: 0,
+            attachments: reqLine.attachments,
+            data: {
+              organization: { connect: { id: organizationId } },
+              purchaseOrderLine: { connect: { id: poLine.id } },
+              item: { connect: { id: poLine.itemId } },
+              ...(supplierItemId
+                ? { supplierItem: { connect: { id: supplierItemId } } }
+                : {}),
+              ...(effectivePack
+                ? { pack: { connect: { id: effectivePack.id } } }
+                : {}),
+              unitsPerPack,
+              packQty: normalized.packQty,
+              looseBaseQty: normalized.looseBaseQty,
+              receivedQty: normalized.packEquivalentCeil,
+              receivedBaseQty: normalized.totalBaseQty,
+              unitCostCents: effectivePackUnitCost,
+              lotNumber: reqLine.lotNumber?.trim() || null,
+              batchCode: reqLine.batchCode?.trim() || null,
+              supplierBatchNumber: reqLine.supplierBatchNumber?.trim() || null,
+              manufacturedAt,
+              expiresAt,
+              serialNumbers:
+                reqLine.serialNumbers && reqLine.serialNumbers.length > 0
+                  ? (reqLine.serialNumbers as Prisma.InputJsonValue)
+                  : Prisma.DbNull,
+              qcStatus: DeliveryLineQcStatus.PENDING,
+              acceptedBaseQty: 0,
+              rejectedBaseQty: 0,
+              quarantinedBaseQty: 0,
+            },
           });
         }
 
@@ -457,7 +499,7 @@ export class DeliveriesService {
           ? new Date(input.deliveredAt)
           : new Date();
 
-        const delivery = await tx.goodsReceipt.create({
+        const createdReceipt = await tx.goodsReceipt.create({
           data: {
             organizationId,
             receiptNumber,
@@ -471,8 +513,52 @@ export class DeliveriesService {
             receivedByUserId: tenant.userId,
             receivedAt: deliveredAt,
             deliveredAt,
-            lines: { create: builtLines },
           },
+        });
+
+        for (const built of builtLines) {
+          const createdLine = await tx.goodsReceiptLine.create({
+            data: {
+              ...built.data,
+              goodsReceipt: { connect: { id: createdReceipt.id } },
+            },
+          });
+
+          if (built.attachments?.length) {
+            for (const att of built.attachments) {
+              await this.attachmentsService.attachStoredObject(
+                tx,
+                tenant,
+                {
+                  storedObjectId: att.storedObjectId,
+                  documentType: att.documentType,
+                  caption: att.caption,
+                  target: { goodsReceiptLineId: createdLine.id },
+                },
+                ipAddress,
+              );
+            }
+          }
+        }
+
+        if (input.attachments?.length) {
+          for (const att of input.attachments) {
+            await this.attachmentsService.attachStoredObject(
+              tx,
+              tenant,
+              {
+                storedObjectId: att.storedObjectId,
+                documentType: att.documentType,
+                caption: att.caption,
+                target: { goodsReceiptId: createdReceipt.id },
+              },
+              ipAddress,
+            );
+          }
+        }
+
+        const delivery = await tx.goodsReceipt.findFirstOrThrow({
+          where: { id: createdReceipt.id, organizationId },
           include: this.deliveryInclude(),
         });
 
@@ -539,33 +625,7 @@ export class DeliveriesService {
             }
           : {}),
       },
-      include: {
-        purchaseOrder: {
-          select: {
-            id: true,
-            poNumber: true,
-            status: true,
-            supplier: { select: { id: true, code: true, name: true } },
-          },
-        },
-        location: { select: { id: true, code: true, name: true, type: true } },
-        lines: {
-          include: {
-            item: {
-              select: { id: true, sku: true, name: true, unitOfMeasure: true },
-            },
-            pack: {
-              select: {
-                id: true,
-                code: true,
-                name: true,
-                unitOfMeasure: true,
-                unitsPerPack: true,
-              },
-            },
-          },
-        },
-      },
+      include: this.deliveryInclude(),
       take: take + 1,
       ...(query.cursor ? { cursor: { id: query.cursor }, skip: 1 } : {}),
       orderBy: [{ deliveredAt: "desc" }, { id: "desc" }],
@@ -765,6 +825,12 @@ export class DeliveriesService {
             ...(qcLine.batchCode !== undefined
               ? { batchCode: qcLine.batchCode?.trim() || null }
               : {}),
+            ...(qcLine.supplierBatchNumber !== undefined
+              ? {
+                  supplierBatchNumber:
+                    qcLine.supplierBatchNumber?.trim() || null,
+                }
+              : {}),
             ...(qcLine.manufacturedAt !== undefined ? { manufacturedAt } : {}),
             ...(qcLine.expiresAt !== undefined ? { expiresAt } : {}),
             ...(qcLine.serialNumbers !== undefined
@@ -777,6 +843,38 @@ export class DeliveriesService {
               : {}),
           },
         });
+
+        if (qcLine.attachments?.length) {
+          for (const att of qcLine.attachments) {
+            await this.attachmentsService.attachStoredObject(
+              tx,
+              tenant,
+              {
+                storedObjectId: att.storedObjectId,
+                documentType: att.documentType,
+                caption: att.caption,
+                target: { goodsReceiptLineId: existingLine.id },
+              },
+              ipAddress,
+            );
+          }
+        }
+      }
+
+      if (input.attachments?.length) {
+        for (const att of input.attachments) {
+          await this.attachmentsService.attachStoredObject(
+            tx,
+            tenant,
+            {
+              storedObjectId: att.storedObjectId,
+              documentType: att.documentType,
+              caption: att.caption,
+              target: { goodsReceiptId: delivery.id },
+            },
+            ipAddress,
+          );
+        }
       }
 
       const refreshedLines = await tx.goodsReceiptLine.findMany({
@@ -845,6 +943,7 @@ export class DeliveriesService {
               item: true,
               pack: true,
               purchaseOrderLine: true,
+              documentAttachments: true,
             },
           },
         },
@@ -919,16 +1018,18 @@ export class DeliveriesService {
         totalRejectedBase += nonQuarantineRejectedBase;
         totalQuarantinedBase += effectiveQuarantinedBase;
 
-        // 1. Create or update StockLot if lot/batch/expiry/serial info present or quarantined
+        // 1. Create StockLot linked to supplier, supplier item, and supplier batch
         let stockLotId: string | null = null;
         const hasTraceability =
           Boolean(line.lotNumber) ||
           Boolean(line.batchCode) ||
+          Boolean(line.supplierBatchNumber) ||
           Boolean(line.expiresAt) ||
           Boolean(line.serialNumbers);
 
         if (
-          (hasTraceability && (line.acceptedBaseQty > 0 || effectiveQuarantinedBase > 0)) ||
+          ((line.item.trackInventory || hasTraceability) &&
+            (line.acceptedBaseQty > 0 || effectiveQuarantinedBase > 0)) ||
           effectiveQuarantinedBase > 0
         ) {
           const lot = await tx.stockLot.create({
@@ -936,6 +1037,11 @@ export class DeliveriesService {
               organizationId,
               itemId: line.itemId,
               locationId: location.id,
+              supplierId: delivery.purchaseOrder.supplierId,
+              supplierItemId: line.supplierItemId ?? null,
+              supplierSku: line.purchaseOrderLine.supplierSku ?? null,
+              supplierBatchNumber:
+                line.supplierBatchNumber ?? line.batchCode ?? null,
               goodsReceiptLineId: line.id,
               lotNumber:
                 line.lotNumber ||
@@ -947,11 +1053,34 @@ export class DeliveriesService {
                 line.serialNumbers === null
                   ? Prisma.DbNull
                   : (line.serialNumbers as Prisma.InputJsonValue),
+              initialQty: line.acceptedBaseQty + effectiveQuarantinedBase,
               onHandQty: line.acceptedBaseQty,
               quarantinedQty: effectiveQuarantinedBase,
+              consumedQty: 0,
+              unitCostCents: computeBaseUnitValueCents(
+                line.unitCostCents,
+                line.unitsPerPack,
+                1,
+              ),
             },
           });
           stockLotId = lot.id;
+
+          // Auto-propagate line attachments (e.g., CoAs, QC photos) onto the created StockLot
+          if (line.documentAttachments?.length) {
+            for (const att of line.documentAttachments) {
+              await tx.documentAttachment.create({
+                data: {
+                  organizationId,
+                  storedObjectId: att.storedObjectId,
+                  documentType: att.documentType,
+                  caption: att.caption,
+                  stockLotId: lot.id,
+                  uploadedByUserId: att.uploadedByUserId ?? tenant.userId,
+                },
+              });
+            }
+          }
         }
 
         // 2. Credit sellable stock ONLY for acceptedBaseQty
@@ -1662,6 +1791,86 @@ export class DeliveriesService {
     });
   }
 
+  async listFiles(tenant: AuthenticatedTenant, deliveryId: string) {
+    this.resolveVerifiedOrganizationId(tenant);
+    return this.attachmentsService.listForDelivery(tenant, deliveryId);
+  }
+
+  async addDeliveryFile(
+    tenant: AuthenticatedTenant,
+    deliveryId: string,
+    req: FastifyRequest,
+    body: unknown,
+  ) {
+    const organizationId = this.resolveVerifiedOrganizationId(tenant);
+    const existing = await this.prismaService.scoped.goodsReceipt.findFirst({
+      where: { id: deliveryId, organizationId },
+      select: { id: true },
+    });
+    if (!existing) {
+      throw new NotFoundException("Supplier delivery was not found.");
+    }
+
+    return this.attachmentsService.handleUploadOrLinkRequest(tenant, req, body, {
+      entityType: StorageEntityType.GOODS_RECEIPT,
+      entityId: deliveryId,
+      target: { goodsReceiptId: deliveryId },
+    });
+  }
+
+  async addDeliveryLineFile(
+    tenant: AuthenticatedTenant,
+    deliveryId: string,
+    lineId: string,
+    req: FastifyRequest,
+    body: unknown,
+  ) {
+    const organizationId = this.resolveVerifiedOrganizationId(tenant);
+    const line = await this.prismaService.scoped.goodsReceiptLine.findFirst({
+      where: { id: lineId, goodsReceiptId: deliveryId, organizationId },
+      select: { id: true },
+    });
+    if (!line) {
+      throw new NotFoundException(
+        "Supplier delivery line was not found on this delivery.",
+      );
+    }
+
+    return this.attachmentsService.handleUploadOrLinkRequest(tenant, req, body, {
+      entityType: StorageEntityType.GOODS_RECEIPT_LINE,
+      entityId: lineId,
+      target: { goodsReceiptLineId: lineId },
+    });
+  }
+
+  async removeDeliveryFile(
+    tenant: AuthenticatedTenant,
+    deliveryId: string,
+    attachmentId: string,
+    ipAddress?: string,
+  ) {
+    const organizationId = this.resolveVerifiedOrganizationId(tenant);
+    const existing = await this.prismaService.scoped.goodsReceipt.findFirst({
+      where: { id: deliveryId, organizationId },
+      select: { id: true },
+    });
+    if (!existing) {
+      throw new NotFoundException("Supplier delivery was not found.");
+    }
+
+    return this.attachmentsService.removeAttachment(
+      tenant,
+      attachmentId,
+      {
+        OR: [
+          { goodsReceiptId: deliveryId },
+          { goodsReceiptLine: { goodsReceiptId: deliveryId } },
+        ],
+      },
+      ipAddress,
+    );
+  }
+
   private deliveryInclude() {
     return {
       purchaseOrder: {
@@ -1674,10 +1883,29 @@ export class DeliveriesService {
         },
       },
       location: { select: { id: true, code: true, name: true, type: true } },
+      documentAttachments: {
+        include: {
+          storedObject: { select: STORED_OBJECT_SUMMARY_SELECT },
+        },
+        orderBy: { createdAt: "desc" },
+      },
       lines: {
         include: {
           item: {
-            select: { id: true, sku: true, name: true, unitOfMeasure: true },
+            select: {
+              id: true,
+              sku: true,
+              name: true,
+              type: true,
+              unitOfMeasure: true,
+            },
+          },
+          supplierItem: {
+            select: {
+              id: true,
+              supplierSku: true,
+              unitCostCents: true,
+            },
           },
           pack: {
             select: {
@@ -1688,6 +1916,12 @@ export class DeliveriesService {
               unitsPerPack: true,
             },
           },
+          documentAttachments: {
+            include: {
+              storedObject: { select: STORED_OBJECT_SUMMARY_SELECT },
+            },
+            orderBy: { createdAt: "desc" },
+          },
         },
       },
     } as const;
@@ -1695,6 +1929,18 @@ export class DeliveriesService {
 
   private formatDeliveryResponse<
     T extends {
+      documentAttachments?: Array<{
+        storedObject?: {
+          id: string;
+          originalName: string;
+          mimeType: string;
+          sizeBytes: bigint | number;
+          status: any;
+          entityType: any;
+          entityId: string | null;
+          createdAt: Date;
+        } | null;
+      }>;
       lines: Array<{
         unitsPerPack: number;
         receivedBaseQty: number;
@@ -1704,16 +1950,42 @@ export class DeliveriesService {
         billedBaseQty: number;
         item?: { unitOfMeasure?: string | null } | null;
         pack?: { unitOfMeasure?: string | null; name?: string | null } | null;
+        documentAttachments?: Array<{
+          storedObject?: {
+            id: string;
+            originalName: string;
+            mimeType: string;
+            sizeBytes: bigint | number;
+            status: any;
+            entityType: any;
+            entityId: string | null;
+            createdAt: Date;
+          } | null;
+        }>;
       }>;
     },
   >(delivery: T) {
     return {
       ...delivery,
+      ...(delivery.documentAttachments
+        ? {
+            documentAttachments: delivery.documentAttachments.map((a) =>
+              this.attachmentsService.serializeAttachment(a),
+            ),
+          }
+        : {}),
       lines: delivery.lines.map((line) => {
         const packLabel = line.pack?.unitOfMeasure ?? line.pack?.name ?? null;
         const baseLabel = line.item?.unitOfMeasure ?? "unit";
         return {
           ...line,
+          ...(line.documentAttachments
+            ? {
+                documentAttachments: line.documentAttachments.map((a) =>
+                  this.attachmentsService.serializeAttachment(a),
+                ),
+              }
+            : {}),
           deliveredBreakdown: decomposeBaseToBulk(
             line.receivedBaseQty,
             line.unitsPerPack,

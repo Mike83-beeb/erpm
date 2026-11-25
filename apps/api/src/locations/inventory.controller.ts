@@ -2,6 +2,7 @@ import {
   BadRequestException,
   Body,
   Controller,
+  Delete,
   Get,
   Inject,
   Param,
@@ -9,7 +10,7 @@ import {
   Query,
   Req,
 } from "@nestjs/common";
-import { StockMovementType, StockTransferStatus } from "@scace/db";
+import { ItemType, StockMovementType, StockTransferStatus } from "@scace/db";
 import type { FastifyRequest } from "fastify";
 import { z } from "zod";
 import {
@@ -40,6 +41,8 @@ const listMovementsQuerySchema = z.object({
       StockMovementType.ADJUSTMENT,
       StockMovementType.TRANSFER_OUT,
       StockMovementType.TRANSFER_IN,
+      StockMovementType.PRODUCTION_CONSUMPTION,
+      StockMovementType.PRODUCTION_OUTPUT,
     ])
     .optional(),
   limit: z.coerce.number().int().min(1).max(100).default(25),
@@ -49,6 +52,18 @@ const listMovementsQuerySchema = z.object({
 const listLotsQuerySchema = z.object({
   locationId: z.string().trim().min(1).optional(),
   itemId: z.string().trim().min(1).optional(),
+  supplierId: z.string().trim().min(1).optional(),
+  supplierItemId: z.string().trim().min(1).optional(),
+  supplierBatchNumber: z.string().trim().min(1).max(100).optional(),
+  itemType: z
+    .enum([
+      ItemType.SELLABLE,
+      ItemType.MERCH,
+      ItemType.RAW_MATERIAL,
+      ItemType.SERVICE,
+      ItemType.CONSUMABLE,
+    ])
+    .optional(),
   lotNumber: z.string().trim().min(1).max(80).optional(),
   expiringBefore: z.string().datetime().optional(),
   includeZero: z
@@ -57,6 +72,17 @@ const listLotsQuerySchema = z.object({
     .optional(),
   limit: z.coerce.number().int().min(1).max(100).default(25),
   cursor: z.string().trim().min(1).optional(),
+});
+
+const suggestLotsSchema = z.object({
+  itemId: z.string().trim().min(1),
+  locationId: z.string().trim().min(1),
+  strategy: z.enum(["FEFO", "FIFO"]).default("FEFO"),
+  packId: z.string().trim().min(1).nullable().optional(),
+  packQty: z.number().int().min(0).max(1_000_000).optional(),
+  looseBaseQty: z.number().int().min(0).max(10_000_000).optional(),
+  baseQty: z.number().int().min(1).max(10_000_000).optional(),
+  includeExpired: z.boolean().optional(),
 });
 
 const adjustStockSchema = z.object({
@@ -167,6 +193,68 @@ export class InventoryController {
     }
 
     return this.inventoryService.listLots(tenant, parsed.data);
+  }
+
+  @Post("lots/suggest")
+  @RequiredOrgPermissions({ inventory: ["read"] })
+  async suggestLots(
+    @CurrentTenant() tenant: AuthenticatedTenant,
+    @Body() body: unknown,
+  ) {
+    const parsed = suggestLotsSchema.safeParse(body);
+    if (!parsed.success) {
+      throw new BadRequestException({
+        message: "Invalid lot allocation suggestion payload.",
+        issues: parsed.error.issues,
+      });
+    }
+
+    return this.inventoryService.suggestLots(tenant, parsed.data);
+  }
+
+  @Get("lots/:lotId/traceability")
+  @RequiredOrgPermissions({ inventory: ["read"] })
+  async getLotTraceability(
+    @CurrentTenant() tenant: AuthenticatedTenant,
+    @Param("lotId") lotId: string,
+  ) {
+    return this.inventoryService.getLotTraceability(tenant, lotId);
+  }
+
+  @Get("lots/:lotId/files")
+  @RequiredOrgPermissions({ inventory: ["read"] })
+  async listLotFiles(
+    @CurrentTenant() tenant: AuthenticatedTenant,
+    @Param("lotId") lotId: string,
+  ) {
+    return this.inventoryService.listLotFiles(tenant, lotId);
+  }
+
+  @Post("lots/:lotId/files")
+  @RequiredOrgPermissions({ inventory: ["adjust"] })
+  async addLotFile(
+    @CurrentTenant() tenant: AuthenticatedTenant,
+    @Param("lotId") lotId: string,
+    @Req() req: FastifyRequest,
+    @Body() body: unknown,
+  ) {
+    return this.inventoryService.addLotFile(tenant, lotId, req, body);
+  }
+
+  @Delete("lots/:lotId/files/:attachmentId")
+  @RequiredOrgPermissions({ inventory: ["adjust"] })
+  async removeLotFile(
+    @CurrentTenant() tenant: AuthenticatedTenant,
+    @Param("lotId") lotId: string,
+    @Param("attachmentId") attachmentId: string,
+    @Req() req: FastifyRequest,
+  ) {
+    return this.inventoryService.removeLotFile(
+      tenant,
+      lotId,
+      attachmentId,
+      req.ip,
+    );
   }
 
   @Post("adjustments")

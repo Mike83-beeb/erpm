@@ -13,6 +13,7 @@ import {
 import { PurchaseOrderStatus } from "@scace/db";
 import type { FastifyRequest } from "fastify";
 import { z } from "zod";
+import { attachStoredObjectSchema } from "../storage/attachments.service.js";
 import {
   CurrentTenant,
   RequireActiveTenant,
@@ -96,9 +97,15 @@ const deliveryLineSchema = z.object({
   baseQty: z.number().int().min(1).max(10_000_000).optional(),
   lotNumber: z.string().trim().max(80).nullable().optional(),
   batchCode: z.string().trim().max(80).nullable().optional(),
+  supplierBatchNumber: z.string().trim().max(100).nullable().optional(),
   manufacturedAt: z.string().datetime().nullable().optional(),
   expiresAt: z.string().datetime().nullable().optional(),
-  serialNumbers: z.array(z.string().trim().min(1).max(100)).max(1000).nullable().optional(),
+  serialNumbers: z
+    .array(z.string().trim().min(1).max(100))
+    .max(1000)
+    .nullable()
+    .optional(),
+  attachments: z.array(attachStoredObjectSchema).max(20).optional(),
 });
 
 const createDeliverySchema = z.object({
@@ -115,6 +122,7 @@ const createDeliverySchema = z.object({
   packingSlipNumber: z.string().trim().max(120).nullable().optional(),
   deliveredAt: z.string().datetime().nullable().optional(),
   notes: z.string().trim().max(1000).nullable().optional(),
+  attachments: z.array(attachStoredObjectSchema).max(20).optional(),
   lines: z.array(deliveryLineSchema).min(1).max(200),
 });
 

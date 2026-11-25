@@ -382,6 +382,10 @@ export type ItemPackWhereInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineListRelationFilter
   crmDealLinks?: Prisma.CrmDealItemLinkListRelationFilter
   orderLines?: Prisma.OrderLineListRelationFilter
+  boms?: Prisma.BillOfMaterialListRelationFilter
+  bomLines?: Prisma.BomLineListRelationFilter
+  productionReservations?: Prisma.ProductionMaterialReservationListRelationFilter
+  productionConsumptions?: Prisma.ProductionConsumptionListRelationFilter
 }
 
 export type ItemPackOrderByWithRelationInput = {
@@ -418,6 +422,10 @@ export type ItemPackOrderByWithRelationInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineOrderByRelationAggregateInput
   crmDealLinks?: Prisma.CrmDealItemLinkOrderByRelationAggregateInput
   orderLines?: Prisma.OrderLineOrderByRelationAggregateInput
+  boms?: Prisma.BillOfMaterialOrderByRelationAggregateInput
+  bomLines?: Prisma.BomLineOrderByRelationAggregateInput
+  productionReservations?: Prisma.ProductionMaterialReservationOrderByRelationAggregateInput
+  productionConsumptions?: Prisma.ProductionConsumptionOrderByRelationAggregateInput
 }
 
 export type ItemPackWhereUniqueInput = Prisma.AtLeast<{
@@ -458,6 +466,10 @@ export type ItemPackWhereUniqueInput = Prisma.AtLeast<{
   goodsReceiptLines?: Prisma.GoodsReceiptLineListRelationFilter
   crmDealLinks?: Prisma.CrmDealItemLinkListRelationFilter
   orderLines?: Prisma.OrderLineListRelationFilter
+  boms?: Prisma.BillOfMaterialListRelationFilter
+  bomLines?: Prisma.BomLineListRelationFilter
+  productionReservations?: Prisma.ProductionMaterialReservationListRelationFilter
+  productionConsumptions?: Prisma.ProductionConsumptionListRelationFilter
 }, "id" | "organizationId_itemId_code">
 
 export type ItemPackOrderByWithAggregationInput = {
@@ -552,6 +564,10 @@ export type ItemPackCreateInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutPackInput
   crmDealLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutPackInput
   orderLines?: Prisma.OrderLineCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutPackInput
 }
 
 export type ItemPackUncheckedCreateInput = {
@@ -586,6 +602,10 @@ export type ItemPackUncheckedCreateInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutPackInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutPackInput
   orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialUncheckedCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineUncheckedCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutPackInput
 }
 
 export type ItemPackUpdateInput = {
@@ -620,6 +640,10 @@ export type ItemPackUpdateInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutPackNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutPackNestedInput
   orderLines?: Prisma.OrderLineUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutPackNestedInput
 }
 
 export type ItemPackUncheckedUpdateInput = {
@@ -654,6 +678,10 @@ export type ItemPackUncheckedUpdateInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutPackNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutPackNestedInput
   orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUncheckedUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUncheckedUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutPackNestedInput
 }
 
 export type ItemPackCreateManyInput = {
@@ -1057,6 +1085,70 @@ export type ItemPackUpdateOneWithoutOrderLinesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.ItemPackUpdateToOneWithWhereWithoutOrderLinesInput, Prisma.ItemPackUpdateWithoutOrderLinesInput>, Prisma.ItemPackUncheckedUpdateWithoutOrderLinesInput>
 }
 
+export type ItemPackCreateNestedOneWithoutBomsInput = {
+  create?: Prisma.XOR<Prisma.ItemPackCreateWithoutBomsInput, Prisma.ItemPackUncheckedCreateWithoutBomsInput>
+  connectOrCreate?: Prisma.ItemPackCreateOrConnectWithoutBomsInput
+  connect?: Prisma.ItemPackWhereUniqueInput
+}
+
+export type ItemPackUpdateOneWithoutBomsNestedInput = {
+  create?: Prisma.XOR<Prisma.ItemPackCreateWithoutBomsInput, Prisma.ItemPackUncheckedCreateWithoutBomsInput>
+  connectOrCreate?: Prisma.ItemPackCreateOrConnectWithoutBomsInput
+  upsert?: Prisma.ItemPackUpsertWithoutBomsInput
+  disconnect?: Prisma.ItemPackWhereInput | boolean
+  delete?: Prisma.ItemPackWhereInput | boolean
+  connect?: Prisma.ItemPackWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ItemPackUpdateToOneWithWhereWithoutBomsInput, Prisma.ItemPackUpdateWithoutBomsInput>, Prisma.ItemPackUncheckedUpdateWithoutBomsInput>
+}
+
+export type ItemPackCreateNestedOneWithoutBomLinesInput = {
+  create?: Prisma.XOR<Prisma.ItemPackCreateWithoutBomLinesInput, Prisma.ItemPackUncheckedCreateWithoutBomLinesInput>
+  connectOrCreate?: Prisma.ItemPackCreateOrConnectWithoutBomLinesInput
+  connect?: Prisma.ItemPackWhereUniqueInput
+}
+
+export type ItemPackUpdateOneWithoutBomLinesNestedInput = {
+  create?: Prisma.XOR<Prisma.ItemPackCreateWithoutBomLinesInput, Prisma.ItemPackUncheckedCreateWithoutBomLinesInput>
+  connectOrCreate?: Prisma.ItemPackCreateOrConnectWithoutBomLinesInput
+  upsert?: Prisma.ItemPackUpsertWithoutBomLinesInput
+  disconnect?: Prisma.ItemPackWhereInput | boolean
+  delete?: Prisma.ItemPackWhereInput | boolean
+  connect?: Prisma.ItemPackWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ItemPackUpdateToOneWithWhereWithoutBomLinesInput, Prisma.ItemPackUpdateWithoutBomLinesInput>, Prisma.ItemPackUncheckedUpdateWithoutBomLinesInput>
+}
+
+export type ItemPackCreateNestedOneWithoutProductionReservationsInput = {
+  create?: Prisma.XOR<Prisma.ItemPackCreateWithoutProductionReservationsInput, Prisma.ItemPackUncheckedCreateWithoutProductionReservationsInput>
+  connectOrCreate?: Prisma.ItemPackCreateOrConnectWithoutProductionReservationsInput
+  connect?: Prisma.ItemPackWhereUniqueInput
+}
+
+export type ItemPackUpdateOneWithoutProductionReservationsNestedInput = {
+  create?: Prisma.XOR<Prisma.ItemPackCreateWithoutProductionReservationsInput, Prisma.ItemPackUncheckedCreateWithoutProductionReservationsInput>
+  connectOrCreate?: Prisma.ItemPackCreateOrConnectWithoutProductionReservationsInput
+  upsert?: Prisma.ItemPackUpsertWithoutProductionReservationsInput
+  disconnect?: Prisma.ItemPackWhereInput | boolean
+  delete?: Prisma.ItemPackWhereInput | boolean
+  connect?: Prisma.ItemPackWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ItemPackUpdateToOneWithWhereWithoutProductionReservationsInput, Prisma.ItemPackUpdateWithoutProductionReservationsInput>, Prisma.ItemPackUncheckedUpdateWithoutProductionReservationsInput>
+}
+
+export type ItemPackCreateNestedOneWithoutProductionConsumptionsInput = {
+  create?: Prisma.XOR<Prisma.ItemPackCreateWithoutProductionConsumptionsInput, Prisma.ItemPackUncheckedCreateWithoutProductionConsumptionsInput>
+  connectOrCreate?: Prisma.ItemPackCreateOrConnectWithoutProductionConsumptionsInput
+  connect?: Prisma.ItemPackWhereUniqueInput
+}
+
+export type ItemPackUpdateOneWithoutProductionConsumptionsNestedInput = {
+  create?: Prisma.XOR<Prisma.ItemPackCreateWithoutProductionConsumptionsInput, Prisma.ItemPackUncheckedCreateWithoutProductionConsumptionsInput>
+  connectOrCreate?: Prisma.ItemPackCreateOrConnectWithoutProductionConsumptionsInput
+  upsert?: Prisma.ItemPackUpsertWithoutProductionConsumptionsInput
+  disconnect?: Prisma.ItemPackWhereInput | boolean
+  delete?: Prisma.ItemPackWhereInput | boolean
+  connect?: Prisma.ItemPackWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ItemPackUpdateToOneWithWhereWithoutProductionConsumptionsInput, Prisma.ItemPackUpdateWithoutProductionConsumptionsInput>, Prisma.ItemPackUncheckedUpdateWithoutProductionConsumptionsInput>
+}
+
 export type ItemPackCreateWithoutOrganizationInput = {
   id?: string
   code: string
@@ -1088,6 +1180,10 @@ export type ItemPackCreateWithoutOrganizationInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutPackInput
   crmDealLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutPackInput
   orderLines?: Prisma.OrderLineCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutPackInput
 }
 
 export type ItemPackUncheckedCreateWithoutOrganizationInput = {
@@ -1121,6 +1217,10 @@ export type ItemPackUncheckedCreateWithoutOrganizationInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutPackInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutPackInput
   orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialUncheckedCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineUncheckedCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutPackInput
 }
 
 export type ItemPackCreateOrConnectWithoutOrganizationInput = {
@@ -1209,6 +1309,10 @@ export type ItemPackCreateWithoutItemInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutPackInput
   crmDealLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutPackInput
   orderLines?: Prisma.OrderLineCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutPackInput
 }
 
 export type ItemPackUncheckedCreateWithoutItemInput = {
@@ -1242,6 +1346,10 @@ export type ItemPackUncheckedCreateWithoutItemInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutPackInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutPackInput
   orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialUncheckedCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineUncheckedCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutPackInput
 }
 
 export type ItemPackCreateOrConnectWithoutItemInput = {
@@ -1301,6 +1409,10 @@ export type ItemPackCreateWithoutSupplierItemsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutPackInput
   crmDealLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutPackInput
   orderLines?: Prisma.OrderLineCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutPackInput
 }
 
 export type ItemPackUncheckedCreateWithoutSupplierItemsInput = {
@@ -1334,6 +1446,10 @@ export type ItemPackUncheckedCreateWithoutSupplierItemsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutPackInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutPackInput
   orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialUncheckedCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineUncheckedCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutPackInput
 }
 
 export type ItemPackCreateOrConnectWithoutSupplierItemsInput = {
@@ -1383,6 +1499,10 @@ export type ItemPackUpdateWithoutSupplierItemsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutPackNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutPackNestedInput
   orderLines?: Prisma.OrderLineUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutPackNestedInput
 }
 
 export type ItemPackUncheckedUpdateWithoutSupplierItemsInput = {
@@ -1416,6 +1536,10 @@ export type ItemPackUncheckedUpdateWithoutSupplierItemsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutPackNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutPackNestedInput
   orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUncheckedUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUncheckedUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutPackNestedInput
 }
 
 export type ItemPackCreateWithoutPurchaseOrderLinesInput = {
@@ -1449,6 +1573,10 @@ export type ItemPackCreateWithoutPurchaseOrderLinesInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutPackInput
   crmDealLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutPackInput
   orderLines?: Prisma.OrderLineCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutPackInput
 }
 
 export type ItemPackUncheckedCreateWithoutPurchaseOrderLinesInput = {
@@ -1482,6 +1610,10 @@ export type ItemPackUncheckedCreateWithoutPurchaseOrderLinesInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutPackInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutPackInput
   orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialUncheckedCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineUncheckedCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutPackInput
 }
 
 export type ItemPackCreateOrConnectWithoutPurchaseOrderLinesInput = {
@@ -1531,6 +1663,10 @@ export type ItemPackUpdateWithoutPurchaseOrderLinesInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutPackNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutPackNestedInput
   orderLines?: Prisma.OrderLineUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutPackNestedInput
 }
 
 export type ItemPackUncheckedUpdateWithoutPurchaseOrderLinesInput = {
@@ -1564,6 +1700,10 @@ export type ItemPackUncheckedUpdateWithoutPurchaseOrderLinesInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutPackNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutPackNestedInput
   orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUncheckedUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUncheckedUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutPackNestedInput
 }
 
 export type ItemPackCreateWithoutGoodsReceiptLinesInput = {
@@ -1597,6 +1737,10 @@ export type ItemPackCreateWithoutGoodsReceiptLinesInput = {
   purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutPackInput
   crmDealLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutPackInput
   orderLines?: Prisma.OrderLineCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutPackInput
 }
 
 export type ItemPackUncheckedCreateWithoutGoodsReceiptLinesInput = {
@@ -1630,6 +1774,10 @@ export type ItemPackUncheckedCreateWithoutGoodsReceiptLinesInput = {
   purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutPackInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutPackInput
   orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialUncheckedCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineUncheckedCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutPackInput
 }
 
 export type ItemPackCreateOrConnectWithoutGoodsReceiptLinesInput = {
@@ -1679,6 +1827,10 @@ export type ItemPackUpdateWithoutGoodsReceiptLinesInput = {
   purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutPackNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutPackNestedInput
   orderLines?: Prisma.OrderLineUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutPackNestedInput
 }
 
 export type ItemPackUncheckedUpdateWithoutGoodsReceiptLinesInput = {
@@ -1712,6 +1864,10 @@ export type ItemPackUncheckedUpdateWithoutGoodsReceiptLinesInput = {
   purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutPackNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutPackNestedInput
   orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUncheckedUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUncheckedUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutPackNestedInput
 }
 
 export type ItemPackCreateWithoutCrmDealLinksInput = {
@@ -1745,6 +1901,10 @@ export type ItemPackCreateWithoutCrmDealLinksInput = {
   purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutPackInput
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutPackInput
   orderLines?: Prisma.OrderLineCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutPackInput
 }
 
 export type ItemPackUncheckedCreateWithoutCrmDealLinksInput = {
@@ -1778,6 +1938,10 @@ export type ItemPackUncheckedCreateWithoutCrmDealLinksInput = {
   purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutPackInput
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutPackInput
   orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialUncheckedCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineUncheckedCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutPackInput
 }
 
 export type ItemPackCreateOrConnectWithoutCrmDealLinksInput = {
@@ -1827,6 +1991,10 @@ export type ItemPackUpdateWithoutCrmDealLinksInput = {
   purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutPackNestedInput
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutPackNestedInput
   orderLines?: Prisma.OrderLineUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutPackNestedInput
 }
 
 export type ItemPackUncheckedUpdateWithoutCrmDealLinksInput = {
@@ -1860,6 +2028,10 @@ export type ItemPackUncheckedUpdateWithoutCrmDealLinksInput = {
   purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutPackNestedInput
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutPackNestedInput
   orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUncheckedUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUncheckedUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutPackNestedInput
 }
 
 export type ItemPackCreateWithoutBundleComponentsInput = {
@@ -1893,6 +2065,10 @@ export type ItemPackCreateWithoutBundleComponentsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutPackInput
   crmDealLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutPackInput
   orderLines?: Prisma.OrderLineCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutPackInput
 }
 
 export type ItemPackUncheckedCreateWithoutBundleComponentsInput = {
@@ -1926,6 +2102,10 @@ export type ItemPackUncheckedCreateWithoutBundleComponentsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutPackInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutPackInput
   orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialUncheckedCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineUncheckedCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutPackInput
 }
 
 export type ItemPackCreateOrConnectWithoutBundleComponentsInput = {
@@ -1975,6 +2155,10 @@ export type ItemPackUpdateWithoutBundleComponentsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutPackNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutPackNestedInput
   orderLines?: Prisma.OrderLineUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutPackNestedInput
 }
 
 export type ItemPackUncheckedUpdateWithoutBundleComponentsInput = {
@@ -2008,6 +2192,10 @@ export type ItemPackUncheckedUpdateWithoutBundleComponentsInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutPackNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutPackNestedInput
   orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUncheckedUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUncheckedUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutPackNestedInput
 }
 
 export type ItemPackCreateWithoutPriceRulesInput = {
@@ -2041,6 +2229,10 @@ export type ItemPackCreateWithoutPriceRulesInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutPackInput
   crmDealLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutPackInput
   orderLines?: Prisma.OrderLineCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutPackInput
 }
 
 export type ItemPackUncheckedCreateWithoutPriceRulesInput = {
@@ -2074,6 +2266,10 @@ export type ItemPackUncheckedCreateWithoutPriceRulesInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutPackInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutPackInput
   orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialUncheckedCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineUncheckedCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutPackInput
 }
 
 export type ItemPackCreateOrConnectWithoutPriceRulesInput = {
@@ -2123,6 +2319,10 @@ export type ItemPackUpdateWithoutPriceRulesInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutPackNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutPackNestedInput
   orderLines?: Prisma.OrderLineUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutPackNestedInput
 }
 
 export type ItemPackUncheckedUpdateWithoutPriceRulesInput = {
@@ -2156,6 +2356,10 @@ export type ItemPackUncheckedUpdateWithoutPriceRulesInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutPackNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutPackNestedInput
   orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUncheckedUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUncheckedUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutPackNestedInput
 }
 
 export type ItemPackCreateWithoutDiscountRulesInput = {
@@ -2189,6 +2393,10 @@ export type ItemPackCreateWithoutDiscountRulesInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutPackInput
   crmDealLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutPackInput
   orderLines?: Prisma.OrderLineCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutPackInput
 }
 
 export type ItemPackUncheckedCreateWithoutDiscountRulesInput = {
@@ -2222,6 +2430,10 @@ export type ItemPackUncheckedCreateWithoutDiscountRulesInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutPackInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutPackInput
   orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialUncheckedCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineUncheckedCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutPackInput
 }
 
 export type ItemPackCreateOrConnectWithoutDiscountRulesInput = {
@@ -2271,6 +2483,10 @@ export type ItemPackUpdateWithoutDiscountRulesInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutPackNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutPackNestedInput
   orderLines?: Prisma.OrderLineUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutPackNestedInput
 }
 
 export type ItemPackUncheckedUpdateWithoutDiscountRulesInput = {
@@ -2304,6 +2520,10 @@ export type ItemPackUncheckedUpdateWithoutDiscountRulesInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutPackNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutPackNestedInput
   orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUncheckedUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUncheckedUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutPackNestedInput
 }
 
 export type ItemPackCreateWithoutOrderLinesInput = {
@@ -2337,6 +2557,10 @@ export type ItemPackCreateWithoutOrderLinesInput = {
   purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutPackInput
   goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutPackInput
   crmDealLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutPackInput
 }
 
 export type ItemPackUncheckedCreateWithoutOrderLinesInput = {
@@ -2370,6 +2594,10 @@ export type ItemPackUncheckedCreateWithoutOrderLinesInput = {
   purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutPackInput
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutPackInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialUncheckedCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineUncheckedCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutPackInput
 }
 
 export type ItemPackCreateOrConnectWithoutOrderLinesInput = {
@@ -2419,6 +2647,10 @@ export type ItemPackUpdateWithoutOrderLinesInput = {
   purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutPackNestedInput
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutPackNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutPackNestedInput
 }
 
 export type ItemPackUncheckedUpdateWithoutOrderLinesInput = {
@@ -2452,6 +2684,666 @@ export type ItemPackUncheckedUpdateWithoutOrderLinesInput = {
   purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutPackNestedInput
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutPackNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUncheckedUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUncheckedUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutPackNestedInput
+}
+
+export type ItemPackCreateWithoutBomsInput = {
+  id?: string
+  code: string
+  name: string
+  unitOfMeasure: string
+  unitsPerPack?: number
+  barcode?: string | null
+  packSku?: string | null
+  salePriceCents?: number | null
+  costPriceCents?: number | null
+  isSellable?: boolean
+  isPurchasable?: boolean
+  isDefaultSalesPack?: boolean
+  isDefaultPurchasePack?: boolean
+  minOrderPacks?: number
+  packStep?: number
+  weightGrams?: number | null
+  dimensionsJson?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  isActive?: boolean
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutItemPacksInput
+  item: Prisma.ItemCreateNestedOneWithoutPacksInput
+  bundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutComponentPackInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutPackInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutTargetPackInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutPackInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutPackInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutPackInput
+  crmDealLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutPackInput
+  orderLines?: Prisma.OrderLineCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutPackInput
+}
+
+export type ItemPackUncheckedCreateWithoutBomsInput = {
+  id?: string
+  organizationId: string
+  itemId: string
+  code: string
+  name: string
+  unitOfMeasure: string
+  unitsPerPack?: number
+  barcode?: string | null
+  packSku?: string | null
+  salePriceCents?: number | null
+  costPriceCents?: number | null
+  isSellable?: boolean
+  isPurchasable?: boolean
+  isDefaultSalesPack?: boolean
+  isDefaultPurchasePack?: boolean
+  minOrderPacks?: number
+  packStep?: number
+  weightGrams?: number | null
+  dimensionsJson?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  isActive?: boolean
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  bundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutComponentPackInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutPackInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutTargetPackInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutPackInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutPackInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutPackInput
+  crmDealLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutPackInput
+  orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineUncheckedCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutPackInput
+}
+
+export type ItemPackCreateOrConnectWithoutBomsInput = {
+  where: Prisma.ItemPackWhereUniqueInput
+  create: Prisma.XOR<Prisma.ItemPackCreateWithoutBomsInput, Prisma.ItemPackUncheckedCreateWithoutBomsInput>
+}
+
+export type ItemPackUpsertWithoutBomsInput = {
+  update: Prisma.XOR<Prisma.ItemPackUpdateWithoutBomsInput, Prisma.ItemPackUncheckedUpdateWithoutBomsInput>
+  create: Prisma.XOR<Prisma.ItemPackCreateWithoutBomsInput, Prisma.ItemPackUncheckedCreateWithoutBomsInput>
+  where?: Prisma.ItemPackWhereInput
+}
+
+export type ItemPackUpdateToOneWithWhereWithoutBomsInput = {
+  where?: Prisma.ItemPackWhereInput
+  data: Prisma.XOR<Prisma.ItemPackUpdateWithoutBomsInput, Prisma.ItemPackUncheckedUpdateWithoutBomsInput>
+}
+
+export type ItemPackUpdateWithoutBomsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  unitOfMeasure?: Prisma.StringFieldUpdateOperationsInput | string
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  barcode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  packSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  salePriceCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  costPriceCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  isSellable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isPurchasable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDefaultSalesPack?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDefaultPurchasePack?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  minOrderPacks?: Prisma.IntFieldUpdateOperationsInput | number
+  packStep?: Prisma.IntFieldUpdateOperationsInput | number
+  weightGrams?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  dimensionsJson?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutItemPacksNestedInput
+  item?: Prisma.ItemUpdateOneRequiredWithoutPacksNestedInput
+  bundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutComponentPackNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutPackNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutTargetPackNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutPackNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutPackNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutPackNestedInput
+  crmDealLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutPackNestedInput
+  orderLines?: Prisma.OrderLineUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutPackNestedInput
+}
+
+export type ItemPackUncheckedUpdateWithoutBomsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  unitOfMeasure?: Prisma.StringFieldUpdateOperationsInput | string
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  barcode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  packSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  salePriceCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  costPriceCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  isSellable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isPurchasable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDefaultSalesPack?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDefaultPurchasePack?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  minOrderPacks?: Prisma.IntFieldUpdateOperationsInput | number
+  packStep?: Prisma.IntFieldUpdateOperationsInput | number
+  weightGrams?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  dimensionsJson?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  bundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutComponentPackNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutPackNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutTargetPackNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutPackNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutPackNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutPackNestedInput
+  crmDealLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutPackNestedInput
+  orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUncheckedUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutPackNestedInput
+}
+
+export type ItemPackCreateWithoutBomLinesInput = {
+  id?: string
+  code: string
+  name: string
+  unitOfMeasure: string
+  unitsPerPack?: number
+  barcode?: string | null
+  packSku?: string | null
+  salePriceCents?: number | null
+  costPriceCents?: number | null
+  isSellable?: boolean
+  isPurchasable?: boolean
+  isDefaultSalesPack?: boolean
+  isDefaultPurchasePack?: boolean
+  minOrderPacks?: number
+  packStep?: number
+  weightGrams?: number | null
+  dimensionsJson?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  isActive?: boolean
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutItemPacksInput
+  item: Prisma.ItemCreateNestedOneWithoutPacksInput
+  bundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutComponentPackInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutPackInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutTargetPackInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutPackInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutPackInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutPackInput
+  crmDealLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutPackInput
+  orderLines?: Prisma.OrderLineCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutPackInput
+}
+
+export type ItemPackUncheckedCreateWithoutBomLinesInput = {
+  id?: string
+  organizationId: string
+  itemId: string
+  code: string
+  name: string
+  unitOfMeasure: string
+  unitsPerPack?: number
+  barcode?: string | null
+  packSku?: string | null
+  salePriceCents?: number | null
+  costPriceCents?: number | null
+  isSellable?: boolean
+  isPurchasable?: boolean
+  isDefaultSalesPack?: boolean
+  isDefaultPurchasePack?: boolean
+  minOrderPacks?: number
+  packStep?: number
+  weightGrams?: number | null
+  dimensionsJson?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  isActive?: boolean
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  bundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutComponentPackInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutPackInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutTargetPackInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutPackInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutPackInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutPackInput
+  crmDealLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutPackInput
+  orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialUncheckedCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutPackInput
+}
+
+export type ItemPackCreateOrConnectWithoutBomLinesInput = {
+  where: Prisma.ItemPackWhereUniqueInput
+  create: Prisma.XOR<Prisma.ItemPackCreateWithoutBomLinesInput, Prisma.ItemPackUncheckedCreateWithoutBomLinesInput>
+}
+
+export type ItemPackUpsertWithoutBomLinesInput = {
+  update: Prisma.XOR<Prisma.ItemPackUpdateWithoutBomLinesInput, Prisma.ItemPackUncheckedUpdateWithoutBomLinesInput>
+  create: Prisma.XOR<Prisma.ItemPackCreateWithoutBomLinesInput, Prisma.ItemPackUncheckedCreateWithoutBomLinesInput>
+  where?: Prisma.ItemPackWhereInput
+}
+
+export type ItemPackUpdateToOneWithWhereWithoutBomLinesInput = {
+  where?: Prisma.ItemPackWhereInput
+  data: Prisma.XOR<Prisma.ItemPackUpdateWithoutBomLinesInput, Prisma.ItemPackUncheckedUpdateWithoutBomLinesInput>
+}
+
+export type ItemPackUpdateWithoutBomLinesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  unitOfMeasure?: Prisma.StringFieldUpdateOperationsInput | string
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  barcode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  packSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  salePriceCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  costPriceCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  isSellable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isPurchasable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDefaultSalesPack?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDefaultPurchasePack?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  minOrderPacks?: Prisma.IntFieldUpdateOperationsInput | number
+  packStep?: Prisma.IntFieldUpdateOperationsInput | number
+  weightGrams?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  dimensionsJson?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutItemPacksNestedInput
+  item?: Prisma.ItemUpdateOneRequiredWithoutPacksNestedInput
+  bundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutComponentPackNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutPackNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutTargetPackNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutPackNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutPackNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutPackNestedInput
+  crmDealLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutPackNestedInput
+  orderLines?: Prisma.OrderLineUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutPackNestedInput
+}
+
+export type ItemPackUncheckedUpdateWithoutBomLinesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  unitOfMeasure?: Prisma.StringFieldUpdateOperationsInput | string
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  barcode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  packSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  salePriceCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  costPriceCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  isSellable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isPurchasable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDefaultSalesPack?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDefaultPurchasePack?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  minOrderPacks?: Prisma.IntFieldUpdateOperationsInput | number
+  packStep?: Prisma.IntFieldUpdateOperationsInput | number
+  weightGrams?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  dimensionsJson?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  bundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutComponentPackNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutPackNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutTargetPackNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutPackNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutPackNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutPackNestedInput
+  crmDealLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutPackNestedInput
+  orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUncheckedUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutPackNestedInput
+}
+
+export type ItemPackCreateWithoutProductionReservationsInput = {
+  id?: string
+  code: string
+  name: string
+  unitOfMeasure: string
+  unitsPerPack?: number
+  barcode?: string | null
+  packSku?: string | null
+  salePriceCents?: number | null
+  costPriceCents?: number | null
+  isSellable?: boolean
+  isPurchasable?: boolean
+  isDefaultSalesPack?: boolean
+  isDefaultPurchasePack?: boolean
+  minOrderPacks?: number
+  packStep?: number
+  weightGrams?: number | null
+  dimensionsJson?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  isActive?: boolean
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutItemPacksInput
+  item: Prisma.ItemCreateNestedOneWithoutPacksInput
+  bundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutComponentPackInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutPackInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutTargetPackInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutPackInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutPackInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutPackInput
+  crmDealLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutPackInput
+  orderLines?: Prisma.OrderLineCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionCreateNestedManyWithoutPackInput
+}
+
+export type ItemPackUncheckedCreateWithoutProductionReservationsInput = {
+  id?: string
+  organizationId: string
+  itemId: string
+  code: string
+  name: string
+  unitOfMeasure: string
+  unitsPerPack?: number
+  barcode?: string | null
+  packSku?: string | null
+  salePriceCents?: number | null
+  costPriceCents?: number | null
+  isSellable?: boolean
+  isPurchasable?: boolean
+  isDefaultSalesPack?: boolean
+  isDefaultPurchasePack?: boolean
+  minOrderPacks?: number
+  packStep?: number
+  weightGrams?: number | null
+  dimensionsJson?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  isActive?: boolean
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  bundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutComponentPackInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutPackInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutTargetPackInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutPackInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutPackInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutPackInput
+  crmDealLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutPackInput
+  orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialUncheckedCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineUncheckedCreateNestedManyWithoutPackInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedCreateNestedManyWithoutPackInput
+}
+
+export type ItemPackCreateOrConnectWithoutProductionReservationsInput = {
+  where: Prisma.ItemPackWhereUniqueInput
+  create: Prisma.XOR<Prisma.ItemPackCreateWithoutProductionReservationsInput, Prisma.ItemPackUncheckedCreateWithoutProductionReservationsInput>
+}
+
+export type ItemPackUpsertWithoutProductionReservationsInput = {
+  update: Prisma.XOR<Prisma.ItemPackUpdateWithoutProductionReservationsInput, Prisma.ItemPackUncheckedUpdateWithoutProductionReservationsInput>
+  create: Prisma.XOR<Prisma.ItemPackCreateWithoutProductionReservationsInput, Prisma.ItemPackUncheckedCreateWithoutProductionReservationsInput>
+  where?: Prisma.ItemPackWhereInput
+}
+
+export type ItemPackUpdateToOneWithWhereWithoutProductionReservationsInput = {
+  where?: Prisma.ItemPackWhereInput
+  data: Prisma.XOR<Prisma.ItemPackUpdateWithoutProductionReservationsInput, Prisma.ItemPackUncheckedUpdateWithoutProductionReservationsInput>
+}
+
+export type ItemPackUpdateWithoutProductionReservationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  unitOfMeasure?: Prisma.StringFieldUpdateOperationsInput | string
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  barcode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  packSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  salePriceCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  costPriceCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  isSellable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isPurchasable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDefaultSalesPack?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDefaultPurchasePack?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  minOrderPacks?: Prisma.IntFieldUpdateOperationsInput | number
+  packStep?: Prisma.IntFieldUpdateOperationsInput | number
+  weightGrams?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  dimensionsJson?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutItemPacksNestedInput
+  item?: Prisma.ItemUpdateOneRequiredWithoutPacksNestedInput
+  bundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutComponentPackNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutPackNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutTargetPackNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutPackNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutPackNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutPackNestedInput
+  crmDealLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutPackNestedInput
+  orderLines?: Prisma.OrderLineUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutPackNestedInput
+}
+
+export type ItemPackUncheckedUpdateWithoutProductionReservationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  unitOfMeasure?: Prisma.StringFieldUpdateOperationsInput | string
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  barcode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  packSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  salePriceCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  costPriceCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  isSellable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isPurchasable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDefaultSalesPack?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDefaultPurchasePack?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  minOrderPacks?: Prisma.IntFieldUpdateOperationsInput | number
+  packStep?: Prisma.IntFieldUpdateOperationsInput | number
+  weightGrams?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  dimensionsJson?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  bundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutComponentPackNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutPackNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutTargetPackNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutPackNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutPackNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutPackNestedInput
+  crmDealLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutPackNestedInput
+  orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUncheckedUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUncheckedUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutPackNestedInput
+}
+
+export type ItemPackCreateWithoutProductionConsumptionsInput = {
+  id?: string
+  code: string
+  name: string
+  unitOfMeasure: string
+  unitsPerPack?: number
+  barcode?: string | null
+  packSku?: string | null
+  salePriceCents?: number | null
+  costPriceCents?: number | null
+  isSellable?: boolean
+  isPurchasable?: boolean
+  isDefaultSalesPack?: boolean
+  isDefaultPurchasePack?: boolean
+  minOrderPacks?: number
+  packStep?: number
+  weightGrams?: number | null
+  dimensionsJson?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  isActive?: boolean
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutItemPacksInput
+  item: Prisma.ItemCreateNestedOneWithoutPacksInput
+  bundleComponents?: Prisma.ItemBundleComponentCreateNestedManyWithoutComponentPackInput
+  priceRules?: Prisma.PriceRuleCreateNestedManyWithoutPackInput
+  discountRules?: Prisma.DiscountRuleCreateNestedManyWithoutTargetPackInput
+  supplierItems?: Prisma.SupplierItemCreateNestedManyWithoutPackInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineCreateNestedManyWithoutPackInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutPackInput
+  crmDealLinks?: Prisma.CrmDealItemLinkCreateNestedManyWithoutPackInput
+  orderLines?: Prisma.OrderLineCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationCreateNestedManyWithoutPackInput
+}
+
+export type ItemPackUncheckedCreateWithoutProductionConsumptionsInput = {
+  id?: string
+  organizationId: string
+  itemId: string
+  code: string
+  name: string
+  unitOfMeasure: string
+  unitsPerPack?: number
+  barcode?: string | null
+  packSku?: string | null
+  salePriceCents?: number | null
+  costPriceCents?: number | null
+  isSellable?: boolean
+  isPurchasable?: boolean
+  isDefaultSalesPack?: boolean
+  isDefaultPurchasePack?: boolean
+  minOrderPacks?: number
+  packStep?: number
+  weightGrams?: number | null
+  dimensionsJson?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  isActive?: boolean
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  bundleComponents?: Prisma.ItemBundleComponentUncheckedCreateNestedManyWithoutComponentPackInput
+  priceRules?: Prisma.PriceRuleUncheckedCreateNestedManyWithoutPackInput
+  discountRules?: Prisma.DiscountRuleUncheckedCreateNestedManyWithoutTargetPackInput
+  supplierItems?: Prisma.SupplierItemUncheckedCreateNestedManyWithoutPackInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedCreateNestedManyWithoutPackInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutPackInput
+  crmDealLinks?: Prisma.CrmDealItemLinkUncheckedCreateNestedManyWithoutPackInput
+  orderLines?: Prisma.OrderLineUncheckedCreateNestedManyWithoutPackInput
+  boms?: Prisma.BillOfMaterialUncheckedCreateNestedManyWithoutPackInput
+  bomLines?: Prisma.BomLineUncheckedCreateNestedManyWithoutPackInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedCreateNestedManyWithoutPackInput
+}
+
+export type ItemPackCreateOrConnectWithoutProductionConsumptionsInput = {
+  where: Prisma.ItemPackWhereUniqueInput
+  create: Prisma.XOR<Prisma.ItemPackCreateWithoutProductionConsumptionsInput, Prisma.ItemPackUncheckedCreateWithoutProductionConsumptionsInput>
+}
+
+export type ItemPackUpsertWithoutProductionConsumptionsInput = {
+  update: Prisma.XOR<Prisma.ItemPackUpdateWithoutProductionConsumptionsInput, Prisma.ItemPackUncheckedUpdateWithoutProductionConsumptionsInput>
+  create: Prisma.XOR<Prisma.ItemPackCreateWithoutProductionConsumptionsInput, Prisma.ItemPackUncheckedCreateWithoutProductionConsumptionsInput>
+  where?: Prisma.ItemPackWhereInput
+}
+
+export type ItemPackUpdateToOneWithWhereWithoutProductionConsumptionsInput = {
+  where?: Prisma.ItemPackWhereInput
+  data: Prisma.XOR<Prisma.ItemPackUpdateWithoutProductionConsumptionsInput, Prisma.ItemPackUncheckedUpdateWithoutProductionConsumptionsInput>
+}
+
+export type ItemPackUpdateWithoutProductionConsumptionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  unitOfMeasure?: Prisma.StringFieldUpdateOperationsInput | string
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  barcode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  packSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  salePriceCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  costPriceCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  isSellable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isPurchasable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDefaultSalesPack?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDefaultPurchasePack?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  minOrderPacks?: Prisma.IntFieldUpdateOperationsInput | number
+  packStep?: Prisma.IntFieldUpdateOperationsInput | number
+  weightGrams?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  dimensionsJson?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutItemPacksNestedInput
+  item?: Prisma.ItemUpdateOneRequiredWithoutPacksNestedInput
+  bundleComponents?: Prisma.ItemBundleComponentUpdateManyWithoutComponentPackNestedInput
+  priceRules?: Prisma.PriceRuleUpdateManyWithoutPackNestedInput
+  discountRules?: Prisma.DiscountRuleUpdateManyWithoutTargetPackNestedInput
+  supplierItems?: Prisma.SupplierItemUpdateManyWithoutPackNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUpdateManyWithoutPackNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutPackNestedInput
+  crmDealLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutPackNestedInput
+  orderLines?: Prisma.OrderLineUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutPackNestedInput
+}
+
+export type ItemPackUncheckedUpdateWithoutProductionConsumptionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  itemId?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  unitOfMeasure?: Prisma.StringFieldUpdateOperationsInput | string
+  unitsPerPack?: Prisma.IntFieldUpdateOperationsInput | number
+  barcode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  packSku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  salePriceCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  costPriceCents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  isSellable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isPurchasable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDefaultSalesPack?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDefaultPurchasePack?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  minOrderPacks?: Prisma.IntFieldUpdateOperationsInput | number
+  packStep?: Prisma.IntFieldUpdateOperationsInput | number
+  weightGrams?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  dimensionsJson?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  bundleComponents?: Prisma.ItemBundleComponentUncheckedUpdateManyWithoutComponentPackNestedInput
+  priceRules?: Prisma.PriceRuleUncheckedUpdateManyWithoutPackNestedInput
+  discountRules?: Prisma.DiscountRuleUncheckedUpdateManyWithoutTargetPackNestedInput
+  supplierItems?: Prisma.SupplierItemUncheckedUpdateManyWithoutPackNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderLineUncheckedUpdateManyWithoutPackNestedInput
+  goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutPackNestedInput
+  crmDealLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutPackNestedInput
+  orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUncheckedUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUncheckedUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutPackNestedInput
 }
 
 export type ItemPackCreateManyOrganizationInput = {
@@ -2510,6 +3402,10 @@ export type ItemPackUpdateWithoutOrganizationInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutPackNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutPackNestedInput
   orderLines?: Prisma.OrderLineUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutPackNestedInput
 }
 
 export type ItemPackUncheckedUpdateWithoutOrganizationInput = {
@@ -2543,6 +3439,10 @@ export type ItemPackUncheckedUpdateWithoutOrganizationInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutPackNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutPackNestedInput
   orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUncheckedUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUncheckedUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutPackNestedInput
 }
 
 export type ItemPackUncheckedUpdateManyWithoutOrganizationInput = {
@@ -2626,6 +3526,10 @@ export type ItemPackUpdateWithoutItemInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUpdateManyWithoutPackNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUpdateManyWithoutPackNestedInput
   orderLines?: Prisma.OrderLineUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUpdateManyWithoutPackNestedInput
 }
 
 export type ItemPackUncheckedUpdateWithoutItemInput = {
@@ -2659,6 +3563,10 @@ export type ItemPackUncheckedUpdateWithoutItemInput = {
   goodsReceiptLines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutPackNestedInput
   crmDealLinks?: Prisma.CrmDealItemLinkUncheckedUpdateManyWithoutPackNestedInput
   orderLines?: Prisma.OrderLineUncheckedUpdateManyWithoutPackNestedInput
+  boms?: Prisma.BillOfMaterialUncheckedUpdateManyWithoutPackNestedInput
+  bomLines?: Prisma.BomLineUncheckedUpdateManyWithoutPackNestedInput
+  productionReservations?: Prisma.ProductionMaterialReservationUncheckedUpdateManyWithoutPackNestedInput
+  productionConsumptions?: Prisma.ProductionConsumptionUncheckedUpdateManyWithoutPackNestedInput
 }
 
 export type ItemPackUncheckedUpdateManyWithoutItemInput = {
@@ -2700,6 +3608,10 @@ export type ItemPackCountOutputType = {
   goodsReceiptLines: number
   crmDealLinks: number
   orderLines: number
+  boms: number
+  bomLines: number
+  productionReservations: number
+  productionConsumptions: number
 }
 
 export type ItemPackCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2711,6 +3623,10 @@ export type ItemPackCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensio
   goodsReceiptLines?: boolean | ItemPackCountOutputTypeCountGoodsReceiptLinesArgs
   crmDealLinks?: boolean | ItemPackCountOutputTypeCountCrmDealLinksArgs
   orderLines?: boolean | ItemPackCountOutputTypeCountOrderLinesArgs
+  boms?: boolean | ItemPackCountOutputTypeCountBomsArgs
+  bomLines?: boolean | ItemPackCountOutputTypeCountBomLinesArgs
+  productionReservations?: boolean | ItemPackCountOutputTypeCountProductionReservationsArgs
+  productionConsumptions?: boolean | ItemPackCountOutputTypeCountProductionConsumptionsArgs
 }
 
 /**
@@ -2779,6 +3695,34 @@ export type ItemPackCountOutputTypeCountOrderLinesArgs<ExtArgs extends runtime.T
   where?: Prisma.OrderLineWhereInput
 }
 
+/**
+ * ItemPackCountOutputType without action
+ */
+export type ItemPackCountOutputTypeCountBomsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BillOfMaterialWhereInput
+}
+
+/**
+ * ItemPackCountOutputType without action
+ */
+export type ItemPackCountOutputTypeCountBomLinesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BomLineWhereInput
+}
+
+/**
+ * ItemPackCountOutputType without action
+ */
+export type ItemPackCountOutputTypeCountProductionReservationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductionMaterialReservationWhereInput
+}
+
+/**
+ * ItemPackCountOutputType without action
+ */
+export type ItemPackCountOutputTypeCountProductionConsumptionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductionConsumptionWhereInput
+}
+
 
 export type ItemPackSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -2814,6 +3758,10 @@ export type ItemPackSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   goodsReceiptLines?: boolean | Prisma.ItemPack$goodsReceiptLinesArgs<ExtArgs>
   crmDealLinks?: boolean | Prisma.ItemPack$crmDealLinksArgs<ExtArgs>
   orderLines?: boolean | Prisma.ItemPack$orderLinesArgs<ExtArgs>
+  boms?: boolean | Prisma.ItemPack$bomsArgs<ExtArgs>
+  bomLines?: boolean | Prisma.ItemPack$bomLinesArgs<ExtArgs>
+  productionReservations?: boolean | Prisma.ItemPack$productionReservationsArgs<ExtArgs>
+  productionConsumptions?: boolean | Prisma.ItemPack$productionConsumptionsArgs<ExtArgs>
   _count?: boolean | Prisma.ItemPackCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["itemPack"]>
 
@@ -2911,6 +3859,10 @@ export type ItemPackInclude<ExtArgs extends runtime.Types.Extensions.InternalArg
   goodsReceiptLines?: boolean | Prisma.ItemPack$goodsReceiptLinesArgs<ExtArgs>
   crmDealLinks?: boolean | Prisma.ItemPack$crmDealLinksArgs<ExtArgs>
   orderLines?: boolean | Prisma.ItemPack$orderLinesArgs<ExtArgs>
+  boms?: boolean | Prisma.ItemPack$bomsArgs<ExtArgs>
+  bomLines?: boolean | Prisma.ItemPack$bomLinesArgs<ExtArgs>
+  productionReservations?: boolean | Prisma.ItemPack$productionReservationsArgs<ExtArgs>
+  productionConsumptions?: boolean | Prisma.ItemPack$productionConsumptionsArgs<ExtArgs>
   _count?: boolean | Prisma.ItemPackCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ItemPackIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2935,6 +3887,10 @@ export type $ItemPackPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     goodsReceiptLines: Prisma.$GoodsReceiptLinePayload<ExtArgs>[]
     crmDealLinks: Prisma.$CrmDealItemLinkPayload<ExtArgs>[]
     orderLines: Prisma.$OrderLinePayload<ExtArgs>[]
+    boms: Prisma.$BillOfMaterialPayload<ExtArgs>[]
+    bomLines: Prisma.$BomLinePayload<ExtArgs>[]
+    productionReservations: Prisma.$ProductionMaterialReservationPayload<ExtArgs>[]
+    productionConsumptions: Prisma.$ProductionConsumptionPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -3364,6 +4320,10 @@ export interface Prisma__ItemPackClient<T, Null = never, ExtArgs extends runtime
   goodsReceiptLines<T extends Prisma.ItemPack$goodsReceiptLinesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ItemPack$goodsReceiptLinesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GoodsReceiptLinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   crmDealLinks<T extends Prisma.ItemPack$crmDealLinksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ItemPack$crmDealLinksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CrmDealItemLinkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   orderLines<T extends Prisma.ItemPack$orderLinesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ItemPack$orderLinesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrderLinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  boms<T extends Prisma.ItemPack$bomsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ItemPack$bomsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BillOfMaterialPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  bomLines<T extends Prisma.ItemPack$bomLinesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ItemPack$bomLinesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BomLinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  productionReservations<T extends Prisma.ItemPack$productionReservationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ItemPack$productionReservationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductionMaterialReservationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  productionConsumptions<T extends Prisma.ItemPack$productionConsumptionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ItemPack$productionConsumptionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductionConsumptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4006,6 +4966,102 @@ export type ItemPack$orderLinesArgs<ExtArgs extends runtime.Types.Extensions.Int
   take?: number
   skip?: number
   distinct?: Prisma.OrderLineScalarFieldEnum | Prisma.OrderLineScalarFieldEnum[]
+}
+
+/**
+ * ItemPack.boms
+ */
+export type ItemPack$bomsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BillOfMaterial
+   */
+  select?: Prisma.BillOfMaterialSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BillOfMaterial
+   */
+  omit?: Prisma.BillOfMaterialOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BillOfMaterialInclude<ExtArgs> | null
+  where?: Prisma.BillOfMaterialWhereInput
+  orderBy?: Prisma.BillOfMaterialOrderByWithRelationInput | Prisma.BillOfMaterialOrderByWithRelationInput[]
+  cursor?: Prisma.BillOfMaterialWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BillOfMaterialScalarFieldEnum | Prisma.BillOfMaterialScalarFieldEnum[]
+}
+
+/**
+ * ItemPack.bomLines
+ */
+export type ItemPack$bomLinesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BomLine
+   */
+  select?: Prisma.BomLineSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BomLine
+   */
+  omit?: Prisma.BomLineOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BomLineInclude<ExtArgs> | null
+  where?: Prisma.BomLineWhereInput
+  orderBy?: Prisma.BomLineOrderByWithRelationInput | Prisma.BomLineOrderByWithRelationInput[]
+  cursor?: Prisma.BomLineWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BomLineScalarFieldEnum | Prisma.BomLineScalarFieldEnum[]
+}
+
+/**
+ * ItemPack.productionReservations
+ */
+export type ItemPack$productionReservationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ProductionMaterialReservation
+   */
+  select?: Prisma.ProductionMaterialReservationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ProductionMaterialReservation
+   */
+  omit?: Prisma.ProductionMaterialReservationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductionMaterialReservationInclude<ExtArgs> | null
+  where?: Prisma.ProductionMaterialReservationWhereInput
+  orderBy?: Prisma.ProductionMaterialReservationOrderByWithRelationInput | Prisma.ProductionMaterialReservationOrderByWithRelationInput[]
+  cursor?: Prisma.ProductionMaterialReservationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProductionMaterialReservationScalarFieldEnum | Prisma.ProductionMaterialReservationScalarFieldEnum[]
+}
+
+/**
+ * ItemPack.productionConsumptions
+ */
+export type ItemPack$productionConsumptionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ProductionConsumption
+   */
+  select?: Prisma.ProductionConsumptionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ProductionConsumption
+   */
+  omit?: Prisma.ProductionConsumptionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductionConsumptionInclude<ExtArgs> | null
+  where?: Prisma.ProductionConsumptionWhereInput
+  orderBy?: Prisma.ProductionConsumptionOrderByWithRelationInput | Prisma.ProductionConsumptionOrderByWithRelationInput[]
+  cursor?: Prisma.ProductionConsumptionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProductionConsumptionScalarFieldEnum | Prisma.ProductionConsumptionScalarFieldEnum[]
 }
 
 /**
